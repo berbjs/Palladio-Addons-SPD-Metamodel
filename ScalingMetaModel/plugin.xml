@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated SPD -->
+      <package
+            uri="spd"
+            class="spd.SpdPackage"
+            genModel="model/SPD.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated SPD -->
+      <package
+            uri="targetgroup"
+            class="spd.targetgroup.TargetgroupPackage"
+            genModel="model/SPD.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated SPD -->
+      <package
+            uri="adjustmenttype"
+            class="spd.adjustmenttype.AdjustmenttypePackage"
+            genModel="model/SPD.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated SPD -->
+      <package
+            uri="policyconstraint"
+            class="spd.policyconstraint.PolicyconstraintPackage"
+            genModel="model/SPD.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated SPD -->
+      <package
+            uri="scalingtrigger"
+            class="spd.scalingtrigger.ScalingtriggerPackage"
+            genModel="model/SPD.genmodel"/>
+   </extension>
+
+</plugin>

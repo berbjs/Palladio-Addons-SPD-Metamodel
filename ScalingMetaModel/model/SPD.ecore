@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="spd" nsURI="spd" nsPrefix="spd">
+  <eClassifiers xsi:type="ecore:EClass" name="ScalingPolicy">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="targetgroup" lowerBound="1"
+        eType="#//TargetGroup"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="adjustmenttype" lowerBound="1"
+        eType="#//AdjustmentType" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="scalingtrigger" lowerBound="1"
+        eType="#//ScalingTrigger" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="policyconstraint" upperBound="-1"
+        eType="#//PolicyConstraint" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="policyName" eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SPD">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="scalingpolicy" lowerBound="1"
+        upperBound="-1" eType="#//ScalingPolicy" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TargetGroup" abstract="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="AdjustmentType" abstract="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ScalingTrigger" abstract="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="PolicyConstraint" abstract="true"/>
+  <eSubpackages name="targetgroup" nsURI="targetgroup" nsPrefix="targetgroup">
+    <eClassifiers xsi:type="ecore:EClass" name="TargetGroup" eSuperTypes="#//TargetGroup">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="PCM_ResourceEnvironment"
+          eType="ecore:EClass ../../org.palladiosimulator.pcm/model/pcm.ecore#//resourceenvironment/ResourceEnvironment"/>
+    </eClassifiers>
+  </eSubpackages>
+  <eSubpackages name="adjustmenttype" nsURI="adjustmenttype" nsPrefix="adjustmenttype">
+    <eClassifiers xsi:type="ecore:EClass" name="AdjustmentType" abstract="true" eSuperTypes="#//AdjustmentType"/>
+    <eClassifiers xsi:type="ecore:EClass" name="RelativeAdjustment" eSuperTypes="#//adjustmenttype/AdjustmentType">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="percentageValue" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"
+          defaultValueLiteral="0.0"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="minAdjustmentValue" eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EInt"
+          defaultValueLiteral="0"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="AbsoluteAdjustment" eSuperTypes="#//adjustmenttype/AdjustmentType">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="goalValue" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
+          defaultValueLiteral="0"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="StepAdjustment" eSuperTypes="#//adjustmenttype/AdjustmentType">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="stepValue" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
+          defaultValueLiteral="0"/>
+    </eClassifiers>
+  </eSubpackages>
+  <eSubpackages name="policyconstraint" nsURI="policyconstraint" nsPrefix="policyconstraint">
+    <eClassifiers xsi:type="ecore:EClass" name="PolicyConstraint" abstract="true"
+        eSuperTypes="#//PolicyConstraint"/>
+    <eClassifiers xsi:type="ecore:EClass" name="TimeBasedConstraint" abstract="true"
+        eSuperTypes="#//policyconstraint/PolicyConstraint"/>
+    <eClassifiers xsi:type="ecore:EClass" name="GroupSizeConstraint" eSuperTypes="#//policyconstraint/PolicyConstraint">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="minSize" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="maxSize" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="IntervallConstraint" eSuperTypes="#//policyconstraint/TimeBasedConstraint">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="offset" eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EInt"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="intervallDuration" eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EInt"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="CooldownConstraint" eSuperTypes="#//policyconstraint/TimeBasedConstraint">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="cooldownTime" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="maxScalingOperations"
+          eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EInt"/>
+    </eClassifiers>
+  </eSubpackages>
+  <eSubpackages name="scalingtrigger" nsURI="scalingtrigger" nsPrefix="scalingtrigger">
+    <eClassifiers xsi:type="ecore:EClass" name="ScalingTrigger" abstract="true" eSuperTypes="#//ScalingTrigger"/>
+    <eClassifiers xsi:type="ecore:EClass" name="ThresholdBasedTrigger" abstract="true"
+        eSuperTypes="#//scalingtrigger/ScalingTrigger"/>
+    <eClassifiers xsi:type="ecore:EClass" name="CPUUtilizationTrigger" eSuperTypes="#//scalingtrigger/ProcessingResourceUtilizationBasedTrigger"/>
+    <eClassifiers xsi:type="ecore:EClass" name="RAMUtilizationTrigger" eSuperTypes="#//scalingtrigger/ProcessingResourceUtilizationBasedTrigger"/>
+    <eClassifiers xsi:type="ecore:EClass" name="HDDUtilizationTrigger" eSuperTypes="#//scalingtrigger/ProcessingResourceUtilizationBasedTrigger">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="usageType" eType="#//scalingtrigger/HDDUSAGETYPE"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="TimeBasedTrigger" abstract="true"
+        eSuperTypes="#//scalingtrigger/ThresholdBasedTrigger">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="threshold" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"
+          defaultValueLiteral="0.0"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="PointInTimeTrigger" eSuperTypes="#//scalingtrigger/ScalingTrigger">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="pointInTime" eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EDouble"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="IdleTimeTrigger" eSuperTypes="#//scalingtrigger/TimeBasedTrigger">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="resourceContainer" upperBound="-1"
+          eType="ecore:EClass ../../org.palladiosimulator.pcm/model/pcm.ecore#//resourceenvironment/ResourceContainer"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EEnum" name="AGGREGATIONMETHOD">
+      <eLiterals name="AVERAGE"/>
+      <eLiterals name="MAX" value="1"/>
+      <eLiterals name="MIN" value="2"/>
+      <eLiterals name="MEDIAN" value="3"/>
+      <eLiterals name="SUM" value="4"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="TaskCountTrigger" eSuperTypes="#//scalingtrigger/ThresholdBasedTrigger">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="threshold" eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EInt"
+          defaultValueLiteral="0"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="resourceContainer" upperBound="-1"
+          eType="ecore:EClass ../../org.palladiosimulator.pcm/model/pcm.ecore#//resourceenvironment/ResourceContainer"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="thresholdDirection" eType="#//scalingtrigger/THRESHOLDDIRECTION"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="processingResourceAggregation"
+          eType="#//scalingtrigger/AGGREGATIONMETHOD"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="resourceContainerAggregation"
+          eType="#//scalingtrigger/AGGREGATIONMETHOD"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="violationWindow" eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EDouble"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EEnum" name="HDDUSAGETYPE">
+      <eLiterals name="READ"/>
+      <eLiterals name="WRITE" value="1"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="NetworkUtilizationTrigger" eSuperTypes="#//scalingtrigger/ResourceUtilizationBasedTrigger">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="usageType" eType="#//scalingtrigger/NETWORKUSAGETYPE"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="linkingResource" upperBound="-1"
+          eType="ecore:EClass ../../org.palladiosimulator.pcm/model/pcm.ecore#//resourceenvironment/LinkingResource"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EEnum" name="NETWORKUSAGETYPE">
+      <eLiterals name="SEND"/>
+      <eLiterals name="RECEIVE" value="1"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EEnum" name="THRESHOLDDIRECTION">
+      <eLiterals name="EXCEDEED"/>
+      <eLiterals name="UNDERCUT" value="1"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ResponseTimeTrigger" eSuperTypes="#//scalingtrigger/TimeBasedTrigger">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="operationSignature" upperBound="-1"
+          eType="ecore:EClass ../../org.palladiosimulator.pcm/model/pcm.ecore#//repository/OperationSignature"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="thresholdDirection" eType="#//scalingtrigger/THRESHOLDDIRECTION"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="violationWindow" eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EDouble"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ResourceUtilizationBasedTrigger" abstract="true"
+        eSuperTypes="#//scalingtrigger/ThresholdBasedTrigger">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="threshold" eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EDouble"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="thresholdDirection" eType="#//scalingtrigger/THRESHOLDDIRECTION"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="processingResourceAggregation"
+          eType="#//scalingtrigger/AGGREGATIONMETHOD"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="resourceContainerAggregation"
+          eType="#//scalingtrigger/AGGREGATIONMETHOD"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="violationWindow" eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EDouble"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ProcessingResourceUtilizationBasedTrigger"
+        abstract="true" eSuperTypes="#//scalingtrigger/ResourceUtilizationBasedTrigger">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="resourceContainer" upperBound="-1"
+          eType="ecore:EClass ../../org.palladiosimulator.pcm/model/pcm.ecore#//resourceenvironment/ResourceContainer"/>
+    </eClassifiers>
+  </eSubpackages>
+</ecore:EPackage>
