@@ -16,31 +16,82 @@
     <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
       <details key="policyNameInvariant" value="policyName &lt;>''"/>
     </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="A scaling policy determines the complete information for scaling a parituclar target."/>
+    </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="targetgroup" lowerBound="1"
-        eType="#//TargetGroup"/>
+        eType="#//TargetGroup">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The TargetGroup on which the policy applies. It may be for example a the set of replicated components offering a particular service."/>
+      </eAnnotations>
+    </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="adjustmenttype" lowerBound="1"
-        eType="#//AdjustmentType" containment="true"/>
+        eType="#//AdjustmentType" containment="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The way the number of unit elements (e.g., number of components) in the target group is adjusted."/>
+      </eAnnotations>
+    </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="scalingtrigger" lowerBound="1"
-        eType="#//ScalingTrigger" containment="true"/>
+        eType="#//ScalingTrigger" containment="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The trigger that determines when the policy should adjust the target group. "/>
+      </eAnnotations>
+    </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="policyconstraint" upperBound="-1"
-        eType="#//PolicyConstraint" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="policyName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+        eType="#//PolicyConstraint" containment="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Constraints that define additional conditions to be met for the policy."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="policyName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The name of the policy."/>
+      </eAnnotations>
+    </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SPD">
     <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
-      <details key="constraints" value="nameInvariant"/>
+      <details key="constraints" value="nameInvariant noSameTargetGroup"/>
     </eAnnotations>
     <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
       <details key="nameInvariant" value="name &lt;>''"/>
+      <details key="noSameTargetGroup" value="ScalingPolicy-> forAll(scaling1 | ScalingPolicy->forAll(scaling2 | scaling1 &lt;> scaling2 implies scaling1.targetgroup &lt;> scaling2.targetgroup )) "/>
+    </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="The root elements that consists of all scaling policies under analysis for a given cloud application."/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="scalingpolicy" lowerBound="1"
-        upperBound="-1" eType="#//ScalingPolicy" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+        upperBound="-1" eType="#//ScalingPolicy" containment="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The set of scaling policies under analysis for the given cloud application model."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The name of the Scaling Policy Definition."/>
+      </eAnnotations>
+    </eStructuralFeatures>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="TargetGroup" abstract="true"/>
-  <eClassifiers xsi:type="ecore:EClass" name="AdjustmentType" abstract="true"/>
-  <eClassifiers xsi:type="ecore:EClass" name="ScalingTrigger" abstract="true"/>
-  <eClassifiers xsi:type="ecore:EClass" name="PolicyConstraint" abstract="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="TargetGroup" abstract="true">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="A TargetGroup determines the interface to multiple logical groups on which scaling policies can be applied to."/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AdjustmentType" abstract="true">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="An AdjustmentType determines possible way of adjusting a group. "/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ScalingTrigger" abstract="true">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="The ScalingTrigger encapsulates both what is to be observed on the managed system that is modeled as well as the analysis i.e., when such information consitutes a trigger. "/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PolicyConstraint" abstract="true">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="A PolicyConstraint determines constraints on the policy/"/>
+    </eAnnotations>
+  </eClassifiers>
   <eSubpackages name="targetgroup" nsURI="targetgroup" nsPrefix="targetgroup">
     <eClassifiers xsi:type="ecore:EClass" name="TargetGroup" eSuperTypes="#//TargetGroup">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -49,21 +100,50 @@
     </eClassifiers>
   </eSubpackages>
   <eSubpackages name="adjustmenttype" nsURI="adjustmenttype" nsPrefix="adjustmenttype">
-    <eClassifiers xsi:type="ecore:EClass" name="AdjustmentType" abstract="true" eSuperTypes="#//AdjustmentType"/>
+    <eClassifiers xsi:type="ecore:EClass" name="AdjustmentType" abstract="true" eSuperTypes="#//AdjustmentType">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="An AdjustmentType determines a type of adjusting a group. "/>
+      </eAnnotations>
+    </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="RelativeAdjustment" eSuperTypes="#//adjustmenttype/AdjustmentType">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The RelativeAdjustment denotes that the group should is adjusted relatively to the current number of elements."/>
+      </eAnnotations>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="percentageValue" lowerBound="1"
           eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"
-          defaultValueLiteral="0.0"/>
+          defaultValueLiteral="0.0">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="The percantage value of adjustment e.g., a value of 10 denotes that 10% should be added to the existing capacity."/>
+        </eAnnotations>
+      </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="minAdjustmentValue" lowerBound="1"
-          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt" defaultValueLiteral="0"/>
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt" defaultValueLiteral="0">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="A minimum adjustment value in case the percentage is 0. "/>
+        </eAnnotations>
+      </eStructuralFeatures>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="AbsoluteAdjustment" eSuperTypes="#//adjustmenttype/AdjustmentType">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The AbsoluteAdjustment denotes that the group is adjusted to a goal value."/>
+      </eAnnotations>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="goalValue" lowerBound="1"
-          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt" defaultValueLiteral="0"/>
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt" defaultValueLiteral="0">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="The goalValue determines the target number of elements for a particular group, e.g., a value 5 means that the group will have 5 elements."/>
+        </eAnnotations>
+      </eStructuralFeatures>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="StepAdjustment" eSuperTypes="#//adjustmenttype/AdjustmentType">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The StepAdjustment denotes that the group is adjusted by adding or removing a fixed amount of elements."/>
+      </eAnnotations>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="stepValue" lowerBound="1"
-          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt" defaultValueLiteral="0"/>
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt" defaultValueLiteral="0">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="The stepValue describes how many elements in the group should be added or removed. For example, a vallue of -1 determines that one element should be removed from the group."/>
+        </eAnnotations>
+      </eStructuralFeatures>
     </eClassifiers>
   </eSubpackages>
   <eSubpackages name="policyconstraint" nsURI="policyconstraint" nsPrefix="policyconstraint">
@@ -91,9 +171,17 @@
     </eClassifiers>
   </eSubpackages>
   <eSubpackages name="scalingtrigger" nsURI="scalingtrigger" nsPrefix="scalingtrigger">
-    <eClassifiers xsi:type="ecore:EClass" name="ScalingTrigger" abstract="true" eSuperTypes="#//ScalingTrigger"/>
+    <eClassifiers xsi:type="ecore:EClass" name="ScalingTrigger" abstract="true" eSuperTypes="#//ScalingTrigger">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="ScalingTrigger encapsulates both what is observed on the modeled system (the monitoring) as well as how such observation lead to a trigger (the analysis part). &#xA;For example, a CPUThresholdBasedTrigger (a possible implementation of this class) defines both how CPU is going to be monitored from the TargetGroup as well as that it is a simple threshold based trigger.&#xA;"/>
+      </eAnnotations>
+    </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ThresholdBasedTrigger" abstract="true"
-        eSuperTypes="#//scalingtrigger/ScalingTrigger"/>
+        eSuperTypes="#//scalingtrigger/ScalingTrigger">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="A ThresholdBasedTrigger is the supper type of triggers that for analysis has a simple threshold check for breach or undercut. "/>
+      </eAnnotations>
+    </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="CPUUtilizationTrigger" eSuperTypes="#//scalingtrigger/ProcessingResourceUtilizationBasedTrigger"/>
     <eClassifiers xsi:type="ecore:EClass" name="RAMUtilizationTrigger" eSuperTypes="#//scalingtrigger/ProcessingResourceUtilizationBasedTrigger"/>
     <eClassifiers xsi:type="ecore:EClass" name="HDDUtilizationTrigger" eSuperTypes="#//scalingtrigger/ProcessingResourceUtilizationBasedTrigger">
@@ -106,6 +194,9 @@
           defaultValueLiteral="0.0"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="PointInTimeTrigger" eSuperTypes="#//scalingtrigger/ScalingTrigger">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="A PointInTimeTrigger is a trigger that is defined by the time on which a spd.TargetGroup should be adjusted."/>
+      </eAnnotations>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="pointInTime" lowerBound="1"
           eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
     </eClassifiers>
