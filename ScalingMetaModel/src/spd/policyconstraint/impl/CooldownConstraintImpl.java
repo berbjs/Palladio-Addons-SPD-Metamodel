@@ -90,6 +90,7 @@ public class CooldownConstraintImpl extends TimeBasedConstraintImpl implements C
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public double getCooldownTime() {
 		return cooldownTime;
 	}
@@ -99,6 +100,7 @@ public class CooldownConstraintImpl extends TimeBasedConstraintImpl implements C
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setCooldownTime(double newCooldownTime) {
 		double oldCooldownTime = cooldownTime;
 		cooldownTime = newCooldownTime;
@@ -111,6 +113,7 @@ public class CooldownConstraintImpl extends TimeBasedConstraintImpl implements C
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public int getMaxScalingOperations() {
 		return maxScalingOperations;
 	}
@@ -120,6 +123,7 @@ public class CooldownConstraintImpl extends TimeBasedConstraintImpl implements C
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setMaxScalingOperations(int newMaxScalingOperations) {
 		int oldMaxScalingOperations = maxScalingOperations;
 		maxScalingOperations = newMaxScalingOperations;

@@ -5,13 +5,10 @@ package spd.targetgroup.impl;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-
-import org.palladiosimulator.pcm.resourceenvironment.ResourceEnvironment;
-
+import spd.palladio.PCMResourceEnvironment;
 import spd.targetgroup.TargetGroup;
 import spd.targetgroup.TargetgroupPackage;
 
@@ -58,7 +55,7 @@ public class TargetGroupImpl extends spd.impl.TargetGroupImpl implements TargetG
 	 * @generated
 	 * @ordered
 	 */
-	protected ResourceEnvironment pcM_ResourceEnvironment;
+	protected PCMResourceEnvironment pcM_ResourceEnvironment;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -84,6 +81,7 @@ public class TargetGroupImpl extends spd.impl.TargetGroupImpl implements TargetG
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getName() {
 		return name;
 	}
@@ -93,6 +91,7 @@ public class TargetGroupImpl extends spd.impl.TargetGroupImpl implements TargetG
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setName(String newName) {
 		String oldName = name;
 		name = newName;
@@ -105,10 +104,11 @@ public class TargetGroupImpl extends spd.impl.TargetGroupImpl implements TargetG
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ResourceEnvironment getPCM_ResourceEnvironment() {
-		if (pcM_ResourceEnvironment != null && ((EObject)pcM_ResourceEnvironment).eIsProxy()) {
+	@Override
+	public PCMResourceEnvironment getPCM_ResourceEnvironment() {
+		if (pcM_ResourceEnvironment != null && pcM_ResourceEnvironment.eIsProxy()) {
 			InternalEObject oldPCM_ResourceEnvironment = (InternalEObject)pcM_ResourceEnvironment;
-			pcM_ResourceEnvironment = (ResourceEnvironment)eResolveProxy(oldPCM_ResourceEnvironment);
+			pcM_ResourceEnvironment = (PCMResourceEnvironment)eResolveProxy(oldPCM_ResourceEnvironment);
 			if (pcM_ResourceEnvironment != oldPCM_ResourceEnvironment) {
 				if (eNotificationRequired())
 					eNotify(new ENotificationImpl(this, Notification.RESOLVE, TargetgroupPackage.TARGET_GROUP__PCM_RESOURCE_ENVIRONMENT, oldPCM_ResourceEnvironment, pcM_ResourceEnvironment));
@@ -122,7 +122,7 @@ public class TargetGroupImpl extends spd.impl.TargetGroupImpl implements TargetG
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ResourceEnvironment basicGetPCM_ResourceEnvironment() {
+	public PCMResourceEnvironment basicGetPCM_ResourceEnvironment() {
 		return pcM_ResourceEnvironment;
 	}
 
@@ -131,8 +131,9 @@ public class TargetGroupImpl extends spd.impl.TargetGroupImpl implements TargetG
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setPCM_ResourceEnvironment(ResourceEnvironment newPCM_ResourceEnvironment) {
-		ResourceEnvironment oldPCM_ResourceEnvironment = pcM_ResourceEnvironment;
+	@Override
+	public void setPCM_ResourceEnvironment(PCMResourceEnvironment newPCM_ResourceEnvironment) {
+		PCMResourceEnvironment oldPCM_ResourceEnvironment = pcM_ResourceEnvironment;
 		pcM_ResourceEnvironment = newPCM_ResourceEnvironment;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, TargetgroupPackage.TARGET_GROUP__PCM_RESOURCE_ENVIRONMENT, oldPCM_ResourceEnvironment, pcM_ResourceEnvironment));
@@ -167,7 +168,7 @@ public class TargetGroupImpl extends spd.impl.TargetGroupImpl implements TargetG
 				setName((String)newValue);
 				return;
 			case TargetgroupPackage.TARGET_GROUP__PCM_RESOURCE_ENVIRONMENT:
-				setPCM_ResourceEnvironment((ResourceEnvironment)newValue);
+				setPCM_ResourceEnvironment((PCMResourceEnvironment)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -185,7 +186,7 @@ public class TargetGroupImpl extends spd.impl.TargetGroupImpl implements TargetG
 				setName(NAME_EDEFAULT);
 				return;
 			case TargetgroupPackage.TARGET_GROUP__PCM_RESOURCE_ENVIRONMENT:
-				setPCM_ResourceEnvironment((ResourceEnvironment)null);
+				setPCM_ResourceEnvironment((PCMResourceEnvironment)null);
 				return;
 		}
 		super.eUnset(featureID);

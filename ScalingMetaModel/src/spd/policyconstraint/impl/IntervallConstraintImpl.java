@@ -90,6 +90,7 @@ public class IntervallConstraintImpl extends TimeBasedConstraintImpl implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public int getOffset() {
 		return offset;
 	}
@@ -99,6 +100,7 @@ public class IntervallConstraintImpl extends TimeBasedConstraintImpl implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setOffset(int newOffset) {
 		int oldOffset = offset;
 		offset = newOffset;
@@ -111,6 +113,7 @@ public class IntervallConstraintImpl extends TimeBasedConstraintImpl implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public int getIntervallDuration() {
 		return intervallDuration;
 	}
@@ -120,6 +123,7 @@ public class IntervallConstraintImpl extends TimeBasedConstraintImpl implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setIntervallDuration(int newIntervallDuration) {
 		int oldIntervallDuration = intervallDuration;
 		intervallDuration = newIntervallDuration;

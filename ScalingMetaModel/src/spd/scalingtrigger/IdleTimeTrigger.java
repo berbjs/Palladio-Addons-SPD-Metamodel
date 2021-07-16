@@ -3,8 +3,7 @@
 package spd.scalingtrigger;
 
 import org.eclipse.emf.common.util.EList;
-
-import org.palladiosimulator.pcm.resourceenvironment.ResourceContainer;
+import spd.palladio.PCMResourceContainer;
 
 /**
  * <!-- begin-user-doc -->
@@ -25,7 +24,7 @@ import org.palladiosimulator.pcm.resourceenvironment.ResourceContainer;
 public interface IdleTimeTrigger extends TimeBasedTrigger {
 	/**
 	 * Returns the value of the '<em><b>Resource Container</b></em>' reference list.
-	 * The list contents are of type {@link org.palladiosimulator.pcm.resourceenvironment.ResourceContainer}.
+	 * The list contents are of type {@link spd.palladio.PCMResourceContainer}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Resource Container</em>' reference list.
@@ -33,6 +32,6 @@ public interface IdleTimeTrigger extends TimeBasedTrigger {
 	 * @model
 	 * @generated
 	 */
-	EList<ResourceContainer> getResourceContainer();
+	EList<PCMResourceContainer> getResourceContainer();
 
 } // IdleTimeTrigger

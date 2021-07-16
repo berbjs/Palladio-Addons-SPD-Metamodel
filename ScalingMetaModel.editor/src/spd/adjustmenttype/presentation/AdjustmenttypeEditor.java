@@ -156,59 +156,8 @@ import org.eclipse.emf.edit.ui.util.EditUIUtil;
 import org.eclipse.emf.edit.ui.view.ExtendedPropertySheetPage;
 
 import spd.adjustmenttype.provider.AdjustmenttypeItemProviderAdapterFactory;
-
-import de.uka.ipd.sdq.identifier.provider.IdentifierItemProviderAdapterFactory;
-
-import de.uka.ipd.sdq.probfunction.provider.ProbfunctionItemProviderAdapterFactory;
-
-import de.uka.ipd.sdq.stoex.provider.StoexItemProviderAdapterFactory;
-
-import de.uka.ipd.sdq.units.provider.UnitsItemProviderAdapterFactory;
-
-import org.eclipse.emf.ecore.provider.EcoreItemProviderAdapterFactory;
-
 import org.eclipse.ui.actions.WorkspaceModifyOperation;
-
-import org.palladiosimulator.pcm.allocation.provider.AllocationItemProviderAdapterFactory;
-
-import org.palladiosimulator.pcm.core.composition.provider.CompositionItemProviderAdapterFactory;
-
-import org.palladiosimulator.pcm.core.entity.provider.EntityItemProviderAdapterFactory;
-
-import org.palladiosimulator.pcm.core.provider.CoreItemProviderAdapterFactory;
-
-import org.palladiosimulator.pcm.parameter.provider.ParameterItemProviderAdapterFactory;
-
-import org.palladiosimulator.pcm.protocol.provider.ProtocolItemProviderAdapterFactory;
-
-import org.palladiosimulator.pcm.provider.PcmItemProviderAdapterFactory;
-
-import org.palladiosimulator.pcm.qosannotations.provider.QosannotationsItemProviderAdapterFactory;
-
-import org.palladiosimulator.pcm.qosannotations.qos_performance.provider.QosPerformanceItemProviderAdapterFactory;
-
-import org.palladiosimulator.pcm.qosannotations.qos_reliability.provider.QosReliabilityItemProviderAdapterFactory;
-
-import org.palladiosimulator.pcm.reliability.provider.ReliabilityItemProviderAdapterFactory;
-
-import org.palladiosimulator.pcm.repository.provider.RepositoryItemProviderAdapterFactory;
-
-import org.palladiosimulator.pcm.resourceenvironment.provider.ResourceenvironmentItemProviderAdapterFactory;
-
-import org.palladiosimulator.pcm.resourcetype.provider.ResourcetypeItemProviderAdapterFactory;
-
-import org.palladiosimulator.pcm.seff.provider.SeffItemProviderAdapterFactory;
-
-import org.palladiosimulator.pcm.seff.seff_performance.provider.SeffPerformanceItemProviderAdapterFactory;
-
-import org.palladiosimulator.pcm.seff.seff_reliability.provider.SeffReliabilityItemProviderAdapterFactory;
-
-import org.palladiosimulator.pcm.subsystem.provider.SubsystemItemProviderAdapterFactory;
-
-import org.palladiosimulator.pcm.system.provider.SystemItemProviderAdapterFactory;
-
-import org.palladiosimulator.pcm.usagemodel.provider.UsagemodelItemProviderAdapterFactory;
-
+import spd.palladio.provider.PalladioItemProviderAdapterFactory;
 import spd.policyconstraint.provider.PolicyconstraintItemProviderAdapterFactory;
 
 import spd.presentation.SPDEditorPlugin;
@@ -385,6 +334,7 @@ public class AdjustmenttypeEditor
 	 */
 	protected IPartListener partListener =
 		new IPartListener() {
+			@Override
 			public void partActivated(IWorkbenchPart p) {
 				if (p instanceof ContentOutline) {
 					if (((ContentOutline)p).getCurrentPage() == contentOutlinePage) {
@@ -403,15 +353,19 @@ public class AdjustmenttypeEditor
 					handleActivate();
 				}
 			}
+			@Override
 			public void partBroughtToTop(IWorkbenchPart p) {
 				// Ignore.
 			}
+			@Override
 			public void partClosed(IWorkbenchPart p) {
 				// Ignore.
 			}
+			@Override
 			public void partDeactivated(IWorkbenchPart p) {
 				// Ignore.
 			}
+			@Override
 			public void partOpened(IWorkbenchPart p) {
 				// Ignore.
 			}
@@ -497,6 +451,7 @@ public class AdjustmenttypeEditor
 					dispatching = true;
 					getSite().getShell().getDisplay().asyncExec
 						(new Runnable() {
+							 @Override
 							 public void run() {
 								 dispatching = false;
 								 updateProblemIndication();
@@ -526,6 +481,7 @@ public class AdjustmenttypeEditor
 	 */
 	protected IResourceChangeListener resourceChangeListener =
 		new IResourceChangeListener() {
+			@Override
 			public void resourceChanged(IResourceChangeEvent event) {
 				IResourceDelta delta = event.getDelta();
 				try {
@@ -534,6 +490,7 @@ public class AdjustmenttypeEditor
 						protected Collection<Resource> changedResources = new ArrayList<Resource>();
 						protected Collection<Resource> removedResources = new ArrayList<Resource>();
 
+						@Override
 						public boolean visit(IResourceDelta delta) {
 							if (delta.getResource().getType() == IResource.FILE) {
 								if (delta.getKind() == IResourceDelta.REMOVED ||
@@ -569,6 +526,7 @@ public class AdjustmenttypeEditor
 					if (!visitor.getRemovedResources().isEmpty()) {
 						getSite().getShell().getDisplay().asyncExec
 							(new Runnable() {
+								 @Override
 								 public void run() {
 									 removedResources.addAll(visitor.getRemovedResources());
 									 if (!isDirty()) {
@@ -581,6 +539,7 @@ public class AdjustmenttypeEditor
 					if (!visitor.getChangedResources().isEmpty()) {
 						getSite().getShell().getDisplay().asyncExec
 							(new Runnable() {
+								 @Override
 								 public void run() {
 									 changedResources.addAll(visitor.getChangedResources());
 									 if (getSite().getPage().getActiveEditor() == AdjustmenttypeEditor.this) {
@@ -765,31 +724,7 @@ public class AdjustmenttypeEditor
 		adapterFactory.addAdapterFactory(new AdjustmenttypeItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new PolicyconstraintItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new ScalingtriggerItemProviderAdapterFactory());
-		adapterFactory.addAdapterFactory(new EcoreItemProviderAdapterFactory());
-		adapterFactory.addAdapterFactory(new IdentifierItemProviderAdapterFactory());
-		adapterFactory.addAdapterFactory(new PcmItemProviderAdapterFactory());
-		adapterFactory.addAdapterFactory(new CoreItemProviderAdapterFactory());
-		adapterFactory.addAdapterFactory(new EntityItemProviderAdapterFactory());
-		adapterFactory.addAdapterFactory(new CompositionItemProviderAdapterFactory());
-		adapterFactory.addAdapterFactory(new UsagemodelItemProviderAdapterFactory());
-		adapterFactory.addAdapterFactory(new RepositoryItemProviderAdapterFactory());
-		adapterFactory.addAdapterFactory(new ResourcetypeItemProviderAdapterFactory());
-		adapterFactory.addAdapterFactory(new ProtocolItemProviderAdapterFactory());
-		adapterFactory.addAdapterFactory(new ParameterItemProviderAdapterFactory());
-		adapterFactory.addAdapterFactory(new ReliabilityItemProviderAdapterFactory());
-		adapterFactory.addAdapterFactory(new SeffItemProviderAdapterFactory());
-		adapterFactory.addAdapterFactory(new SeffPerformanceItemProviderAdapterFactory());
-		adapterFactory.addAdapterFactory(new SeffReliabilityItemProviderAdapterFactory());
-		adapterFactory.addAdapterFactory(new QosannotationsItemProviderAdapterFactory());
-		adapterFactory.addAdapterFactory(new QosPerformanceItemProviderAdapterFactory());
-		adapterFactory.addAdapterFactory(new QosReliabilityItemProviderAdapterFactory());
-		adapterFactory.addAdapterFactory(new SystemItemProviderAdapterFactory());
-		adapterFactory.addAdapterFactory(new ResourceenvironmentItemProviderAdapterFactory());
-		adapterFactory.addAdapterFactory(new AllocationItemProviderAdapterFactory());
-		adapterFactory.addAdapterFactory(new SubsystemItemProviderAdapterFactory());
-		adapterFactory.addAdapterFactory(new ProbfunctionItemProviderAdapterFactory());
-		adapterFactory.addAdapterFactory(new StoexItemProviderAdapterFactory());
-		adapterFactory.addAdapterFactory(new UnitsItemProviderAdapterFactory());
+		adapterFactory.addAdapterFactory(new PalladioItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new ReflectiveItemProviderAdapterFactory());
 
 		// Create the command stack that will notify this editor as commands are executed.
@@ -800,9 +735,11 @@ public class AdjustmenttypeEditor
 		//
 		commandStack.addCommandStackListener
 			(new CommandStackListener() {
+				 @Override
 				 public void commandStackChanged(final EventObject event) {
 					 getContainer().getDisplay().asyncExec
 						 (new Runnable() {
+							  @Override
 							  public void run() {
 								  firePropertyChange(IEditorPart.PROP_DIRTY);
 
@@ -855,6 +792,7 @@ public class AdjustmenttypeEditor
 		if (theSelection != null && !theSelection.isEmpty()) {
 			Runnable runnable =
 				new Runnable() {
+					@Override
 					public void run() {
 						// Try to select the items in the current content viewer of the editor.
 						//
@@ -875,6 +813,7 @@ public class AdjustmenttypeEditor
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EditingDomain getEditingDomain() {
 		return editingDomain;
 	}
@@ -971,6 +910,7 @@ public class AdjustmenttypeEditor
 					new ISelectionChangedListener() {
 						// This just notifies those things that are affected by the section.
 						//
+						@Override
 						public void selectionChanged(SelectionChangedEvent selectionChangedEvent) {
 							setSelection(selectionChangedEvent.getSelection());
 						}
@@ -1005,6 +945,7 @@ public class AdjustmenttypeEditor
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Viewer getViewer() {
 		return currentViewer;
 	}
@@ -1310,6 +1251,7 @@ public class AdjustmenttypeEditor
 
 			getSite().getShell().getDisplay().asyncExec
 				(new Runnable() {
+					 @Override
 					 public void run() {
 						 if (!getContainer().isDisposed()) {
 							 setActivePage(0);
@@ -1336,6 +1278,7 @@ public class AdjustmenttypeEditor
 
 		getSite().getShell().getDisplay().asyncExec
 			(new Runnable() {
+				 @Override
 				 public void run() {
 					 updateProblemIndication();
 				 }
@@ -1471,6 +1414,7 @@ public class AdjustmenttypeEditor
 				(new ISelectionChangedListener() {
 					 // This ensures that we handle selections correctly.
 					 //
+					 @Override
 					 public void selectionChanged(SelectionChangedEvent event) {
 						 handleContentOutlineSelection(event.getSelection());
 					 }
@@ -1695,6 +1639,7 @@ public class AdjustmenttypeEditor
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void gotoMarker(IMarker marker) {
 		List<?> targetObjects = markerHelper.getTargetObjects(editingDomain, marker);
 		if (!targetObjects.isEmpty()) {
@@ -1739,6 +1684,7 @@ public class AdjustmenttypeEditor
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void addSelectionChangedListener(ISelectionChangedListener listener) {
 		selectionChangedListeners.add(listener);
 	}
@@ -1749,6 +1695,7 @@ public class AdjustmenttypeEditor
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void removeSelectionChangedListener(ISelectionChangedListener listener) {
 		selectionChangedListeners.remove(listener);
 	}
@@ -1759,6 +1706,7 @@ public class AdjustmenttypeEditor
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public ISelection getSelection() {
 		return editorSelection;
 	}
@@ -1770,6 +1718,7 @@ public class AdjustmenttypeEditor
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setSelection(ISelection selection) {
 		editorSelection = selection;
 
@@ -1839,6 +1788,7 @@ public class AdjustmenttypeEditor
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void menuAboutToShow(IMenuManager menuManager) {
 		((IMenuListener)getEditorSite().getActionBarContributor()).menuAboutToShow(menuManager);
 	}

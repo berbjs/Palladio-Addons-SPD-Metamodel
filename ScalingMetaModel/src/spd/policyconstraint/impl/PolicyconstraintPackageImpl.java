@@ -2,23 +2,10 @@
  */
 package spd.policyconstraint.impl;
 
-import de.uka.ipd.sdq.identifier.IdentifierPackage;
-
-import de.uka.ipd.sdq.probfunction.ProbfunctionPackage;
-
-import de.uka.ipd.sdq.stoex.StoexPackage;
-
-import de.uka.ipd.sdq.units.UnitsPackage;
-
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
-import org.eclipse.emf.ecore.EcorePackage;
-
 import org.eclipse.emf.ecore.impl.EPackageImpl;
-
-import org.palladiosimulator.pcm.PcmPackage;
-
 import spd.SpdPackage;
 
 import spd.adjustmenttype.AdjustmenttypePackage;
@@ -27,6 +14,8 @@ import spd.adjustmenttype.impl.AdjustmenttypePackageImpl;
 
 import spd.impl.SpdPackageImpl;
 
+import spd.palladio.PalladioPackage;
+import spd.palladio.impl.PalladioPackageImpl;
 import spd.policyconstraint.CooldownConstraint;
 import spd.policyconstraint.GroupSizeConstraint;
 import spd.policyconstraint.IntervallConstraint;
@@ -132,14 +121,6 @@ public class PolicyconstraintPackageImpl extends EPackageImpl implements Policyc
 
 		isInited = true;
 
-		// Initialize simple dependencies
-		EcorePackage.eINSTANCE.eClass();
-		IdentifierPackage.eINSTANCE.eClass();
-		PcmPackage.eINSTANCE.eClass();
-		ProbfunctionPackage.eINSTANCE.eClass();
-		StoexPackage.eINSTANCE.eClass();
-		UnitsPackage.eINSTANCE.eClass();
-
 		// Obtain or create and register interdependencies
 		Object registeredPackage = EPackage.Registry.INSTANCE.getEPackage(SpdPackage.eNS_URI);
 		SpdPackageImpl theSpdPackage = (SpdPackageImpl)(registeredPackage instanceof SpdPackageImpl ? registeredPackage : SpdPackage.eINSTANCE);
@@ -149,6 +130,8 @@ public class PolicyconstraintPackageImpl extends EPackageImpl implements Policyc
 		AdjustmenttypePackageImpl theAdjustmenttypePackage = (AdjustmenttypePackageImpl)(registeredPackage instanceof AdjustmenttypePackageImpl ? registeredPackage : AdjustmenttypePackage.eINSTANCE);
 		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(ScalingtriggerPackage.eNS_URI);
 		ScalingtriggerPackageImpl theScalingtriggerPackage = (ScalingtriggerPackageImpl)(registeredPackage instanceof ScalingtriggerPackageImpl ? registeredPackage : ScalingtriggerPackage.eINSTANCE);
+		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(PalladioPackage.eNS_URI);
+		PalladioPackageImpl thePalladioPackage = (PalladioPackageImpl)(registeredPackage instanceof PalladioPackageImpl ? registeredPackage : PalladioPackage.eINSTANCE);
 
 		// Create package meta-data objects
 		thePolicyconstraintPackage.createPackageContents();
@@ -156,6 +139,7 @@ public class PolicyconstraintPackageImpl extends EPackageImpl implements Policyc
 		theTargetgroupPackage.createPackageContents();
 		theAdjustmenttypePackage.createPackageContents();
 		theScalingtriggerPackage.createPackageContents();
+		thePalladioPackage.createPackageContents();
 
 		// Initialize created meta-data
 		thePolicyconstraintPackage.initializePackageContents();
@@ -163,6 +147,7 @@ public class PolicyconstraintPackageImpl extends EPackageImpl implements Policyc
 		theTargetgroupPackage.initializePackageContents();
 		theAdjustmenttypePackage.initializePackageContents();
 		theScalingtriggerPackage.initializePackageContents();
+		thePalladioPackage.initializePackageContents();
 
 		// Mark meta-data to indicate it can't be changed
 		thePolicyconstraintPackage.freeze();
@@ -177,6 +162,7 @@ public class PolicyconstraintPackageImpl extends EPackageImpl implements Policyc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getPolicyConstraint() {
 		return policyConstraintEClass;
 	}
@@ -186,6 +172,7 @@ public class PolicyconstraintPackageImpl extends EPackageImpl implements Policyc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getTimeBasedConstraint() {
 		return timeBasedConstraintEClass;
 	}
@@ -195,6 +182,7 @@ public class PolicyconstraintPackageImpl extends EPackageImpl implements Policyc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getGroupSizeConstraint() {
 		return groupSizeConstraintEClass;
 	}
@@ -204,6 +192,7 @@ public class PolicyconstraintPackageImpl extends EPackageImpl implements Policyc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getGroupSizeConstraint_MinSize() {
 		return (EAttribute)groupSizeConstraintEClass.getEStructuralFeatures().get(0);
 	}
@@ -213,6 +202,7 @@ public class PolicyconstraintPackageImpl extends EPackageImpl implements Policyc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getGroupSizeConstraint_MaxSize() {
 		return (EAttribute)groupSizeConstraintEClass.getEStructuralFeatures().get(1);
 	}
@@ -222,6 +212,7 @@ public class PolicyconstraintPackageImpl extends EPackageImpl implements Policyc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getIntervallConstraint() {
 		return intervallConstraintEClass;
 	}
@@ -231,6 +222,7 @@ public class PolicyconstraintPackageImpl extends EPackageImpl implements Policyc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getIntervallConstraint_Offset() {
 		return (EAttribute)intervallConstraintEClass.getEStructuralFeatures().get(0);
 	}
@@ -240,6 +232,7 @@ public class PolicyconstraintPackageImpl extends EPackageImpl implements Policyc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getIntervallConstraint_IntervallDuration() {
 		return (EAttribute)intervallConstraintEClass.getEStructuralFeatures().get(1);
 	}
@@ -249,6 +242,7 @@ public class PolicyconstraintPackageImpl extends EPackageImpl implements Policyc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getCooldownConstraint() {
 		return cooldownConstraintEClass;
 	}
@@ -258,6 +252,7 @@ public class PolicyconstraintPackageImpl extends EPackageImpl implements Policyc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getCooldownConstraint_CooldownTime() {
 		return (EAttribute)cooldownConstraintEClass.getEStructuralFeatures().get(0);
 	}
@@ -267,6 +262,7 @@ public class PolicyconstraintPackageImpl extends EPackageImpl implements Policyc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getCooldownConstraint_MaxScalingOperations() {
 		return (EAttribute)cooldownConstraintEClass.getEStructuralFeatures().get(1);
 	}
@@ -276,6 +272,7 @@ public class PolicyconstraintPackageImpl extends EPackageImpl implements Policyc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public PolicyconstraintFactory getPolicyconstraintFactory() {
 		return (PolicyconstraintFactory)getEFactoryInstance();
 	}
@@ -341,7 +338,6 @@ public class PolicyconstraintPackageImpl extends EPackageImpl implements Policyc
 
 		// Obtain other dependent packages
 		SpdPackage theSpdPackage = (SpdPackage)EPackage.Registry.INSTANCE.getEPackage(SpdPackage.eNS_URI);
-		EcorePackage theEcorePackage = (EcorePackage)EPackage.Registry.INSTANCE.getEPackage(EcorePackage.eNS_URI);
 
 		// Create type parameters
 
@@ -360,16 +356,16 @@ public class PolicyconstraintPackageImpl extends EPackageImpl implements Policyc
 		initEClass(timeBasedConstraintEClass, TimeBasedConstraint.class, "TimeBasedConstraint", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(groupSizeConstraintEClass, GroupSizeConstraint.class, "GroupSizeConstraint", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getGroupSizeConstraint_MinSize(), ecorePackage.getEInt(), "minSize", null, 0, 1, GroupSizeConstraint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getGroupSizeConstraint_MaxSize(), ecorePackage.getEInt(), "maxSize", null, 0, 1, GroupSizeConstraint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getGroupSizeConstraint_MinSize(), ecorePackage.getEInt(), "minSize", null, 1, 1, GroupSizeConstraint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getGroupSizeConstraint_MaxSize(), ecorePackage.getEInt(), "maxSize", null, 1, 1, GroupSizeConstraint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(intervallConstraintEClass, IntervallConstraint.class, "IntervallConstraint", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getIntervallConstraint_Offset(), theEcorePackage.getEInt(), "offset", null, 0, 1, IntervallConstraint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getIntervallConstraint_IntervallDuration(), theEcorePackage.getEInt(), "intervallDuration", null, 0, 1, IntervallConstraint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getIntervallConstraint_Offset(), ecorePackage.getEInt(), "offset", null, 1, 1, IntervallConstraint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getIntervallConstraint_IntervallDuration(), ecorePackage.getEInt(), "intervallDuration", null, 1, 1, IntervallConstraint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(cooldownConstraintEClass, CooldownConstraint.class, "CooldownConstraint", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getCooldownConstraint_CooldownTime(), ecorePackage.getEDouble(), "cooldownTime", null, 0, 1, CooldownConstraint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getCooldownConstraint_MaxScalingOperations(), theEcorePackage.getEInt(), "maxScalingOperations", null, 0, 1, CooldownConstraint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getCooldownConstraint_CooldownTime(), ecorePackage.getEDouble(), "cooldownTime", null, 1, 1, CooldownConstraint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getCooldownConstraint_MaxScalingOperations(), ecorePackage.getEInt(), "maxScalingOperations", null, 1, 1, CooldownConstraint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 	}
 
 } //PolicyconstraintPackageImpl

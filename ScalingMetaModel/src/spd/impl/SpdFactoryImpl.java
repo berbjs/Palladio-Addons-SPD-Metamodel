@@ -68,6 +68,7 @@ public class SpdFactoryImpl extends EFactoryImpl implements SpdFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public ScalingPolicy createScalingPolicy() {
 		ScalingPolicyImpl scalingPolicy = new ScalingPolicyImpl();
 		return scalingPolicy;
@@ -78,6 +79,7 @@ public class SpdFactoryImpl extends EFactoryImpl implements SpdFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public SPD createSPD() {
 		SPDImpl spd = new SPDImpl();
 		return spd;
@@ -88,6 +90,7 @@ public class SpdFactoryImpl extends EFactoryImpl implements SpdFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public SpdPackage getSpdPackage() {
 		return (SpdPackage)getEPackage();
 	}

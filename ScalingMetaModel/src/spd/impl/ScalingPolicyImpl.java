@@ -127,6 +127,7 @@ public class ScalingPolicyImpl extends MinimalEObjectImpl.Container implements S
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public TargetGroup getTargetgroup() {
 		if (targetgroup != null && targetgroup.eIsProxy()) {
 			InternalEObject oldTargetgroup = (InternalEObject)targetgroup;
@@ -153,6 +154,7 @@ public class ScalingPolicyImpl extends MinimalEObjectImpl.Container implements S
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setTargetgroup(TargetGroup newTargetgroup) {
 		TargetGroup oldTargetgroup = targetgroup;
 		targetgroup = newTargetgroup;
@@ -165,6 +167,7 @@ public class ScalingPolicyImpl extends MinimalEObjectImpl.Container implements S
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public AdjustmentType getAdjustmenttype() {
 		return adjustmenttype;
 	}
@@ -189,6 +192,7 @@ public class ScalingPolicyImpl extends MinimalEObjectImpl.Container implements S
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setAdjustmenttype(AdjustmentType newAdjustmenttype) {
 		if (newAdjustmenttype != adjustmenttype) {
 			NotificationChain msgs = null;
@@ -208,6 +212,7 @@ public class ScalingPolicyImpl extends MinimalEObjectImpl.Container implements S
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public ScalingTrigger getScalingtrigger() {
 		return scalingtrigger;
 	}
@@ -232,6 +237,7 @@ public class ScalingPolicyImpl extends MinimalEObjectImpl.Container implements S
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setScalingtrigger(ScalingTrigger newScalingtrigger) {
 		if (newScalingtrigger != scalingtrigger) {
 			NotificationChain msgs = null;
@@ -251,6 +257,7 @@ public class ScalingPolicyImpl extends MinimalEObjectImpl.Container implements S
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<PolicyConstraint> getPolicyconstraint() {
 		if (policyconstraint == null) {
 			policyconstraint = new EObjectContainmentEList<PolicyConstraint>(PolicyConstraint.class, this, SpdPackage.SCALING_POLICY__POLICYCONSTRAINT);
@@ -263,6 +270,7 @@ public class ScalingPolicyImpl extends MinimalEObjectImpl.Container implements S
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getPolicyName() {
 		return policyName;
 	}
@@ -272,6 +280,7 @@ public class ScalingPolicyImpl extends MinimalEObjectImpl.Container implements S
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setPolicyName(String newPolicyName) {
 		String oldPolicyName = policyName;
 		policyName = newPolicyName;

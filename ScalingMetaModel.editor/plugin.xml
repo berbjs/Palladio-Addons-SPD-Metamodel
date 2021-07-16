@@ -146,4 +146,32 @@
       </editor>
    </extension>
 
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated SPD -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="spd.palladio.presentation.PalladioModelWizardID"
+            name="%_UI_PalladioModelWizard_label"
+            class="spd.palladio.presentation.PalladioModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/PalladioModelFile.gif">
+         <description>%_UI_PalladioModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated SPD -->
+      <editor
+            id="spd.palladio.presentation.PalladioEditorID"
+            name="%_UI_PalladioEditor_label"
+            icon="icons/full/obj16/PalladioModelFile.gif"
+            extensions="palladio"
+            class="spd.palladio.presentation.PalladioEditor"
+            contributorClass="spd.palladio.presentation.PalladioActionBarContributor">
+      </editor>
+   </extension>
+
 </plugin>

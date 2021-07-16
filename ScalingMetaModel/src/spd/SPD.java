@@ -20,7 +20,8 @@ import org.eclipse.emf.ecore.EObject;
  * </ul>
  *
  * @see spd.SpdPackage#getSPD()
- * @model
+ * @model annotation="http://www.eclipse.org/emf/2002/Ecore constraints='nameInvariant'"
+ *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot nameInvariant='name &lt;&gt;\'\''"
  * @generated
  */
 public interface SPD extends EObject {

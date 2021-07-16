@@ -28,7 +28,7 @@ public interface CooldownConstraint extends TimeBasedConstraint {
 	 * @return the value of the '<em>Cooldown Time</em>' attribute.
 	 * @see #setCooldownTime(double)
 	 * @see spd.policyconstraint.PolicyconstraintPackage#getCooldownConstraint_CooldownTime()
-	 * @model
+	 * @model required="true"
 	 * @generated
 	 */
 	double getCooldownTime();
@@ -50,7 +50,7 @@ public interface CooldownConstraint extends TimeBasedConstraint {
 	 * @return the value of the '<em>Max Scaling Operations</em>' attribute.
 	 * @see #setMaxScalingOperations(int)
 	 * @see spd.policyconstraint.PolicyconstraintPackage#getCooldownConstraint_MaxScalingOperations()
-	 * @model
+	 * @model required="true"
 	 * @generated
 	 */
 	int getMaxScalingOperations();

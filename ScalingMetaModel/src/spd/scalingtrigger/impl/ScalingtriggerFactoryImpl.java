@@ -117,6 +117,7 @@ public class ScalingtriggerFactoryImpl extends EFactoryImpl implements Scalingtr
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public CPUUtilizationTrigger createCPUUtilizationTrigger() {
 		CPUUtilizationTriggerImpl cpuUtilizationTrigger = new CPUUtilizationTriggerImpl();
 		return cpuUtilizationTrigger;
@@ -127,6 +128,7 @@ public class ScalingtriggerFactoryImpl extends EFactoryImpl implements Scalingtr
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public RAMUtilizationTrigger createRAMUtilizationTrigger() {
 		RAMUtilizationTriggerImpl ramUtilizationTrigger = new RAMUtilizationTriggerImpl();
 		return ramUtilizationTrigger;
@@ -137,6 +139,7 @@ public class ScalingtriggerFactoryImpl extends EFactoryImpl implements Scalingtr
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public HDDUtilizationTrigger createHDDUtilizationTrigger() {
 		HDDUtilizationTriggerImpl hddUtilizationTrigger = new HDDUtilizationTriggerImpl();
 		return hddUtilizationTrigger;
@@ -147,6 +150,7 @@ public class ScalingtriggerFactoryImpl extends EFactoryImpl implements Scalingtr
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public PointInTimeTrigger createPointInTimeTrigger() {
 		PointInTimeTriggerImpl pointInTimeTrigger = new PointInTimeTriggerImpl();
 		return pointInTimeTrigger;
@@ -157,6 +161,7 @@ public class ScalingtriggerFactoryImpl extends EFactoryImpl implements Scalingtr
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public IdleTimeTrigger createIdleTimeTrigger() {
 		IdleTimeTriggerImpl idleTimeTrigger = new IdleTimeTriggerImpl();
 		return idleTimeTrigger;
@@ -167,6 +172,7 @@ public class ScalingtriggerFactoryImpl extends EFactoryImpl implements Scalingtr
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public TaskCountTrigger createTaskCountTrigger() {
 		TaskCountTriggerImpl taskCountTrigger = new TaskCountTriggerImpl();
 		return taskCountTrigger;
@@ -177,6 +183,7 @@ public class ScalingtriggerFactoryImpl extends EFactoryImpl implements Scalingtr
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public NetworkUtilizationTrigger createNetworkUtilizationTrigger() {
 		NetworkUtilizationTriggerImpl networkUtilizationTrigger = new NetworkUtilizationTriggerImpl();
 		return networkUtilizationTrigger;
@@ -187,6 +194,7 @@ public class ScalingtriggerFactoryImpl extends EFactoryImpl implements Scalingtr
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public ResponseTimeTrigger createResponseTimeTrigger() {
 		ResponseTimeTriggerImpl responseTimeTrigger = new ResponseTimeTriggerImpl();
 		return responseTimeTrigger;
@@ -277,6 +285,7 @@ public class ScalingtriggerFactoryImpl extends EFactoryImpl implements Scalingtr
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public ScalingtriggerPackage getScalingtriggerPackage() {
 		return (ScalingtriggerPackage)getEPackage();
 	}

@@ -13,9 +13,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
-
-import org.palladiosimulator.pcm.repository.OperationSignature;
-
+import spd.palladio.PCMOperationSignature;
 import spd.scalingtrigger.ResponseTimeTrigger;
 import spd.scalingtrigger.ScalingtriggerPackage;
 import spd.scalingtrigger.THRESHOLDDIRECTION;
@@ -44,7 +42,7 @@ public class ResponseTimeTriggerImpl extends TimeBasedTriggerImpl implements Res
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<OperationSignature> operationSignature;
+	protected EList<PCMOperationSignature> operationSignature;
 
 	/**
 	 * The default value of the '{@link #getThresholdDirection() <em>Threshold Direction</em>}' attribute.
@@ -110,9 +108,10 @@ public class ResponseTimeTriggerImpl extends TimeBasedTriggerImpl implements Res
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<OperationSignature> getOperationSignature() {
+	@Override
+	public EList<PCMOperationSignature> getOperationSignature() {
 		if (operationSignature == null) {
-			operationSignature = new EObjectResolvingEList<OperationSignature>(OperationSignature.class, this, ScalingtriggerPackage.RESPONSE_TIME_TRIGGER__OPERATION_SIGNATURE);
+			operationSignature = new EObjectResolvingEList<PCMOperationSignature>(PCMOperationSignature.class, this, ScalingtriggerPackage.RESPONSE_TIME_TRIGGER__OPERATION_SIGNATURE);
 		}
 		return operationSignature;
 	}
@@ -122,6 +121,7 @@ public class ResponseTimeTriggerImpl extends TimeBasedTriggerImpl implements Res
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public THRESHOLDDIRECTION getThresholdDirection() {
 		return thresholdDirection;
 	}
@@ -131,6 +131,7 @@ public class ResponseTimeTriggerImpl extends TimeBasedTriggerImpl implements Res
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setThresholdDirection(THRESHOLDDIRECTION newThresholdDirection) {
 		THRESHOLDDIRECTION oldThresholdDirection = thresholdDirection;
 		thresholdDirection = newThresholdDirection == null ? THRESHOLD_DIRECTION_EDEFAULT : newThresholdDirection;
@@ -143,6 +144,7 @@ public class ResponseTimeTriggerImpl extends TimeBasedTriggerImpl implements Res
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public double getViolationWindow() {
 		return violationWindow;
 	}
@@ -152,6 +154,7 @@ public class ResponseTimeTriggerImpl extends TimeBasedTriggerImpl implements Res
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setViolationWindow(double newViolationWindow) {
 		double oldViolationWindow = violationWindow;
 		violationWindow = newViolationWindow;
@@ -188,7 +191,7 @@ public class ResponseTimeTriggerImpl extends TimeBasedTriggerImpl implements Res
 		switch (featureID) {
 			case ScalingtriggerPackage.RESPONSE_TIME_TRIGGER__OPERATION_SIGNATURE:
 				getOperationSignature().clear();
-				getOperationSignature().addAll((Collection<? extends OperationSignature>)newValue);
+				getOperationSignature().addAll((Collection<? extends PCMOperationSignature>)newValue);
 				return;
 			case ScalingtriggerPackage.RESPONSE_TIME_TRIGGER__THRESHOLD_DIRECTION:
 				setThresholdDirection((THRESHOLDDIRECTION)newValue);

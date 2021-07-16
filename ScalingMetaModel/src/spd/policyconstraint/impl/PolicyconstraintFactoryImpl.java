@@ -69,6 +69,7 @@ public class PolicyconstraintFactoryImpl extends EFactoryImpl implements Policyc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public GroupSizeConstraint createGroupSizeConstraint() {
 		GroupSizeConstraintImpl groupSizeConstraint = new GroupSizeConstraintImpl();
 		return groupSizeConstraint;
@@ -79,6 +80,7 @@ public class PolicyconstraintFactoryImpl extends EFactoryImpl implements Policyc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public IntervallConstraint createIntervallConstraint() {
 		IntervallConstraintImpl intervallConstraint = new IntervallConstraintImpl();
 		return intervallConstraint;
@@ -89,6 +91,7 @@ public class PolicyconstraintFactoryImpl extends EFactoryImpl implements Policyc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public CooldownConstraint createCooldownConstraint() {
 		CooldownConstraintImpl cooldownConstraint = new CooldownConstraintImpl();
 		return cooldownConstraint;
@@ -99,6 +102,7 @@ public class PolicyconstraintFactoryImpl extends EFactoryImpl implements Policyc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public PolicyconstraintPackage getPolicyconstraintPackage() {
 		return (PolicyconstraintPackage)getEPackage();
 	}

@@ -28,7 +28,7 @@ public interface StepAdjustment extends AdjustmentType {
 	 * @return the value of the '<em>Step Value</em>' attribute.
 	 * @see #setStepValue(int)
 	 * @see spd.adjustmenttype.AdjustmenttypePackage#getStepAdjustment_StepValue()
-	 * @model default="0"
+	 * @model default="0" required="true"
 	 * @generated
 	 */
 	int getStepValue();

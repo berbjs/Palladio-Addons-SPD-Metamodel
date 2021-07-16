@@ -28,7 +28,7 @@ public interface AbsoluteAdjustment extends AdjustmentType {
 	 * @return the value of the '<em>Goal Value</em>' attribute.
 	 * @see #setGoalValue(int)
 	 * @see spd.adjustmenttype.AdjustmenttypePackage#getAbsoluteAdjustment_GoalValue()
-	 * @model default="0"
+	 * @model default="0" required="true"
 	 * @generated
 	 */
 	int getGoalValue();

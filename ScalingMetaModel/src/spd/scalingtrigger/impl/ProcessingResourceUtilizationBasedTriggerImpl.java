@@ -9,9 +9,7 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
-
-import org.palladiosimulator.pcm.resourceenvironment.ResourceContainer;
-
+import spd.palladio.PCMResourceContainer;
 import spd.scalingtrigger.ProcessingResourceUtilizationBasedTrigger;
 import spd.scalingtrigger.ScalingtriggerPackage;
 
@@ -37,7 +35,7 @@ public abstract class ProcessingResourceUtilizationBasedTriggerImpl extends Reso
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<ResourceContainer> resourceContainer;
+	protected EList<PCMResourceContainer> resourceContainer;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -63,9 +61,10 @@ public abstract class ProcessingResourceUtilizationBasedTriggerImpl extends Reso
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<ResourceContainer> getResourceContainer() {
+	@Override
+	public EList<PCMResourceContainer> getResourceContainer() {
 		if (resourceContainer == null) {
-			resourceContainer = new EObjectResolvingEList<ResourceContainer>(ResourceContainer.class, this, ScalingtriggerPackage.PROCESSING_RESOURCE_UTILIZATION_BASED_TRIGGER__RESOURCE_CONTAINER);
+			resourceContainer = new EObjectResolvingEList<PCMResourceContainer>(PCMResourceContainer.class, this, ScalingtriggerPackage.PROCESSING_RESOURCE_UTILIZATION_BASED_TRIGGER__RESOURCE_CONTAINER);
 		}
 		return resourceContainer;
 	}
@@ -95,7 +94,7 @@ public abstract class ProcessingResourceUtilizationBasedTriggerImpl extends Reso
 		switch (featureID) {
 			case ScalingtriggerPackage.PROCESSING_RESOURCE_UTILIZATION_BASED_TRIGGER__RESOURCE_CONTAINER:
 				getResourceContainer().clear();
-				getResourceContainer().addAll((Collection<? extends ResourceContainer>)newValue);
+				getResourceContainer().addAll((Collection<? extends PCMResourceContainer>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);

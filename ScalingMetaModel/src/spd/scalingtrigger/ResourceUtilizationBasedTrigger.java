@@ -31,7 +31,7 @@ public interface ResourceUtilizationBasedTrigger extends ThresholdBasedTrigger {
 	 * @return the value of the '<em>Threshold</em>' attribute.
 	 * @see #setThreshold(double)
 	 * @see spd.scalingtrigger.ScalingtriggerPackage#getResourceUtilizationBasedTrigger_Threshold()
-	 * @model
+	 * @model required="true"
 	 * @generated
 	 */
 	double getThreshold();
@@ -128,7 +128,7 @@ public interface ResourceUtilizationBasedTrigger extends ThresholdBasedTrigger {
 	 * @return the value of the '<em>Violation Window</em>' attribute.
 	 * @see #setViolationWindow(double)
 	 * @see spd.scalingtrigger.ScalingtriggerPackage#getResourceUtilizationBasedTrigger_ViolationWindow()
-	 * @model
+	 * @model required="true"
 	 * @generated
 	 */
 	double getViolationWindow();

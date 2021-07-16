@@ -28,7 +28,7 @@ public interface TimeBasedTrigger extends ThresholdBasedTrigger {
 	 * @return the value of the '<em>Threshold</em>' attribute.
 	 * @see #setThreshold(double)
 	 * @see spd.scalingtrigger.ScalingtriggerPackage#getTimeBasedTrigger_Threshold()
-	 * @model default="0.0"
+	 * @model default="0.0" required="true"
 	 * @generated
 	 */
 	double getThreshold();

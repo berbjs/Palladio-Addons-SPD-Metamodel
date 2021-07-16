@@ -28,7 +28,7 @@ public interface IntervallConstraint extends TimeBasedConstraint {
 	 * @return the value of the '<em>Offset</em>' attribute.
 	 * @see #setOffset(int)
 	 * @see spd.policyconstraint.PolicyconstraintPackage#getIntervallConstraint_Offset()
-	 * @model
+	 * @model required="true"
 	 * @generated
 	 */
 	int getOffset();
@@ -50,7 +50,7 @@ public interface IntervallConstraint extends TimeBasedConstraint {
 	 * @return the value of the '<em>Intervall Duration</em>' attribute.
 	 * @see #setIntervallDuration(int)
 	 * @see spd.policyconstraint.PolicyconstraintPackage#getIntervallConstraint_IntervallDuration()
-	 * @model
+	 * @model required="true"
 	 * @generated
 	 */
 	int getIntervallDuration();

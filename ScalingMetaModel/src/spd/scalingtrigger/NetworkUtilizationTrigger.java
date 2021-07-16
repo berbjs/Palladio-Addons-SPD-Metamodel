@@ -3,8 +3,7 @@
 package spd.scalingtrigger;
 
 import org.eclipse.emf.common.util.EList;
-
-import org.palladiosimulator.pcm.resourceenvironment.LinkingResource;
+import spd.palladio.PCMLinkingResource;
 
 /**
  * <!-- begin-user-doc -->
@@ -51,7 +50,7 @@ public interface NetworkUtilizationTrigger extends ResourceUtilizationBasedTrigg
 
 	/**
 	 * Returns the value of the '<em><b>Linking Resource</b></em>' reference list.
-	 * The list contents are of type {@link org.palladiosimulator.pcm.resourceenvironment.LinkingResource}.
+	 * The list contents are of type {@link spd.palladio.PCMLinkingResource}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Linking Resource</em>' reference list.
@@ -59,6 +58,6 @@ public interface NetworkUtilizationTrigger extends ResourceUtilizationBasedTrigg
 	 * @model
 	 * @generated
 	 */
-	EList<LinkingResource> getLinkingResource();
+	EList<PCMLinkingResource> getLinkingResource();
 
 } // NetworkUtilizationTrigger

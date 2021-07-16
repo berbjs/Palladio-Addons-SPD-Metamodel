@@ -13,9 +13,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
-
-import org.palladiosimulator.pcm.resourceenvironment.LinkingResource;
-
+import spd.palladio.PCMLinkingResource;
 import spd.scalingtrigger.NETWORKUSAGETYPE;
 import spd.scalingtrigger.NetworkUtilizationTrigger;
 import spd.scalingtrigger.ScalingtriggerPackage;
@@ -63,7 +61,7 @@ public class NetworkUtilizationTriggerImpl extends ResourceUtilizationBasedTrigg
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<LinkingResource> linkingResource;
+	protected EList<PCMLinkingResource> linkingResource;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -89,6 +87,7 @@ public class NetworkUtilizationTriggerImpl extends ResourceUtilizationBasedTrigg
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public NETWORKUSAGETYPE getUsageType() {
 		return usageType;
 	}
@@ -98,6 +97,7 @@ public class NetworkUtilizationTriggerImpl extends ResourceUtilizationBasedTrigg
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setUsageType(NETWORKUSAGETYPE newUsageType) {
 		NETWORKUSAGETYPE oldUsageType = usageType;
 		usageType = newUsageType == null ? USAGE_TYPE_EDEFAULT : newUsageType;
@@ -110,9 +110,10 @@ public class NetworkUtilizationTriggerImpl extends ResourceUtilizationBasedTrigg
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<LinkingResource> getLinkingResource() {
+	@Override
+	public EList<PCMLinkingResource> getLinkingResource() {
 		if (linkingResource == null) {
-			linkingResource = new EObjectResolvingEList<LinkingResource>(LinkingResource.class, this, ScalingtriggerPackage.NETWORK_UTILIZATION_TRIGGER__LINKING_RESOURCE);
+			linkingResource = new EObjectResolvingEList<PCMLinkingResource>(PCMLinkingResource.class, this, ScalingtriggerPackage.NETWORK_UTILIZATION_TRIGGER__LINKING_RESOURCE);
 		}
 		return linkingResource;
 	}
@@ -147,7 +148,7 @@ public class NetworkUtilizationTriggerImpl extends ResourceUtilizationBasedTrigg
 				return;
 			case ScalingtriggerPackage.NETWORK_UTILIZATION_TRIGGER__LINKING_RESOURCE:
 				getLinkingResource().clear();
-				getLinkingResource().addAll((Collection<? extends LinkingResource>)newValue);
+				getLinkingResource().addAll((Collection<? extends PCMLinkingResource>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);

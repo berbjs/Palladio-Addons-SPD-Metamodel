@@ -69,6 +69,7 @@ public class AbsoluteAdjustmentImpl extends AdjustmentTypeImpl implements Absolu
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public int getGoalValue() {
 		return goalValue;
 	}
@@ -78,6 +79,7 @@ public class AbsoluteAdjustmentImpl extends AdjustmentTypeImpl implements Absolu
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setGoalValue(int newGoalValue) {
 		int oldGoalValue = goalValue;
 		goalValue = newGoalValue;

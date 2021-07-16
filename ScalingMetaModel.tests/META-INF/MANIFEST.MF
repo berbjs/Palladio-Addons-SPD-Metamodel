@@ -9,6 +9,7 @@ Bundle-Vendor: %providerName
 Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: J2SE-1.5
 Export-Package: spd.adjustmenttype.tests,
+ spd.palladio.tests,
  spd.policyconstraint.tests,
  spd.scalingtrigger.tests,
  spd.targetgroup.tests,

@@ -28,7 +28,7 @@ public interface GroupSizeConstraint extends PolicyConstraint {
 	 * @return the value of the '<em>Min Size</em>' attribute.
 	 * @see #setMinSize(int)
 	 * @see spd.policyconstraint.PolicyconstraintPackage#getGroupSizeConstraint_MinSize()
-	 * @model
+	 * @model required="true"
 	 * @generated
 	 */
 	int getMinSize();
@@ -50,7 +50,7 @@ public interface GroupSizeConstraint extends PolicyConstraint {
 	 * @return the value of the '<em>Max Size</em>' attribute.
 	 * @see #setMaxSize(int)
 	 * @see spd.policyconstraint.PolicyconstraintPackage#getGroupSizeConstraint_MaxSize()
-	 * @model
+	 * @model required="true"
 	 * @generated
 	 */
 	int getMaxSize();

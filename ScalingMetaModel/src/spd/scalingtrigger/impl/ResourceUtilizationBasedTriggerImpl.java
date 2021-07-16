@@ -155,6 +155,7 @@ public abstract class ResourceUtilizationBasedTriggerImpl extends ThresholdBased
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public double getThreshold() {
 		return threshold;
 	}
@@ -164,6 +165,7 @@ public abstract class ResourceUtilizationBasedTriggerImpl extends ThresholdBased
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setThreshold(double newThreshold) {
 		double oldThreshold = threshold;
 		threshold = newThreshold;
@@ -176,6 +178,7 @@ public abstract class ResourceUtilizationBasedTriggerImpl extends ThresholdBased
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public THRESHOLDDIRECTION getThresholdDirection() {
 		return thresholdDirection;
 	}
@@ -185,6 +188,7 @@ public abstract class ResourceUtilizationBasedTriggerImpl extends ThresholdBased
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setThresholdDirection(THRESHOLDDIRECTION newThresholdDirection) {
 		THRESHOLDDIRECTION oldThresholdDirection = thresholdDirection;
 		thresholdDirection = newThresholdDirection == null ? THRESHOLD_DIRECTION_EDEFAULT : newThresholdDirection;
@@ -197,6 +201,7 @@ public abstract class ResourceUtilizationBasedTriggerImpl extends ThresholdBased
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public AGGREGATIONMETHOD getProcessingResourceAggregation() {
 		return processingResourceAggregation;
 	}
@@ -206,6 +211,7 @@ public abstract class ResourceUtilizationBasedTriggerImpl extends ThresholdBased
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setProcessingResourceAggregation(AGGREGATIONMETHOD newProcessingResourceAggregation) {
 		AGGREGATIONMETHOD oldProcessingResourceAggregation = processingResourceAggregation;
 		processingResourceAggregation = newProcessingResourceAggregation == null ? PROCESSING_RESOURCE_AGGREGATION_EDEFAULT : newProcessingResourceAggregation;
@@ -218,6 +224,7 @@ public abstract class ResourceUtilizationBasedTriggerImpl extends ThresholdBased
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public AGGREGATIONMETHOD getResourceContainerAggregation() {
 		return resourceContainerAggregation;
 	}
@@ -227,6 +234,7 @@ public abstract class ResourceUtilizationBasedTriggerImpl extends ThresholdBased
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setResourceContainerAggregation(AGGREGATIONMETHOD newResourceContainerAggregation) {
 		AGGREGATIONMETHOD oldResourceContainerAggregation = resourceContainerAggregation;
 		resourceContainerAggregation = newResourceContainerAggregation == null ? RESOURCE_CONTAINER_AGGREGATION_EDEFAULT : newResourceContainerAggregation;
@@ -239,6 +247,7 @@ public abstract class ResourceUtilizationBasedTriggerImpl extends ThresholdBased
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public double getViolationWindow() {
 		return violationWindow;
 	}
@@ -248,6 +257,7 @@ public abstract class ResourceUtilizationBasedTriggerImpl extends ThresholdBased
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setViolationWindow(double newViolationWindow) {
 		double oldViolationWindow = violationWindow;
 		violationWindow = newViolationWindow;

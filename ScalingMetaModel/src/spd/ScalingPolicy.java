@@ -23,7 +23,8 @@ import org.eclipse.emf.ecore.EObject;
  * </ul>
  *
  * @see spd.SpdPackage#getScalingPolicy()
- * @model
+ * @model annotation="http://www.eclipse.org/emf/2002/Ecore constraints='policyNameInvariant'"
+ *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot policyNameInvariant='policyName &lt;&gt;\'\''"
  * @generated
  */
 public interface ScalingPolicy extends EObject {

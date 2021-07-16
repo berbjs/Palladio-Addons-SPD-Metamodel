@@ -2,7 +2,7 @@
  */
 package spd.targetgroup;
 
-import org.palladiosimulator.pcm.resourceenvironment.ResourceEnvironment;
+import spd.palladio.PCMResourceEnvironment;
 
 /**
  * <!-- begin-user-doc -->
@@ -49,12 +49,12 @@ public interface TargetGroup extends spd.TargetGroup {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>PCM Resource Environment</em>' reference.
-	 * @see #setPCM_ResourceEnvironment(ResourceEnvironment)
+	 * @see #setPCM_ResourceEnvironment(PCMResourceEnvironment)
 	 * @see spd.targetgroup.TargetgroupPackage#getTargetGroup_PCM_ResourceEnvironment()
 	 * @model
 	 * @generated
 	 */
-	ResourceEnvironment getPCM_ResourceEnvironment();
+	PCMResourceEnvironment getPCM_ResourceEnvironment();
 
 	/**
 	 * Sets the value of the '{@link spd.targetgroup.TargetGroup#getPCM_ResourceEnvironment <em>PCM Resource Environment</em>}' reference.
@@ -64,6 +64,6 @@ public interface TargetGroup extends spd.TargetGroup {
 	 * @see #getPCM_ResourceEnvironment()
 	 * @generated
 	 */
-	void setPCM_ResourceEnvironment(ResourceEnvironment value);
+	void setPCM_ResourceEnvironment(PCMResourceEnvironment value);
 
 } // TargetGroup

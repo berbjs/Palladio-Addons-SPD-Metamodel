@@ -90,6 +90,7 @@ public class GroupSizeConstraintImpl extends PolicyConstraintImpl implements Gro
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public int getMinSize() {
 		return minSize;
 	}
@@ -99,6 +100,7 @@ public class GroupSizeConstraintImpl extends PolicyConstraintImpl implements Gro
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setMinSize(int newMinSize) {
 		int oldMinSize = minSize;
 		minSize = newMinSize;
@@ -111,6 +113,7 @@ public class GroupSizeConstraintImpl extends PolicyConstraintImpl implements Gro
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public int getMaxSize() {
 		return maxSize;
 	}
@@ -120,6 +123,7 @@ public class GroupSizeConstraintImpl extends PolicyConstraintImpl implements Gro
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setMaxSize(int newMaxSize) {
 		int oldMaxSize = maxSize;
 		maxSize = newMaxSize;

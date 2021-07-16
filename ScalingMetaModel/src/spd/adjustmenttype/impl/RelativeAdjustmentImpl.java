@@ -90,6 +90,7 @@ public class RelativeAdjustmentImpl extends AdjustmentTypeImpl implements Relati
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public double getPercentageValue() {
 		return percentageValue;
 	}
@@ -99,6 +100,7 @@ public class RelativeAdjustmentImpl extends AdjustmentTypeImpl implements Relati
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setPercentageValue(double newPercentageValue) {
 		double oldPercentageValue = percentageValue;
 		percentageValue = newPercentageValue;
@@ -111,6 +113,7 @@ public class RelativeAdjustmentImpl extends AdjustmentTypeImpl implements Relati
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public int getMinAdjustmentValue() {
 		return minAdjustmentValue;
 	}
@@ -120,6 +123,7 @@ public class RelativeAdjustmentImpl extends AdjustmentTypeImpl implements Relati
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setMinAdjustmentValue(int newMinAdjustmentValue) {
 		int oldMinAdjustmentValue = minAdjustmentValue;
 		minAdjustmentValue = newMinAdjustmentValue;

@@ -3,8 +3,7 @@
 package spd.scalingtrigger;
 
 import org.eclipse.emf.common.util.EList;
-
-import org.palladiosimulator.pcm.repository.OperationSignature;
+import spd.palladio.PCMOperationSignature;
 
 /**
  * <!-- begin-user-doc -->
@@ -27,7 +26,7 @@ import org.palladiosimulator.pcm.repository.OperationSignature;
 public interface ResponseTimeTrigger extends TimeBasedTrigger {
 	/**
 	 * Returns the value of the '<em><b>Operation Signature</b></em>' reference list.
-	 * The list contents are of type {@link org.palladiosimulator.pcm.repository.OperationSignature}.
+	 * The list contents are of type {@link spd.palladio.PCMOperationSignature}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Operation Signature</em>' reference list.
@@ -35,7 +34,7 @@ public interface ResponseTimeTrigger extends TimeBasedTrigger {
 	 * @model
 	 * @generated
 	 */
-	EList<OperationSignature> getOperationSignature();
+	EList<PCMOperationSignature> getOperationSignature();
 
 	/**
 	 * Returns the value of the '<em><b>Threshold Direction</b></em>' attribute.
@@ -69,7 +68,7 @@ public interface ResponseTimeTrigger extends TimeBasedTrigger {
 	 * @return the value of the '<em>Violation Window</em>' attribute.
 	 * @see #setViolationWindow(double)
 	 * @see spd.scalingtrigger.ScalingtriggerPackage#getResponseTimeTrigger_ViolationWindow()
-	 * @model
+	 * @model required="true"
 	 * @generated
 	 */
 	double getViolationWindow();

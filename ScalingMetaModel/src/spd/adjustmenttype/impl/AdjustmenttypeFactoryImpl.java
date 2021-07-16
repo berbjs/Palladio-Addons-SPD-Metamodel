@@ -69,6 +69,7 @@ public class AdjustmenttypeFactoryImpl extends EFactoryImpl implements Adjustmen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public RelativeAdjustment createRelativeAdjustment() {
 		RelativeAdjustmentImpl relativeAdjustment = new RelativeAdjustmentImpl();
 		return relativeAdjustment;
@@ -79,6 +80,7 @@ public class AdjustmenttypeFactoryImpl extends EFactoryImpl implements Adjustmen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public AbsoluteAdjustment createAbsoluteAdjustment() {
 		AbsoluteAdjustmentImpl absoluteAdjustment = new AbsoluteAdjustmentImpl();
 		return absoluteAdjustment;
@@ -89,6 +91,7 @@ public class AdjustmenttypeFactoryImpl extends EFactoryImpl implements Adjustmen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public StepAdjustment createStepAdjustment() {
 		StepAdjustmentImpl stepAdjustment = new StepAdjustmentImpl();
 		return stepAdjustment;
@@ -99,6 +102,7 @@ public class AdjustmenttypeFactoryImpl extends EFactoryImpl implements Adjustmen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public AdjustmenttypePackage getAdjustmenttypePackage() {
 		return (AdjustmenttypePackage)getEPackage();
 	}

@@ -1,7 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="spd" nsURI="spd" nsPrefix="spd">
+  <eAnnotations source="http://www.eclipse.org/OCL/Import">
+    <details key="ecore" value="http://www.eclipse.org/emf/2002/Ecore"/>
+  </eAnnotations>
+  <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+    <details key="invocationDelegates" value="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot"/>
+    <details key="settingDelegates" value="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot"/>
+    <details key="validationDelegates" value="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot"/>
+  </eAnnotations>
   <eClassifiers xsi:type="ecore:EClass" name="ScalingPolicy">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+      <details key="constraints" value="policyNameInvariant"/>
+    </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
+      <details key="policyNameInvariant" value="policyName &lt;>''"/>
+    </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="targetgroup" lowerBound="1"
         eType="#//TargetGroup"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="adjustmenttype" lowerBound="1"
@@ -10,9 +24,15 @@
         eType="#//ScalingTrigger" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="policyconstraint" upperBound="-1"
         eType="#//PolicyConstraint" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="policyName" eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="policyName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SPD">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+      <details key="constraints" value="nameInvariant"/>
+    </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
+      <details key="nameInvariant" value="name &lt;>''"/>
+    </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="scalingpolicy" lowerBound="1"
         upperBound="-1" eType="#//ScalingPolicy" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -25,24 +45,25 @@
     <eClassifiers xsi:type="ecore:EClass" name="TargetGroup" eSuperTypes="#//TargetGroup">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="PCM_ResourceEnvironment"
-          eType="ecore:EClass ../../org.palladiosimulator.pcm/model/pcm.ecore#//resourceenvironment/ResourceEnvironment"/>
+          eType="#//palladio/PCMResourceEnvironment"/>
     </eClassifiers>
   </eSubpackages>
   <eSubpackages name="adjustmenttype" nsURI="adjustmenttype" nsPrefix="adjustmenttype">
     <eClassifiers xsi:type="ecore:EClass" name="AdjustmentType" abstract="true" eSuperTypes="#//AdjustmentType"/>
     <eClassifiers xsi:type="ecore:EClass" name="RelativeAdjustment" eSuperTypes="#//adjustmenttype/AdjustmentType">
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="percentageValue" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="percentageValue" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"
           defaultValueLiteral="0.0"/>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="minAdjustmentValue" eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EInt"
-          defaultValueLiteral="0"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="minAdjustmentValue" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt" defaultValueLiteral="0"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="AbsoluteAdjustment" eSuperTypes="#//adjustmenttype/AdjustmentType">
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="goalValue" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
-          defaultValueLiteral="0"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="goalValue" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt" defaultValueLiteral="0"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="StepAdjustment" eSuperTypes="#//adjustmenttype/AdjustmentType">
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="stepValue" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
-          defaultValueLiteral="0"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="stepValue" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt" defaultValueLiteral="0"/>
     </eClassifiers>
   </eSubpackages>
   <eSubpackages name="policyconstraint" nsURI="policyconstraint" nsPrefix="policyconstraint">
@@ -51,17 +72,22 @@
     <eClassifiers xsi:type="ecore:EClass" name="TimeBasedConstraint" abstract="true"
         eSuperTypes="#//policyconstraint/PolicyConstraint"/>
     <eClassifiers xsi:type="ecore:EClass" name="GroupSizeConstraint" eSuperTypes="#//policyconstraint/PolicyConstraint">
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="minSize" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="maxSize" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="minSize" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="maxSize" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="IntervallConstraint" eSuperTypes="#//policyconstraint/TimeBasedConstraint">
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="offset" eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EInt"/>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="intervallDuration" eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EInt"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="offset" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="intervallDuration" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="CooldownConstraint" eSuperTypes="#//policyconstraint/TimeBasedConstraint">
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="cooldownTime" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="cooldownTime" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="maxScalingOperations"
-          eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EInt"/>
+          lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     </eClassifiers>
   </eSubpackages>
   <eSubpackages name="scalingtrigger" nsURI="scalingtrigger" nsPrefix="scalingtrigger">
@@ -75,15 +101,17 @@
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="TimeBasedTrigger" abstract="true"
         eSuperTypes="#//scalingtrigger/ThresholdBasedTrigger">
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="threshold" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="threshold" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"
           defaultValueLiteral="0.0"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="PointInTimeTrigger" eSuperTypes="#//scalingtrigger/ScalingTrigger">
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="pointInTime" eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EDouble"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="pointInTime" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="IdleTimeTrigger" eSuperTypes="#//scalingtrigger/TimeBasedTrigger">
       <eStructuralFeatures xsi:type="ecore:EReference" name="resourceContainer" upperBound="-1"
-          eType="ecore:EClass ../../org.palladiosimulator.pcm/model/pcm.ecore#//resourceenvironment/ResourceContainer"/>
+          eType="#//palladio/PCMResourceContainer"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EEnum" name="AGGREGATIONMETHOD">
       <eLiterals name="AVERAGE"/>
@@ -93,16 +121,17 @@
       <eLiterals name="SUM" value="4"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="TaskCountTrigger" eSuperTypes="#//scalingtrigger/ThresholdBasedTrigger">
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="threshold" eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EInt"
-          defaultValueLiteral="0"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="threshold" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt" defaultValueLiteral="0"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="resourceContainer" upperBound="-1"
-          eType="ecore:EClass ../../org.palladiosimulator.pcm/model/pcm.ecore#//resourceenvironment/ResourceContainer"/>
+          eType="#//palladio/PCMResourceContainer"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="thresholdDirection" eType="#//scalingtrigger/THRESHOLDDIRECTION"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="processingResourceAggregation"
           eType="#//scalingtrigger/AGGREGATIONMETHOD"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="resourceContainerAggregation"
           eType="#//scalingtrigger/AGGREGATIONMETHOD"/>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="violationWindow" eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EDouble"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="violationWindow" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EEnum" name="HDDUSAGETYPE">
       <eLiterals name="READ"/>
@@ -111,7 +140,7 @@
     <eClassifiers xsi:type="ecore:EClass" name="NetworkUtilizationTrigger" eSuperTypes="#//scalingtrigger/ResourceUtilizationBasedTrigger">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="usageType" eType="#//scalingtrigger/NETWORKUSAGETYPE"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="linkingResource" upperBound="-1"
-          eType="ecore:EClass ../../org.palladiosimulator.pcm/model/pcm.ecore#//resourceenvironment/LinkingResource"/>
+          eType="#//palladio/PCMLinkingResource"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EEnum" name="NETWORKUSAGETYPE">
       <eLiterals name="SEND"/>
@@ -123,24 +152,33 @@
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ResponseTimeTrigger" eSuperTypes="#//scalingtrigger/TimeBasedTrigger">
       <eStructuralFeatures xsi:type="ecore:EReference" name="operationSignature" upperBound="-1"
-          eType="ecore:EClass ../../org.palladiosimulator.pcm/model/pcm.ecore#//repository/OperationSignature"/>
+          eType="#//palladio/PCMOperationSignature"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="thresholdDirection" eType="#//scalingtrigger/THRESHOLDDIRECTION"/>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="violationWindow" eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EDouble"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="violationWindow" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ResourceUtilizationBasedTrigger" abstract="true"
         eSuperTypes="#//scalingtrigger/ThresholdBasedTrigger">
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="threshold" eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EDouble"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="threshold" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="thresholdDirection" eType="#//scalingtrigger/THRESHOLDDIRECTION"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="processingResourceAggregation"
           eType="#//scalingtrigger/AGGREGATIONMETHOD"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="resourceContainerAggregation"
           eType="#//scalingtrigger/AGGREGATIONMETHOD"/>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="violationWindow" eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EDouble"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="violationWindow" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ProcessingResourceUtilizationBasedTrigger"
         abstract="true" eSuperTypes="#//scalingtrigger/ResourceUtilizationBasedTrigger">
       <eStructuralFeatures xsi:type="ecore:EReference" name="resourceContainer" upperBound="-1"
-          eType="ecore:EClass ../../org.palladiosimulator.pcm/model/pcm.ecore#//resourceenvironment/ResourceContainer"/>
+          eType="#//palladio/PCMResourceContainer"/>
     </eClassifiers>
+  </eSubpackages>
+  <eSubpackages name="palladio" nsURI="palladio" nsPrefix="palladio">
+    <eClassifiers xsi:type="ecore:EClass" name="PCMResourceEnvironment"/>
+    <eClassifiers xsi:type="ecore:EClass" name="PCMResourceContainer"/>
+    <eClassifiers xsi:type="ecore:EClass" name="PCMLinkingResource"/>
+    <eClassifiers xsi:type="ecore:EClass" name="PCMOperationSignature"/>
   </eSubpackages>
 </ecore:EPackage>

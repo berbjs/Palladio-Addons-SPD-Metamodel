@@ -46,4 +46,12 @@
             genModel="model/SPD.genmodel"/>
    </extension>
 
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated SPD -->
+      <package
+            uri="palladio"
+            class="spd.palladio.PalladioPackage"
+            genModel="model/SPD.genmodel"/>
+   </extension>
+
 </plugin>

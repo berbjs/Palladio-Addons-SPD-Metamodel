@@ -69,6 +69,7 @@ public abstract class TimeBasedTriggerImpl extends ThresholdBasedTriggerImpl imp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public double getThreshold() {
 		return threshold;
 	}
@@ -78,6 +79,7 @@ public abstract class TimeBasedTriggerImpl extends ThresholdBasedTriggerImpl imp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setThreshold(double newThreshold) {
 		double oldThreshold = threshold;
 		threshold = newThreshold;

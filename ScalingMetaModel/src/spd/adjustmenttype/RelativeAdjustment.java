@@ -29,7 +29,7 @@ public interface RelativeAdjustment extends AdjustmentType {
 	 * @return the value of the '<em>Percentage Value</em>' attribute.
 	 * @see #setPercentageValue(double)
 	 * @see spd.adjustmenttype.AdjustmenttypePackage#getRelativeAdjustment_PercentageValue()
-	 * @model default="0.0"
+	 * @model default="0.0" required="true"
 	 * @generated
 	 */
 	double getPercentageValue();
@@ -52,7 +52,7 @@ public interface RelativeAdjustment extends AdjustmentType {
 	 * @return the value of the '<em>Min Adjustment Value</em>' attribute.
 	 * @see #setMinAdjustmentValue(int)
 	 * @see spd.adjustmenttype.AdjustmenttypePackage#getRelativeAdjustment_MinAdjustmentValue()
-	 * @model default="0"
+	 * @model default="0" required="true"
 	 * @generated
 	 */
 	int getMinAdjustmentValue();

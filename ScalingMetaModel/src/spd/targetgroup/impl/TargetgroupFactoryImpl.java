@@ -67,6 +67,7 @@ public class TargetgroupFactoryImpl extends EFactoryImpl implements TargetgroupF
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public TargetGroup createTargetGroup() {
 		TargetGroupImpl targetGroup = new TargetGroupImpl();
 		return targetGroup;
@@ -77,6 +78,7 @@ public class TargetgroupFactoryImpl extends EFactoryImpl implements TargetgroupF
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public TargetgroupPackage getTargetgroupPackage() {
 		return (TargetgroupPackage)getEPackage();
 	}

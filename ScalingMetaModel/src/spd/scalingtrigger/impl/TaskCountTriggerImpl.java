@@ -13,9 +13,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
-
-import org.palladiosimulator.pcm.resourceenvironment.ResourceContainer;
-
+import spd.palladio.PCMResourceContainer;
 import spd.scalingtrigger.AGGREGATIONMETHOD;
 import spd.scalingtrigger.ScalingtriggerPackage;
 import spd.scalingtrigger.THRESHOLDDIRECTION;
@@ -68,7 +66,7 @@ public class TaskCountTriggerImpl extends ThresholdBasedTriggerImpl implements T
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<ResourceContainer> resourceContainer;
+	protected EList<PCMResourceContainer> resourceContainer;
 
 	/**
 	 * The default value of the '{@link #getThresholdDirection() <em>Threshold Direction</em>}' attribute.
@@ -174,6 +172,7 @@ public class TaskCountTriggerImpl extends ThresholdBasedTriggerImpl implements T
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public int getThreshold() {
 		return threshold;
 	}
@@ -183,6 +182,7 @@ public class TaskCountTriggerImpl extends ThresholdBasedTriggerImpl implements T
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setThreshold(int newThreshold) {
 		int oldThreshold = threshold;
 		threshold = newThreshold;
@@ -195,9 +195,10 @@ public class TaskCountTriggerImpl extends ThresholdBasedTriggerImpl implements T
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<ResourceContainer> getResourceContainer() {
+	@Override
+	public EList<PCMResourceContainer> getResourceContainer() {
 		if (resourceContainer == null) {
-			resourceContainer = new EObjectResolvingEList<ResourceContainer>(ResourceContainer.class, this, ScalingtriggerPackage.TASK_COUNT_TRIGGER__RESOURCE_CONTAINER);
+			resourceContainer = new EObjectResolvingEList<PCMResourceContainer>(PCMResourceContainer.class, this, ScalingtriggerPackage.TASK_COUNT_TRIGGER__RESOURCE_CONTAINER);
 		}
 		return resourceContainer;
 	}
@@ -207,6 +208,7 @@ public class TaskCountTriggerImpl extends ThresholdBasedTriggerImpl implements T
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public THRESHOLDDIRECTION getThresholdDirection() {
 		return thresholdDirection;
 	}
@@ -216,6 +218,7 @@ public class TaskCountTriggerImpl extends ThresholdBasedTriggerImpl implements T
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setThresholdDirection(THRESHOLDDIRECTION newThresholdDirection) {
 		THRESHOLDDIRECTION oldThresholdDirection = thresholdDirection;
 		thresholdDirection = newThresholdDirection == null ? THRESHOLD_DIRECTION_EDEFAULT : newThresholdDirection;
@@ -228,6 +231,7 @@ public class TaskCountTriggerImpl extends ThresholdBasedTriggerImpl implements T
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public AGGREGATIONMETHOD getProcessingResourceAggregation() {
 		return processingResourceAggregation;
 	}
@@ -237,6 +241,7 @@ public class TaskCountTriggerImpl extends ThresholdBasedTriggerImpl implements T
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setProcessingResourceAggregation(AGGREGATIONMETHOD newProcessingResourceAggregation) {
 		AGGREGATIONMETHOD oldProcessingResourceAggregation = processingResourceAggregation;
 		processingResourceAggregation = newProcessingResourceAggregation == null ? PROCESSING_RESOURCE_AGGREGATION_EDEFAULT : newProcessingResourceAggregation;
@@ -249,6 +254,7 @@ public class TaskCountTriggerImpl extends ThresholdBasedTriggerImpl implements T
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public AGGREGATIONMETHOD getResourceContainerAggregation() {
 		return resourceContainerAggregation;
 	}
@@ -258,6 +264,7 @@ public class TaskCountTriggerImpl extends ThresholdBasedTriggerImpl implements T
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setResourceContainerAggregation(AGGREGATIONMETHOD newResourceContainerAggregation) {
 		AGGREGATIONMETHOD oldResourceContainerAggregation = resourceContainerAggregation;
 		resourceContainerAggregation = newResourceContainerAggregation == null ? RESOURCE_CONTAINER_AGGREGATION_EDEFAULT : newResourceContainerAggregation;
@@ -270,6 +277,7 @@ public class TaskCountTriggerImpl extends ThresholdBasedTriggerImpl implements T
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public double getViolationWindow() {
 		return violationWindow;
 	}
@@ -279,6 +287,7 @@ public class TaskCountTriggerImpl extends ThresholdBasedTriggerImpl implements T
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setViolationWindow(double newViolationWindow) {
 		double oldViolationWindow = violationWindow;
 		violationWindow = newViolationWindow;
@@ -324,7 +333,7 @@ public class TaskCountTriggerImpl extends ThresholdBasedTriggerImpl implements T
 				return;
 			case ScalingtriggerPackage.TASK_COUNT_TRIGGER__RESOURCE_CONTAINER:
 				getResourceContainer().clear();
-				getResourceContainer().addAll((Collection<? extends ResourceContainer>)newValue);
+				getResourceContainer().addAll((Collection<? extends PCMResourceContainer>)newValue);
 				return;
 			case ScalingtriggerPackage.TASK_COUNT_TRIGGER__THRESHOLD_DIRECTION:
 				setThresholdDirection((THRESHOLDDIRECTION)newValue);

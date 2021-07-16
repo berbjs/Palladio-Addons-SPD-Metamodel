@@ -69,6 +69,7 @@ public class PointInTimeTriggerImpl extends ScalingTriggerImpl implements PointI
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public double getPointInTime() {
 		return pointInTime;
 	}
@@ -78,6 +79,7 @@ public class PointInTimeTriggerImpl extends ScalingTriggerImpl implements PointI
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setPointInTime(double newPointInTime) {
 		double oldPointInTime = pointInTime;
 		pointInTime = newPointInTime;

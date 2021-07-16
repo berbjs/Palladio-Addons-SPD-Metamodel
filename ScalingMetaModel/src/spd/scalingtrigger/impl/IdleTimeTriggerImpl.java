@@ -9,9 +9,7 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
-
-import org.palladiosimulator.pcm.resourceenvironment.ResourceContainer;
-
+import spd.palladio.PCMResourceContainer;
 import spd.scalingtrigger.IdleTimeTrigger;
 import spd.scalingtrigger.ScalingtriggerPackage;
 
@@ -37,7 +35,7 @@ public class IdleTimeTriggerImpl extends TimeBasedTriggerImpl implements IdleTim
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<ResourceContainer> resourceContainer;
+	protected EList<PCMResourceContainer> resourceContainer;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -63,9 +61,10 @@ public class IdleTimeTriggerImpl extends TimeBasedTriggerImpl implements IdleTim
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<ResourceContainer> getResourceContainer() {
+	@Override
+	public EList<PCMResourceContainer> getResourceContainer() {
 		if (resourceContainer == null) {
-			resourceContainer = new EObjectResolvingEList<ResourceContainer>(ResourceContainer.class, this, ScalingtriggerPackage.IDLE_TIME_TRIGGER__RESOURCE_CONTAINER);
+			resourceContainer = new EObjectResolvingEList<PCMResourceContainer>(PCMResourceContainer.class, this, ScalingtriggerPackage.IDLE_TIME_TRIGGER__RESOURCE_CONTAINER);
 		}
 		return resourceContainer;
 	}
@@ -95,7 +94,7 @@ public class IdleTimeTriggerImpl extends TimeBasedTriggerImpl implements IdleTim
 		switch (featureID) {
 			case ScalingtriggerPackage.IDLE_TIME_TRIGGER__RESOURCE_CONTAINER:
 				getResourceContainer().clear();
-				getResourceContainer().addAll((Collection<? extends ResourceContainer>)newValue);
+				getResourceContainer().addAll((Collection<? extends PCMResourceContainer>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);

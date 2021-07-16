@@ -91,6 +91,7 @@ public class SPDImpl extends MinimalEObjectImpl.Container implements SPD {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<ScalingPolicy> getScalingpolicy() {
 		if (scalingpolicy == null) {
 			scalingpolicy = new EObjectContainmentEList<ScalingPolicy>(ScalingPolicy.class, this, SpdPackage.SPD__SCALINGPOLICY);
@@ -103,6 +104,7 @@ public class SPDImpl extends MinimalEObjectImpl.Container implements SPD {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getName() {
 		return name;
 	}
@@ -112,6 +114,7 @@ public class SPDImpl extends MinimalEObjectImpl.Container implements SPD {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setName(String newName) {
 		String oldName = name;
 		name = newName;

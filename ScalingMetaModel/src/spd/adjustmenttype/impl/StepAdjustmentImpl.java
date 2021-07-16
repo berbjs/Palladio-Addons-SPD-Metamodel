@@ -69,6 +69,7 @@ public class StepAdjustmentImpl extends AdjustmentTypeImpl implements StepAdjust
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public int getStepValue() {
 		return stepValue;
 	}
@@ -78,6 +79,7 @@ public class StepAdjustmentImpl extends AdjustmentTypeImpl implements StepAdjust
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setStepValue(int newStepValue) {
 		int oldStepValue = stepValue;
 		stepValue = newStepValue;

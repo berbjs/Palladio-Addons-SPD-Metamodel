@@ -3,8 +3,7 @@
 package spd.scalingtrigger;
 
 import org.eclipse.emf.common.util.EList;
-
-import org.palladiosimulator.pcm.resourceenvironment.ResourceContainer;
+import spd.palladio.PCMResourceContainer;
 
 /**
  * <!-- begin-user-doc -->
@@ -36,7 +35,7 @@ public interface TaskCountTrigger extends ThresholdBasedTrigger {
 	 * @return the value of the '<em>Threshold</em>' attribute.
 	 * @see #setThreshold(int)
 	 * @see spd.scalingtrigger.ScalingtriggerPackage#getTaskCountTrigger_Threshold()
-	 * @model default="0"
+	 * @model default="0" required="true"
 	 * @generated
 	 */
 	int getThreshold();
@@ -53,7 +52,7 @@ public interface TaskCountTrigger extends ThresholdBasedTrigger {
 
 	/**
 	 * Returns the value of the '<em><b>Resource Container</b></em>' reference list.
-	 * The list contents are of type {@link org.palladiosimulator.pcm.resourceenvironment.ResourceContainer}.
+	 * The list contents are of type {@link spd.palladio.PCMResourceContainer}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Resource Container</em>' reference list.
@@ -61,7 +60,7 @@ public interface TaskCountTrigger extends ThresholdBasedTrigger {
 	 * @model
 	 * @generated
 	 */
-	EList<ResourceContainer> getResourceContainer();
+	EList<PCMResourceContainer> getResourceContainer();
 
 	/**
 	 * Returns the value of the '<em><b>Threshold Direction</b></em>' attribute.
@@ -145,7 +144,7 @@ public interface TaskCountTrigger extends ThresholdBasedTrigger {
 	 * @return the value of the '<em>Violation Window</em>' attribute.
 	 * @see #setViolationWindow(double)
 	 * @see spd.scalingtrigger.ScalingtriggerPackage#getTaskCountTrigger_ViolationWindow()
-	 * @model
+	 * @model required="true"
 	 * @generated
 	 */
 	double getViolationWindow();

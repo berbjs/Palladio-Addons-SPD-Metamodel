@@ -70,6 +70,7 @@ public class HDDUtilizationTriggerImpl extends ProcessingResourceUtilizationBase
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public HDDUSAGETYPE getUsageType() {
 		return usageType;
 	}
@@ -79,6 +80,7 @@ public class HDDUtilizationTriggerImpl extends ProcessingResourceUtilizationBase
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setUsageType(HDDUSAGETYPE newUsageType) {
 		HDDUSAGETYPE oldUsageType = usageType;
 		usageType = newUsageType == null ? USAGE_TYPE_EDEFAULT : newUsageType;

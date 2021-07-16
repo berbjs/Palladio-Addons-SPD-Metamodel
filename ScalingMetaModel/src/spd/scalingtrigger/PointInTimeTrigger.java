@@ -27,7 +27,7 @@ public interface PointInTimeTrigger extends ScalingTrigger {
 	 * @return the value of the '<em>Point In Time</em>' attribute.
 	 * @see #setPointInTime(double)
 	 * @see spd.scalingtrigger.ScalingtriggerPackage#getPointInTimeTrigger_PointInTime()
-	 * @model
+	 * @model required="true"
 	 * @generated
 	 */
 	double getPointInTime();
