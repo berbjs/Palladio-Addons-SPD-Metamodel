@@ -132,10 +132,18 @@
     </nestedGenPackages>
     <nestedGenPackages prefix="Palladio" basePackage="spd" disposableProviderFactory="true"
         ecorePackage="SPD.ecore#//palladio">
-      <genClasses ecoreClass="SPD.ecore#//palladio/PCMResourceEnvironment"/>
-      <genClasses ecoreClass="SPD.ecore#//palladio/PCMResourceContainer"/>
-      <genClasses ecoreClass="SPD.ecore#//palladio/PCMLinkingResource"/>
-      <genClasses ecoreClass="SPD.ecore#//palladio/PCMOperationSignature"/>
+      <genClasses ecoreClass="SPD.ecore#//palladio/PCMResourceEnvironment">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SPD.ecore#//palladio/PCMResourceEnvironment/name"/>
+      </genClasses>
+      <genClasses ecoreClass="SPD.ecore#//palladio/PCMResourceContainer">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SPD.ecore#//palladio/PCMResourceContainer/name"/>
+      </genClasses>
+      <genClasses ecoreClass="SPD.ecore#//palladio/PCMLinkingResource">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SPD.ecore#//palladio/PCMLinkingResource/name"/>
+      </genClasses>
+      <genClasses ecoreClass="SPD.ecore#//palladio/PCMOperationSignature">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SPD.ecore#//palladio/PCMOperationSignature/name"/>
+      </genClasses>
     </nestedGenPackages>
   </genPackages>
 </genmodel:GenModel>

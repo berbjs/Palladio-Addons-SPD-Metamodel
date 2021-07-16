@@ -2,6 +2,7 @@
  */
 package spd.palladio;
 
+import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
 
@@ -65,13 +66,22 @@ public interface PalladioPackage extends EPackage {
 	int PCM_RESOURCE_ENVIRONMENT = 0;
 
 	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PCM_RESOURCE_ENVIRONMENT__NAME = 0;
+
+	/**
 	 * The number of structural features of the '<em>PCM Resource Environment</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PCM_RESOURCE_ENVIRONMENT_FEATURE_COUNT = 0;
+	int PCM_RESOURCE_ENVIRONMENT_FEATURE_COUNT = 1;
 
 	/**
 	 * The number of operations of the '<em>PCM Resource Environment</em>' class.
@@ -93,13 +103,22 @@ public interface PalladioPackage extends EPackage {
 	int PCM_RESOURCE_CONTAINER = 1;
 
 	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PCM_RESOURCE_CONTAINER__NAME = 0;
+
+	/**
 	 * The number of structural features of the '<em>PCM Resource Container</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PCM_RESOURCE_CONTAINER_FEATURE_COUNT = 0;
+	int PCM_RESOURCE_CONTAINER_FEATURE_COUNT = 1;
 
 	/**
 	 * The number of operations of the '<em>PCM Resource Container</em>' class.
@@ -121,13 +140,22 @@ public interface PalladioPackage extends EPackage {
 	int PCM_LINKING_RESOURCE = 2;
 
 	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PCM_LINKING_RESOURCE__NAME = 0;
+
+	/**
 	 * The number of structural features of the '<em>PCM Linking Resource</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PCM_LINKING_RESOURCE_FEATURE_COUNT = 0;
+	int PCM_LINKING_RESOURCE_FEATURE_COUNT = 1;
 
 	/**
 	 * The number of operations of the '<em>PCM Linking Resource</em>' class.
@@ -149,13 +177,22 @@ public interface PalladioPackage extends EPackage {
 	int PCM_OPERATION_SIGNATURE = 3;
 
 	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PCM_OPERATION_SIGNATURE__NAME = 0;
+
+	/**
 	 * The number of structural features of the '<em>PCM Operation Signature</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PCM_OPERATION_SIGNATURE_FEATURE_COUNT = 0;
+	int PCM_OPERATION_SIGNATURE_FEATURE_COUNT = 1;
 
 	/**
 	 * The number of operations of the '<em>PCM Operation Signature</em>' class.
@@ -178,6 +215,17 @@ public interface PalladioPackage extends EPackage {
 	EClass getPCMResourceEnvironment();
 
 	/**
+	 * Returns the meta object for the attribute '{@link spd.palladio.PCMResourceEnvironment#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see spd.palladio.PCMResourceEnvironment#getName()
+	 * @see #getPCMResourceEnvironment()
+	 * @generated
+	 */
+	EAttribute getPCMResourceEnvironment_Name();
+
+	/**
 	 * Returns the meta object for class '{@link spd.palladio.PCMResourceContainer <em>PCM Resource Container</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -186,6 +234,17 @@ public interface PalladioPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getPCMResourceContainer();
+
+	/**
+	 * Returns the meta object for the attribute '{@link spd.palladio.PCMResourceContainer#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see spd.palladio.PCMResourceContainer#getName()
+	 * @see #getPCMResourceContainer()
+	 * @generated
+	 */
+	EAttribute getPCMResourceContainer_Name();
 
 	/**
 	 * Returns the meta object for class '{@link spd.palladio.PCMLinkingResource <em>PCM Linking Resource</em>}'.
@@ -198,6 +257,17 @@ public interface PalladioPackage extends EPackage {
 	EClass getPCMLinkingResource();
 
 	/**
+	 * Returns the meta object for the attribute '{@link spd.palladio.PCMLinkingResource#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see spd.palladio.PCMLinkingResource#getName()
+	 * @see #getPCMLinkingResource()
+	 * @generated
+	 */
+	EAttribute getPCMLinkingResource_Name();
+
+	/**
 	 * Returns the meta object for class '{@link spd.palladio.PCMOperationSignature <em>PCM Operation Signature</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -206,6 +276,17 @@ public interface PalladioPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getPCMOperationSignature();
+
+	/**
+	 * Returns the meta object for the attribute '{@link spd.palladio.PCMOperationSignature#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see spd.palladio.PCMOperationSignature#getName()
+	 * @see #getPCMOperationSignature()
+	 * @generated
+	 */
+	EAttribute getPCMOperationSignature_Name();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -241,6 +322,14 @@ public interface PalladioPackage extends EPackage {
 		EClass PCM_RESOURCE_ENVIRONMENT = eINSTANCE.getPCMResourceEnvironment();
 
 		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute PCM_RESOURCE_ENVIRONMENT__NAME = eINSTANCE.getPCMResourceEnvironment_Name();
+
+		/**
 		 * The meta object literal for the '{@link spd.palladio.impl.PCMResourceContainerImpl <em>PCM Resource Container</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -249,6 +338,14 @@ public interface PalladioPackage extends EPackage {
 		 * @generated
 		 */
 		EClass PCM_RESOURCE_CONTAINER = eINSTANCE.getPCMResourceContainer();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute PCM_RESOURCE_CONTAINER__NAME = eINSTANCE.getPCMResourceContainer_Name();
 
 		/**
 		 * The meta object literal for the '{@link spd.palladio.impl.PCMLinkingResourceImpl <em>PCM Linking Resource</em>}' class.
@@ -261,6 +358,14 @@ public interface PalladioPackage extends EPackage {
 		EClass PCM_LINKING_RESOURCE = eINSTANCE.getPCMLinkingResource();
 
 		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute PCM_LINKING_RESOURCE__NAME = eINSTANCE.getPCMLinkingResource_Name();
+
+		/**
 		 * The meta object literal for the '{@link spd.palladio.impl.PCMOperationSignatureImpl <em>PCM Operation Signature</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -269,6 +374,14 @@ public interface PalladioPackage extends EPackage {
 		 * @generated
 		 */
 		EClass PCM_OPERATION_SIGNATURE = eINSTANCE.getPCMOperationSignature();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute PCM_OPERATION_SIGNATURE__NAME = eINSTANCE.getPCMOperationSignature_Name();
 
 	}
 

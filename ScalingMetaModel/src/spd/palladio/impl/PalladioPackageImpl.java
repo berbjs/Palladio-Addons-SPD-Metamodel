@@ -2,6 +2,7 @@
  */
 package spd.palladio.impl;
 
+import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
 
@@ -168,8 +169,28 @@ public class PalladioPackageImpl extends EPackageImpl implements PalladioPackage
 	 * @generated
 	 */
 	@Override
+	public EAttribute getPCMResourceEnvironment_Name() {
+		return (EAttribute)pcmResourceEnvironmentEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getPCMResourceContainer() {
 		return pcmResourceContainerEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getPCMResourceContainer_Name() {
+		return (EAttribute)pcmResourceContainerEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -188,8 +209,28 @@ public class PalladioPackageImpl extends EPackageImpl implements PalladioPackage
 	 * @generated
 	 */
 	@Override
+	public EAttribute getPCMLinkingResource_Name() {
+		return (EAttribute)pcmLinkingResourceEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getPCMOperationSignature() {
 		return pcmOperationSignatureEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getPCMOperationSignature_Name() {
+		return (EAttribute)pcmOperationSignatureEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -222,12 +263,16 @@ public class PalladioPackageImpl extends EPackageImpl implements PalladioPackage
 
 		// Create classes and their features
 		pcmResourceEnvironmentEClass = createEClass(PCM_RESOURCE_ENVIRONMENT);
+		createEAttribute(pcmResourceEnvironmentEClass, PCM_RESOURCE_ENVIRONMENT__NAME);
 
 		pcmResourceContainerEClass = createEClass(PCM_RESOURCE_CONTAINER);
+		createEAttribute(pcmResourceContainerEClass, PCM_RESOURCE_CONTAINER__NAME);
 
 		pcmLinkingResourceEClass = createEClass(PCM_LINKING_RESOURCE);
+		createEAttribute(pcmLinkingResourceEClass, PCM_LINKING_RESOURCE__NAME);
 
 		pcmOperationSignatureEClass = createEClass(PCM_OPERATION_SIGNATURE);
+		createEAttribute(pcmOperationSignatureEClass, PCM_OPERATION_SIGNATURE__NAME);
 	}
 
 	/**
@@ -261,12 +306,16 @@ public class PalladioPackageImpl extends EPackageImpl implements PalladioPackage
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(pcmResourceEnvironmentEClass, PCMResourceEnvironment.class, "PCMResourceEnvironment", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getPCMResourceEnvironment_Name(), ecorePackage.getEString(), "name", null, 0, 1, PCMResourceEnvironment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(pcmResourceContainerEClass, PCMResourceContainer.class, "PCMResourceContainer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getPCMResourceContainer_Name(), ecorePackage.getEString(), "name", null, 0, 1, PCMResourceContainer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(pcmLinkingResourceEClass, PCMLinkingResource.class, "PCMLinkingResource", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getPCMLinkingResource_Name(), ecorePackage.getEString(), "name", null, 0, 1, PCMLinkingResource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(pcmOperationSignatureEClass, PCMOperationSignature.class, "PCMOperationSignature", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getPCMOperationSignature_Name(), ecorePackage.getEString(), "name", null, 0, 1, PCMOperationSignature.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 	}
 
 } //PalladioPackageImpl

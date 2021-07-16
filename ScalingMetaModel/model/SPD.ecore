@@ -176,9 +176,17 @@
     </eClassifiers>
   </eSubpackages>
   <eSubpackages name="palladio" nsURI="palladio" nsPrefix="palladio">
-    <eClassifiers xsi:type="ecore:EClass" name="PCMResourceEnvironment"/>
-    <eClassifiers xsi:type="ecore:EClass" name="PCMResourceContainer"/>
-    <eClassifiers xsi:type="ecore:EClass" name="PCMLinkingResource"/>
-    <eClassifiers xsi:type="ecore:EClass" name="PCMOperationSignature"/>
+    <eClassifiers xsi:type="ecore:EClass" name="PCMResourceEnvironment">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="PCMResourceContainer">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="PCMLinkingResource">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="PCMOperationSignature">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eClassifiers>
   </eSubpackages>
 </ecore:EPackage>
