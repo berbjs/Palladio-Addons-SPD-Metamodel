@@ -16,7 +16,7 @@
         <description xmi:type="description_1:CrossTableDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']"/>
         <target xmi:type="ecore:EPackage" href="SPD.ecore#//adjustmenttype"/>
       </ownedRepresentationDescriptors>
-      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_HqQIsOZ5EeubyN28WsniQg" name="scalingtrigger documentation table" repPath="#_HqO6kOZ5EeubyN28WsniQg" changeId="e9e0defa-bd7e-4095-ba46-783c067616a4">
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_HqQIsOZ5EeubyN28WsniQg" name="scalingtrigger documentation table" repPath="#_HqO6kOZ5EeubyN28WsniQg" changeId="e489f401-110a-430d-bec0-148a4a907715">
         <description xmi:type="description_1:CrossTableDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']"/>
         <target xmi:type="ecore:EPackage" href="SPD.ecore#//scalingtrigger"/>
       </ownedRepresentationDescriptors>
@@ -338,7 +338,7 @@
       <target xmi:type="ecore:EClass" href="SPD.ecore#//scalingtrigger/ThresholdBasedTrigger"/>
       <semanticElements xmi:type="ecore:EClass" href="SPD.ecore#//scalingtrigger/ThresholdBasedTrigger"/>
       <originMapping xmi:type="description_1:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']"/>
-      <cells xmi:type="table:DCell" uid="__9kUZ-Z5EeubyN28WsniQg" label="A ThresholdBasedTrigger is the supper type of triggers that for analysis has a simple threshold check for breach or undercut. " column="_HqPhzeZ5EeubyN28WsniQg">
+      <cells xmi:type="table:DCell" uid="__9kUZ-Z5EeubyN28WsniQg" label="A ThresholdBasedTrigger is the supertype of triggers that for analysis has a simple threshold check for breach or undercut. " column="_HqPhzeZ5EeubyN28WsniQg">
         <target xmi:type="ecore:EStringToStringMapEntry" href="SPD.ecore#//scalingtrigger/ThresholdBasedTrigger/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
         <semanticElements xmi:type="ecore:EStringToStringMapEntry" href="SPD.ecore#//scalingtrigger/ThresholdBasedTrigger/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
         <currentStyle xmi:type="table:DCellStyle" uid="__9kUaOZ5EeubyN28WsniQg" defaultBackgroundStyle="true" backgroundColor="220,234,183">
@@ -351,11 +351,27 @@
       <target xmi:type="ecore:EClass" href="SPD.ecore#//scalingtrigger/CPUUtilizationTrigger"/>
       <semanticElements xmi:type="ecore:EClass" href="SPD.ecore#//scalingtrigger/CPUUtilizationTrigger"/>
       <originMapping xmi:type="description_1:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']"/>
+      <cells xmi:type="table:DCell" uid="_AmHvkOfiEeubyN28WsniQg" label="A utilization based trigger based on the CPU resource." column="_HqPhzeZ5EeubyN28WsniQg">
+        <target xmi:type="ecore:EStringToStringMapEntry" href="SPD.ecore#//scalingtrigger/CPUUtilizationTrigger/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
+        <semanticElements xmi:type="ecore:EStringToStringMapEntry" href="SPD.ecore#//scalingtrigger/CPUUtilizationTrigger/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
+        <currentStyle xmi:type="table:DCellStyle" uid="_AmHvkefiEeubyN28WsniQg" defaultBackgroundStyle="true" backgroundColor="220,234,183">
+          <backgroundStyleOrigin xmi:type="description_1:IntersectionMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@intersection.0"/>
+        </currentStyle>
+        <intersectionMapping xmi:type="description_1:IntersectionMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@intersection.0"/>
+      </cells>
     </lines>
     <lines xmi:type="table:DLine" uid="_HqO6l-Z5EeubyN28WsniQg" label="EClass : RAMUtilizationTrigger">
       <target xmi:type="ecore:EClass" href="SPD.ecore#//scalingtrigger/RAMUtilizationTrigger"/>
       <semanticElements xmi:type="ecore:EClass" href="SPD.ecore#//scalingtrigger/RAMUtilizationTrigger"/>
       <originMapping xmi:type="description_1:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']"/>
+      <cells xmi:type="table:DCell" uid="_Cuz6defiEeubyN28WsniQg" label="A utilization based trigger based on the RAM resource." column="_HqPhzeZ5EeubyN28WsniQg">
+        <target xmi:type="ecore:EStringToStringMapEntry" href="SPD.ecore#//scalingtrigger/RAMUtilizationTrigger/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
+        <semanticElements xmi:type="ecore:EStringToStringMapEntry" href="SPD.ecore#//scalingtrigger/RAMUtilizationTrigger/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
+        <currentStyle xmi:type="table:DCellStyle" uid="_Cu0hcOfiEeubyN28WsniQg" defaultBackgroundStyle="true" backgroundColor="220,234,183">
+          <backgroundStyleOrigin xmi:type="description_1:IntersectionMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@intersection.0"/>
+        </currentStyle>
+        <intersectionMapping xmi:type="description_1:IntersectionMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@intersection.0"/>
+      </cells>
     </lines>
     <lines xmi:type="table:DLine" uid="_HqO6meZ5EeubyN28WsniQg" label="EClass : HDDUtilizationTrigger">
       <target xmi:type="ecore:EClass" href="SPD.ecore#//scalingtrigger/HDDUtilizationTrigger"/>
@@ -366,6 +382,14 @@
       </lines>
       <semanticElements xmi:type="ecore:EClass" href="SPD.ecore#//scalingtrigger/HDDUtilizationTrigger"/>
       <originMapping xmi:type="description_1:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']"/>
+      <cells xmi:type="table:DCell" uid="_EhvQn-fiEeubyN28WsniQg" label="A utilization based trigger based on the HDD resource." column="_HqPhzeZ5EeubyN28WsniQg">
+        <target xmi:type="ecore:EStringToStringMapEntry" href="SPD.ecore#//scalingtrigger/HDDUtilizationTrigger/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
+        <semanticElements xmi:type="ecore:EStringToStringMapEntry" href="SPD.ecore#//scalingtrigger/HDDUtilizationTrigger/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
+        <currentStyle xmi:type="table:DCellStyle" uid="_EhvQoOfiEeubyN28WsniQg" defaultBackgroundStyle="true" backgroundColor="220,234,183">
+          <backgroundStyleOrigin xmi:type="description_1:IntersectionMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@intersection.0"/>
+        </currentStyle>
+        <intersectionMapping xmi:type="description_1:IntersectionMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@intersection.0"/>
+      </cells>
     </lines>
     <lines xmi:type="table:DLine" uid="_HqO6m-Z5EeubyN28WsniQg" label="EClass : TimeBasedTrigger">
       <target xmi:type="ecore:EClass" href="SPD.ecore#//scalingtrigger/TimeBasedTrigger"/>
@@ -373,9 +397,25 @@
         <target xmi:type="ecore:EAttribute" href="SPD.ecore#//scalingtrigger/TimeBasedTrigger/threshold"/>
         <semanticElements xmi:type="ecore:EAttribute" href="SPD.ecore#//scalingtrigger/TimeBasedTrigger/threshold"/>
         <originMapping xmi:type="description_1:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+        <cells xmi:type="table:DCell" uid="_LdfhwOfiEeubyN28WsniQg" label="The reference threshold value." column="_HqPhzeZ5EeubyN28WsniQg">
+          <target xmi:type="ecore:EStringToStringMapEntry" href="SPD.ecore#//scalingtrigger/TimeBasedTrigger/threshold/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
+          <semanticElements xmi:type="ecore:EStringToStringMapEntry" href="SPD.ecore#//scalingtrigger/TimeBasedTrigger/threshold/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
+          <currentStyle xmi:type="table:DCellStyle" uid="_LdfhwefiEeubyN28WsniQg" defaultBackgroundStyle="true" backgroundColor="220,234,183">
+            <backgroundStyleOrigin xmi:type="description_1:IntersectionMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@intersection.0"/>
+          </currentStyle>
+          <intersectionMapping xmi:type="description_1:IntersectionMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@intersection.0"/>
+        </cells>
       </lines>
       <semanticElements xmi:type="ecore:EClass" href="SPD.ecore#//scalingtrigger/TimeBasedTrigger"/>
       <originMapping xmi:type="description_1:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']"/>
+      <cells xmi:type="table:DCell" uid="_FDzb1-fiEeubyN28WsniQg" label="A superclass of thershold based triggers that base the trigger on time units such as Response Time or waiting time etc." column="_HqPhzeZ5EeubyN28WsniQg">
+        <target xmi:type="ecore:EStringToStringMapEntry" href="SPD.ecore#//scalingtrigger/TimeBasedTrigger/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
+        <semanticElements xmi:type="ecore:EStringToStringMapEntry" href="SPD.ecore#//scalingtrigger/TimeBasedTrigger/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
+        <currentStyle xmi:type="table:DCellStyle" uid="_FDzb2OfiEeubyN28WsniQg" defaultBackgroundStyle="true" backgroundColor="220,234,183">
+          <backgroundStyleOrigin xmi:type="description_1:IntersectionMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@intersection.0"/>
+        </currentStyle>
+        <intersectionMapping xmi:type="description_1:IntersectionMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@intersection.0"/>
+      </cells>
     </lines>
     <lines xmi:type="table:DLine" uid="_HqO6neZ5EeubyN28WsniQg" label="EClass : PointInTimeTrigger">
       <target xmi:type="ecore:EClass" href="SPD.ecore#//scalingtrigger/PointInTimeTrigger"/>
@@ -383,6 +423,14 @@
         <target xmi:type="ecore:EAttribute" href="SPD.ecore#//scalingtrigger/PointInTimeTrigger/pointInTime"/>
         <semanticElements xmi:type="ecore:EAttribute" href="SPD.ecore#//scalingtrigger/PointInTimeTrigger/pointInTime"/>
         <originMapping xmi:type="description_1:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+        <cells xmi:type="table:DCell" uid="_Wm7Ud-fiEeubyN28WsniQg" label="The simulation time at which the target group should be adjusted." column="_HqPhzeZ5EeubyN28WsniQg">
+          <target xmi:type="ecore:EStringToStringMapEntry" href="SPD.ecore#//scalingtrigger/PointInTimeTrigger/pointInTime/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
+          <semanticElements xmi:type="ecore:EStringToStringMapEntry" href="SPD.ecore#//scalingtrigger/PointInTimeTrigger/pointInTime/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
+          <currentStyle xmi:type="table:DCellStyle" uid="_Wm7UeOfiEeubyN28WsniQg" defaultBackgroundStyle="true" backgroundColor="220,234,183">
+            <backgroundStyleOrigin xmi:type="description_1:IntersectionMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@intersection.0"/>
+          </currentStyle>
+          <intersectionMapping xmi:type="description_1:IntersectionMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@intersection.0"/>
+        </cells>
       </lines>
       <semanticElements xmi:type="ecore:EClass" href="SPD.ecore#//scalingtrigger/PointInTimeTrigger"/>
       <originMapping xmi:type="description_1:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']"/>
@@ -401,14 +449,38 @@
         <target xmi:type="ecore:EReference" href="SPD.ecore#//scalingtrigger/IdleTimeTrigger/resourceContainer"/>
         <semanticElements xmi:type="ecore:EReference" href="SPD.ecore#//scalingtrigger/IdleTimeTrigger/resourceContainer"/>
         <originMapping xmi:type="description_1:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+        <cells xmi:type="table:DCell" uid="_Nh04YOffEeubyN28WsniQg" label="Resource containers that are checked for being idle." column="_HqPhzeZ5EeubyN28WsniQg">
+          <target xmi:type="ecore:EStringToStringMapEntry" href="SPD.ecore#//scalingtrigger/IdleTimeTrigger/resourceContainer/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
+          <semanticElements xmi:type="ecore:EStringToStringMapEntry" href="SPD.ecore#//scalingtrigger/IdleTimeTrigger/resourceContainer/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
+          <currentStyle xmi:type="table:DCellStyle" uid="_Nh04YeffEeubyN28WsniQg" defaultBackgroundStyle="true" backgroundColor="220,234,183">
+            <backgroundStyleOrigin xmi:type="description_1:IntersectionMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@intersection.0"/>
+          </currentStyle>
+          <intersectionMapping xmi:type="description_1:IntersectionMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@intersection.0"/>
+        </cells>
       </lines>
       <semanticElements xmi:type="ecore:EClass" href="SPD.ecore#//scalingtrigger/IdleTimeTrigger"/>
       <originMapping xmi:type="description_1:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']"/>
+      <cells xmi:type="table:DCell" uid="_AtzzZuffEeubyN28WsniQg" label="IdleTimeTrigger bases the trigger on the idle time of a resource container.&#xA;" column="_HqPhzeZ5EeubyN28WsniQg">
+        <target xmi:type="ecore:EStringToStringMapEntry" href="SPD.ecore#//scalingtrigger/IdleTimeTrigger/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
+        <semanticElements xmi:type="ecore:EStringToStringMapEntry" href="SPD.ecore#//scalingtrigger/IdleTimeTrigger/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
+        <currentStyle xmi:type="table:DCellStyle" uid="_AtzzZ-ffEeubyN28WsniQg" defaultBackgroundStyle="true" backgroundColor="220,234,183">
+          <backgroundStyleOrigin xmi:type="description_1:IntersectionMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@intersection.0"/>
+        </currentStyle>
+        <intersectionMapping xmi:type="description_1:IntersectionMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@intersection.0"/>
+      </cells>
     </lines>
     <lines xmi:type="table:DLine" uid="_HqO6oeZ5EeubyN28WsniQg" label="EEnum : AGGREGATIONMETHOD">
       <target xmi:type="ecore:EEnum" href="SPD.ecore#//scalingtrigger/AGGREGATIONMETHOD"/>
       <semanticElements xmi:type="ecore:EEnum" href="SPD.ecore#//scalingtrigger/AGGREGATIONMETHOD"/>
       <originMapping xmi:type="description_1:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']"/>
+      <cells xmi:type="table:DCell" uid="_XHSW4uffEeubyN28WsniQg" label="Enum for the following aggregation methods: MIN, MAX, AVERAGE, SUM that are relevant for different triggers." column="_HqPhzeZ5EeubyN28WsniQg">
+        <target xmi:type="ecore:EStringToStringMapEntry" href="SPD.ecore#//scalingtrigger/AGGREGATIONMETHOD/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
+        <semanticElements xmi:type="ecore:EStringToStringMapEntry" href="SPD.ecore#//scalingtrigger/AGGREGATIONMETHOD/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
+        <currentStyle xmi:type="table:DCellStyle" uid="_XHS90OffEeubyN28WsniQg" defaultBackgroundStyle="true" backgroundColor="220,234,183">
+          <backgroundStyleOrigin xmi:type="description_1:IntersectionMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@intersection.0"/>
+        </currentStyle>
+        <intersectionMapping xmi:type="description_1:IntersectionMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@intersection.0"/>
+      </cells>
     </lines>
     <lines xmi:type="table:DLine" uid="_HqO6o-Z5EeubyN28WsniQg" label="EClass : TaskCountTrigger">
       <target xmi:type="ecore:EClass" href="SPD.ecore#//scalingtrigger/TaskCountTrigger"/>
@@ -416,39 +488,103 @@
         <target xmi:type="ecore:EAttribute" href="SPD.ecore#//scalingtrigger/TaskCountTrigger/threshold"/>
         <semanticElements xmi:type="ecore:EAttribute" href="SPD.ecore#//scalingtrigger/TaskCountTrigger/threshold"/>
         <originMapping xmi:type="description_1:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+        <cells xmi:type="table:DCell" uid="_84omoOfgEeubyN28WsniQg" label="Reference threshold value against which the monitored value is compared. &#xA;" column="_HqPhzeZ5EeubyN28WsniQg">
+          <target xmi:type="ecore:EStringToStringMapEntry" href="SPD.ecore#//scalingtrigger/TaskCountTrigger/threshold/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
+          <semanticElements xmi:type="ecore:EStringToStringMapEntry" href="SPD.ecore#//scalingtrigger/TaskCountTrigger/threshold/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
+          <currentStyle xmi:type="table:DCellStyle" uid="_84omoefgEeubyN28WsniQg" defaultBackgroundStyle="true" backgroundColor="220,234,183">
+            <backgroundStyleOrigin xmi:type="description_1:IntersectionMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@intersection.0"/>
+          </currentStyle>
+          <intersectionMapping xmi:type="description_1:IntersectionMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@intersection.0"/>
+        </cells>
       </lines>
       <lines xmi:type="table:DLine" uid="_HqPhreZ5EeubyN28WsniQg" label="EReference : resourceContainer">
         <target xmi:type="ecore:EReference" href="SPD.ecore#//scalingtrigger/TaskCountTrigger/resourceContainer"/>
         <semanticElements xmi:type="ecore:EReference" href="SPD.ecore#//scalingtrigger/TaskCountTrigger/resourceContainer"/>
         <originMapping xmi:type="description_1:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+        <cells xmi:type="table:DCell" uid="_EDvicOfhEeubyN28WsniQg" label="A list of resource containers for which task count is used. If left empty, all resource containers as referenced by the TargetGroup are used." column="_HqPhzeZ5EeubyN28WsniQg">
+          <target xmi:type="ecore:EStringToStringMapEntry" href="SPD.ecore#//scalingtrigger/TaskCountTrigger/resourceContainer/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
+          <semanticElements xmi:type="ecore:EStringToStringMapEntry" href="SPD.ecore#//scalingtrigger/TaskCountTrigger/resourceContainer/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
+          <currentStyle xmi:type="table:DCellStyle" uid="_EDvicefhEeubyN28WsniQg" defaultBackgroundStyle="true" backgroundColor="220,234,183">
+            <backgroundStyleOrigin xmi:type="description_1:IntersectionMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@intersection.0"/>
+          </currentStyle>
+          <intersectionMapping xmi:type="description_1:IntersectionMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@intersection.0"/>
+        </cells>
       </lines>
       <lines xmi:type="table:DLine" uid="_HqPhr-Z5EeubyN28WsniQg" label="EAttribute : thresholdDirection">
         <target xmi:type="ecore:EAttribute" href="SPD.ecore#//scalingtrigger/TaskCountTrigger/thresholdDirection"/>
         <semanticElements xmi:type="ecore:EAttribute" href="SPD.ecore#//scalingtrigger/TaskCountTrigger/thresholdDirection"/>
         <originMapping xmi:type="description_1:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+        <cells xmi:type="table:DCell" uid="_A8onkOfhEeubyN28WsniQg" label="The direction to determine the breach as defined by the THRESHOLDDIRECTION enum either as EXCEEDED or UNDERCUT. " column="_HqPhzeZ5EeubyN28WsniQg">
+          <target xmi:type="ecore:EStringToStringMapEntry" href="SPD.ecore#//scalingtrigger/TaskCountTrigger/thresholdDirection/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
+          <semanticElements xmi:type="ecore:EStringToStringMapEntry" href="SPD.ecore#//scalingtrigger/TaskCountTrigger/thresholdDirection/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
+          <currentStyle xmi:type="table:DCellStyle" uid="_A8onkefhEeubyN28WsniQg" defaultBackgroundStyle="true" backgroundColor="220,234,183">
+            <backgroundStyleOrigin xmi:type="description_1:IntersectionMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@intersection.0"/>
+          </currentStyle>
+          <intersectionMapping xmi:type="description_1:IntersectionMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@intersection.0"/>
+        </cells>
       </lines>
       <lines xmi:type="table:DLine" uid="_HqPhseZ5EeubyN28WsniQg" label="EAttribute : processingResourceAggregation">
         <target xmi:type="ecore:EAttribute" href="SPD.ecore#//scalingtrigger/TaskCountTrigger/processingResourceAggregation"/>
         <semanticElements xmi:type="ecore:EAttribute" href="SPD.ecore#//scalingtrigger/TaskCountTrigger/processingResourceAggregation"/>
         <originMapping xmi:type="description_1:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+        <cells xmi:type="table:DCell" uid="_o61mAOfhEeubyN28WsniQg" label="The aggregation for monitors inside a single resource container. Since a resource container may consists of multiple resources of same type (e.g., several CPUs) then the specified aggregation method determines how multiple monitors should be aggregated within a single resource container.&#xA;" column="_HqPhzeZ5EeubyN28WsniQg">
+          <target xmi:type="ecore:EStringToStringMapEntry" href="SPD.ecore#//scalingtrigger/TaskCountTrigger/processingResourceAggregation/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
+          <semanticElements xmi:type="ecore:EStringToStringMapEntry" href="SPD.ecore#//scalingtrigger/TaskCountTrigger/processingResourceAggregation/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
+          <currentStyle xmi:type="table:DCellStyle" uid="_o61mAefhEeubyN28WsniQg" defaultBackgroundStyle="true" backgroundColor="220,234,183">
+            <backgroundStyleOrigin xmi:type="description_1:IntersectionMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@intersection.0"/>
+          </currentStyle>
+          <intersectionMapping xmi:type="description_1:IntersectionMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@intersection.0"/>
+        </cells>
       </lines>
       <lines xmi:type="table:DLine" uid="_HqPhs-Z5EeubyN28WsniQg" label="EAttribute : resourceContainerAggregation">
         <target xmi:type="ecore:EAttribute" href="SPD.ecore#//scalingtrigger/TaskCountTrigger/resourceContainerAggregation"/>
         <semanticElements xmi:type="ecore:EAttribute" href="SPD.ecore#//scalingtrigger/TaskCountTrigger/resourceContainerAggregation"/>
         <originMapping xmi:type="description_1:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+        <cells xmi:type="table:DCell" uid="_qkr4sOfhEeubyN28WsniQg" label="The aggregation accross different resource containers in the Target Group. For example if two containers C1 and C2 have a resource utilizaiton of 0.6, respectively 0.8, then choosing AVERAGE as an aggreagtion method then it determines that the value of 0.7 should be compared against the threshold value. " column="_HqPhzeZ5EeubyN28WsniQg">
+          <target xmi:type="ecore:EStringToStringMapEntry" href="SPD.ecore#//scalingtrigger/TaskCountTrigger/resourceContainerAggregation/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
+          <semanticElements xmi:type="ecore:EStringToStringMapEntry" href="SPD.ecore#//scalingtrigger/TaskCountTrigger/resourceContainerAggregation/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
+          <currentStyle xmi:type="table:DCellStyle" uid="_qkr4sefhEeubyN28WsniQg" defaultBackgroundStyle="true" backgroundColor="220,234,183">
+            <backgroundStyleOrigin xmi:type="description_1:IntersectionMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@intersection.0"/>
+          </currentStyle>
+          <intersectionMapping xmi:type="description_1:IntersectionMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@intersection.0"/>
+        </cells>
       </lines>
       <lines xmi:type="table:DLine" uid="_HqPhteZ5EeubyN28WsniQg" label="EAttribute : violationWindow">
         <target xmi:type="ecore:EAttribute" href="SPD.ecore#//scalingtrigger/TaskCountTrigger/violationWindow"/>
         <semanticElements xmi:type="ecore:EAttribute" href="SPD.ecore#//scalingtrigger/TaskCountTrigger/violationWindow"/>
         <originMapping xmi:type="description_1:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+        <cells xmi:type="table:DCell" uid="_8zP64OfhEeubyN28WsniQg" label="The violationWindow determines how long a threshold can be exceeded or undercut before the scaling should occur." column="_HqPhzeZ5EeubyN28WsniQg">
+          <target xmi:type="ecore:EStringToStringMapEntry" href="SPD.ecore#//scalingtrigger/TaskCountTrigger/violationWindow/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
+          <semanticElements xmi:type="ecore:EStringToStringMapEntry" href="SPD.ecore#//scalingtrigger/TaskCountTrigger/violationWindow/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
+          <currentStyle xmi:type="table:DCellStyle" uid="_8zP64efhEeubyN28WsniQg" defaultBackgroundStyle="true" backgroundColor="220,234,183">
+            <backgroundStyleOrigin xmi:type="description_1:IntersectionMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@intersection.0"/>
+          </currentStyle>
+          <intersectionMapping xmi:type="description_1:IntersectionMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@intersection.0"/>
+        </cells>
       </lines>
       <semanticElements xmi:type="ecore:EClass" href="SPD.ecore#//scalingtrigger/TaskCountTrigger"/>
       <originMapping xmi:type="description_1:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']"/>
+      <cells xmi:type="table:DCell" uid="_lGMFIOfgEeubyN28WsniQg" label="The TaskCountTrigger bases the trigger on the countable number of tasks (or jobs) at a particular resource waiting to be processed." column="_HqPhzeZ5EeubyN28WsniQg">
+        <target xmi:type="ecore:EStringToStringMapEntry" href="SPD.ecore#//scalingtrigger/TaskCountTrigger/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
+        <semanticElements xmi:type="ecore:EStringToStringMapEntry" href="SPD.ecore#//scalingtrigger/TaskCountTrigger/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
+        <currentStyle xmi:type="table:DCellStyle" uid="_lGMFIefgEeubyN28WsniQg" defaultBackgroundStyle="true" backgroundColor="220,234,183">
+          <backgroundStyleOrigin xmi:type="description_1:IntersectionMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@intersection.0"/>
+        </currentStyle>
+        <intersectionMapping xmi:type="description_1:IntersectionMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@intersection.0"/>
+      </cells>
     </lines>
     <lines xmi:type="table:DLine" uid="_HqO6peZ5EeubyN28WsniQg" label="EEnum : HDDUSAGETYPE">
       <target xmi:type="ecore:EEnum" href="SPD.ecore#//scalingtrigger/HDDUSAGETYPE"/>
       <semanticElements xmi:type="ecore:EEnum" href="SPD.ecore#//scalingtrigger/HDDUSAGETYPE"/>
       <originMapping xmi:type="description_1:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']"/>
+      <cells xmi:type="table:DCell" uid="_oMIX0OffEeubyN28WsniQg" label="Enum for the type of HDD usage: READ, WRITE" column="_HqPhzeZ5EeubyN28WsniQg">
+        <target xmi:type="ecore:EStringToStringMapEntry" href="SPD.ecore#//scalingtrigger/HDDUSAGETYPE/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
+        <semanticElements xmi:type="ecore:EStringToStringMapEntry" href="SPD.ecore#//scalingtrigger/HDDUSAGETYPE/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
+        <currentStyle xmi:type="table:DCellStyle" uid="_oMIX0effEeubyN28WsniQg" defaultBackgroundStyle="true" backgroundColor="220,234,183">
+          <backgroundStyleOrigin xmi:type="description_1:IntersectionMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@intersection.0"/>
+        </currentStyle>
+        <intersectionMapping xmi:type="description_1:IntersectionMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@intersection.0"/>
+      </cells>
     </lines>
     <lines xmi:type="table:DLine" uid="_HqO6p-Z5EeubyN28WsniQg" label="EClass : NetworkUtilizationTrigger">
       <target xmi:type="ecore:EClass" href="SPD.ecore#//scalingtrigger/NetworkUtilizationTrigger"/>
@@ -456,24 +592,64 @@
         <target xmi:type="ecore:EAttribute" href="SPD.ecore#//scalingtrigger/NetworkUtilizationTrigger/usageType"/>
         <semanticElements xmi:type="ecore:EAttribute" href="SPD.ecore#//scalingtrigger/NetworkUtilizationTrigger/usageType"/>
         <originMapping xmi:type="description_1:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+        <cells xmi:type="table:DCell" uid="_GOn7EOfgEeubyN28WsniQg" label="The type of network usage." column="_HqPhzeZ5EeubyN28WsniQg">
+          <target xmi:type="ecore:EStringToStringMapEntry" href="SPD.ecore#//scalingtrigger/NetworkUtilizationTrigger/usageType/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
+          <semanticElements xmi:type="ecore:EStringToStringMapEntry" href="SPD.ecore#//scalingtrigger/NetworkUtilizationTrigger/usageType/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
+          <currentStyle xmi:type="table:DCellStyle" uid="_GOn7EefgEeubyN28WsniQg" defaultBackgroundStyle="true" backgroundColor="220,234,183">
+            <backgroundStyleOrigin xmi:type="description_1:IntersectionMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@intersection.0"/>
+          </currentStyle>
+          <intersectionMapping xmi:type="description_1:IntersectionMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@intersection.0"/>
+        </cells>
       </lines>
       <lines xmi:type="table:DLine" uid="_HqPhueZ5EeubyN28WsniQg" label="EReference : linkingResource">
         <target xmi:type="ecore:EReference" href="SPD.ecore#//scalingtrigger/NetworkUtilizationTrigger/linkingResource"/>
         <semanticElements xmi:type="ecore:EReference" href="SPD.ecore#//scalingtrigger/NetworkUtilizationTrigger/linkingResource"/>
         <originMapping xmi:type="description_1:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+        <cells xmi:type="table:DCell" uid="_EhDmAOfgEeubyN28WsniQg" label="The specific linking resource for which the utilization is used to trigger an adjustment." column="_HqPhzeZ5EeubyN28WsniQg">
+          <target xmi:type="ecore:EStringToStringMapEntry" href="SPD.ecore#//scalingtrigger/NetworkUtilizationTrigger/linkingResource/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
+          <semanticElements xmi:type="ecore:EStringToStringMapEntry" href="SPD.ecore#//scalingtrigger/NetworkUtilizationTrigger/linkingResource/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
+          <currentStyle xmi:type="table:DCellStyle" uid="_EhDmAefgEeubyN28WsniQg" defaultBackgroundStyle="true" backgroundColor="220,234,183">
+            <backgroundStyleOrigin xmi:type="description_1:IntersectionMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@intersection.0"/>
+          </currentStyle>
+          <intersectionMapping xmi:type="description_1:IntersectionMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@intersection.0"/>
+        </cells>
       </lines>
       <semanticElements xmi:type="ecore:EClass" href="SPD.ecore#//scalingtrigger/NetworkUtilizationTrigger"/>
       <originMapping xmi:type="description_1:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']"/>
+      <cells xmi:type="table:DCell" uid="_0F6CMeffEeubyN28WsniQg" label="NetworkUtilizationTrigger is a specialized ResourceUtilizationBasedTrigger that bases the trigger on the utilization of the network link as specified by the linkingResource." column="_HqPhzeZ5EeubyN28WsniQg">
+        <target xmi:type="ecore:EStringToStringMapEntry" href="SPD.ecore#//scalingtrigger/NetworkUtilizationTrigger/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
+        <semanticElements xmi:type="ecore:EStringToStringMapEntry" href="SPD.ecore#//scalingtrigger/NetworkUtilizationTrigger/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
+        <currentStyle xmi:type="table:DCellStyle" uid="_0F6CMuffEeubyN28WsniQg" defaultBackgroundStyle="true" backgroundColor="220,234,183">
+          <backgroundStyleOrigin xmi:type="description_1:IntersectionMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@intersection.0"/>
+        </currentStyle>
+        <intersectionMapping xmi:type="description_1:IntersectionMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@intersection.0"/>
+      </cells>
     </lines>
     <lines xmi:type="table:DLine" uid="_HqO6qeZ5EeubyN28WsniQg" label="EEnum : NETWORKUSAGETYPE">
       <target xmi:type="ecore:EEnum" href="SPD.ecore#//scalingtrigger/NETWORKUSAGETYPE"/>
       <semanticElements xmi:type="ecore:EEnum" href="SPD.ecore#//scalingtrigger/NETWORKUSAGETYPE"/>
       <originMapping xmi:type="description_1:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']"/>
+      <cells xmi:type="table:DCell" uid="_lFQGfOffEeubyN28WsniQg" label="Enum for the following Network Usage types: SEND, RECEIVE which are relevant to distinuish the type of use for a network resource." column="_HqPhzeZ5EeubyN28WsniQg">
+        <target xmi:type="ecore:EStringToStringMapEntry" href="SPD.ecore#//scalingtrigger/NETWORKUSAGETYPE/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
+        <semanticElements xmi:type="ecore:EStringToStringMapEntry" href="SPD.ecore#//scalingtrigger/NETWORKUSAGETYPE/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
+        <currentStyle xmi:type="table:DCellStyle" uid="_lFQGfeffEeubyN28WsniQg" defaultBackgroundStyle="true" backgroundColor="220,234,183">
+          <backgroundStyleOrigin xmi:type="description_1:IntersectionMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@intersection.0"/>
+        </currentStyle>
+        <intersectionMapping xmi:type="description_1:IntersectionMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@intersection.0"/>
+      </cells>
     </lines>
     <lines xmi:type="table:DLine" uid="_HqO6q-Z5EeubyN28WsniQg" label="EEnum : THRESHOLDDIRECTION">
       <target xmi:type="ecore:EEnum" href="SPD.ecore#//scalingtrigger/THRESHOLDDIRECTION"/>
       <semanticElements xmi:type="ecore:EEnum" href="SPD.ecore#//scalingtrigger/THRESHOLDDIRECTION"/>
       <originMapping xmi:type="description_1:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']"/>
+      <cells xmi:type="table:DCell" uid="_Jl0LTOfeEeubyN28WsniQg" label="The threshold direction can be either EXCEEDED or UNDERCUT." column="_HqPhzeZ5EeubyN28WsniQg">
+        <target xmi:type="ecore:EStringToStringMapEntry" href="SPD.ecore#//scalingtrigger/THRESHOLDDIRECTION/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
+        <semanticElements xmi:type="ecore:EStringToStringMapEntry" href="SPD.ecore#//scalingtrigger/THRESHOLDDIRECTION/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
+        <currentStyle xmi:type="table:DCellStyle" uid="_Jl0LTefeEeubyN28WsniQg" defaultBackgroundStyle="true" backgroundColor="220,234,183">
+          <backgroundStyleOrigin xmi:type="description_1:IntersectionMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@intersection.0"/>
+        </currentStyle>
+        <intersectionMapping xmi:type="description_1:IntersectionMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@intersection.0"/>
+      </cells>
     </lines>
     <lines xmi:type="table:DLine" uid="_HqO6reZ5EeubyN28WsniQg" label="EClass : ResponseTimeTrigger">
       <target xmi:type="ecore:EClass" href="SPD.ecore#//scalingtrigger/ResponseTimeTrigger"/>
@@ -481,19 +657,51 @@
         <target xmi:type="ecore:EReference" href="SPD.ecore#//scalingtrigger/ResponseTimeTrigger/operationSignature"/>
         <semanticElements xmi:type="ecore:EReference" href="SPD.ecore#//scalingtrigger/ResponseTimeTrigger/operationSignature"/>
         <originMapping xmi:type="description_1:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+        <cells xmi:type="table:DCell" uid="_sh0bNufeEeubyN28WsniQg" label="The operation from which the response time is used. " column="_HqPhzeZ5EeubyN28WsniQg">
+          <target xmi:type="ecore:EStringToStringMapEntry" href="SPD.ecore#//scalingtrigger/ResponseTimeTrigger/operationSignature/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
+          <semanticElements xmi:type="ecore:EStringToStringMapEntry" href="SPD.ecore#//scalingtrigger/ResponseTimeTrigger/operationSignature/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
+          <currentStyle xmi:type="table:DCellStyle" uid="_sh0bN-feEeubyN28WsniQg" defaultBackgroundStyle="true" backgroundColor="220,234,183">
+            <backgroundStyleOrigin xmi:type="description_1:IntersectionMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@intersection.0"/>
+          </currentStyle>
+          <intersectionMapping xmi:type="description_1:IntersectionMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@intersection.0"/>
+        </cells>
       </lines>
       <lines xmi:type="table:DLine" uid="_HqPhveZ5EeubyN28WsniQg" label="EAttribute : thresholdDirection">
         <target xmi:type="ecore:EAttribute" href="SPD.ecore#//scalingtrigger/ResponseTimeTrigger/thresholdDirection"/>
         <semanticElements xmi:type="ecore:EAttribute" href="SPD.ecore#//scalingtrigger/ResponseTimeTrigger/thresholdDirection"/>
         <originMapping xmi:type="description_1:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+        <cells xmi:type="table:DCell" uid="_4dAawOfeEeubyN28WsniQg" label="The direction to determine the breach as defined by the THRESHOLDDIRECTION enum either as EXCEEDED or UNDERCUT. " column="_HqPhzeZ5EeubyN28WsniQg">
+          <target xmi:type="ecore:EStringToStringMapEntry" href="SPD.ecore#//scalingtrigger/ResponseTimeTrigger/thresholdDirection/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
+          <semanticElements xmi:type="ecore:EStringToStringMapEntry" href="SPD.ecore#//scalingtrigger/ResponseTimeTrigger/thresholdDirection/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
+          <currentStyle xmi:type="table:DCellStyle" uid="_4dAawefeEeubyN28WsniQg" defaultBackgroundStyle="true" backgroundColor="220,234,183">
+            <backgroundStyleOrigin xmi:type="description_1:IntersectionMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@intersection.0"/>
+          </currentStyle>
+          <intersectionMapping xmi:type="description_1:IntersectionMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@intersection.0"/>
+        </cells>
       </lines>
       <lines xmi:type="table:DLine" uid="_HqPhv-Z5EeubyN28WsniQg" label="EAttribute : violationWindow">
         <target xmi:type="ecore:EAttribute" href="SPD.ecore#//scalingtrigger/ResponseTimeTrigger/violationWindow"/>
         <semanticElements xmi:type="ecore:EAttribute" href="SPD.ecore#//scalingtrigger/ResponseTimeTrigger/violationWindow"/>
         <originMapping xmi:type="description_1:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+        <cells xmi:type="table:DCell" uid="_4oZycOfeEeubyN28WsniQg" label="The violationWindow determines how long a threshold can be exceeded or undercut before the scaling should occur." column="_HqPhzeZ5EeubyN28WsniQg">
+          <target xmi:type="ecore:EStringToStringMapEntry" href="SPD.ecore#//scalingtrigger/ResponseTimeTrigger/violationWindow/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
+          <semanticElements xmi:type="ecore:EStringToStringMapEntry" href="SPD.ecore#//scalingtrigger/ResponseTimeTrigger/violationWindow/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
+          <currentStyle xmi:type="table:DCellStyle" uid="_4oZycefeEeubyN28WsniQg" defaultBackgroundStyle="true" backgroundColor="220,234,183">
+            <backgroundStyleOrigin xmi:type="description_1:IntersectionMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@intersection.0"/>
+          </currentStyle>
+          <intersectionMapping xmi:type="description_1:IntersectionMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@intersection.0"/>
+        </cells>
       </lines>
       <semanticElements xmi:type="ecore:EClass" href="SPD.ecore#//scalingtrigger/ResponseTimeTrigger"/>
       <originMapping xmi:type="description_1:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']"/>
+      <cells xmi:type="table:DCell" uid="_gG0TCufeEeubyN28WsniQg" label="The ResponseTimeTrigger is a TimeBasedTrigger that is based on the response time exceeding a reference threshold value. " column="_HqPhzeZ5EeubyN28WsniQg">
+        <target xmi:type="ecore:EStringToStringMapEntry" href="SPD.ecore#//scalingtrigger/ResponseTimeTrigger/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
+        <semanticElements xmi:type="ecore:EStringToStringMapEntry" href="SPD.ecore#//scalingtrigger/ResponseTimeTrigger/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
+        <currentStyle xmi:type="table:DCellStyle" uid="_gG0TC-feEeubyN28WsniQg" defaultBackgroundStyle="true" backgroundColor="220,234,183">
+          <backgroundStyleOrigin xmi:type="description_1:IntersectionMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@intersection.0"/>
+        </currentStyle>
+        <intersectionMapping xmi:type="description_1:IntersectionMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@intersection.0"/>
+      </cells>
     </lines>
     <lines xmi:type="table:DLine" uid="_HqO6r-Z5EeubyN28WsniQg" label="EClass : ResourceUtilizationBasedTrigger">
       <target xmi:type="ecore:EClass" href="SPD.ecore#//scalingtrigger/ResourceUtilizationBasedTrigger"/>
@@ -501,29 +709,77 @@
         <target xmi:type="ecore:EAttribute" href="SPD.ecore#//scalingtrigger/ResourceUtilizationBasedTrigger/threshold"/>
         <semanticElements xmi:type="ecore:EAttribute" href="SPD.ecore#//scalingtrigger/ResourceUtilizationBasedTrigger/threshold"/>
         <originMapping xmi:type="description_1:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+        <cells xmi:type="table:DCell" uid="_VUh8p-fbEeubyN28WsniQg" label="Reference threshold value against which the monitored value is compared. &#xA;" column="_HqPhzeZ5EeubyN28WsniQg">
+          <target xmi:type="ecore:EStringToStringMapEntry" href="SPD.ecore#//scalingtrigger/ResourceUtilizationBasedTrigger/threshold/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
+          <semanticElements xmi:type="ecore:EStringToStringMapEntry" href="SPD.ecore#//scalingtrigger/ResourceUtilizationBasedTrigger/threshold/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
+          <currentStyle xmi:type="table:DCellStyle" uid="_VUijkOfbEeubyN28WsniQg" defaultBackgroundStyle="true" backgroundColor="220,234,183">
+            <backgroundStyleOrigin xmi:type="description_1:IntersectionMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@intersection.0"/>
+          </currentStyle>
+          <intersectionMapping xmi:type="description_1:IntersectionMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@intersection.0"/>
+        </cells>
       </lines>
       <lines xmi:type="table:DLine" uid="_HqPhw-Z5EeubyN28WsniQg" label="EAttribute : thresholdDirection">
         <target xmi:type="ecore:EAttribute" href="SPD.ecore#//scalingtrigger/ResourceUtilizationBasedTrigger/thresholdDirection"/>
         <semanticElements xmi:type="ecore:EAttribute" href="SPD.ecore#//scalingtrigger/ResourceUtilizationBasedTrigger/thresholdDirection"/>
         <originMapping xmi:type="description_1:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+        <cells xmi:type="table:DCell" uid="_er2RTOfbEeubyN28WsniQg" label="The direction to determine the breach as defined by the THRESHOLDDIRECTION enum either as EXCEEDED or UNDERCUT. " column="_HqPhzeZ5EeubyN28WsniQg">
+          <target xmi:type="ecore:EStringToStringMapEntry" href="SPD.ecore#//scalingtrigger/ResourceUtilizationBasedTrigger/thresholdDirection/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
+          <semanticElements xmi:type="ecore:EStringToStringMapEntry" href="SPD.ecore#//scalingtrigger/ResourceUtilizationBasedTrigger/thresholdDirection/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
+          <currentStyle xmi:type="table:DCellStyle" uid="_er24QOfbEeubyN28WsniQg" defaultBackgroundStyle="true" backgroundColor="220,234,183">
+            <backgroundStyleOrigin xmi:type="description_1:IntersectionMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@intersection.0"/>
+          </currentStyle>
+          <intersectionMapping xmi:type="description_1:IntersectionMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@intersection.0"/>
+        </cells>
       </lines>
       <lines xmi:type="table:DLine" uid="_HqPhxeZ5EeubyN28WsniQg" label="EAttribute : processingResourceAggregation">
         <target xmi:type="ecore:EAttribute" href="SPD.ecore#//scalingtrigger/ResourceUtilizationBasedTrigger/processingResourceAggregation"/>
         <semanticElements xmi:type="ecore:EAttribute" href="SPD.ecore#//scalingtrigger/ResourceUtilizationBasedTrigger/processingResourceAggregation"/>
         <originMapping xmi:type="description_1:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+        <cells xmi:type="table:DCell" uid="_dsXUsOfcEeubyN28WsniQg" label="The aggregation for monitors inside a single resource container. Since a resource container may consists of multiple resources of same type (e.g., several CPUs) then the specified aggregation method determines how multiple monitors should be aggregated within a single resource container.&#xA;" column="_HqPhzeZ5EeubyN28WsniQg">
+          <target xmi:type="ecore:EStringToStringMapEntry" href="SPD.ecore#//scalingtrigger/ResourceUtilizationBasedTrigger/processingResourceAggregation/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
+          <semanticElements xmi:type="ecore:EStringToStringMapEntry" href="SPD.ecore#//scalingtrigger/ResourceUtilizationBasedTrigger/processingResourceAggregation/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
+          <currentStyle xmi:type="table:DCellStyle" uid="_dsXUsefcEeubyN28WsniQg" defaultBackgroundStyle="true" backgroundColor="220,234,183">
+            <backgroundStyleOrigin xmi:type="description_1:IntersectionMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@intersection.0"/>
+          </currentStyle>
+          <intersectionMapping xmi:type="description_1:IntersectionMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@intersection.0"/>
+        </cells>
       </lines>
       <lines xmi:type="table:DLine" uid="_HqPhx-Z5EeubyN28WsniQg" label="EAttribute : resourceContainerAggregation">
         <target xmi:type="ecore:EAttribute" href="SPD.ecore#//scalingtrigger/ResourceUtilizationBasedTrigger/resourceContainerAggregation"/>
         <semanticElements xmi:type="ecore:EAttribute" href="SPD.ecore#//scalingtrigger/ResourceUtilizationBasedTrigger/resourceContainerAggregation"/>
         <originMapping xmi:type="description_1:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+        <cells xmi:type="table:DCell" uid="_y0y8eufbEeubyN28WsniQg" label="The aggregation accross different resource containers in the Target Group. For example if two containers C1 and C2 have a resource utilizaiton of 0.6, respectively 0.8, then choosing AVERAGE as an aggreagtion method then it determines that the value of 0.7 should be compared against the threshold value. " column="_HqPhzeZ5EeubyN28WsniQg">
+          <target xmi:type="ecore:EStringToStringMapEntry" href="SPD.ecore#//scalingtrigger/ResourceUtilizationBasedTrigger/resourceContainerAggregation/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
+          <semanticElements xmi:type="ecore:EStringToStringMapEntry" href="SPD.ecore#//scalingtrigger/ResourceUtilizationBasedTrigger/resourceContainerAggregation/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
+          <currentStyle xmi:type="table:DCellStyle" uid="_y0zjgOfbEeubyN28WsniQg" defaultBackgroundStyle="true" backgroundColor="220,234,183">
+            <backgroundStyleOrigin xmi:type="description_1:IntersectionMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@intersection.0"/>
+          </currentStyle>
+          <intersectionMapping xmi:type="description_1:IntersectionMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@intersection.0"/>
+        </cells>
       </lines>
       <lines xmi:type="table:DLine" uid="_HqPhyeZ5EeubyN28WsniQg" label="EAttribute : violationWindow">
         <target xmi:type="ecore:EAttribute" href="SPD.ecore#//scalingtrigger/ResourceUtilizationBasedTrigger/violationWindow"/>
         <semanticElements xmi:type="ecore:EAttribute" href="SPD.ecore#//scalingtrigger/ResourceUtilizationBasedTrigger/violationWindow"/>
         <originMapping xmi:type="description_1:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+        <cells xmi:type="table:DCell" uid="_-ggqwOfdEeubyN28WsniQg" label="The violationWindow determines how long a threshold can be exceeded or undercut before the scaling should occur." column="_HqPhzeZ5EeubyN28WsniQg">
+          <target xmi:type="ecore:EStringToStringMapEntry" href="SPD.ecore#//scalingtrigger/ResourceUtilizationBasedTrigger/violationWindow/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
+          <semanticElements xmi:type="ecore:EStringToStringMapEntry" href="SPD.ecore#//scalingtrigger/ResourceUtilizationBasedTrigger/violationWindow/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
+          <currentStyle xmi:type="table:DCellStyle" uid="_-ggqwefdEeubyN28WsniQg" defaultBackgroundStyle="true" backgroundColor="220,234,183">
+            <backgroundStyleOrigin xmi:type="description_1:IntersectionMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@intersection.0"/>
+          </currentStyle>
+          <intersectionMapping xmi:type="description_1:IntersectionMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@intersection.0"/>
+        </cells>
       </lines>
       <semanticElements xmi:type="ecore:EClass" href="SPD.ecore#//scalingtrigger/ResourceUtilizationBasedTrigger"/>
       <originMapping xmi:type="description_1:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']"/>
+      <cells xmi:type="table:DCell" uid="_HmhUYOfbEeubyN28WsniQg" label="An abstract class for threshold triggers based on utilization of resources. &#xA;&#xA;" column="_HqPhzeZ5EeubyN28WsniQg">
+        <target xmi:type="ecore:EStringToStringMapEntry" href="SPD.ecore#//scalingtrigger/ResourceUtilizationBasedTrigger/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
+        <semanticElements xmi:type="ecore:EStringToStringMapEntry" href="SPD.ecore#//scalingtrigger/ResourceUtilizationBasedTrigger/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
+        <currentStyle xmi:type="table:DCellStyle" uid="_HmjJkOfbEeubyN28WsniQg" defaultBackgroundStyle="true" backgroundColor="220,234,183">
+          <backgroundStyleOrigin xmi:type="description_1:IntersectionMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@intersection.0"/>
+        </currentStyle>
+        <intersectionMapping xmi:type="description_1:IntersectionMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@intersection.0"/>
+      </cells>
     </lines>
     <lines xmi:type="table:DLine" uid="_HqPhoeZ5EeubyN28WsniQg" label="EClass : ProcessingResourceUtilizationBasedTrigger">
       <target xmi:type="ecore:EClass" href="SPD.ecore#//scalingtrigger/ProcessingResourceUtilizationBasedTrigger"/>
@@ -531,11 +787,27 @@
         <target xmi:type="ecore:EReference" href="SPD.ecore#//scalingtrigger/ProcessingResourceUtilizationBasedTrigger/resourceContainer"/>
         <semanticElements xmi:type="ecore:EReference" href="SPD.ecore#//scalingtrigger/ProcessingResourceUtilizationBasedTrigger/resourceContainer"/>
         <originMapping xmi:type="description_1:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+        <cells xmi:type="table:DCell" uid="_s2kb1ufhEeubyN28WsniQg" label="A list of resource containers for which the processing resource utilization is collected. If left empty, all resource containers as referenced by the TargetGroup are used." column="_HqPhzeZ5EeubyN28WsniQg">
+          <target xmi:type="ecore:EStringToStringMapEntry" href="SPD.ecore#//scalingtrigger/ProcessingResourceUtilizationBasedTrigger/resourceContainer/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
+          <semanticElements xmi:type="ecore:EStringToStringMapEntry" href="SPD.ecore#//scalingtrigger/ProcessingResourceUtilizationBasedTrigger/resourceContainer/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
+          <currentStyle xmi:type="table:DCellStyle" uid="_s2lC0OfhEeubyN28WsniQg" defaultBackgroundStyle="true" backgroundColor="220,234,183">
+            <backgroundStyleOrigin xmi:type="description_1:IntersectionMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@intersection.0"/>
+          </currentStyle>
+          <intersectionMapping xmi:type="description_1:IntersectionMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@intersection.0"/>
+        </cells>
       </lines>
       <semanticElements xmi:type="ecore:EClass" href="SPD.ecore#//scalingtrigger/ProcessingResourceUtilizationBasedTrigger"/>
       <originMapping xmi:type="description_1:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']"/>
+      <cells xmi:type="table:DCell" uid="_qyKwgOfgEeubyN28WsniQg" label="An abstract class for triggers based on the utilization of a processing resource such as CPU, RAM or HDD." column="_HqPhzeZ5EeubyN28WsniQg">
+        <target xmi:type="ecore:EStringToStringMapEntry" href="SPD.ecore#//scalingtrigger/ProcessingResourceUtilizationBasedTrigger/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
+        <semanticElements xmi:type="ecore:EStringToStringMapEntry" href="SPD.ecore#//scalingtrigger/ProcessingResourceUtilizationBasedTrigger/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
+        <currentStyle xmi:type="table:DCellStyle" uid="_qyKwgefgEeubyN28WsniQg" defaultBackgroundStyle="true" backgroundColor="220,234,183">
+          <backgroundStyleOrigin xmi:type="description_1:IntersectionMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@intersection.0"/>
+        </currentStyle>
+        <intersectionMapping xmi:type="description_1:IntersectionMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@intersection.0"/>
+      </cells>
     </lines>
-    <columns xmi:type="table:DTargetColumn" uid="_HqPhzeZ5EeubyN28WsniQg" label="Domain Documentation" cells="_UqxYteZ5EeubyN28WsniQg __9kUZ-Z5EeubyN28WsniQg _OVFMgOZ6EeubyN28WsniQg" width="800">
+    <columns xmi:type="table:DTargetColumn" uid="_HqPhzeZ5EeubyN28WsniQg" label="Domain Documentation" cells="_UqxYteZ5EeubyN28WsniQg __9kUZ-Z5EeubyN28WsniQg _OVFMgOZ6EeubyN28WsniQg _HmhUYOfbEeubyN28WsniQg _VUh8p-fbEeubyN28WsniQg _er2RTOfbEeubyN28WsniQg _y0y8eufbEeubyN28WsniQg _dsXUsOfcEeubyN28WsniQg _-ggqwOfdEeubyN28WsniQg _Jl0LTOfeEeubyN28WsniQg _gG0TCufeEeubyN28WsniQg _sh0bNufeEeubyN28WsniQg _4dAawOfeEeubyN28WsniQg _4oZycOfeEeubyN28WsniQg _AtzzZuffEeubyN28WsniQg _Nh04YOffEeubyN28WsniQg _XHSW4uffEeubyN28WsniQg _lFQGfOffEeubyN28WsniQg _oMIX0OffEeubyN28WsniQg _0F6CMeffEeubyN28WsniQg _EhDmAOfgEeubyN28WsniQg _GOn7EOfgEeubyN28WsniQg _lGMFIOfgEeubyN28WsniQg _qyKwgOfgEeubyN28WsniQg _84omoOfgEeubyN28WsniQg _A8onkOfhEeubyN28WsniQg _EDvicOfhEeubyN28WsniQg _o61mAOfhEeubyN28WsniQg _qkr4sOfhEeubyN28WsniQg _s2kb1ufhEeubyN28WsniQg _8zP64OfhEeubyN28WsniQg _AmHvkOfiEeubyN28WsniQg _Cuz6defiEeubyN28WsniQg _EhvQn-fiEeubyN28WsniQg _FDzb1-fiEeubyN28WsniQg _LdfhwOfiEeubyN28WsniQg _Wm7Ud-fiEeubyN28WsniQg" width="800">
       <target xmi:type="ecore:EPackage" href="SPD.ecore#/"/>
       <semanticElements xmi:type="ecore:EPackage" href="SPD.ecore#/"/>
       <originMapping xmi:type="description_1:ElementColumnMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedColumnMappings.0"/>

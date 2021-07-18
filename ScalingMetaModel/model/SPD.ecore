@@ -179,32 +179,64 @@
     <eClassifiers xsi:type="ecore:EClass" name="ThresholdBasedTrigger" abstract="true"
         eSuperTypes="#//scalingtrigger/ScalingTrigger">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="A ThresholdBasedTrigger is the supper type of triggers that for analysis has a simple threshold check for breach or undercut. "/>
+        <details key="documentation" value="A ThresholdBasedTrigger is the supertype of triggers that for analysis has a simple threshold check for breach or undercut. "/>
       </eAnnotations>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="CPUUtilizationTrigger" eSuperTypes="#//scalingtrigger/ProcessingResourceUtilizationBasedTrigger"/>
-    <eClassifiers xsi:type="ecore:EClass" name="RAMUtilizationTrigger" eSuperTypes="#//scalingtrigger/ProcessingResourceUtilizationBasedTrigger"/>
+    <eClassifiers xsi:type="ecore:EClass" name="CPUUtilizationTrigger" eSuperTypes="#//scalingtrigger/ProcessingResourceUtilizationBasedTrigger">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="A utilization based trigger based on the CPU resource."/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="RAMUtilizationTrigger" eSuperTypes="#//scalingtrigger/ProcessingResourceUtilizationBasedTrigger">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="A utilization based trigger based on the RAM resource."/>
+      </eAnnotations>
+    </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="HDDUtilizationTrigger" eSuperTypes="#//scalingtrigger/ProcessingResourceUtilizationBasedTrigger">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="A utilization based trigger based on the HDD resource."/>
+      </eAnnotations>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="usageType" eType="#//scalingtrigger/HDDUSAGETYPE"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="TimeBasedTrigger" abstract="true"
         eSuperTypes="#//scalingtrigger/ThresholdBasedTrigger">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="A superclass of thershold based triggers that base the trigger on time units such as Response Time or waiting time etc."/>
+      </eAnnotations>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="threshold" lowerBound="1"
           eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"
-          defaultValueLiteral="0.0"/>
+          defaultValueLiteral="0.0">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="The reference threshold value."/>
+        </eAnnotations>
+      </eStructuralFeatures>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="PointInTimeTrigger" eSuperTypes="#//scalingtrigger/ScalingTrigger">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="A PointInTimeTrigger is a trigger that is defined by the time on which a spd.TargetGroup should be adjusted."/>
       </eAnnotations>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="pointInTime" lowerBound="1"
-          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="The simulation time at which the target group should be adjusted."/>
+        </eAnnotations>
+      </eStructuralFeatures>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="IdleTimeTrigger" eSuperTypes="#//scalingtrigger/TimeBasedTrigger">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="IdleTimeTrigger bases the trigger on the idle time of a resource container.&#xA;"/>
+      </eAnnotations>
       <eStructuralFeatures xsi:type="ecore:EReference" name="resourceContainer" upperBound="-1"
-          eType="#//palladio/PCMResourceContainer"/>
+          eType="#//palladio/PCMResourceContainer">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="Resource containers that are checked for being idle."/>
+        </eAnnotations>
+      </eStructuralFeatures>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EEnum" name="AGGREGATIONMETHOD">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Enum for the following aggregation methods: MIN, MAX, AVERAGE, SUM that are relevant for different triggers."/>
+      </eAnnotations>
       <eLiterals name="AVERAGE"/>
       <eLiterals name="MAX" value="1"/>
       <eLiterals name="MIN" value="2"/>
@@ -212,58 +244,150 @@
       <eLiterals name="SUM" value="4"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="TaskCountTrigger" eSuperTypes="#//scalingtrigger/ThresholdBasedTrigger">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The TaskCountTrigger bases the trigger on the countable number of tasks (or jobs) at a particular resource waiting to be processed."/>
+      </eAnnotations>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="threshold" lowerBound="1"
-          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt" defaultValueLiteral="0"/>
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt" defaultValueLiteral="0">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="Reference threshold value against which the monitored value is compared. &#xA;"/>
+        </eAnnotations>
+      </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EReference" name="resourceContainer" upperBound="-1"
-          eType="#//palladio/PCMResourceContainer"/>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="thresholdDirection" eType="#//scalingtrigger/THRESHOLDDIRECTION"/>
+          eType="#//palladio/PCMResourceContainer">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="A list of resource containers for which task count is used. If left empty, all resource containers as referenced by the TargetGroup are used."/>
+        </eAnnotations>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="thresholdDirection" eType="#//scalingtrigger/THRESHOLDDIRECTION">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="The direction to determine the breach as defined by the THRESHOLDDIRECTION enum either as EXCEEDED or UNDERCUT. "/>
+        </eAnnotations>
+      </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="processingResourceAggregation"
-          eType="#//scalingtrigger/AGGREGATIONMETHOD"/>
+          eType="#//scalingtrigger/AGGREGATIONMETHOD">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="The aggregation for monitors inside a single resource container. Since a resource container may consists of multiple resources of same type (e.g., several CPUs) then the specified aggregation method determines how multiple monitors should be aggregated within a single resource container.&#xA;"/>
+        </eAnnotations>
+      </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="resourceContainerAggregation"
-          eType="#//scalingtrigger/AGGREGATIONMETHOD"/>
+          eType="#//scalingtrigger/AGGREGATIONMETHOD">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="The aggregation accross different resource containers in the Target Group. For example if two containers C1 and C2 have a resource utilizaiton of 0.6, respectively 0.8, then choosing AVERAGE as an aggreagtion method then it determines that the value of 0.7 should be compared against the threshold value. "/>
+        </eAnnotations>
+      </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="violationWindow" lowerBound="1"
-          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="The violationWindow determines how long a threshold can be exceeded or undercut before the scaling should occur."/>
+        </eAnnotations>
+      </eStructuralFeatures>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EEnum" name="HDDUSAGETYPE">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Enum for the type of HDD usage: READ, WRITE"/>
+      </eAnnotations>
       <eLiterals name="READ"/>
       <eLiterals name="WRITE" value="1"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="NetworkUtilizationTrigger" eSuperTypes="#//scalingtrigger/ResourceUtilizationBasedTrigger">
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="usageType" eType="#//scalingtrigger/NETWORKUSAGETYPE"/>
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="NetworkUtilizationTrigger is a specialized ResourceUtilizationBasedTrigger that bases the trigger on the utilization of the network link as specified by the linkingResource."/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="usageType" eType="#//scalingtrigger/NETWORKUSAGETYPE">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="The type of network usage."/>
+        </eAnnotations>
+      </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EReference" name="linkingResource" upperBound="-1"
-          eType="#//palladio/PCMLinkingResource"/>
+          eType="#//palladio/PCMLinkingResource">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="The specific linking resource for which the utilization is used to trigger an adjustment."/>
+        </eAnnotations>
+      </eStructuralFeatures>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EEnum" name="NETWORKUSAGETYPE">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Enum for the following Network Usage types: SEND, RECEIVE which are relevant to distinuish the type of use for a network resource."/>
+      </eAnnotations>
       <eLiterals name="SEND"/>
       <eLiterals name="RECEIVE" value="1"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EEnum" name="THRESHOLDDIRECTION">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The threshold direction can be either EXCEEDED or UNDERCUT."/>
+      </eAnnotations>
       <eLiterals name="EXCEDEED"/>
       <eLiterals name="UNDERCUT" value="1"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ResponseTimeTrigger" eSuperTypes="#//scalingtrigger/TimeBasedTrigger">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The ResponseTimeTrigger is a TimeBasedTrigger that is based on the response time exceeding a reference threshold value. "/>
+      </eAnnotations>
       <eStructuralFeatures xsi:type="ecore:EReference" name="operationSignature" upperBound="-1"
-          eType="#//palladio/PCMOperationSignature"/>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="thresholdDirection" eType="#//scalingtrigger/THRESHOLDDIRECTION"/>
+          eType="#//palladio/PCMOperationSignature">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="The operation from which the response time is used. "/>
+        </eAnnotations>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="thresholdDirection" eType="#//scalingtrigger/THRESHOLDDIRECTION">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="The direction to determine the breach as defined by the THRESHOLDDIRECTION enum either as EXCEEDED or UNDERCUT. "/>
+        </eAnnotations>
+      </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="violationWindow" lowerBound="1"
-          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="The violationWindow determines how long a threshold can be exceeded or undercut before the scaling should occur."/>
+        </eAnnotations>
+      </eStructuralFeatures>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ResourceUtilizationBasedTrigger" abstract="true"
         eSuperTypes="#//scalingtrigger/ThresholdBasedTrigger">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="An abstract class for threshold triggers based on utilization of resources. &#xA;&#xA;"/>
+      </eAnnotations>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="threshold" lowerBound="1"
-          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="thresholdDirection" eType="#//scalingtrigger/THRESHOLDDIRECTION"/>
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="Reference threshold value against which the monitored value is compared. &#xA;"/>
+        </eAnnotations>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="thresholdDirection" eType="#//scalingtrigger/THRESHOLDDIRECTION">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="The direction to determine the breach as defined by the THRESHOLDDIRECTION enum either as EXCEEDED or UNDERCUT. "/>
+        </eAnnotations>
+      </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="processingResourceAggregation"
-          eType="#//scalingtrigger/AGGREGATIONMETHOD"/>
+          eType="#//scalingtrigger/AGGREGATIONMETHOD">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="The aggregation for monitors inside a single resource container. Since a resource container may consists of multiple resources of same type (e.g., several CPUs) then the specified aggregation method determines how multiple monitors should be aggregated within a single resource container.&#xA;"/>
+        </eAnnotations>
+      </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="resourceContainerAggregation"
-          eType="#//scalingtrigger/AGGREGATIONMETHOD"/>
+          eType="#//scalingtrigger/AGGREGATIONMETHOD">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="The aggregation accross different resource containers in the Target Group. For example if two containers C1 and C2 have a resource utilizaiton of 0.6, respectively 0.8, then choosing AVERAGE as an aggreagtion method then it determines that the value of 0.7 should be compared against the threshold value. "/>
+        </eAnnotations>
+      </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="violationWindow" lowerBound="1"
-          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="The violationWindow determines how long a threshold can be exceeded or undercut before the scaling should occur."/>
+        </eAnnotations>
+      </eStructuralFeatures>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ProcessingResourceUtilizationBasedTrigger"
         abstract="true" eSuperTypes="#//scalingtrigger/ResourceUtilizationBasedTrigger">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="An abstract class for triggers based on the utilization of a processing resource such as CPU, RAM or HDD."/>
+      </eAnnotations>
       <eStructuralFeatures xsi:type="ecore:EReference" name="resourceContainer" upperBound="-1"
-          eType="#//palladio/PCMResourceContainer"/>
+          eType="#//palladio/PCMResourceContainer">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="A list of resource containers for which the processing resource utilization is collected. If left empty, all resource containers as referenced by the TargetGroup are used."/>
+        </eAnnotations>
+      </eStructuralFeatures>
     </eClassifiers>
   </eSubpackages>
   <eSubpackages name="palladio" nsURI="palladio" nsPrefix="palladio">
