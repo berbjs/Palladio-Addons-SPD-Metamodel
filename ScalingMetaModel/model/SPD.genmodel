@@ -119,10 +119,7 @@
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SPD.ecore#//scalingtrigger/ResourceUtilizationBasedTrigger/processingResourceAggregation"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SPD.ecore#//scalingtrigger/ResourceUtilizationBasedTrigger/resourceContainerAggregation"/>
       </genClasses>
-      <genClasses image="false" ecoreClass="SPD.ecore#//scalingtrigger/ProcessingResourceUtilizationBasedTrigger">
-        <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference SPD.ecore#//scalingtrigger/ProcessingResourceUtilizationBasedTrigger/resourceContainer"/>
-      </genClasses>
+      <genClasses image="false" ecoreClass="SPD.ecore#//scalingtrigger/ProcessingResourceUtilizationBasedTrigger"/>
     </nestedGenPackages>
     <nestedGenPackages prefix="Palladio" basePackage="spd" disposableProviderFactory="true"
         ecorePackage="SPD.ecore#//palladio">

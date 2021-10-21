@@ -160,10 +160,7 @@
           eType="#//scalingtrigger/AGGREGATIONMETHOD"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ProcessingResourceUtilizationBasedTrigger"
-        abstract="true" eSuperTypes="#//scalingtrigger/ResourceUtilizationBasedTrigger">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="resourceContainer" upperBound="-1"
-          eType="#//palladio/PCMResourceContainer"/>
-    </eClassifiers>
+        abstract="true" eSuperTypes="#//scalingtrigger/ResourceUtilizationBasedTrigger"/>
   </eSubpackages>
   <eSubpackages name="palladio" nsURI="palladio" nsPrefix="palladio">
     <eClassifiers xsi:type="ecore:EClass" name="PCMResourceEnvironment">
