@@ -93,18 +93,19 @@
   <eSubpackages name="scalingtrigger" nsURI="scalingtrigger" nsPrefix="scalingtrigger">
     <eClassifiers xsi:type="ecore:EClass" name="ScalingTrigger" abstract="true" eSuperTypes="#//ScalingTrigger"/>
     <eClassifiers xsi:type="ecore:EClass" name="ThresholdBasedTrigger" abstract="true"
-        eSuperTypes="#//scalingtrigger/ScalingTrigger"/>
+        eSuperTypes="#//scalingtrigger/ScalingTrigger">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="thresholdDirection" eType="#//scalingtrigger/THRESHOLDDIRECTION"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="threshold" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"
+          defaultValueLiteral="0.0"/>
+    </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="CPUUtilizationTrigger" eSuperTypes="#//scalingtrigger/ProcessingResourceUtilizationBasedTrigger"/>
     <eClassifiers xsi:type="ecore:EClass" name="RAMUtilizationTrigger" eSuperTypes="#//scalingtrigger/ProcessingResourceUtilizationBasedTrigger"/>
     <eClassifiers xsi:type="ecore:EClass" name="HDDUtilizationTrigger" eSuperTypes="#//scalingtrigger/ProcessingResourceUtilizationBasedTrigger">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="usageType" eType="#//scalingtrigger/HDDUSAGETYPE"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="TimeBasedTrigger" abstract="true"
-        eSuperTypes="#//scalingtrigger/ThresholdBasedTrigger">
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="threshold" lowerBound="1"
-          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"
-          defaultValueLiteral="0.0"/>
-    </eClassifiers>
+        eSuperTypes="#//scalingtrigger/ThresholdBasedTrigger"/>
     <eClassifiers xsi:type="ecore:EClass" name="PointInTimeTrigger" eSuperTypes="#//scalingtrigger/ScalingTrigger">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="pointInTime" lowerBound="1"
           eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
@@ -121,11 +122,8 @@
       <eLiterals name="SUM" value="4"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="TaskCountTrigger" eSuperTypes="#//scalingtrigger/ThresholdBasedTrigger">
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="threshold" lowerBound="1"
-          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt" defaultValueLiteral="0"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="resourceContainer" upperBound="-1"
           eType="#//palladio/PCMResourceContainer"/>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="thresholdDirection" eType="#//scalingtrigger/THRESHOLDDIRECTION"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="processingResourceAggregation"
           eType="#//scalingtrigger/AGGREGATIONMETHOD"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="resourceContainerAggregation"
@@ -153,15 +151,11 @@
     <eClassifiers xsi:type="ecore:EClass" name="ResponseTimeTrigger" eSuperTypes="#//scalingtrigger/TimeBasedTrigger">
       <eStructuralFeatures xsi:type="ecore:EReference" name="operationSignature" upperBound="-1"
           eType="#//palladio/PCMOperationSignature"/>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="thresholdDirection" eType="#//scalingtrigger/THRESHOLDDIRECTION"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="violationWindow" lowerBound="1"
           eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ResourceUtilizationBasedTrigger" abstract="true"
         eSuperTypes="#//scalingtrigger/ThresholdBasedTrigger">
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="threshold" lowerBound="1"
-          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="thresholdDirection" eType="#//scalingtrigger/THRESHOLDDIRECTION"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="processingResourceAggregation"
           eType="#//scalingtrigger/AGGREGATIONMETHOD"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="resourceContainerAggregation"

@@ -82,15 +82,16 @@
         <genEnumLiterals ecoreEnumLiteral="SPD.ecore#//scalingtrigger/THRESHOLDDIRECTION/UNDERCUT"/>
       </genEnums>
       <genClasses image="false" ecoreClass="SPD.ecore#//scalingtrigger/ScalingTrigger"/>
-      <genClasses image="false" ecoreClass="SPD.ecore#//scalingtrigger/ThresholdBasedTrigger"/>
+      <genClasses image="false" ecoreClass="SPD.ecore#//scalingtrigger/ThresholdBasedTrigger">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SPD.ecore#//scalingtrigger/ThresholdBasedTrigger/thresholdDirection"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SPD.ecore#//scalingtrigger/ThresholdBasedTrigger/threshold"/>
+      </genClasses>
       <genClasses ecoreClass="SPD.ecore#//scalingtrigger/CPUUtilizationTrigger"/>
       <genClasses ecoreClass="SPD.ecore#//scalingtrigger/RAMUtilizationTrigger"/>
       <genClasses ecoreClass="SPD.ecore#//scalingtrigger/HDDUtilizationTrigger">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SPD.ecore#//scalingtrigger/HDDUtilizationTrigger/usageType"/>
       </genClasses>
-      <genClasses image="false" ecoreClass="SPD.ecore#//scalingtrigger/TimeBasedTrigger">
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SPD.ecore#//scalingtrigger/TimeBasedTrigger/threshold"/>
-      </genClasses>
+      <genClasses image="false" ecoreClass="SPD.ecore#//scalingtrigger/TimeBasedTrigger"/>
       <genClasses ecoreClass="SPD.ecore#//scalingtrigger/PointInTimeTrigger">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SPD.ecore#//scalingtrigger/PointInTimeTrigger/pointInTime"/>
       </genClasses>
@@ -99,10 +100,8 @@
             ecoreFeature="ecore:EReference SPD.ecore#//scalingtrigger/IdleTimeTrigger/resourceContainer"/>
       </genClasses>
       <genClasses ecoreClass="SPD.ecore#//scalingtrigger/TaskCountTrigger">
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SPD.ecore#//scalingtrigger/TaskCountTrigger/threshold"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference SPD.ecore#//scalingtrigger/TaskCountTrigger/resourceContainer"/>
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SPD.ecore#//scalingtrigger/TaskCountTrigger/thresholdDirection"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SPD.ecore#//scalingtrigger/TaskCountTrigger/processingResourceAggregation"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SPD.ecore#//scalingtrigger/TaskCountTrigger/resourceContainerAggregation"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SPD.ecore#//scalingtrigger/TaskCountTrigger/violationWindow"/>
@@ -115,12 +114,9 @@
       <genClasses ecoreClass="SPD.ecore#//scalingtrigger/ResponseTimeTrigger">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference SPD.ecore#//scalingtrigger/ResponseTimeTrigger/operationSignature"/>
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SPD.ecore#//scalingtrigger/ResponseTimeTrigger/thresholdDirection"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SPD.ecore#//scalingtrigger/ResponseTimeTrigger/violationWindow"/>
       </genClasses>
       <genClasses image="false" ecoreClass="SPD.ecore#//scalingtrigger/ResourceUtilizationBasedTrigger">
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SPD.ecore#//scalingtrigger/ResourceUtilizationBasedTrigger/threshold"/>
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SPD.ecore#//scalingtrigger/ResourceUtilizationBasedTrigger/thresholdDirection"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SPD.ecore#//scalingtrigger/ResourceUtilizationBasedTrigger/processingResourceAggregation"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SPD.ecore#//scalingtrigger/ResourceUtilizationBasedTrigger/resourceContainerAggregation"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SPD.ecore#//scalingtrigger/ResourceUtilizationBasedTrigger/violationWindow"/>
