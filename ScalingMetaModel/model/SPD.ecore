@@ -98,6 +98,8 @@
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="threshold" lowerBound="1"
           eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"
           defaultValueLiteral="0.0"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="violationWindow" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="CPUUtilizationTrigger" eSuperTypes="#//scalingtrigger/ProcessingResourceUtilizationBasedTrigger"/>
     <eClassifiers xsi:type="ecore:EClass" name="RAMUtilizationTrigger" eSuperTypes="#//scalingtrigger/ProcessingResourceUtilizationBasedTrigger"/>
@@ -128,8 +130,6 @@
           eType="#//scalingtrigger/AGGREGATIONMETHOD"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="resourceContainerAggregation"
           eType="#//scalingtrigger/AGGREGATIONMETHOD"/>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="violationWindow" lowerBound="1"
-          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EEnum" name="HDDUSAGETYPE">
       <eLiterals name="READ"/>
@@ -151,8 +151,6 @@
     <eClassifiers xsi:type="ecore:EClass" name="ResponseTimeTrigger" eSuperTypes="#//scalingtrigger/TimeBasedTrigger">
       <eStructuralFeatures xsi:type="ecore:EReference" name="operationSignature" upperBound="-1"
           eType="#//palladio/PCMOperationSignature"/>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="violationWindow" lowerBound="1"
-          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ResourceUtilizationBasedTrigger" abstract="true"
         eSuperTypes="#//scalingtrigger/ThresholdBasedTrigger">
@@ -160,8 +158,6 @@
           eType="#//scalingtrigger/AGGREGATIONMETHOD"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="resourceContainerAggregation"
           eType="#//scalingtrigger/AGGREGATIONMETHOD"/>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="violationWindow" lowerBound="1"
-          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ProcessingResourceUtilizationBasedTrigger"
         abstract="true" eSuperTypes="#//scalingtrigger/ResourceUtilizationBasedTrigger">
