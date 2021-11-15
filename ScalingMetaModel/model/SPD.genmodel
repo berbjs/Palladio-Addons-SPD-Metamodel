@@ -46,10 +46,10 @@
     <nestedGenPackages prefix="Policyconstraint" basePackage="spd" disposableProviderFactory="true"
         ecorePackage="SPD.ecore#//policyconstraint">
       <genClasses image="false" ecoreClass="SPD.ecore#//policyconstraint/PolicyConstraint"/>
-      <genClasses image="false" ecoreClass="SPD.ecore#//policyconstraint/TimeBasedConstraint"/>
-      <genClasses ecoreClass="SPD.ecore#//policyconstraint/GroupSizeConstraint">
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SPD.ecore#//policyconstraint/GroupSizeConstraint/minSize"/>
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SPD.ecore#//policyconstraint/GroupSizeConstraint/maxSize"/>
+      <genClasses image="false" ecoreClass="SPD.ecore#//policyconstraint/TemporalConstraint"/>
+      <genClasses ecoreClass="SPD.ecore#//policyconstraint/TargetGroupSizeConstraint">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SPD.ecore#//policyconstraint/TargetGroupSizeConstraint/minSize"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SPD.ecore#//policyconstraint/TargetGroupSizeConstraint/maxSize"/>
       </genClasses>
       <genClasses ecoreClass="SPD.ecore#//policyconstraint/IntervallConstraint">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SPD.ecore#//policyconstraint/IntervallConstraint/offset"/>
@@ -58,6 +58,10 @@
       <genClasses ecoreClass="SPD.ecore#//policyconstraint/CooldownConstraint">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SPD.ecore#//policyconstraint/CooldownConstraint/cooldownTime"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SPD.ecore#//policyconstraint/CooldownConstraint/maxScalingOperations"/>
+      </genClasses>
+      <genClasses image="false" ecoreClass="SPD.ecore#//policyconstraint/StateBasedContraint"/>
+      <genClasses ecoreClass="SPD.ecore#//policyconstraint/ThrashingConstraint">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SPD.ecore#//policyconstraint/ThrashingConstraint/minimumTimeNoThrashing"/>
       </genClasses>
     </nestedGenPackages>
     <nestedGenPackages prefix="Scalingtrigger" basePackage="spd" disposableProviderFactory="true"

@@ -69,25 +69,34 @@
   <eSubpackages name="policyconstraint" nsURI="policyconstraint" nsPrefix="policyconstraint">
     <eClassifiers xsi:type="ecore:EClass" name="PolicyConstraint" abstract="true"
         eSuperTypes="#//PolicyConstraint"/>
-    <eClassifiers xsi:type="ecore:EClass" name="TimeBasedConstraint" abstract="true"
+    <eClassifiers xsi:type="ecore:EClass" name="TemporalConstraint" abstract="true"
         eSuperTypes="#//policyconstraint/PolicyConstraint"/>
-    <eClassifiers xsi:type="ecore:EClass" name="GroupSizeConstraint" eSuperTypes="#//policyconstraint/PolicyConstraint">
+    <eClassifiers xsi:type="ecore:EClass" name="TargetGroupSizeConstraint" eSuperTypes="#//policyconstraint/StateBasedContraint">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="minSize" lowerBound="1"
           eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="maxSize" lowerBound="1"
           eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="IntervallConstraint" eSuperTypes="#//policyconstraint/TimeBasedConstraint">
+    <eClassifiers xsi:type="ecore:EClass" name="IntervallConstraint" eSuperTypes="#//policyconstraint/TemporalConstraint">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="offset" lowerBound="1"
           eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="intervallDuration" lowerBound="1"
           eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="CooldownConstraint" eSuperTypes="#//policyconstraint/TimeBasedConstraint">
+    <eClassifiers xsi:type="ecore:EClass" name="CooldownConstraint" eSuperTypes="#//policyconstraint/TemporalConstraint">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="cooldownTime" lowerBound="1"
           eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="maxScalingOperations"
           lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="StateBasedContraint" abstract="true"
+        eSuperTypes="#//policyconstraint/PolicyConstraint"/>
+    <eClassifiers xsi:type="ecore:EClass" name="ThrashingConstraint" eSuperTypes="#//policyconstraint/TemporalConstraint">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Thrashing constraint is used to constraint the thrashing of resources i.e. increase and decrease of resources. The constraint is defined by the minimum amount of time where no two decicions with adjustments in two oposite directions can occur. "/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="minimumTimeNoThrashing"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
     </eClassifiers>
   </eSubpackages>
   <eSubpackages name="scalingtrigger" nsURI="scalingtrigger" nsPrefix="scalingtrigger">
