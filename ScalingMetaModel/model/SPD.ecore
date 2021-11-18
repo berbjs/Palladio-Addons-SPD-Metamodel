@@ -48,6 +48,7 @@
         <details key="documentation" value="The name of the policy."/>
       </eAnnotations>
     </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="active" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SPD">
     <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
@@ -187,15 +188,15 @@
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ThresholdBasedTrigger" abstract="true"
         eSuperTypes="#//scalingtrigger/ScalingTrigger">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="A ThresholdBasedTrigger is the supertype of triggers that for analysis has a simple threshold check for breach or undercut. "/>
+      </eAnnotations>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="thresholdDirection" eType="#//scalingtrigger/THRESHOLDDIRECTION"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="threshold" lowerBound="1"
           eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"
           defaultValueLiteral="0.0"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="violationWindow" lowerBound="1"
           eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
-    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="A ThresholdBasedTrigger is the supertype of triggers that for analysis has a simple threshold check for breach or undercut. "/>
-      </eAnnotations>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="CPUUtilizationTrigger" eSuperTypes="#//scalingtrigger/ProcessingResourceUtilizationBasedTrigger">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
