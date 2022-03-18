@@ -21,6 +21,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
 import spd.SPD;
 import spd.ScalingPolicy;
 import spd.SpdPackage;
+import spd.TargetGroup;
 
 /**
  * <!-- begin-user-doc -->
@@ -32,6 +33,7 @@ import spd.SpdPackage;
  * <ul>
  *   <li>{@link spd.impl.SPDImpl#getScalingpolicy <em>Scalingpolicy</em>}</li>
  *   <li>{@link spd.impl.SPDImpl#getName <em>Name</em>}</li>
+ *   <li>{@link spd.impl.SPDImpl#getTargetgroup <em>Targetgroup</em>}</li>
  * </ul>
  *
  * @generated
@@ -66,6 +68,16 @@ public class SPDImpl extends MinimalEObjectImpl.Container implements SPD {
 	 * @ordered
 	 */
 	protected String name = NAME_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getTargetgroup() <em>Targetgroup</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getTargetgroup()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<TargetGroup> targetgroup;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -128,10 +140,25 @@ public class SPDImpl extends MinimalEObjectImpl.Container implements SPD {
 	 * @generated
 	 */
 	@Override
+	public EList<TargetGroup> getTargetgroup() {
+		if (targetgroup == null) {
+			targetgroup = new EObjectContainmentEList<TargetGroup>(TargetGroup.class, this, SpdPackage.SPD__TARGETGROUP);
+		}
+		return targetgroup;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case SpdPackage.SPD__SCALINGPOLICY:
 				return ((InternalEList<?>)getScalingpolicy()).basicRemove(otherEnd, msgs);
+			case SpdPackage.SPD__TARGETGROUP:
+				return ((InternalEList<?>)getTargetgroup()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -148,6 +175,8 @@ public class SPDImpl extends MinimalEObjectImpl.Container implements SPD {
 				return getScalingpolicy();
 			case SpdPackage.SPD__NAME:
 				return getName();
+			case SpdPackage.SPD__TARGETGROUP:
+				return getTargetgroup();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -168,6 +197,10 @@ public class SPDImpl extends MinimalEObjectImpl.Container implements SPD {
 			case SpdPackage.SPD__NAME:
 				setName((String)newValue);
 				return;
+			case SpdPackage.SPD__TARGETGROUP:
+				getTargetgroup().clear();
+				getTargetgroup().addAll((Collection<? extends TargetGroup>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -186,6 +219,9 @@ public class SPDImpl extends MinimalEObjectImpl.Container implements SPD {
 			case SpdPackage.SPD__NAME:
 				setName(NAME_EDEFAULT);
 				return;
+			case SpdPackage.SPD__TARGETGROUP:
+				getTargetgroup().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -202,6 +238,8 @@ public class SPDImpl extends MinimalEObjectImpl.Container implements SPD {
 				return scalingpolicy != null && !scalingpolicy.isEmpty();
 			case SpdPackage.SPD__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+			case SpdPackage.SPD__TARGETGROUP:
+				return targetgroup != null && !targetgroup.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

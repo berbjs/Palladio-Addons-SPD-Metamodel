@@ -17,6 +17,7 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link spd.SPD#getScalingpolicy <em>Scalingpolicy</em>}</li>
  *   <li>{@link spd.SPD#getName <em>Name</em>}</li>
+ *   <li>{@link spd.SPD#getTargetgroup <em>Targetgroup</em>}</li>
  * </ul>
  *
  * @see spd.SpdPackage#getSPD()
@@ -58,5 +59,17 @@ public interface SPD extends EObject {
 	 * @generated
 	 */
 	void setName(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Targetgroup</b></em>' containment reference list.
+	 * The list contents are of type {@link spd.TargetGroup}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Targetgroup</em>' containment reference list.
+	 * @see spd.SpdPackage#getSPD_Targetgroup()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<TargetGroup> getTargetgroup();
 
 } // SPD

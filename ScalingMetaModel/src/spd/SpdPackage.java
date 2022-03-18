@@ -160,13 +160,22 @@ public interface SpdPackage extends EPackage {
 	int SPD__NAME = 1;
 
 	/**
+	 * The feature id for the '<em><b>Targetgroup</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SPD__TARGETGROUP = 2;
+
+	/**
 	 * The number of structural features of the '<em>SPD</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SPD_FEATURE_COUNT = 2;
+	int SPD_FEATURE_COUNT = 3;
 
 	/**
 	 * The number of operations of the '<em>SPD</em>' class.
@@ -388,6 +397,17 @@ public interface SpdPackage extends EPackage {
 	EAttribute getSPD_Name();
 
 	/**
+	 * Returns the meta object for the containment reference list '{@link spd.SPD#getTargetgroup <em>Targetgroup</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Targetgroup</em>'.
+	 * @see spd.SPD#getTargetgroup()
+	 * @see #getSPD()
+	 * @generated
+	 */
+	EReference getSPD_Targetgroup();
+
+	/**
 	 * Returns the meta object for class '{@link spd.TargetGroup <em>Target Group</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -525,6 +545,14 @@ public interface SpdPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute SPD__NAME = eINSTANCE.getSPD_Name();
+
+		/**
+		 * The meta object literal for the '<em><b>Targetgroup</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SPD__TARGETGROUP = eINSTANCE.getSPD_Targetgroup();
 
 		/**
 		 * The meta object literal for the '{@link spd.impl.TargetGroupImpl <em>Target Group</em>}' class.

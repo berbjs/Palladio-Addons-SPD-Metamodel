@@ -273,6 +273,16 @@ public class SpdPackageImpl extends EPackageImpl implements SpdPackage {
 	 * @generated
 	 */
 	@Override
+	public EReference getSPD_Targetgroup() {
+		return (EReference)spdEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getTargetGroup() {
 		return targetGroupEClass;
 	}
@@ -346,6 +356,7 @@ public class SpdPackageImpl extends EPackageImpl implements SpdPackage {
 		spdEClass = createEClass(SPD);
 		createEReference(spdEClass, SPD__SCALINGPOLICY);
 		createEAttribute(spdEClass, SPD__NAME);
+		createEReference(spdEClass, SPD__TARGETGROUP);
 
 		targetGroupEClass = createEClass(TARGET_GROUP);
 
@@ -410,6 +421,7 @@ public class SpdPackageImpl extends EPackageImpl implements SpdPackage {
 		initEClass(spdEClass, spd.SPD.class, "SPD", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getSPD_Scalingpolicy(), this.getScalingPolicy(), null, "scalingpolicy", null, 1, -1, spd.SPD.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getSPD_Name(), ecorePackage.getEString(), "name", null, 0, 1, spd.SPD.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getSPD_Targetgroup(), this.getTargetGroup(), null, "targetgroup", null, 0, -1, spd.SPD.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(targetGroupEClass, TargetGroup.class, "TargetGroup", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
