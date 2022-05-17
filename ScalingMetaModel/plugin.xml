@@ -9,49 +9,40 @@
    <extension point="org.eclipse.emf.ecore.generated_package">
       <!-- @generated SPD -->
       <package
-            uri="spd"
-            class="spd.SpdPackage"
+            uri="http://de/unistuttgart/sqa/slingshot/spd"
+            class="de.unistuttgart.sqa.slingshot.spd.SpdPackage"
             genModel="model/SPD.genmodel"/>
    </extension>
 
    <extension point="org.eclipse.emf.ecore.generated_package">
       <!-- @generated SPD -->
       <package
-            uri="targetgroup"
-            class="spd.targetgroup.TargetgroupPackage"
+            uri="http://de/unistuttgart/sqa/slingshot/spd/targets"
+            class="de.unistuttgart.sqa.slingshot.spd.targets.TargetsPackage"
             genModel="model/SPD.genmodel"/>
    </extension>
 
    <extension point="org.eclipse.emf.ecore.generated_package">
       <!-- @generated SPD -->
       <package
-            uri="adjustmenttype"
-            class="spd.adjustmenttype.AdjustmenttypePackage"
+            uri="http://de/unistuttgart/sqa/slingshot/spd/adjustments"
+            class="de.unistuttgart.sqa.slingshot.spd.adjustments.AdjustmentsPackage"
             genModel="model/SPD.genmodel"/>
    </extension>
 
    <extension point="org.eclipse.emf.ecore.generated_package">
       <!-- @generated SPD -->
       <package
-            uri="policyconstraint"
-            class="spd.policyconstraint.PolicyconstraintPackage"
+            uri="http://de/unistuttgart/sqa/slingshot/spd/constraints"
+            class="de.unistuttgart.sqa.slingshot.spd.constraints.ConstraintsPackage"
             genModel="model/SPD.genmodel"/>
    </extension>
 
    <extension point="org.eclipse.emf.ecore.generated_package">
       <!-- @generated SPD -->
       <package
-            uri="scalingtrigger"
-            class="spd.scalingtrigger.ScalingtriggerPackage"
+            uri="http://de/unistuttgart/sqa/slingshot/spd/triggers"
+            class="de.unistuttgart.sqa.slingshot.spd.triggers.TriggersPackage"
             genModel="model/SPD.genmodel"/>
    </extension>
-
-   <extension point="org.eclipse.emf.ecore.generated_package">
-      <!-- @generated SPD -->
-      <package
-            uri="palladio"
-            class="spd.palladio.PalladioPackage"
-            genModel="model/SPD.genmodel"/>
-   </extension>
-
 </plugin>

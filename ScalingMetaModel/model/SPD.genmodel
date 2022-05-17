@@ -2,146 +2,131 @@
 <genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
     xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/ScalingMetaModel/src" modelPluginID="ScalingMetaModel"
     modelName="SPD" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
-    importerID="org.eclipse.emf.importer.ecore" complianceLevel="6.0" copyrightFields="false"
+    importerID="org.eclipse.emf.importer.ecore" complianceLevel="5.0" copyrightFields="false"
+    usedGenPackages="../../org.eclipse.emf.ecore/model/Ecore.genmodel#//ecore ../../de.uka.ipd.sdq.identifier/model/identifier.genmodel#//identifier ../../org.palladiosimulator.pcm/model/pcm.genmodel#//pcm ../../de.uka.ipd.sdq.probfunction/model/ProbabilityFunction.genmodel#//probfunction ../../de.uka.ipd.sdq.stoex/model/stoex.genmodel#//stoex ../../de.uka.ipd.sdq.units/model/Units.genmodel#//units"
     operationReflection="true" importOrganizing="true">
   <foreignModel>SPD.ecore</foreignModel>
-  <genPackages prefix="Spd" disposableProviderFactory="true" ecorePackage="SPD.ecore#/">
+  <genPackages prefix="Spd" basePackage="de.unistuttgart.sqa.slingshot" disposableProviderFactory="true"
+      ecorePackage="SPD.ecore#/">
     <genClasses ecoreClass="SPD.ecore#//ScalingPolicy">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference SPD.ecore#//ScalingPolicy/targetgroup"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SPD.ecore#//ScalingPolicy/adjustmenttype"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SPD.ecore#//ScalingPolicy/scalingtrigger"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SPD.ecore#//ScalingPolicy/policyconstraint"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SPD.ecore#//ScalingPolicy/policyName"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SPD.ecore#//ScalingPolicy/active"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SPD.ecore#//ScalingPolicy/scalingTrigger"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SPD.ecore#//ScalingPolicy/adjustmentType"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference SPD.ecore#//ScalingPolicy/targetGroup"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SPD.ecore#//ScalingPolicy/policyconstraint"/>
     </genClasses>
     <genClasses ecoreClass="SPD.ecore#//SPD">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SPD.ecore#//SPD/scalingpolicy"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SPD.ecore#//SPD/name"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SPD.ecore#//SPD/targetgroup"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SPD.ecore#//SPD/targetGroups"/>
     </genClasses>
-    <genClasses image="false" ecoreClass="SPD.ecore#//TargetGroup"/>
-    <genClasses image="false" ecoreClass="SPD.ecore#//AdjustmentType"/>
-    <genClasses image="false" ecoreClass="SPD.ecore#//ScalingTrigger"/>
-    <genClasses image="false" ecoreClass="SPD.ecore#//PolicyConstraint"/>
-    <nestedGenPackages prefix="Targetgroup" basePackage="spd" disposableProviderFactory="true"
-        ecorePackage="SPD.ecore#//targetgroup">
-      <genClasses ecoreClass="SPD.ecore#//targetgroup/TargetGroup">
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SPD.ecore#//targetgroup/TargetGroup/name"/>
+    <nestedGenPackages prefix="Targets" disposableProviderFactory="true" ecorePackage="SPD.ecore#//targets">
+      <genClasses ecoreClass="SPD.ecore#//targets/TargetGroup">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SPD.ecore#//targets/TargetGroup/name"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference SPD.ecore#//targetgroup/TargetGroup/PCM_ResourceEnvironment"/>
+            ecoreFeature="ecore:EReference SPD.ecore#//targets/TargetGroup/PCM_ResourceEnvironment"/>
       </genClasses>
     </nestedGenPackages>
-    <nestedGenPackages prefix="Adjustmenttype" basePackage="spd" disposableProviderFactory="true"
-        ecorePackage="SPD.ecore#//adjustmenttype">
-      <genClasses image="false" ecoreClass="SPD.ecore#//adjustmenttype/AdjustmentType"/>
-      <genClasses ecoreClass="SPD.ecore#//adjustmenttype/RelativeAdjustment">
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SPD.ecore#//adjustmenttype/RelativeAdjustment/percentageValue"/>
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SPD.ecore#//adjustmenttype/RelativeAdjustment/minAdjustmentValue"/>
+    <nestedGenPackages prefix="Adjustments" disposableProviderFactory="true" ecorePackage="SPD.ecore#//adjustments">
+      <genClasses image="false" ecoreClass="SPD.ecore#//adjustments/AdjustmentType"/>
+      <genClasses ecoreClass="SPD.ecore#//adjustments/RelativeAdjustment">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SPD.ecore#//adjustments/RelativeAdjustment/percentageValue"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SPD.ecore#//adjustments/RelativeAdjustment/minAdjustmentValue"/>
       </genClasses>
-      <genClasses ecoreClass="SPD.ecore#//adjustmenttype/AbsoluteAdjustment">
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SPD.ecore#//adjustmenttype/AbsoluteAdjustment/goalValue"/>
+      <genClasses ecoreClass="SPD.ecore#//adjustments/AbsoluteAdjustment">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SPD.ecore#//adjustments/AbsoluteAdjustment/goalValue"/>
       </genClasses>
-      <genClasses ecoreClass="SPD.ecore#//adjustmenttype/StepAdjustment">
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SPD.ecore#//adjustmenttype/StepAdjustment/stepValue"/>
-      </genClasses>
-    </nestedGenPackages>
-    <nestedGenPackages prefix="Policyconstraint" basePackage="spd" disposableProviderFactory="true"
-        ecorePackage="SPD.ecore#//policyconstraint">
-      <genClasses image="false" ecoreClass="SPD.ecore#//policyconstraint/PolicyConstraint"/>
-      <genClasses image="false" ecoreClass="SPD.ecore#//policyconstraint/TemporalConstraint"/>
-      <genClasses ecoreClass="SPD.ecore#//policyconstraint/TargetGroupSizeConstraint">
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SPD.ecore#//policyconstraint/TargetGroupSizeConstraint/minSize"/>
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SPD.ecore#//policyconstraint/TargetGroupSizeConstraint/maxSize"/>
-      </genClasses>
-      <genClasses ecoreClass="SPD.ecore#//policyconstraint/IntervallConstraint">
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SPD.ecore#//policyconstraint/IntervallConstraint/offset"/>
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SPD.ecore#//policyconstraint/IntervallConstraint/intervallDuration"/>
-      </genClasses>
-      <genClasses ecoreClass="SPD.ecore#//policyconstraint/CooldownConstraint">
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SPD.ecore#//policyconstraint/CooldownConstraint/cooldownTime"/>
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SPD.ecore#//policyconstraint/CooldownConstraint/maxScalingOperations"/>
-      </genClasses>
-      <genClasses image="false" ecoreClass="SPD.ecore#//policyconstraint/StateBasedContraint"/>
-      <genClasses ecoreClass="SPD.ecore#//policyconstraint/ThrashingConstraint">
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SPD.ecore#//policyconstraint/ThrashingConstraint/minimumTimeNoThrashing"/>
+      <genClasses ecoreClass="SPD.ecore#//adjustments/StepAdjustment">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SPD.ecore#//adjustments/StepAdjustment/stepValue"/>
       </genClasses>
     </nestedGenPackages>
-    <nestedGenPackages prefix="Scalingtrigger" basePackage="spd" disposableProviderFactory="true"
-        ecorePackage="SPD.ecore#//scalingtrigger">
-      <genEnums typeSafeEnumCompatible="false" ecoreEnum="SPD.ecore#//scalingtrigger/AGGREGATIONMETHOD">
-        <genEnumLiterals ecoreEnumLiteral="SPD.ecore#//scalingtrigger/AGGREGATIONMETHOD/AVERAGE"/>
-        <genEnumLiterals ecoreEnumLiteral="SPD.ecore#//scalingtrigger/AGGREGATIONMETHOD/MAX"/>
-        <genEnumLiterals ecoreEnumLiteral="SPD.ecore#//scalingtrigger/AGGREGATIONMETHOD/MIN"/>
-        <genEnumLiterals ecoreEnumLiteral="SPD.ecore#//scalingtrigger/AGGREGATIONMETHOD/MEDIAN"/>
-        <genEnumLiterals ecoreEnumLiteral="SPD.ecore#//scalingtrigger/AGGREGATIONMETHOD/SUM"/>
-      </genEnums>
-      <genEnums typeSafeEnumCompatible="false" ecoreEnum="SPD.ecore#//scalingtrigger/HDDUSAGETYPE">
-        <genEnumLiterals ecoreEnumLiteral="SPD.ecore#//scalingtrigger/HDDUSAGETYPE/READ"/>
-        <genEnumLiterals ecoreEnumLiteral="SPD.ecore#//scalingtrigger/HDDUSAGETYPE/WRITE"/>
-      </genEnums>
-      <genEnums typeSafeEnumCompatible="false" ecoreEnum="SPD.ecore#//scalingtrigger/NETWORKUSAGETYPE">
-        <genEnumLiterals ecoreEnumLiteral="SPD.ecore#//scalingtrigger/NETWORKUSAGETYPE/SEND"/>
-        <genEnumLiterals ecoreEnumLiteral="SPD.ecore#//scalingtrigger/NETWORKUSAGETYPE/RECEIVE"/>
-      </genEnums>
-      <genEnums typeSafeEnumCompatible="false" ecoreEnum="SPD.ecore#//scalingtrigger/THRESHOLDDIRECTION">
-        <genEnumLiterals ecoreEnumLiteral="SPD.ecore#//scalingtrigger/THRESHOLDDIRECTION/EXCEDEED"/>
-        <genEnumLiterals ecoreEnumLiteral="SPD.ecore#//scalingtrigger/THRESHOLDDIRECTION/UNDERCUT"/>
-      </genEnums>
-      <genClasses image="false" ecoreClass="SPD.ecore#//scalingtrigger/ScalingTrigger"/>
-      <genClasses image="false" ecoreClass="SPD.ecore#//scalingtrigger/ThresholdBasedTrigger">
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SPD.ecore#//scalingtrigger/ThresholdBasedTrigger/thresholdDirection"/>
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SPD.ecore#//scalingtrigger/ThresholdBasedTrigger/threshold"/>
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SPD.ecore#//scalingtrigger/ThresholdBasedTrigger/violationWindow"/>
+    <nestedGenPackages prefix="Constraints" disposableProviderFactory="true" ecorePackage="SPD.ecore#//constraints">
+      <genClasses image="false" ecoreClass="SPD.ecore#//constraints/PolicyConstraint"/>
+      <genClasses image="false" ecoreClass="SPD.ecore#//constraints/TemporalConstraint"/>
+      <genClasses ecoreClass="SPD.ecore#//constraints/TargetGroupSizeConstraint">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SPD.ecore#//constraints/TargetGroupSizeConstraint/minSize"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SPD.ecore#//constraints/TargetGroupSizeConstraint/maxSize"/>
       </genClasses>
-      <genClasses ecoreClass="SPD.ecore#//scalingtrigger/CPUUtilizationTrigger"/>
-      <genClasses ecoreClass="SPD.ecore#//scalingtrigger/RAMUtilizationTrigger"/>
-      <genClasses ecoreClass="SPD.ecore#//scalingtrigger/HDDUtilizationTrigger">
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SPD.ecore#//scalingtrigger/HDDUtilizationTrigger/usageType"/>
+      <genClasses ecoreClass="SPD.ecore#//constraints/IntervallConstraint">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SPD.ecore#//constraints/IntervallConstraint/offset"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SPD.ecore#//constraints/IntervallConstraint/intervallDuration"/>
       </genClasses>
-      <genClasses image="false" ecoreClass="SPD.ecore#//scalingtrigger/TimeBasedTrigger"/>
-      <genClasses ecoreClass="SPD.ecore#//scalingtrigger/PointInTimeTrigger">
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SPD.ecore#//scalingtrigger/PointInTimeTrigger/pointInTime"/>
+      <genClasses ecoreClass="SPD.ecore#//constraints/CooldownConstraint">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SPD.ecore#//constraints/CooldownConstraint/cooldownTime"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SPD.ecore#//constraints/CooldownConstraint/maxScalingOperations"/>
       </genClasses>
-      <genClasses ecoreClass="SPD.ecore#//scalingtrigger/IdleTimeTrigger">
+      <genClasses image="false" ecoreClass="SPD.ecore#//constraints/StateBasedContraint"/>
+      <genClasses ecoreClass="SPD.ecore#//constraints/ThrashingConstraint">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SPD.ecore#//constraints/ThrashingConstraint/minimumTimeNoThrashing"/>
+      </genClasses>
+      <genClasses image="false" ecoreClass="SPD.ecore#//constraints/Constraint"/>
+      <genClasses image="false" ecoreClass="SPD.ecore#//constraints/TargetConstraint">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference SPD.ecore#//scalingtrigger/IdleTimeTrigger/resourceContainer"/>
-      </genClasses>
-      <genClasses ecoreClass="SPD.ecore#//scalingtrigger/TaskCountTrigger">
-        <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference SPD.ecore#//scalingtrigger/TaskCountTrigger/resourceContainer"/>
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SPD.ecore#//scalingtrigger/TaskCountTrigger/processingResourceAggregation"/>
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SPD.ecore#//scalingtrigger/TaskCountTrigger/resourceContainerAggregation"/>
-      </genClasses>
-      <genClasses ecoreClass="SPD.ecore#//scalingtrigger/NetworkUtilizationTrigger">
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SPD.ecore#//scalingtrigger/NetworkUtilizationTrigger/usageType"/>
-        <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference SPD.ecore#//scalingtrigger/NetworkUtilizationTrigger/linkingResource"/>
-      </genClasses>
-      <genClasses ecoreClass="SPD.ecore#//scalingtrigger/ResponseTimeTrigger">
-        <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference SPD.ecore#//scalingtrigger/ResponseTimeTrigger/operationSignature"/>
-      </genClasses>
-      <genClasses image="false" ecoreClass="SPD.ecore#//scalingtrigger/ResourceUtilizationBasedTrigger">
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SPD.ecore#//scalingtrigger/ResourceUtilizationBasedTrigger/processingResourceAggregation"/>
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SPD.ecore#//scalingtrigger/ResourceUtilizationBasedTrigger/resourceContainerAggregation"/>
-      </genClasses>
-      <genClasses image="false" ecoreClass="SPD.ecore#//scalingtrigger/ProcessingResourceUtilizationBasedTrigger">
-        <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference SPD.ecore#//scalingtrigger/ProcessingResourceUtilizationBasedTrigger/resourceContainer"/>
+            ecoreFeature="ecore:EReference SPD.ecore#//constraints/TargetConstraint/targetgroup"/>
       </genClasses>
     </nestedGenPackages>
-    <nestedGenPackages prefix="Palladio" basePackage="spd" disposableProviderFactory="true"
-        ecorePackage="SPD.ecore#//palladio">
-      <genClasses ecoreClass="SPD.ecore#//palladio/PCMResourceEnvironment">
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SPD.ecore#//palladio/PCMResourceEnvironment/name"/>
+    <nestedGenPackages prefix="Triggers" disposableProviderFactory="true" ecorePackage="SPD.ecore#//triggers">
+      <genEnums typeSafeEnumCompatible="false" ecoreEnum="SPD.ecore#//triggers/AGGREGATIONMETHOD">
+        <genEnumLiterals ecoreEnumLiteral="SPD.ecore#//triggers/AGGREGATIONMETHOD/AVERAGE"/>
+        <genEnumLiterals ecoreEnumLiteral="SPD.ecore#//triggers/AGGREGATIONMETHOD/MAX"/>
+        <genEnumLiterals ecoreEnumLiteral="SPD.ecore#//triggers/AGGREGATIONMETHOD/MIN"/>
+        <genEnumLiterals ecoreEnumLiteral="SPD.ecore#//triggers/AGGREGATIONMETHOD/MEDIAN"/>
+        <genEnumLiterals ecoreEnumLiteral="SPD.ecore#//triggers/AGGREGATIONMETHOD/SUM"/>
+      </genEnums>
+      <genEnums typeSafeEnumCompatible="false" ecoreEnum="SPD.ecore#//triggers/HDDUSAGETYPE">
+        <genEnumLiterals ecoreEnumLiteral="SPD.ecore#//triggers/HDDUSAGETYPE/READ"/>
+        <genEnumLiterals ecoreEnumLiteral="SPD.ecore#//triggers/HDDUSAGETYPE/WRITE"/>
+      </genEnums>
+      <genEnums typeSafeEnumCompatible="false" ecoreEnum="SPD.ecore#//triggers/NETWORKUSAGETYPE">
+        <genEnumLiterals ecoreEnumLiteral="SPD.ecore#//triggers/NETWORKUSAGETYPE/SEND"/>
+        <genEnumLiterals ecoreEnumLiteral="SPD.ecore#//triggers/NETWORKUSAGETYPE/RECEIVE"/>
+      </genEnums>
+      <genEnums typeSafeEnumCompatible="false" ecoreEnum="SPD.ecore#//triggers/THRESHOLDDIRECTION">
+        <genEnumLiterals ecoreEnumLiteral="SPD.ecore#//triggers/THRESHOLDDIRECTION/EXCEDEED"/>
+        <genEnumLiterals ecoreEnumLiteral="SPD.ecore#//triggers/THRESHOLDDIRECTION/UNDERCUT"/>
+      </genEnums>
+      <genClasses image="false" ecoreClass="SPD.ecore#//triggers/ScalingTrigger"/>
+      <genClasses image="false" ecoreClass="SPD.ecore#//triggers/ThresholdBasedTrigger">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SPD.ecore#//triggers/ThresholdBasedTrigger/thresholdDirection"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SPD.ecore#//triggers/ThresholdBasedTrigger/threshold"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SPD.ecore#//triggers/ThresholdBasedTrigger/violationWindow"/>
       </genClasses>
-      <genClasses ecoreClass="SPD.ecore#//palladio/PCMResourceContainer">
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SPD.ecore#//palladio/PCMResourceContainer/name"/>
+      <genClasses ecoreClass="SPD.ecore#//triggers/CPUUtilizationTrigger"/>
+      <genClasses ecoreClass="SPD.ecore#//triggers/RAMUtilizationTrigger"/>
+      <genClasses ecoreClass="SPD.ecore#//triggers/HDDUtilizationTrigger">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SPD.ecore#//triggers/HDDUtilizationTrigger/usageType"/>
       </genClasses>
-      <genClasses ecoreClass="SPD.ecore#//palladio/PCMLinkingResource">
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SPD.ecore#//palladio/PCMLinkingResource/name"/>
+      <genClasses image="false" ecoreClass="SPD.ecore#//triggers/TimeBasedTrigger"/>
+      <genClasses ecoreClass="SPD.ecore#//triggers/PointInTimeTrigger">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SPD.ecore#//triggers/PointInTimeTrigger/pointInTime"/>
       </genClasses>
-      <genClasses ecoreClass="SPD.ecore#//palladio/PCMOperationSignature">
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SPD.ecore#//palladio/PCMOperationSignature/name"/>
+      <genClasses ecoreClass="SPD.ecore#//triggers/IdleTimeTrigger">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference SPD.ecore#//triggers/IdleTimeTrigger/resourceContainer"/>
+      </genClasses>
+      <genClasses ecoreClass="SPD.ecore#//triggers/TaskCountTrigger">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference SPD.ecore#//triggers/TaskCountTrigger/resourceContainer"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SPD.ecore#//triggers/TaskCountTrigger/processingResourceAggregation"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SPD.ecore#//triggers/TaskCountTrigger/resourceContainerAggregation"/>
+      </genClasses>
+      <genClasses ecoreClass="SPD.ecore#//triggers/NetworkUtilizationTrigger">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SPD.ecore#//triggers/NetworkUtilizationTrigger/usageType"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference SPD.ecore#//triggers/NetworkUtilizationTrigger/linkingResource"/>
+      </genClasses>
+      <genClasses ecoreClass="SPD.ecore#//triggers/ResponseTimeTrigger">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference SPD.ecore#//triggers/ResponseTimeTrigger/operationSignature"/>
+      </genClasses>
+      <genClasses image="false" ecoreClass="SPD.ecore#//triggers/ResourceUtilizationBasedTrigger">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SPD.ecore#//triggers/ResourceUtilizationBasedTrigger/processingResourceAggregation"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SPD.ecore#//triggers/ResourceUtilizationBasedTrigger/resourceContainerAggregation"/>
+      </genClasses>
+      <genClasses image="false" ecoreClass="SPD.ecore#//triggers/ProcessingResourceUtilizationBasedTrigger">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference SPD.ecore#//triggers/ProcessingResourceUtilizationBasedTrigger/resourceContainer"/>
       </genClasses>
     </nestedGenPackages>
   </genPackages>

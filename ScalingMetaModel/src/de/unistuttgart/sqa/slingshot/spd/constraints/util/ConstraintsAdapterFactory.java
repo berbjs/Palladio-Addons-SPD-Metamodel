@@ -1,0 +1,264 @@
+/**
+ */
+package de.unistuttgart.sqa.slingshot.spd.constraints.util;
+
+import de.unistuttgart.sqa.slingshot.spd.constraints.*;
+
+import org.eclipse.emf.common.notify.Adapter;
+import org.eclipse.emf.common.notify.Notifier;
+
+import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
+
+import org.eclipse.emf.ecore.EObject;
+
+/**
+ * <!-- begin-user-doc -->
+ * The <b>Adapter Factory</b> for the model.
+ * It provides an adapter <code>createXXX</code> method for each class of the model.
+ * <!-- end-user-doc -->
+ * @see de.unistuttgart.sqa.slingshot.spd.constraints.ConstraintsPackage
+ * @generated
+ */
+public class ConstraintsAdapterFactory extends AdapterFactoryImpl {
+	/**
+	 * The cached model package.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected static ConstraintsPackage modelPackage;
+
+	/**
+	 * Creates an instance of the adapter factory.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ConstraintsAdapterFactory() {
+		if (modelPackage == null) {
+			modelPackage = ConstraintsPackage.eINSTANCE;
+		}
+	}
+
+	/**
+	 * Returns whether this factory is applicable for the type of the object.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns <code>true</code> if the object is either the model's package or is an instance object of the model.
+	 * <!-- end-user-doc -->
+	 * @return whether this factory is applicable for the type of the object.
+	 * @generated
+	 */
+	@Override
+	public boolean isFactoryForType(Object object) {
+		if (object == modelPackage) {
+			return true;
+		}
+		if (object instanceof EObject) {
+			return ((EObject)object).eClass().getEPackage() == modelPackage;
+		}
+		return false;
+	}
+
+	/**
+	 * The switch that delegates to the <code>createXXX</code> methods.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ConstraintsSwitch<Adapter> modelSwitch =
+		new ConstraintsSwitch<Adapter>() {
+			@Override
+			public Adapter casePolicyConstraint(PolicyConstraint object) {
+				return createPolicyConstraintAdapter();
+			}
+			@Override
+			public Adapter caseTemporalConstraint(TemporalConstraint object) {
+				return createTemporalConstraintAdapter();
+			}
+			@Override
+			public Adapter caseTargetGroupSizeConstraint(TargetGroupSizeConstraint object) {
+				return createTargetGroupSizeConstraintAdapter();
+			}
+			@Override
+			public Adapter caseIntervallConstraint(IntervallConstraint object) {
+				return createIntervallConstraintAdapter();
+			}
+			@Override
+			public Adapter caseCooldownConstraint(CooldownConstraint object) {
+				return createCooldownConstraintAdapter();
+			}
+			@Override
+			public Adapter caseStateBasedContraint(StateBasedContraint object) {
+				return createStateBasedContraintAdapter();
+			}
+			@Override
+			public Adapter caseThrashingConstraint(ThrashingConstraint object) {
+				return createThrashingConstraintAdapter();
+			}
+			@Override
+			public Adapter caseConstraint(Constraint object) {
+				return createConstraintAdapter();
+			}
+			@Override
+			public Adapter caseTargetConstraint(TargetConstraint object) {
+				return createTargetConstraintAdapter();
+			}
+			@Override
+			public Adapter defaultCase(EObject object) {
+				return createEObjectAdapter();
+			}
+		};
+
+	/**
+	 * Creates an adapter for the <code>target</code>.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param target the object to adapt.
+	 * @return the adapter for the <code>target</code>.
+	 * @generated
+	 */
+	@Override
+	public Adapter createAdapter(Notifier target) {
+		return modelSwitch.doSwitch((EObject)target);
+	}
+
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.unistuttgart.sqa.slingshot.spd.constraints.PolicyConstraint <em>Policy Constraint</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.unistuttgart.sqa.slingshot.spd.constraints.PolicyConstraint
+	 * @generated
+	 */
+	public Adapter createPolicyConstraintAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.unistuttgart.sqa.slingshot.spd.constraints.TemporalConstraint <em>Temporal Constraint</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.unistuttgart.sqa.slingshot.spd.constraints.TemporalConstraint
+	 * @generated
+	 */
+	public Adapter createTemporalConstraintAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.unistuttgart.sqa.slingshot.spd.constraints.TargetGroupSizeConstraint <em>Target Group Size Constraint</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.unistuttgart.sqa.slingshot.spd.constraints.TargetGroupSizeConstraint
+	 * @generated
+	 */
+	public Adapter createTargetGroupSizeConstraintAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.unistuttgart.sqa.slingshot.spd.constraints.IntervallConstraint <em>Intervall Constraint</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.unistuttgart.sqa.slingshot.spd.constraints.IntervallConstraint
+	 * @generated
+	 */
+	public Adapter createIntervallConstraintAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.unistuttgart.sqa.slingshot.spd.constraints.CooldownConstraint <em>Cooldown Constraint</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.unistuttgart.sqa.slingshot.spd.constraints.CooldownConstraint
+	 * @generated
+	 */
+	public Adapter createCooldownConstraintAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.unistuttgart.sqa.slingshot.spd.constraints.StateBasedContraint <em>State Based Contraint</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.unistuttgart.sqa.slingshot.spd.constraints.StateBasedContraint
+	 * @generated
+	 */
+	public Adapter createStateBasedContraintAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.unistuttgart.sqa.slingshot.spd.constraints.ThrashingConstraint <em>Thrashing Constraint</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.unistuttgart.sqa.slingshot.spd.constraints.ThrashingConstraint
+	 * @generated
+	 */
+	public Adapter createThrashingConstraintAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.unistuttgart.sqa.slingshot.spd.constraints.Constraint <em>Constraint</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.unistuttgart.sqa.slingshot.spd.constraints.Constraint
+	 * @generated
+	 */
+	public Adapter createConstraintAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.unistuttgart.sqa.slingshot.spd.constraints.TargetConstraint <em>Target Constraint</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.unistuttgart.sqa.slingshot.spd.constraints.TargetConstraint
+	 * @generated
+	 */
+	public Adapter createTargetConstraintAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for the default case.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @generated
+	 */
+	public Adapter createEObjectAdapter() {
+		return null;
+	}
+
+} //ConstraintsAdapterFactory
