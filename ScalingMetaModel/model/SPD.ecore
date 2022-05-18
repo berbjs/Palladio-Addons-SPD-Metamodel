@@ -1,18 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="spd" nsURI="http://de/unistuttgart/sqa/slingshot/spd" nsPrefix="de.unistuttgart.sqa.slingshot.spd">
-  <eClassifiers xsi:type="ecore:EClass" name="ScalingPolicy">
+  <eClassifiers xsi:type="ecore:EClass" name="ScalingPolicy" eSuperTypes="#//NamedElement">
     <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
       <details key="constraints" value="policyNameInvariant"/>
     </eAnnotations>
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="A scaling policy determines the complete information for scaling a parituclar target."/>
     </eAnnotations>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="policyName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="The name of the policy."/>
-      </eAnnotations>
-    </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="active" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="scalingTrigger" lowerBound="1"
         eType="#//triggers/ScalingTrigger" containment="true"/>
@@ -20,37 +15,40 @@
         eType="#//adjustments/AdjustmentType" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="targetGroup" lowerBound="1"
         eType="#//targets/TargetGroup"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="policyconstraint" upperBound="-1"
-        eType="#//constraints/PolicyConstraint" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="policyConstraints" upperBound="-1"
+        eType="#//constraints/policy/PolicyConstraint" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="SPD">
+  <eClassifiers xsi:type="ecore:EClass" name="SPD" eSuperTypes="#//NamedElement">
     <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
       <details key="constraints" value="nameInvariant noSameTargetGroup"/>
     </eAnnotations>
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="The root elements that consists of all scaling policies under analysis for a given cloud application."/>
     </eAnnotations>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="scalingpolicy" lowerBound="1"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="scalingPolicies" lowerBound="1"
         upperBound="-1" eType="#//ScalingPolicy" containment="true">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="The set of scaling policies under analysis for the given cloud application model."/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="The name of the Scaling Policy Definition."/>
-      </eAnnotations>
-    </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="targetGroups" lowerBound="1"
         upperBound="-1" eType="#//targets/TargetGroup" containment="true"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="NamedElement" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+  </eClassifiers>
   <eSubpackages name="targets" nsURI="http://de/unistuttgart/sqa/slingshot/spd/targets"
       nsPrefix="de.unistuttgart.sqa.slingshot.spd.targets">
-    <eClassifiers xsi:type="ecore:EClass" name="TargetGroup">
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eClassifiers xsi:type="ecore:EClass" name="TargetGroup" abstract="true" eSuperTypes="#//NamedElement">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="targetConstraints" upperBound="-1"
+          eType="#//constraints/target/TargetConstraint" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ElasticInfrastructure" eSuperTypes="#//targets/TargetGroup">
       <eStructuralFeatures xsi:type="ecore:EReference" name="PCM_ResourceEnvironment"
           eType="ecore:EClass ../../org.palladiosimulator.pcm/model/pcm.ecore#//resourceenvironment/ResourceEnvironment"/>
     </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ElasticService" eSuperTypes="#//targets/TargetGroup"/>
+    <eClassifiers xsi:type="ecore:EClass" name="ElasticQueue" eSuperTypes="#//targets/TargetGroup"/>
   </eSubpackages>
   <eSubpackages name="adjustments" nsURI="http://de/unistuttgart/sqa/slingshot/spd/adjustments"
       nsPrefix="de.unistuttgart.sqa.slingshot.spd.adjustments">
@@ -102,43 +100,46 @@
   </eSubpackages>
   <eSubpackages name="constraints" nsURI="http://de/unistuttgart/sqa/slingshot/spd/constraints"
       nsPrefix="de.unistuttgart.sqa.slingshot.spd.constraints">
-    <eClassifiers xsi:type="ecore:EClass" name="PolicyConstraint" abstract="true"
-        eSuperTypes="#//constraints/Constraint"/>
-    <eClassifiers xsi:type="ecore:EClass" name="TemporalConstraint" abstract="true"
-        eSuperTypes="#//constraints/PolicyConstraint"/>
-    <eClassifiers xsi:type="ecore:EClass" name="TargetGroupSizeConstraint" eSuperTypes="#//constraints/TargetConstraint">
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="minSize" lowerBound="1"
-          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="maxSize" lowerBound="1"
-          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
-    </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="IntervallConstraint" eSuperTypes="#//constraints/TemporalConstraint">
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="offset" lowerBound="1"
-          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="intervallDuration" lowerBound="1"
-          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
-    </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="CooldownConstraint" eSuperTypes="#//constraints/TemporalConstraint">
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="cooldownTime" lowerBound="1"
-          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="maxScalingOperations"
-          lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
-    </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="StateBasedContraint" abstract="true"
-        eSuperTypes="#//constraints/PolicyConstraint"/>
-    <eClassifiers xsi:type="ecore:EClass" name="ThrashingConstraint" eSuperTypes="#//constraints/TemporalConstraint">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="Thrashing constraint is used to constraint the thrashing of resources i.e. increase and decrease of resources. The constraint is defined by the minimum amount of time where no two decicions with adjustments in two oposite directions can occur. "/>
-      </eAnnotations>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="minimumTimeNoThrashing"
-          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
-    </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="Constraint" abstract="true"/>
-    <eClassifiers xsi:type="ecore:EClass" name="TargetConstraint" abstract="true"
-        eSuperTypes="#//constraints/Constraint">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="targetgroup" lowerBound="1"
-          eType="#//targets/TargetGroup"/>
-    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="AbstractConstraint" abstract="true"/>
+    <eSubpackages name="policy" nsURI="http://de/unistuttgart/sqa/slingshot/spd/constraints/policy"
+        nsPrefix="de.unistuttgart.sqa.slingshot.spd.constraints.policy">
+      <eClassifiers xsi:type="ecore:EClass" name="PolicyConstraint" abstract="true"
+          eSuperTypes="#//constraints/AbstractConstraint"/>
+      <eClassifiers xsi:type="ecore:EClass" name="TemporalConstraint" abstract="true"
+          eSuperTypes="#//constraints/policy/PolicyConstraint"/>
+      <eClassifiers xsi:type="ecore:EClass" name="IntervallConstraint" eSuperTypes="#//constraints/policy/TemporalConstraint">
+        <eStructuralFeatures xsi:type="ecore:EAttribute" name="offset" lowerBound="1"
+            eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+        <eStructuralFeatures xsi:type="ecore:EAttribute" name="intervallDuration"
+            lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+      </eClassifiers>
+      <eClassifiers xsi:type="ecore:EClass" name="CooldownConstraint" eSuperTypes="#//constraints/policy/TemporalConstraint">
+        <eStructuralFeatures xsi:type="ecore:EAttribute" name="cooldownTime" lowerBound="1"
+            eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+        <eStructuralFeatures xsi:type="ecore:EAttribute" name="maxScalingOperations"
+            lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+      </eClassifiers>
+      <eClassifiers xsi:type="ecore:EClass" name="StateBasedContraint" abstract="true"
+          eSuperTypes="#//constraints/policy/PolicyConstraint"/>
+      <eClassifiers xsi:type="ecore:EClass" name="ThrashingConstraint" eSuperTypes="#//constraints/policy/TemporalConstraint">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="Thrashing constraint is used to constraint the thrashing of resources i.e. increase and decrease of resources. The constraint is defined by the minimum amount of time where no two decicions with adjustments in two oposite directions can occur. "/>
+        </eAnnotations>
+        <eStructuralFeatures xsi:type="ecore:EAttribute" name="minimumTimeNoThrashing"
+            eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+      </eClassifiers>
+    </eSubpackages>
+    <eSubpackages name="target" nsURI="http://de/unistuttgart/sqa/slingshot/spd/constraints/target"
+        nsPrefix="de.unistuttgart.sqa.slingshot.spd.constraints.target">
+      <eClassifiers xsi:type="ecore:EClass" name="TargetConstraint" abstract="true"
+          eSuperTypes="#//constraints/AbstractConstraint"/>
+      <eClassifiers xsi:type="ecore:EClass" name="TargetGroupSizeConstraint" eSuperTypes="#//constraints/target/TargetConstraint">
+        <eStructuralFeatures xsi:type="ecore:EAttribute" name="minSize" lowerBound="1"
+            eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+        <eStructuralFeatures xsi:type="ecore:EAttribute" name="maxSize" lowerBound="1"
+            eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+      </eClassifiers>
+    </eSubpackages>
   </eSubpackages>
   <eSubpackages name="triggers" nsURI="http://de/unistuttgart/sqa/slingshot/spd/triggers"
       nsPrefix="de.unistuttgart.sqa.slingshot.spd.triggers">
