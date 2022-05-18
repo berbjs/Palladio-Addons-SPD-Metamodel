@@ -14,7 +14,7 @@
         <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']"/>
         <target xmi:type="ecore:EPackage" href="SPD.ecore#//constraints"/>
       </ownedRepresentationDescriptors>
-      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_Nhzb0NXEEey7uvnzUH7ZNg" name="spd class diagram" repPath="#_Nhy0wNXEEey7uvnzUH7ZNg" changeId="a79fb9f0-0aed-47a8-8558-81bef58ed2c6">
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_Nhzb0NXEEey7uvnzUH7ZNg" name="spd class diagram" repPath="#_Nhy0wNXEEey7uvnzUH7ZNg" changeId="5c56ea19-2dca-4dc7-96fd-244f3068a181">
         <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']"/>
         <target xmi:type="ecore:EPackage" href="SPD.ecore#/"/>
       </ownedRepresentationDescriptors>
@@ -784,7 +784,7 @@
       <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
       <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
       <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
-      <ownedStyle xmi:type="diagram:FlatContainerStyle" uid="_OBS0MdXEEey7uvnzUH7ZNg" borderSize="1" borderSizeComputationExpression="1" backgroundStyle="Liquid" foregroundColor="255,252,216">
+      <ownedStyle xmi:type="diagram:FlatContainerStyle" uid="_Q0rxsNacEey7uvnzUH7ZNg" borderSize="1" borderSizeComputationExpression="1" backgroundStyle="Liquid" foregroundColor="255,252,216">
         <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@style"/>
       </ownedStyle>
       <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']"/>
@@ -821,13 +821,13 @@
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EReferenceNode']"/>
       </ownedElements>
     </ownedDiagramElements>
-    <ownedDiagramElements xmi:type="diagram:DNodeList" uid="_OBTbQNXEEey7uvnzUH7ZNg" name="SPD" tooltipText="&#xA;OK : Failed to create Xtext resource for '_Jk6TANXFEey7uvnzUH7ZNg.essentialocl'&#xA;OK : Failed to create Xtext resource for '_Jk6TAdXFEey7uvnzUH7ZNg.essentialocl'" outgoingEdges="_OBY60NXEEey7uvnzUH7ZNg _P5Ifk9XEEey7uvnzUH7ZNg" width="12" height="10">
+    <ownedDiagramElements xmi:type="diagram:DNodeList" uid="_OBTbQNXEEey7uvnzUH7ZNg" name="SPD" tooltipText="" outgoingEdges="_OBY60NXEEey7uvnzUH7ZNg _P5Ifk9XEEey7uvnzUH7ZNg" width="12" height="10">
       <target xmi:type="ecore:EClass" href="SPD.ecore#//SPD"/>
       <semanticElements xmi:type="ecore:EClass" href="SPD.ecore#//SPD"/>
       <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
       <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
       <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
-      <ownedStyle xmi:type="diagram:FlatContainerStyle" uid="_OBTbQdXEEey7uvnzUH7ZNg" borderSize="1" borderSizeComputationExpression="1" backgroundStyle="Liquid" foregroundColor="255,252,216">
+      <ownedStyle xmi:type="diagram:FlatContainerStyle" uid="_Q00UkdacEey7uvnzUH7ZNg" borderSize="1" borderSizeComputationExpression="1" backgroundStyle="Liquid" foregroundColor="255,252,216">
         <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@style"/>
       </ownedStyle>
       <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']"/>
