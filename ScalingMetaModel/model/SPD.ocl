@@ -1,0 +1,16 @@
+import 'SPD.ecore'
+
+package spd
+
+context ScalingPolicy
+--
+-- example invariant with a custom error message to verify that
+-- the 'name' property of all 'spd::ScalingPolicy' instances is non-null
+--
+inv NonNull_name('The \'name\' property of "' + self.toString() + '" is null'):
+	name <> null
+
+context SPD
+inv antinomicalTargets: self.targetGroups->exists(t | t.oclIsKindOf(spd::targets::ElasticInfrastructure)) xor (self.targetGroups->exists(t | t.oclIsKindOf(spd::targets::ElasticQueue)) or self.targetGroups->exists(t | t.oclIsKindOf(spd::targets::ElasticService)))
+
+endpackage
