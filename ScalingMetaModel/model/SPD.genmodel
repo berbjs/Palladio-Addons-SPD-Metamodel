@@ -6,27 +6,32 @@
     usedGenPackages="../../org.eclipse.emf.ecore/model/Ecore.genmodel#//ecore ../../de.uka.ipd.sdq.identifier/model/identifier.genmodel#//identifier ../../org.palladiosimulator.pcm/model/pcm.genmodel#//pcm ../../de.uka.ipd.sdq.probfunction/model/ProbabilityFunction.genmodel#//probfunction ../../de.uka.ipd.sdq.stoex/model/stoex.genmodel#//stoex ../../de.uka.ipd.sdq.units/model/Units.genmodel#//units"
     operationReflection="true" importOrganizing="true">
   <foreignModel>SPD.ecore</foreignModel>
-  <genPackages prefix="Spd" basePackage="de.unistuttgart.sqa.slingshot" disposableProviderFactory="true"
+  <genPackages prefix="Spd" basePackage="de.unistuttgart.slingshot" disposableProviderFactory="true"
       ecorePackage="SPD.ecore#/">
     <genClasses ecoreClass="SPD.ecore#//ScalingPolicy">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SPD.ecore#//ScalingPolicy/policyName"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SPD.ecore#//ScalingPolicy/active"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SPD.ecore#//ScalingPolicy/scalingTrigger"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SPD.ecore#//ScalingPolicy/adjustmentType"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference SPD.ecore#//ScalingPolicy/targetGroup"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SPD.ecore#//ScalingPolicy/policyconstraint"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SPD.ecore#//ScalingPolicy/policyConstraints"/>
     </genClasses>
     <genClasses ecoreClass="SPD.ecore#//SPD">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SPD.ecore#//SPD/scalingpolicy"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SPD.ecore#//SPD/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SPD.ecore#//SPD/scalingPolicies"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SPD.ecore#//SPD/targetGroups"/>
     </genClasses>
+    <genClasses image="false" ecoreClass="SPD.ecore#//NamedElement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SPD.ecore#//NamedElement/name"/>
+    </genClasses>
     <nestedGenPackages prefix="Targets" disposableProviderFactory="true" ecorePackage="SPD.ecore#//targets">
-      <genClasses ecoreClass="SPD.ecore#//targets/TargetGroup">
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SPD.ecore#//targets/TargetGroup/name"/>
-        <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference SPD.ecore#//targets/TargetGroup/PCM_ResourceEnvironment"/>
+      <genClasses image="false" ecoreClass="SPD.ecore#//targets/TargetGroup">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SPD.ecore#//targets/TargetGroup/targetConstraints"/>
       </genClasses>
+      <genClasses ecoreClass="SPD.ecore#//targets/ElasticInfrastructure">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference SPD.ecore#//targets/ElasticInfrastructure/PCM_ResourceEnvironment"/>
+      </genClasses>
+      <genClasses ecoreClass="SPD.ecore#//targets/ElasticService"/>
+      <genClasses ecoreClass="SPD.ecore#//targets/ElasticQueue"/>
     </nestedGenPackages>
     <nestedGenPackages prefix="Adjustments" disposableProviderFactory="true" ecorePackage="SPD.ecore#//adjustments">
       <genClasses image="false" ecoreClass="SPD.ecore#//adjustments/AdjustmentType"/>
@@ -42,29 +47,30 @@
       </genClasses>
     </nestedGenPackages>
     <nestedGenPackages prefix="Constraints" disposableProviderFactory="true" ecorePackage="SPD.ecore#//constraints">
-      <genClasses image="false" ecoreClass="SPD.ecore#//constraints/PolicyConstraint"/>
-      <genClasses image="false" ecoreClass="SPD.ecore#//constraints/TemporalConstraint"/>
-      <genClasses ecoreClass="SPD.ecore#//constraints/TargetGroupSizeConstraint">
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SPD.ecore#//constraints/TargetGroupSizeConstraint/minSize"/>
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SPD.ecore#//constraints/TargetGroupSizeConstraint/maxSize"/>
-      </genClasses>
-      <genClasses ecoreClass="SPD.ecore#//constraints/IntervallConstraint">
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SPD.ecore#//constraints/IntervallConstraint/offset"/>
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SPD.ecore#//constraints/IntervallConstraint/intervallDuration"/>
-      </genClasses>
-      <genClasses ecoreClass="SPD.ecore#//constraints/CooldownConstraint">
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SPD.ecore#//constraints/CooldownConstraint/cooldownTime"/>
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SPD.ecore#//constraints/CooldownConstraint/maxScalingOperations"/>
-      </genClasses>
-      <genClasses image="false" ecoreClass="SPD.ecore#//constraints/StateBasedContraint"/>
-      <genClasses ecoreClass="SPD.ecore#//constraints/ThrashingConstraint">
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SPD.ecore#//constraints/ThrashingConstraint/minimumTimeNoThrashing"/>
-      </genClasses>
-      <genClasses image="false" ecoreClass="SPD.ecore#//constraints/Constraint"/>
-      <genClasses image="false" ecoreClass="SPD.ecore#//constraints/TargetConstraint">
-        <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference SPD.ecore#//constraints/TargetConstraint/targetgroup"/>
-      </genClasses>
+      <genClasses image="false" ecoreClass="SPD.ecore#//constraints/AbstractConstraint"/>
+      <nestedGenPackages prefix="Policy" disposableProviderFactory="true" ecorePackage="SPD.ecore#//constraints/policy">
+        <genClasses image="false" ecoreClass="SPD.ecore#//constraints/policy/PolicyConstraint"/>
+        <genClasses image="false" ecoreClass="SPD.ecore#//constraints/policy/TemporalConstraint"/>
+        <genClasses ecoreClass="SPD.ecore#//constraints/policy/IntervallConstraint">
+          <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SPD.ecore#//constraints/policy/IntervallConstraint/offset"/>
+          <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SPD.ecore#//constraints/policy/IntervallConstraint/intervallDuration"/>
+        </genClasses>
+        <genClasses ecoreClass="SPD.ecore#//constraints/policy/CooldownConstraint">
+          <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SPD.ecore#//constraints/policy/CooldownConstraint/cooldownTime"/>
+          <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SPD.ecore#//constraints/policy/CooldownConstraint/maxScalingOperations"/>
+        </genClasses>
+        <genClasses image="false" ecoreClass="SPD.ecore#//constraints/policy/StateBasedContraint"/>
+        <genClasses ecoreClass="SPD.ecore#//constraints/policy/ThrashingConstraint">
+          <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SPD.ecore#//constraints/policy/ThrashingConstraint/minimumTimeNoThrashing"/>
+        </genClasses>
+      </nestedGenPackages>
+      <nestedGenPackages prefix="Target" disposableProviderFactory="true" ecorePackage="SPD.ecore#//constraints/target">
+        <genClasses image="false" ecoreClass="SPD.ecore#//constraints/target/TargetConstraint"/>
+        <genClasses ecoreClass="SPD.ecore#//constraints/target/TargetGroupSizeConstraint">
+          <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SPD.ecore#//constraints/target/TargetGroupSizeConstraint/minSize"/>
+          <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SPD.ecore#//constraints/target/TargetGroupSizeConstraint/maxSize"/>
+        </genClasses>
+      </nestedGenPackages>
     </nestedGenPackages>
     <nestedGenPackages prefix="Triggers" disposableProviderFactory="true" ecorePackage="SPD.ecore#//triggers">
       <genEnums typeSafeEnumCompatible="false" ecoreEnum="SPD.ecore#//triggers/AGGREGATIONMETHOD">

@@ -10,7 +10,7 @@
       <!-- @generated SPD -->
       <package
             uri="http://de/unistuttgart/sqa/slingshot/spd"
-            class="de.unistuttgart.sqa.slingshot.spd.SpdPackage"
+            class="de.unistuttgart.slingshot.spd.SpdPackage"
             genModel="model/SPD.genmodel"/>
    </extension>
 
@@ -18,7 +18,7 @@
       <!-- @generated SPD -->
       <package
             uri="http://de/unistuttgart/sqa/slingshot/spd/targets"
-            class="de.unistuttgart.sqa.slingshot.spd.targets.TargetsPackage"
+            class="de.unistuttgart.slingshot.spd.targets.TargetsPackage"
             genModel="model/SPD.genmodel"/>
    </extension>
 
@@ -26,7 +26,7 @@
       <!-- @generated SPD -->
       <package
             uri="http://de/unistuttgart/sqa/slingshot/spd/adjustments"
-            class="de.unistuttgart.sqa.slingshot.spd.adjustments.AdjustmentsPackage"
+            class="de.unistuttgart.slingshot.spd.adjustments.AdjustmentsPackage"
             genModel="model/SPD.genmodel"/>
    </extension>
 
@@ -34,7 +34,23 @@
       <!-- @generated SPD -->
       <package
             uri="http://de/unistuttgart/sqa/slingshot/spd/constraints"
-            class="de.unistuttgart.sqa.slingshot.spd.constraints.ConstraintsPackage"
+            class="de.unistuttgart.slingshot.spd.constraints.ConstraintsPackage"
+            genModel="model/SPD.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated SPD -->
+      <package
+            uri="http://de/unistuttgart/sqa/slingshot/spd/constraints/policy"
+            class="de.unistuttgart.slingshot.spd.constraints.policy.PolicyPackage"
+            genModel="model/SPD.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated SPD -->
+      <package
+            uri="http://de/unistuttgart/sqa/slingshot/spd/constraints/target"
+            class="de.unistuttgart.slingshot.spd.constraints.target.TargetPackage"
             genModel="model/SPD.genmodel"/>
    </extension>
 
@@ -42,7 +58,7 @@
       <!-- @generated SPD -->
       <package
             uri="http://de/unistuttgart/sqa/slingshot/spd/triggers"
-            class="de.unistuttgart.sqa.slingshot.spd.triggers.TriggersPackage"
+            class="de.unistuttgart.slingshot.spd.triggers.TriggersPackage"
             genModel="model/SPD.genmodel"/>
    </extension>
 </plugin>

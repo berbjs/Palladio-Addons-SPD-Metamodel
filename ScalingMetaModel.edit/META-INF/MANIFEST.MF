@@ -5,7 +5,7 @@ Bundle-SymbolicName: ScalingMetaModel.edit;singleton:=true
 Automatic-Module-Name: ScalingMetaModel.edit
 Bundle-Version: 1.0.0.qualifier
 Bundle-ClassPath: .
-Bundle-Activator: de.unistuttgart.sqa.slingshot.spd.provider.SPDEditPlugin$Implementation
+Bundle-Activator: de.unistuttgart.slingshot.spd.provider.SPDEditPlugin$Implementation
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: J2SE-1.5
@@ -13,7 +13,21 @@ Export-Package: de.unistuttgart.sqa.slingshot.spd.adjustments.provider,
  de.unistuttgart.sqa.slingshot.spd.constraints.provider,
  de.unistuttgart.sqa.slingshot.spd.provider,
  de.unistuttgart.sqa.slingshot.spd.targets.provider,
- de.unistuttgart.sqa.slingshot.spd.triggers.provider
+ de.unistuttgart.sqa.slingshot.spd.triggers.provider,
+ spd.adjustments.provider,
+ spd.constraints.policy.provider,
+ spd.constraints.provider,
+ spd.constraints.target.provider,
+ spd.provider,
+ spd.targets.provider,
+ spd.triggers.provider,
+ de.unistuttgart.slingshot.spd.adjustments.provider,
+ de.unistuttgart.slingshot.spd.constraints.policy.provider,
+ de.unistuttgart.slingshot.spd.constraints.provider,
+ de.unistuttgart.slingshot.spd.constraints.target.provider,
+ de.unistuttgart.slingshot.spd.provider,
+ de.unistuttgart.slingshot.spd.targets.provider,
+ de.unistuttgart.slingshot.spd.triggers.provider
 Require-Bundle: org.eclipse.core.runtime,
  ScalingMetaModel;visibility:=reexport,
  org.eclipse.emf.edit;visibility:=reexport,

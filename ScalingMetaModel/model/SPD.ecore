@@ -35,7 +35,7 @@
         upperBound="-1" eType="#//targets/TargetGroup" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="NamedElement" abstract="true">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
   </eClassifiers>
   <eSubpackages name="targets" nsURI="http://de/unistuttgart/sqa/slingshot/spd/targets"
       nsPrefix="de.unistuttgart.sqa.slingshot.spd.targets">
@@ -45,7 +45,7 @@
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ElasticInfrastructure" eSuperTypes="#//targets/TargetGroup">
       <eStructuralFeatures xsi:type="ecore:EReference" name="PCM_ResourceEnvironment"
-          eType="ecore:EClass platform:/plugin/org.palladiosimulator.pcm/model/pcm.ecore#//resourceenvironment/ResourceEnvironment"/>
+          eType="ecore:EClass ../../org.palladiosimulator.pcm/model/pcm.ecore#//resourceenvironment/ResourceEnvironment"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ElasticService" eSuperTypes="#//targets/TargetGroup"/>
     <eClassifiers xsi:type="ecore:EClass" name="ElasticQueue" eSuperTypes="#//targets/TargetGroup"/>
@@ -198,7 +198,7 @@
         <details key="documentation" value="IdleTimeTrigger bases the trigger on the idle time of a resource container.&#xA;"/>
       </eAnnotations>
       <eStructuralFeatures xsi:type="ecore:EReference" name="resourceContainer" upperBound="-1"
-          eType="ecore:EClass platform:/plugin/org.palladiosimulator.pcm/model/pcm.ecore#//resourceenvironment/ResourceContainer">
+          eType="ecore:EClass ../../org.palladiosimulator.pcm/model/pcm.ecore#//resourceenvironment/ResourceContainer">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
           <details key="documentation" value="Resource containers that are checked for being idle."/>
         </eAnnotations>
@@ -216,7 +216,7 @@
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="TaskCountTrigger" eSuperTypes="#//triggers/ThresholdBasedTrigger">
       <eStructuralFeatures xsi:type="ecore:EReference" name="resourceContainer" upperBound="-1"
-          eType="ecore:EClass platform:/plugin/org.palladiosimulator.pcm/model/pcm.ecore#//resourceenvironment/ResourceContainer">
+          eType="ecore:EClass ../../org.palladiosimulator.pcm/model/pcm.ecore#//resourceenvironment/ResourceContainer">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
           <details key="documentation" value="A list of resource containers for which task count is used. If left empty, all resource containers as referenced by the TargetGroup are used."/>
         </eAnnotations>
@@ -251,7 +251,7 @@
         </eAnnotations>
       </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EReference" name="linkingResource" upperBound="-1"
-          eType="ecore:EClass platform:/plugin/org.palladiosimulator.pcm/model/pcm.ecore#//resourceenvironment/LinkingResource">
+          eType="ecore:EClass ../../org.palladiosimulator.pcm/model/pcm.ecore#//resourceenvironment/LinkingResource">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
           <details key="documentation" value="The specific linking resource for which the utilization is used to trigger an adjustment."/>
         </eAnnotations>
@@ -276,7 +276,7 @@
         <details key="documentation" value="The ResponseTimeTrigger is a TimeBasedTrigger that is based on the response time exceeding a reference threshold value. "/>
       </eAnnotations>
       <eStructuralFeatures xsi:type="ecore:EReference" name="operationSignature" upperBound="-1"
-          eType="ecore:EClass platform:/plugin/org.palladiosimulator.pcm/model/pcm.ecore#//repository/OperationSignature">
+          eType="ecore:EClass ../../org.palladiosimulator.pcm/model/pcm.ecore#//repository/OperationSignature">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
           <details key="documentation" value="The operation from which the response time is used. "/>
         </eAnnotations>
@@ -303,7 +303,7 @@
         <details key="documentation" value="An abstract class for triggers based on the utilization of a processing resource such as CPU, RAM or HDD."/>
       </eAnnotations>
       <eStructuralFeatures xsi:type="ecore:EReference" name="resourceContainer" upperBound="-1"
-          eType="ecore:EClass platform:/plugin/org.palladiosimulator.pcm/model/pcm.ecore#//resourceenvironment/ResourceContainer">
+          eType="ecore:EClass ../../org.palladiosimulator.pcm/model/pcm.ecore#//resourceenvironment/ResourceContainer">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
           <details key="documentation" value="A list of resource containers for which the processing resource utilization is collected. If left empty, all resource containers as referenced by the TargetGroup are used."/>
         </eAnnotations>

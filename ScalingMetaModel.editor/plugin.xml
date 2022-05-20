@@ -12,9 +12,9 @@
             id="org.eclipse.emf.ecore.Wizard.category.ID"
             name="%_UI_Wizard_category"/>
       <wizard
-            id="de.unistuttgart.sqa.slingshot.spd.presentation.SpdModelWizardID"
+            id="de.unistuttgart.slingshot.spd.presentation.SpdModelWizardID"
             name="%_UI_SpdModelWizard_label"
-            class="de.unistuttgart.sqa.slingshot.spd.presentation.SpdModelWizard"
+            class="de.unistuttgart.slingshot.spd.presentation.SpdModelWizard"
             category="org.eclipse.emf.ecore.Wizard.category.ID"
             icon="icons/full/obj16/SpdModelFile.gif">
          <description>%_UI_SpdModelWizard_description</description>
@@ -25,12 +25,12 @@
    <extension point="org.eclipse.ui.editors">
       <!-- @generated SPD -->
       <editor
-            id="de.unistuttgart.sqa.slingshot.spd.presentation.SpdEditorID"
+            id="de.unistuttgart.slingshot.spd.presentation.SpdEditorID"
             name="%_UI_SpdEditor_label"
             icon="icons/full/obj16/SpdModelFile.gif"
             extensions="spd"
-            class="de.unistuttgart.sqa.slingshot.spd.presentation.SpdEditor"
-            contributorClass="de.unistuttgart.sqa.slingshot.spd.presentation.SpdActionBarContributor">
+            class="de.unistuttgart.slingshot.spd.presentation.SpdEditor"
+            contributorClass="de.unistuttgart.slingshot.spd.presentation.SpdActionBarContributor">
       </editor>
    </extension>
 
@@ -40,9 +40,9 @@
             id="org.eclipse.emf.ecore.Wizard.category.ID"
             name="%_UI_Wizard_category"/>
       <wizard
-            id="de.unistuttgart.sqa.slingshot.spd.targets.presentation.TargetsModelWizardID"
+            id="de.unistuttgart.slingshot.spd.targets.presentation.TargetsModelWizardID"
             name="%_UI_TargetsModelWizard_label"
-            class="de.unistuttgart.sqa.slingshot.spd.targets.presentation.TargetsModelWizard"
+            class="de.unistuttgart.slingshot.spd.targets.presentation.TargetsModelWizard"
             category="org.eclipse.emf.ecore.Wizard.category.ID"
             icon="icons/full/obj16/TargetsModelFile.gif">
          <description>%_UI_TargetsModelWizard_description</description>
@@ -53,12 +53,12 @@
    <extension point="org.eclipse.ui.editors">
       <!-- @generated SPD -->
       <editor
-            id="de.unistuttgart.sqa.slingshot.spd.targets.presentation.TargetsEditorID"
+            id="de.unistuttgart.slingshot.spd.targets.presentation.TargetsEditorID"
             name="%_UI_TargetsEditor_label"
             icon="icons/full/obj16/TargetsModelFile.gif"
             extensions="targets"
-            class="de.unistuttgart.sqa.slingshot.spd.targets.presentation.TargetsEditor"
-            contributorClass="de.unistuttgart.sqa.slingshot.spd.targets.presentation.TargetsActionBarContributor">
+            class="de.unistuttgart.slingshot.spd.targets.presentation.TargetsEditor"
+            contributorClass="de.unistuttgart.slingshot.spd.targets.presentation.TargetsActionBarContributor">
       </editor>
    </extension>
 
@@ -68,9 +68,9 @@
             id="org.eclipse.emf.ecore.Wizard.category.ID"
             name="%_UI_Wizard_category"/>
       <wizard
-            id="de.unistuttgart.sqa.slingshot.spd.adjustments.presentation.AdjustmentsModelWizardID"
+            id="de.unistuttgart.slingshot.spd.adjustments.presentation.AdjustmentsModelWizardID"
             name="%_UI_AdjustmentsModelWizard_label"
-            class="de.unistuttgart.sqa.slingshot.spd.adjustments.presentation.AdjustmentsModelWizard"
+            class="de.unistuttgart.slingshot.spd.adjustments.presentation.AdjustmentsModelWizard"
             category="org.eclipse.emf.ecore.Wizard.category.ID"
             icon="icons/full/obj16/AdjustmentsModelFile.gif">
          <description>%_UI_AdjustmentsModelWizard_description</description>
@@ -81,12 +81,12 @@
    <extension point="org.eclipse.ui.editors">
       <!-- @generated SPD -->
       <editor
-            id="de.unistuttgart.sqa.slingshot.spd.adjustments.presentation.AdjustmentsEditorID"
+            id="de.unistuttgart.slingshot.spd.adjustments.presentation.AdjustmentsEditorID"
             name="%_UI_AdjustmentsEditor_label"
             icon="icons/full/obj16/AdjustmentsModelFile.gif"
             extensions="adjustments"
-            class="de.unistuttgart.sqa.slingshot.spd.adjustments.presentation.AdjustmentsEditor"
-            contributorClass="de.unistuttgart.sqa.slingshot.spd.adjustments.presentation.AdjustmentsActionBarContributor">
+            class="de.unistuttgart.slingshot.spd.adjustments.presentation.AdjustmentsEditor"
+            contributorClass="de.unistuttgart.slingshot.spd.adjustments.presentation.AdjustmentsActionBarContributor">
       </editor>
    </extension>
 
@@ -96,12 +96,12 @@
             id="org.eclipse.emf.ecore.Wizard.category.ID"
             name="%_UI_Wizard_category"/>
       <wizard
-            id="de.unistuttgart.sqa.slingshot.spd.constraints.presentation.ConstraintsModelWizardID"
-            name="%_UI_ConstraintsModelWizard_label"
-            class="de.unistuttgart.sqa.slingshot.spd.constraints.presentation.ConstraintsModelWizard"
+            id="de.unistuttgart.slingshot.spd.constraints.policy.presentation.PolicyModelWizardID"
+            name="%_UI_PolicyModelWizard_label"
+            class="de.unistuttgart.slingshot.spd.constraints.policy.presentation.PolicyModelWizard"
             category="org.eclipse.emf.ecore.Wizard.category.ID"
-            icon="icons/full/obj16/ConstraintsModelFile.gif">
-         <description>%_UI_ConstraintsModelWizard_description</description>
+            icon="icons/full/obj16/PolicyModelFile.gif">
+         <description>%_UI_PolicyModelWizard_description</description>
          <selection class="org.eclipse.core.resources.IResource"/>
       </wizard>
    </extension>
@@ -109,12 +109,12 @@
    <extension point="org.eclipse.ui.editors">
       <!-- @generated SPD -->
       <editor
-            id="de.unistuttgart.sqa.slingshot.spd.constraints.presentation.ConstraintsEditorID"
-            name="%_UI_ConstraintsEditor_label"
-            icon="icons/full/obj16/ConstraintsModelFile.gif"
-            extensions="constraints"
-            class="de.unistuttgart.sqa.slingshot.spd.constraints.presentation.ConstraintsEditor"
-            contributorClass="de.unistuttgart.sqa.slingshot.spd.constraints.presentation.ConstraintsActionBarContributor">
+            id="de.unistuttgart.slingshot.spd.constraints.policy.presentation.PolicyEditorID"
+            name="%_UI_PolicyEditor_label"
+            icon="icons/full/obj16/PolicyModelFile.gif"
+            extensions="policy"
+            class="de.unistuttgart.slingshot.spd.constraints.policy.presentation.PolicyEditor"
+            contributorClass="de.unistuttgart.slingshot.spd.constraints.policy.presentation.PolicyActionBarContributor">
       </editor>
    </extension>
 
@@ -124,9 +124,37 @@
             id="org.eclipse.emf.ecore.Wizard.category.ID"
             name="%_UI_Wizard_category"/>
       <wizard
-            id="de.unistuttgart.sqa.slingshot.spd.triggers.presentation.TriggersModelWizardID"
+            id="de.unistuttgart.slingshot.spd.constraints.target.presentation.TargetModelWizardID"
+            name="%_UI_TargetModelWizard_label"
+            class="de.unistuttgart.slingshot.spd.constraints.target.presentation.TargetModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/TargetModelFile.gif">
+         <description>%_UI_TargetModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated SPD -->
+      <editor
+            id="de.unistuttgart.slingshot.spd.constraints.target.presentation.TargetEditorID"
+            name="%_UI_TargetEditor_label"
+            icon="icons/full/obj16/TargetModelFile.gif"
+            extensions="target"
+            class="de.unistuttgart.slingshot.spd.constraints.target.presentation.TargetEditor"
+            contributorClass="de.unistuttgart.slingshot.spd.constraints.target.presentation.TargetActionBarContributor">
+      </editor>
+   </extension>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated SPD -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="de.unistuttgart.slingshot.spd.triggers.presentation.TriggersModelWizardID"
             name="%_UI_TriggersModelWizard_label"
-            class="de.unistuttgart.sqa.slingshot.spd.triggers.presentation.TriggersModelWizard"
+            class="de.unistuttgart.slingshot.spd.triggers.presentation.TriggersModelWizard"
             category="org.eclipse.emf.ecore.Wizard.category.ID"
             icon="icons/full/obj16/TriggersModelFile.gif">
          <description>%_UI_TriggersModelWizard_description</description>
@@ -137,13 +165,12 @@
    <extension point="org.eclipse.ui.editors">
       <!-- @generated SPD -->
       <editor
-            id="de.unistuttgart.sqa.slingshot.spd.triggers.presentation.TriggersEditorID"
+            id="de.unistuttgart.slingshot.spd.triggers.presentation.TriggersEditorID"
             name="%_UI_TriggersEditor_label"
             icon="icons/full/obj16/TriggersModelFile.gif"
             extensions="triggers"
-            class="de.unistuttgart.sqa.slingshot.spd.triggers.presentation.TriggersEditor"
-            contributorClass="de.unistuttgart.sqa.slingshot.spd.triggers.presentation.TriggersActionBarContributor">
+            class="de.unistuttgart.slingshot.spd.triggers.presentation.TriggersEditor"
+            contributorClass="de.unistuttgart.slingshot.spd.triggers.presentation.TriggersActionBarContributor">
       </editor>
    </extension>
-
 </plugin>
