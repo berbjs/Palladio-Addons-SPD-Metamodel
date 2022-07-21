@@ -1,4 +1,5 @@
 /**
+ * Copyright SQA 2022
  */
 package de.unistuttgart.slingshot.spd.triggers;
 
@@ -21,4 +22,11 @@ import org.eclipse.emf.ecore.EObject;
  * @generated
  */
 public interface ScalingTrigger extends EObject {
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	String copyright = "Copyright SQA 2022";
+
 } // ScalingTrigger

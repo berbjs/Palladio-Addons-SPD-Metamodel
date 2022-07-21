@@ -1,4 +1,5 @@
 /**
+ * Copyright SQA 2022
  */
 package de.unistuttgart.slingshot.spd.impl;
 
@@ -35,6 +36,13 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * @generated
  */
 public class SPDImpl extends NamedElementImpl implements SPD {
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final String copyright = "Copyright SQA 2022";
+
 	/**
 	 * The cached value of the '{@link #getScalingPolicies() <em>Scaling Policies</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
@@ -79,6 +87,7 @@ public class SPDImpl extends NamedElementImpl implements SPD {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<ScalingPolicy> getScalingPolicies() {
 		if (scalingPolicies == null) {
 			scalingPolicies = new EObjectContainmentEList<ScalingPolicy>(ScalingPolicy.class, this, SpdPackage.SPD__SCALING_POLICIES);
@@ -91,6 +100,7 @@ public class SPDImpl extends NamedElementImpl implements SPD {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<TargetGroup> getTargetGroups() {
 		if (targetGroups == null) {
 			targetGroups = new EObjectContainmentEList<TargetGroup>(TargetGroup.class, this, SpdPackage.SPD__TARGET_GROUPS);

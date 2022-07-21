@@ -1,4 +1,5 @@
 /**
+ * Copyright SQA 2022
  */
 package de.unistuttgart.slingshot.spd.triggers.impl;
 
@@ -25,6 +26,13 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * @generated
  */
 public class PointInTimeTriggerImpl extends ScalingTriggerImpl implements PointInTimeTrigger {
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final String copyright = "Copyright SQA 2022";
+
 	/**
 	 * The default value of the '{@link #getPointInTime() <em>Point In Time</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -69,6 +77,7 @@ public class PointInTimeTriggerImpl extends ScalingTriggerImpl implements PointI
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public double getPointInTime() {
 		return pointInTime;
 	}
@@ -78,6 +87,7 @@ public class PointInTimeTriggerImpl extends ScalingTriggerImpl implements PointI
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setPointInTime(double newPointInTime) {
 		double oldPointInTime = pointInTime;
 		pointInTime = newPointInTime;

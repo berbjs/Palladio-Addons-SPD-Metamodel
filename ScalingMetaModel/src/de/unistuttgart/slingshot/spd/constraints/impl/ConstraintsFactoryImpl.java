@@ -1,4 +1,5 @@
 /**
+ * Copyright SQA 2022
  */
 package de.unistuttgart.slingshot.spd.constraints.impl;
 
@@ -19,6 +20,13 @@ import org.eclipse.emf.ecore.plugin.EcorePlugin;
  * @generated
  */
 public class ConstraintsFactoryImpl extends EFactoryImpl implements ConstraintsFactory {
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final String copyright = "Copyright SQA 2022";
+
 	/**
 	 * Creates the default factory implementation.
 	 * <!-- begin-user-doc -->
@@ -66,6 +74,7 @@ public class ConstraintsFactoryImpl extends EFactoryImpl implements ConstraintsF
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public ConstraintsPackage getConstraintsPackage() {
 		return (ConstraintsPackage)getEPackage();
 	}

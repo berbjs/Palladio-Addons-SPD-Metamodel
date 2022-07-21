@@ -1,4 +1,5 @@
 /**
+ * Copyright SQA 2022
  */
 package de.unistuttgart.slingshot.spd.constraints.policy.tests;
 
@@ -13,6 +14,13 @@ import de.unistuttgart.slingshot.spd.constraints.tests.AbstractConstraintTest;
  * @generated
  */
 public abstract class PolicyConstraintTest extends AbstractConstraintTest {
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final String copyright = "Copyright SQA 2022";
 
 	/**
 	 * Constructs a new Constraint test case with the given name.

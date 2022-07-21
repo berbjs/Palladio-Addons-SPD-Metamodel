@@ -1,4 +1,5 @@
 /**
+ * Copyright SQA 2022
  */
 package de.unistuttgart.slingshot.spd.constraints.util;
 
@@ -20,6 +21,13 @@ import org.eclipse.emf.ecore.EObject;
  * @generated
  */
 public class ConstraintsAdapterFactory extends AdapterFactoryImpl {
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final String copyright = "Copyright SQA 2022";
+
 	/**
 	 * The cached model package.
 	 * <!-- begin-user-doc -->

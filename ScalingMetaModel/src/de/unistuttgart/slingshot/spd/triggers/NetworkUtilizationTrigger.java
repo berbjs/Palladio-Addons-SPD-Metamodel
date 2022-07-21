@@ -1,4 +1,5 @@
 /**
+ * Copyright SQA 2022
  */
 package de.unistuttgart.slingshot.spd.triggers;
 
@@ -28,6 +29,13 @@ import org.palladiosimulator.pcm.resourceenvironment.LinkingResource;
  * @generated
  */
 public interface NetworkUtilizationTrigger extends ResourceUtilizationBasedTrigger {
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	String copyright = "Copyright SQA 2022";
+
 	/**
 	 * Returns the value of the '<em><b>Usage Type</b></em>' attribute.
 	 * The literals are from the enumeration {@link de.unistuttgart.slingshot.spd.triggers.NETWORKUSAGETYPE}.

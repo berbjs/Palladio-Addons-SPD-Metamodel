@@ -1,4 +1,5 @@
 /**
+ * Copyright SQA 2022
  */
 package de.unistuttgart.slingshot.spd.triggers;
 
@@ -70,6 +71,13 @@ public enum AGGREGATIONMETHOD implements Enumerator {
 	 * @ordered
 	 */
 	SUM(4, "SUM", "SUM");
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final String copyright = "Copyright SQA 2022";
 
 	/**
 	 * The '<em><b>AVERAGE</b></em>' literal value.
@@ -242,6 +250,7 @@ public enum AGGREGATIONMETHOD implements Enumerator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public int getValue() {
 	  return value;
 	}
@@ -251,6 +260,7 @@ public enum AGGREGATIONMETHOD implements Enumerator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getName() {
 	  return name;
 	}
@@ -260,6 +270,7 @@ public enum AGGREGATIONMETHOD implements Enumerator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getLiteral() {
 	  return literal;
 	}

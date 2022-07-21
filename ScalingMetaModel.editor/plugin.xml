@@ -2,6 +2,7 @@
 <?eclipse version="3.0"?>
 
 <!--
+ Copyright SQA 2022
 -->
 
 <plugin>
@@ -173,4 +174,5 @@
             contributorClass="de.unistuttgart.slingshot.spd.triggers.presentation.TriggersActionBarContributor">
       </editor>
    </extension>
+
 </plugin>

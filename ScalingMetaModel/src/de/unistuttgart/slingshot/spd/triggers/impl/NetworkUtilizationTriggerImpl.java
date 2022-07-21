@@ -1,4 +1,5 @@
 /**
+ * Copyright SQA 2022
  */
 package de.unistuttgart.slingshot.spd.triggers.impl;
 
@@ -35,6 +36,13 @@ import org.palladiosimulator.pcm.resourceenvironment.LinkingResource;
  * @generated
  */
 public class NetworkUtilizationTriggerImpl extends ResourceUtilizationBasedTriggerImpl implements NetworkUtilizationTrigger {
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final String copyright = "Copyright SQA 2022";
+
 	/**
 	 * The default value of the '{@link #getUsageType() <em>Usage Type</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -89,6 +97,7 @@ public class NetworkUtilizationTriggerImpl extends ResourceUtilizationBasedTrigg
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public NETWORKUSAGETYPE getUsageType() {
 		return usageType;
 	}
@@ -98,6 +107,7 @@ public class NetworkUtilizationTriggerImpl extends ResourceUtilizationBasedTrigg
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setUsageType(NETWORKUSAGETYPE newUsageType) {
 		NETWORKUSAGETYPE oldUsageType = usageType;
 		usageType = newUsageType == null ? USAGE_TYPE_EDEFAULT : newUsageType;
@@ -110,6 +120,7 @@ public class NetworkUtilizationTriggerImpl extends ResourceUtilizationBasedTrigg
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<LinkingResource> getLinkingResource() {
 		if (linkingResource == null) {
 			linkingResource = new EObjectResolvingEList<LinkingResource>(LinkingResource.class, this, TriggersPackage.NETWORK_UTILIZATION_TRIGGER__LINKING_RESOURCE);

@@ -1,4 +1,5 @@
 /**
+ * Copyright SQA 2022
  */
 package de.unistuttgart.slingshot.spd.triggers.impl;
 
@@ -36,6 +37,13 @@ import org.palladiosimulator.pcm.resourceenvironment.ResourceContainer;
  * @generated
  */
 public class TaskCountTriggerImpl extends ThresholdBasedTriggerImpl implements TaskCountTrigger {
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final String copyright = "Copyright SQA 2022";
+
 	/**
 	 * The cached value of the '{@link #getResourceContainer() <em>Resource Container</em>}' reference list.
 	 * <!-- begin-user-doc -->
@@ -110,6 +118,7 @@ public class TaskCountTriggerImpl extends ThresholdBasedTriggerImpl implements T
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<ResourceContainer> getResourceContainer() {
 		if (resourceContainer == null) {
 			resourceContainer = new EObjectResolvingEList<ResourceContainer>(ResourceContainer.class, this, TriggersPackage.TASK_COUNT_TRIGGER__RESOURCE_CONTAINER);
@@ -122,6 +131,7 @@ public class TaskCountTriggerImpl extends ThresholdBasedTriggerImpl implements T
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public AGGREGATIONMETHOD getProcessingResourceAggregation() {
 		return processingResourceAggregation;
 	}
@@ -131,6 +141,7 @@ public class TaskCountTriggerImpl extends ThresholdBasedTriggerImpl implements T
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setProcessingResourceAggregation(AGGREGATIONMETHOD newProcessingResourceAggregation) {
 		AGGREGATIONMETHOD oldProcessingResourceAggregation = processingResourceAggregation;
 		processingResourceAggregation = newProcessingResourceAggregation == null ? PROCESSING_RESOURCE_AGGREGATION_EDEFAULT : newProcessingResourceAggregation;
@@ -143,6 +154,7 @@ public class TaskCountTriggerImpl extends ThresholdBasedTriggerImpl implements T
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public AGGREGATIONMETHOD getResourceContainerAggregation() {
 		return resourceContainerAggregation;
 	}
@@ -152,6 +164,7 @@ public class TaskCountTriggerImpl extends ThresholdBasedTriggerImpl implements T
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setResourceContainerAggregation(AGGREGATIONMETHOD newResourceContainerAggregation) {
 		AGGREGATIONMETHOD oldResourceContainerAggregation = resourceContainerAggregation;
 		resourceContainerAggregation = newResourceContainerAggregation == null ? RESOURCE_CONTAINER_AGGREGATION_EDEFAULT : newResourceContainerAggregation;

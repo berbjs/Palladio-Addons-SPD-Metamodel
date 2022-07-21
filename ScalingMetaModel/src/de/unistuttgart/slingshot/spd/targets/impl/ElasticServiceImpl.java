@@ -1,4 +1,5 @@
 /**
+ * Copyright SQA 2022
  */
 package de.unistuttgart.slingshot.spd.targets.impl;
 
@@ -15,6 +16,13 @@ import org.eclipse.emf.ecore.EClass;
  * @generated
  */
 public class ElasticServiceImpl extends TargetGroupImpl implements ElasticService {
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final String copyright = "Copyright SQA 2022";
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

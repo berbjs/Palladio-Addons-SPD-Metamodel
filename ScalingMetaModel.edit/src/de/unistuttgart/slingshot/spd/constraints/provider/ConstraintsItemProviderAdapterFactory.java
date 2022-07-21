@@ -1,4 +1,5 @@
 /**
+ * Copyright SQA 2022
  */
 package de.unistuttgart.slingshot.spd.constraints.provider;
 
@@ -33,6 +34,13 @@ import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
  * @generated
  */
 public class ConstraintsItemProviderAdapterFactory extends ConstraintsAdapterFactory implements ComposeableAdapterFactory, IChangeNotifier, IDisposable {
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final String copyright = "Copyright SQA 2022";
+
 	/**
 	 * This keeps track of the root adapter factory that delegates to this adapter factory.
 	 * <!-- begin-user-doc -->
@@ -77,6 +85,7 @@ public class ConstraintsItemProviderAdapterFactory extends ConstraintsAdapterFac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public ComposeableAdapterFactory getRootAdapterFactory() {
 		return parentAdapterFactory == null ? this : parentAdapterFactory.getRootAdapterFactory();
 	}
@@ -87,6 +96,7 @@ public class ConstraintsItemProviderAdapterFactory extends ConstraintsAdapterFac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setParentAdapterFactory(ComposedAdapterFactory parentAdapterFactory) {
 		this.parentAdapterFactory = parentAdapterFactory;
 	}
@@ -135,6 +145,7 @@ public class ConstraintsItemProviderAdapterFactory extends ConstraintsAdapterFac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void addListener(INotifyChangedListener notifyChangedListener) {
 		changeNotifier.addListener(notifyChangedListener);
 	}
@@ -145,6 +156,7 @@ public class ConstraintsItemProviderAdapterFactory extends ConstraintsAdapterFac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void removeListener(INotifyChangedListener notifyChangedListener) {
 		changeNotifier.removeListener(notifyChangedListener);
 	}
@@ -155,6 +167,7 @@ public class ConstraintsItemProviderAdapterFactory extends ConstraintsAdapterFac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void fireNotifyChanged(Notification notification) {
 		changeNotifier.fireNotifyChanged(notification);
 
@@ -169,6 +182,7 @@ public class ConstraintsItemProviderAdapterFactory extends ConstraintsAdapterFac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void dispose() {
 	}
 

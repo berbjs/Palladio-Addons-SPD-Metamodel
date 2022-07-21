@@ -1,4 +1,5 @@
 /**
+ * Copyright SQA 2022
  */
 package de.unistuttgart.slingshot.spd.impl;
 
@@ -59,6 +60,13 @@ import org.palladiosimulator.pcm.PcmPackage;
  * @generated
  */
 public class SpdPackageImpl extends EPackageImpl implements SpdPackage {
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final String copyright = "Copyright SQA 2022";
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -171,6 +179,7 @@ public class SpdPackageImpl extends EPackageImpl implements SpdPackage {
 		EValidator.Registry.INSTANCE.put
 			(theSpdPackage,
 			 new EValidator.Descriptor() {
+				 @Override
 				 public EValidator getEValidator() {
 					 return SpdValidator.INSTANCE;
 				 }
@@ -189,6 +198,7 @@ public class SpdPackageImpl extends EPackageImpl implements SpdPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getScalingPolicy() {
 		return scalingPolicyEClass;
 	}
@@ -198,6 +208,7 @@ public class SpdPackageImpl extends EPackageImpl implements SpdPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getScalingPolicy_Active() {
 		return (EAttribute)scalingPolicyEClass.getEStructuralFeatures().get(0);
 	}
@@ -207,6 +218,7 @@ public class SpdPackageImpl extends EPackageImpl implements SpdPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getScalingPolicy_ScalingTrigger() {
 		return (EReference)scalingPolicyEClass.getEStructuralFeatures().get(1);
 	}
@@ -216,6 +228,7 @@ public class SpdPackageImpl extends EPackageImpl implements SpdPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getScalingPolicy_AdjustmentType() {
 		return (EReference)scalingPolicyEClass.getEStructuralFeatures().get(2);
 	}
@@ -225,6 +238,7 @@ public class SpdPackageImpl extends EPackageImpl implements SpdPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getScalingPolicy_TargetGroup() {
 		return (EReference)scalingPolicyEClass.getEStructuralFeatures().get(3);
 	}
@@ -234,6 +248,7 @@ public class SpdPackageImpl extends EPackageImpl implements SpdPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getScalingPolicy_PolicyConstraints() {
 		return (EReference)scalingPolicyEClass.getEStructuralFeatures().get(4);
 	}
@@ -243,6 +258,7 @@ public class SpdPackageImpl extends EPackageImpl implements SpdPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getSPD() {
 		return spdEClass;
 	}
@@ -252,6 +268,7 @@ public class SpdPackageImpl extends EPackageImpl implements SpdPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getSPD_ScalingPolicies() {
 		return (EReference)spdEClass.getEStructuralFeatures().get(0);
 	}
@@ -261,6 +278,7 @@ public class SpdPackageImpl extends EPackageImpl implements SpdPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getSPD_TargetGroups() {
 		return (EReference)spdEClass.getEStructuralFeatures().get(1);
 	}
@@ -270,6 +288,7 @@ public class SpdPackageImpl extends EPackageImpl implements SpdPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getNamedElement() {
 		return namedElementEClass;
 	}
@@ -279,6 +298,7 @@ public class SpdPackageImpl extends EPackageImpl implements SpdPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getNamedElement_Name() {
 		return (EAttribute)namedElementEClass.getEStructuralFeatures().get(0);
 	}
@@ -288,6 +308,7 @@ public class SpdPackageImpl extends EPackageImpl implements SpdPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public SpdFactory getSpdFactory() {
 		return (SpdFactory)getEFactoryInstance();
 	}

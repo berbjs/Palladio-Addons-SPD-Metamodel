@@ -1,4 +1,5 @@
 /**
+ * Copyright SQA 2022
  */
 package de.unistuttgart.slingshot.spd.impl;
 
@@ -46,6 +47,13 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * @generated
  */
 public class ScalingPolicyImpl extends NamedElementImpl implements ScalingPolicy {
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final String copyright = "Copyright SQA 2022";
+
 	/**
 	 * The default value of the '{@link #isActive() <em>Active</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -130,6 +138,7 @@ public class ScalingPolicyImpl extends NamedElementImpl implements ScalingPolicy
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public boolean isActive() {
 		return active;
 	}
@@ -139,6 +148,7 @@ public class ScalingPolicyImpl extends NamedElementImpl implements ScalingPolicy
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setActive(boolean newActive) {
 		boolean oldActive = active;
 		active = newActive;
@@ -151,6 +161,7 @@ public class ScalingPolicyImpl extends NamedElementImpl implements ScalingPolicy
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public ScalingTrigger getScalingTrigger() {
 		return scalingTrigger;
 	}
@@ -175,6 +186,7 @@ public class ScalingPolicyImpl extends NamedElementImpl implements ScalingPolicy
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setScalingTrigger(ScalingTrigger newScalingTrigger) {
 		if (newScalingTrigger != scalingTrigger) {
 			NotificationChain msgs = null;
@@ -194,6 +206,7 @@ public class ScalingPolicyImpl extends NamedElementImpl implements ScalingPolicy
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public AdjustmentType getAdjustmentType() {
 		return adjustmentType;
 	}
@@ -218,6 +231,7 @@ public class ScalingPolicyImpl extends NamedElementImpl implements ScalingPolicy
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setAdjustmentType(AdjustmentType newAdjustmentType) {
 		if (newAdjustmentType != adjustmentType) {
 			NotificationChain msgs = null;
@@ -237,6 +251,7 @@ public class ScalingPolicyImpl extends NamedElementImpl implements ScalingPolicy
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public TargetGroup getTargetGroup() {
 		if (targetGroup != null && targetGroup.eIsProxy()) {
 			InternalEObject oldTargetGroup = (InternalEObject)targetGroup;
@@ -263,6 +278,7 @@ public class ScalingPolicyImpl extends NamedElementImpl implements ScalingPolicy
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setTargetGroup(TargetGroup newTargetGroup) {
 		TargetGroup oldTargetGroup = targetGroup;
 		targetGroup = newTargetGroup;
@@ -275,6 +291,7 @@ public class ScalingPolicyImpl extends NamedElementImpl implements ScalingPolicy
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<PolicyConstraint> getPolicyConstraints() {
 		if (policyConstraints == null) {
 			policyConstraints = new EObjectContainmentEList<PolicyConstraint>(PolicyConstraint.class, this, SpdPackage.SCALING_POLICY__POLICY_CONSTRAINTS);

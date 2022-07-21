@@ -1,4 +1,5 @@
 /**
+ * Copyright SQA 2022
  */
 package de.unistuttgart.slingshot.spd.constraints;
 
@@ -22,6 +23,13 @@ import org.eclipse.emf.ecore.EPackage;
  * @generated
  */
 public interface ConstraintsPackage extends EPackage {
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	String copyright = "Copyright SQA 2022";
+
 	/**
 	 * The package name.
 	 * <!-- begin-user-doc -->

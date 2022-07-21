@@ -1,4 +1,5 @@
 /**
+ * Copyright SQA 2022
  */
 package de.unistuttgart.slingshot.spd.adjustments;
 
@@ -25,6 +26,13 @@ package de.unistuttgart.slingshot.spd.adjustments;
  * @generated
  */
 public interface RelativeAdjustment extends AdjustmentType {
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	String copyright = "Copyright SQA 2022";
+
 	/**
 	 * Returns the value of the '<em><b>Percentage Value</b></em>' attribute.
 	 * The default value is <code>"0.0"</code>.

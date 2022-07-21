@@ -7,20 +7,7 @@ Bundle-Version: 1.0.0.qualifier
 Bundle-ClassPath: .
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
-Bundle-RequiredExecutionEnvironment: J2SE-1.5
-Export-Package: de.unistuttgart.sqa.slingshot.spd.adjustments.tests,
- de.unistuttgart.sqa.slingshot.spd.constraints.tests,
- de.unistuttgart.sqa.slingshot.spd.targets.tests,
- de.unistuttgart.sqa.slingshot.spd.tests,
- de.unistuttgart.sqa.slingshot.spd.triggers.tests,
- spd.adjustments.tests,
- spd.constraints.policy.tests,
- spd.constraints.target.tests,
- spd.constraints.tests,
- spd.targets.tests,
- spd.tests,
- spd.triggers.tests,
- de.unistuttgart.slingshot.spd.adjustments.tests,
+Export-Package: de.unistuttgart.slingshot.spd.adjustments.tests,
  de.unistuttgart.slingshot.spd.constraints.policy.tests,
  de.unistuttgart.slingshot.spd.constraints.target.tests,
  de.unistuttgart.slingshot.spd.constraints.tests,

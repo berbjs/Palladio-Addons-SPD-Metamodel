@@ -1,4 +1,5 @@
 /**
+ * Copyright SQA 2022
  */
 package de.unistuttgart.slingshot.spd.constraints.policy;
 
@@ -14,4 +15,11 @@ package de.unistuttgart.slingshot.spd.constraints.policy;
  * @generated
  */
 public interface StateBasedContraint extends PolicyConstraint {
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	String copyright = "Copyright SQA 2022";
+
 } // StateBasedContraint

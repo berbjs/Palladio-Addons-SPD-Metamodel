@@ -1,4 +1,5 @@
 /**
+ * Copyright SQA 2022
  */
 package de.unistuttgart.slingshot.spd.targets.impl;
 
@@ -28,6 +29,13 @@ import org.palladiosimulator.pcm.resourceenvironment.ResourceEnvironment;
  * @generated
  */
 public class ElasticInfrastructureImpl extends TargetGroupImpl implements ElasticInfrastructure {
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final String copyright = "Copyright SQA 2022";
+
 	/**
 	 * The cached value of the '{@link #getPCM_ResourceEnvironment() <em>PCM Resource Environment</em>}' reference.
 	 * <!-- begin-user-doc -->
@@ -62,6 +70,7 @@ public class ElasticInfrastructureImpl extends TargetGroupImpl implements Elasti
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public ResourceEnvironment getPCM_ResourceEnvironment() {
 		if (pcM_ResourceEnvironment != null && pcM_ResourceEnvironment.eIsProxy()) {
 			InternalEObject oldPCM_ResourceEnvironment = (InternalEObject)pcM_ResourceEnvironment;
@@ -88,6 +97,7 @@ public class ElasticInfrastructureImpl extends TargetGroupImpl implements Elasti
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setPCM_ResourceEnvironment(ResourceEnvironment newPCM_ResourceEnvironment) {
 		ResourceEnvironment oldPCM_ResourceEnvironment = pcM_ResourceEnvironment;
 		pcM_ResourceEnvironment = newPCM_ResourceEnvironment;

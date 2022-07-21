@@ -2,6 +2,7 @@
 <?eclipse version="3.0"?>
 
 <!--
+ Copyright SQA 2022
 -->
 
 <plugin>
@@ -96,4 +97,5 @@
                org.eclipse.emf.edit.provider.IItemLabelProvider
                org.eclipse.emf.edit.provider.IItemPropertySource"/>
    </extension>
+
 </plugin>

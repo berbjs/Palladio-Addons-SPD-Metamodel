@@ -1,4 +1,5 @@
 /**
+ * Copyright SQA 2022
  */
 package de.unistuttgart.slingshot.spd.targets;
 
@@ -21,6 +22,13 @@ import org.palladiosimulator.pcm.resourceenvironment.ResourceEnvironment;
  * @generated
  */
 public interface ElasticInfrastructure extends TargetGroup {
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	String copyright = "Copyright SQA 2022";
+
 	/**
 	 * Returns the value of the '<em><b>PCM Resource Environment</b></em>' reference.
 	 * <!-- begin-user-doc -->

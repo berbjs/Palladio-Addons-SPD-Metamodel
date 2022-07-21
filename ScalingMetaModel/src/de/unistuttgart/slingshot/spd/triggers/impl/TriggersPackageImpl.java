@@ -1,4 +1,5 @@
 /**
+ * Copyright SQA 2022
  */
 package de.unistuttgart.slingshot.spd.triggers.impl;
 
@@ -72,6 +73,13 @@ import org.palladiosimulator.pcm.resourceenvironment.ResourceenvironmentPackage;
  * @generated
  */
 public class TriggersPackageImpl extends EPackageImpl implements TriggersPackage {
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final String copyright = "Copyright SQA 2022";
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -291,6 +299,7 @@ public class TriggersPackageImpl extends EPackageImpl implements TriggersPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getScalingTrigger() {
 		return scalingTriggerEClass;
 	}
@@ -300,6 +309,7 @@ public class TriggersPackageImpl extends EPackageImpl implements TriggersPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getThresholdBasedTrigger() {
 		return thresholdBasedTriggerEClass;
 	}
@@ -309,6 +319,7 @@ public class TriggersPackageImpl extends EPackageImpl implements TriggersPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getThresholdBasedTrigger_ThresholdDirection() {
 		return (EAttribute)thresholdBasedTriggerEClass.getEStructuralFeatures().get(0);
 	}
@@ -318,6 +329,7 @@ public class TriggersPackageImpl extends EPackageImpl implements TriggersPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getThresholdBasedTrigger_Threshold() {
 		return (EAttribute)thresholdBasedTriggerEClass.getEStructuralFeatures().get(1);
 	}
@@ -327,6 +339,7 @@ public class TriggersPackageImpl extends EPackageImpl implements TriggersPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getThresholdBasedTrigger_ViolationWindow() {
 		return (EAttribute)thresholdBasedTriggerEClass.getEStructuralFeatures().get(2);
 	}
@@ -336,6 +349,7 @@ public class TriggersPackageImpl extends EPackageImpl implements TriggersPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getCPUUtilizationTrigger() {
 		return cpuUtilizationTriggerEClass;
 	}
@@ -345,6 +359,7 @@ public class TriggersPackageImpl extends EPackageImpl implements TriggersPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getRAMUtilizationTrigger() {
 		return ramUtilizationTriggerEClass;
 	}
@@ -354,6 +369,7 @@ public class TriggersPackageImpl extends EPackageImpl implements TriggersPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getHDDUtilizationTrigger() {
 		return hddUtilizationTriggerEClass;
 	}
@@ -363,6 +379,7 @@ public class TriggersPackageImpl extends EPackageImpl implements TriggersPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getHDDUtilizationTrigger_UsageType() {
 		return (EAttribute)hddUtilizationTriggerEClass.getEStructuralFeatures().get(0);
 	}
@@ -372,6 +389,7 @@ public class TriggersPackageImpl extends EPackageImpl implements TriggersPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getTimeBasedTrigger() {
 		return timeBasedTriggerEClass;
 	}
@@ -381,6 +399,7 @@ public class TriggersPackageImpl extends EPackageImpl implements TriggersPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getPointInTimeTrigger() {
 		return pointInTimeTriggerEClass;
 	}
@@ -390,6 +409,7 @@ public class TriggersPackageImpl extends EPackageImpl implements TriggersPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getPointInTimeTrigger_PointInTime() {
 		return (EAttribute)pointInTimeTriggerEClass.getEStructuralFeatures().get(0);
 	}
@@ -399,6 +419,7 @@ public class TriggersPackageImpl extends EPackageImpl implements TriggersPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getIdleTimeTrigger() {
 		return idleTimeTriggerEClass;
 	}
@@ -408,6 +429,7 @@ public class TriggersPackageImpl extends EPackageImpl implements TriggersPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getIdleTimeTrigger_ResourceContainer() {
 		return (EReference)idleTimeTriggerEClass.getEStructuralFeatures().get(0);
 	}
@@ -417,6 +439,7 @@ public class TriggersPackageImpl extends EPackageImpl implements TriggersPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getTaskCountTrigger() {
 		return taskCountTriggerEClass;
 	}
@@ -426,6 +449,7 @@ public class TriggersPackageImpl extends EPackageImpl implements TriggersPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getTaskCountTrigger_ResourceContainer() {
 		return (EReference)taskCountTriggerEClass.getEStructuralFeatures().get(0);
 	}
@@ -435,6 +459,7 @@ public class TriggersPackageImpl extends EPackageImpl implements TriggersPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getTaskCountTrigger_ProcessingResourceAggregation() {
 		return (EAttribute)taskCountTriggerEClass.getEStructuralFeatures().get(1);
 	}
@@ -444,6 +469,7 @@ public class TriggersPackageImpl extends EPackageImpl implements TriggersPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getTaskCountTrigger_ResourceContainerAggregation() {
 		return (EAttribute)taskCountTriggerEClass.getEStructuralFeatures().get(2);
 	}
@@ -453,6 +479,7 @@ public class TriggersPackageImpl extends EPackageImpl implements TriggersPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getNetworkUtilizationTrigger() {
 		return networkUtilizationTriggerEClass;
 	}
@@ -462,6 +489,7 @@ public class TriggersPackageImpl extends EPackageImpl implements TriggersPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getNetworkUtilizationTrigger_UsageType() {
 		return (EAttribute)networkUtilizationTriggerEClass.getEStructuralFeatures().get(0);
 	}
@@ -471,6 +499,7 @@ public class TriggersPackageImpl extends EPackageImpl implements TriggersPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getNetworkUtilizationTrigger_LinkingResource() {
 		return (EReference)networkUtilizationTriggerEClass.getEStructuralFeatures().get(1);
 	}
@@ -480,6 +509,7 @@ public class TriggersPackageImpl extends EPackageImpl implements TriggersPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getResponseTimeTrigger() {
 		return responseTimeTriggerEClass;
 	}
@@ -489,6 +519,7 @@ public class TriggersPackageImpl extends EPackageImpl implements TriggersPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getResponseTimeTrigger_OperationSignature() {
 		return (EReference)responseTimeTriggerEClass.getEStructuralFeatures().get(0);
 	}
@@ -498,6 +529,7 @@ public class TriggersPackageImpl extends EPackageImpl implements TriggersPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getResourceUtilizationBasedTrigger() {
 		return resourceUtilizationBasedTriggerEClass;
 	}
@@ -507,6 +539,7 @@ public class TriggersPackageImpl extends EPackageImpl implements TriggersPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getResourceUtilizationBasedTrigger_ProcessingResourceAggregation() {
 		return (EAttribute)resourceUtilizationBasedTriggerEClass.getEStructuralFeatures().get(0);
 	}
@@ -516,6 +549,7 @@ public class TriggersPackageImpl extends EPackageImpl implements TriggersPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getResourceUtilizationBasedTrigger_ResourceContainerAggregation() {
 		return (EAttribute)resourceUtilizationBasedTriggerEClass.getEStructuralFeatures().get(1);
 	}
@@ -525,6 +559,7 @@ public class TriggersPackageImpl extends EPackageImpl implements TriggersPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getProcessingResourceUtilizationBasedTrigger() {
 		return processingResourceUtilizationBasedTriggerEClass;
 	}
@@ -534,6 +569,7 @@ public class TriggersPackageImpl extends EPackageImpl implements TriggersPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getProcessingResourceUtilizationBasedTrigger_ResourceContainer() {
 		return (EReference)processingResourceUtilizationBasedTriggerEClass.getEStructuralFeatures().get(0);
 	}
@@ -543,6 +579,7 @@ public class TriggersPackageImpl extends EPackageImpl implements TriggersPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EEnum getAGGREGATIONMETHOD() {
 		return aggregationmethodEEnum;
 	}
@@ -552,6 +589,7 @@ public class TriggersPackageImpl extends EPackageImpl implements TriggersPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EEnum getHDDUSAGETYPE() {
 		return hddusagetypeEEnum;
 	}
@@ -561,6 +599,7 @@ public class TriggersPackageImpl extends EPackageImpl implements TriggersPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EEnum getNETWORKUSAGETYPE() {
 		return networkusagetypeEEnum;
 	}
@@ -570,6 +609,7 @@ public class TriggersPackageImpl extends EPackageImpl implements TriggersPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EEnum getTHRESHOLDDIRECTION() {
 		return thresholddirectionEEnum;
 	}
@@ -579,6 +619,7 @@ public class TriggersPackageImpl extends EPackageImpl implements TriggersPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public TriggersFactory getTriggersFactory() {
 		return (TriggersFactory)getEFactoryInstance();
 	}

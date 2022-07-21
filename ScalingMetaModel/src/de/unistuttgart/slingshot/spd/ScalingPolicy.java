@@ -1,4 +1,5 @@
 /**
+ * Copyright SQA 2022
  */
 package de.unistuttgart.slingshot.spd;
 
@@ -37,6 +38,13 @@ import org.eclipse.emf.common.util.EList;
  * @generated
  */
 public interface ScalingPolicy extends NamedElement {
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	String copyright = "Copyright SQA 2022";
+
 	/**
 	 * Returns the value of the '<em><b>Active</b></em>' attribute.
 	 * <!-- begin-user-doc -->

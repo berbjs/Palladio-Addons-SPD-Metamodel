@@ -1,4 +1,5 @@
 /**
+ * Copyright SQA 2022
  */
 package de.unistuttgart.slingshot.spd.triggers.tests;
 
@@ -11,6 +12,13 @@ import de.unistuttgart.slingshot.spd.triggers.ResourceUtilizationBasedTrigger;
  * @generated
  */
 public abstract class ResourceUtilizationBasedTriggerTest extends ThresholdBasedTriggerTest {
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final String copyright = "Copyright SQA 2022";
 
 	/**
 	 * Constructs a new Resource Utilization Based Trigger test case with the given name.

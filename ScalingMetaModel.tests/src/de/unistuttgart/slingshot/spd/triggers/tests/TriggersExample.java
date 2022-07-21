@@ -1,4 +1,5 @@
 /**
+ * Copyright SQA 2022
  */
 package de.unistuttgart.slingshot.spd.triggers.tests;
 
@@ -30,6 +31,13 @@ import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
  * @generated
  */
 public class TriggersExample {
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final String copyright = "Copyright SQA 2022";
+	
 	/**
 	 * <!-- begin-user-doc -->
 	 * Load all the argument file paths or URIs as instances of the model.

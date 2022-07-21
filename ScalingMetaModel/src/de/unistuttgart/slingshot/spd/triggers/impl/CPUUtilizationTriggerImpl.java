@@ -1,4 +1,5 @@
 /**
+ * Copyright SQA 2022
  */
 package de.unistuttgart.slingshot.spd.triggers.impl;
 
@@ -15,6 +16,13 @@ import org.eclipse.emf.ecore.EClass;
  * @generated
  */
 public class CPUUtilizationTriggerImpl extends ProcessingResourceUtilizationBasedTriggerImpl implements CPUUtilizationTrigger {
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final String copyright = "Copyright SQA 2022";
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

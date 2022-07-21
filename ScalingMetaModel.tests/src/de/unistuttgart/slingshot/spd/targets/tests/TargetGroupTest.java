@@ -1,4 +1,5 @@
 /**
+ * Copyright SQA 2022
  */
 package de.unistuttgart.slingshot.spd.targets.tests;
 
@@ -13,6 +14,13 @@ import de.unistuttgart.slingshot.spd.tests.NamedElementTest;
  * @generated
  */
 public abstract class TargetGroupTest extends NamedElementTest {
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final String copyright = "Copyright SQA 2022";
 
 	/**
 	 * Constructs a new Target Group test case with the given name.

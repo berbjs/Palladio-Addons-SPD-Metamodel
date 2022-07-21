@@ -1,4 +1,5 @@
 /**
+ * Copyright SQA 2022
  */
 package de.unistuttgart.slingshot.spd.triggers.impl;
 
@@ -29,6 +30,13 @@ import org.palladiosimulator.pcm.repository.OperationSignature;
  * @generated
  */
 public class ResponseTimeTriggerImpl extends TimeBasedTriggerImpl implements ResponseTimeTrigger {
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final String copyright = "Copyright SQA 2022";
+
 	/**
 	 * The cached value of the '{@link #getOperationSignature() <em>Operation Signature</em>}' reference list.
 	 * <!-- begin-user-doc -->
@@ -63,6 +71,7 @@ public class ResponseTimeTriggerImpl extends TimeBasedTriggerImpl implements Res
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<OperationSignature> getOperationSignature() {
 		if (operationSignature == null) {
 			operationSignature = new EObjectResolvingEList<OperationSignature>(OperationSignature.class, this, TriggersPackage.RESPONSE_TIME_TRIGGER__OPERATION_SIGNATURE);

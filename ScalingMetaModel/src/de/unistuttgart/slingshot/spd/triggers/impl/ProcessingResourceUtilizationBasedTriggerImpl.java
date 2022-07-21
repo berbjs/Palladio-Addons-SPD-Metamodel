@@ -1,4 +1,5 @@
 /**
+ * Copyright SQA 2022
  */
 package de.unistuttgart.slingshot.spd.triggers.impl;
 
@@ -29,6 +30,13 @@ import org.palladiosimulator.pcm.resourceenvironment.ResourceContainer;
  * @generated
  */
 public abstract class ProcessingResourceUtilizationBasedTriggerImpl extends ResourceUtilizationBasedTriggerImpl implements ProcessingResourceUtilizationBasedTrigger {
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final String copyright = "Copyright SQA 2022";
+
 	/**
 	 * The cached value of the '{@link #getResourceContainer() <em>Resource Container</em>}' reference list.
 	 * <!-- begin-user-doc -->
@@ -63,6 +71,7 @@ public abstract class ProcessingResourceUtilizationBasedTriggerImpl extends Reso
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<ResourceContainer> getResourceContainer() {
 		if (resourceContainer == null) {
 			resourceContainer = new EObjectResolvingEList<ResourceContainer>(ResourceContainer.class, this, TriggersPackage.PROCESSING_RESOURCE_UTILIZATION_BASED_TRIGGER__RESOURCE_CONTAINER);

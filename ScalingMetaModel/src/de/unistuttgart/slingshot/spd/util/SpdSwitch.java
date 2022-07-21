@@ -1,4 +1,5 @@
 /**
+ * Copyright SQA 2022
  */
 package de.unistuttgart.slingshot.spd.util;
 
@@ -23,6 +24,13 @@ import org.eclipse.emf.ecore.util.Switch;
  * @generated
  */
 public class SpdSwitch<T> extends Switch<T> {
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final String copyright = "Copyright SQA 2022";
+
 	/**
 	 * The cached model package
 	 * <!-- begin-user-doc -->
