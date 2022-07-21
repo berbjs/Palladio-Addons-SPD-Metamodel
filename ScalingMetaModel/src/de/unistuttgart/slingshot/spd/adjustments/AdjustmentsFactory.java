@@ -1,4 +1,5 @@
 /**
+ * Copyright SQA 2022
  */
 package de.unistuttgart.slingshot.spd.adjustments;
 
@@ -13,6 +14,13 @@ import org.eclipse.emf.ecore.EFactory;
  * @generated
  */
 public interface AdjustmentsFactory extends EFactory {
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	String copyright = "Copyright SQA 2022";
+
 	/**
 	 * The singleton instance of the factory.
 	 * <!-- begin-user-doc -->

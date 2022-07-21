@@ -1,4 +1,5 @@
 /**
+ * Copyright SQA 2022
  */
 package de.unistuttgart.slingshot.spd.triggers.impl;
 
@@ -28,6 +29,13 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * @generated
  */
 public abstract class ThresholdBasedTriggerImpl extends ScalingTriggerImpl implements ThresholdBasedTrigger {
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final String copyright = "Copyright SQA 2022";
+
 	/**
 	 * The default value of the '{@link #getThresholdDirection() <em>Threshold Direction</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -112,6 +120,7 @@ public abstract class ThresholdBasedTriggerImpl extends ScalingTriggerImpl imple
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public THRESHOLDDIRECTION getThresholdDirection() {
 		return thresholdDirection;
 	}
@@ -121,6 +130,7 @@ public abstract class ThresholdBasedTriggerImpl extends ScalingTriggerImpl imple
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setThresholdDirection(THRESHOLDDIRECTION newThresholdDirection) {
 		THRESHOLDDIRECTION oldThresholdDirection = thresholdDirection;
 		thresholdDirection = newThresholdDirection == null ? THRESHOLD_DIRECTION_EDEFAULT : newThresholdDirection;
@@ -133,6 +143,7 @@ public abstract class ThresholdBasedTriggerImpl extends ScalingTriggerImpl imple
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public double getThreshold() {
 		return threshold;
 	}
@@ -142,6 +153,7 @@ public abstract class ThresholdBasedTriggerImpl extends ScalingTriggerImpl imple
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setThreshold(double newThreshold) {
 		double oldThreshold = threshold;
 		threshold = newThreshold;
@@ -154,6 +166,7 @@ public abstract class ThresholdBasedTriggerImpl extends ScalingTriggerImpl imple
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public double getViolationWindow() {
 		return violationWindow;
 	}
@@ -163,6 +176,7 @@ public abstract class ThresholdBasedTriggerImpl extends ScalingTriggerImpl imple
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setViolationWindow(double newViolationWindow) {
 		double oldViolationWindow = violationWindow;
 		violationWindow = newViolationWindow;

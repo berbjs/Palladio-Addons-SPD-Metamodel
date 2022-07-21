@@ -1,4 +1,5 @@
 /**
+ * Copyright SQA 2022
  */
 package de.unistuttgart.slingshot.spd.triggers.impl;
 
@@ -27,6 +28,13 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * @generated
  */
 public abstract class ResourceUtilizationBasedTriggerImpl extends ThresholdBasedTriggerImpl implements ResourceUtilizationBasedTrigger {
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final String copyright = "Copyright SQA 2022";
+
 	/**
 	 * The default value of the '{@link #getProcessingResourceAggregation() <em>Processing Resource Aggregation</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -91,6 +99,7 @@ public abstract class ResourceUtilizationBasedTriggerImpl extends ThresholdBased
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public AGGREGATIONMETHOD getProcessingResourceAggregation() {
 		return processingResourceAggregation;
 	}
@@ -100,6 +109,7 @@ public abstract class ResourceUtilizationBasedTriggerImpl extends ThresholdBased
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setProcessingResourceAggregation(AGGREGATIONMETHOD newProcessingResourceAggregation) {
 		AGGREGATIONMETHOD oldProcessingResourceAggregation = processingResourceAggregation;
 		processingResourceAggregation = newProcessingResourceAggregation == null ? PROCESSING_RESOURCE_AGGREGATION_EDEFAULT : newProcessingResourceAggregation;
@@ -112,6 +122,7 @@ public abstract class ResourceUtilizationBasedTriggerImpl extends ThresholdBased
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public AGGREGATIONMETHOD getResourceContainerAggregation() {
 		return resourceContainerAggregation;
 	}
@@ -121,6 +132,7 @@ public abstract class ResourceUtilizationBasedTriggerImpl extends ThresholdBased
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setResourceContainerAggregation(AGGREGATIONMETHOD newResourceContainerAggregation) {
 		AGGREGATIONMETHOD oldResourceContainerAggregation = resourceContainerAggregation;
 		resourceContainerAggregation = newResourceContainerAggregation == null ? RESOURCE_CONTAINER_AGGREGATION_EDEFAULT : newResourceContainerAggregation;

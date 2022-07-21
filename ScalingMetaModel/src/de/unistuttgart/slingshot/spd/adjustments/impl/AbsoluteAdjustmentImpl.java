@@ -1,4 +1,5 @@
 /**
+ * Copyright SQA 2022
  */
 package de.unistuttgart.slingshot.spd.adjustments.impl;
 
@@ -25,6 +26,13 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * @generated
  */
 public class AbsoluteAdjustmentImpl extends AdjustmentTypeImpl implements AbsoluteAdjustment {
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final String copyright = "Copyright SQA 2022";
+
 	/**
 	 * The default value of the '{@link #getGoalValue() <em>Goal Value</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -69,6 +77,7 @@ public class AbsoluteAdjustmentImpl extends AdjustmentTypeImpl implements Absolu
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public int getGoalValue() {
 		return goalValue;
 	}
@@ -78,6 +87,7 @@ public class AbsoluteAdjustmentImpl extends AdjustmentTypeImpl implements Absolu
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setGoalValue(int newGoalValue) {
 		int oldGoalValue = goalValue;
 		goalValue = newGoalValue;

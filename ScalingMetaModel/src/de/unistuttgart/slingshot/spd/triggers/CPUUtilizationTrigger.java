@@ -1,4 +1,5 @@
 /**
+ * Copyright SQA 2022
  */
 package de.unistuttgart.slingshot.spd.triggers;
 
@@ -18,4 +19,11 @@ package de.unistuttgart.slingshot.spd.triggers;
  * @generated
  */
 public interface CPUUtilizationTrigger extends ProcessingResourceUtilizationBasedTrigger {
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	String copyright = "Copyright SQA 2022";
+
 } // CPUUtilizationTrigger

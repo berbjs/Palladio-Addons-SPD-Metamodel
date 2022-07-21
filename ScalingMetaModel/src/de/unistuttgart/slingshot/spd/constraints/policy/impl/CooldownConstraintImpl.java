@@ -1,4 +1,5 @@
 /**
+ * Copyright SQA 2022
  */
 package de.unistuttgart.slingshot.spd.constraints.policy.impl;
 
@@ -26,6 +27,13 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * @generated
  */
 public class CooldownConstraintImpl extends TemporalConstraintImpl implements CooldownConstraint {
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final String copyright = "Copyright SQA 2022";
+
 	/**
 	 * The default value of the '{@link #getCooldownTime() <em>Cooldown Time</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -90,6 +98,7 @@ public class CooldownConstraintImpl extends TemporalConstraintImpl implements Co
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public double getCooldownTime() {
 		return cooldownTime;
 	}
@@ -99,6 +108,7 @@ public class CooldownConstraintImpl extends TemporalConstraintImpl implements Co
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setCooldownTime(double newCooldownTime) {
 		double oldCooldownTime = cooldownTime;
 		cooldownTime = newCooldownTime;
@@ -111,6 +121,7 @@ public class CooldownConstraintImpl extends TemporalConstraintImpl implements Co
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public int getMaxScalingOperations() {
 		return maxScalingOperations;
 	}
@@ -120,6 +131,7 @@ public class CooldownConstraintImpl extends TemporalConstraintImpl implements Co
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setMaxScalingOperations(int newMaxScalingOperations) {
 		int oldMaxScalingOperations = maxScalingOperations;
 		maxScalingOperations = newMaxScalingOperations;

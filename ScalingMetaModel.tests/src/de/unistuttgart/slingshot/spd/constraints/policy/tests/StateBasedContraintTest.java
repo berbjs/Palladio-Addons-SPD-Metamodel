@@ -1,4 +1,5 @@
 /**
+ * Copyright SQA 2022
  */
 package de.unistuttgart.slingshot.spd.constraints.policy.tests;
 
@@ -11,6 +12,13 @@ import de.unistuttgart.slingshot.spd.constraints.policy.StateBasedContraint;
  * @generated
  */
 public abstract class StateBasedContraintTest extends PolicyConstraintTest {
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final String copyright = "Copyright SQA 2022";
 
 	/**
 	 * Constructs a new State Based Contraint test case with the given name.

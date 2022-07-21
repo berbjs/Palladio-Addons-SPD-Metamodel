@@ -1,4 +1,5 @@
 /**
+ * Copyright SQA 2022
  */
 package de.unistuttgart.slingshot.spd.adjustments.impl;
 
@@ -57,6 +58,13 @@ import org.palladiosimulator.pcm.PcmPackage;
  * @generated
  */
 public class AdjustmentsPackageImpl extends EPackageImpl implements AdjustmentsPackage {
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final String copyright = "Copyright SQA 2022";
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -185,6 +193,7 @@ public class AdjustmentsPackageImpl extends EPackageImpl implements AdjustmentsP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getAdjustmentType() {
 		return adjustmentTypeEClass;
 	}
@@ -194,6 +203,7 @@ public class AdjustmentsPackageImpl extends EPackageImpl implements AdjustmentsP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getRelativeAdjustment() {
 		return relativeAdjustmentEClass;
 	}
@@ -203,6 +213,7 @@ public class AdjustmentsPackageImpl extends EPackageImpl implements AdjustmentsP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getRelativeAdjustment_PercentageValue() {
 		return (EAttribute)relativeAdjustmentEClass.getEStructuralFeatures().get(0);
 	}
@@ -212,6 +223,7 @@ public class AdjustmentsPackageImpl extends EPackageImpl implements AdjustmentsP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getRelativeAdjustment_MinAdjustmentValue() {
 		return (EAttribute)relativeAdjustmentEClass.getEStructuralFeatures().get(1);
 	}
@@ -221,6 +233,7 @@ public class AdjustmentsPackageImpl extends EPackageImpl implements AdjustmentsP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getAbsoluteAdjustment() {
 		return absoluteAdjustmentEClass;
 	}
@@ -230,6 +243,7 @@ public class AdjustmentsPackageImpl extends EPackageImpl implements AdjustmentsP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getAbsoluteAdjustment_GoalValue() {
 		return (EAttribute)absoluteAdjustmentEClass.getEStructuralFeatures().get(0);
 	}
@@ -239,6 +253,7 @@ public class AdjustmentsPackageImpl extends EPackageImpl implements AdjustmentsP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getStepAdjustment() {
 		return stepAdjustmentEClass;
 	}
@@ -248,6 +263,7 @@ public class AdjustmentsPackageImpl extends EPackageImpl implements AdjustmentsP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getStepAdjustment_StepValue() {
 		return (EAttribute)stepAdjustmentEClass.getEStructuralFeatures().get(0);
 	}
@@ -257,6 +273,7 @@ public class AdjustmentsPackageImpl extends EPackageImpl implements AdjustmentsP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public AdjustmentsFactory getAdjustmentsFactory() {
 		return (AdjustmentsFactory)getEFactoryInstance();
 	}

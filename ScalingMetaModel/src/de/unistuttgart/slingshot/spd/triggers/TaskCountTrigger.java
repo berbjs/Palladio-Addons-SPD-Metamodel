@@ -1,4 +1,5 @@
 /**
+ * Copyright SQA 2022
  */
 package de.unistuttgart.slingshot.spd.triggers;
 
@@ -25,6 +26,13 @@ import org.palladiosimulator.pcm.resourceenvironment.ResourceContainer;
  * @generated
  */
 public interface TaskCountTrigger extends ThresholdBasedTrigger {
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	String copyright = "Copyright SQA 2022";
+
 	/**
 	 * Returns the value of the '<em><b>Resource Container</b></em>' reference list.
 	 * The list contents are of type {@link org.palladiosimulator.pcm.resourceenvironment.ResourceContainer}.

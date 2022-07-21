@@ -1,4 +1,5 @@
 /**
+ * Copyright SQA 2022
  */
 package de.unistuttgart.slingshot.spd.triggers.impl;
 
@@ -20,6 +21,13 @@ import org.eclipse.emf.ecore.plugin.EcorePlugin;
  * @generated
  */
 public class TriggersFactoryImpl extends EFactoryImpl implements TriggersFactory {
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final String copyright = "Copyright SQA 2022";
+
 	/**
 	 * Creates the default factory implementation.
 	 * <!-- begin-user-doc -->
@@ -117,6 +125,7 @@ public class TriggersFactoryImpl extends EFactoryImpl implements TriggersFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public CPUUtilizationTrigger createCPUUtilizationTrigger() {
 		CPUUtilizationTriggerImpl cpuUtilizationTrigger = new CPUUtilizationTriggerImpl();
 		return cpuUtilizationTrigger;
@@ -127,6 +136,7 @@ public class TriggersFactoryImpl extends EFactoryImpl implements TriggersFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public RAMUtilizationTrigger createRAMUtilizationTrigger() {
 		RAMUtilizationTriggerImpl ramUtilizationTrigger = new RAMUtilizationTriggerImpl();
 		return ramUtilizationTrigger;
@@ -137,6 +147,7 @@ public class TriggersFactoryImpl extends EFactoryImpl implements TriggersFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public HDDUtilizationTrigger createHDDUtilizationTrigger() {
 		HDDUtilizationTriggerImpl hddUtilizationTrigger = new HDDUtilizationTriggerImpl();
 		return hddUtilizationTrigger;
@@ -147,6 +158,7 @@ public class TriggersFactoryImpl extends EFactoryImpl implements TriggersFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public PointInTimeTrigger createPointInTimeTrigger() {
 		PointInTimeTriggerImpl pointInTimeTrigger = new PointInTimeTriggerImpl();
 		return pointInTimeTrigger;
@@ -157,6 +169,7 @@ public class TriggersFactoryImpl extends EFactoryImpl implements TriggersFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public IdleTimeTrigger createIdleTimeTrigger() {
 		IdleTimeTriggerImpl idleTimeTrigger = new IdleTimeTriggerImpl();
 		return idleTimeTrigger;
@@ -167,6 +180,7 @@ public class TriggersFactoryImpl extends EFactoryImpl implements TriggersFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public TaskCountTrigger createTaskCountTrigger() {
 		TaskCountTriggerImpl taskCountTrigger = new TaskCountTriggerImpl();
 		return taskCountTrigger;
@@ -177,6 +191,7 @@ public class TriggersFactoryImpl extends EFactoryImpl implements TriggersFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public NetworkUtilizationTrigger createNetworkUtilizationTrigger() {
 		NetworkUtilizationTriggerImpl networkUtilizationTrigger = new NetworkUtilizationTriggerImpl();
 		return networkUtilizationTrigger;
@@ -187,6 +202,7 @@ public class TriggersFactoryImpl extends EFactoryImpl implements TriggersFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public ResponseTimeTrigger createResponseTimeTrigger() {
 		ResponseTimeTriggerImpl responseTimeTrigger = new ResponseTimeTriggerImpl();
 		return responseTimeTrigger;
@@ -277,6 +293,7 @@ public class TriggersFactoryImpl extends EFactoryImpl implements TriggersFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public TriggersPackage getTriggersPackage() {
 		return (TriggersPackage)getEPackage();
 	}

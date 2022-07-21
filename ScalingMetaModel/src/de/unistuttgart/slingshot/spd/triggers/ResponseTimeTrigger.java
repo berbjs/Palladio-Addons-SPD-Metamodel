@@ -1,4 +1,5 @@
 /**
+ * Copyright SQA 2022
  */
 package de.unistuttgart.slingshot.spd.triggers;
 
@@ -27,6 +28,13 @@ import org.palladiosimulator.pcm.repository.OperationSignature;
  * @generated
  */
 public interface ResponseTimeTrigger extends TimeBasedTrigger {
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	String copyright = "Copyright SQA 2022";
+
 	/**
 	 * Returns the value of the '<em><b>Operation Signature</b></em>' reference list.
 	 * The list contents are of type {@link org.palladiosimulator.pcm.repository.OperationSignature}.

@@ -1,4 +1,5 @@
 /**
+ * Copyright SQA 2022
  */
 package de.unistuttgart.slingshot.spd.adjustments.impl;
 
@@ -25,6 +26,13 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * @generated
  */
 public class StepAdjustmentImpl extends AdjustmentTypeImpl implements StepAdjustment {
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final String copyright = "Copyright SQA 2022";
+
 	/**
 	 * The default value of the '{@link #getStepValue() <em>Step Value</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -69,6 +77,7 @@ public class StepAdjustmentImpl extends AdjustmentTypeImpl implements StepAdjust
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public int getStepValue() {
 		return stepValue;
 	}
@@ -78,6 +87,7 @@ public class StepAdjustmentImpl extends AdjustmentTypeImpl implements StepAdjust
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setStepValue(int newStepValue) {
 		int oldStepValue = stepValue;
 		stepValue = newStepValue;

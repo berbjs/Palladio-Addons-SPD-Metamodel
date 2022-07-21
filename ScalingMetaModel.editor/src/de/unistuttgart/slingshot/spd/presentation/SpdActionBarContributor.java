@@ -1,4 +1,5 @@
 /**
+ * Copyright SQA 2022
  */
 package de.unistuttgart.slingshot.spd.presentation;
 
@@ -48,6 +49,13 @@ import org.eclipse.ui.PartInitException;
 public class SpdActionBarContributor
 	extends EditingDomainActionBarContributor
 	implements ISelectionChangedListener {
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final String copyright = "Copyright SQA 2022";
+
 	/**
 	 * This keeps track of the active editor.
 	 * <!-- begin-user-doc -->
@@ -200,6 +208,7 @@ public class SpdActionBarContributor
 		//
 		submenuManager.addMenuListener
 			(new IMenuListener() {
+				 @Override
 				 public void menuAboutToShow(IMenuManager menuManager) {
 					 menuManager.updateAll(true);
 				 }
@@ -247,6 +256,7 @@ public class SpdActionBarContributor
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void selectionChanged(SelectionChangedEvent event) {
 		// Remove any menu items for old selection.
 		//

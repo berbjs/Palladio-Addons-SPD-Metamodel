@@ -1,4 +1,5 @@
 /**
+ * Copyright SQA 2022
  */
 package de.unistuttgart.slingshot.spd.presentation;
 
@@ -93,6 +94,13 @@ import org.eclipse.ui.PartInitException;
  */
 public class SpdModelWizard extends Wizard implements INewWizard {
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final String copyright = "Copyright SQA 2022";
+
+	/**
 	 * The supported extensions for created files.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -172,6 +180,7 @@ public class SpdModelWizard extends Wizard implements INewWizard {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void init(IWorkbench workbench, IStructuredSelection selection) {
 		this.workbench = workbench;
 		this.selection = selection;
@@ -278,6 +287,7 @@ public class SpdModelWizard extends Wizard implements INewWizard {
 				final ISelection targetSelection = new StructuredSelection(modelFile);
 				getShell().getDisplay().asyncExec
 					(new Runnable() {
+						 @Override
 						 public void run() {
 							 ((ISetSelectionTarget)activePart).selectReveal(targetSelection);
 						 }
@@ -394,6 +404,7 @@ public class SpdModelWizard extends Wizard implements INewWizard {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
+		@Override
 		public void createControl(Composite parent) {
 			Composite composite = new Composite(parent, SWT.NONE);
 			{
@@ -469,6 +480,7 @@ public class SpdModelWizard extends Wizard implements INewWizard {
 		 */
 		protected ModifyListener validator =
 			new ModifyListener() {
+				@Override
 				public void modifyText(ModifyEvent e) {
 					setPageComplete(validatePage());
 				}

@@ -1,4 +1,5 @@
 /**
+ * Copyright SQA 2022
  */
 package de.unistuttgart.slingshot.spd.constraints.policy.impl;
 
@@ -19,6 +20,13 @@ import org.eclipse.emf.ecore.plugin.EcorePlugin;
  * @generated
  */
 public class PolicyFactoryImpl extends EFactoryImpl implements PolicyFactory {
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final String copyright = "Copyright SQA 2022";
+
 	/**
 	 * Creates the default factory implementation.
 	 * <!-- begin-user-doc -->
@@ -69,6 +77,7 @@ public class PolicyFactoryImpl extends EFactoryImpl implements PolicyFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public IntervallConstraint createIntervallConstraint() {
 		IntervallConstraintImpl intervallConstraint = new IntervallConstraintImpl();
 		return intervallConstraint;
@@ -79,6 +88,7 @@ public class PolicyFactoryImpl extends EFactoryImpl implements PolicyFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public CooldownConstraint createCooldownConstraint() {
 		CooldownConstraintImpl cooldownConstraint = new CooldownConstraintImpl();
 		return cooldownConstraint;
@@ -89,6 +99,7 @@ public class PolicyFactoryImpl extends EFactoryImpl implements PolicyFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public ThrashingConstraint createThrashingConstraint() {
 		ThrashingConstraintImpl thrashingConstraint = new ThrashingConstraintImpl();
 		return thrashingConstraint;
@@ -99,6 +110,7 @@ public class PolicyFactoryImpl extends EFactoryImpl implements PolicyFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public PolicyPackage getPolicyPackage() {
 		return (PolicyPackage)getEPackage();
 	}

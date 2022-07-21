@@ -8,19 +8,7 @@ Bundle-ClassPath: .
 Bundle-Activator: de.unistuttgart.slingshot.spd.presentation.SPDEditorPlugin$Implementation
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
-Bundle-RequiredExecutionEnvironment: J2SE-1.5
-Export-Package: de.unistuttgart.sqa.slingshot.spd.adjustments.presentation,
- de.unistuttgart.sqa.slingshot.spd.constraints.presentation,
- de.unistuttgart.sqa.slingshot.spd.presentation,
- de.unistuttgart.sqa.slingshot.spd.targets.presentation,
- de.unistuttgart.sqa.slingshot.spd.triggers.presentation,
- spd.adjustments.presentation,
- spd.constraints.policy.presentation,
- spd.constraints.target.presentation,
- spd.presentation,
- spd.targets.presentation,
- spd.triggers.presentation,
- de.unistuttgart.slingshot.spd.adjustments.presentation,
+Export-Package: de.unistuttgart.slingshot.spd.adjustments.presentation,
  de.unistuttgart.slingshot.spd.constraints.policy.presentation,
  de.unistuttgart.slingshot.spd.constraints.target.presentation,
  de.unistuttgart.slingshot.spd.presentation,

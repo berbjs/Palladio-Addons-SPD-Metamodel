@@ -1,4 +1,5 @@
 /**
+ * Copyright SQA 2022
  */
 package de.unistuttgart.slingshot.spd.targets.impl;
 
@@ -59,6 +60,13 @@ import org.palladiosimulator.pcm.resourceenvironment.ResourceenvironmentPackage;
  * @generated
  */
 public class TargetsPackageImpl extends EPackageImpl implements TargetsPackage {
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final String copyright = "Copyright SQA 2022";
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -187,6 +195,7 @@ public class TargetsPackageImpl extends EPackageImpl implements TargetsPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getTargetGroup() {
 		return targetGroupEClass;
 	}
@@ -196,6 +205,7 @@ public class TargetsPackageImpl extends EPackageImpl implements TargetsPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getTargetGroup_TargetConstraints() {
 		return (EReference)targetGroupEClass.getEStructuralFeatures().get(0);
 	}
@@ -205,6 +215,7 @@ public class TargetsPackageImpl extends EPackageImpl implements TargetsPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getElasticInfrastructure() {
 		return elasticInfrastructureEClass;
 	}
@@ -214,6 +225,7 @@ public class TargetsPackageImpl extends EPackageImpl implements TargetsPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getElasticInfrastructure_PCM_ResourceEnvironment() {
 		return (EReference)elasticInfrastructureEClass.getEStructuralFeatures().get(0);
 	}
@@ -223,6 +235,7 @@ public class TargetsPackageImpl extends EPackageImpl implements TargetsPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getElasticService() {
 		return elasticServiceEClass;
 	}
@@ -232,6 +245,7 @@ public class TargetsPackageImpl extends EPackageImpl implements TargetsPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getElasticQueue() {
 		return elasticQueueEClass;
 	}
@@ -241,6 +255,7 @@ public class TargetsPackageImpl extends EPackageImpl implements TargetsPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public TargetsFactory getTargetsFactory() {
 		return (TargetsFactory)getEFactoryInstance();
 	}

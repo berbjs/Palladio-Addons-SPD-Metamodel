@@ -1,4 +1,5 @@
 /**
+ * Copyright SQA 2022
  */
 package de.unistuttgart.slingshot.spd.targets.impl;
 
@@ -19,6 +20,13 @@ import org.eclipse.emf.ecore.plugin.EcorePlugin;
  * @generated
  */
 public class TargetsFactoryImpl extends EFactoryImpl implements TargetsFactory {
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final String copyright = "Copyright SQA 2022";
+
 	/**
 	 * Creates the default factory implementation.
 	 * <!-- begin-user-doc -->
@@ -69,6 +77,7 @@ public class TargetsFactoryImpl extends EFactoryImpl implements TargetsFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public ElasticInfrastructure createElasticInfrastructure() {
 		ElasticInfrastructureImpl elasticInfrastructure = new ElasticInfrastructureImpl();
 		return elasticInfrastructure;
@@ -79,6 +88,7 @@ public class TargetsFactoryImpl extends EFactoryImpl implements TargetsFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public ElasticService createElasticService() {
 		ElasticServiceImpl elasticService = new ElasticServiceImpl();
 		return elasticService;
@@ -89,6 +99,7 @@ public class TargetsFactoryImpl extends EFactoryImpl implements TargetsFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public ElasticQueue createElasticQueue() {
 		ElasticQueueImpl elasticQueue = new ElasticQueueImpl();
 		return elasticQueue;
@@ -99,6 +110,7 @@ public class TargetsFactoryImpl extends EFactoryImpl implements TargetsFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public TargetsPackage getTargetsPackage() {
 		return (TargetsPackage)getEPackage();
 	}

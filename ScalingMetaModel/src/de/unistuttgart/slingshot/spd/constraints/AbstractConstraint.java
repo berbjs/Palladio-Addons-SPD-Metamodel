@@ -1,4 +1,5 @@
 /**
+ * Copyright SQA 2022
  */
 package de.unistuttgart.slingshot.spd.constraints;
 
@@ -15,4 +16,11 @@ import org.eclipse.emf.ecore.EObject;
  * @generated
  */
 public interface AbstractConstraint extends EObject {
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	String copyright = "Copyright SQA 2022";
+
 } // AbstractConstraint

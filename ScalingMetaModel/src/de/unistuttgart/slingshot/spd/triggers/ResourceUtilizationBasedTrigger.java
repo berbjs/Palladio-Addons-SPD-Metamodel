@@ -1,4 +1,5 @@
 /**
+ * Copyright SQA 2022
  */
 package de.unistuttgart.slingshot.spd.triggers;
 
@@ -21,6 +22,13 @@ package de.unistuttgart.slingshot.spd.triggers;
  * @generated
  */
 public interface ResourceUtilizationBasedTrigger extends ThresholdBasedTrigger {
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	String copyright = "Copyright SQA 2022";
+
 	/**
 	 * Returns the value of the '<em><b>Processing Resource Aggregation</b></em>' attribute.
 	 * The literals are from the enumeration {@link de.unistuttgart.slingshot.spd.triggers.AGGREGATIONMETHOD}.

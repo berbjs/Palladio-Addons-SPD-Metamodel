@@ -1,4 +1,5 @@
 /**
+ * Copyright SQA 2022
  */
 package de.unistuttgart.slingshot.spd.provider;
 
@@ -27,6 +28,13 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * @generated
  */
 public class SPDItemProvider extends NamedElementItemProvider {
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final String copyright = "Copyright SQA 2022";
+
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->

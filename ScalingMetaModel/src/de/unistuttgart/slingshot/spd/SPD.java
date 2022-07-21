@@ -1,4 +1,5 @@
 /**
+ * Copyright SQA 2022
  */
 package de.unistuttgart.slingshot.spd;
 
@@ -28,6 +29,13 @@ import org.eclipse.emf.common.util.EList;
  * @generated
  */
 public interface SPD extends NamedElement {
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	String copyright = "Copyright SQA 2022";
+
 	/**
 	 * Returns the value of the '<em><b>Scaling Policies</b></em>' containment reference list.
 	 * The list contents are of type {@link de.unistuttgart.slingshot.spd.ScalingPolicy}.

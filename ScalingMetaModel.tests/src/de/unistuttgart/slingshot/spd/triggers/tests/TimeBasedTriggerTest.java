@@ -1,4 +1,5 @@
 /**
+ * Copyright SQA 2022
  */
 package de.unistuttgart.slingshot.spd.triggers.tests;
 
@@ -11,6 +12,13 @@ import de.unistuttgart.slingshot.spd.triggers.TimeBasedTrigger;
  * @generated
  */
 public abstract class TimeBasedTriggerTest extends ThresholdBasedTriggerTest {
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final String copyright = "Copyright SQA 2022";
 
 	/**
 	 * Constructs a new Time Based Trigger test case with the given name.

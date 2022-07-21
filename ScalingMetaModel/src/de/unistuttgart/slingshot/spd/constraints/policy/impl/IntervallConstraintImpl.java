@@ -1,4 +1,5 @@
 /**
+ * Copyright SQA 2022
  */
 package de.unistuttgart.slingshot.spd.constraints.policy.impl;
 
@@ -26,6 +27,13 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * @generated
  */
 public class IntervallConstraintImpl extends TemporalConstraintImpl implements IntervallConstraint {
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final String copyright = "Copyright SQA 2022";
+
 	/**
 	 * The default value of the '{@link #getOffset() <em>Offset</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -90,6 +98,7 @@ public class IntervallConstraintImpl extends TemporalConstraintImpl implements I
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public int getOffset() {
 		return offset;
 	}
@@ -99,6 +108,7 @@ public class IntervallConstraintImpl extends TemporalConstraintImpl implements I
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setOffset(int newOffset) {
 		int oldOffset = offset;
 		offset = newOffset;
@@ -111,6 +121,7 @@ public class IntervallConstraintImpl extends TemporalConstraintImpl implements I
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public int getIntervallDuration() {
 		return intervallDuration;
 	}
@@ -120,6 +131,7 @@ public class IntervallConstraintImpl extends TemporalConstraintImpl implements I
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setIntervallDuration(int newIntervallDuration) {
 		int oldIntervallDuration = intervallDuration;
 		intervallDuration = newIntervallDuration;

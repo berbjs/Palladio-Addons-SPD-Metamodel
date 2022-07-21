@@ -1,4 +1,5 @@
 /**
+ * Copyright SQA 2022
  */
 package de.unistuttgart.slingshot.spd;
 
@@ -24,6 +25,13 @@ import org.eclipse.emf.ecore.EReference;
  * @generated
  */
 public interface SpdPackage extends EPackage {
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	String copyright = "Copyright SQA 2022";
+
 	/**
 	 * The package name.
 	 * <!-- begin-user-doc -->

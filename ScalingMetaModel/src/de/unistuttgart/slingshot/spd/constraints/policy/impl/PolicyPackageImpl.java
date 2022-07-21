@@ -1,4 +1,5 @@
 /**
+ * Copyright SQA 2022
  */
 package de.unistuttgart.slingshot.spd.constraints.policy.impl;
 
@@ -59,6 +60,13 @@ import org.palladiosimulator.pcm.PcmPackage;
  * @generated
  */
 public class PolicyPackageImpl extends EPackageImpl implements PolicyPackage {
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final String copyright = "Copyright SQA 2022";
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -201,6 +209,7 @@ public class PolicyPackageImpl extends EPackageImpl implements PolicyPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getPolicyConstraint() {
 		return policyConstraintEClass;
 	}
@@ -210,6 +219,7 @@ public class PolicyPackageImpl extends EPackageImpl implements PolicyPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getTemporalConstraint() {
 		return temporalConstraintEClass;
 	}
@@ -219,6 +229,7 @@ public class PolicyPackageImpl extends EPackageImpl implements PolicyPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getIntervallConstraint() {
 		return intervallConstraintEClass;
 	}
@@ -228,6 +239,7 @@ public class PolicyPackageImpl extends EPackageImpl implements PolicyPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getIntervallConstraint_Offset() {
 		return (EAttribute)intervallConstraintEClass.getEStructuralFeatures().get(0);
 	}
@@ -237,6 +249,7 @@ public class PolicyPackageImpl extends EPackageImpl implements PolicyPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getIntervallConstraint_IntervallDuration() {
 		return (EAttribute)intervallConstraintEClass.getEStructuralFeatures().get(1);
 	}
@@ -246,6 +259,7 @@ public class PolicyPackageImpl extends EPackageImpl implements PolicyPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getCooldownConstraint() {
 		return cooldownConstraintEClass;
 	}
@@ -255,6 +269,7 @@ public class PolicyPackageImpl extends EPackageImpl implements PolicyPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getCooldownConstraint_CooldownTime() {
 		return (EAttribute)cooldownConstraintEClass.getEStructuralFeatures().get(0);
 	}
@@ -264,6 +279,7 @@ public class PolicyPackageImpl extends EPackageImpl implements PolicyPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getCooldownConstraint_MaxScalingOperations() {
 		return (EAttribute)cooldownConstraintEClass.getEStructuralFeatures().get(1);
 	}
@@ -273,6 +289,7 @@ public class PolicyPackageImpl extends EPackageImpl implements PolicyPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getStateBasedContraint() {
 		return stateBasedContraintEClass;
 	}
@@ -282,6 +299,7 @@ public class PolicyPackageImpl extends EPackageImpl implements PolicyPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getThrashingConstraint() {
 		return thrashingConstraintEClass;
 	}
@@ -291,6 +309,7 @@ public class PolicyPackageImpl extends EPackageImpl implements PolicyPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getThrashingConstraint_MinimumTimeNoThrashing() {
 		return (EAttribute)thrashingConstraintEClass.getEStructuralFeatures().get(0);
 	}
@@ -300,6 +319,7 @@ public class PolicyPackageImpl extends EPackageImpl implements PolicyPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public PolicyFactory getPolicyFactory() {
 		return (PolicyFactory)getEFactoryInstance();
 	}

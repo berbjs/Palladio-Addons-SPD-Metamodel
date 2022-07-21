@@ -1,4 +1,5 @@
 /**
+ * Copyright SQA 2022
  */
 package de.unistuttgart.slingshot.spd.adjustments.tests;
 
@@ -13,6 +14,13 @@ import junit.framework.TestCase;
  * @generated
  */
 public abstract class AdjustmentTypeTest extends TestCase {
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final String copyright = "Copyright SQA 2022";
 
 	/**
 	 * The fixture for this Adjustment Type test case.

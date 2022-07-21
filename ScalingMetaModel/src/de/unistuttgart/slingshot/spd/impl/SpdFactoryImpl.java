@@ -1,4 +1,5 @@
 /**
+ * Copyright SQA 2022
  */
 package de.unistuttgart.slingshot.spd.impl;
 
@@ -19,6 +20,13 @@ import org.eclipse.emf.ecore.plugin.EcorePlugin;
  * @generated
  */
 public class SpdFactoryImpl extends EFactoryImpl implements SpdFactory {
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final String copyright = "Copyright SQA 2022";
+
 	/**
 	 * Creates the default factory implementation.
 	 * <!-- begin-user-doc -->
@@ -68,6 +76,7 @@ public class SpdFactoryImpl extends EFactoryImpl implements SpdFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public ScalingPolicy createScalingPolicy() {
 		ScalingPolicyImpl scalingPolicy = new ScalingPolicyImpl();
 		return scalingPolicy;
@@ -78,6 +87,7 @@ public class SpdFactoryImpl extends EFactoryImpl implements SpdFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public SPD createSPD() {
 		SPDImpl spd = new SPDImpl();
 		return spd;
@@ -88,6 +98,7 @@ public class SpdFactoryImpl extends EFactoryImpl implements SpdFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public SpdPackage getSpdPackage() {
 		return (SpdPackage)getEPackage();
 	}

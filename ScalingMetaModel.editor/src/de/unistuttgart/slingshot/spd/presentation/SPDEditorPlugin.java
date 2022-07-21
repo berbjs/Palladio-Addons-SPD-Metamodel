@@ -1,4 +1,5 @@
 /**
+ * Copyright SQA 2022
  */
 package de.unistuttgart.slingshot.spd.presentation;
 
@@ -27,6 +28,13 @@ import org.palladiosimulator.pcm.core.provider.PalladioComponentModelEditPlugin;
  * @generated
  */
 public final class SPDEditorPlugin extends EMFPlugin {
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final String copyright = "Copyright SQA 2022";
+	
 	/**
 	 * Keep track of the singleton.
 	 * <!-- begin-user-doc -->

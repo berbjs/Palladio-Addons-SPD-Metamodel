@@ -1,4 +1,5 @@
 /**
+ * Copyright SQA 2022
  */
 package de.unistuttgart.slingshot.spd.adjustments;
 
@@ -19,4 +20,11 @@ import org.eclipse.emf.ecore.EObject;
  * @generated
  */
 public interface AdjustmentType extends EObject {
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	String copyright = "Copyright SQA 2022";
+
 } // AdjustmentType

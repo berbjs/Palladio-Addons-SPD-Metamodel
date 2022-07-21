@@ -1,4 +1,5 @@
 /**
+ * Copyright SQA 2022
  */
 package de.unistuttgart.slingshot.spd.constraints.policy.impl;
 
@@ -25,6 +26,13 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * @generated
  */
 public class ThrashingConstraintImpl extends TemporalConstraintImpl implements ThrashingConstraint {
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final String copyright = "Copyright SQA 2022";
+
 	/**
 	 * The default value of the '{@link #getMinimumTimeNoThrashing() <em>Minimum Time No Thrashing</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -69,6 +77,7 @@ public class ThrashingConstraintImpl extends TemporalConstraintImpl implements T
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public double getMinimumTimeNoThrashing() {
 		return minimumTimeNoThrashing;
 	}
@@ -78,6 +87,7 @@ public class ThrashingConstraintImpl extends TemporalConstraintImpl implements T
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setMinimumTimeNoThrashing(double newMinimumTimeNoThrashing) {
 		double oldMinimumTimeNoThrashing = minimumTimeNoThrashing;
 		minimumTimeNoThrashing = newMinimumTimeNoThrashing;

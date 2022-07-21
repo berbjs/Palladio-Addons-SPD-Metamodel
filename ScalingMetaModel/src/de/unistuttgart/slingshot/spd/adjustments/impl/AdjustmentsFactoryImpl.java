@@ -1,4 +1,5 @@
 /**
+ * Copyright SQA 2022
  */
 package de.unistuttgart.slingshot.spd.adjustments.impl;
 
@@ -19,6 +20,13 @@ import org.eclipse.emf.ecore.plugin.EcorePlugin;
  * @generated
  */
 public class AdjustmentsFactoryImpl extends EFactoryImpl implements AdjustmentsFactory {
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final String copyright = "Copyright SQA 2022";
+
 	/**
 	 * Creates the default factory implementation.
 	 * <!-- begin-user-doc -->
@@ -69,6 +77,7 @@ public class AdjustmentsFactoryImpl extends EFactoryImpl implements AdjustmentsF
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public RelativeAdjustment createRelativeAdjustment() {
 		RelativeAdjustmentImpl relativeAdjustment = new RelativeAdjustmentImpl();
 		return relativeAdjustment;
@@ -79,6 +88,7 @@ public class AdjustmentsFactoryImpl extends EFactoryImpl implements AdjustmentsF
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public AbsoluteAdjustment createAbsoluteAdjustment() {
 		AbsoluteAdjustmentImpl absoluteAdjustment = new AbsoluteAdjustmentImpl();
 		return absoluteAdjustment;
@@ -89,6 +99,7 @@ public class AdjustmentsFactoryImpl extends EFactoryImpl implements AdjustmentsF
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public StepAdjustment createStepAdjustment() {
 		StepAdjustmentImpl stepAdjustment = new StepAdjustmentImpl();
 		return stepAdjustment;
@@ -99,6 +110,7 @@ public class AdjustmentsFactoryImpl extends EFactoryImpl implements AdjustmentsF
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public AdjustmentsPackage getAdjustmentsPackage() {
 		return (AdjustmentsPackage)getEPackage();
 	}

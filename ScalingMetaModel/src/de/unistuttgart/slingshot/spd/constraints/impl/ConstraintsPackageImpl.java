@@ -1,4 +1,5 @@
 /**
+ * Copyright SQA 2022
  */
 package de.unistuttgart.slingshot.spd.constraints.impl;
 
@@ -53,6 +54,13 @@ import org.palladiosimulator.pcm.PcmPackage;
  * @generated
  */
 public class ConstraintsPackageImpl extends EPackageImpl implements ConstraintsPackage {
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final String copyright = "Copyright SQA 2022";
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -160,6 +168,7 @@ public class ConstraintsPackageImpl extends EPackageImpl implements ConstraintsP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getAbstractConstraint() {
 		return abstractConstraintEClass;
 	}
@@ -169,6 +178,7 @@ public class ConstraintsPackageImpl extends EPackageImpl implements ConstraintsP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public ConstraintsFactory getConstraintsFactory() {
 		return (ConstraintsFactory)getEFactoryInstance();
 	}

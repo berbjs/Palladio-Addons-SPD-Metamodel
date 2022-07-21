@@ -1,4 +1,5 @@
 /**
+ * Copyright SQA 2022
  */
 package de.unistuttgart.slingshot.spd.triggers;
 
@@ -24,6 +25,13 @@ package de.unistuttgart.slingshot.spd.triggers;
  * @generated
  */
 public interface HDDUtilizationTrigger extends ProcessingResourceUtilizationBasedTrigger {
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	String copyright = "Copyright SQA 2022";
+
 	/**
 	 * Returns the value of the '<em><b>Usage Type</b></em>' attribute.
 	 * The literals are from the enumeration {@link de.unistuttgart.slingshot.spd.triggers.HDDUSAGETYPE}.

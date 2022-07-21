@@ -1,4 +1,5 @@
 /**
+ * Copyright SQA 2022
  */
 package de.unistuttgart.slingshot.spd.triggers;
 
@@ -40,6 +41,13 @@ public enum HDDUSAGETYPE implements Enumerator {
 	 * @ordered
 	 */
 	WRITE(1, "WRITE", "WRITE");
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final String copyright = "Copyright SQA 2022";
 
 	/**
 	 * The '<em><b>READ</b></em>' literal value.
@@ -173,6 +181,7 @@ public enum HDDUSAGETYPE implements Enumerator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public int getValue() {
 	  return value;
 	}
@@ -182,6 +191,7 @@ public enum HDDUSAGETYPE implements Enumerator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getName() {
 	  return name;
 	}
@@ -191,6 +201,7 @@ public enum HDDUSAGETYPE implements Enumerator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getLiteral() {
 	  return literal;
 	}

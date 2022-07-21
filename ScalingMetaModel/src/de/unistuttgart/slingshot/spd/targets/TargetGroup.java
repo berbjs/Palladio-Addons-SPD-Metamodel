@@ -1,4 +1,5 @@
 /**
+ * Copyright SQA 2022
  */
 package de.unistuttgart.slingshot.spd.targets;
 
@@ -25,6 +26,13 @@ import org.eclipse.emf.common.util.EList;
  * @generated
  */
 public interface TargetGroup extends NamedElement {
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	String copyright = "Copyright SQA 2022";
+
 	/**
 	 * Returns the value of the '<em><b>Target Constraints</b></em>' containment reference list.
 	 * The list contents are of type {@link de.unistuttgart.slingshot.spd.constraints.target.TargetConstraint}.

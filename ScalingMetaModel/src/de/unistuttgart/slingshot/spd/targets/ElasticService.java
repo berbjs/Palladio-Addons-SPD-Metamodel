@@ -1,4 +1,5 @@
 /**
+ * Copyright SQA 2022
  */
 package de.unistuttgart.slingshot.spd.targets;
 
@@ -14,4 +15,11 @@ package de.unistuttgart.slingshot.spd.targets;
  * @generated
  */
 public interface ElasticService extends TargetGroup {
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	String copyright = "Copyright SQA 2022";
+
 } // ElasticService

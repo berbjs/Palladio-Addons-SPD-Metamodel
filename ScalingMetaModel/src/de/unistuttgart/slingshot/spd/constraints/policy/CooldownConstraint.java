@@ -1,4 +1,5 @@
 /**
+ * Copyright SQA 2022
  */
 package de.unistuttgart.slingshot.spd.constraints.policy;
 
@@ -21,6 +22,13 @@ package de.unistuttgart.slingshot.spd.constraints.policy;
  * @generated
  */
 public interface CooldownConstraint extends TemporalConstraint {
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	String copyright = "Copyright SQA 2022";
+
 	/**
 	 * Returns the value of the '<em><b>Cooldown Time</b></em>' attribute.
 	 * <!-- begin-user-doc -->

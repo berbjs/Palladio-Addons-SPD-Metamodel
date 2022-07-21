@@ -1,4 +1,5 @@
 /**
+ * Copyright SQA 2022
  */
 package de.unistuttgart.slingshot.spd.targets.impl;
 
@@ -36,6 +37,13 @@ import org.eclipse.emf.ecore.util.InternalEList;
  */
 public abstract class TargetGroupImpl extends NamedElementImpl implements TargetGroup {
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final String copyright = "Copyright SQA 2022";
+
+	/**
 	 * The cached value of the '{@link #getTargetConstraints() <em>Target Constraints</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -69,6 +77,7 @@ public abstract class TargetGroupImpl extends NamedElementImpl implements Target
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<TargetConstraint> getTargetConstraints() {
 		if (targetConstraints == null) {
 			targetConstraints = new EObjectContainmentEList<TargetConstraint>(TargetConstraint.class, this, TargetsPackage.TARGET_GROUP__TARGET_CONSTRAINTS);
