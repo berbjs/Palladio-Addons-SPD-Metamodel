@@ -1,6 +1,7 @@
 /.metadata/
 bin/
-target/
+!org.palladiosimulator.spd/src/org/palladiosimulator/spd/constraints/target
+!constraints/target
 src-gen/
 xtend-gen/
 xtext-gen/
