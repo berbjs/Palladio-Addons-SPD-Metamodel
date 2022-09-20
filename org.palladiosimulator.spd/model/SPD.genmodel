@@ -38,7 +38,7 @@
     <nestedGenPackages prefix="Adjustments" disposableProviderFactory="true" ecorePackage="SPD.ecore#//adjustments">
       <genClasses image="false" ecoreClass="SPD.ecore#//adjustments/AdjustmentType"/>
       <genClasses ecoreClass="SPD.ecore#//adjustments/RelativeAdjustment">
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SPD.ecore#//adjustments/RelativeAdjustment/percentageValue"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SPD.ecore#//adjustments/RelativeAdjustment/percentageGrowthValue"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SPD.ecore#//adjustments/RelativeAdjustment/minAdjustmentValue"/>
       </genClasses>
       <genClasses ecoreClass="SPD.ecore#//adjustments/AbsoluteAdjustment">

@@ -95,13 +95,13 @@ public interface AdjustmentsPackage extends EPackage {
 	int RELATIVE_ADJUSTMENT = 1;
 
 	/**
-	 * The feature id for the '<em><b>Percentage Value</b></em>' attribute.
+	 * The feature id for the '<em><b>Percentage Growth Value</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RELATIVE_ADJUSTMENT__PERCENTAGE_VALUE = ADJUSTMENT_TYPE_FEATURE_COUNT + 0;
+	int RELATIVE_ADJUSTMENT__PERCENTAGE_GROWTH_VALUE = ADJUSTMENT_TYPE_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Min Adjustment Value</b></em>' attribute.
@@ -226,15 +226,15 @@ public interface AdjustmentsPackage extends EPackage {
 	EClass getRelativeAdjustment();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.palladiosimulator.spd.adjustments.RelativeAdjustment#getPercentageValue <em>Percentage Value</em>}'.
+	 * Returns the meta object for the attribute '{@link org.palladiosimulator.spd.adjustments.RelativeAdjustment#getPercentageGrowthValue <em>Percentage Growth Value</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Percentage Value</em>'.
-	 * @see org.palladiosimulator.spd.adjustments.RelativeAdjustment#getPercentageValue()
+	 * @return the meta object for the attribute '<em>Percentage Growth Value</em>'.
+	 * @see org.palladiosimulator.spd.adjustments.RelativeAdjustment#getPercentageGrowthValue()
 	 * @see #getRelativeAdjustment()
 	 * @generated
 	 */
-	EAttribute getRelativeAdjustment_PercentageValue();
+	EAttribute getRelativeAdjustment_PercentageGrowthValue();
 
 	/**
 	 * Returns the meta object for the attribute '{@link org.palladiosimulator.spd.adjustments.RelativeAdjustment#getMinAdjustmentValue <em>Min Adjustment Value</em>}'.
@@ -333,12 +333,12 @@ public interface AdjustmentsPackage extends EPackage {
 		EClass RELATIVE_ADJUSTMENT = eINSTANCE.getRelativeAdjustment();
 
 		/**
-		 * The meta object literal for the '<em><b>Percentage Value</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Percentage Growth Value</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute RELATIVE_ADJUSTMENT__PERCENTAGE_VALUE = eINSTANCE.getRelativeAdjustment_PercentageValue();
+		EAttribute RELATIVE_ADJUSTMENT__PERCENTAGE_GROWTH_VALUE = eINSTANCE.getRelativeAdjustment_PercentageGrowthValue();
 
 		/**
 		 * The meta object literal for the '<em><b>Min Adjustment Value</b></em>' attribute feature.

@@ -46,26 +46,26 @@ public class RelativeAdjustmentItemProvider extends AdjustmentTypeItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addPercentageValuePropertyDescriptor(object);
+			addPercentageGrowthValuePropertyDescriptor(object);
 			addMinAdjustmentValuePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Percentage Value feature.
+	 * This adds a property descriptor for the Percentage Growth Value feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addPercentageValuePropertyDescriptor(Object object) {
+	protected void addPercentageGrowthValuePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_RelativeAdjustment_percentageValue_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_RelativeAdjustment_percentageValue_feature", "_UI_RelativeAdjustment_type"),
-				 AdjustmentsPackage.Literals.RELATIVE_ADJUSTMENT__PERCENTAGE_VALUE,
+				 getString("_UI_RelativeAdjustment_percentageGrowthValue_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_RelativeAdjustment_percentageGrowthValue_feature", "_UI_RelativeAdjustment_type"),
+				 AdjustmentsPackage.Literals.RELATIVE_ADJUSTMENT__PERCENTAGE_GROWTH_VALUE,
 				 true,
 				 false,
 				 false,
@@ -116,7 +116,7 @@ public class RelativeAdjustmentItemProvider extends AdjustmentTypeItemProvider {
 	@Override
 	public String getText(Object object) {
 		RelativeAdjustment relativeAdjustment = (RelativeAdjustment)object;
-		return getString("_UI_RelativeAdjustment_type") + " " + relativeAdjustment.getPercentageValue();
+		return getString("_UI_RelativeAdjustment_type") + " " + relativeAdjustment.getPercentageGrowthValue();
 	}
 
 
@@ -132,7 +132,7 @@ public class RelativeAdjustmentItemProvider extends AdjustmentTypeItemProvider {
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(RelativeAdjustment.class)) {
-			case AdjustmentsPackage.RELATIVE_ADJUSTMENT__PERCENTAGE_VALUE:
+			case AdjustmentsPackage.RELATIVE_ADJUSTMENT__PERCENTAGE_GROWTH_VALUE:
 			case AdjustmentsPackage.RELATIVE_ADJUSTMENT__MIN_ADJUSTMENT_VALUE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;

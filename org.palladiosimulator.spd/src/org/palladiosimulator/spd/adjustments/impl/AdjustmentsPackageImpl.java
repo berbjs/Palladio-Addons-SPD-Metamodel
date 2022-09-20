@@ -207,7 +207,7 @@ public class AdjustmentsPackageImpl extends EPackageImpl implements AdjustmentsP
 	 * @generated
 	 */
 	@Override
-	public EAttribute getRelativeAdjustment_PercentageValue() {
+	public EAttribute getRelativeAdjustment_PercentageGrowthValue() {
 		return (EAttribute)relativeAdjustmentEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -293,7 +293,7 @@ public class AdjustmentsPackageImpl extends EPackageImpl implements AdjustmentsP
 		adjustmentTypeEClass = createEClass(ADJUSTMENT_TYPE);
 
 		relativeAdjustmentEClass = createEClass(RELATIVE_ADJUSTMENT);
-		createEAttribute(relativeAdjustmentEClass, RELATIVE_ADJUSTMENT__PERCENTAGE_VALUE);
+		createEAttribute(relativeAdjustmentEClass, RELATIVE_ADJUSTMENT__PERCENTAGE_GROWTH_VALUE);
 		createEAttribute(relativeAdjustmentEClass, RELATIVE_ADJUSTMENT__MIN_ADJUSTMENT_VALUE);
 
 		absoluteAdjustmentEClass = createEClass(ABSOLUTE_ADJUSTMENT);
@@ -339,7 +339,7 @@ public class AdjustmentsPackageImpl extends EPackageImpl implements AdjustmentsP
 		initEClass(adjustmentTypeEClass, AdjustmentType.class, "AdjustmentType", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(relativeAdjustmentEClass, RelativeAdjustment.class, "RelativeAdjustment", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getRelativeAdjustment_PercentageValue(), ecorePackage.getEDouble(), "percentageValue", "0.0", 1, 1, RelativeAdjustment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getRelativeAdjustment_PercentageGrowthValue(), ecorePackage.getEDouble(), "percentageGrowthValue", "0.0", 1, 1, RelativeAdjustment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getRelativeAdjustment_MinAdjustmentValue(), ecorePackage.getEInt(), "minAdjustmentValue", "0", 1, 1, RelativeAdjustment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(absoluteAdjustmentEClass, AbsoluteAdjustment.class, "AbsoluteAdjustment", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);

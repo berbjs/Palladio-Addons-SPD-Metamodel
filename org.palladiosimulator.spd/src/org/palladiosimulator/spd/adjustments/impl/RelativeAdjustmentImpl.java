@@ -20,7 +20,7 @@ import org.palladiosimulator.spd.adjustments.RelativeAdjustment;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.palladiosimulator.spd.adjustments.impl.RelativeAdjustmentImpl#getPercentageValue <em>Percentage Value</em>}</li>
+ *   <li>{@link org.palladiosimulator.spd.adjustments.impl.RelativeAdjustmentImpl#getPercentageGrowthValue <em>Percentage Growth Value</em>}</li>
  *   <li>{@link org.palladiosimulator.spd.adjustments.impl.RelativeAdjustmentImpl#getMinAdjustmentValue <em>Min Adjustment Value</em>}</li>
  * </ul>
  *
@@ -28,24 +28,24 @@ import org.palladiosimulator.spd.adjustments.RelativeAdjustment;
  */
 public class RelativeAdjustmentImpl extends AdjustmentTypeImpl implements RelativeAdjustment {
 	/**
-	 * The default value of the '{@link #getPercentageValue() <em>Percentage Value</em>}' attribute.
+	 * The default value of the '{@link #getPercentageGrowthValue() <em>Percentage Growth Value</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getPercentageValue()
+	 * @see #getPercentageGrowthValue()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final double PERCENTAGE_VALUE_EDEFAULT = 0.0;
+	protected static final double PERCENTAGE_GROWTH_VALUE_EDEFAULT = 0.0;
 
 	/**
-	 * The cached value of the '{@link #getPercentageValue() <em>Percentage Value</em>}' attribute.
+	 * The cached value of the '{@link #getPercentageGrowthValue() <em>Percentage Growth Value</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getPercentageValue()
+	 * @see #getPercentageGrowthValue()
 	 * @generated
 	 * @ordered
 	 */
-	protected double percentageValue = PERCENTAGE_VALUE_EDEFAULT;
+	protected double percentageGrowthValue = PERCENTAGE_GROWTH_VALUE_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getMinAdjustmentValue() <em>Min Adjustment Value</em>}' attribute.
@@ -92,8 +92,8 @@ public class RelativeAdjustmentImpl extends AdjustmentTypeImpl implements Relati
 	 * @generated
 	 */
 	@Override
-	public double getPercentageValue() {
-		return percentageValue;
+	public double getPercentageGrowthValue() {
+		return percentageGrowthValue;
 	}
 
 	/**
@@ -102,11 +102,11 @@ public class RelativeAdjustmentImpl extends AdjustmentTypeImpl implements Relati
 	 * @generated
 	 */
 	@Override
-	public void setPercentageValue(double newPercentageValue) {
-		double oldPercentageValue = percentageValue;
-		percentageValue = newPercentageValue;
+	public void setPercentageGrowthValue(double newPercentageGrowthValue) {
+		double oldPercentageGrowthValue = percentageGrowthValue;
+		percentageGrowthValue = newPercentageGrowthValue;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, AdjustmentsPackage.RELATIVE_ADJUSTMENT__PERCENTAGE_VALUE, oldPercentageValue, percentageValue));
+			eNotify(new ENotificationImpl(this, Notification.SET, AdjustmentsPackage.RELATIVE_ADJUSTMENT__PERCENTAGE_GROWTH_VALUE, oldPercentageGrowthValue, percentageGrowthValue));
 	}
 
 	/**
@@ -140,8 +140,8 @@ public class RelativeAdjustmentImpl extends AdjustmentTypeImpl implements Relati
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case AdjustmentsPackage.RELATIVE_ADJUSTMENT__PERCENTAGE_VALUE:
-				return getPercentageValue();
+			case AdjustmentsPackage.RELATIVE_ADJUSTMENT__PERCENTAGE_GROWTH_VALUE:
+				return getPercentageGrowthValue();
 			case AdjustmentsPackage.RELATIVE_ADJUSTMENT__MIN_ADJUSTMENT_VALUE:
 				return getMinAdjustmentValue();
 		}
@@ -156,8 +156,8 @@ public class RelativeAdjustmentImpl extends AdjustmentTypeImpl implements Relati
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case AdjustmentsPackage.RELATIVE_ADJUSTMENT__PERCENTAGE_VALUE:
-				setPercentageValue((Double)newValue);
+			case AdjustmentsPackage.RELATIVE_ADJUSTMENT__PERCENTAGE_GROWTH_VALUE:
+				setPercentageGrowthValue((Double)newValue);
 				return;
 			case AdjustmentsPackage.RELATIVE_ADJUSTMENT__MIN_ADJUSTMENT_VALUE:
 				setMinAdjustmentValue((Integer)newValue);
@@ -174,8 +174,8 @@ public class RelativeAdjustmentImpl extends AdjustmentTypeImpl implements Relati
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case AdjustmentsPackage.RELATIVE_ADJUSTMENT__PERCENTAGE_VALUE:
-				setPercentageValue(PERCENTAGE_VALUE_EDEFAULT);
+			case AdjustmentsPackage.RELATIVE_ADJUSTMENT__PERCENTAGE_GROWTH_VALUE:
+				setPercentageGrowthValue(PERCENTAGE_GROWTH_VALUE_EDEFAULT);
 				return;
 			case AdjustmentsPackage.RELATIVE_ADJUSTMENT__MIN_ADJUSTMENT_VALUE:
 				setMinAdjustmentValue(MIN_ADJUSTMENT_VALUE_EDEFAULT);
@@ -192,8 +192,8 @@ public class RelativeAdjustmentImpl extends AdjustmentTypeImpl implements Relati
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case AdjustmentsPackage.RELATIVE_ADJUSTMENT__PERCENTAGE_VALUE:
-				return percentageValue != PERCENTAGE_VALUE_EDEFAULT;
+			case AdjustmentsPackage.RELATIVE_ADJUSTMENT__PERCENTAGE_GROWTH_VALUE:
+				return percentageGrowthValue != PERCENTAGE_GROWTH_VALUE_EDEFAULT;
 			case AdjustmentsPackage.RELATIVE_ADJUSTMENT__MIN_ADJUSTMENT_VALUE:
 				return minAdjustmentValue != MIN_ADJUSTMENT_VALUE_EDEFAULT;
 		}
@@ -210,8 +210,8 @@ public class RelativeAdjustmentImpl extends AdjustmentTypeImpl implements Relati
 		if (eIsProxy()) return super.toString();
 
 		StringBuilder result = new StringBuilder(super.toString());
-		result.append(" (percentageValue: ");
-		result.append(percentageValue);
+		result.append(" (percentageGrowthValue: ");
+		result.append(percentageGrowthValue);
 		result.append(", minAdjustmentValue: ");
 		result.append(minAdjustmentValue);
 		result.append(')');

@@ -62,8 +62,8 @@
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="The RelativeAdjustment denotes that the group should is adjusted relatively to the current number of elements."/>
       </eAnnotations>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="percentageValue" lowerBound="1"
-          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="percentageGrowthValue"
+          lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"
           defaultValueLiteral="0.0">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
           <details key="documentation" value="The percantage value of adjustment e.g., a value of 10 denotes that 10% should be added to the existing capacity."/>
