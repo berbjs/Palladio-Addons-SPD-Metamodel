@@ -32,22 +32,22 @@ public interface TargetsFactory extends EFactory {
 	ElasticInfrastructure createElasticInfrastructure();
 
 	/**
-	 * Returns a new object of class '<em>Elastic Service</em>'.
+	 * Returns a new object of class '<em>Service Group</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Elastic Service</em>'.
+	 * @return a new object of class '<em>Service Group</em>'.
 	 * @generated
 	 */
-	ElasticService createElasticService();
+	ServiceGroup createServiceGroup();
 
 	/**
-	 * Returns a new object of class '<em>Elastic Queue</em>'.
+	 * Returns a new object of class '<em>Competing Consumers Group</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Elastic Queue</em>'.
+	 * @return a new object of class '<em>Competing Consumers Group</em>'.
 	 * @generated
 	 */
-	ElasticQueue createElasticQueue();
+	CompetingConsumersGroup createCompetingConsumersGroup();
 
 	/**
 	 * Returns the package supported by this factory.

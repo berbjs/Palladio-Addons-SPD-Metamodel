@@ -42,9 +42,9 @@ import org.palladiosimulator.spd.constraints.target.impl.TargetPackageImpl;
 
 import org.palladiosimulator.spd.impl.SpdPackageImpl;
 
+import org.palladiosimulator.spd.targets.CompetingConsumersGroup;
 import org.palladiosimulator.spd.targets.ElasticInfrastructure;
-import org.palladiosimulator.spd.targets.ElasticQueue;
-import org.palladiosimulator.spd.targets.ElasticService;
+import org.palladiosimulator.spd.targets.ServiceGroup;
 import org.palladiosimulator.spd.targets.TargetGroup;
 import org.palladiosimulator.spd.targets.TargetsFactory;
 import org.palladiosimulator.spd.targets.TargetsPackage;
@@ -79,14 +79,14 @@ public class TargetsPackageImpl extends EPackageImpl implements TargetsPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass elasticServiceEClass = null;
+	private EClass serviceGroupEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass elasticQueueEClass = null;
+	private EClass competingConsumersGroupEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -229,8 +229,8 @@ public class TargetsPackageImpl extends EPackageImpl implements TargetsPackage {
 	 * @generated
 	 */
 	@Override
-	public EClass getElasticService() {
-		return elasticServiceEClass;
+	public EClass getServiceGroup() {
+		return serviceGroupEClass;
 	}
 
 	/**
@@ -239,8 +239,8 @@ public class TargetsPackageImpl extends EPackageImpl implements TargetsPackage {
 	 * @generated
 	 */
 	@Override
-	public EClass getElasticQueue() {
-		return elasticQueueEClass;
+	public EClass getCompetingConsumersGroup() {
+		return competingConsumersGroupEClass;
 	}
 
 	/**
@@ -278,9 +278,9 @@ public class TargetsPackageImpl extends EPackageImpl implements TargetsPackage {
 		elasticInfrastructureEClass = createEClass(ELASTIC_INFRASTRUCTURE);
 		createEReference(elasticInfrastructureEClass, ELASTIC_INFRASTRUCTURE__PCM_RESOURCE_ENVIRONMENT);
 
-		elasticServiceEClass = createEClass(ELASTIC_SERVICE);
+		serviceGroupEClass = createEClass(SERVICE_GROUP);
 
-		elasticQueueEClass = createEClass(ELASTIC_QUEUE);
+		competingConsumersGroupEClass = createEClass(COMPETING_CONSUMERS_GROUP);
 	}
 
 	/**
@@ -318,8 +318,8 @@ public class TargetsPackageImpl extends EPackageImpl implements TargetsPackage {
 		// Add supertypes to classes
 		targetGroupEClass.getESuperTypes().add(theSpdPackage.getNamedElement());
 		elasticInfrastructureEClass.getESuperTypes().add(this.getTargetGroup());
-		elasticServiceEClass.getESuperTypes().add(this.getTargetGroup());
-		elasticQueueEClass.getESuperTypes().add(this.getTargetGroup());
+		serviceGroupEClass.getESuperTypes().add(this.getTargetGroup());
+		competingConsumersGroupEClass.getESuperTypes().add(this.getTargetGroup());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(targetGroupEClass, TargetGroup.class, "TargetGroup", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -328,9 +328,9 @@ public class TargetsPackageImpl extends EPackageImpl implements TargetsPackage {
 		initEClass(elasticInfrastructureEClass, ElasticInfrastructure.class, "ElasticInfrastructure", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getElasticInfrastructure_PCM_ResourceEnvironment(), theResourceenvironmentPackage.getResourceEnvironment(), null, "PCM_ResourceEnvironment", null, 0, 1, ElasticInfrastructure.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(elasticServiceEClass, ElasticService.class, "ElasticService", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(serviceGroupEClass, ServiceGroup.class, "ServiceGroup", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(elasticQueueEClass, ElasticQueue.class, "ElasticQueue", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(competingConsumersGroupEClass, CompetingConsumersGroup.class, "CompetingConsumersGroup", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 	}
 
 } //TargetsPackageImpl

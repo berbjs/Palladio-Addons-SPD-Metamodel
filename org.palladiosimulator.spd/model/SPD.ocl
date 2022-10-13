@@ -11,9 +11,18 @@ inv NonNull_name('The \'name\' property of "' + self.toString() + '" is null'):
 	name <> null
 
 context SPD
-inv antinomicalTargets: self.targetGroups->exists(t | t.oclIsKindOf(spd::targets::ElasticInfrastructure)) xor (self.targetGroups->exists(t | t.oclIsKindOf(spd::targets::ElasticQueue)) or self.targetGroups->exists(t | t.oclIsKindOf(spd::targets::ElasticService)))
+inv antinomicalTargets: self.targetGroups->exists(t | t.oclIsKindOf(spd::targets::ElasticInfrastructure)) xor (self.targetGroups->exists(t | t.oclIsKindOf(spd::targets::CompetingConsumersGroup)) or self.targetGroups->exists(t | t.oclIsKindOf(spd::targets::ServiceGroup)))
+inv atLeastOneTarget: self.targetGroups->notEmpty()
 
+context ScalingPolicy
+inv targetHasToBeSet: self.targetGroup <> null
 
+endpackage
+
+package spd::targets
+
+context TargetGroup
+inv singleGroupSizeConstraint('The TargetGroup can have only a single TargetGroupSizeConstraint'): self.targetConstraints->collect(x | x.oclIsTypeOf(spd::constraints::target::TargetGroupSizeConstraint))->size()<2
 endpackage
 
 package spd::triggers

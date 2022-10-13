@@ -84,19 +84,19 @@ public class TargetsSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case TargetsPackage.ELASTIC_SERVICE: {
-				ElasticService elasticService = (ElasticService)theEObject;
-				T result = caseElasticService(elasticService);
-				if (result == null) result = caseTargetGroup(elasticService);
-				if (result == null) result = caseNamedElement(elasticService);
+			case TargetsPackage.SERVICE_GROUP: {
+				ServiceGroup serviceGroup = (ServiceGroup)theEObject;
+				T result = caseServiceGroup(serviceGroup);
+				if (result == null) result = caseTargetGroup(serviceGroup);
+				if (result == null) result = caseNamedElement(serviceGroup);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case TargetsPackage.ELASTIC_QUEUE: {
-				ElasticQueue elasticQueue = (ElasticQueue)theEObject;
-				T result = caseElasticQueue(elasticQueue);
-				if (result == null) result = caseTargetGroup(elasticQueue);
-				if (result == null) result = caseNamedElement(elasticQueue);
+			case TargetsPackage.COMPETING_CONSUMERS_GROUP: {
+				CompetingConsumersGroup competingConsumersGroup = (CompetingConsumersGroup)theEObject;
+				T result = caseCompetingConsumersGroup(competingConsumersGroup);
+				if (result == null) result = caseTargetGroup(competingConsumersGroup);
+				if (result == null) result = caseNamedElement(competingConsumersGroup);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -135,32 +135,32 @@ public class TargetsSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Elastic Service</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Service Group</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Elastic Service</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Service Group</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseElasticService(ElasticService object) {
+	public T caseServiceGroup(ServiceGroup object) {
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Elastic Queue</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Competing Consumers Group</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Elastic Queue</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Competing Consumers Group</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseElasticQueue(ElasticQueue object) {
+	public T caseCompetingConsumersGroup(CompetingConsumersGroup object) {
 		return null;
 	}
 

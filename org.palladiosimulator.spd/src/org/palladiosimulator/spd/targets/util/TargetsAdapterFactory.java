@@ -79,12 +79,12 @@ public class TargetsAdapterFactory extends AdapterFactoryImpl {
 				return createElasticInfrastructureAdapter();
 			}
 			@Override
-			public Adapter caseElasticService(ElasticService object) {
-				return createElasticServiceAdapter();
+			public Adapter caseServiceGroup(ServiceGroup object) {
+				return createServiceGroupAdapter();
 			}
 			@Override
-			public Adapter caseElasticQueue(ElasticQueue object) {
-				return createElasticQueueAdapter();
+			public Adapter caseCompetingConsumersGroup(CompetingConsumersGroup object) {
+				return createCompetingConsumersGroupAdapter();
 			}
 			@Override
 			public Adapter caseNamedElement(NamedElement object) {
@@ -139,30 +139,30 @@ public class TargetsAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.palladiosimulator.spd.targets.ElasticService <em>Elastic Service</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.palladiosimulator.spd.targets.ServiceGroup <em>Service Group</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.palladiosimulator.spd.targets.ElasticService
+	 * @see org.palladiosimulator.spd.targets.ServiceGroup
 	 * @generated
 	 */
-	public Adapter createElasticServiceAdapter() {
+	public Adapter createServiceGroupAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.palladiosimulator.spd.targets.ElasticQueue <em>Elastic Queue</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.palladiosimulator.spd.targets.CompetingConsumersGroup <em>Competing Consumers Group</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.palladiosimulator.spd.targets.ElasticQueue
+	 * @see org.palladiosimulator.spd.targets.CompetingConsumersGroup
 	 * @generated
 	 */
-	public Adapter createElasticQueueAdapter() {
+	public Adapter createCompetingConsumersGroupAdapter() {
 		return null;
 	}
 

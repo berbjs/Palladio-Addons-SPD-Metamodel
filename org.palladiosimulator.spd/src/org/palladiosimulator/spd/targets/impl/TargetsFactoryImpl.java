@@ -58,8 +58,8 @@ public class TargetsFactoryImpl extends EFactoryImpl implements TargetsFactory {
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
 			case TargetsPackage.ELASTIC_INFRASTRUCTURE: return createElasticInfrastructure();
-			case TargetsPackage.ELASTIC_SERVICE: return createElasticService();
-			case TargetsPackage.ELASTIC_QUEUE: return createElasticQueue();
+			case TargetsPackage.SERVICE_GROUP: return createServiceGroup();
+			case TargetsPackage.COMPETING_CONSUMERS_GROUP: return createCompetingConsumersGroup();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -82,9 +82,9 @@ public class TargetsFactoryImpl extends EFactoryImpl implements TargetsFactory {
 	 * @generated
 	 */
 	@Override
-	public ElasticService createElasticService() {
-		ElasticServiceImpl elasticService = new ElasticServiceImpl();
-		return elasticService;
+	public ServiceGroup createServiceGroup() {
+		ServiceGroupImpl serviceGroup = new ServiceGroupImpl();
+		return serviceGroup;
 	}
 
 	/**
@@ -93,9 +93,9 @@ public class TargetsFactoryImpl extends EFactoryImpl implements TargetsFactory {
 	 * @generated
 	 */
 	@Override
-	public ElasticQueue createElasticQueue() {
-		ElasticQueueImpl elasticQueue = new ElasticQueueImpl();
-		return elasticQueue;
+	public CompetingConsumersGroup createCompetingConsumersGroup() {
+		CompetingConsumersGroupImpl competingConsumersGroup = new CompetingConsumersGroupImpl();
+		return competingConsumersGroup;
 	}
 
 	/**

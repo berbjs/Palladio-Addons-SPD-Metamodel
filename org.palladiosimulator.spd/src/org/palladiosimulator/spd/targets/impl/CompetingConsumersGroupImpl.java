@@ -5,23 +5,23 @@ package org.palladiosimulator.spd.targets.impl;
 
 import org.eclipse.emf.ecore.EClass;
 
-import org.palladiosimulator.spd.targets.ElasticService;
+import org.palladiosimulator.spd.targets.CompetingConsumersGroup;
 import org.palladiosimulator.spd.targets.TargetsPackage;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Elastic Service</b></em>'.
+ * An implementation of the model object '<em><b>Competing Consumers Group</b></em>'.
  * <!-- end-user-doc -->
  *
  * @generated
  */
-public class ElasticServiceImpl extends TargetGroupImpl implements ElasticService {
+public class CompetingConsumersGroupImpl extends TargetGroupImpl implements CompetingConsumersGroup {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected ElasticServiceImpl() {
+	protected CompetingConsumersGroupImpl() {
 		super();
 	}
 
@@ -32,7 +32,7 @@ public class ElasticServiceImpl extends TargetGroupImpl implements ElasticServic
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return TargetsPackage.Literals.ELASTIC_SERVICE;
+		return TargetsPackage.Literals.COMPETING_CONSUMERS_GROUP;
 	}
 
-} //ElasticServiceImpl
+} //CompetingConsumersGroupImpl

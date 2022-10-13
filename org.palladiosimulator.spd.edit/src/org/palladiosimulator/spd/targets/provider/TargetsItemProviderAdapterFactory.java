@@ -96,49 +96,49 @@ public class TargetsItemProviderAdapterFactory extends TargetsAdapterFactory imp
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link org.palladiosimulator.spd.targets.ElasticService} instances.
+	 * This keeps track of the one adapter used for all {@link org.palladiosimulator.spd.targets.ServiceGroup} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected ElasticServiceItemProvider elasticServiceItemProvider;
+	protected ServiceGroupItemProvider serviceGroupItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link org.palladiosimulator.spd.targets.ElasticService}.
+	 * This creates an adapter for a {@link org.palladiosimulator.spd.targets.ServiceGroup}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createElasticServiceAdapter() {
-		if (elasticServiceItemProvider == null) {
-			elasticServiceItemProvider = new ElasticServiceItemProvider(this);
+	public Adapter createServiceGroupAdapter() {
+		if (serviceGroupItemProvider == null) {
+			serviceGroupItemProvider = new ServiceGroupItemProvider(this);
 		}
 
-		return elasticServiceItemProvider;
+		return serviceGroupItemProvider;
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link org.palladiosimulator.spd.targets.ElasticQueue} instances.
+	 * This keeps track of the one adapter used for all {@link org.palladiosimulator.spd.targets.CompetingConsumersGroup} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected ElasticQueueItemProvider elasticQueueItemProvider;
+	protected CompetingConsumersGroupItemProvider competingConsumersGroupItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link org.palladiosimulator.spd.targets.ElasticQueue}.
+	 * This creates an adapter for a {@link org.palladiosimulator.spd.targets.CompetingConsumersGroup}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createElasticQueueAdapter() {
-		if (elasticQueueItemProvider == null) {
-			elasticQueueItemProvider = new ElasticQueueItemProvider(this);
+	public Adapter createCompetingConsumersGroupAdapter() {
+		if (competingConsumersGroupItemProvider == null) {
+			competingConsumersGroupItemProvider = new CompetingConsumersGroupItemProvider(this);
 		}
 
-		return elasticQueueItemProvider;
+		return competingConsumersGroupItemProvider;
 	}
 
 	/**
@@ -247,8 +247,8 @@ public class TargetsItemProviderAdapterFactory extends TargetsAdapterFactory imp
 	@Override
 	public void dispose() {
 		if (elasticInfrastructureItemProvider != null) elasticInfrastructureItemProvider.dispose();
-		if (elasticServiceItemProvider != null) elasticServiceItemProvider.dispose();
-		if (elasticQueueItemProvider != null) elasticQueueItemProvider.dispose();
+		if (serviceGroupItemProvider != null) serviceGroupItemProvider.dispose();
+		if (competingConsumersGroupItemProvider != null) competingConsumersGroupItemProvider.dispose();
 	}
 
 }

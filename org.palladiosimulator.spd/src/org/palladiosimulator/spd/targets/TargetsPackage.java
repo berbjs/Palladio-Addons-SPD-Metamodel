@@ -160,14 +160,14 @@ public interface TargetsPackage extends EPackage {
 	int ELASTIC_INFRASTRUCTURE_OPERATION_COUNT = TARGET_GROUP_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link org.palladiosimulator.spd.targets.impl.ElasticServiceImpl <em>Elastic Service</em>}' class.
+	 * The meta object id for the '{@link org.palladiosimulator.spd.targets.impl.ServiceGroupImpl <em>Service Group</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see org.palladiosimulator.spd.targets.impl.ElasticServiceImpl
-	 * @see org.palladiosimulator.spd.targets.impl.TargetsPackageImpl#getElasticService()
+	 * @see org.palladiosimulator.spd.targets.impl.ServiceGroupImpl
+	 * @see org.palladiosimulator.spd.targets.impl.TargetsPackageImpl#getServiceGroup()
 	 * @generated
 	 */
-	int ELASTIC_SERVICE = 2;
+	int SERVICE_GROUP = 2;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -176,7 +176,7 @@ public interface TargetsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ELASTIC_SERVICE__NAME = TARGET_GROUP__NAME;
+	int SERVICE_GROUP__NAME = TARGET_GROUP__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Target Constraints</b></em>' containment reference list.
@@ -185,35 +185,35 @@ public interface TargetsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ELASTIC_SERVICE__TARGET_CONSTRAINTS = TARGET_GROUP__TARGET_CONSTRAINTS;
+	int SERVICE_GROUP__TARGET_CONSTRAINTS = TARGET_GROUP__TARGET_CONSTRAINTS;
 
 	/**
-	 * The number of structural features of the '<em>Elastic Service</em>' class.
+	 * The number of structural features of the '<em>Service Group</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ELASTIC_SERVICE_FEATURE_COUNT = TARGET_GROUP_FEATURE_COUNT + 0;
+	int SERVICE_GROUP_FEATURE_COUNT = TARGET_GROUP_FEATURE_COUNT + 0;
 
 	/**
-	 * The number of operations of the '<em>Elastic Service</em>' class.
+	 * The number of operations of the '<em>Service Group</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ELASTIC_SERVICE_OPERATION_COUNT = TARGET_GROUP_OPERATION_COUNT + 0;
+	int SERVICE_GROUP_OPERATION_COUNT = TARGET_GROUP_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link org.palladiosimulator.spd.targets.impl.ElasticQueueImpl <em>Elastic Queue</em>}' class.
+	 * The meta object id for the '{@link org.palladiosimulator.spd.targets.impl.CompetingConsumersGroupImpl <em>Competing Consumers Group</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see org.palladiosimulator.spd.targets.impl.ElasticQueueImpl
-	 * @see org.palladiosimulator.spd.targets.impl.TargetsPackageImpl#getElasticQueue()
+	 * @see org.palladiosimulator.spd.targets.impl.CompetingConsumersGroupImpl
+	 * @see org.palladiosimulator.spd.targets.impl.TargetsPackageImpl#getCompetingConsumersGroup()
 	 * @generated
 	 */
-	int ELASTIC_QUEUE = 3;
+	int COMPETING_CONSUMERS_GROUP = 3;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -222,7 +222,7 @@ public interface TargetsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ELASTIC_QUEUE__NAME = TARGET_GROUP__NAME;
+	int COMPETING_CONSUMERS_GROUP__NAME = TARGET_GROUP__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Target Constraints</b></em>' containment reference list.
@@ -231,25 +231,25 @@ public interface TargetsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ELASTIC_QUEUE__TARGET_CONSTRAINTS = TARGET_GROUP__TARGET_CONSTRAINTS;
+	int COMPETING_CONSUMERS_GROUP__TARGET_CONSTRAINTS = TARGET_GROUP__TARGET_CONSTRAINTS;
 
 	/**
-	 * The number of structural features of the '<em>Elastic Queue</em>' class.
+	 * The number of structural features of the '<em>Competing Consumers Group</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ELASTIC_QUEUE_FEATURE_COUNT = TARGET_GROUP_FEATURE_COUNT + 0;
+	int COMPETING_CONSUMERS_GROUP_FEATURE_COUNT = TARGET_GROUP_FEATURE_COUNT + 0;
 
 	/**
-	 * The number of operations of the '<em>Elastic Queue</em>' class.
+	 * The number of operations of the '<em>Competing Consumers Group</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ELASTIC_QUEUE_OPERATION_COUNT = TARGET_GROUP_OPERATION_COUNT + 0;
+	int COMPETING_CONSUMERS_GROUP_OPERATION_COUNT = TARGET_GROUP_OPERATION_COUNT + 0;
 
 
 	/**
@@ -295,24 +295,24 @@ public interface TargetsPackage extends EPackage {
 	EReference getElasticInfrastructure_PCM_ResourceEnvironment();
 
 	/**
-	 * Returns the meta object for class '{@link org.palladiosimulator.spd.targets.ElasticService <em>Elastic Service</em>}'.
+	 * Returns the meta object for class '{@link org.palladiosimulator.spd.targets.ServiceGroup <em>Service Group</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Elastic Service</em>'.
-	 * @see org.palladiosimulator.spd.targets.ElasticService
+	 * @return the meta object for class '<em>Service Group</em>'.
+	 * @see org.palladiosimulator.spd.targets.ServiceGroup
 	 * @generated
 	 */
-	EClass getElasticService();
+	EClass getServiceGroup();
 
 	/**
-	 * Returns the meta object for class '{@link org.palladiosimulator.spd.targets.ElasticQueue <em>Elastic Queue</em>}'.
+	 * Returns the meta object for class '{@link org.palladiosimulator.spd.targets.CompetingConsumersGroup <em>Competing Consumers Group</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Elastic Queue</em>'.
-	 * @see org.palladiosimulator.spd.targets.ElasticQueue
+	 * @return the meta object for class '<em>Competing Consumers Group</em>'.
+	 * @see org.palladiosimulator.spd.targets.CompetingConsumersGroup
 	 * @generated
 	 */
-	EClass getElasticQueue();
+	EClass getCompetingConsumersGroup();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -374,24 +374,24 @@ public interface TargetsPackage extends EPackage {
 		EReference ELASTIC_INFRASTRUCTURE__PCM_RESOURCE_ENVIRONMENT = eINSTANCE.getElasticInfrastructure_PCM_ResourceEnvironment();
 
 		/**
-		 * The meta object literal for the '{@link org.palladiosimulator.spd.targets.impl.ElasticServiceImpl <em>Elastic Service</em>}' class.
+		 * The meta object literal for the '{@link org.palladiosimulator.spd.targets.impl.ServiceGroupImpl <em>Service Group</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see org.palladiosimulator.spd.targets.impl.ElasticServiceImpl
-		 * @see org.palladiosimulator.spd.targets.impl.TargetsPackageImpl#getElasticService()
+		 * @see org.palladiosimulator.spd.targets.impl.ServiceGroupImpl
+		 * @see org.palladiosimulator.spd.targets.impl.TargetsPackageImpl#getServiceGroup()
 		 * @generated
 		 */
-		EClass ELASTIC_SERVICE = eINSTANCE.getElasticService();
+		EClass SERVICE_GROUP = eINSTANCE.getServiceGroup();
 
 		/**
-		 * The meta object literal for the '{@link org.palladiosimulator.spd.targets.impl.ElasticQueueImpl <em>Elastic Queue</em>}' class.
+		 * The meta object literal for the '{@link org.palladiosimulator.spd.targets.impl.CompetingConsumersGroupImpl <em>Competing Consumers Group</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see org.palladiosimulator.spd.targets.impl.ElasticQueueImpl
-		 * @see org.palladiosimulator.spd.targets.impl.TargetsPackageImpl#getElasticQueue()
+		 * @see org.palladiosimulator.spd.targets.impl.CompetingConsumersGroupImpl
+		 * @see org.palladiosimulator.spd.targets.impl.TargetsPackageImpl#getCompetingConsumersGroup()
 		 * @generated
 		 */
-		EClass ELASTIC_QUEUE = eINSTANCE.getElasticQueue();
+		EClass COMPETING_CONSUMERS_GROUP = eINSTANCE.getCompetingConsumersGroup();
 
 	}
 

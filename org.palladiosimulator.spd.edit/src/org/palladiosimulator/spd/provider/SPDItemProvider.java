@@ -154,12 +154,12 @@ public class SPDItemProvider extends NamedElementItemProvider {
 		newChildDescriptors.add
 			(createChildParameter
 				(SpdPackage.Literals.SPD__TARGET_GROUPS,
-				 TargetsFactory.eINSTANCE.createElasticService()));
+				 TargetsFactory.eINSTANCE.createServiceGroup()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(SpdPackage.Literals.SPD__TARGET_GROUPS,
-				 TargetsFactory.eINSTANCE.createElasticQueue()));
+				 TargetsFactory.eINSTANCE.createCompetingConsumersGroup()));
 	}
 
 }
