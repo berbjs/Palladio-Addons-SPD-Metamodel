@@ -123,22 +123,13 @@ public interface SpdPackage extends EPackage {
 	int SCALING_POLICY__ACTIVE = NAMED_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Scaling Trigger</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SCALING_POLICY__SCALING_TRIGGER = NAMED_ELEMENT_FEATURE_COUNT + 1;
-
-	/**
 	 * The feature id for the '<em><b>Adjustment Type</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SCALING_POLICY__ADJUSTMENT_TYPE = NAMED_ELEMENT_FEATURE_COUNT + 2;
+	int SCALING_POLICY__ADJUSTMENT_TYPE = NAMED_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Target Group</b></em>' reference.
@@ -147,7 +138,7 @@ public interface SpdPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SCALING_POLICY__TARGET_GROUP = NAMED_ELEMENT_FEATURE_COUNT + 3;
+	int SCALING_POLICY__TARGET_GROUP = NAMED_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Policy Constraints</b></em>' containment reference list.
@@ -156,7 +147,16 @@ public interface SpdPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SCALING_POLICY__POLICY_CONSTRAINTS = NAMED_ELEMENT_FEATURE_COUNT + 4;
+	int SCALING_POLICY__POLICY_CONSTRAINTS = NAMED_ELEMENT_FEATURE_COUNT + 3;
+
+	/**
+	 * The feature id for the '<em><b>Scaling Trigger</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCALING_POLICY__SCALING_TRIGGER = NAMED_ELEMENT_FEATURE_COUNT + 4;
 
 	/**
 	 * The number of structural features of the '<em>Scaling Policy</em>' class.
@@ -254,17 +254,6 @@ public interface SpdPackage extends EPackage {
 	EAttribute getScalingPolicy_Active();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link org.palladiosimulator.spd.ScalingPolicy#getScalingTrigger <em>Scaling Trigger</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Scaling Trigger</em>'.
-	 * @see org.palladiosimulator.spd.ScalingPolicy#getScalingTrigger()
-	 * @see #getScalingPolicy()
-	 * @generated
-	 */
-	EReference getScalingPolicy_ScalingTrigger();
-
-	/**
 	 * Returns the meta object for the containment reference '{@link org.palladiosimulator.spd.ScalingPolicy#getAdjustmentType <em>Adjustment Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -296,6 +285,17 @@ public interface SpdPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getScalingPolicy_PolicyConstraints();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link org.palladiosimulator.spd.ScalingPolicy#getScalingTrigger <em>Scaling Trigger</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Scaling Trigger</em>'.
+	 * @see org.palladiosimulator.spd.ScalingPolicy#getScalingTrigger()
+	 * @see #getScalingPolicy()
+	 * @generated
+	 */
+	EReference getScalingPolicy_ScalingTrigger();
 
 	/**
 	 * Returns the meta object for class '{@link org.palladiosimulator.spd.SPD <em>SPD</em>}'.
@@ -392,14 +392,6 @@ public interface SpdPackage extends EPackage {
 		EAttribute SCALING_POLICY__ACTIVE = eINSTANCE.getScalingPolicy_Active();
 
 		/**
-		 * The meta object literal for the '<em><b>Scaling Trigger</b></em>' containment reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference SCALING_POLICY__SCALING_TRIGGER = eINSTANCE.getScalingPolicy_ScalingTrigger();
-
-		/**
 		 * The meta object literal for the '<em><b>Adjustment Type</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -422,6 +414,14 @@ public interface SpdPackage extends EPackage {
 		 * @generated
 		 */
 		EReference SCALING_POLICY__POLICY_CONSTRAINTS = eINSTANCE.getScalingPolicy_PolicyConstraints();
+
+		/**
+		 * The meta object literal for the '<em><b>Scaling Trigger</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SCALING_POLICY__SCALING_TRIGGER = eINSTANCE.getScalingPolicy_ScalingTrigger();
 
 		/**
 		 * The meta object literal for the '{@link org.palladiosimulator.spd.impl.SPDImpl <em>SPD</em>}' class.

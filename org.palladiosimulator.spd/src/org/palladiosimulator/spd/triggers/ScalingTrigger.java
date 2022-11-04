@@ -11,9 +11,7 @@ import org.eclipse.emf.ecore.EObject;
  * <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
- * ScalingTrigger encapsulates both what is observed on the modeled system (the monitoring) as well as how such observation lead to a trigger (the analysis part). 
- * For example, a CPUThresholdBasedTrigger (a possible implementation of this class) defines both how CPU is going to be monitored from the TargetGroup as well as that it is a simple threshold based trigger.
- * 
+ * The ScalingTrigger is a core concept in SPD. It entails both the information that is fetched from the simulation and models as well as the type of analysis that is performed on that information. 
  * <!-- end-model-doc -->
  *
  *

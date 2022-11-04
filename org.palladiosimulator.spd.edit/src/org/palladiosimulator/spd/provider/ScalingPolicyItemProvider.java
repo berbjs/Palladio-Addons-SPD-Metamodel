@@ -116,9 +116,9 @@ public class ScalingPolicyItemProvider extends NamedElementItemProvider {
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(SpdPackage.Literals.SCALING_POLICY__SCALING_TRIGGER);
 			childrenFeatures.add(SpdPackage.Literals.SCALING_POLICY__ADJUSTMENT_TYPE);
 			childrenFeatures.add(SpdPackage.Literals.SCALING_POLICY__POLICY_CONSTRAINTS);
+			childrenFeatures.add(SpdPackage.Literals.SCALING_POLICY__SCALING_TRIGGER);
 		}
 		return childrenFeatures;
 	}
@@ -177,9 +177,9 @@ public class ScalingPolicyItemProvider extends NamedElementItemProvider {
 			case SpdPackage.SCALING_POLICY__ACTIVE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
-			case SpdPackage.SCALING_POLICY__SCALING_TRIGGER:
 			case SpdPackage.SCALING_POLICY__ADJUSTMENT_TYPE:
 			case SpdPackage.SCALING_POLICY__POLICY_CONSTRAINTS:
+			case SpdPackage.SCALING_POLICY__SCALING_TRIGGER:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -196,46 +196,6 @@ public class ScalingPolicyItemProvider extends NamedElementItemProvider {
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
-
-		newChildDescriptors.add
-			(createChildParameter
-				(SpdPackage.Literals.SCALING_POLICY__SCALING_TRIGGER,
-				 TriggersFactory.eINSTANCE.createCPUUtilizationTrigger()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(SpdPackage.Literals.SCALING_POLICY__SCALING_TRIGGER,
-				 TriggersFactory.eINSTANCE.createRAMUtilizationTrigger()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(SpdPackage.Literals.SCALING_POLICY__SCALING_TRIGGER,
-				 TriggersFactory.eINSTANCE.createHDDUtilizationTrigger()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(SpdPackage.Literals.SCALING_POLICY__SCALING_TRIGGER,
-				 TriggersFactory.eINSTANCE.createPointInTimeTrigger()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(SpdPackage.Literals.SCALING_POLICY__SCALING_TRIGGER,
-				 TriggersFactory.eINSTANCE.createIdleTimeTrigger()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(SpdPackage.Literals.SCALING_POLICY__SCALING_TRIGGER,
-				 TriggersFactory.eINSTANCE.createTaskCountTrigger()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(SpdPackage.Literals.SCALING_POLICY__SCALING_TRIGGER,
-				 TriggersFactory.eINSTANCE.createNetworkUtilizationTrigger()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(SpdPackage.Literals.SCALING_POLICY__SCALING_TRIGGER,
-				 TriggersFactory.eINSTANCE.createResponseTimeTrigger()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -266,6 +226,21 @@ public class ScalingPolicyItemProvider extends NamedElementItemProvider {
 			(createChildParameter
 				(SpdPackage.Literals.SCALING_POLICY__POLICY_CONSTRAINTS,
 				 PolicyFactory.eINSTANCE.createThrashingConstraint()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(SpdPackage.Literals.SCALING_POLICY__SCALING_TRIGGER,
+				 TriggersFactory.eINSTANCE.createComposedTrigger()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(SpdPackage.Literals.SCALING_POLICY__SCALING_TRIGGER,
+				 TriggersFactory.eINSTANCE.createSimpleFireOnValue()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(SpdPackage.Literals.SCALING_POLICY__SCALING_TRIGGER,
+				 TriggersFactory.eINSTANCE.createSimpleFireOnTrend()));
 	}
 
 }

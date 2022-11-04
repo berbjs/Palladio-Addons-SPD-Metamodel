@@ -73,52 +73,20 @@ public class TriggersAdapterFactory extends AdapterFactoryImpl {
 				return createScalingTriggerAdapter();
 			}
 			@Override
-			public Adapter caseThresholdBasedTrigger(ThresholdBasedTrigger object) {
-				return createThresholdBasedTriggerAdapter();
+			public Adapter caseBaseTrigger(BaseTrigger object) {
+				return createBaseTriggerAdapter();
 			}
 			@Override
-			public Adapter caseCPUUtilizationTrigger(CPUUtilizationTrigger object) {
-				return createCPUUtilizationTriggerAdapter();
+			public Adapter caseComposedTrigger(ComposedTrigger object) {
+				return createComposedTriggerAdapter();
 			}
 			@Override
-			public Adapter caseRAMUtilizationTrigger(RAMUtilizationTrigger object) {
-				return createRAMUtilizationTriggerAdapter();
+			public Adapter caseSimpleFireOnValue(SimpleFireOnValue object) {
+				return createSimpleFireOnValueAdapter();
 			}
 			@Override
-			public Adapter caseHDDUtilizationTrigger(HDDUtilizationTrigger object) {
-				return createHDDUtilizationTriggerAdapter();
-			}
-			@Override
-			public Adapter caseTimeBasedTrigger(TimeBasedTrigger object) {
-				return createTimeBasedTriggerAdapter();
-			}
-			@Override
-			public Adapter casePointInTimeTrigger(PointInTimeTrigger object) {
-				return createPointInTimeTriggerAdapter();
-			}
-			@Override
-			public Adapter caseIdleTimeTrigger(IdleTimeTrigger object) {
-				return createIdleTimeTriggerAdapter();
-			}
-			@Override
-			public Adapter caseTaskCountTrigger(TaskCountTrigger object) {
-				return createTaskCountTriggerAdapter();
-			}
-			@Override
-			public Adapter caseNetworkUtilizationTrigger(NetworkUtilizationTrigger object) {
-				return createNetworkUtilizationTriggerAdapter();
-			}
-			@Override
-			public Adapter caseResponseTimeTrigger(ResponseTimeTrigger object) {
-				return createResponseTimeTriggerAdapter();
-			}
-			@Override
-			public Adapter caseResourceUtilizationBasedTrigger(ResourceUtilizationBasedTrigger object) {
-				return createResourceUtilizationBasedTriggerAdapter();
-			}
-			@Override
-			public Adapter caseProcessingResourceUtilizationBasedTrigger(ProcessingResourceUtilizationBasedTrigger object) {
-				return createProcessingResourceUtilizationBasedTriggerAdapter();
+			public Adapter caseSimpleFireOnTrend(SimpleFireOnTrend object) {
+				return createSimpleFireOnTrendAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -155,170 +123,58 @@ public class TriggersAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.palladiosimulator.spd.triggers.ThresholdBasedTrigger <em>Threshold Based Trigger</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.palladiosimulator.spd.triggers.BaseTrigger <em>Base Trigger</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.palladiosimulator.spd.triggers.ThresholdBasedTrigger
+	 * @see org.palladiosimulator.spd.triggers.BaseTrigger
 	 * @generated
 	 */
-	public Adapter createThresholdBasedTriggerAdapter() {
+	public Adapter createBaseTriggerAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.palladiosimulator.spd.triggers.CPUUtilizationTrigger <em>CPU Utilization Trigger</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.palladiosimulator.spd.triggers.ComposedTrigger <em>Composed Trigger</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.palladiosimulator.spd.triggers.CPUUtilizationTrigger
+	 * @see org.palladiosimulator.spd.triggers.ComposedTrigger
 	 * @generated
 	 */
-	public Adapter createCPUUtilizationTriggerAdapter() {
+	public Adapter createComposedTriggerAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.palladiosimulator.spd.triggers.RAMUtilizationTrigger <em>RAM Utilization Trigger</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.palladiosimulator.spd.triggers.SimpleFireOnValue <em>Simple Fire On Value</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.palladiosimulator.spd.triggers.RAMUtilizationTrigger
+	 * @see org.palladiosimulator.spd.triggers.SimpleFireOnValue
 	 * @generated
 	 */
-	public Adapter createRAMUtilizationTriggerAdapter() {
+	public Adapter createSimpleFireOnValueAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.palladiosimulator.spd.triggers.HDDUtilizationTrigger <em>HDD Utilization Trigger</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.palladiosimulator.spd.triggers.SimpleFireOnTrend <em>Simple Fire On Trend</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.palladiosimulator.spd.triggers.HDDUtilizationTrigger
+	 * @see org.palladiosimulator.spd.triggers.SimpleFireOnTrend
 	 * @generated
 	 */
-	public Adapter createHDDUtilizationTriggerAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.palladiosimulator.spd.triggers.TimeBasedTrigger <em>Time Based Trigger</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.palladiosimulator.spd.triggers.TimeBasedTrigger
-	 * @generated
-	 */
-	public Adapter createTimeBasedTriggerAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.palladiosimulator.spd.triggers.PointInTimeTrigger <em>Point In Time Trigger</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.palladiosimulator.spd.triggers.PointInTimeTrigger
-	 * @generated
-	 */
-	public Adapter createPointInTimeTriggerAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.palladiosimulator.spd.triggers.IdleTimeTrigger <em>Idle Time Trigger</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.palladiosimulator.spd.triggers.IdleTimeTrigger
-	 * @generated
-	 */
-	public Adapter createIdleTimeTriggerAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.palladiosimulator.spd.triggers.TaskCountTrigger <em>Task Count Trigger</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.palladiosimulator.spd.triggers.TaskCountTrigger
-	 * @generated
-	 */
-	public Adapter createTaskCountTriggerAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.palladiosimulator.spd.triggers.NetworkUtilizationTrigger <em>Network Utilization Trigger</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.palladiosimulator.spd.triggers.NetworkUtilizationTrigger
-	 * @generated
-	 */
-	public Adapter createNetworkUtilizationTriggerAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.palladiosimulator.spd.triggers.ResponseTimeTrigger <em>Response Time Trigger</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.palladiosimulator.spd.triggers.ResponseTimeTrigger
-	 * @generated
-	 */
-	public Adapter createResponseTimeTriggerAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.palladiosimulator.spd.triggers.ResourceUtilizationBasedTrigger <em>Resource Utilization Based Trigger</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.palladiosimulator.spd.triggers.ResourceUtilizationBasedTrigger
-	 * @generated
-	 */
-	public Adapter createResourceUtilizationBasedTriggerAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.palladiosimulator.spd.triggers.ProcessingResourceUtilizationBasedTrigger <em>Processing Resource Utilization Based Trigger</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.palladiosimulator.spd.triggers.ProcessingResourceUtilizationBasedTrigger
-	 * @generated
-	 */
-	public Adapter createProcessingResourceUtilizationBasedTriggerAdapter() {
+	public Adapter createSimpleFireOnTrendAdapter() {
 		return null;
 	}
 

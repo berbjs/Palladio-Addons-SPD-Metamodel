@@ -222,7 +222,11 @@ import org.palladiosimulator.spd.provider.SpdItemProviderAdapterFactory;
 
 import org.palladiosimulator.spd.targets.provider.TargetsItemProviderAdapterFactory;
 
+import org.palladiosimulator.spd.triggers.expectations.provider.ExpectationsItemProviderAdapterFactory;
+
 import org.palladiosimulator.spd.triggers.provider.TriggersItemProviderAdapterFactory;
+
+import org.palladiosimulator.spd.triggers.stimuli.provider.StimuliItemProviderAdapterFactory;
 
 
 /**
@@ -782,6 +786,8 @@ public class PolicyEditor
 		adapterFactory.addAdapterFactory(new PolicyItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new TargetItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new TriggersItemProviderAdapterFactory());
+		adapterFactory.addAdapterFactory(new StimuliItemProviderAdapterFactory());
+		adapterFactory.addAdapterFactory(new ExpectationsItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new EcoreItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new IdentifierItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new PcmItemProviderAdapterFactory());

@@ -22,10 +22,6 @@ import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 import org.palladiosimulator.pcm.PcmPackage;
 
-import org.palladiosimulator.pcm.repository.RepositoryPackage;
-
-import org.palladiosimulator.pcm.resourceenvironment.ResourceenvironmentPackage;
-
 import org.palladiosimulator.spd.SpdPackage;
 
 import org.palladiosimulator.spd.adjustments.AdjustmentsPackage;
@@ -50,21 +46,24 @@ import org.palladiosimulator.spd.targets.TargetsPackage;
 
 import org.palladiosimulator.spd.targets.impl.TargetsPackageImpl;
 
-import org.palladiosimulator.spd.triggers.CPUUtilizationTrigger;
-import org.palladiosimulator.spd.triggers.HDDUtilizationTrigger;
-import org.palladiosimulator.spd.triggers.IdleTimeTrigger;
-import org.palladiosimulator.spd.triggers.NetworkUtilizationTrigger;
-import org.palladiosimulator.spd.triggers.PointInTimeTrigger;
-import org.palladiosimulator.spd.triggers.ProcessingResourceUtilizationBasedTrigger;
-import org.palladiosimulator.spd.triggers.RAMUtilizationTrigger;
-import org.palladiosimulator.spd.triggers.ResourceUtilizationBasedTrigger;
-import org.palladiosimulator.spd.triggers.ResponseTimeTrigger;
+import org.palladiosimulator.spd.triggers.BaseTrigger;
+import org.palladiosimulator.spd.triggers.ComposedTrigger;
+import org.palladiosimulator.spd.triggers.LogicalOperator;
+import org.palladiosimulator.spd.triggers.RelationalOperator;
 import org.palladiosimulator.spd.triggers.ScalingTrigger;
-import org.palladiosimulator.spd.triggers.TaskCountTrigger;
-import org.palladiosimulator.spd.triggers.ThresholdBasedTrigger;
-import org.palladiosimulator.spd.triggers.TimeBasedTrigger;
+import org.palladiosimulator.spd.triggers.SimpleFireOnTrend;
+import org.palladiosimulator.spd.triggers.SimpleFireOnValue;
+import org.palladiosimulator.spd.triggers.TrendPattern;
 import org.palladiosimulator.spd.triggers.TriggersFactory;
 import org.palladiosimulator.spd.triggers.TriggersPackage;
+
+import org.palladiosimulator.spd.triggers.expectations.ExpectationsPackage;
+
+import org.palladiosimulator.spd.triggers.expectations.impl.ExpectationsPackageImpl;
+
+import org.palladiosimulator.spd.triggers.stimuli.StimuliPackage;
+
+import org.palladiosimulator.spd.triggers.stimuli.impl.StimuliPackageImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -85,84 +84,28 @@ public class TriggersPackageImpl extends EPackageImpl implements TriggersPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass thresholdBasedTriggerEClass = null;
+	private EClass baseTriggerEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass cpuUtilizationTriggerEClass = null;
+	private EClass composedTriggerEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass ramUtilizationTriggerEClass = null;
+	private EClass simpleFireOnValueEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass hddUtilizationTriggerEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass timeBasedTriggerEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass pointInTimeTriggerEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass idleTimeTriggerEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass taskCountTriggerEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass networkUtilizationTriggerEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass responseTimeTriggerEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass resourceUtilizationBasedTriggerEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass processingResourceUtilizationBasedTriggerEClass = null;
+	private EClass simpleFireOnTrendEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -190,7 +133,21 @@ public class TriggersPackageImpl extends EPackageImpl implements TriggersPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EEnum thresholddirectionEEnum = null;
+	private EEnum logicalOperatorEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum relationalOperatorEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum trendPatternEEnum = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -260,6 +217,10 @@ public class TriggersPackageImpl extends EPackageImpl implements TriggersPackage
 		PolicyPackageImpl thePolicyPackage = (PolicyPackageImpl)(registeredPackage instanceof PolicyPackageImpl ? registeredPackage : PolicyPackage.eINSTANCE);
 		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(TargetPackage.eNS_URI);
 		TargetPackageImpl theTargetPackage = (TargetPackageImpl)(registeredPackage instanceof TargetPackageImpl ? registeredPackage : TargetPackage.eINSTANCE);
+		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(StimuliPackage.eNS_URI);
+		StimuliPackageImpl theStimuliPackage = (StimuliPackageImpl)(registeredPackage instanceof StimuliPackageImpl ? registeredPackage : StimuliPackage.eINSTANCE);
+		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(ExpectationsPackage.eNS_URI);
+		ExpectationsPackageImpl theExpectationsPackage = (ExpectationsPackageImpl)(registeredPackage instanceof ExpectationsPackageImpl ? registeredPackage : ExpectationsPackage.eINSTANCE);
 
 		// Create package meta-data objects
 		theTriggersPackage.createPackageContents();
@@ -269,6 +230,8 @@ public class TriggersPackageImpl extends EPackageImpl implements TriggersPackage
 		theConstraintsPackage.createPackageContents();
 		thePolicyPackage.createPackageContents();
 		theTargetPackage.createPackageContents();
+		theStimuliPackage.createPackageContents();
+		theExpectationsPackage.createPackageContents();
 
 		// Initialize created meta-data
 		theTriggersPackage.initializePackageContents();
@@ -278,6 +241,8 @@ public class TriggersPackageImpl extends EPackageImpl implements TriggersPackage
 		theConstraintsPackage.initializePackageContents();
 		thePolicyPackage.initializePackageContents();
 		theTargetPackage.initializePackageContents();
+		theStimuliPackage.initializePackageContents();
+		theExpectationsPackage.initializePackageContents();
 
 		// Mark meta-data to indicate it can't be changed
 		theTriggersPackage.freeze();
@@ -303,8 +268,8 @@ public class TriggersPackageImpl extends EPackageImpl implements TriggersPackage
 	 * @generated
 	 */
 	@Override
-	public EClass getThresholdBasedTrigger() {
-		return thresholdBasedTriggerEClass;
+	public EClass getBaseTrigger() {
+		return baseTriggerEClass;
 	}
 
 	/**
@@ -313,8 +278,8 @@ public class TriggersPackageImpl extends EPackageImpl implements TriggersPackage
 	 * @generated
 	 */
 	@Override
-	public EAttribute getThresholdBasedTrigger_ThresholdDirection() {
-		return (EAttribute)thresholdBasedTriggerEClass.getEStructuralFeatures().get(0);
+	public EReference getBaseTrigger_Stimulus() {
+		return (EReference)baseTriggerEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -323,8 +288,8 @@ public class TriggersPackageImpl extends EPackageImpl implements TriggersPackage
 	 * @generated
 	 */
 	@Override
-	public EAttribute getThresholdBasedTrigger_Threshold() {
-		return (EAttribute)thresholdBasedTriggerEClass.getEStructuralFeatures().get(1);
+	public EReference getBaseTrigger_ExpectedValue() {
+		return (EReference)baseTriggerEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -333,8 +298,8 @@ public class TriggersPackageImpl extends EPackageImpl implements TriggersPackage
 	 * @generated
 	 */
 	@Override
-	public EAttribute getThresholdBasedTrigger_ViolationWindow() {
-		return (EAttribute)thresholdBasedTriggerEClass.getEStructuralFeatures().get(2);
+	public EClass getComposedTrigger() {
+		return composedTriggerEClass;
 	}
 
 	/**
@@ -343,8 +308,8 @@ public class TriggersPackageImpl extends EPackageImpl implements TriggersPackage
 	 * @generated
 	 */
 	@Override
-	public EClass getCPUUtilizationTrigger() {
-		return cpuUtilizationTriggerEClass;
+	public EReference getComposedTrigger_Scalingtrigger() {
+		return (EReference)composedTriggerEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -353,8 +318,8 @@ public class TriggersPackageImpl extends EPackageImpl implements TriggersPackage
 	 * @generated
 	 */
 	@Override
-	public EClass getRAMUtilizationTrigger() {
-		return ramUtilizationTriggerEClass;
+	public EAttribute getComposedTrigger_LogicalOperator() {
+		return (EAttribute)composedTriggerEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -363,8 +328,8 @@ public class TriggersPackageImpl extends EPackageImpl implements TriggersPackage
 	 * @generated
 	 */
 	@Override
-	public EClass getHDDUtilizationTrigger() {
-		return hddUtilizationTriggerEClass;
+	public EClass getSimpleFireOnValue() {
+		return simpleFireOnValueEClass;
 	}
 
 	/**
@@ -373,8 +338,8 @@ public class TriggersPackageImpl extends EPackageImpl implements TriggersPackage
 	 * @generated
 	 */
 	@Override
-	public EAttribute getHDDUtilizationTrigger_UsageType() {
-		return (EAttribute)hddUtilizationTriggerEClass.getEStructuralFeatures().get(0);
+	public EAttribute getSimpleFireOnValue_RelationalOperator() {
+		return (EAttribute)simpleFireOnValueEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -383,188 +348,8 @@ public class TriggersPackageImpl extends EPackageImpl implements TriggersPackage
 	 * @generated
 	 */
 	@Override
-	public EClass getTimeBasedTrigger() {
-		return timeBasedTriggerEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EClass getPointInTimeTrigger() {
-		return pointInTimeTriggerEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EAttribute getPointInTimeTrigger_PointInTime() {
-		return (EAttribute)pointInTimeTriggerEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EClass getIdleTimeTrigger() {
-		return idleTimeTriggerEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EReference getIdleTimeTrigger_ResourceContainer() {
-		return (EReference)idleTimeTriggerEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EClass getTaskCountTrigger() {
-		return taskCountTriggerEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EReference getTaskCountTrigger_ResourceContainer() {
-		return (EReference)taskCountTriggerEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EAttribute getTaskCountTrigger_ProcessingResourceAggregation() {
-		return (EAttribute)taskCountTriggerEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EAttribute getTaskCountTrigger_ResourceContainerAggregation() {
-		return (EAttribute)taskCountTriggerEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EClass getNetworkUtilizationTrigger() {
-		return networkUtilizationTriggerEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EAttribute getNetworkUtilizationTrigger_UsageType() {
-		return (EAttribute)networkUtilizationTriggerEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EReference getNetworkUtilizationTrigger_LinkingResource() {
-		return (EReference)networkUtilizationTriggerEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EClass getResponseTimeTrigger() {
-		return responseTimeTriggerEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EReference getResponseTimeTrigger_OperationSignature() {
-		return (EReference)responseTimeTriggerEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EClass getResourceUtilizationBasedTrigger() {
-		return resourceUtilizationBasedTriggerEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EAttribute getResourceUtilizationBasedTrigger_ProcessingResourceAggregation() {
-		return (EAttribute)resourceUtilizationBasedTriggerEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EAttribute getResourceUtilizationBasedTrigger_ResourceContainerAggregation() {
-		return (EAttribute)resourceUtilizationBasedTriggerEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EClass getProcessingResourceUtilizationBasedTrigger() {
-		return processingResourceUtilizationBasedTriggerEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EReference getProcessingResourceUtilizationBasedTrigger_ResourceContainer() {
-		return (EReference)processingResourceUtilizationBasedTriggerEClass.getEStructuralFeatures().get(0);
+	public EClass getSimpleFireOnTrend() {
+		return simpleFireOnTrendEClass;
 	}
 
 	/**
@@ -603,8 +388,28 @@ public class TriggersPackageImpl extends EPackageImpl implements TriggersPackage
 	 * @generated
 	 */
 	@Override
-	public EEnum getTHRESHOLDDIRECTION() {
-		return thresholddirectionEEnum;
+	public EEnum getLogicalOperator() {
+		return logicalOperatorEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EEnum getRelationalOperator() {
+		return relationalOperatorEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EEnum getTrendPattern() {
+		return trendPatternEEnum;
 	}
 
 	/**
@@ -638,50 +443,26 @@ public class TriggersPackageImpl extends EPackageImpl implements TriggersPackage
 		// Create classes and their features
 		scalingTriggerEClass = createEClass(SCALING_TRIGGER);
 
-		thresholdBasedTriggerEClass = createEClass(THRESHOLD_BASED_TRIGGER);
-		createEAttribute(thresholdBasedTriggerEClass, THRESHOLD_BASED_TRIGGER__THRESHOLD_DIRECTION);
-		createEAttribute(thresholdBasedTriggerEClass, THRESHOLD_BASED_TRIGGER__THRESHOLD);
-		createEAttribute(thresholdBasedTriggerEClass, THRESHOLD_BASED_TRIGGER__VIOLATION_WINDOW);
+		baseTriggerEClass = createEClass(BASE_TRIGGER);
+		createEReference(baseTriggerEClass, BASE_TRIGGER__STIMULUS);
+		createEReference(baseTriggerEClass, BASE_TRIGGER__EXPECTED_VALUE);
 
-		cpuUtilizationTriggerEClass = createEClass(CPU_UTILIZATION_TRIGGER);
+		composedTriggerEClass = createEClass(COMPOSED_TRIGGER);
+		createEReference(composedTriggerEClass, COMPOSED_TRIGGER__SCALINGTRIGGER);
+		createEAttribute(composedTriggerEClass, COMPOSED_TRIGGER__LOGICAL_OPERATOR);
 
-		ramUtilizationTriggerEClass = createEClass(RAM_UTILIZATION_TRIGGER);
+		simpleFireOnValueEClass = createEClass(SIMPLE_FIRE_ON_VALUE);
+		createEAttribute(simpleFireOnValueEClass, SIMPLE_FIRE_ON_VALUE__RELATIONAL_OPERATOR);
 
-		hddUtilizationTriggerEClass = createEClass(HDD_UTILIZATION_TRIGGER);
-		createEAttribute(hddUtilizationTriggerEClass, HDD_UTILIZATION_TRIGGER__USAGE_TYPE);
-
-		timeBasedTriggerEClass = createEClass(TIME_BASED_TRIGGER);
-
-		pointInTimeTriggerEClass = createEClass(POINT_IN_TIME_TRIGGER);
-		createEAttribute(pointInTimeTriggerEClass, POINT_IN_TIME_TRIGGER__POINT_IN_TIME);
-
-		idleTimeTriggerEClass = createEClass(IDLE_TIME_TRIGGER);
-		createEReference(idleTimeTriggerEClass, IDLE_TIME_TRIGGER__RESOURCE_CONTAINER);
-
-		taskCountTriggerEClass = createEClass(TASK_COUNT_TRIGGER);
-		createEReference(taskCountTriggerEClass, TASK_COUNT_TRIGGER__RESOURCE_CONTAINER);
-		createEAttribute(taskCountTriggerEClass, TASK_COUNT_TRIGGER__PROCESSING_RESOURCE_AGGREGATION);
-		createEAttribute(taskCountTriggerEClass, TASK_COUNT_TRIGGER__RESOURCE_CONTAINER_AGGREGATION);
-
-		networkUtilizationTriggerEClass = createEClass(NETWORK_UTILIZATION_TRIGGER);
-		createEAttribute(networkUtilizationTriggerEClass, NETWORK_UTILIZATION_TRIGGER__USAGE_TYPE);
-		createEReference(networkUtilizationTriggerEClass, NETWORK_UTILIZATION_TRIGGER__LINKING_RESOURCE);
-
-		responseTimeTriggerEClass = createEClass(RESPONSE_TIME_TRIGGER);
-		createEReference(responseTimeTriggerEClass, RESPONSE_TIME_TRIGGER__OPERATION_SIGNATURE);
-
-		resourceUtilizationBasedTriggerEClass = createEClass(RESOURCE_UTILIZATION_BASED_TRIGGER);
-		createEAttribute(resourceUtilizationBasedTriggerEClass, RESOURCE_UTILIZATION_BASED_TRIGGER__PROCESSING_RESOURCE_AGGREGATION);
-		createEAttribute(resourceUtilizationBasedTriggerEClass, RESOURCE_UTILIZATION_BASED_TRIGGER__RESOURCE_CONTAINER_AGGREGATION);
-
-		processingResourceUtilizationBasedTriggerEClass = createEClass(PROCESSING_RESOURCE_UTILIZATION_BASED_TRIGGER);
-		createEReference(processingResourceUtilizationBasedTriggerEClass, PROCESSING_RESOURCE_UTILIZATION_BASED_TRIGGER__RESOURCE_CONTAINER);
+		simpleFireOnTrendEClass = createEClass(SIMPLE_FIRE_ON_TREND);
 
 		// Create enums
 		aggregationmethodEEnum = createEEnum(AGGREGATIONMETHOD);
 		hddusagetypeEEnum = createEEnum(HDDUSAGETYPE);
 		networkusagetypeEEnum = createEEnum(NETWORKUSAGETYPE);
-		thresholddirectionEEnum = createEEnum(THRESHOLDDIRECTION);
+		logicalOperatorEEnum = createEEnum(LOGICAL_OPERATOR);
+		relationalOperatorEEnum = createEEnum(RELATIONAL_OPERATOR);
+		trendPatternEEnum = createEEnum(TREND_PATTERN);
 	}
 
 	/**
@@ -708,68 +489,38 @@ public class TriggersPackageImpl extends EPackageImpl implements TriggersPackage
 		setNsURI(eNS_URI);
 
 		// Obtain other dependent packages
-		ResourceenvironmentPackage theResourceenvironmentPackage = (ResourceenvironmentPackage)EPackage.Registry.INSTANCE.getEPackage(ResourceenvironmentPackage.eNS_URI);
-		RepositoryPackage theRepositoryPackage = (RepositoryPackage)EPackage.Registry.INSTANCE.getEPackage(RepositoryPackage.eNS_URI);
+		StimuliPackage theStimuliPackage = (StimuliPackage)EPackage.Registry.INSTANCE.getEPackage(StimuliPackage.eNS_URI);
+		ExpectationsPackage theExpectationsPackage = (ExpectationsPackage)EPackage.Registry.INSTANCE.getEPackage(ExpectationsPackage.eNS_URI);
+
+		// Add subpackages
+		getESubpackages().add(theStimuliPackage);
+		getESubpackages().add(theExpectationsPackage);
 
 		// Create type parameters
 
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
-		thresholdBasedTriggerEClass.getESuperTypes().add(this.getScalingTrigger());
-		cpuUtilizationTriggerEClass.getESuperTypes().add(this.getProcessingResourceUtilizationBasedTrigger());
-		ramUtilizationTriggerEClass.getESuperTypes().add(this.getProcessingResourceUtilizationBasedTrigger());
-		hddUtilizationTriggerEClass.getESuperTypes().add(this.getProcessingResourceUtilizationBasedTrigger());
-		timeBasedTriggerEClass.getESuperTypes().add(this.getThresholdBasedTrigger());
-		pointInTimeTriggerEClass.getESuperTypes().add(this.getScalingTrigger());
-		idleTimeTriggerEClass.getESuperTypes().add(this.getTimeBasedTrigger());
-		taskCountTriggerEClass.getESuperTypes().add(this.getThresholdBasedTrigger());
-		networkUtilizationTriggerEClass.getESuperTypes().add(this.getResourceUtilizationBasedTrigger());
-		responseTimeTriggerEClass.getESuperTypes().add(this.getTimeBasedTrigger());
-		resourceUtilizationBasedTriggerEClass.getESuperTypes().add(this.getThresholdBasedTrigger());
-		processingResourceUtilizationBasedTriggerEClass.getESuperTypes().add(this.getResourceUtilizationBasedTrigger());
+		baseTriggerEClass.getESuperTypes().add(this.getScalingTrigger());
+		composedTriggerEClass.getESuperTypes().add(this.getScalingTrigger());
+		simpleFireOnValueEClass.getESuperTypes().add(this.getBaseTrigger());
+		simpleFireOnTrendEClass.getESuperTypes().add(this.getBaseTrigger());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(scalingTriggerEClass, ScalingTrigger.class, "ScalingTrigger", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(thresholdBasedTriggerEClass, ThresholdBasedTrigger.class, "ThresholdBasedTrigger", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getThresholdBasedTrigger_ThresholdDirection(), this.getTHRESHOLDDIRECTION(), "thresholdDirection", null, 0, 1, ThresholdBasedTrigger.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getThresholdBasedTrigger_Threshold(), ecorePackage.getEDouble(), "threshold", "0.0", 1, 1, ThresholdBasedTrigger.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getThresholdBasedTrigger_ViolationWindow(), ecorePackage.getEDouble(), "violationWindow", null, 1, 1, ThresholdBasedTrigger.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(baseTriggerEClass, BaseTrigger.class, "BaseTrigger", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getBaseTrigger_Stimulus(), theStimuliPackage.getStimulus(), null, "stimulus", null, 1, 1, BaseTrigger.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getBaseTrigger_ExpectedValue(), theExpectationsPackage.getExpectedValue(), null, "expectedValue", null, 1, 1, BaseTrigger.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(cpuUtilizationTriggerEClass, CPUUtilizationTrigger.class, "CPUUtilizationTrigger", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(composedTriggerEClass, ComposedTrigger.class, "ComposedTrigger", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getComposedTrigger_Scalingtrigger(), this.getScalingTrigger(), null, "scalingtrigger", null, 2, -1, ComposedTrigger.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getComposedTrigger_LogicalOperator(), this.getLogicalOperator(), "logicalOperator", null, 0, 1, ComposedTrigger.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(ramUtilizationTriggerEClass, RAMUtilizationTrigger.class, "RAMUtilizationTrigger", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(simpleFireOnValueEClass, SimpleFireOnValue.class, "SimpleFireOnValue", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getSimpleFireOnValue_RelationalOperator(), this.getRelationalOperator(), "relationalOperator", null, 0, 1, SimpleFireOnValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(hddUtilizationTriggerEClass, HDDUtilizationTrigger.class, "HDDUtilizationTrigger", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getHDDUtilizationTrigger_UsageType(), this.getHDDUSAGETYPE(), "usageType", null, 0, 1, HDDUtilizationTrigger.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(timeBasedTriggerEClass, TimeBasedTrigger.class, "TimeBasedTrigger", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-		initEClass(pointInTimeTriggerEClass, PointInTimeTrigger.class, "PointInTimeTrigger", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getPointInTimeTrigger_PointInTime(), ecorePackage.getEDouble(), "pointInTime", null, 1, 1, PointInTimeTrigger.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(idleTimeTriggerEClass, IdleTimeTrigger.class, "IdleTimeTrigger", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getIdleTimeTrigger_ResourceContainer(), theResourceenvironmentPackage.getResourceContainer(), null, "resourceContainer", null, 0, -1, IdleTimeTrigger.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(taskCountTriggerEClass, TaskCountTrigger.class, "TaskCountTrigger", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getTaskCountTrigger_ResourceContainer(), theResourceenvironmentPackage.getResourceContainer(), null, "resourceContainer", null, 0, -1, TaskCountTrigger.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getTaskCountTrigger_ProcessingResourceAggregation(), this.getAGGREGATIONMETHOD(), "processingResourceAggregation", null, 0, 1, TaskCountTrigger.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getTaskCountTrigger_ResourceContainerAggregation(), this.getAGGREGATIONMETHOD(), "resourceContainerAggregation", null, 0, 1, TaskCountTrigger.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(networkUtilizationTriggerEClass, NetworkUtilizationTrigger.class, "NetworkUtilizationTrigger", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getNetworkUtilizationTrigger_UsageType(), this.getNETWORKUSAGETYPE(), "usageType", null, 0, 1, NetworkUtilizationTrigger.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getNetworkUtilizationTrigger_LinkingResource(), theResourceenvironmentPackage.getLinkingResource(), null, "linkingResource", null, 0, -1, NetworkUtilizationTrigger.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(responseTimeTriggerEClass, ResponseTimeTrigger.class, "ResponseTimeTrigger", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getResponseTimeTrigger_OperationSignature(), theRepositoryPackage.getOperationSignature(), null, "operationSignature", null, 0, -1, ResponseTimeTrigger.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(resourceUtilizationBasedTriggerEClass, ResourceUtilizationBasedTrigger.class, "ResourceUtilizationBasedTrigger", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getResourceUtilizationBasedTrigger_ProcessingResourceAggregation(), this.getAGGREGATIONMETHOD(), "processingResourceAggregation", null, 0, 1, ResourceUtilizationBasedTrigger.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getResourceUtilizationBasedTrigger_ResourceContainerAggregation(), this.getAGGREGATIONMETHOD(), "resourceContainerAggregation", null, 0, 1, ResourceUtilizationBasedTrigger.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(processingResourceUtilizationBasedTriggerEClass, ProcessingResourceUtilizationBasedTrigger.class, "ProcessingResourceUtilizationBasedTrigger", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getProcessingResourceUtilizationBasedTrigger_ResourceContainer(), theResourceenvironmentPackage.getResourceContainer(), null, "resourceContainer", null, 0, -1, ProcessingResourceUtilizationBasedTrigger.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(simpleFireOnTrendEClass, SimpleFireOnTrend.class, "SimpleFireOnTrend", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		// Initialize enums and add enum literals
 		initEEnum(aggregationmethodEEnum, org.palladiosimulator.spd.triggers.AGGREGATIONMETHOD.class, "AGGREGATIONMETHOD");
@@ -787,9 +538,23 @@ public class TriggersPackageImpl extends EPackageImpl implements TriggersPackage
 		addEEnumLiteral(networkusagetypeEEnum, org.palladiosimulator.spd.triggers.NETWORKUSAGETYPE.SEND);
 		addEEnumLiteral(networkusagetypeEEnum, org.palladiosimulator.spd.triggers.NETWORKUSAGETYPE.RECEIVE);
 
-		initEEnum(thresholddirectionEEnum, org.palladiosimulator.spd.triggers.THRESHOLDDIRECTION.class, "THRESHOLDDIRECTION");
-		addEEnumLiteral(thresholddirectionEEnum, org.palladiosimulator.spd.triggers.THRESHOLDDIRECTION.EXCEDEED);
-		addEEnumLiteral(thresholddirectionEEnum, org.palladiosimulator.spd.triggers.THRESHOLDDIRECTION.UNDERCUT);
+		initEEnum(logicalOperatorEEnum, LogicalOperator.class, "LogicalOperator");
+		addEEnumLiteral(logicalOperatorEEnum, LogicalOperator.AND);
+		addEEnumLiteral(logicalOperatorEEnum, LogicalOperator.OR);
+		addEEnumLiteral(logicalOperatorEEnum, LogicalOperator.XOR);
+
+		initEEnum(relationalOperatorEEnum, RelationalOperator.class, "RelationalOperator");
+		addEEnumLiteral(relationalOperatorEEnum, RelationalOperator.LESS_THAN);
+		addEEnumLiteral(relationalOperatorEEnum, RelationalOperator.GREATER_THAN);
+		addEEnumLiteral(relationalOperatorEEnum, RelationalOperator.EQUAL_TO);
+		addEEnumLiteral(relationalOperatorEEnum, RelationalOperator.LESS_THAN_OR_EQUAL_TO);
+		addEEnumLiteral(relationalOperatorEEnum, RelationalOperator.GREATER_THAN_OR_EQUAL_TO);
+
+		initEEnum(trendPatternEEnum, TrendPattern.class, "TrendPattern");
+		addEEnumLiteral(trendPatternEEnum, TrendPattern.INCREASING);
+		addEEnumLiteral(trendPatternEEnum, TrendPattern.DECREASING);
+		addEEnumLiteral(trendPatternEEnum, TrendPattern.NON_INCREASING);
+		addEEnumLiteral(trendPatternEEnum, TrendPattern.NON_DECREASING);
 	}
 
 } //TriggersPackageImpl

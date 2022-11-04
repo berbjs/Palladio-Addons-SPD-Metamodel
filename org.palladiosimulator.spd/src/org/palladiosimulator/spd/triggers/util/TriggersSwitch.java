@@ -73,107 +73,33 @@ public class TriggersSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case TriggersPackage.THRESHOLD_BASED_TRIGGER: {
-				ThresholdBasedTrigger thresholdBasedTrigger = (ThresholdBasedTrigger)theEObject;
-				T result = caseThresholdBasedTrigger(thresholdBasedTrigger);
-				if (result == null) result = caseScalingTrigger(thresholdBasedTrigger);
+			case TriggersPackage.BASE_TRIGGER: {
+				BaseTrigger baseTrigger = (BaseTrigger)theEObject;
+				T result = caseBaseTrigger(baseTrigger);
+				if (result == null) result = caseScalingTrigger(baseTrigger);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case TriggersPackage.CPU_UTILIZATION_TRIGGER: {
-				CPUUtilizationTrigger cpuUtilizationTrigger = (CPUUtilizationTrigger)theEObject;
-				T result = caseCPUUtilizationTrigger(cpuUtilizationTrigger);
-				if (result == null) result = caseProcessingResourceUtilizationBasedTrigger(cpuUtilizationTrigger);
-				if (result == null) result = caseResourceUtilizationBasedTrigger(cpuUtilizationTrigger);
-				if (result == null) result = caseThresholdBasedTrigger(cpuUtilizationTrigger);
-				if (result == null) result = caseScalingTrigger(cpuUtilizationTrigger);
+			case TriggersPackage.COMPOSED_TRIGGER: {
+				ComposedTrigger composedTrigger = (ComposedTrigger)theEObject;
+				T result = caseComposedTrigger(composedTrigger);
+				if (result == null) result = caseScalingTrigger(composedTrigger);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case TriggersPackage.RAM_UTILIZATION_TRIGGER: {
-				RAMUtilizationTrigger ramUtilizationTrigger = (RAMUtilizationTrigger)theEObject;
-				T result = caseRAMUtilizationTrigger(ramUtilizationTrigger);
-				if (result == null) result = caseProcessingResourceUtilizationBasedTrigger(ramUtilizationTrigger);
-				if (result == null) result = caseResourceUtilizationBasedTrigger(ramUtilizationTrigger);
-				if (result == null) result = caseThresholdBasedTrigger(ramUtilizationTrigger);
-				if (result == null) result = caseScalingTrigger(ramUtilizationTrigger);
+			case TriggersPackage.SIMPLE_FIRE_ON_VALUE: {
+				SimpleFireOnValue simpleFireOnValue = (SimpleFireOnValue)theEObject;
+				T result = caseSimpleFireOnValue(simpleFireOnValue);
+				if (result == null) result = caseBaseTrigger(simpleFireOnValue);
+				if (result == null) result = caseScalingTrigger(simpleFireOnValue);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case TriggersPackage.HDD_UTILIZATION_TRIGGER: {
-				HDDUtilizationTrigger hddUtilizationTrigger = (HDDUtilizationTrigger)theEObject;
-				T result = caseHDDUtilizationTrigger(hddUtilizationTrigger);
-				if (result == null) result = caseProcessingResourceUtilizationBasedTrigger(hddUtilizationTrigger);
-				if (result == null) result = caseResourceUtilizationBasedTrigger(hddUtilizationTrigger);
-				if (result == null) result = caseThresholdBasedTrigger(hddUtilizationTrigger);
-				if (result == null) result = caseScalingTrigger(hddUtilizationTrigger);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case TriggersPackage.TIME_BASED_TRIGGER: {
-				TimeBasedTrigger timeBasedTrigger = (TimeBasedTrigger)theEObject;
-				T result = caseTimeBasedTrigger(timeBasedTrigger);
-				if (result == null) result = caseThresholdBasedTrigger(timeBasedTrigger);
-				if (result == null) result = caseScalingTrigger(timeBasedTrigger);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case TriggersPackage.POINT_IN_TIME_TRIGGER: {
-				PointInTimeTrigger pointInTimeTrigger = (PointInTimeTrigger)theEObject;
-				T result = casePointInTimeTrigger(pointInTimeTrigger);
-				if (result == null) result = caseScalingTrigger(pointInTimeTrigger);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case TriggersPackage.IDLE_TIME_TRIGGER: {
-				IdleTimeTrigger idleTimeTrigger = (IdleTimeTrigger)theEObject;
-				T result = caseIdleTimeTrigger(idleTimeTrigger);
-				if (result == null) result = caseTimeBasedTrigger(idleTimeTrigger);
-				if (result == null) result = caseThresholdBasedTrigger(idleTimeTrigger);
-				if (result == null) result = caseScalingTrigger(idleTimeTrigger);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case TriggersPackage.TASK_COUNT_TRIGGER: {
-				TaskCountTrigger taskCountTrigger = (TaskCountTrigger)theEObject;
-				T result = caseTaskCountTrigger(taskCountTrigger);
-				if (result == null) result = caseThresholdBasedTrigger(taskCountTrigger);
-				if (result == null) result = caseScalingTrigger(taskCountTrigger);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case TriggersPackage.NETWORK_UTILIZATION_TRIGGER: {
-				NetworkUtilizationTrigger networkUtilizationTrigger = (NetworkUtilizationTrigger)theEObject;
-				T result = caseNetworkUtilizationTrigger(networkUtilizationTrigger);
-				if (result == null) result = caseResourceUtilizationBasedTrigger(networkUtilizationTrigger);
-				if (result == null) result = caseThresholdBasedTrigger(networkUtilizationTrigger);
-				if (result == null) result = caseScalingTrigger(networkUtilizationTrigger);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case TriggersPackage.RESPONSE_TIME_TRIGGER: {
-				ResponseTimeTrigger responseTimeTrigger = (ResponseTimeTrigger)theEObject;
-				T result = caseResponseTimeTrigger(responseTimeTrigger);
-				if (result == null) result = caseTimeBasedTrigger(responseTimeTrigger);
-				if (result == null) result = caseThresholdBasedTrigger(responseTimeTrigger);
-				if (result == null) result = caseScalingTrigger(responseTimeTrigger);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case TriggersPackage.RESOURCE_UTILIZATION_BASED_TRIGGER: {
-				ResourceUtilizationBasedTrigger resourceUtilizationBasedTrigger = (ResourceUtilizationBasedTrigger)theEObject;
-				T result = caseResourceUtilizationBasedTrigger(resourceUtilizationBasedTrigger);
-				if (result == null) result = caseThresholdBasedTrigger(resourceUtilizationBasedTrigger);
-				if (result == null) result = caseScalingTrigger(resourceUtilizationBasedTrigger);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case TriggersPackage.PROCESSING_RESOURCE_UTILIZATION_BASED_TRIGGER: {
-				ProcessingResourceUtilizationBasedTrigger processingResourceUtilizationBasedTrigger = (ProcessingResourceUtilizationBasedTrigger)theEObject;
-				T result = caseProcessingResourceUtilizationBasedTrigger(processingResourceUtilizationBasedTrigger);
-				if (result == null) result = caseResourceUtilizationBasedTrigger(processingResourceUtilizationBasedTrigger);
-				if (result == null) result = caseThresholdBasedTrigger(processingResourceUtilizationBasedTrigger);
-				if (result == null) result = caseScalingTrigger(processingResourceUtilizationBasedTrigger);
+			case TriggersPackage.SIMPLE_FIRE_ON_TREND: {
+				SimpleFireOnTrend simpleFireOnTrend = (SimpleFireOnTrend)theEObject;
+				T result = caseSimpleFireOnTrend(simpleFireOnTrend);
+				if (result == null) result = caseBaseTrigger(simpleFireOnTrend);
+				if (result == null) result = caseScalingTrigger(simpleFireOnTrend);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -197,182 +123,62 @@ public class TriggersSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Threshold Based Trigger</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Base Trigger</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Threshold Based Trigger</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Base Trigger</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseThresholdBasedTrigger(ThresholdBasedTrigger object) {
+	public T caseBaseTrigger(BaseTrigger object) {
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>CPU Utilization Trigger</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Composed Trigger</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>CPU Utilization Trigger</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Composed Trigger</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseCPUUtilizationTrigger(CPUUtilizationTrigger object) {
+	public T caseComposedTrigger(ComposedTrigger object) {
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>RAM Utilization Trigger</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Simple Fire On Value</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>RAM Utilization Trigger</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Simple Fire On Value</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseRAMUtilizationTrigger(RAMUtilizationTrigger object) {
+	public T caseSimpleFireOnValue(SimpleFireOnValue object) {
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>HDD Utilization Trigger</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Simple Fire On Trend</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>HDD Utilization Trigger</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Simple Fire On Trend</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseHDDUtilizationTrigger(HDDUtilizationTrigger object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Time Based Trigger</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Time Based Trigger</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseTimeBasedTrigger(TimeBasedTrigger object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Point In Time Trigger</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Point In Time Trigger</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T casePointInTimeTrigger(PointInTimeTrigger object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Idle Time Trigger</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Idle Time Trigger</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseIdleTimeTrigger(IdleTimeTrigger object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Task Count Trigger</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Task Count Trigger</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseTaskCountTrigger(TaskCountTrigger object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Network Utilization Trigger</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Network Utilization Trigger</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseNetworkUtilizationTrigger(NetworkUtilizationTrigger object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Response Time Trigger</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Response Time Trigger</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseResponseTimeTrigger(ResponseTimeTrigger object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Resource Utilization Based Trigger</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Resource Utilization Based Trigger</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseResourceUtilizationBasedTrigger(ResourceUtilizationBasedTrigger object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Processing Resource Utilization Based Trigger</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Processing Resource Utilization Based Trigger</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseProcessingResourceUtilizationBasedTrigger(ProcessingResourceUtilizationBasedTrigger object) {
+	public T caseSimpleFireOnTrend(SimpleFireOnTrend object) {
 		return null;
 	}
 

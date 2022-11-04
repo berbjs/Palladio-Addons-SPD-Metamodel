@@ -1,0 +1,71 @@
+/**
+ * Copyright 2022 by palladiosimulator.org
+ */
+package org.palladiosimulator.spd.triggers.expectations.tests;
+
+import junit.textui.TestRunner;
+
+import org.palladiosimulator.spd.triggers.expectations.ExpectationsFactory;
+import org.palladiosimulator.spd.triggers.expectations.ExpectedTrend;
+
+/**
+ * <!-- begin-user-doc -->
+ * A test case for the model object '<em><b>Expected Trend</b></em>'.
+ * <!-- end-user-doc -->
+ * @generated
+ */
+public class ExpectedTrendTest extends ExpectedValueTest {
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static void main(String[] args) {
+		TestRunner.run(ExpectedTrendTest.class);
+	}
+
+	/**
+	 * Constructs a new Expected Trend test case with the given name.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ExpectedTrendTest(String name) {
+		super(name);
+	}
+
+	/**
+	 * Returns the fixture for this Expected Trend test case.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	protected ExpectedTrend getFixture() {
+		return (ExpectedTrend)fixture;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see junit.framework.TestCase#setUp()
+	 * @generated
+	 */
+	@Override
+	protected void setUp() throws Exception {
+		setFixture(ExpectationsFactory.eINSTANCE.createExpectedTrend());
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see junit.framework.TestCase#tearDown()
+	 * @generated
+	 */
+	@Override
+	protected void tearDown() throws Exception {
+		setFixture(null);
+	}
+
+} //ExpectedTrendTest

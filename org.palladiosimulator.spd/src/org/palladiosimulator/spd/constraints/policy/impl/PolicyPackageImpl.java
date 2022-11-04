@@ -51,7 +51,15 @@ import org.palladiosimulator.spd.targets.impl.TargetsPackageImpl;
 
 import org.palladiosimulator.spd.triggers.TriggersPackage;
 
+import org.palladiosimulator.spd.triggers.expectations.ExpectationsPackage;
+
+import org.palladiosimulator.spd.triggers.expectations.impl.ExpectationsPackageImpl;
+
 import org.palladiosimulator.spd.triggers.impl.TriggersPackageImpl;
+
+import org.palladiosimulator.spd.triggers.stimuli.StimuliPackage;
+
+import org.palladiosimulator.spd.triggers.stimuli.impl.StimuliPackageImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -170,6 +178,10 @@ public class PolicyPackageImpl extends EPackageImpl implements PolicyPackage {
 		TargetPackageImpl theTargetPackage = (TargetPackageImpl)(registeredPackage instanceof TargetPackageImpl ? registeredPackage : TargetPackage.eINSTANCE);
 		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(TriggersPackage.eNS_URI);
 		TriggersPackageImpl theTriggersPackage = (TriggersPackageImpl)(registeredPackage instanceof TriggersPackageImpl ? registeredPackage : TriggersPackage.eINSTANCE);
+		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(StimuliPackage.eNS_URI);
+		StimuliPackageImpl theStimuliPackage = (StimuliPackageImpl)(registeredPackage instanceof StimuliPackageImpl ? registeredPackage : StimuliPackage.eINSTANCE);
+		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(ExpectationsPackage.eNS_URI);
+		ExpectationsPackageImpl theExpectationsPackage = (ExpectationsPackageImpl)(registeredPackage instanceof ExpectationsPackageImpl ? registeredPackage : ExpectationsPackage.eINSTANCE);
 
 		// Create package meta-data objects
 		thePolicyPackage.createPackageContents();
@@ -179,6 +191,8 @@ public class PolicyPackageImpl extends EPackageImpl implements PolicyPackage {
 		theConstraintsPackage.createPackageContents();
 		theTargetPackage.createPackageContents();
 		theTriggersPackage.createPackageContents();
+		theStimuliPackage.createPackageContents();
+		theExpectationsPackage.createPackageContents();
 
 		// Initialize created meta-data
 		thePolicyPackage.initializePackageContents();
@@ -188,6 +202,8 @@ public class PolicyPackageImpl extends EPackageImpl implements PolicyPackage {
 		theConstraintsPackage.initializePackageContents();
 		theTargetPackage.initializePackageContents();
 		theTriggersPackage.initializePackageContents();
+		theStimuliPackage.initializePackageContents();
+		theExpectationsPackage.initializePackageContents();
 
 		// Mark meta-data to indicate it can't be changed
 		thePolicyPackage.freeze();

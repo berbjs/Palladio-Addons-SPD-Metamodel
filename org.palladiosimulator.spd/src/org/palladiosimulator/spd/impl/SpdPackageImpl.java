@@ -49,7 +49,15 @@ import org.palladiosimulator.spd.targets.impl.TargetsPackageImpl;
 
 import org.palladiosimulator.spd.triggers.TriggersPackage;
 
+import org.palladiosimulator.spd.triggers.expectations.ExpectationsPackage;
+
+import org.palladiosimulator.spd.triggers.expectations.impl.ExpectationsPackageImpl;
+
 import org.palladiosimulator.spd.triggers.impl.TriggersPackageImpl;
+
+import org.palladiosimulator.spd.triggers.stimuli.StimuliPackage;
+
+import org.palladiosimulator.spd.triggers.stimuli.impl.StimuliPackageImpl;
 
 import org.palladiosimulator.spd.util.SpdValidator;
 
@@ -149,6 +157,10 @@ public class SpdPackageImpl extends EPackageImpl implements SpdPackage {
 		TargetPackageImpl theTargetPackage = (TargetPackageImpl)(registeredPackage instanceof TargetPackageImpl ? registeredPackage : TargetPackage.eINSTANCE);
 		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(TriggersPackage.eNS_URI);
 		TriggersPackageImpl theTriggersPackage = (TriggersPackageImpl)(registeredPackage instanceof TriggersPackageImpl ? registeredPackage : TriggersPackage.eINSTANCE);
+		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(StimuliPackage.eNS_URI);
+		StimuliPackageImpl theStimuliPackage = (StimuliPackageImpl)(registeredPackage instanceof StimuliPackageImpl ? registeredPackage : StimuliPackage.eINSTANCE);
+		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(ExpectationsPackage.eNS_URI);
+		ExpectationsPackageImpl theExpectationsPackage = (ExpectationsPackageImpl)(registeredPackage instanceof ExpectationsPackageImpl ? registeredPackage : ExpectationsPackage.eINSTANCE);
 
 		// Create package meta-data objects
 		theSpdPackage.createPackageContents();
@@ -158,6 +170,8 @@ public class SpdPackageImpl extends EPackageImpl implements SpdPackage {
 		thePolicyPackage.createPackageContents();
 		theTargetPackage.createPackageContents();
 		theTriggersPackage.createPackageContents();
+		theStimuliPackage.createPackageContents();
+		theExpectationsPackage.createPackageContents();
 
 		// Initialize created meta-data
 		theSpdPackage.initializePackageContents();
@@ -167,6 +181,8 @@ public class SpdPackageImpl extends EPackageImpl implements SpdPackage {
 		thePolicyPackage.initializePackageContents();
 		theTargetPackage.initializePackageContents();
 		theTriggersPackage.initializePackageContents();
+		theStimuliPackage.initializePackageContents();
+		theExpectationsPackage.initializePackageContents();
 
 		// Register package validator
 		EValidator.Registry.INSTANCE.put
@@ -212,7 +228,7 @@ public class SpdPackageImpl extends EPackageImpl implements SpdPackage {
 	 * @generated
 	 */
 	@Override
-	public EReference getScalingPolicy_ScalingTrigger() {
+	public EReference getScalingPolicy_AdjustmentType() {
 		return (EReference)scalingPolicyEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -222,7 +238,7 @@ public class SpdPackageImpl extends EPackageImpl implements SpdPackage {
 	 * @generated
 	 */
 	@Override
-	public EReference getScalingPolicy_AdjustmentType() {
+	public EReference getScalingPolicy_TargetGroup() {
 		return (EReference)scalingPolicyEClass.getEStructuralFeatures().get(2);
 	}
 
@@ -232,7 +248,7 @@ public class SpdPackageImpl extends EPackageImpl implements SpdPackage {
 	 * @generated
 	 */
 	@Override
-	public EReference getScalingPolicy_TargetGroup() {
+	public EReference getScalingPolicy_PolicyConstraints() {
 		return (EReference)scalingPolicyEClass.getEStructuralFeatures().get(3);
 	}
 
@@ -242,7 +258,7 @@ public class SpdPackageImpl extends EPackageImpl implements SpdPackage {
 	 * @generated
 	 */
 	@Override
-	public EReference getScalingPolicy_PolicyConstraints() {
+	public EReference getScalingPolicy_ScalingTrigger() {
 		return (EReference)scalingPolicyEClass.getEStructuralFeatures().get(4);
 	}
 
@@ -327,10 +343,10 @@ public class SpdPackageImpl extends EPackageImpl implements SpdPackage {
 		// Create classes and their features
 		scalingPolicyEClass = createEClass(SCALING_POLICY);
 		createEAttribute(scalingPolicyEClass, SCALING_POLICY__ACTIVE);
-		createEReference(scalingPolicyEClass, SCALING_POLICY__SCALING_TRIGGER);
 		createEReference(scalingPolicyEClass, SCALING_POLICY__ADJUSTMENT_TYPE);
 		createEReference(scalingPolicyEClass, SCALING_POLICY__TARGET_GROUP);
 		createEReference(scalingPolicyEClass, SCALING_POLICY__POLICY_CONSTRAINTS);
+		createEReference(scalingPolicyEClass, SCALING_POLICY__SCALING_TRIGGER);
 
 		spdEClass = createEClass(SPD);
 		createEReference(spdEClass, SPD__SCALING_POLICIES);
@@ -388,10 +404,10 @@ public class SpdPackageImpl extends EPackageImpl implements SpdPackage {
 		// Initialize classes, features, and operations; add parameters
 		initEClass(scalingPolicyEClass, ScalingPolicy.class, "ScalingPolicy", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getScalingPolicy_Active(), ecorePackage.getEBoolean(), "active", null, 0, 1, ScalingPolicy.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getScalingPolicy_ScalingTrigger(), theTriggersPackage.getScalingTrigger(), null, "scalingTrigger", null, 1, 1, ScalingPolicy.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getScalingPolicy_AdjustmentType(), theAdjustmentsPackage.getAdjustmentType(), null, "adjustmentType", null, 1, 1, ScalingPolicy.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getScalingPolicy_TargetGroup(), theTargetsPackage.getTargetGroup(), null, "targetGroup", null, 1, 1, ScalingPolicy.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getScalingPolicy_PolicyConstraints(), thePolicyPackage.getPolicyConstraint(), null, "policyConstraints", null, 0, -1, ScalingPolicy.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getScalingPolicy_ScalingTrigger(), theTriggersPackage.getScalingTrigger(), null, "scalingTrigger", null, 1, 1, ScalingPolicy.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(spdEClass, org.palladiosimulator.spd.SPD.class, "SPD", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getSPD_ScalingPolicies(), this.getScalingPolicy(), null, "scalingPolicies", null, 1, -1, org.palladiosimulator.spd.SPD.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

@@ -175,4 +175,60 @@
       </editor>
    </extension>
 
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated SPD -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="org.palladiosimulator.spd.triggers.stimuli.presentation.StimuliModelWizardID"
+            name="%_UI_StimuliModelWizard_label"
+            class="org.palladiosimulator.spd.triggers.stimuli.presentation.StimuliModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/StimuliModelFile.gif">
+         <description>%_UI_StimuliModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated SPD -->
+      <editor
+            id="org.palladiosimulator.spd.triggers.stimuli.presentation.StimuliEditorID"
+            name="%_UI_StimuliEditor_label"
+            icon="icons/full/obj16/StimuliModelFile.gif"
+            extensions="stimuli"
+            class="org.palladiosimulator.spd.triggers.stimuli.presentation.StimuliEditor"
+            contributorClass="org.palladiosimulator.spd.triggers.stimuli.presentation.StimuliActionBarContributor">
+      </editor>
+   </extension>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated SPD -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="org.palladiosimulator.spd.triggers.expectations.presentation.ExpectationsModelWizardID"
+            name="%_UI_ExpectationsModelWizard_label"
+            class="org.palladiosimulator.spd.triggers.expectations.presentation.ExpectationsModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/ExpectationsModelFile.gif">
+         <description>%_UI_ExpectationsModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated SPD -->
+      <editor
+            id="org.palladiosimulator.spd.triggers.expectations.presentation.ExpectationsEditorID"
+            name="%_UI_ExpectationsEditor_label"
+            icon="icons/full/obj16/ExpectationsModelFile.gif"
+            extensions="expectations"
+            class="org.palladiosimulator.spd.triggers.expectations.presentation.ExpectationsEditor"
+            contributorClass="org.palladiosimulator.spd.triggers.expectations.presentation.ExpectationsActionBarContributor">
+      </editor>
+   </extension>
+
 </plugin>

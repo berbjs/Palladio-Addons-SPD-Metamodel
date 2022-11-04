@@ -25,7 +25,13 @@ Export-Package: org.palladiosimulator.spd,
  org.palladiosimulator.spd.targets.impl,
  org.palladiosimulator.spd.targets.util,
  org.palladiosimulator.spd.triggers,
+ org.palladiosimulator.spd.triggers.expectations,
+ org.palladiosimulator.spd.triggers.expectations.impl,
+ org.palladiosimulator.spd.triggers.expectations.util,
  org.palladiosimulator.spd.triggers.impl,
+ org.palladiosimulator.spd.triggers.stimuli,
+ org.palladiosimulator.spd.triggers.stimuli.impl,
+ org.palladiosimulator.spd.triggers.stimuli.util,
  org.palladiosimulator.spd.triggers.util,
  org.palladiosimulator.spd.util
 Bundle-RequiredExecutionEnvironment: JavaSE-11

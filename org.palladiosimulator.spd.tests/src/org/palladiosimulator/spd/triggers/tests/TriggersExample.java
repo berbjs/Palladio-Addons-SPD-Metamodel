@@ -20,7 +20,7 @@ import org.eclipse.emf.ecore.util.Diagnostician;
 
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
 
-import org.palladiosimulator.spd.triggers.CPUUtilizationTrigger;
+import org.palladiosimulator.spd.triggers.ComposedTrigger;
 import org.palladiosimulator.spd.triggers.TriggersFactory;
 import org.palladiosimulator.spd.triggers.TriggersPackage;
 
@@ -61,7 +61,7 @@ public class TriggersExample {
 			System.out.println("Enter a list of file paths or URIs that have content like this:");
 			try {
 				Resource resource = resourceSet.createResource(URI.createURI("http:///My.triggers"));
-				CPUUtilizationTrigger root = TriggersFactory.eINSTANCE.createCPUUtilizationTrigger();
+				ComposedTrigger root = TriggersFactory.eINSTANCE.createComposedTrigger();
 				resource.getContents().add(root);
 				resource.save(System.out, null);
 			}

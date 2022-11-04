@@ -73,187 +73,72 @@ public class TriggersItemProviderAdapterFactory extends TriggersAdapterFactory i
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link org.palladiosimulator.spd.triggers.CPUUtilizationTrigger} instances.
+	 * This keeps track of the one adapter used for all {@link org.palladiosimulator.spd.triggers.ComposedTrigger} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected CPUUtilizationTriggerItemProvider cpuUtilizationTriggerItemProvider;
+	protected ComposedTriggerItemProvider composedTriggerItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link org.palladiosimulator.spd.triggers.CPUUtilizationTrigger}.
+	 * This creates an adapter for a {@link org.palladiosimulator.spd.triggers.ComposedTrigger}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createCPUUtilizationTriggerAdapter() {
-		if (cpuUtilizationTriggerItemProvider == null) {
-			cpuUtilizationTriggerItemProvider = new CPUUtilizationTriggerItemProvider(this);
+	public Adapter createComposedTriggerAdapter() {
+		if (composedTriggerItemProvider == null) {
+			composedTriggerItemProvider = new ComposedTriggerItemProvider(this);
 		}
 
-		return cpuUtilizationTriggerItemProvider;
+		return composedTriggerItemProvider;
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link org.palladiosimulator.spd.triggers.RAMUtilizationTrigger} instances.
+	 * This keeps track of the one adapter used for all {@link org.palladiosimulator.spd.triggers.SimpleFireOnValue} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected RAMUtilizationTriggerItemProvider ramUtilizationTriggerItemProvider;
+	protected SimpleFireOnValueItemProvider simpleFireOnValueItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link org.palladiosimulator.spd.triggers.RAMUtilizationTrigger}.
+	 * This creates an adapter for a {@link org.palladiosimulator.spd.triggers.SimpleFireOnValue}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createRAMUtilizationTriggerAdapter() {
-		if (ramUtilizationTriggerItemProvider == null) {
-			ramUtilizationTriggerItemProvider = new RAMUtilizationTriggerItemProvider(this);
+	public Adapter createSimpleFireOnValueAdapter() {
+		if (simpleFireOnValueItemProvider == null) {
+			simpleFireOnValueItemProvider = new SimpleFireOnValueItemProvider(this);
 		}
 
-		return ramUtilizationTriggerItemProvider;
+		return simpleFireOnValueItemProvider;
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link org.palladiosimulator.spd.triggers.HDDUtilizationTrigger} instances.
+	 * This keeps track of the one adapter used for all {@link org.palladiosimulator.spd.triggers.SimpleFireOnTrend} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected HDDUtilizationTriggerItemProvider hddUtilizationTriggerItemProvider;
+	protected SimpleFireOnTrendItemProvider simpleFireOnTrendItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link org.palladiosimulator.spd.triggers.HDDUtilizationTrigger}.
+	 * This creates an adapter for a {@link org.palladiosimulator.spd.triggers.SimpleFireOnTrend}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createHDDUtilizationTriggerAdapter() {
-		if (hddUtilizationTriggerItemProvider == null) {
-			hddUtilizationTriggerItemProvider = new HDDUtilizationTriggerItemProvider(this);
+	public Adapter createSimpleFireOnTrendAdapter() {
+		if (simpleFireOnTrendItemProvider == null) {
+			simpleFireOnTrendItemProvider = new SimpleFireOnTrendItemProvider(this);
 		}
 
-		return hddUtilizationTriggerItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link org.palladiosimulator.spd.triggers.PointInTimeTrigger} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected PointInTimeTriggerItemProvider pointInTimeTriggerItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link org.palladiosimulator.spd.triggers.PointInTimeTrigger}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createPointInTimeTriggerAdapter() {
-		if (pointInTimeTriggerItemProvider == null) {
-			pointInTimeTriggerItemProvider = new PointInTimeTriggerItemProvider(this);
-		}
-
-		return pointInTimeTriggerItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link org.palladiosimulator.spd.triggers.IdleTimeTrigger} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected IdleTimeTriggerItemProvider idleTimeTriggerItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link org.palladiosimulator.spd.triggers.IdleTimeTrigger}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createIdleTimeTriggerAdapter() {
-		if (idleTimeTriggerItemProvider == null) {
-			idleTimeTriggerItemProvider = new IdleTimeTriggerItemProvider(this);
-		}
-
-		return idleTimeTriggerItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link org.palladiosimulator.spd.triggers.TaskCountTrigger} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected TaskCountTriggerItemProvider taskCountTriggerItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link org.palladiosimulator.spd.triggers.TaskCountTrigger}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createTaskCountTriggerAdapter() {
-		if (taskCountTriggerItemProvider == null) {
-			taskCountTriggerItemProvider = new TaskCountTriggerItemProvider(this);
-		}
-
-		return taskCountTriggerItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link org.palladiosimulator.spd.triggers.NetworkUtilizationTrigger} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected NetworkUtilizationTriggerItemProvider networkUtilizationTriggerItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link org.palladiosimulator.spd.triggers.NetworkUtilizationTrigger}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createNetworkUtilizationTriggerAdapter() {
-		if (networkUtilizationTriggerItemProvider == null) {
-			networkUtilizationTriggerItemProvider = new NetworkUtilizationTriggerItemProvider(this);
-		}
-
-		return networkUtilizationTriggerItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link org.palladiosimulator.spd.triggers.ResponseTimeTrigger} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected ResponseTimeTriggerItemProvider responseTimeTriggerItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link org.palladiosimulator.spd.triggers.ResponseTimeTrigger}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createResponseTimeTriggerAdapter() {
-		if (responseTimeTriggerItemProvider == null) {
-			responseTimeTriggerItemProvider = new ResponseTimeTriggerItemProvider(this);
-		}
-
-		return responseTimeTriggerItemProvider;
+		return simpleFireOnTrendItemProvider;
 	}
 
 	/**
@@ -361,14 +246,9 @@ public class TriggersItemProviderAdapterFactory extends TriggersAdapterFactory i
 	 */
 	@Override
 	public void dispose() {
-		if (cpuUtilizationTriggerItemProvider != null) cpuUtilizationTriggerItemProvider.dispose();
-		if (ramUtilizationTriggerItemProvider != null) ramUtilizationTriggerItemProvider.dispose();
-		if (hddUtilizationTriggerItemProvider != null) hddUtilizationTriggerItemProvider.dispose();
-		if (pointInTimeTriggerItemProvider != null) pointInTimeTriggerItemProvider.dispose();
-		if (idleTimeTriggerItemProvider != null) idleTimeTriggerItemProvider.dispose();
-		if (taskCountTriggerItemProvider != null) taskCountTriggerItemProvider.dispose();
-		if (networkUtilizationTriggerItemProvider != null) networkUtilizationTriggerItemProvider.dispose();
-		if (responseTimeTriggerItemProvider != null) responseTimeTriggerItemProvider.dispose();
+		if (composedTriggerItemProvider != null) composedTriggerItemProvider.dispose();
+		if (simpleFireOnValueItemProvider != null) simpleFireOnValueItemProvider.dispose();
+		if (simpleFireOnTrendItemProvider != null) simpleFireOnTrendItemProvider.dispose();
 	}
 
 }

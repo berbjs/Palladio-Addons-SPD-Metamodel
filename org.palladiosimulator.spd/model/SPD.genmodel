@@ -12,10 +12,10 @@
       ecorePackage="SPD.ecore#/">
     <genClasses ecoreClass="SPD.ecore#//ScalingPolicy">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SPD.ecore#//ScalingPolicy/active"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SPD.ecore#//ScalingPolicy/scalingTrigger"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SPD.ecore#//ScalingPolicy/adjustmentType"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference SPD.ecore#//ScalingPolicy/targetGroup"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SPD.ecore#//ScalingPolicy/policyConstraints"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SPD.ecore#//ScalingPolicy/scalingTrigger"/>
     </genClasses>
     <genClasses ecoreClass="SPD.ecore#//SPD">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SPD.ecore#//SPD/scalingPolicies"/>
@@ -96,52 +96,80 @@
         <genEnumLiterals ecoreEnumLiteral="SPD.ecore#//triggers/NETWORKUSAGETYPE/SEND"/>
         <genEnumLiterals ecoreEnumLiteral="SPD.ecore#//triggers/NETWORKUSAGETYPE/RECEIVE"/>
       </genEnums>
-      <genEnums typeSafeEnumCompatible="false" ecoreEnum="SPD.ecore#//triggers/THRESHOLDDIRECTION">
-        <genEnumLiterals ecoreEnumLiteral="SPD.ecore#//triggers/THRESHOLDDIRECTION/EXCEDEED"/>
-        <genEnumLiterals ecoreEnumLiteral="SPD.ecore#//triggers/THRESHOLDDIRECTION/UNDERCUT"/>
+      <genEnums typeSafeEnumCompatible="false" ecoreEnum="SPD.ecore#//triggers/LogicalOperator">
+        <genEnumLiterals ecoreEnumLiteral="SPD.ecore#//triggers/LogicalOperator/AND"/>
+        <genEnumLiterals ecoreEnumLiteral="SPD.ecore#//triggers/LogicalOperator/OR"/>
+        <genEnumLiterals ecoreEnumLiteral="SPD.ecore#//triggers/LogicalOperator/XOR"/>
+      </genEnums>
+      <genEnums typeSafeEnumCompatible="false" ecoreEnum="SPD.ecore#//triggers/RelationalOperator">
+        <genEnumLiterals ecoreEnumLiteral="SPD.ecore#//triggers/RelationalOperator/LessThan"/>
+        <genEnumLiterals ecoreEnumLiteral="SPD.ecore#//triggers/RelationalOperator/GreaterThan"/>
+        <genEnumLiterals ecoreEnumLiteral="SPD.ecore#//triggers/RelationalOperator/EqualTo"/>
+        <genEnumLiterals ecoreEnumLiteral="SPD.ecore#//triggers/RelationalOperator/LessThanOrEqualTo"/>
+        <genEnumLiterals ecoreEnumLiteral="SPD.ecore#//triggers/RelationalOperator/GreaterThanOrEqualTo"/>
+      </genEnums>
+      <genEnums typeSafeEnumCompatible="false" ecoreEnum="SPD.ecore#//triggers/TrendPattern">
+        <genEnumLiterals ecoreEnumLiteral="SPD.ecore#//triggers/TrendPattern/Increasing"/>
+        <genEnumLiterals ecoreEnumLiteral="SPD.ecore#//triggers/TrendPattern/Decreasing"/>
+        <genEnumLiterals ecoreEnumLiteral="SPD.ecore#//triggers/TrendPattern/NonIncreasing"/>
+        <genEnumLiterals ecoreEnumLiteral="SPD.ecore#//triggers/TrendPattern/NonDecreasing"/>
       </genEnums>
       <genClasses image="false" ecoreClass="SPD.ecore#//triggers/ScalingTrigger"/>
-      <genClasses image="false" ecoreClass="SPD.ecore#//triggers/ThresholdBasedTrigger">
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SPD.ecore#//triggers/ThresholdBasedTrigger/thresholdDirection"/>
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SPD.ecore#//triggers/ThresholdBasedTrigger/threshold"/>
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SPD.ecore#//triggers/ThresholdBasedTrigger/violationWindow"/>
+      <genClasses image="false" ecoreClass="SPD.ecore#//triggers/BaseTrigger">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SPD.ecore#//triggers/BaseTrigger/stimulus"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SPD.ecore#//triggers/BaseTrigger/expectedValue"/>
       </genClasses>
-      <genClasses ecoreClass="SPD.ecore#//triggers/CPUUtilizationTrigger"/>
-      <genClasses ecoreClass="SPD.ecore#//triggers/RAMUtilizationTrigger"/>
-      <genClasses ecoreClass="SPD.ecore#//triggers/HDDUtilizationTrigger">
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SPD.ecore#//triggers/HDDUtilizationTrigger/usageType"/>
+      <genClasses ecoreClass="SPD.ecore#//triggers/ComposedTrigger">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SPD.ecore#//triggers/ComposedTrigger/scalingtrigger"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SPD.ecore#//triggers/ComposedTrigger/logicalOperator"/>
       </genClasses>
-      <genClasses image="false" ecoreClass="SPD.ecore#//triggers/TimeBasedTrigger"/>
-      <genClasses ecoreClass="SPD.ecore#//triggers/PointInTimeTrigger">
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SPD.ecore#//triggers/PointInTimeTrigger/pointInTime"/>
+      <genClasses ecoreClass="SPD.ecore#//triggers/SimpleFireOnValue">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SPD.ecore#//triggers/SimpleFireOnValue/relationalOperator"/>
       </genClasses>
-      <genClasses ecoreClass="SPD.ecore#//triggers/IdleTimeTrigger">
-        <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference SPD.ecore#//triggers/IdleTimeTrigger/resourceContainer"/>
-      </genClasses>
-      <genClasses ecoreClass="SPD.ecore#//triggers/TaskCountTrigger">
-        <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference SPD.ecore#//triggers/TaskCountTrigger/resourceContainer"/>
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SPD.ecore#//triggers/TaskCountTrigger/processingResourceAggregation"/>
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SPD.ecore#//triggers/TaskCountTrigger/resourceContainerAggregation"/>
-      </genClasses>
-      <genClasses ecoreClass="SPD.ecore#//triggers/NetworkUtilizationTrigger">
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SPD.ecore#//triggers/NetworkUtilizationTrigger/usageType"/>
-        <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference SPD.ecore#//triggers/NetworkUtilizationTrigger/linkingResource"/>
-      </genClasses>
-      <genClasses ecoreClass="SPD.ecore#//triggers/ResponseTimeTrigger">
-        <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference SPD.ecore#//triggers/ResponseTimeTrigger/operationSignature"/>
-      </genClasses>
-      <genClasses image="false" ecoreClass="SPD.ecore#//triggers/ResourceUtilizationBasedTrigger">
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SPD.ecore#//triggers/ResourceUtilizationBasedTrigger/processingResourceAggregation"/>
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SPD.ecore#//triggers/ResourceUtilizationBasedTrigger/resourceContainerAggregation"/>
-      </genClasses>
-      <genClasses image="false" ecoreClass="SPD.ecore#//triggers/ProcessingResourceUtilizationBasedTrigger">
-        <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference SPD.ecore#//triggers/ProcessingResourceUtilizationBasedTrigger/resourceContainer"/>
-      </genClasses>
+      <genClasses ecoreClass="SPD.ecore#//triggers/SimpleFireOnTrend"/>
+      <nestedGenPackages prefix="Stimuli" disposableProviderFactory="true" ecorePackage="SPD.ecore#//triggers/stimuli">
+        <genClasses image="false" ecoreClass="SPD.ecore#//triggers/stimuli/Stimulus"/>
+        <genClasses image="false" ecoreClass="SPD.ecore#//triggers/stimuli/TargetGroupStateStimulus"/>
+        <genClasses image="false" ecoreClass="SPD.ecore#//triggers/stimuli/SimulationStateStimulus"/>
+        <genClasses image="false" ecoreClass="SPD.ecore#//triggers/stimuli/SoruceInterfaceStimulus"/>
+        <genClasses ecoreClass="SPD.ecore#//triggers/stimuli/OperationResponseTime">
+          <genFeatures notify="false" createChild="false" propertySortChoices="true"
+              ecoreFeature="ecore:EReference SPD.ecore#//triggers/stimuli/OperationResponseTime/operationSignature"/>
+        </genClasses>
+        <genClasses ecoreClass="SPD.ecore#//triggers/stimuli/NumberOfElements"/>
+        <genClasses image="false" ecoreClass="SPD.ecore#//triggers/stimuli/ManagedElementsStateStimulus">
+          <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SPD.ecore#//triggers/stimuli/ManagedElementsStateStimulus/aggregationOverElements"/>
+        </genClasses>
+        <genClasses ecoreClass="SPD.ecore#//triggers/stimuli/CPUUtilization"/>
+        <genClasses ecoreClass="SPD.ecore#//triggers/stimuli/MemoryUtilization"/>
+        <genClasses ecoreClass="SPD.ecore#//triggers/stimuli/SimulationTime"/>
+        <genClasses ecoreClass="SPD.ecore#//triggers/stimuli/HDDUtilization">
+          <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SPD.ecore#//triggers/stimuli/HDDUtilization/usageType"/>
+        </genClasses>
+        <genClasses image="false" ecoreClass="SPD.ecore#//triggers/stimuli/ResourceUtilizationStimulus"/>
+        <genClasses ecoreClass="SPD.ecore#//triggers/stimuli/TaskCount"/>
+        <genClasses ecoreClass="SPD.ecore#//triggers/stimuli/QueueLength"/>
+        <genClasses ecoreClass="SPD.ecore#//triggers/stimuli/NetworkUtilization">
+          <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SPD.ecore#//triggers/stimuli/NetworkUtilization/usageType"/>
+        </genClasses>
+      </nestedGenPackages>
+      <nestedGenPackages prefix="Expectations" disposableProviderFactory="true" ecorePackage="SPD.ecore#//triggers/expectations">
+        <genClasses image="false" ecoreClass="SPD.ecore#//triggers/expectations/ExpectedValue"/>
+        <genClasses image="false" ecoreClass="SPD.ecore#//triggers/expectations/ExpectedPrimitive"/>
+        <genClasses ecoreClass="SPD.ecore#//triggers/expectations/NoExpectation"/>
+        <genClasses ecoreClass="SPD.ecore#//triggers/expectations/ExpectedPercentage">
+          <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SPD.ecore#//triggers/expectations/ExpectedPercentage/value"/>
+        </genClasses>
+        <genClasses ecoreClass="SPD.ecore#//triggers/expectations/ExpectedCount">
+          <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SPD.ecore#//triggers/expectations/ExpectedCount/count"/>
+        </genClasses>
+        <genClasses ecoreClass="SPD.ecore#//triggers/expectations/ExpectedTime">
+          <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SPD.ecore#//triggers/expectations/ExpectedTime/value"/>
+        </genClasses>
+        <genClasses ecoreClass="SPD.ecore#//triggers/expectations/ExpectedTrend">
+          <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SPD.ecore#//triggers/expectations/ExpectedTrend/trend"/>
+        </genClasses>
+      </nestedGenPackages>
     </nestedGenPackages>
   </genPackages>
 </genmodel:GenModel>

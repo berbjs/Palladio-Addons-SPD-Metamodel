@@ -58,14 +58,9 @@ public class TriggersFactoryImpl extends EFactoryImpl implements TriggersFactory
 	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
-			case TriggersPackage.CPU_UTILIZATION_TRIGGER: return createCPUUtilizationTrigger();
-			case TriggersPackage.RAM_UTILIZATION_TRIGGER: return createRAMUtilizationTrigger();
-			case TriggersPackage.HDD_UTILIZATION_TRIGGER: return createHDDUtilizationTrigger();
-			case TriggersPackage.POINT_IN_TIME_TRIGGER: return createPointInTimeTrigger();
-			case TriggersPackage.IDLE_TIME_TRIGGER: return createIdleTimeTrigger();
-			case TriggersPackage.TASK_COUNT_TRIGGER: return createTaskCountTrigger();
-			case TriggersPackage.NETWORK_UTILIZATION_TRIGGER: return createNetworkUtilizationTrigger();
-			case TriggersPackage.RESPONSE_TIME_TRIGGER: return createResponseTimeTrigger();
+			case TriggersPackage.COMPOSED_TRIGGER: return createComposedTrigger();
+			case TriggersPackage.SIMPLE_FIRE_ON_VALUE: return createSimpleFireOnValue();
+			case TriggersPackage.SIMPLE_FIRE_ON_TREND: return createSimpleFireOnTrend();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -85,8 +80,12 @@ public class TriggersFactoryImpl extends EFactoryImpl implements TriggersFactory
 				return createHDDUSAGETYPEFromString(eDataType, initialValue);
 			case TriggersPackage.NETWORKUSAGETYPE:
 				return createNETWORKUSAGETYPEFromString(eDataType, initialValue);
-			case TriggersPackage.THRESHOLDDIRECTION:
-				return createTHRESHOLDDIRECTIONFromString(eDataType, initialValue);
+			case TriggersPackage.LOGICAL_OPERATOR:
+				return createLogicalOperatorFromString(eDataType, initialValue);
+			case TriggersPackage.RELATIONAL_OPERATOR:
+				return createRelationalOperatorFromString(eDataType, initialValue);
+			case TriggersPackage.TREND_PATTERN:
+				return createTrendPatternFromString(eDataType, initialValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -106,8 +105,12 @@ public class TriggersFactoryImpl extends EFactoryImpl implements TriggersFactory
 				return convertHDDUSAGETYPEToString(eDataType, instanceValue);
 			case TriggersPackage.NETWORKUSAGETYPE:
 				return convertNETWORKUSAGETYPEToString(eDataType, instanceValue);
-			case TriggersPackage.THRESHOLDDIRECTION:
-				return convertTHRESHOLDDIRECTIONToString(eDataType, instanceValue);
+			case TriggersPackage.LOGICAL_OPERATOR:
+				return convertLogicalOperatorToString(eDataType, instanceValue);
+			case TriggersPackage.RELATIONAL_OPERATOR:
+				return convertRelationalOperatorToString(eDataType, instanceValue);
+			case TriggersPackage.TREND_PATTERN:
+				return convertTrendPatternToString(eDataType, instanceValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -119,9 +122,9 @@ public class TriggersFactoryImpl extends EFactoryImpl implements TriggersFactory
 	 * @generated
 	 */
 	@Override
-	public CPUUtilizationTrigger createCPUUtilizationTrigger() {
-		CPUUtilizationTriggerImpl cpuUtilizationTrigger = new CPUUtilizationTriggerImpl();
-		return cpuUtilizationTrigger;
+	public ComposedTrigger createComposedTrigger() {
+		ComposedTriggerImpl composedTrigger = new ComposedTriggerImpl();
+		return composedTrigger;
 	}
 
 	/**
@@ -130,9 +133,9 @@ public class TriggersFactoryImpl extends EFactoryImpl implements TriggersFactory
 	 * @generated
 	 */
 	@Override
-	public RAMUtilizationTrigger createRAMUtilizationTrigger() {
-		RAMUtilizationTriggerImpl ramUtilizationTrigger = new RAMUtilizationTriggerImpl();
-		return ramUtilizationTrigger;
+	public SimpleFireOnValue createSimpleFireOnValue() {
+		SimpleFireOnValueImpl simpleFireOnValue = new SimpleFireOnValueImpl();
+		return simpleFireOnValue;
 	}
 
 	/**
@@ -141,64 +144,9 @@ public class TriggersFactoryImpl extends EFactoryImpl implements TriggersFactory
 	 * @generated
 	 */
 	@Override
-	public HDDUtilizationTrigger createHDDUtilizationTrigger() {
-		HDDUtilizationTriggerImpl hddUtilizationTrigger = new HDDUtilizationTriggerImpl();
-		return hddUtilizationTrigger;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public PointInTimeTrigger createPointInTimeTrigger() {
-		PointInTimeTriggerImpl pointInTimeTrigger = new PointInTimeTriggerImpl();
-		return pointInTimeTrigger;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public IdleTimeTrigger createIdleTimeTrigger() {
-		IdleTimeTriggerImpl idleTimeTrigger = new IdleTimeTriggerImpl();
-		return idleTimeTrigger;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public TaskCountTrigger createTaskCountTrigger() {
-		TaskCountTriggerImpl taskCountTrigger = new TaskCountTriggerImpl();
-		return taskCountTrigger;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public NetworkUtilizationTrigger createNetworkUtilizationTrigger() {
-		NetworkUtilizationTriggerImpl networkUtilizationTrigger = new NetworkUtilizationTriggerImpl();
-		return networkUtilizationTrigger;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public ResponseTimeTrigger createResponseTimeTrigger() {
-		ResponseTimeTriggerImpl responseTimeTrigger = new ResponseTimeTriggerImpl();
-		return responseTimeTrigger;
+	public SimpleFireOnTrend createSimpleFireOnTrend() {
+		SimpleFireOnTrendImpl simpleFireOnTrend = new SimpleFireOnTrendImpl();
+		return simpleFireOnTrend;
 	}
 
 	/**
@@ -266,8 +214,8 @@ public class TriggersFactoryImpl extends EFactoryImpl implements TriggersFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public THRESHOLDDIRECTION createTHRESHOLDDIRECTIONFromString(EDataType eDataType, String initialValue) {
-		THRESHOLDDIRECTION result = THRESHOLDDIRECTION.get(initialValue);
+	public LogicalOperator createLogicalOperatorFromString(EDataType eDataType, String initialValue) {
+		LogicalOperator result = LogicalOperator.get(initialValue);
 		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
 		return result;
 	}
@@ -277,7 +225,47 @@ public class TriggersFactoryImpl extends EFactoryImpl implements TriggersFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String convertTHRESHOLDDIRECTIONToString(EDataType eDataType, Object instanceValue) {
+	public String convertLogicalOperatorToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public RelationalOperator createRelationalOperatorFromString(EDataType eDataType, String initialValue) {
+		RelationalOperator result = RelationalOperator.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertRelationalOperatorToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public TrendPattern createTrendPatternFromString(EDataType eDataType, String initialValue) {
+		TrendPattern result = TrendPattern.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertTrendPatternToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
 	}
 

@@ -13,6 +13,8 @@ Export-Package: org.palladiosimulator.spd.adjustments.tests,
  org.palladiosimulator.spd.constraints.tests,
  org.palladiosimulator.spd.targets.tests,
  org.palladiosimulator.spd.tests,
+ org.palladiosimulator.spd.triggers.expectations.tests,
+ org.palladiosimulator.spd.triggers.stimuli.tests,
  org.palladiosimulator.spd.triggers.tests
 Require-Bundle: org.eclipse.core.runtime,
  org.palladiosimulator.spd;visibility:=reexport,

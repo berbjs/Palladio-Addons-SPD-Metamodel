@@ -87,862 +87,197 @@ public interface TriggersPackage extends EPackage {
 	int SCALING_TRIGGER_OPERATION_COUNT = 0;
 
 	/**
-	 * The meta object id for the '{@link org.palladiosimulator.spd.triggers.impl.ThresholdBasedTriggerImpl <em>Threshold Based Trigger</em>}' class.
+	 * The meta object id for the '{@link org.palladiosimulator.spd.triggers.impl.BaseTriggerImpl <em>Base Trigger</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see org.palladiosimulator.spd.triggers.impl.ThresholdBasedTriggerImpl
-	 * @see org.palladiosimulator.spd.triggers.impl.TriggersPackageImpl#getThresholdBasedTrigger()
+	 * @see org.palladiosimulator.spd.triggers.impl.BaseTriggerImpl
+	 * @see org.palladiosimulator.spd.triggers.impl.TriggersPackageImpl#getBaseTrigger()
 	 * @generated
 	 */
-	int THRESHOLD_BASED_TRIGGER = 1;
+	int BASE_TRIGGER = 1;
 
 	/**
-	 * The feature id for the '<em><b>Threshold Direction</b></em>' attribute.
+	 * The feature id for the '<em><b>Stimulus</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int THRESHOLD_BASED_TRIGGER__THRESHOLD_DIRECTION = SCALING_TRIGGER_FEATURE_COUNT + 0;
+	int BASE_TRIGGER__STIMULUS = SCALING_TRIGGER_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Threshold</b></em>' attribute.
+	 * The feature id for the '<em><b>Expected Value</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int THRESHOLD_BASED_TRIGGER__THRESHOLD = SCALING_TRIGGER_FEATURE_COUNT + 1;
+	int BASE_TRIGGER__EXPECTED_VALUE = SCALING_TRIGGER_FEATURE_COUNT + 1;
 
 	/**
-	 * The feature id for the '<em><b>Violation Window</b></em>' attribute.
+	 * The number of structural features of the '<em>Base Trigger</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int THRESHOLD_BASED_TRIGGER__VIOLATION_WINDOW = SCALING_TRIGGER_FEATURE_COUNT + 2;
+	int BASE_TRIGGER_FEATURE_COUNT = SCALING_TRIGGER_FEATURE_COUNT + 2;
 
 	/**
-	 * The number of structural features of the '<em>Threshold Based Trigger</em>' class.
+	 * The number of operations of the '<em>Base Trigger</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int THRESHOLD_BASED_TRIGGER_FEATURE_COUNT = SCALING_TRIGGER_FEATURE_COUNT + 3;
+	int BASE_TRIGGER_OPERATION_COUNT = SCALING_TRIGGER_OPERATION_COUNT + 0;
 
 	/**
-	 * The number of operations of the '<em>Threshold Based Trigger</em>' class.
+	 * The meta object id for the '{@link org.palladiosimulator.spd.triggers.impl.ComposedTriggerImpl <em>Composed Trigger</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @see org.palladiosimulator.spd.triggers.impl.ComposedTriggerImpl
+	 * @see org.palladiosimulator.spd.triggers.impl.TriggersPackageImpl#getComposedTrigger()
 	 * @generated
-	 * @ordered
-	 */
-	int THRESHOLD_BASED_TRIGGER_OPERATION_COUNT = SCALING_TRIGGER_OPERATION_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link org.palladiosimulator.spd.triggers.impl.ResourceUtilizationBasedTriggerImpl <em>Resource Utilization Based Trigger</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.palladiosimulator.spd.triggers.impl.ResourceUtilizationBasedTriggerImpl
-	 * @see org.palladiosimulator.spd.triggers.impl.TriggersPackageImpl#getResourceUtilizationBasedTrigger()
-	 * @generated
-	 */
-	int RESOURCE_UTILIZATION_BASED_TRIGGER = 11;
-
-	/**
-	 * The feature id for the '<em><b>Threshold Direction</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RESOURCE_UTILIZATION_BASED_TRIGGER__THRESHOLD_DIRECTION = THRESHOLD_BASED_TRIGGER__THRESHOLD_DIRECTION;
-
-	/**
-	 * The feature id for the '<em><b>Threshold</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RESOURCE_UTILIZATION_BASED_TRIGGER__THRESHOLD = THRESHOLD_BASED_TRIGGER__THRESHOLD;
-
-	/**
-	 * The feature id for the '<em><b>Violation Window</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RESOURCE_UTILIZATION_BASED_TRIGGER__VIOLATION_WINDOW = THRESHOLD_BASED_TRIGGER__VIOLATION_WINDOW;
-
-	/**
-	 * The feature id for the '<em><b>Processing Resource Aggregation</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RESOURCE_UTILIZATION_BASED_TRIGGER__PROCESSING_RESOURCE_AGGREGATION = THRESHOLD_BASED_TRIGGER_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Resource Container Aggregation</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RESOURCE_UTILIZATION_BASED_TRIGGER__RESOURCE_CONTAINER_AGGREGATION = THRESHOLD_BASED_TRIGGER_FEATURE_COUNT + 1;
-
-	/**
-	 * The number of structural features of the '<em>Resource Utilization Based Trigger</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RESOURCE_UTILIZATION_BASED_TRIGGER_FEATURE_COUNT = THRESHOLD_BASED_TRIGGER_FEATURE_COUNT + 2;
-
-	/**
-	 * The number of operations of the '<em>Resource Utilization Based Trigger</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RESOURCE_UTILIZATION_BASED_TRIGGER_OPERATION_COUNT = THRESHOLD_BASED_TRIGGER_OPERATION_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link org.palladiosimulator.spd.triggers.impl.ProcessingResourceUtilizationBasedTriggerImpl <em>Processing Resource Utilization Based Trigger</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.palladiosimulator.spd.triggers.impl.ProcessingResourceUtilizationBasedTriggerImpl
-	 * @see org.palladiosimulator.spd.triggers.impl.TriggersPackageImpl#getProcessingResourceUtilizationBasedTrigger()
-	 * @generated
-	 */
-	int PROCESSING_RESOURCE_UTILIZATION_BASED_TRIGGER = 12;
-
-	/**
-	 * The feature id for the '<em><b>Threshold Direction</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROCESSING_RESOURCE_UTILIZATION_BASED_TRIGGER__THRESHOLD_DIRECTION = RESOURCE_UTILIZATION_BASED_TRIGGER__THRESHOLD_DIRECTION;
-
-	/**
-	 * The feature id for the '<em><b>Threshold</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROCESSING_RESOURCE_UTILIZATION_BASED_TRIGGER__THRESHOLD = RESOURCE_UTILIZATION_BASED_TRIGGER__THRESHOLD;
-
-	/**
-	 * The feature id for the '<em><b>Violation Window</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROCESSING_RESOURCE_UTILIZATION_BASED_TRIGGER__VIOLATION_WINDOW = RESOURCE_UTILIZATION_BASED_TRIGGER__VIOLATION_WINDOW;
-
-	/**
-	 * The feature id for the '<em><b>Processing Resource Aggregation</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROCESSING_RESOURCE_UTILIZATION_BASED_TRIGGER__PROCESSING_RESOURCE_AGGREGATION = RESOURCE_UTILIZATION_BASED_TRIGGER__PROCESSING_RESOURCE_AGGREGATION;
-
-	/**
-	 * The feature id for the '<em><b>Resource Container Aggregation</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROCESSING_RESOURCE_UTILIZATION_BASED_TRIGGER__RESOURCE_CONTAINER_AGGREGATION = RESOURCE_UTILIZATION_BASED_TRIGGER__RESOURCE_CONTAINER_AGGREGATION;
-
-	/**
-	 * The feature id for the '<em><b>Resource Container</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROCESSING_RESOURCE_UTILIZATION_BASED_TRIGGER__RESOURCE_CONTAINER = RESOURCE_UTILIZATION_BASED_TRIGGER_FEATURE_COUNT + 0;
-
-	/**
-	 * The number of structural features of the '<em>Processing Resource Utilization Based Trigger</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROCESSING_RESOURCE_UTILIZATION_BASED_TRIGGER_FEATURE_COUNT = RESOURCE_UTILIZATION_BASED_TRIGGER_FEATURE_COUNT + 1;
-
-	/**
-	 * The number of operations of the '<em>Processing Resource Utilization Based Trigger</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROCESSING_RESOURCE_UTILIZATION_BASED_TRIGGER_OPERATION_COUNT = RESOURCE_UTILIZATION_BASED_TRIGGER_OPERATION_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link org.palladiosimulator.spd.triggers.impl.CPUUtilizationTriggerImpl <em>CPU Utilization Trigger</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.palladiosimulator.spd.triggers.impl.CPUUtilizationTriggerImpl
-	 * @see org.palladiosimulator.spd.triggers.impl.TriggersPackageImpl#getCPUUtilizationTrigger()
-	 * @generated
-	 */
-	int CPU_UTILIZATION_TRIGGER = 2;
-
-	/**
-	 * The feature id for the '<em><b>Threshold Direction</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CPU_UTILIZATION_TRIGGER__THRESHOLD_DIRECTION = PROCESSING_RESOURCE_UTILIZATION_BASED_TRIGGER__THRESHOLD_DIRECTION;
-
-	/**
-	 * The feature id for the '<em><b>Threshold</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CPU_UTILIZATION_TRIGGER__THRESHOLD = PROCESSING_RESOURCE_UTILIZATION_BASED_TRIGGER__THRESHOLD;
-
-	/**
-	 * The feature id for the '<em><b>Violation Window</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CPU_UTILIZATION_TRIGGER__VIOLATION_WINDOW = PROCESSING_RESOURCE_UTILIZATION_BASED_TRIGGER__VIOLATION_WINDOW;
-
-	/**
-	 * The feature id for the '<em><b>Processing Resource Aggregation</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CPU_UTILIZATION_TRIGGER__PROCESSING_RESOURCE_AGGREGATION = PROCESSING_RESOURCE_UTILIZATION_BASED_TRIGGER__PROCESSING_RESOURCE_AGGREGATION;
-
-	/**
-	 * The feature id for the '<em><b>Resource Container Aggregation</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CPU_UTILIZATION_TRIGGER__RESOURCE_CONTAINER_AGGREGATION = PROCESSING_RESOURCE_UTILIZATION_BASED_TRIGGER__RESOURCE_CONTAINER_AGGREGATION;
-
-	/**
-	 * The feature id for the '<em><b>Resource Container</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CPU_UTILIZATION_TRIGGER__RESOURCE_CONTAINER = PROCESSING_RESOURCE_UTILIZATION_BASED_TRIGGER__RESOURCE_CONTAINER;
-
-	/**
-	 * The number of structural features of the '<em>CPU Utilization Trigger</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CPU_UTILIZATION_TRIGGER_FEATURE_COUNT = PROCESSING_RESOURCE_UTILIZATION_BASED_TRIGGER_FEATURE_COUNT + 0;
-
-	/**
-	 * The number of operations of the '<em>CPU Utilization Trigger</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CPU_UTILIZATION_TRIGGER_OPERATION_COUNT = PROCESSING_RESOURCE_UTILIZATION_BASED_TRIGGER_OPERATION_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link org.palladiosimulator.spd.triggers.impl.RAMUtilizationTriggerImpl <em>RAM Utilization Trigger</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.palladiosimulator.spd.triggers.impl.RAMUtilizationTriggerImpl
-	 * @see org.palladiosimulator.spd.triggers.impl.TriggersPackageImpl#getRAMUtilizationTrigger()
-	 * @generated
-	 */
-	int RAM_UTILIZATION_TRIGGER = 3;
-
-	/**
-	 * The feature id for the '<em><b>Threshold Direction</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RAM_UTILIZATION_TRIGGER__THRESHOLD_DIRECTION = PROCESSING_RESOURCE_UTILIZATION_BASED_TRIGGER__THRESHOLD_DIRECTION;
-
-	/**
-	 * The feature id for the '<em><b>Threshold</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RAM_UTILIZATION_TRIGGER__THRESHOLD = PROCESSING_RESOURCE_UTILIZATION_BASED_TRIGGER__THRESHOLD;
-
-	/**
-	 * The feature id for the '<em><b>Violation Window</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RAM_UTILIZATION_TRIGGER__VIOLATION_WINDOW = PROCESSING_RESOURCE_UTILIZATION_BASED_TRIGGER__VIOLATION_WINDOW;
-
-	/**
-	 * The feature id for the '<em><b>Processing Resource Aggregation</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RAM_UTILIZATION_TRIGGER__PROCESSING_RESOURCE_AGGREGATION = PROCESSING_RESOURCE_UTILIZATION_BASED_TRIGGER__PROCESSING_RESOURCE_AGGREGATION;
-
-	/**
-	 * The feature id for the '<em><b>Resource Container Aggregation</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RAM_UTILIZATION_TRIGGER__RESOURCE_CONTAINER_AGGREGATION = PROCESSING_RESOURCE_UTILIZATION_BASED_TRIGGER__RESOURCE_CONTAINER_AGGREGATION;
-
-	/**
-	 * The feature id for the '<em><b>Resource Container</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RAM_UTILIZATION_TRIGGER__RESOURCE_CONTAINER = PROCESSING_RESOURCE_UTILIZATION_BASED_TRIGGER__RESOURCE_CONTAINER;
-
-	/**
-	 * The number of structural features of the '<em>RAM Utilization Trigger</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RAM_UTILIZATION_TRIGGER_FEATURE_COUNT = PROCESSING_RESOURCE_UTILIZATION_BASED_TRIGGER_FEATURE_COUNT + 0;
-
-	/**
-	 * The number of operations of the '<em>RAM Utilization Trigger</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RAM_UTILIZATION_TRIGGER_OPERATION_COUNT = PROCESSING_RESOURCE_UTILIZATION_BASED_TRIGGER_OPERATION_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link org.palladiosimulator.spd.triggers.impl.HDDUtilizationTriggerImpl <em>HDD Utilization Trigger</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.palladiosimulator.spd.triggers.impl.HDDUtilizationTriggerImpl
-	 * @see org.palladiosimulator.spd.triggers.impl.TriggersPackageImpl#getHDDUtilizationTrigger()
-	 * @generated
-	 */
-	int HDD_UTILIZATION_TRIGGER = 4;
-
-	/**
-	 * The feature id for the '<em><b>Threshold Direction</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int HDD_UTILIZATION_TRIGGER__THRESHOLD_DIRECTION = PROCESSING_RESOURCE_UTILIZATION_BASED_TRIGGER__THRESHOLD_DIRECTION;
-
-	/**
-	 * The feature id for the '<em><b>Threshold</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int HDD_UTILIZATION_TRIGGER__THRESHOLD = PROCESSING_RESOURCE_UTILIZATION_BASED_TRIGGER__THRESHOLD;
-
-	/**
-	 * The feature id for the '<em><b>Violation Window</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int HDD_UTILIZATION_TRIGGER__VIOLATION_WINDOW = PROCESSING_RESOURCE_UTILIZATION_BASED_TRIGGER__VIOLATION_WINDOW;
-
-	/**
-	 * The feature id for the '<em><b>Processing Resource Aggregation</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int HDD_UTILIZATION_TRIGGER__PROCESSING_RESOURCE_AGGREGATION = PROCESSING_RESOURCE_UTILIZATION_BASED_TRIGGER__PROCESSING_RESOURCE_AGGREGATION;
-
-	/**
-	 * The feature id for the '<em><b>Resource Container Aggregation</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int HDD_UTILIZATION_TRIGGER__RESOURCE_CONTAINER_AGGREGATION = PROCESSING_RESOURCE_UTILIZATION_BASED_TRIGGER__RESOURCE_CONTAINER_AGGREGATION;
-
-	/**
-	 * The feature id for the '<em><b>Resource Container</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int HDD_UTILIZATION_TRIGGER__RESOURCE_CONTAINER = PROCESSING_RESOURCE_UTILIZATION_BASED_TRIGGER__RESOURCE_CONTAINER;
-
-	/**
-	 * The feature id for the '<em><b>Usage Type</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int HDD_UTILIZATION_TRIGGER__USAGE_TYPE = PROCESSING_RESOURCE_UTILIZATION_BASED_TRIGGER_FEATURE_COUNT + 0;
-
-	/**
-	 * The number of structural features of the '<em>HDD Utilization Trigger</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int HDD_UTILIZATION_TRIGGER_FEATURE_COUNT = PROCESSING_RESOURCE_UTILIZATION_BASED_TRIGGER_FEATURE_COUNT + 1;
-
-	/**
-	 * The number of operations of the '<em>HDD Utilization Trigger</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int HDD_UTILIZATION_TRIGGER_OPERATION_COUNT = PROCESSING_RESOURCE_UTILIZATION_BASED_TRIGGER_OPERATION_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link org.palladiosimulator.spd.triggers.impl.TimeBasedTriggerImpl <em>Time Based Trigger</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.palladiosimulator.spd.triggers.impl.TimeBasedTriggerImpl
-	 * @see org.palladiosimulator.spd.triggers.impl.TriggersPackageImpl#getTimeBasedTrigger()
-	 * @generated
-	 */
-	int TIME_BASED_TRIGGER = 5;
-
-	/**
-	 * The feature id for the '<em><b>Threshold Direction</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TIME_BASED_TRIGGER__THRESHOLD_DIRECTION = THRESHOLD_BASED_TRIGGER__THRESHOLD_DIRECTION;
-
-	/**
-	 * The feature id for the '<em><b>Threshold</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TIME_BASED_TRIGGER__THRESHOLD = THRESHOLD_BASED_TRIGGER__THRESHOLD;
-
-	/**
-	 * The feature id for the '<em><b>Violation Window</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TIME_BASED_TRIGGER__VIOLATION_WINDOW = THRESHOLD_BASED_TRIGGER__VIOLATION_WINDOW;
-
-	/**
-	 * The number of structural features of the '<em>Time Based Trigger</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TIME_BASED_TRIGGER_FEATURE_COUNT = THRESHOLD_BASED_TRIGGER_FEATURE_COUNT + 0;
-
-	/**
-	 * The number of operations of the '<em>Time Based Trigger</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TIME_BASED_TRIGGER_OPERATION_COUNT = THRESHOLD_BASED_TRIGGER_OPERATION_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link org.palladiosimulator.spd.triggers.impl.PointInTimeTriggerImpl <em>Point In Time Trigger</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.palladiosimulator.spd.triggers.impl.PointInTimeTriggerImpl
-	 * @see org.palladiosimulator.spd.triggers.impl.TriggersPackageImpl#getPointInTimeTrigger()
-	 * @generated
-	 */
-	int POINT_IN_TIME_TRIGGER = 6;
-
-	/**
-	 * The feature id for the '<em><b>Point In Time</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int POINT_IN_TIME_TRIGGER__POINT_IN_TIME = SCALING_TRIGGER_FEATURE_COUNT + 0;
-
-	/**
-	 * The number of structural features of the '<em>Point In Time Trigger</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int POINT_IN_TIME_TRIGGER_FEATURE_COUNT = SCALING_TRIGGER_FEATURE_COUNT + 1;
-
-	/**
-	 * The number of operations of the '<em>Point In Time Trigger</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int POINT_IN_TIME_TRIGGER_OPERATION_COUNT = SCALING_TRIGGER_OPERATION_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link org.palladiosimulator.spd.triggers.impl.IdleTimeTriggerImpl <em>Idle Time Trigger</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.palladiosimulator.spd.triggers.impl.IdleTimeTriggerImpl
-	 * @see org.palladiosimulator.spd.triggers.impl.TriggersPackageImpl#getIdleTimeTrigger()
-	 * @generated
-	 */
-	int IDLE_TIME_TRIGGER = 7;
-
-	/**
-	 * The feature id for the '<em><b>Threshold Direction</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int IDLE_TIME_TRIGGER__THRESHOLD_DIRECTION = TIME_BASED_TRIGGER__THRESHOLD_DIRECTION;
-
-	/**
-	 * The feature id for the '<em><b>Threshold</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int IDLE_TIME_TRIGGER__THRESHOLD = TIME_BASED_TRIGGER__THRESHOLD;
-
-	/**
-	 * The feature id for the '<em><b>Violation Window</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int IDLE_TIME_TRIGGER__VIOLATION_WINDOW = TIME_BASED_TRIGGER__VIOLATION_WINDOW;
-
-	/**
-	 * The feature id for the '<em><b>Resource Container</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int IDLE_TIME_TRIGGER__RESOURCE_CONTAINER = TIME_BASED_TRIGGER_FEATURE_COUNT + 0;
-
-	/**
-	 * The number of structural features of the '<em>Idle Time Trigger</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int IDLE_TIME_TRIGGER_FEATURE_COUNT = TIME_BASED_TRIGGER_FEATURE_COUNT + 1;
-
-	/**
-	 * The number of operations of the '<em>Idle Time Trigger</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int IDLE_TIME_TRIGGER_OPERATION_COUNT = TIME_BASED_TRIGGER_OPERATION_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link org.palladiosimulator.spd.triggers.impl.TaskCountTriggerImpl <em>Task Count Trigger</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.palladiosimulator.spd.triggers.impl.TaskCountTriggerImpl
-	 * @see org.palladiosimulator.spd.triggers.impl.TriggersPackageImpl#getTaskCountTrigger()
-	 * @generated
-	 */
-	int TASK_COUNT_TRIGGER = 8;
-
-	/**
-	 * The feature id for the '<em><b>Threshold Direction</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
 	 */
-	int TASK_COUNT_TRIGGER__THRESHOLD_DIRECTION = THRESHOLD_BASED_TRIGGER__THRESHOLD_DIRECTION;
+	int COMPOSED_TRIGGER = 2;
 
 	/**
-	 * The feature id for the '<em><b>Threshold</b></em>' attribute.
+	 * The feature id for the '<em><b>Scalingtrigger</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TASK_COUNT_TRIGGER__THRESHOLD = THRESHOLD_BASED_TRIGGER__THRESHOLD;
+	int COMPOSED_TRIGGER__SCALINGTRIGGER = SCALING_TRIGGER_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Violation Window</b></em>' attribute.
+	 * The feature id for the '<em><b>Logical Operator</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TASK_COUNT_TRIGGER__VIOLATION_WINDOW = THRESHOLD_BASED_TRIGGER__VIOLATION_WINDOW;
+	int COMPOSED_TRIGGER__LOGICAL_OPERATOR = SCALING_TRIGGER_FEATURE_COUNT + 1;
 
 	/**
-	 * The feature id for the '<em><b>Resource Container</b></em>' reference list.
+	 * The number of structural features of the '<em>Composed Trigger</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TASK_COUNT_TRIGGER__RESOURCE_CONTAINER = THRESHOLD_BASED_TRIGGER_FEATURE_COUNT + 0;
+	int COMPOSED_TRIGGER_FEATURE_COUNT = SCALING_TRIGGER_FEATURE_COUNT + 2;
 
 	/**
-	 * The feature id for the '<em><b>Processing Resource Aggregation</b></em>' attribute.
+	 * The number of operations of the '<em>Composed Trigger</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TASK_COUNT_TRIGGER__PROCESSING_RESOURCE_AGGREGATION = THRESHOLD_BASED_TRIGGER_FEATURE_COUNT + 1;
+	int COMPOSED_TRIGGER_OPERATION_COUNT = SCALING_TRIGGER_OPERATION_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Resource Container Aggregation</b></em>' attribute.
+	 * The meta object id for the '{@link org.palladiosimulator.spd.triggers.impl.SimpleFireOnValueImpl <em>Simple Fire On Value</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @see org.palladiosimulator.spd.triggers.impl.SimpleFireOnValueImpl
+	 * @see org.palladiosimulator.spd.triggers.impl.TriggersPackageImpl#getSimpleFireOnValue()
 	 * @generated
-	 * @ordered
-	 */
-	int TASK_COUNT_TRIGGER__RESOURCE_CONTAINER_AGGREGATION = THRESHOLD_BASED_TRIGGER_FEATURE_COUNT + 2;
-
-	/**
-	 * The number of structural features of the '<em>Task Count Trigger</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TASK_COUNT_TRIGGER_FEATURE_COUNT = THRESHOLD_BASED_TRIGGER_FEATURE_COUNT + 3;
-
-	/**
-	 * The number of operations of the '<em>Task Count Trigger</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TASK_COUNT_TRIGGER_OPERATION_COUNT = THRESHOLD_BASED_TRIGGER_OPERATION_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link org.palladiosimulator.spd.triggers.impl.NetworkUtilizationTriggerImpl <em>Network Utilization Trigger</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.palladiosimulator.spd.triggers.impl.NetworkUtilizationTriggerImpl
-	 * @see org.palladiosimulator.spd.triggers.impl.TriggersPackageImpl#getNetworkUtilizationTrigger()
-	 * @generated
-	 */
-	int NETWORK_UTILIZATION_TRIGGER = 9;
-
-	/**
-	 * The feature id for the '<em><b>Threshold Direction</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NETWORK_UTILIZATION_TRIGGER__THRESHOLD_DIRECTION = RESOURCE_UTILIZATION_BASED_TRIGGER__THRESHOLD_DIRECTION;
-
-	/**
-	 * The feature id for the '<em><b>Threshold</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NETWORK_UTILIZATION_TRIGGER__THRESHOLD = RESOURCE_UTILIZATION_BASED_TRIGGER__THRESHOLD;
-
-	/**
-	 * The feature id for the '<em><b>Violation Window</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NETWORK_UTILIZATION_TRIGGER__VIOLATION_WINDOW = RESOURCE_UTILIZATION_BASED_TRIGGER__VIOLATION_WINDOW;
-
-	/**
-	 * The feature id for the '<em><b>Processing Resource Aggregation</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NETWORK_UTILIZATION_TRIGGER__PROCESSING_RESOURCE_AGGREGATION = RESOURCE_UTILIZATION_BASED_TRIGGER__PROCESSING_RESOURCE_AGGREGATION;
-
-	/**
-	 * The feature id for the '<em><b>Resource Container Aggregation</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
 	 */
-	int NETWORK_UTILIZATION_TRIGGER__RESOURCE_CONTAINER_AGGREGATION = RESOURCE_UTILIZATION_BASED_TRIGGER__RESOURCE_CONTAINER_AGGREGATION;
+	int SIMPLE_FIRE_ON_VALUE = 3;
 
 	/**
-	 * The feature id for the '<em><b>Usage Type</b></em>' attribute.
+	 * The feature id for the '<em><b>Stimulus</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NETWORK_UTILIZATION_TRIGGER__USAGE_TYPE = RESOURCE_UTILIZATION_BASED_TRIGGER_FEATURE_COUNT + 0;
+	int SIMPLE_FIRE_ON_VALUE__STIMULUS = BASE_TRIGGER__STIMULUS;
 
 	/**
-	 * The feature id for the '<em><b>Linking Resource</b></em>' reference list.
+	 * The feature id for the '<em><b>Expected Value</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NETWORK_UTILIZATION_TRIGGER__LINKING_RESOURCE = RESOURCE_UTILIZATION_BASED_TRIGGER_FEATURE_COUNT + 1;
+	int SIMPLE_FIRE_ON_VALUE__EXPECTED_VALUE = BASE_TRIGGER__EXPECTED_VALUE;
 
 	/**
-	 * The number of structural features of the '<em>Network Utilization Trigger</em>' class.
+	 * The feature id for the '<em><b>Relational Operator</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NETWORK_UTILIZATION_TRIGGER_FEATURE_COUNT = RESOURCE_UTILIZATION_BASED_TRIGGER_FEATURE_COUNT + 2;
+	int SIMPLE_FIRE_ON_VALUE__RELATIONAL_OPERATOR = BASE_TRIGGER_FEATURE_COUNT + 0;
 
 	/**
-	 * The number of operations of the '<em>Network Utilization Trigger</em>' class.
+	 * The number of structural features of the '<em>Simple Fire On Value</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
-	 */
-	int NETWORK_UTILIZATION_TRIGGER_OPERATION_COUNT = RESOURCE_UTILIZATION_BASED_TRIGGER_OPERATION_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link org.palladiosimulator.spd.triggers.impl.ResponseTimeTriggerImpl <em>Response Time Trigger</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.palladiosimulator.spd.triggers.impl.ResponseTimeTriggerImpl
-	 * @see org.palladiosimulator.spd.triggers.impl.TriggersPackageImpl#getResponseTimeTrigger()
-	 * @generated
 	 */
-	int RESPONSE_TIME_TRIGGER = 10;
+	int SIMPLE_FIRE_ON_VALUE_FEATURE_COUNT = BASE_TRIGGER_FEATURE_COUNT + 1;
 
 	/**
-	 * The feature id for the '<em><b>Threshold Direction</b></em>' attribute.
+	 * The number of operations of the '<em>Simple Fire On Value</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RESPONSE_TIME_TRIGGER__THRESHOLD_DIRECTION = TIME_BASED_TRIGGER__THRESHOLD_DIRECTION;
+	int SIMPLE_FIRE_ON_VALUE_OPERATION_COUNT = BASE_TRIGGER_OPERATION_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Threshold</b></em>' attribute.
+	 * The meta object id for the '{@link org.palladiosimulator.spd.triggers.impl.SimpleFireOnTrendImpl <em>Simple Fire On Trend</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @see org.palladiosimulator.spd.triggers.impl.SimpleFireOnTrendImpl
+	 * @see org.palladiosimulator.spd.triggers.impl.TriggersPackageImpl#getSimpleFireOnTrend()
 	 * @generated
-	 * @ordered
 	 */
-	int RESPONSE_TIME_TRIGGER__THRESHOLD = TIME_BASED_TRIGGER__THRESHOLD;
+	int SIMPLE_FIRE_ON_TREND = 4;
 
 	/**
-	 * The feature id for the '<em><b>Violation Window</b></em>' attribute.
+	 * The feature id for the '<em><b>Stimulus</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RESPONSE_TIME_TRIGGER__VIOLATION_WINDOW = TIME_BASED_TRIGGER__VIOLATION_WINDOW;
+	int SIMPLE_FIRE_ON_TREND__STIMULUS = BASE_TRIGGER__STIMULUS;
 
 	/**
-	 * The feature id for the '<em><b>Operation Signature</b></em>' reference list.
+	 * The feature id for the '<em><b>Expected Value</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RESPONSE_TIME_TRIGGER__OPERATION_SIGNATURE = TIME_BASED_TRIGGER_FEATURE_COUNT + 0;
+	int SIMPLE_FIRE_ON_TREND__EXPECTED_VALUE = BASE_TRIGGER__EXPECTED_VALUE;
 
 	/**
-	 * The number of structural features of the '<em>Response Time Trigger</em>' class.
+	 * The number of structural features of the '<em>Simple Fire On Trend</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RESPONSE_TIME_TRIGGER_FEATURE_COUNT = TIME_BASED_TRIGGER_FEATURE_COUNT + 1;
+	int SIMPLE_FIRE_ON_TREND_FEATURE_COUNT = BASE_TRIGGER_FEATURE_COUNT + 0;
 
 	/**
-	 * The number of operations of the '<em>Response Time Trigger</em>' class.
+	 * The number of operations of the '<em>Simple Fire On Trend</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RESPONSE_TIME_TRIGGER_OPERATION_COUNT = TIME_BASED_TRIGGER_OPERATION_COUNT + 0;
+	int SIMPLE_FIRE_ON_TREND_OPERATION_COUNT = BASE_TRIGGER_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link org.palladiosimulator.spd.triggers.AGGREGATIONMETHOD <em>AGGREGATIONMETHOD</em>}' enum.
@@ -952,7 +287,7 @@ public interface TriggersPackage extends EPackage {
 	 * @see org.palladiosimulator.spd.triggers.impl.TriggersPackageImpl#getAGGREGATIONMETHOD()
 	 * @generated
 	 */
-	int AGGREGATIONMETHOD = 13;
+	int AGGREGATIONMETHOD = 5;
 
 	/**
 	 * The meta object id for the '{@link org.palladiosimulator.spd.triggers.HDDUSAGETYPE <em>HDDUSAGETYPE</em>}' enum.
@@ -962,7 +297,7 @@ public interface TriggersPackage extends EPackage {
 	 * @see org.palladiosimulator.spd.triggers.impl.TriggersPackageImpl#getHDDUSAGETYPE()
 	 * @generated
 	 */
-	int HDDUSAGETYPE = 14;
+	int HDDUSAGETYPE = 6;
 
 	/**
 	 * The meta object id for the '{@link org.palladiosimulator.spd.triggers.NETWORKUSAGETYPE <em>NETWORKUSAGETYPE</em>}' enum.
@@ -972,17 +307,37 @@ public interface TriggersPackage extends EPackage {
 	 * @see org.palladiosimulator.spd.triggers.impl.TriggersPackageImpl#getNETWORKUSAGETYPE()
 	 * @generated
 	 */
-	int NETWORKUSAGETYPE = 15;
+	int NETWORKUSAGETYPE = 7;
 
 	/**
-	 * The meta object id for the '{@link org.palladiosimulator.spd.triggers.THRESHOLDDIRECTION <em>THRESHOLDDIRECTION</em>}' enum.
+	 * The meta object id for the '{@link org.palladiosimulator.spd.triggers.LogicalOperator <em>Logical Operator</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see org.palladiosimulator.spd.triggers.THRESHOLDDIRECTION
-	 * @see org.palladiosimulator.spd.triggers.impl.TriggersPackageImpl#getTHRESHOLDDIRECTION()
+	 * @see org.palladiosimulator.spd.triggers.LogicalOperator
+	 * @see org.palladiosimulator.spd.triggers.impl.TriggersPackageImpl#getLogicalOperator()
 	 * @generated
 	 */
-	int THRESHOLDDIRECTION = 16;
+	int LOGICAL_OPERATOR = 8;
+
+	/**
+	 * The meta object id for the '{@link org.palladiosimulator.spd.triggers.RelationalOperator <em>Relational Operator</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.palladiosimulator.spd.triggers.RelationalOperator
+	 * @see org.palladiosimulator.spd.triggers.impl.TriggersPackageImpl#getRelationalOperator()
+	 * @generated
+	 */
+	int RELATIONAL_OPERATOR = 9;
+
+	/**
+	 * The meta object id for the '{@link org.palladiosimulator.spd.triggers.TrendPattern <em>Trend Pattern</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.palladiosimulator.spd.triggers.TrendPattern
+	 * @see org.palladiosimulator.spd.triggers.impl.TriggersPackageImpl#getTrendPattern()
+	 * @generated
+	 */
+	int TREND_PATTERN = 10;
 
 
 	/**
@@ -996,289 +351,99 @@ public interface TriggersPackage extends EPackage {
 	EClass getScalingTrigger();
 
 	/**
-	 * Returns the meta object for class '{@link org.palladiosimulator.spd.triggers.ThresholdBasedTrigger <em>Threshold Based Trigger</em>}'.
+	 * Returns the meta object for class '{@link org.palladiosimulator.spd.triggers.BaseTrigger <em>Base Trigger</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Threshold Based Trigger</em>'.
-	 * @see org.palladiosimulator.spd.triggers.ThresholdBasedTrigger
+	 * @return the meta object for class '<em>Base Trigger</em>'.
+	 * @see org.palladiosimulator.spd.triggers.BaseTrigger
 	 * @generated
 	 */
-	EClass getThresholdBasedTrigger();
+	EClass getBaseTrigger();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.palladiosimulator.spd.triggers.ThresholdBasedTrigger#getThresholdDirection <em>Threshold Direction</em>}'.
+	 * Returns the meta object for the containment reference '{@link org.palladiosimulator.spd.triggers.BaseTrigger#getStimulus <em>Stimulus</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Threshold Direction</em>'.
-	 * @see org.palladiosimulator.spd.triggers.ThresholdBasedTrigger#getThresholdDirection()
-	 * @see #getThresholdBasedTrigger()
+	 * @return the meta object for the containment reference '<em>Stimulus</em>'.
+	 * @see org.palladiosimulator.spd.triggers.BaseTrigger#getStimulus()
+	 * @see #getBaseTrigger()
 	 * @generated
 	 */
-	EAttribute getThresholdBasedTrigger_ThresholdDirection();
+	EReference getBaseTrigger_Stimulus();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.palladiosimulator.spd.triggers.ThresholdBasedTrigger#getThreshold <em>Threshold</em>}'.
+	 * Returns the meta object for the containment reference '{@link org.palladiosimulator.spd.triggers.BaseTrigger#getExpectedValue <em>Expected Value</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Threshold</em>'.
-	 * @see org.palladiosimulator.spd.triggers.ThresholdBasedTrigger#getThreshold()
-	 * @see #getThresholdBasedTrigger()
+	 * @return the meta object for the containment reference '<em>Expected Value</em>'.
+	 * @see org.palladiosimulator.spd.triggers.BaseTrigger#getExpectedValue()
+	 * @see #getBaseTrigger()
 	 * @generated
 	 */
-	EAttribute getThresholdBasedTrigger_Threshold();
+	EReference getBaseTrigger_ExpectedValue();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.palladiosimulator.spd.triggers.ThresholdBasedTrigger#getViolationWindow <em>Violation Window</em>}'.
+	 * Returns the meta object for class '{@link org.palladiosimulator.spd.triggers.ComposedTrigger <em>Composed Trigger</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Violation Window</em>'.
-	 * @see org.palladiosimulator.spd.triggers.ThresholdBasedTrigger#getViolationWindow()
-	 * @see #getThresholdBasedTrigger()
+	 * @return the meta object for class '<em>Composed Trigger</em>'.
+	 * @see org.palladiosimulator.spd.triggers.ComposedTrigger
 	 * @generated
 	 */
-	EAttribute getThresholdBasedTrigger_ViolationWindow();
+	EClass getComposedTrigger();
 
 	/**
-	 * Returns the meta object for class '{@link org.palladiosimulator.spd.triggers.CPUUtilizationTrigger <em>CPU Utilization Trigger</em>}'.
+	 * Returns the meta object for the containment reference list '{@link org.palladiosimulator.spd.triggers.ComposedTrigger#getScalingtrigger <em>Scalingtrigger</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>CPU Utilization Trigger</em>'.
-	 * @see org.palladiosimulator.spd.triggers.CPUUtilizationTrigger
+	 * @return the meta object for the containment reference list '<em>Scalingtrigger</em>'.
+	 * @see org.palladiosimulator.spd.triggers.ComposedTrigger#getScalingtrigger()
+	 * @see #getComposedTrigger()
 	 * @generated
 	 */
-	EClass getCPUUtilizationTrigger();
+	EReference getComposedTrigger_Scalingtrigger();
 
 	/**
-	 * Returns the meta object for class '{@link org.palladiosimulator.spd.triggers.RAMUtilizationTrigger <em>RAM Utilization Trigger</em>}'.
+	 * Returns the meta object for the attribute '{@link org.palladiosimulator.spd.triggers.ComposedTrigger#getLogicalOperator <em>Logical Operator</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>RAM Utilization Trigger</em>'.
-	 * @see org.palladiosimulator.spd.triggers.RAMUtilizationTrigger
+	 * @return the meta object for the attribute '<em>Logical Operator</em>'.
+	 * @see org.palladiosimulator.spd.triggers.ComposedTrigger#getLogicalOperator()
+	 * @see #getComposedTrigger()
 	 * @generated
 	 */
-	EClass getRAMUtilizationTrigger();
+	EAttribute getComposedTrigger_LogicalOperator();
 
 	/**
-	 * Returns the meta object for class '{@link org.palladiosimulator.spd.triggers.HDDUtilizationTrigger <em>HDD Utilization Trigger</em>}'.
+	 * Returns the meta object for class '{@link org.palladiosimulator.spd.triggers.SimpleFireOnValue <em>Simple Fire On Value</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>HDD Utilization Trigger</em>'.
-	 * @see org.palladiosimulator.spd.triggers.HDDUtilizationTrigger
+	 * @return the meta object for class '<em>Simple Fire On Value</em>'.
+	 * @see org.palladiosimulator.spd.triggers.SimpleFireOnValue
 	 * @generated
 	 */
-	EClass getHDDUtilizationTrigger();
+	EClass getSimpleFireOnValue();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.palladiosimulator.spd.triggers.HDDUtilizationTrigger#getUsageType <em>Usage Type</em>}'.
+	 * Returns the meta object for the attribute '{@link org.palladiosimulator.spd.triggers.SimpleFireOnValue#getRelationalOperator <em>Relational Operator</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Usage Type</em>'.
-	 * @see org.palladiosimulator.spd.triggers.HDDUtilizationTrigger#getUsageType()
-	 * @see #getHDDUtilizationTrigger()
+	 * @return the meta object for the attribute '<em>Relational Operator</em>'.
+	 * @see org.palladiosimulator.spd.triggers.SimpleFireOnValue#getRelationalOperator()
+	 * @see #getSimpleFireOnValue()
 	 * @generated
 	 */
-	EAttribute getHDDUtilizationTrigger_UsageType();
+	EAttribute getSimpleFireOnValue_RelationalOperator();
 
 	/**
-	 * Returns the meta object for class '{@link org.palladiosimulator.spd.triggers.TimeBasedTrigger <em>Time Based Trigger</em>}'.
+	 * Returns the meta object for class '{@link org.palladiosimulator.spd.triggers.SimpleFireOnTrend <em>Simple Fire On Trend</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Time Based Trigger</em>'.
-	 * @see org.palladiosimulator.spd.triggers.TimeBasedTrigger
+	 * @return the meta object for class '<em>Simple Fire On Trend</em>'.
+	 * @see org.palladiosimulator.spd.triggers.SimpleFireOnTrend
 	 * @generated
 	 */
-	EClass getTimeBasedTrigger();
-
-	/**
-	 * Returns the meta object for class '{@link org.palladiosimulator.spd.triggers.PointInTimeTrigger <em>Point In Time Trigger</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Point In Time Trigger</em>'.
-	 * @see org.palladiosimulator.spd.triggers.PointInTimeTrigger
-	 * @generated
-	 */
-	EClass getPointInTimeTrigger();
-
-	/**
-	 * Returns the meta object for the attribute '{@link org.palladiosimulator.spd.triggers.PointInTimeTrigger#getPointInTime <em>Point In Time</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Point In Time</em>'.
-	 * @see org.palladiosimulator.spd.triggers.PointInTimeTrigger#getPointInTime()
-	 * @see #getPointInTimeTrigger()
-	 * @generated
-	 */
-	EAttribute getPointInTimeTrigger_PointInTime();
-
-	/**
-	 * Returns the meta object for class '{@link org.palladiosimulator.spd.triggers.IdleTimeTrigger <em>Idle Time Trigger</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Idle Time Trigger</em>'.
-	 * @see org.palladiosimulator.spd.triggers.IdleTimeTrigger
-	 * @generated
-	 */
-	EClass getIdleTimeTrigger();
-
-	/**
-	 * Returns the meta object for the reference list '{@link org.palladiosimulator.spd.triggers.IdleTimeTrigger#getResourceContainer <em>Resource Container</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Resource Container</em>'.
-	 * @see org.palladiosimulator.spd.triggers.IdleTimeTrigger#getResourceContainer()
-	 * @see #getIdleTimeTrigger()
-	 * @generated
-	 */
-	EReference getIdleTimeTrigger_ResourceContainer();
-
-	/**
-	 * Returns the meta object for class '{@link org.palladiosimulator.spd.triggers.TaskCountTrigger <em>Task Count Trigger</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Task Count Trigger</em>'.
-	 * @see org.palladiosimulator.spd.triggers.TaskCountTrigger
-	 * @generated
-	 */
-	EClass getTaskCountTrigger();
-
-	/**
-	 * Returns the meta object for the reference list '{@link org.palladiosimulator.spd.triggers.TaskCountTrigger#getResourceContainer <em>Resource Container</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Resource Container</em>'.
-	 * @see org.palladiosimulator.spd.triggers.TaskCountTrigger#getResourceContainer()
-	 * @see #getTaskCountTrigger()
-	 * @generated
-	 */
-	EReference getTaskCountTrigger_ResourceContainer();
-
-	/**
-	 * Returns the meta object for the attribute '{@link org.palladiosimulator.spd.triggers.TaskCountTrigger#getProcessingResourceAggregation <em>Processing Resource Aggregation</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Processing Resource Aggregation</em>'.
-	 * @see org.palladiosimulator.spd.triggers.TaskCountTrigger#getProcessingResourceAggregation()
-	 * @see #getTaskCountTrigger()
-	 * @generated
-	 */
-	EAttribute getTaskCountTrigger_ProcessingResourceAggregation();
-
-	/**
-	 * Returns the meta object for the attribute '{@link org.palladiosimulator.spd.triggers.TaskCountTrigger#getResourceContainerAggregation <em>Resource Container Aggregation</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Resource Container Aggregation</em>'.
-	 * @see org.palladiosimulator.spd.triggers.TaskCountTrigger#getResourceContainerAggregation()
-	 * @see #getTaskCountTrigger()
-	 * @generated
-	 */
-	EAttribute getTaskCountTrigger_ResourceContainerAggregation();
-
-	/**
-	 * Returns the meta object for class '{@link org.palladiosimulator.spd.triggers.NetworkUtilizationTrigger <em>Network Utilization Trigger</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Network Utilization Trigger</em>'.
-	 * @see org.palladiosimulator.spd.triggers.NetworkUtilizationTrigger
-	 * @generated
-	 */
-	EClass getNetworkUtilizationTrigger();
-
-	/**
-	 * Returns the meta object for the attribute '{@link org.palladiosimulator.spd.triggers.NetworkUtilizationTrigger#getUsageType <em>Usage Type</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Usage Type</em>'.
-	 * @see org.palladiosimulator.spd.triggers.NetworkUtilizationTrigger#getUsageType()
-	 * @see #getNetworkUtilizationTrigger()
-	 * @generated
-	 */
-	EAttribute getNetworkUtilizationTrigger_UsageType();
-
-	/**
-	 * Returns the meta object for the reference list '{@link org.palladiosimulator.spd.triggers.NetworkUtilizationTrigger#getLinkingResource <em>Linking Resource</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Linking Resource</em>'.
-	 * @see org.palladiosimulator.spd.triggers.NetworkUtilizationTrigger#getLinkingResource()
-	 * @see #getNetworkUtilizationTrigger()
-	 * @generated
-	 */
-	EReference getNetworkUtilizationTrigger_LinkingResource();
-
-	/**
-	 * Returns the meta object for class '{@link org.palladiosimulator.spd.triggers.ResponseTimeTrigger <em>Response Time Trigger</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Response Time Trigger</em>'.
-	 * @see org.palladiosimulator.spd.triggers.ResponseTimeTrigger
-	 * @generated
-	 */
-	EClass getResponseTimeTrigger();
-
-	/**
-	 * Returns the meta object for the reference list '{@link org.palladiosimulator.spd.triggers.ResponseTimeTrigger#getOperationSignature <em>Operation Signature</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Operation Signature</em>'.
-	 * @see org.palladiosimulator.spd.triggers.ResponseTimeTrigger#getOperationSignature()
-	 * @see #getResponseTimeTrigger()
-	 * @generated
-	 */
-	EReference getResponseTimeTrigger_OperationSignature();
-
-	/**
-	 * Returns the meta object for class '{@link org.palladiosimulator.spd.triggers.ResourceUtilizationBasedTrigger <em>Resource Utilization Based Trigger</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Resource Utilization Based Trigger</em>'.
-	 * @see org.palladiosimulator.spd.triggers.ResourceUtilizationBasedTrigger
-	 * @generated
-	 */
-	EClass getResourceUtilizationBasedTrigger();
-
-	/**
-	 * Returns the meta object for the attribute '{@link org.palladiosimulator.spd.triggers.ResourceUtilizationBasedTrigger#getProcessingResourceAggregation <em>Processing Resource Aggregation</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Processing Resource Aggregation</em>'.
-	 * @see org.palladiosimulator.spd.triggers.ResourceUtilizationBasedTrigger#getProcessingResourceAggregation()
-	 * @see #getResourceUtilizationBasedTrigger()
-	 * @generated
-	 */
-	EAttribute getResourceUtilizationBasedTrigger_ProcessingResourceAggregation();
-
-	/**
-	 * Returns the meta object for the attribute '{@link org.palladiosimulator.spd.triggers.ResourceUtilizationBasedTrigger#getResourceContainerAggregation <em>Resource Container Aggregation</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Resource Container Aggregation</em>'.
-	 * @see org.palladiosimulator.spd.triggers.ResourceUtilizationBasedTrigger#getResourceContainerAggregation()
-	 * @see #getResourceUtilizationBasedTrigger()
-	 * @generated
-	 */
-	EAttribute getResourceUtilizationBasedTrigger_ResourceContainerAggregation();
-
-	/**
-	 * Returns the meta object for class '{@link org.palladiosimulator.spd.triggers.ProcessingResourceUtilizationBasedTrigger <em>Processing Resource Utilization Based Trigger</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Processing Resource Utilization Based Trigger</em>'.
-	 * @see org.palladiosimulator.spd.triggers.ProcessingResourceUtilizationBasedTrigger
-	 * @generated
-	 */
-	EClass getProcessingResourceUtilizationBasedTrigger();
-
-	/**
-	 * Returns the meta object for the reference list '{@link org.palladiosimulator.spd.triggers.ProcessingResourceUtilizationBasedTrigger#getResourceContainer <em>Resource Container</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Resource Container</em>'.
-	 * @see org.palladiosimulator.spd.triggers.ProcessingResourceUtilizationBasedTrigger#getResourceContainer()
-	 * @see #getProcessingResourceUtilizationBasedTrigger()
-	 * @generated
-	 */
-	EReference getProcessingResourceUtilizationBasedTrigger_ResourceContainer();
+	EClass getSimpleFireOnTrend();
 
 	/**
 	 * Returns the meta object for enum '{@link org.palladiosimulator.spd.triggers.AGGREGATIONMETHOD <em>AGGREGATIONMETHOD</em>}'.
@@ -1311,14 +476,34 @@ public interface TriggersPackage extends EPackage {
 	EEnum getNETWORKUSAGETYPE();
 
 	/**
-	 * Returns the meta object for enum '{@link org.palladiosimulator.spd.triggers.THRESHOLDDIRECTION <em>THRESHOLDDIRECTION</em>}'.
+	 * Returns the meta object for enum '{@link org.palladiosimulator.spd.triggers.LogicalOperator <em>Logical Operator</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for enum '<em>THRESHOLDDIRECTION</em>'.
-	 * @see org.palladiosimulator.spd.triggers.THRESHOLDDIRECTION
+	 * @return the meta object for enum '<em>Logical Operator</em>'.
+	 * @see org.palladiosimulator.spd.triggers.LogicalOperator
 	 * @generated
 	 */
-	EEnum getTHRESHOLDDIRECTION();
+	EEnum getLogicalOperator();
+
+	/**
+	 * Returns the meta object for enum '{@link org.palladiosimulator.spd.triggers.RelationalOperator <em>Relational Operator</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Relational Operator</em>'.
+	 * @see org.palladiosimulator.spd.triggers.RelationalOperator
+	 * @generated
+	 */
+	EEnum getRelationalOperator();
+
+	/**
+	 * Returns the meta object for enum '{@link org.palladiosimulator.spd.triggers.TrendPattern <em>Trend Pattern</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Trend Pattern</em>'.
+	 * @see org.palladiosimulator.spd.triggers.TrendPattern
+	 * @generated
+	 */
+	EEnum getTrendPattern();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -1354,244 +539,84 @@ public interface TriggersPackage extends EPackage {
 		EClass SCALING_TRIGGER = eINSTANCE.getScalingTrigger();
 
 		/**
-		 * The meta object literal for the '{@link org.palladiosimulator.spd.triggers.impl.ThresholdBasedTriggerImpl <em>Threshold Based Trigger</em>}' class.
+		 * The meta object literal for the '{@link org.palladiosimulator.spd.triggers.impl.BaseTriggerImpl <em>Base Trigger</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see org.palladiosimulator.spd.triggers.impl.ThresholdBasedTriggerImpl
-		 * @see org.palladiosimulator.spd.triggers.impl.TriggersPackageImpl#getThresholdBasedTrigger()
+		 * @see org.palladiosimulator.spd.triggers.impl.BaseTriggerImpl
+		 * @see org.palladiosimulator.spd.triggers.impl.TriggersPackageImpl#getBaseTrigger()
 		 * @generated
 		 */
-		EClass THRESHOLD_BASED_TRIGGER = eINSTANCE.getThresholdBasedTrigger();
+		EClass BASE_TRIGGER = eINSTANCE.getBaseTrigger();
 
 		/**
-		 * The meta object literal for the '<em><b>Threshold Direction</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Stimulus</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute THRESHOLD_BASED_TRIGGER__THRESHOLD_DIRECTION = eINSTANCE.getThresholdBasedTrigger_ThresholdDirection();
+		EReference BASE_TRIGGER__STIMULUS = eINSTANCE.getBaseTrigger_Stimulus();
 
 		/**
-		 * The meta object literal for the '<em><b>Threshold</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Expected Value</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute THRESHOLD_BASED_TRIGGER__THRESHOLD = eINSTANCE.getThresholdBasedTrigger_Threshold();
+		EReference BASE_TRIGGER__EXPECTED_VALUE = eINSTANCE.getBaseTrigger_ExpectedValue();
 
 		/**
-		 * The meta object literal for the '<em><b>Violation Window</b></em>' attribute feature.
+		 * The meta object literal for the '{@link org.palladiosimulator.spd.triggers.impl.ComposedTriggerImpl <em>Composed Trigger</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
+		 * @see org.palladiosimulator.spd.triggers.impl.ComposedTriggerImpl
+		 * @see org.palladiosimulator.spd.triggers.impl.TriggersPackageImpl#getComposedTrigger()
 		 * @generated
 		 */
-		EAttribute THRESHOLD_BASED_TRIGGER__VIOLATION_WINDOW = eINSTANCE.getThresholdBasedTrigger_ViolationWindow();
+		EClass COMPOSED_TRIGGER = eINSTANCE.getComposedTrigger();
 
 		/**
-		 * The meta object literal for the '{@link org.palladiosimulator.spd.triggers.impl.CPUUtilizationTriggerImpl <em>CPU Utilization Trigger</em>}' class.
+		 * The meta object literal for the '<em><b>Scalingtrigger</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see org.palladiosimulator.spd.triggers.impl.CPUUtilizationTriggerImpl
-		 * @see org.palladiosimulator.spd.triggers.impl.TriggersPackageImpl#getCPUUtilizationTrigger()
 		 * @generated
 		 */
-		EClass CPU_UTILIZATION_TRIGGER = eINSTANCE.getCPUUtilizationTrigger();
+		EReference COMPOSED_TRIGGER__SCALINGTRIGGER = eINSTANCE.getComposedTrigger_Scalingtrigger();
 
 		/**
-		 * The meta object literal for the '{@link org.palladiosimulator.spd.triggers.impl.RAMUtilizationTriggerImpl <em>RAM Utilization Trigger</em>}' class.
+		 * The meta object literal for the '<em><b>Logical Operator</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see org.palladiosimulator.spd.triggers.impl.RAMUtilizationTriggerImpl
-		 * @see org.palladiosimulator.spd.triggers.impl.TriggersPackageImpl#getRAMUtilizationTrigger()
 		 * @generated
 		 */
-		EClass RAM_UTILIZATION_TRIGGER = eINSTANCE.getRAMUtilizationTrigger();
+		EAttribute COMPOSED_TRIGGER__LOGICAL_OPERATOR = eINSTANCE.getComposedTrigger_LogicalOperator();
 
 		/**
-		 * The meta object literal for the '{@link org.palladiosimulator.spd.triggers.impl.HDDUtilizationTriggerImpl <em>HDD Utilization Trigger</em>}' class.
+		 * The meta object literal for the '{@link org.palladiosimulator.spd.triggers.impl.SimpleFireOnValueImpl <em>Simple Fire On Value</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see org.palladiosimulator.spd.triggers.impl.HDDUtilizationTriggerImpl
-		 * @see org.palladiosimulator.spd.triggers.impl.TriggersPackageImpl#getHDDUtilizationTrigger()
+		 * @see org.palladiosimulator.spd.triggers.impl.SimpleFireOnValueImpl
+		 * @see org.palladiosimulator.spd.triggers.impl.TriggersPackageImpl#getSimpleFireOnValue()
 		 * @generated
 		 */
-		EClass HDD_UTILIZATION_TRIGGER = eINSTANCE.getHDDUtilizationTrigger();
+		EClass SIMPLE_FIRE_ON_VALUE = eINSTANCE.getSimpleFireOnValue();
 
 		/**
-		 * The meta object literal for the '<em><b>Usage Type</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Relational Operator</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute HDD_UTILIZATION_TRIGGER__USAGE_TYPE = eINSTANCE.getHDDUtilizationTrigger_UsageType();
+		EAttribute SIMPLE_FIRE_ON_VALUE__RELATIONAL_OPERATOR = eINSTANCE.getSimpleFireOnValue_RelationalOperator();
 
 		/**
-		 * The meta object literal for the '{@link org.palladiosimulator.spd.triggers.impl.TimeBasedTriggerImpl <em>Time Based Trigger</em>}' class.
+		 * The meta object literal for the '{@link org.palladiosimulator.spd.triggers.impl.SimpleFireOnTrendImpl <em>Simple Fire On Trend</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see org.palladiosimulator.spd.triggers.impl.TimeBasedTriggerImpl
-		 * @see org.palladiosimulator.spd.triggers.impl.TriggersPackageImpl#getTimeBasedTrigger()
+		 * @see org.palladiosimulator.spd.triggers.impl.SimpleFireOnTrendImpl
+		 * @see org.palladiosimulator.spd.triggers.impl.TriggersPackageImpl#getSimpleFireOnTrend()
 		 * @generated
 		 */
-		EClass TIME_BASED_TRIGGER = eINSTANCE.getTimeBasedTrigger();
-
-		/**
-		 * The meta object literal for the '{@link org.palladiosimulator.spd.triggers.impl.PointInTimeTriggerImpl <em>Point In Time Trigger</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see org.palladiosimulator.spd.triggers.impl.PointInTimeTriggerImpl
-		 * @see org.palladiosimulator.spd.triggers.impl.TriggersPackageImpl#getPointInTimeTrigger()
-		 * @generated
-		 */
-		EClass POINT_IN_TIME_TRIGGER = eINSTANCE.getPointInTimeTrigger();
-
-		/**
-		 * The meta object literal for the '<em><b>Point In Time</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute POINT_IN_TIME_TRIGGER__POINT_IN_TIME = eINSTANCE.getPointInTimeTrigger_PointInTime();
-
-		/**
-		 * The meta object literal for the '{@link org.palladiosimulator.spd.triggers.impl.IdleTimeTriggerImpl <em>Idle Time Trigger</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see org.palladiosimulator.spd.triggers.impl.IdleTimeTriggerImpl
-		 * @see org.palladiosimulator.spd.triggers.impl.TriggersPackageImpl#getIdleTimeTrigger()
-		 * @generated
-		 */
-		EClass IDLE_TIME_TRIGGER = eINSTANCE.getIdleTimeTrigger();
-
-		/**
-		 * The meta object literal for the '<em><b>Resource Container</b></em>' reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference IDLE_TIME_TRIGGER__RESOURCE_CONTAINER = eINSTANCE.getIdleTimeTrigger_ResourceContainer();
-
-		/**
-		 * The meta object literal for the '{@link org.palladiosimulator.spd.triggers.impl.TaskCountTriggerImpl <em>Task Count Trigger</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see org.palladiosimulator.spd.triggers.impl.TaskCountTriggerImpl
-		 * @see org.palladiosimulator.spd.triggers.impl.TriggersPackageImpl#getTaskCountTrigger()
-		 * @generated
-		 */
-		EClass TASK_COUNT_TRIGGER = eINSTANCE.getTaskCountTrigger();
-
-		/**
-		 * The meta object literal for the '<em><b>Resource Container</b></em>' reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference TASK_COUNT_TRIGGER__RESOURCE_CONTAINER = eINSTANCE.getTaskCountTrigger_ResourceContainer();
-
-		/**
-		 * The meta object literal for the '<em><b>Processing Resource Aggregation</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute TASK_COUNT_TRIGGER__PROCESSING_RESOURCE_AGGREGATION = eINSTANCE.getTaskCountTrigger_ProcessingResourceAggregation();
-
-		/**
-		 * The meta object literal for the '<em><b>Resource Container Aggregation</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute TASK_COUNT_TRIGGER__RESOURCE_CONTAINER_AGGREGATION = eINSTANCE.getTaskCountTrigger_ResourceContainerAggregation();
-
-		/**
-		 * The meta object literal for the '{@link org.palladiosimulator.spd.triggers.impl.NetworkUtilizationTriggerImpl <em>Network Utilization Trigger</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see org.palladiosimulator.spd.triggers.impl.NetworkUtilizationTriggerImpl
-		 * @see org.palladiosimulator.spd.triggers.impl.TriggersPackageImpl#getNetworkUtilizationTrigger()
-		 * @generated
-		 */
-		EClass NETWORK_UTILIZATION_TRIGGER = eINSTANCE.getNetworkUtilizationTrigger();
-
-		/**
-		 * The meta object literal for the '<em><b>Usage Type</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute NETWORK_UTILIZATION_TRIGGER__USAGE_TYPE = eINSTANCE.getNetworkUtilizationTrigger_UsageType();
-
-		/**
-		 * The meta object literal for the '<em><b>Linking Resource</b></em>' reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference NETWORK_UTILIZATION_TRIGGER__LINKING_RESOURCE = eINSTANCE.getNetworkUtilizationTrigger_LinkingResource();
-
-		/**
-		 * The meta object literal for the '{@link org.palladiosimulator.spd.triggers.impl.ResponseTimeTriggerImpl <em>Response Time Trigger</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see org.palladiosimulator.spd.triggers.impl.ResponseTimeTriggerImpl
-		 * @see org.palladiosimulator.spd.triggers.impl.TriggersPackageImpl#getResponseTimeTrigger()
-		 * @generated
-		 */
-		EClass RESPONSE_TIME_TRIGGER = eINSTANCE.getResponseTimeTrigger();
-
-		/**
-		 * The meta object literal for the '<em><b>Operation Signature</b></em>' reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference RESPONSE_TIME_TRIGGER__OPERATION_SIGNATURE = eINSTANCE.getResponseTimeTrigger_OperationSignature();
-
-		/**
-		 * The meta object literal for the '{@link org.palladiosimulator.spd.triggers.impl.ResourceUtilizationBasedTriggerImpl <em>Resource Utilization Based Trigger</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see org.palladiosimulator.spd.triggers.impl.ResourceUtilizationBasedTriggerImpl
-		 * @see org.palladiosimulator.spd.triggers.impl.TriggersPackageImpl#getResourceUtilizationBasedTrigger()
-		 * @generated
-		 */
-		EClass RESOURCE_UTILIZATION_BASED_TRIGGER = eINSTANCE.getResourceUtilizationBasedTrigger();
-
-		/**
-		 * The meta object literal for the '<em><b>Processing Resource Aggregation</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute RESOURCE_UTILIZATION_BASED_TRIGGER__PROCESSING_RESOURCE_AGGREGATION = eINSTANCE.getResourceUtilizationBasedTrigger_ProcessingResourceAggregation();
-
-		/**
-		 * The meta object literal for the '<em><b>Resource Container Aggregation</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute RESOURCE_UTILIZATION_BASED_TRIGGER__RESOURCE_CONTAINER_AGGREGATION = eINSTANCE.getResourceUtilizationBasedTrigger_ResourceContainerAggregation();
-
-		/**
-		 * The meta object literal for the '{@link org.palladiosimulator.spd.triggers.impl.ProcessingResourceUtilizationBasedTriggerImpl <em>Processing Resource Utilization Based Trigger</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see org.palladiosimulator.spd.triggers.impl.ProcessingResourceUtilizationBasedTriggerImpl
-		 * @see org.palladiosimulator.spd.triggers.impl.TriggersPackageImpl#getProcessingResourceUtilizationBasedTrigger()
-		 * @generated
-		 */
-		EClass PROCESSING_RESOURCE_UTILIZATION_BASED_TRIGGER = eINSTANCE.getProcessingResourceUtilizationBasedTrigger();
-
-		/**
-		 * The meta object literal for the '<em><b>Resource Container</b></em>' reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference PROCESSING_RESOURCE_UTILIZATION_BASED_TRIGGER__RESOURCE_CONTAINER = eINSTANCE.getProcessingResourceUtilizationBasedTrigger_ResourceContainer();
+		EClass SIMPLE_FIRE_ON_TREND = eINSTANCE.getSimpleFireOnTrend();
 
 		/**
 		 * The meta object literal for the '{@link org.palladiosimulator.spd.triggers.AGGREGATIONMETHOD <em>AGGREGATIONMETHOD</em>}' enum.
@@ -1624,14 +649,34 @@ public interface TriggersPackage extends EPackage {
 		EEnum NETWORKUSAGETYPE = eINSTANCE.getNETWORKUSAGETYPE();
 
 		/**
-		 * The meta object literal for the '{@link org.palladiosimulator.spd.triggers.THRESHOLDDIRECTION <em>THRESHOLDDIRECTION</em>}' enum.
+		 * The meta object literal for the '{@link org.palladiosimulator.spd.triggers.LogicalOperator <em>Logical Operator</em>}' enum.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see org.palladiosimulator.spd.triggers.THRESHOLDDIRECTION
-		 * @see org.palladiosimulator.spd.triggers.impl.TriggersPackageImpl#getTHRESHOLDDIRECTION()
+		 * @see org.palladiosimulator.spd.triggers.LogicalOperator
+		 * @see org.palladiosimulator.spd.triggers.impl.TriggersPackageImpl#getLogicalOperator()
 		 * @generated
 		 */
-		EEnum THRESHOLDDIRECTION = eINSTANCE.getTHRESHOLDDIRECTION();
+		EEnum LOGICAL_OPERATOR = eINSTANCE.getLogicalOperator();
+
+		/**
+		 * The meta object literal for the '{@link org.palladiosimulator.spd.triggers.RelationalOperator <em>Relational Operator</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.palladiosimulator.spd.triggers.RelationalOperator
+		 * @see org.palladiosimulator.spd.triggers.impl.TriggersPackageImpl#getRelationalOperator()
+		 * @generated
+		 */
+		EEnum RELATIONAL_OPERATOR = eINSTANCE.getRelationalOperator();
+
+		/**
+		 * The meta object literal for the '{@link org.palladiosimulator.spd.triggers.TrendPattern <em>Trend Pattern</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.palladiosimulator.spd.triggers.TrendPattern
+		 * @see org.palladiosimulator.spd.triggers.impl.TriggersPackageImpl#getTrendPattern()
+		 * @generated
+		 */
+		EEnum TREND_PATTERN = eINSTANCE.getTrendPattern();
 
 	}
 
