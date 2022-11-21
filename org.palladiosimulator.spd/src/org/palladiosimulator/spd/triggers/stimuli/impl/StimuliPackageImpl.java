@@ -3,58 +3,30 @@
  */
 package org.palladiosimulator.spd.triggers.stimuli.impl;
 
-import de.uka.ipd.sdq.identifier.IdentifierPackage;
-
-import de.uka.ipd.sdq.probfunction.ProbfunctionPackage;
-
-import de.uka.ipd.sdq.stoex.StoexPackage;
-
-import de.uka.ipd.sdq.units.UnitsPackage;
-
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.EcorePackage;
-
 import org.eclipse.emf.ecore.impl.EPackageImpl;
-
 import org.palladiosimulator.pcm.PcmPackage;
-
 import org.palladiosimulator.pcm.repository.RepositoryPackage;
-
 import org.palladiosimulator.spd.SpdPackage;
-
 import org.palladiosimulator.spd.adjustments.AdjustmentsPackage;
-
 import org.palladiosimulator.spd.adjustments.impl.AdjustmentsPackageImpl;
-
 import org.palladiosimulator.spd.constraints.ConstraintsPackage;
-
 import org.palladiosimulator.spd.constraints.impl.ConstraintsPackageImpl;
-
 import org.palladiosimulator.spd.constraints.policy.PolicyPackage;
-
 import org.palladiosimulator.spd.constraints.policy.impl.PolicyPackageImpl;
-
 import org.palladiosimulator.spd.constraints.target.TargetPackage;
-
 import org.palladiosimulator.spd.constraints.target.impl.TargetPackageImpl;
-
 import org.palladiosimulator.spd.impl.SpdPackageImpl;
-
 import org.palladiosimulator.spd.targets.TargetsPackage;
-
 import org.palladiosimulator.spd.targets.impl.TargetsPackageImpl;
-
 import org.palladiosimulator.spd.triggers.TriggersPackage;
-
 import org.palladiosimulator.spd.triggers.expectations.ExpectationsPackage;
-
 import org.palladiosimulator.spd.triggers.expectations.impl.ExpectationsPackageImpl;
-
 import org.palladiosimulator.spd.triggers.impl.TriggersPackageImpl;
-
 import org.palladiosimulator.spd.triggers.stimuli.CPUUtilization;
 import org.palladiosimulator.spd.triggers.stimuli.HDDUtilization;
 import org.palladiosimulator.spd.triggers.stimuli.ManagedElementsStateStimulus;
@@ -72,6 +44,11 @@ import org.palladiosimulator.spd.triggers.stimuli.StimuliPackage;
 import org.palladiosimulator.spd.triggers.stimuli.Stimulus;
 import org.palladiosimulator.spd.triggers.stimuli.TargetGroupStateStimulus;
 import org.palladiosimulator.spd.triggers.stimuli.TaskCount;
+
+import de.uka.ipd.sdq.identifier.IdentifierPackage;
+import de.uka.ipd.sdq.probfunction.ProbfunctionPackage;
+import de.uka.ipd.sdq.stoex.StoexPackage;
+import de.uka.ipd.sdq.units.UnitsPackage;
 
 /**
  * <!-- begin-user-doc -->
@@ -224,11 +201,14 @@ public class StimuliPackageImpl extends EPackageImpl implements StimuliPackage {
 	 * @generated
 	 */
 	public static StimuliPackage init() {
-		if (isInited) return (StimuliPackage)EPackage.Registry.INSTANCE.getEPackage(StimuliPackage.eNS_URI);
+		if (isInited)
+			return (StimuliPackage) EPackage.Registry.INSTANCE.getEPackage(StimuliPackage.eNS_URI);
 
 		// Obtain or create and register package
 		Object registeredStimuliPackage = EPackage.Registry.INSTANCE.get(eNS_URI);
-		StimuliPackageImpl theStimuliPackage = registeredStimuliPackage instanceof StimuliPackageImpl ? (StimuliPackageImpl)registeredStimuliPackage : new StimuliPackageImpl();
+		StimuliPackageImpl theStimuliPackage = registeredStimuliPackage instanceof StimuliPackageImpl
+				? (StimuliPackageImpl) registeredStimuliPackage
+				: new StimuliPackageImpl();
 
 		isInited = true;
 
@@ -242,21 +222,36 @@ public class StimuliPackageImpl extends EPackageImpl implements StimuliPackage {
 
 		// Obtain or create and register interdependencies
 		Object registeredPackage = EPackage.Registry.INSTANCE.getEPackage(SpdPackage.eNS_URI);
-		SpdPackageImpl theSpdPackage = (SpdPackageImpl)(registeredPackage instanceof SpdPackageImpl ? registeredPackage : SpdPackage.eINSTANCE);
+		SpdPackageImpl theSpdPackage = (SpdPackageImpl) (registeredPackage instanceof SpdPackageImpl ? registeredPackage
+				: SpdPackage.eINSTANCE);
 		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(TargetsPackage.eNS_URI);
-		TargetsPackageImpl theTargetsPackage = (TargetsPackageImpl)(registeredPackage instanceof TargetsPackageImpl ? registeredPackage : TargetsPackage.eINSTANCE);
+		TargetsPackageImpl theTargetsPackage = (TargetsPackageImpl) (registeredPackage instanceof TargetsPackageImpl
+				? registeredPackage
+				: TargetsPackage.eINSTANCE);
 		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(AdjustmentsPackage.eNS_URI);
-		AdjustmentsPackageImpl theAdjustmentsPackage = (AdjustmentsPackageImpl)(registeredPackage instanceof AdjustmentsPackageImpl ? registeredPackage : AdjustmentsPackage.eINSTANCE);
+		AdjustmentsPackageImpl theAdjustmentsPackage = (AdjustmentsPackageImpl) (registeredPackage instanceof AdjustmentsPackageImpl
+				? registeredPackage
+				: AdjustmentsPackage.eINSTANCE);
 		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(ConstraintsPackage.eNS_URI);
-		ConstraintsPackageImpl theConstraintsPackage = (ConstraintsPackageImpl)(registeredPackage instanceof ConstraintsPackageImpl ? registeredPackage : ConstraintsPackage.eINSTANCE);
+		ConstraintsPackageImpl theConstraintsPackage = (ConstraintsPackageImpl) (registeredPackage instanceof ConstraintsPackageImpl
+				? registeredPackage
+				: ConstraintsPackage.eINSTANCE);
 		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(PolicyPackage.eNS_URI);
-		PolicyPackageImpl thePolicyPackage = (PolicyPackageImpl)(registeredPackage instanceof PolicyPackageImpl ? registeredPackage : PolicyPackage.eINSTANCE);
+		PolicyPackageImpl thePolicyPackage = (PolicyPackageImpl) (registeredPackage instanceof PolicyPackageImpl
+				? registeredPackage
+				: PolicyPackage.eINSTANCE);
 		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(TargetPackage.eNS_URI);
-		TargetPackageImpl theTargetPackage = (TargetPackageImpl)(registeredPackage instanceof TargetPackageImpl ? registeredPackage : TargetPackage.eINSTANCE);
+		TargetPackageImpl theTargetPackage = (TargetPackageImpl) (registeredPackage instanceof TargetPackageImpl
+				? registeredPackage
+				: TargetPackage.eINSTANCE);
 		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(TriggersPackage.eNS_URI);
-		TriggersPackageImpl theTriggersPackage = (TriggersPackageImpl)(registeredPackage instanceof TriggersPackageImpl ? registeredPackage : TriggersPackage.eINSTANCE);
+		TriggersPackageImpl theTriggersPackage = (TriggersPackageImpl) (registeredPackage instanceof TriggersPackageImpl
+				? registeredPackage
+				: TriggersPackage.eINSTANCE);
 		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(ExpectationsPackage.eNS_URI);
-		ExpectationsPackageImpl theExpectationsPackage = (ExpectationsPackageImpl)(registeredPackage instanceof ExpectationsPackageImpl ? registeredPackage : ExpectationsPackage.eINSTANCE);
+		ExpectationsPackageImpl theExpectationsPackage = (ExpectationsPackageImpl) (registeredPackage instanceof ExpectationsPackageImpl
+				? registeredPackage
+				: ExpectationsPackage.eINSTANCE);
 
 		// Create package meta-data objects
 		theStimuliPackage.createPackageContents();
@@ -345,7 +340,7 @@ public class StimuliPackageImpl extends EPackageImpl implements StimuliPackage {
 	 */
 	@Override
 	public EReference getOperationResponseTime_OperationSignature() {
-		return (EReference)operationResponseTimeEClass.getEStructuralFeatures().get(0);
+		return (EReference) operationResponseTimeEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -375,7 +370,7 @@ public class StimuliPackageImpl extends EPackageImpl implements StimuliPackage {
 	 */
 	@Override
 	public EAttribute getManagedElementsStateStimulus_AggregationOverElements() {
-		return (EAttribute)managedElementsStateStimulusEClass.getEStructuralFeatures().get(0);
+		return (EAttribute) managedElementsStateStimulusEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -425,7 +420,7 @@ public class StimuliPackageImpl extends EPackageImpl implements StimuliPackage {
 	 */
 	@Override
 	public EAttribute getHDDUtilization_UsageType() {
-		return (EAttribute)hddUtilizationEClass.getEStructuralFeatures().get(0);
+		return (EAttribute) hddUtilizationEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -475,7 +470,7 @@ public class StimuliPackageImpl extends EPackageImpl implements StimuliPackage {
 	 */
 	@Override
 	public EAttribute getNetworkUtilization_UsageType() {
-		return (EAttribute)networkUtilizationEClass.getEStructuralFeatures().get(0);
+		return (EAttribute) networkUtilizationEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -485,7 +480,7 @@ public class StimuliPackageImpl extends EPackageImpl implements StimuliPackage {
 	 */
 	@Override
 	public StimuliFactory getStimuliFactory() {
-		return (StimuliFactory)getEFactoryInstance();
+		return (StimuliFactory) getEFactoryInstance();
 	}
 
 	/**
@@ -503,7 +498,8 @@ public class StimuliPackageImpl extends EPackageImpl implements StimuliPackage {
 	 * @generated
 	 */
 	public void createPackageContents() {
-		if (isCreated) return;
+		if (isCreated)
+			return;
 		isCreated = true;
 
 		// Create classes and their features
@@ -521,7 +517,8 @@ public class StimuliPackageImpl extends EPackageImpl implements StimuliPackage {
 		numberOfElementsEClass = createEClass(NUMBER_OF_ELEMENTS);
 
 		managedElementsStateStimulusEClass = createEClass(MANAGED_ELEMENTS_STATE_STIMULUS);
-		createEAttribute(managedElementsStateStimulusEClass, MANAGED_ELEMENTS_STATE_STIMULUS__AGGREGATION_OVER_ELEMENTS);
+		createEAttribute(managedElementsStateStimulusEClass,
+				MANAGED_ELEMENTS_STATE_STIMULUS__AGGREGATION_OVER_ELEMENTS);
 
 		cpuUtilizationEClass = createEClass(CPU_UTILIZATION);
 
@@ -557,7 +554,8 @@ public class StimuliPackageImpl extends EPackageImpl implements StimuliPackage {
 	 * @generated
 	 */
 	public void initializePackageContents() {
-		if (isInitialized) return;
+		if (isInitialized)
+			return;
 		isInitialized = true;
 
 		// Initialize package
@@ -566,8 +564,10 @@ public class StimuliPackageImpl extends EPackageImpl implements StimuliPackage {
 		setNsURI(eNS_URI);
 
 		// Obtain other dependent packages
-		RepositoryPackage theRepositoryPackage = (RepositoryPackage)EPackage.Registry.INSTANCE.getEPackage(RepositoryPackage.eNS_URI);
-		TriggersPackage theTriggersPackage = (TriggersPackage)EPackage.Registry.INSTANCE.getEPackage(TriggersPackage.eNS_URI);
+		RepositoryPackage theRepositoryPackage = (RepositoryPackage) EPackage.Registry.INSTANCE
+				.getEPackage(RepositoryPackage.eNS_URI);
+		TriggersPackage theTriggersPackage = (TriggersPackage) EPackage.Registry.INSTANCE
+				.getEPackage(TriggersPackage.eNS_URI);
 
 		// Create type parameters
 
@@ -589,40 +589,63 @@ public class StimuliPackageImpl extends EPackageImpl implements StimuliPackage {
 		queueLengthEClass.getESuperTypes().add(this.getSoruceInterfaceStimulus());
 		networkUtilizationEClass.getESuperTypes().add(this.getResourceUtilizationStimulus());
 
-		// Initialize classes, features, and operations; add parameters
+		// Initialize classes and features; add operations and parameters
 		initEClass(stimulusEClass, Stimulus.class, "Stimulus", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(targetGroupStateStimulusEClass, TargetGroupStateStimulus.class, "TargetGroupStateStimulus", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(targetGroupStateStimulusEClass, TargetGroupStateStimulus.class, "TargetGroupStateStimulus",
+				IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(simulationStateStimulusEClass, SimulationStateStimulus.class, "SimulationStateStimulus", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(simulationStateStimulusEClass, SimulationStateStimulus.class, "SimulationStateStimulus", IS_ABSTRACT,
+				!IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(soruceInterfaceStimulusEClass, SoruceInterfaceStimulus.class, "SoruceInterfaceStimulus", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(soruceInterfaceStimulusEClass, SoruceInterfaceStimulus.class, "SoruceInterfaceStimulus", IS_ABSTRACT,
+				!IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(operationResponseTimeEClass, OperationResponseTime.class, "OperationResponseTime", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getOperationResponseTime_OperationSignature(), theRepositoryPackage.getOperationSignature(), null, "operationSignature", null, 0, 1, OperationResponseTime.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(operationResponseTimeEClass, OperationResponseTime.class, "OperationResponseTime", !IS_ABSTRACT,
+				!IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getOperationResponseTime_OperationSignature(), theRepositoryPackage.getOperationSignature(),
+				null, "operationSignature", null, 0, 1, OperationResponseTime.class, !IS_TRANSIENT, !IS_VOLATILE,
+				IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(numberOfElementsEClass, NumberOfElements.class, "NumberOfElements", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(numberOfElementsEClass, NumberOfElements.class, "NumberOfElements", !IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(managedElementsStateStimulusEClass, ManagedElementsStateStimulus.class, "ManagedElementsStateStimulus", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getManagedElementsStateStimulus_AggregationOverElements(), theTriggersPackage.getAGGREGATIONMETHOD(), "aggregationOverElements", null, 0, 1, ManagedElementsStateStimulus.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(managedElementsStateStimulusEClass, ManagedElementsStateStimulus.class,
+				"ManagedElementsStateStimulus", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getManagedElementsStateStimulus_AggregationOverElements(),
+				theTriggersPackage.getAGGREGATIONMETHOD(), "aggregationOverElements", null, 0, 1,
+				ManagedElementsStateStimulus.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
+				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(cpuUtilizationEClass, CPUUtilization.class, "CPUUtilization", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(cpuUtilizationEClass, CPUUtilization.class, "CPUUtilization", !IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(memoryUtilizationEClass, MemoryUtilization.class, "MemoryUtilization", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(memoryUtilizationEClass, MemoryUtilization.class, "MemoryUtilization", !IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(simulationTimeEClass, SimulationTime.class, "SimulationTime", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(simulationTimeEClass, SimulationTime.class, "SimulationTime", !IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(hddUtilizationEClass, HDDUtilization.class, "HDDUtilization", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getHDDUtilization_UsageType(), theTriggersPackage.getHDDUSAGETYPE(), "usageType", null, 0, 1, HDDUtilization.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(hddUtilizationEClass, HDDUtilization.class, "HDDUtilization", !IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getHDDUtilization_UsageType(), theTriggersPackage.getHDDUSAGETYPE(), "usageType", null, 0, 1,
+				HDDUtilization.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+				!IS_DERIVED, IS_ORDERED);
 
-		initEClass(resourceUtilizationStimulusEClass, ResourceUtilizationStimulus.class, "ResourceUtilizationStimulus", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(resourceUtilizationStimulusEClass, ResourceUtilizationStimulus.class, "ResourceUtilizationStimulus",
+				IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(taskCountEClass, TaskCount.class, "TaskCount", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(taskCountEClass, TaskCount.class, "TaskCount", !IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(queueLengthEClass, QueueLength.class, "QueueLength", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(queueLengthEClass, QueueLength.class, "QueueLength", !IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(networkUtilizationEClass, NetworkUtilization.class, "NetworkUtilization", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getNetworkUtilization_UsageType(), theTriggersPackage.getNETWORKUSAGETYPE(), "usageType", null, 0, 1, NetworkUtilization.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(networkUtilizationEClass, NetworkUtilization.class, "NetworkUtilization", !IS_ABSTRACT,
+				!IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getNetworkUtilization_UsageType(), theTriggersPackage.getNETWORKUSAGETYPE(), "usageType", null,
+				0, 1, NetworkUtilization.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
+				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 	}
 
 } //StimuliPackageImpl

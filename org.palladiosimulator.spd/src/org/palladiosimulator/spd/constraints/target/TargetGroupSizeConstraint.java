@@ -3,7 +3,6 @@
  */
 package org.palladiosimulator.spd.constraints.target;
 
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Group Size Constraint</b></em>'.

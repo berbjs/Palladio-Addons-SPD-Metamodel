@@ -70,11 +70,7 @@ public enum NETWORKUSAGETYPE implements Enumerator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private static final NETWORKUSAGETYPE[] VALUES_ARRAY =
-		new NETWORKUSAGETYPE[] {
-			SEND,
-			RECEIVE,
-		};
+	private static final NETWORKUSAGETYPE[] VALUES_ARRAY = new NETWORKUSAGETYPE[] { SEND, RECEIVE, };
 
 	/**
 	 * A public read-only list of all the '<em><b>NETWORKUSAGETYPE</b></em>' enumerators.
@@ -93,8 +89,7 @@ public enum NETWORKUSAGETYPE implements Enumerator {
 	 * @generated
 	 */
 	public static NETWORKUSAGETYPE get(String literal) {
-		for (int i = 0; i < VALUES_ARRAY.length; ++i) {
-			NETWORKUSAGETYPE result = VALUES_ARRAY[i];
+		for (NETWORKUSAGETYPE result : VALUES_ARRAY) {
 			if (result.toString().equals(literal)) {
 				return result;
 			}
@@ -111,8 +106,7 @@ public enum NETWORKUSAGETYPE implements Enumerator {
 	 * @generated
 	 */
 	public static NETWORKUSAGETYPE getByName(String name) {
-		for (int i = 0; i < VALUES_ARRAY.length; ++i) {
-			NETWORKUSAGETYPE result = VALUES_ARRAY[i];
+		for (NETWORKUSAGETYPE result : VALUES_ARRAY) {
 			if (result.getName().equals(name)) {
 				return result;
 			}
@@ -130,8 +124,10 @@ public enum NETWORKUSAGETYPE implements Enumerator {
 	 */
 	public static NETWORKUSAGETYPE get(int value) {
 		switch (value) {
-			case SEND_VALUE: return SEND;
-			case RECEIVE_VALUE: return RECEIVE;
+		case SEND_VALUE:
+			return SEND;
+		case RECEIVE_VALUE:
+			return RECEIVE;
 		}
 		return null;
 	}
@@ -176,7 +172,7 @@ public enum NETWORKUSAGETYPE implements Enumerator {
 	 */
 	@Override
 	public int getValue() {
-	  return value;
+		return value;
 	}
 
 	/**
@@ -186,7 +182,7 @@ public enum NETWORKUSAGETYPE implements Enumerator {
 	 */
 	@Override
 	public String getName() {
-	  return name;
+		return name;
 	}
 
 	/**
@@ -196,7 +192,7 @@ public enum NETWORKUSAGETYPE implements Enumerator {
 	 */
 	@Override
 	public String getLiteral() {
-	  return literal;
+		return literal;
 	}
 
 	/**
@@ -209,5 +205,5 @@ public enum NETWORKUSAGETYPE implements Enumerator {
 	public String toString() {
 		return literal;
 	}
-	
+
 } //NETWORKUSAGETYPE

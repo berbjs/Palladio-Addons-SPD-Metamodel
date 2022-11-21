@@ -3,12 +3,7 @@
  */
 package org.palladiosimulator.spd.adjustments.impl;
 
-import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.ecore.EClass;
-
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
-
 import org.palladiosimulator.spd.adjustments.AbsoluteAdjustment;
 import org.palladiosimulator.spd.adjustments.AdjustmentsPackage;
 
@@ -37,16 +32,6 @@ public class AbsoluteAdjustmentImpl extends AdjustmentTypeImpl implements Absolu
 	protected static final int GOAL_VALUE_EDEFAULT = 0;
 
 	/**
-	 * The cached value of the '{@link #getGoalValue() <em>Goal Value</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getGoalValue()
-	 * @generated
-	 * @ordered
-	 */
-	protected int goalValue = GOAL_VALUE_EDEFAULT;
-
-	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -72,7 +57,8 @@ public class AbsoluteAdjustmentImpl extends AdjustmentTypeImpl implements Absolu
 	 */
 	@Override
 	public int getGoalValue() {
-		return goalValue;
+		return (Integer) eDynamicGet(AdjustmentsPackage.ABSOLUTE_ADJUSTMENT__GOAL_VALUE,
+				AdjustmentsPackage.Literals.ABSOLUTE_ADJUSTMENT__GOAL_VALUE, true, true);
 	}
 
 	/**
@@ -82,10 +68,8 @@ public class AbsoluteAdjustmentImpl extends AdjustmentTypeImpl implements Absolu
 	 */
 	@Override
 	public void setGoalValue(int newGoalValue) {
-		int oldGoalValue = goalValue;
-		goalValue = newGoalValue;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, AdjustmentsPackage.ABSOLUTE_ADJUSTMENT__GOAL_VALUE, oldGoalValue, goalValue));
+		eDynamicSet(AdjustmentsPackage.ABSOLUTE_ADJUSTMENT__GOAL_VALUE,
+				AdjustmentsPackage.Literals.ABSOLUTE_ADJUSTMENT__GOAL_VALUE, newGoalValue);
 	}
 
 	/**
@@ -96,8 +80,8 @@ public class AbsoluteAdjustmentImpl extends AdjustmentTypeImpl implements Absolu
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case AdjustmentsPackage.ABSOLUTE_ADJUSTMENT__GOAL_VALUE:
-				return getGoalValue();
+		case AdjustmentsPackage.ABSOLUTE_ADJUSTMENT__GOAL_VALUE:
+			return getGoalValue();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -110,9 +94,9 @@ public class AbsoluteAdjustmentImpl extends AdjustmentTypeImpl implements Absolu
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case AdjustmentsPackage.ABSOLUTE_ADJUSTMENT__GOAL_VALUE:
-				setGoalValue((Integer)newValue);
-				return;
+		case AdjustmentsPackage.ABSOLUTE_ADJUSTMENT__GOAL_VALUE:
+			setGoalValue((Integer) newValue);
+			return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -125,9 +109,9 @@ public class AbsoluteAdjustmentImpl extends AdjustmentTypeImpl implements Absolu
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case AdjustmentsPackage.ABSOLUTE_ADJUSTMENT__GOAL_VALUE:
-				setGoalValue(GOAL_VALUE_EDEFAULT);
-				return;
+		case AdjustmentsPackage.ABSOLUTE_ADJUSTMENT__GOAL_VALUE:
+			setGoalValue(GOAL_VALUE_EDEFAULT);
+			return;
 		}
 		super.eUnset(featureID);
 	}
@@ -140,26 +124,10 @@ public class AbsoluteAdjustmentImpl extends AdjustmentTypeImpl implements Absolu
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case AdjustmentsPackage.ABSOLUTE_ADJUSTMENT__GOAL_VALUE:
-				return goalValue != GOAL_VALUE_EDEFAULT;
+		case AdjustmentsPackage.ABSOLUTE_ADJUSTMENT__GOAL_VALUE:
+			return getGoalValue() != GOAL_VALUE_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String toString() {
-		if (eIsProxy()) return super.toString();
-
-		StringBuilder result = new StringBuilder(super.toString());
-		result.append(" (goalValue: ");
-		result.append(goalValue);
-		result.append(')');
-		return result.toString();
 	}
 
 } //AbsoluteAdjustmentImpl

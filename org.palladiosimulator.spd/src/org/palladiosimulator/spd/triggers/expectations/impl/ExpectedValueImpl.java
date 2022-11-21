@@ -4,9 +4,7 @@
 package org.palladiosimulator.spd.triggers.expectations.impl;
 
 import org.eclipse.emf.ecore.EClass;
-
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
+import org.eclipse.emf.internal.cdo.CDOObjectImpl;
 import org.palladiosimulator.spd.triggers.expectations.ExpectationsPackage;
 import org.palladiosimulator.spd.triggers.expectations.ExpectedValue;
 
@@ -17,7 +15,7 @@ import org.palladiosimulator.spd.triggers.expectations.ExpectedValue;
  *
  * @generated
  */
-public abstract class ExpectedValueImpl extends MinimalEObjectImpl.Container implements ExpectedValue {
+public abstract class ExpectedValueImpl extends CDOObjectImpl implements ExpectedValue {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -35,6 +33,16 @@ public abstract class ExpectedValueImpl extends MinimalEObjectImpl.Container imp
 	@Override
 	protected EClass eStaticClass() {
 		return ExpectationsPackage.Literals.EXPECTED_VALUE;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	protected int eStaticFeatureCount() {
+		return 0;
 	}
 
 } //ExpectedValueImpl

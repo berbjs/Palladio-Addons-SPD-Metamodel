@@ -9,19 +9,16 @@ import java.util.Collection;
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.Notifier;
-
 import org.eclipse.emf.edit.provider.ChangeNotifier;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
 import org.eclipse.emf.edit.provider.IChangeNotifier;
-import org.eclipse.emf.edit.provider.IDisposable;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.INotifyChangedListener;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
-
 import org.palladiosimulator.spd.util.SpdAdapterFactory;
 
 /**
@@ -33,7 +30,8 @@ import org.palladiosimulator.spd.util.SpdAdapterFactory;
  * <!-- end-user-doc -->
  * @generated
  */
-public class SpdItemProviderAdapterFactory extends SpdAdapterFactory implements ComposeableAdapterFactory, IChangeNotifier, IDisposable {
+public class SpdItemProviderAdapterFactory extends SpdAdapterFactory
+		implements ComposeableAdapterFactory, IChangeNotifier {
 	/**
 	 * This keeps track of the root adapter factory that delegates to this adapter factory.
 	 * <!-- begin-user-doc -->
@@ -56,7 +54,7 @@ public class SpdItemProviderAdapterFactory extends SpdAdapterFactory implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected Collection<Object> supportedTypes = new ArrayList<Object>();
+	protected Collection<Object> supportedTypes = new ArrayList<>();
 
 	/**
 	 * This constructs an instance.
@@ -170,7 +168,7 @@ public class SpdItemProviderAdapterFactory extends SpdAdapterFactory implements 
 	public Object adapt(Object object, Object type) {
 		if (isFactoryForType(type)) {
 			Object adapter = super.adapt(object, type);
-			if (!(type instanceof Class<?>) || (((Class<?>)type).isInstance(adapter))) {
+			if (!(type instanceof Class<?>) || (((Class<?>) type).isInstance(adapter))) {
 				return adapter;
 			}
 		}
@@ -213,18 +211,6 @@ public class SpdItemProviderAdapterFactory extends SpdAdapterFactory implements 
 		if (parentAdapterFactory != null) {
 			parentAdapterFactory.fireNotifyChanged(notification);
 		}
-	}
-
-	/**
-	 * This disposes all of the item providers created by this factory. 
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void dispose() {
-		if (scalingPolicyItemProvider != null) scalingPolicyItemProvider.dispose();
-		if (spdItemProvider != null) spdItemProvider.dispose();
 	}
 
 }

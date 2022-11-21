@@ -5,12 +5,17 @@ package org.palladiosimulator.spd.util;
 
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
-
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
-
 import org.eclipse.emf.ecore.EObject;
+import org.palladiosimulator.pcm.PCMBaseClass;
+import org.palladiosimulator.pcm.PCMClass;
+import org.palladiosimulator.pcm.core.entity.Entity;
+import org.palladiosimulator.pcm.core.entity.NamedElement;
+import org.palladiosimulator.spd.SPD;
+import org.palladiosimulator.spd.ScalingPolicy;
+import org.palladiosimulator.spd.SpdPackage;
 
-import org.palladiosimulator.spd.*;
+import de.uka.ipd.sdq.identifier.Identifier;
 
 /**
  * <!-- begin-user-doc -->
@@ -55,7 +60,7 @@ public class SpdAdapterFactory extends AdapterFactoryImpl {
 			return true;
 		}
 		if (object instanceof EObject) {
-			return ((EObject)object).eClass().getEPackage() == modelPackage;
+			return ((EObject) object).eClass().getEPackage() == modelPackage;
 		}
 		return false;
 	}
@@ -66,25 +71,47 @@ public class SpdAdapterFactory extends AdapterFactoryImpl {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected SpdSwitch<Adapter> modelSwitch =
-		new SpdSwitch<Adapter>() {
-			@Override
-			public Adapter caseScalingPolicy(ScalingPolicy object) {
-				return createScalingPolicyAdapter();
-			}
-			@Override
-			public Adapter caseSPD(SPD object) {
-				return createSPDAdapter();
-			}
-			@Override
-			public Adapter caseNamedElement(NamedElement object) {
-				return createNamedElementAdapter();
-			}
-			@Override
-			public Adapter defaultCase(EObject object) {
-				return createEObjectAdapter();
-			}
-		};
+	protected SpdSwitch<Adapter> modelSwitch = new SpdSwitch<>() {
+		@Override
+		public Adapter caseScalingPolicy(ScalingPolicy object) {
+			return createScalingPolicyAdapter();
+		}
+
+		@Override
+		public Adapter caseSPD(SPD object) {
+			return createSPDAdapter();
+		}
+
+		@Override
+		public Adapter caseIdentifier(Identifier object) {
+			return createIdentifierAdapter();
+		}
+
+		@Override
+		public Adapter casePCMClass(PCMClass object) {
+			return createPCMClassAdapter();
+		}
+
+		@Override
+		public Adapter casePCMBaseClass(PCMBaseClass object) {
+			return createPCMBaseClassAdapter();
+		}
+
+		@Override
+		public Adapter caseNamedElement(NamedElement object) {
+			return createNamedElementAdapter();
+		}
+
+		@Override
+		public Adapter caseEntity(Entity object) {
+			return createEntityAdapter();
+		}
+
+		@Override
+		public Adapter defaultCase(EObject object) {
+			return createEObjectAdapter();
+		}
+	};
 
 	/**
 	 * Creates an adapter for the <code>target</code>.
@@ -96,9 +123,8 @@ public class SpdAdapterFactory extends AdapterFactoryImpl {
 	 */
 	@Override
 	public Adapter createAdapter(Notifier target) {
-		return modelSwitch.doSwitch((EObject)target);
+		return modelSwitch.doSwitch((EObject) target);
 	}
-
 
 	/**
 	 * Creates a new adapter for an object of class '{@link org.palladiosimulator.spd.ScalingPolicy <em>Scaling Policy</em>}'.
@@ -129,16 +155,72 @@ public class SpdAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.palladiosimulator.spd.NamedElement <em>Named Element</em>}'.
+	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.identifier.Identifier <em>Identifier</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.palladiosimulator.spd.NamedElement
+	 * @see de.uka.ipd.sdq.identifier.Identifier
+	 * @generated
+	 */
+	public Adapter createIdentifierAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.palladiosimulator.pcm.PCMClass <em>PCM Class</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.palladiosimulator.pcm.PCMClass
+	 * @generated
+	 */
+	public Adapter createPCMClassAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.palladiosimulator.pcm.PCMBaseClass <em>PCM Base Class</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.palladiosimulator.pcm.PCMBaseClass
+	 * @generated
+	 */
+	public Adapter createPCMBaseClassAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.palladiosimulator.pcm.core.entity.NamedElement <em>Named Element</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.palladiosimulator.pcm.core.entity.NamedElement
 	 * @generated
 	 */
 	public Adapter createNamedElementAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.palladiosimulator.pcm.core.entity.Entity <em>Entity</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.palladiosimulator.pcm.core.entity.Entity
+	 * @generated
+	 */
+	public Adapter createEntityAdapter() {
 		return null;
 	}
 

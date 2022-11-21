@@ -3,12 +3,7 @@
  */
 package org.palladiosimulator.spd.constraints.policy.impl;
 
-import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.ecore.EClass;
-
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
-
 import org.palladiosimulator.spd.constraints.policy.PolicyPackage;
 import org.palladiosimulator.spd.constraints.policy.ThrashingConstraint;
 
@@ -37,16 +32,6 @@ public class ThrashingConstraintImpl extends TemporalConstraintImpl implements T
 	protected static final double MINIMUM_TIME_NO_THRASHING_EDEFAULT = 0.0;
 
 	/**
-	 * The cached value of the '{@link #getMinimumTimeNoThrashing() <em>Minimum Time No Thrashing</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getMinimumTimeNoThrashing()
-	 * @generated
-	 * @ordered
-	 */
-	protected double minimumTimeNoThrashing = MINIMUM_TIME_NO_THRASHING_EDEFAULT;
-
-	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -72,7 +57,8 @@ public class ThrashingConstraintImpl extends TemporalConstraintImpl implements T
 	 */
 	@Override
 	public double getMinimumTimeNoThrashing() {
-		return minimumTimeNoThrashing;
+		return (Double) eDynamicGet(PolicyPackage.THRASHING_CONSTRAINT__MINIMUM_TIME_NO_THRASHING,
+				PolicyPackage.Literals.THRASHING_CONSTRAINT__MINIMUM_TIME_NO_THRASHING, true, true);
 	}
 
 	/**
@@ -82,10 +68,8 @@ public class ThrashingConstraintImpl extends TemporalConstraintImpl implements T
 	 */
 	@Override
 	public void setMinimumTimeNoThrashing(double newMinimumTimeNoThrashing) {
-		double oldMinimumTimeNoThrashing = minimumTimeNoThrashing;
-		minimumTimeNoThrashing = newMinimumTimeNoThrashing;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PolicyPackage.THRASHING_CONSTRAINT__MINIMUM_TIME_NO_THRASHING, oldMinimumTimeNoThrashing, minimumTimeNoThrashing));
+		eDynamicSet(PolicyPackage.THRASHING_CONSTRAINT__MINIMUM_TIME_NO_THRASHING,
+				PolicyPackage.Literals.THRASHING_CONSTRAINT__MINIMUM_TIME_NO_THRASHING, newMinimumTimeNoThrashing);
 	}
 
 	/**
@@ -96,8 +80,8 @@ public class ThrashingConstraintImpl extends TemporalConstraintImpl implements T
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case PolicyPackage.THRASHING_CONSTRAINT__MINIMUM_TIME_NO_THRASHING:
-				return getMinimumTimeNoThrashing();
+		case PolicyPackage.THRASHING_CONSTRAINT__MINIMUM_TIME_NO_THRASHING:
+			return getMinimumTimeNoThrashing();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -110,9 +94,9 @@ public class ThrashingConstraintImpl extends TemporalConstraintImpl implements T
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case PolicyPackage.THRASHING_CONSTRAINT__MINIMUM_TIME_NO_THRASHING:
-				setMinimumTimeNoThrashing((Double)newValue);
-				return;
+		case PolicyPackage.THRASHING_CONSTRAINT__MINIMUM_TIME_NO_THRASHING:
+			setMinimumTimeNoThrashing((Double) newValue);
+			return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -125,9 +109,9 @@ public class ThrashingConstraintImpl extends TemporalConstraintImpl implements T
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case PolicyPackage.THRASHING_CONSTRAINT__MINIMUM_TIME_NO_THRASHING:
-				setMinimumTimeNoThrashing(MINIMUM_TIME_NO_THRASHING_EDEFAULT);
-				return;
+		case PolicyPackage.THRASHING_CONSTRAINT__MINIMUM_TIME_NO_THRASHING:
+			setMinimumTimeNoThrashing(MINIMUM_TIME_NO_THRASHING_EDEFAULT);
+			return;
 		}
 		super.eUnset(featureID);
 	}
@@ -140,26 +124,10 @@ public class ThrashingConstraintImpl extends TemporalConstraintImpl implements T
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case PolicyPackage.THRASHING_CONSTRAINT__MINIMUM_TIME_NO_THRASHING:
-				return minimumTimeNoThrashing != MINIMUM_TIME_NO_THRASHING_EDEFAULT;
+		case PolicyPackage.THRASHING_CONSTRAINT__MINIMUM_TIME_NO_THRASHING:
+			return getMinimumTimeNoThrashing() != MINIMUM_TIME_NO_THRASHING_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String toString() {
-		if (eIsProxy()) return super.toString();
-
-		StringBuilder result = new StringBuilder(super.toString());
-		result.append(" (minimumTimeNoThrashing: ");
-		result.append(minimumTimeNoThrashing);
-		result.append(')');
-		return result.toString();
 	}
 
 } //ThrashingConstraintImpl

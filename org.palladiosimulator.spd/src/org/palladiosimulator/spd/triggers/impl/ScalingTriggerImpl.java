@@ -4,11 +4,10 @@
 package org.palladiosimulator.spd.triggers.impl;
 
 import org.eclipse.emf.ecore.EClass;
-
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
 import org.palladiosimulator.spd.triggers.ScalingTrigger;
 import org.palladiosimulator.spd.triggers.TriggersPackage;
+
+import de.uka.ipd.sdq.identifier.impl.IdentifierImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -17,7 +16,7 @@ import org.palladiosimulator.spd.triggers.TriggersPackage;
  *
  * @generated
  */
-public abstract class ScalingTriggerImpl extends MinimalEObjectImpl.Container implements ScalingTrigger {
+public abstract class ScalingTriggerImpl extends IdentifierImpl implements ScalingTrigger {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

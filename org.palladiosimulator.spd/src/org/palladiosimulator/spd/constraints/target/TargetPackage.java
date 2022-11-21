@@ -6,7 +6,6 @@ package org.palladiosimulator.spd.constraints.target;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
-
 import org.palladiosimulator.spd.constraints.ConstraintsPackage;
 
 /**
@@ -16,7 +15,6 @@ import org.palladiosimulator.spd.constraints.ConstraintsPackage;
  * <ul>
  *   <li>each class,</li>
  *   <li>each feature of each class,</li>
- *   <li>each operation of each class,</li>
  *   <li>each enum,</li>
  *   <li>and each data type</li>
  * </ul>
@@ -69,6 +67,15 @@ public interface TargetPackage extends EPackage {
 	int TARGET_CONSTRAINT = 0;
 
 	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TARGET_CONSTRAINT__ID = ConstraintsPackage.ABSTRACT_CONSTRAINT__ID;
+
+	/**
 	 * The number of structural features of the '<em>Constraint</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -76,15 +83,6 @@ public interface TargetPackage extends EPackage {
 	 * @ordered
 	 */
 	int TARGET_CONSTRAINT_FEATURE_COUNT = ConstraintsPackage.ABSTRACT_CONSTRAINT_FEATURE_COUNT + 0;
-
-	/**
-	 * The number of operations of the '<em>Constraint</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TARGET_CONSTRAINT_OPERATION_COUNT = ConstraintsPackage.ABSTRACT_CONSTRAINT_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link org.palladiosimulator.spd.constraints.target.impl.TargetGroupSizeConstraintImpl <em>Group Size Constraint</em>}' class.
@@ -95,6 +93,15 @@ public interface TargetPackage extends EPackage {
 	 * @generated
 	 */
 	int TARGET_GROUP_SIZE_CONSTRAINT = 1;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TARGET_GROUP_SIZE_CONSTRAINT__ID = TARGET_CONSTRAINT__ID;
 
 	/**
 	 * The feature id for the '<em><b>Min Size</b></em>' attribute.
@@ -122,16 +129,6 @@ public interface TargetPackage extends EPackage {
 	 * @ordered
 	 */
 	int TARGET_GROUP_SIZE_CONSTRAINT_FEATURE_COUNT = TARGET_CONSTRAINT_FEATURE_COUNT + 2;
-
-	/**
-	 * The number of operations of the '<em>Group Size Constraint</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TARGET_GROUP_SIZE_CONSTRAINT_OPERATION_COUNT = TARGET_CONSTRAINT_OPERATION_COUNT + 0;
-
 
 	/**
 	 * Returns the meta object for class '{@link org.palladiosimulator.spd.constraints.target.TargetConstraint <em>Constraint</em>}'.
@@ -190,7 +187,6 @@ public interface TargetPackage extends EPackage {
 	 * <ul>
 	 *   <li>each class,</li>
 	 *   <li>each feature of each class,</li>
-	 *   <li>each operation of each class,</li>
 	 *   <li>each enum,</li>
 	 *   <li>and each data type</li>
 	 * </ul>

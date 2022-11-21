@@ -6,12 +6,11 @@ package org.palladiosimulator.spd.constraints.target.impl;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
-
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
-
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
-
-import org.palladiosimulator.spd.constraints.target.*;
+import org.palladiosimulator.spd.constraints.target.TargetFactory;
+import org.palladiosimulator.spd.constraints.target.TargetGroupSizeConstraint;
+import org.palladiosimulator.spd.constraints.target.TargetPackage;
 
 /**
  * <!-- begin-user-doc -->
@@ -28,12 +27,12 @@ public class TargetFactoryImpl extends EFactoryImpl implements TargetFactory {
 	 */
 	public static TargetFactory init() {
 		try {
-			TargetFactory theTargetFactory = (TargetFactory)EPackage.Registry.INSTANCE.getEFactory(TargetPackage.eNS_URI);
+			TargetFactory theTargetFactory = (TargetFactory) EPackage.Registry.INSTANCE
+					.getEFactory(TargetPackage.eNS_URI);
 			if (theTargetFactory != null) {
 				return theTargetFactory;
 			}
-		}
-		catch (Exception exception) {
+		} catch (Exception exception) {
 			EcorePlugin.INSTANCE.log(exception);
 		}
 		return new TargetFactoryImpl();
@@ -57,9 +56,10 @@ public class TargetFactoryImpl extends EFactoryImpl implements TargetFactory {
 	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
-			case TargetPackage.TARGET_GROUP_SIZE_CONSTRAINT: return createTargetGroupSizeConstraint();
-			default:
-				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
+		case TargetPackage.TARGET_GROUP_SIZE_CONSTRAINT:
+			return createTargetGroupSizeConstraint();
+		default:
+			throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
 	}
 
@@ -81,7 +81,7 @@ public class TargetFactoryImpl extends EFactoryImpl implements TargetFactory {
 	 */
 	@Override
 	public TargetPackage getTargetPackage() {
-		return (TargetPackage)getEPackage();
+		return (TargetPackage) getEPackage();
 	}
 
 	/**

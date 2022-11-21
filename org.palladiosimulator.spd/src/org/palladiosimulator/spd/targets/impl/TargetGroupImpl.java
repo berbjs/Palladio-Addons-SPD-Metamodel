@@ -6,19 +6,12 @@ package org.palladiosimulator.spd.targets.impl;
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
-
+import org.palladiosimulator.pcm.core.entity.impl.EntityImpl;
 import org.palladiosimulator.spd.constraints.target.TargetConstraint;
-
-import org.palladiosimulator.spd.impl.NamedElementImpl;
-
 import org.palladiosimulator.spd.targets.TargetGroup;
 import org.palladiosimulator.spd.targets.TargetsPackage;
 
@@ -35,17 +28,7 @@ import org.palladiosimulator.spd.targets.TargetsPackage;
  *
  * @generated
  */
-public abstract class TargetGroupImpl extends NamedElementImpl implements TargetGroup {
-	/**
-	 * The cached value of the '{@link #getTargetConstraints() <em>Target Constraints</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getTargetConstraints()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<TargetConstraint> targetConstraints;
-
+public abstract class TargetGroupImpl extends EntityImpl implements TargetGroup {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -70,12 +53,11 @@ public abstract class TargetGroupImpl extends NamedElementImpl implements Target
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public EList<TargetConstraint> getTargetConstraints() {
-		if (targetConstraints == null) {
-			targetConstraints = new EObjectContainmentEList<TargetConstraint>(TargetConstraint.class, this, TargetsPackage.TARGET_GROUP__TARGET_CONSTRAINTS);
-		}
-		return targetConstraints;
+		return (EList<TargetConstraint>) eDynamicGet(TargetsPackage.TARGET_GROUP__TARGET_CONSTRAINTS,
+				TargetsPackage.Literals.TARGET_GROUP__TARGET_CONSTRAINTS, true, true);
 	}
 
 	/**
@@ -86,8 +68,8 @@ public abstract class TargetGroupImpl extends NamedElementImpl implements Target
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case TargetsPackage.TARGET_GROUP__TARGET_CONSTRAINTS:
-				return ((InternalEList<?>)getTargetConstraints()).basicRemove(otherEnd, msgs);
+		case TargetsPackage.TARGET_GROUP__TARGET_CONSTRAINTS:
+			return ((InternalEList<?>) getTargetConstraints()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -100,8 +82,8 @@ public abstract class TargetGroupImpl extends NamedElementImpl implements Target
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case TargetsPackage.TARGET_GROUP__TARGET_CONSTRAINTS:
-				return getTargetConstraints();
+		case TargetsPackage.TARGET_GROUP__TARGET_CONSTRAINTS:
+			return getTargetConstraints();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -115,10 +97,10 @@ public abstract class TargetGroupImpl extends NamedElementImpl implements Target
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case TargetsPackage.TARGET_GROUP__TARGET_CONSTRAINTS:
-				getTargetConstraints().clear();
-				getTargetConstraints().addAll((Collection<? extends TargetConstraint>)newValue);
-				return;
+		case TargetsPackage.TARGET_GROUP__TARGET_CONSTRAINTS:
+			getTargetConstraints().clear();
+			getTargetConstraints().addAll((Collection<? extends TargetConstraint>) newValue);
+			return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -131,9 +113,9 @@ public abstract class TargetGroupImpl extends NamedElementImpl implements Target
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case TargetsPackage.TARGET_GROUP__TARGET_CONSTRAINTS:
-				getTargetConstraints().clear();
-				return;
+		case TargetsPackage.TARGET_GROUP__TARGET_CONSTRAINTS:
+			getTargetConstraints().clear();
+			return;
 		}
 		super.eUnset(featureID);
 	}
@@ -146,8 +128,8 @@ public abstract class TargetGroupImpl extends NamedElementImpl implements Target
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case TargetsPackage.TARGET_GROUP__TARGET_CONSTRAINTS:
-				return targetConstraints != null && !targetConstraints.isEmpty();
+		case TargetsPackage.TARGET_GROUP__TARGET_CONSTRAINTS:
+			return !getTargetConstraints().isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

@@ -3,19 +3,15 @@
  */
 package org.palladiosimulator.spd.constraints.policy.provider;
 
-
 import java.util.Collection;
 import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.common.util.ResourceLocator;
-
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
-
+import org.palladiosimulator.spd.constraints.policy.PolicyConstraint;
 import org.palladiosimulator.spd.constraints.provider.AbstractConstraintItemProvider;
-
 import org.palladiosimulator.spd.provider.ScalingPolicyDefinitionEditPlugin;
 
 /**
@@ -58,9 +54,10 @@ public class PolicyConstraintItemProvider extends AbstractConstraintItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_PolicyConstraint_type");
+		String label = ((PolicyConstraint) object).getId();
+		return label == null || label.length() == 0 ? getString("_UI_PolicyConstraint_type")
+				: getString("_UI_PolicyConstraint_type") + " " + label;
 	}
-
 
 	/**
 	 * This handles model notifications by calling {@link #updateChildren} to update any cached

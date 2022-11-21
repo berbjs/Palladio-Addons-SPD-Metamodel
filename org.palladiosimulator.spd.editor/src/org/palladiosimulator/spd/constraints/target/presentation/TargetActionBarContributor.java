@@ -7,17 +7,14 @@ import java.util.ArrayList;
 import java.util.Collection;
 
 import org.eclipse.emf.common.ui.viewer.IViewerProvider;
-
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.edit.domain.IEditingDomainProvider;
-
 import org.eclipse.emf.edit.ui.action.ControlAction;
 import org.eclipse.emf.edit.ui.action.CreateChildAction;
 import org.eclipse.emf.edit.ui.action.CreateSiblingAction;
 import org.eclipse.emf.edit.ui.action.EditingDomainActionBarContributor;
 import org.eclipse.emf.edit.ui.action.LoadResourceAction;
 import org.eclipse.emf.edit.ui.action.ValidateAction;
-
 import org.eclipse.jface.action.Action;
 import org.eclipse.jface.action.ActionContributionItem;
 import org.eclipse.jface.action.IAction;
@@ -29,17 +26,14 @@ import org.eclipse.jface.action.IToolBarManager;
 import org.eclipse.jface.action.MenuManager;
 import org.eclipse.jface.action.Separator;
 import org.eclipse.jface.action.SubContributionItem;
-
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.ISelectionChangedListener;
 import org.eclipse.jface.viewers.ISelectionProvider;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.viewers.SelectionChangedEvent;
 import org.eclipse.jface.viewers.Viewer;
-
 import org.eclipse.ui.IEditorPart;
 import org.eclipse.ui.PartInitException;
-
 import org.palladiosimulator.spd.presentation.ScalingPolicyDefinitionEditorPlugin;
 
 /**
@@ -48,9 +42,7 @@ import org.palladiosimulator.spd.presentation.ScalingPolicyDefinitionEditorPlugi
  * <!-- end-user-doc -->
  * @generated
  */
-public class TargetActionBarContributor
-	extends EditingDomainActionBarContributor
-	implements ISelectionChangedListener {
+public class TargetActionBarContributor extends EditingDomainActionBarContributor implements ISelectionChangedListener {
 	/**
 	 * This keeps track of the active editor.
 	 * <!-- begin-user-doc -->
@@ -73,18 +65,17 @@ public class TargetActionBarContributor
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected IAction showPropertiesViewAction =
-		new Action(ScalingPolicyDefinitionEditorPlugin.INSTANCE.getString("_UI_ShowPropertiesView_menu_item")) {
-			@Override
-			public void run() {
-				try {
-					getPage().showView("org.eclipse.ui.views.PropertySheet");
-				}
-				catch (PartInitException exception) {
-					ScalingPolicyDefinitionEditorPlugin.INSTANCE.log(exception);
-				}
+	protected IAction showPropertiesViewAction = new Action(
+			ScalingPolicyDefinitionEditorPlugin.INSTANCE.getString("_UI_ShowPropertiesView_menu_item")) {
+		@Override
+		public void run() {
+			try {
+				getPage().showView("org.eclipse.ui.views.PropertySheet");
+			} catch (PartInitException exception) {
+				ScalingPolicyDefinitionEditorPlugin.INSTANCE.log(exception);
 			}
-		};
+		}
+	};
 
 	/**
 	 * This action refreshes the viewer of the current editor if the editor
@@ -93,23 +84,23 @@ public class TargetActionBarContributor
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected IAction refreshViewerAction =
-		new Action(ScalingPolicyDefinitionEditorPlugin.INSTANCE.getString("_UI_RefreshViewer_menu_item")) {
-			@Override
-			public boolean isEnabled() {
-				return activeEditorPart instanceof IViewerProvider;
-			}
+	protected IAction refreshViewerAction = new Action(
+			ScalingPolicyDefinitionEditorPlugin.INSTANCE.getString("_UI_RefreshViewer_menu_item")) {
+		@Override
+		public boolean isEnabled() {
+			return activeEditorPart instanceof IViewerProvider;
+		}
 
-			@Override
-			public void run() {
-				if (activeEditorPart instanceof IViewerProvider) {
-					Viewer viewer = ((IViewerProvider)activeEditorPart).getViewer();
-					if (viewer != null) {
-						viewer.refresh();
-					}
+		@Override
+		public void run() {
+			if (activeEditorPart instanceof IViewerProvider) {
+				Viewer viewer = ((IViewerProvider) activeEditorPart).getViewer();
+				if (viewer != null) {
+					viewer.refresh();
 				}
 			}
-		};
+		}
+	};
 
 	/**
 	 * This will contain one {@link org.eclipse.emf.edit.ui.action.CreateChildAction} corresponding to each descriptor
@@ -182,7 +173,9 @@ public class TargetActionBarContributor
 	public void contributeToMenu(IMenuManager menuManager) {
 		super.contributeToMenu(menuManager);
 
-		IMenuManager submenuManager = new MenuManager(ScalingPolicyDefinitionEditorPlugin.INSTANCE.getString("_UI_TargetEditor_menu"), "org.palladiosimulator.spd.constraints.targetMenuID");
+		IMenuManager submenuManager = new MenuManager(
+				ScalingPolicyDefinitionEditorPlugin.INSTANCE.getString("_UI_TargetEditor_menu"),
+				"org.palladiosimulator.spd.constraints.targetMenuID");
 		menuManager.insertAfter("additions", submenuManager);
 		submenuManager.add(new Separator("settings"));
 		submenuManager.add(new Separator("actions"));
@@ -191,23 +184,24 @@ public class TargetActionBarContributor
 
 		// Prepare for CreateChild item addition or removal.
 		//
-		createChildMenuManager = new MenuManager(ScalingPolicyDefinitionEditorPlugin.INSTANCE.getString("_UI_CreateChild_menu_item"));
+		createChildMenuManager = new MenuManager(
+				ScalingPolicyDefinitionEditorPlugin.INSTANCE.getString("_UI_CreateChild_menu_item"));
 		submenuManager.insertBefore("additions", createChildMenuManager);
 
 		// Prepare for CreateSibling item addition or removal.
 		//
-		createSiblingMenuManager = new MenuManager(ScalingPolicyDefinitionEditorPlugin.INSTANCE.getString("_UI_CreateSibling_menu_item"));
+		createSiblingMenuManager = new MenuManager(
+				ScalingPolicyDefinitionEditorPlugin.INSTANCE.getString("_UI_CreateSibling_menu_item"));
 		submenuManager.insertBefore("additions", createSiblingMenuManager);
 
 		// Force an update because Eclipse hides empty menus now.
 		//
-		submenuManager.addMenuListener
-			(new IMenuListener() {
-				 @Override
-				 public void menuAboutToShow(IMenuManager menuManager) {
-					 menuManager.updateAll(true);
-				 }
-			 });
+		submenuManager.addMenuListener(new IMenuListener() {
+			@Override
+			public void menuAboutToShow(IMenuManager menuManager) {
+				menuManager.updateAll(true);
+			}
+		});
 
 		addGlobalActions(submenuManager);
 	}
@@ -230,8 +224,7 @@ public class TargetActionBarContributor
 		}
 		if (part == null) {
 			selectionProvider = null;
-		}
-		else {
+		} else {
 			selectionProvider = part.getSite().getSelectionProvider();
 			selectionProvider.addSelectionChangedListener(this);
 
@@ -268,10 +261,10 @@ public class TargetActionBarContributor
 		Collection<?> newSiblingDescriptors = null;
 
 		ISelection selection = event.getSelection();
-		if (selection instanceof IStructuredSelection && ((IStructuredSelection)selection).size() == 1) {
-			Object object = ((IStructuredSelection)selection).getFirstElement();
+		if (selection instanceof IStructuredSelection && ((IStructuredSelection) selection).size() == 1) {
+			Object object = ((IStructuredSelection) selection).getFirstElement();
 
-			EditingDomain domain = ((IEditingDomainProvider)activeEditorPart).getEditingDomain();
+			EditingDomain domain = ((IEditingDomainProvider) activeEditorPart).getEditingDomain();
 
 			newChildDescriptors = domain.getNewChildDescriptors(object, null);
 			newSiblingDescriptors = domain.getNewChildDescriptors(null, object);
@@ -300,7 +293,7 @@ public class TargetActionBarContributor
 	 * @generated
 	 */
 	protected Collection<IAction> generateCreateChildActions(Collection<?> descriptors, ISelection selection) {
-		Collection<IAction> actions = new ArrayList<IAction>();
+		Collection<IAction> actions = new ArrayList<>();
 		if (descriptors != null) {
 			for (Object descriptor : descriptors) {
 				actions.add(new CreateChildAction(activeEditorPart, selection, descriptor));
@@ -317,7 +310,7 @@ public class TargetActionBarContributor
 	 * @generated
 	 */
 	protected Collection<IAction> generateCreateSiblingActions(Collection<?> descriptors, ISelection selection) {
-		Collection<IAction> actions = new ArrayList<IAction>();
+		Collection<IAction> actions = new ArrayList<>();
 		if (descriptors != null) {
 			for (Object descriptor : descriptors) {
 				actions.add(new CreateSiblingAction(activeEditorPart, selection, descriptor));
@@ -335,19 +328,19 @@ public class TargetActionBarContributor
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void populateManager(IContributionManager manager, Collection<? extends IAction> actions, String contributionID) {
+	protected void populateManager(IContributionManager manager, Collection<? extends IAction> actions,
+			String contributionID) {
 		if (actions != null) {
 			for (IAction action : actions) {
 				if (contributionID != null) {
 					manager.insertBefore(contributionID, action);
-				}
-				else {
+				} else {
 					manager.add(action);
 				}
 			}
 		}
 	}
-		
+
 	/**
 	 * This removes from the specified <code>manager</code> all {@link org.eclipse.jface.action.ActionContributionItem}s
 	 * based on the {@link org.eclipse.jface.action.IAction}s contained in the <code>actions</code> collection.
@@ -358,18 +351,18 @@ public class TargetActionBarContributor
 	protected void depopulateManager(IContributionManager manager, Collection<? extends IAction> actions) {
 		if (actions != null) {
 			IContributionItem[] items = manager.getItems();
-			for (int i = 0; i < items.length; i++) {
+			for (IContributionItem item : items) {
 				// Look into SubContributionItems
 				//
-				IContributionItem contributionItem = items[i];
+				IContributionItem contributionItem = item;
 				while (contributionItem instanceof SubContributionItem) {
-					contributionItem = ((SubContributionItem)contributionItem).getInnerItem();
+					contributionItem = ((SubContributionItem) contributionItem).getInnerItem();
 				}
 
 				// Delete the ActionContributionItems with matching action.
 				//
 				if (contributionItem instanceof ActionContributionItem) {
-					IAction action = ((ActionContributionItem)contributionItem).getAction();
+					IAction action = ((ActionContributionItem) contributionItem).getAction();
 					if (actions.contains(action)) {
 						manager.remove(contributionItem);
 					}
@@ -389,11 +382,13 @@ public class TargetActionBarContributor
 		super.menuAboutToShow(menuManager);
 		MenuManager submenuManager = null;
 
-		submenuManager = new MenuManager(ScalingPolicyDefinitionEditorPlugin.INSTANCE.getString("_UI_CreateChild_menu_item"));
+		submenuManager = new MenuManager(
+				ScalingPolicyDefinitionEditorPlugin.INSTANCE.getString("_UI_CreateChild_menu_item"));
 		populateManager(submenuManager, createChildActions, null);
 		menuManager.insertBefore("edit", submenuManager);
 
-		submenuManager = new MenuManager(ScalingPolicyDefinitionEditorPlugin.INSTANCE.getString("_UI_CreateSibling_menu_item"));
+		submenuManager = new MenuManager(
+				ScalingPolicyDefinitionEditorPlugin.INSTANCE.getString("_UI_CreateSibling_menu_item"));
 		populateManager(submenuManager, createSiblingActions, null);
 		menuManager.insertBefore("edit", submenuManager);
 	}
@@ -409,7 +404,7 @@ public class TargetActionBarContributor
 		menuManager.insertAfter("additions-end", new Separator("ui-actions"));
 		menuManager.insertAfter("ui-actions", showPropertiesViewAction);
 
-		refreshViewerAction.setEnabled(refreshViewerAction.isEnabled());		
+		refreshViewerAction.setEnabled(refreshViewerAction.isEnabled());
 		menuManager.insertAfter("ui-actions", refreshViewerAction);
 
 		super.addGlobalActions(menuManager);

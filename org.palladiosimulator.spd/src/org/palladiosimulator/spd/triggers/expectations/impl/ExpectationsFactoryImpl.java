@@ -6,12 +6,15 @@ package org.palladiosimulator.spd.triggers.expectations.impl;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
-
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
-
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
-
-import org.palladiosimulator.spd.triggers.expectations.*;
+import org.palladiosimulator.spd.triggers.expectations.ExpectationsFactory;
+import org.palladiosimulator.spd.triggers.expectations.ExpectationsPackage;
+import org.palladiosimulator.spd.triggers.expectations.ExpectedCount;
+import org.palladiosimulator.spd.triggers.expectations.ExpectedPercentage;
+import org.palladiosimulator.spd.triggers.expectations.ExpectedTime;
+import org.palladiosimulator.spd.triggers.expectations.ExpectedTrend;
+import org.palladiosimulator.spd.triggers.expectations.NoExpectation;
 
 /**
  * <!-- begin-user-doc -->
@@ -28,12 +31,12 @@ public class ExpectationsFactoryImpl extends EFactoryImpl implements Expectation
 	 */
 	public static ExpectationsFactory init() {
 		try {
-			ExpectationsFactory theExpectationsFactory = (ExpectationsFactory)EPackage.Registry.INSTANCE.getEFactory(ExpectationsPackage.eNS_URI);
+			ExpectationsFactory theExpectationsFactory = (ExpectationsFactory) EPackage.Registry.INSTANCE
+					.getEFactory(ExpectationsPackage.eNS_URI);
 			if (theExpectationsFactory != null) {
 				return theExpectationsFactory;
 			}
-		}
-		catch (Exception exception) {
+		} catch (Exception exception) {
 			EcorePlugin.INSTANCE.log(exception);
 		}
 		return new ExpectationsFactoryImpl();
@@ -57,13 +60,18 @@ public class ExpectationsFactoryImpl extends EFactoryImpl implements Expectation
 	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
-			case ExpectationsPackage.NO_EXPECTATION: return createNoExpectation();
-			case ExpectationsPackage.EXPECTED_PERCENTAGE: return createExpectedPercentage();
-			case ExpectationsPackage.EXPECTED_COUNT: return createExpectedCount();
-			case ExpectationsPackage.EXPECTED_TIME: return createExpectedTime();
-			case ExpectationsPackage.EXPECTED_TREND: return createExpectedTrend();
-			default:
-				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
+		case ExpectationsPackage.NO_EXPECTATION:
+			return createNoExpectation();
+		case ExpectationsPackage.EXPECTED_PERCENTAGE:
+			return createExpectedPercentage();
+		case ExpectationsPackage.EXPECTED_COUNT:
+			return createExpectedCount();
+		case ExpectationsPackage.EXPECTED_TIME:
+			return createExpectedTime();
+		case ExpectationsPackage.EXPECTED_TREND:
+			return createExpectedTrend();
+		default:
+			throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
 	}
 
@@ -129,7 +137,7 @@ public class ExpectationsFactoryImpl extends EFactoryImpl implements Expectation
 	 */
 	@Override
 	public ExpectationsPackage getExpectationsPackage() {
-		return (ExpectationsPackage)getEPackage();
+		return (ExpectationsPackage) getEPackage();
 	}
 
 	/**

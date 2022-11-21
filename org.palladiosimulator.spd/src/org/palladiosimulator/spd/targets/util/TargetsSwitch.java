@@ -5,12 +5,18 @@ package org.palladiosimulator.spd.targets.util;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
-
 import org.eclipse.emf.ecore.util.Switch;
+import org.palladiosimulator.pcm.PCMBaseClass;
+import org.palladiosimulator.pcm.PCMClass;
+import org.palladiosimulator.pcm.core.entity.Entity;
+import org.palladiosimulator.pcm.core.entity.NamedElement;
+import org.palladiosimulator.spd.targets.CompetingConsumersGroup;
+import org.palladiosimulator.spd.targets.ElasticInfrastructure;
+import org.palladiosimulator.spd.targets.ServiceGroup;
+import org.palladiosimulator.spd.targets.TargetGroup;
+import org.palladiosimulator.spd.targets.TargetsPackage;
 
-import org.palladiosimulator.spd.NamedElement;
-
-import org.palladiosimulator.spd.targets.*;
+import de.uka.ipd.sdq.identifier.Identifier;
 
 /**
  * <!-- begin-user-doc -->
@@ -69,38 +75,82 @@ public class TargetsSwitch<T> extends Switch<T> {
 	@Override
 	protected T doSwitch(int classifierID, EObject theEObject) {
 		switch (classifierID) {
-			case TargetsPackage.TARGET_GROUP: {
-				TargetGroup targetGroup = (TargetGroup)theEObject;
-				T result = caseTargetGroup(targetGroup);
-				if (result == null) result = caseNamedElement(targetGroup);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case TargetsPackage.ELASTIC_INFRASTRUCTURE: {
-				ElasticInfrastructure elasticInfrastructure = (ElasticInfrastructure)theEObject;
-				T result = caseElasticInfrastructure(elasticInfrastructure);
-				if (result == null) result = caseTargetGroup(elasticInfrastructure);
-				if (result == null) result = caseNamedElement(elasticInfrastructure);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case TargetsPackage.SERVICE_GROUP: {
-				ServiceGroup serviceGroup = (ServiceGroup)theEObject;
-				T result = caseServiceGroup(serviceGroup);
-				if (result == null) result = caseTargetGroup(serviceGroup);
-				if (result == null) result = caseNamedElement(serviceGroup);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case TargetsPackage.COMPETING_CONSUMERS_GROUP: {
-				CompetingConsumersGroup competingConsumersGroup = (CompetingConsumersGroup)theEObject;
-				T result = caseCompetingConsumersGroup(competingConsumersGroup);
-				if (result == null) result = caseTargetGroup(competingConsumersGroup);
-				if (result == null) result = caseNamedElement(competingConsumersGroup);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			default: return defaultCase(theEObject);
+		case TargetsPackage.TARGET_GROUP: {
+			TargetGroup targetGroup = (TargetGroup) theEObject;
+			T result = caseTargetGroup(targetGroup);
+			if (result == null)
+				result = caseEntity(targetGroup);
+			if (result == null)
+				result = caseIdentifier(targetGroup);
+			if (result == null)
+				result = caseNamedElement(targetGroup);
+			if (result == null)
+				result = casePCMBaseClass(targetGroup);
+			if (result == null)
+				result = casePCMClass(targetGroup);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case TargetsPackage.ELASTIC_INFRASTRUCTURE: {
+			ElasticInfrastructure elasticInfrastructure = (ElasticInfrastructure) theEObject;
+			T result = caseElasticInfrastructure(elasticInfrastructure);
+			if (result == null)
+				result = caseTargetGroup(elasticInfrastructure);
+			if (result == null)
+				result = caseEntity(elasticInfrastructure);
+			if (result == null)
+				result = caseIdentifier(elasticInfrastructure);
+			if (result == null)
+				result = caseNamedElement(elasticInfrastructure);
+			if (result == null)
+				result = casePCMBaseClass(elasticInfrastructure);
+			if (result == null)
+				result = casePCMClass(elasticInfrastructure);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case TargetsPackage.SERVICE_GROUP: {
+			ServiceGroup serviceGroup = (ServiceGroup) theEObject;
+			T result = caseServiceGroup(serviceGroup);
+			if (result == null)
+				result = caseTargetGroup(serviceGroup);
+			if (result == null)
+				result = caseEntity(serviceGroup);
+			if (result == null)
+				result = caseIdentifier(serviceGroup);
+			if (result == null)
+				result = caseNamedElement(serviceGroup);
+			if (result == null)
+				result = casePCMBaseClass(serviceGroup);
+			if (result == null)
+				result = casePCMClass(serviceGroup);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case TargetsPackage.COMPETING_CONSUMERS_GROUP: {
+			CompetingConsumersGroup competingConsumersGroup = (CompetingConsumersGroup) theEObject;
+			T result = caseCompetingConsumersGroup(competingConsumersGroup);
+			if (result == null)
+				result = caseTargetGroup(competingConsumersGroup);
+			if (result == null)
+				result = caseEntity(competingConsumersGroup);
+			if (result == null)
+				result = caseIdentifier(competingConsumersGroup);
+			if (result == null)
+				result = caseNamedElement(competingConsumersGroup);
+			if (result == null)
+				result = casePCMBaseClass(competingConsumersGroup);
+			if (result == null)
+				result = casePCMClass(competingConsumersGroup);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		default:
+			return defaultCase(theEObject);
 		}
 	}
 
@@ -165,6 +215,51 @@ public class TargetsSwitch<T> extends Switch<T> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Identifier</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Identifier</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseIdentifier(Identifier object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>PCM Class</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>PCM Class</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T casePCMClass(PCMClass object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>PCM Base Class</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>PCM Base Class</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T casePCMBaseClass(PCMBaseClass object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Named Element</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -176,6 +271,21 @@ public class TargetsSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseNamedElement(NamedElement object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Entity</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Entity</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseEntity(Entity object) {
 		return null;
 	}
 

@@ -6,19 +6,14 @@ package org.palladiosimulator.spd.impl;
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
-
+import org.palladiosimulator.pcm.core.entity.impl.EntityImpl;
 import org.palladiosimulator.spd.SPD;
 import org.palladiosimulator.spd.ScalingPolicy;
 import org.palladiosimulator.spd.SpdPackage;
-
 import org.palladiosimulator.spd.targets.TargetGroup;
 
 /**
@@ -35,27 +30,7 @@ import org.palladiosimulator.spd.targets.TargetGroup;
  *
  * @generated
  */
-public class SPDImpl extends NamedElementImpl implements SPD {
-	/**
-	 * The cached value of the '{@link #getScalingPolicies() <em>Scaling Policies</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getScalingPolicies()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<ScalingPolicy> scalingPolicies;
-
-	/**
-	 * The cached value of the '{@link #getTargetGroups() <em>Target Groups</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getTargetGroups()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<TargetGroup> targetGroups;
-
+public class SPDImpl extends EntityImpl implements SPD {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -80,12 +55,11 @@ public class SPDImpl extends NamedElementImpl implements SPD {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public EList<ScalingPolicy> getScalingPolicies() {
-		if (scalingPolicies == null) {
-			scalingPolicies = new EObjectContainmentEList<ScalingPolicy>(ScalingPolicy.class, this, SpdPackage.SPD__SCALING_POLICIES);
-		}
-		return scalingPolicies;
+		return (EList<ScalingPolicy>) eDynamicGet(SpdPackage.SPD__SCALING_POLICIES,
+				SpdPackage.Literals.SPD__SCALING_POLICIES, true, true);
 	}
 
 	/**
@@ -93,12 +67,11 @@ public class SPDImpl extends NamedElementImpl implements SPD {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public EList<TargetGroup> getTargetGroups() {
-		if (targetGroups == null) {
-			targetGroups = new EObjectContainmentEList<TargetGroup>(TargetGroup.class, this, SpdPackage.SPD__TARGET_GROUPS);
-		}
-		return targetGroups;
+		return (EList<TargetGroup>) eDynamicGet(SpdPackage.SPD__TARGET_GROUPS, SpdPackage.Literals.SPD__TARGET_GROUPS,
+				true, true);
 	}
 
 	/**
@@ -109,10 +82,10 @@ public class SPDImpl extends NamedElementImpl implements SPD {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case SpdPackage.SPD__SCALING_POLICIES:
-				return ((InternalEList<?>)getScalingPolicies()).basicRemove(otherEnd, msgs);
-			case SpdPackage.SPD__TARGET_GROUPS:
-				return ((InternalEList<?>)getTargetGroups()).basicRemove(otherEnd, msgs);
+		case SpdPackage.SPD__SCALING_POLICIES:
+			return ((InternalEList<?>) getScalingPolicies()).basicRemove(otherEnd, msgs);
+		case SpdPackage.SPD__TARGET_GROUPS:
+			return ((InternalEList<?>) getTargetGroups()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -125,10 +98,10 @@ public class SPDImpl extends NamedElementImpl implements SPD {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case SpdPackage.SPD__SCALING_POLICIES:
-				return getScalingPolicies();
-			case SpdPackage.SPD__TARGET_GROUPS:
-				return getTargetGroups();
+		case SpdPackage.SPD__SCALING_POLICIES:
+			return getScalingPolicies();
+		case SpdPackage.SPD__TARGET_GROUPS:
+			return getTargetGroups();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -142,14 +115,14 @@ public class SPDImpl extends NamedElementImpl implements SPD {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case SpdPackage.SPD__SCALING_POLICIES:
-				getScalingPolicies().clear();
-				getScalingPolicies().addAll((Collection<? extends ScalingPolicy>)newValue);
-				return;
-			case SpdPackage.SPD__TARGET_GROUPS:
-				getTargetGroups().clear();
-				getTargetGroups().addAll((Collection<? extends TargetGroup>)newValue);
-				return;
+		case SpdPackage.SPD__SCALING_POLICIES:
+			getScalingPolicies().clear();
+			getScalingPolicies().addAll((Collection<? extends ScalingPolicy>) newValue);
+			return;
+		case SpdPackage.SPD__TARGET_GROUPS:
+			getTargetGroups().clear();
+			getTargetGroups().addAll((Collection<? extends TargetGroup>) newValue);
+			return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -162,12 +135,12 @@ public class SPDImpl extends NamedElementImpl implements SPD {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case SpdPackage.SPD__SCALING_POLICIES:
-				getScalingPolicies().clear();
-				return;
-			case SpdPackage.SPD__TARGET_GROUPS:
-				getTargetGroups().clear();
-				return;
+		case SpdPackage.SPD__SCALING_POLICIES:
+			getScalingPolicies().clear();
+			return;
+		case SpdPackage.SPD__TARGET_GROUPS:
+			getTargetGroups().clear();
+			return;
 		}
 		super.eUnset(featureID);
 	}
@@ -180,10 +153,10 @@ public class SPDImpl extends NamedElementImpl implements SPD {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case SpdPackage.SPD__SCALING_POLICIES:
-				return scalingPolicies != null && !scalingPolicies.isEmpty();
-			case SpdPackage.SPD__TARGET_GROUPS:
-				return targetGroups != null && !targetGroups.isEmpty();
+		case SpdPackage.SPD__SCALING_POLICIES:
+			return !getScalingPolicies().isEmpty();
+		case SpdPackage.SPD__TARGET_GROUPS:
+			return !getTargetGroups().isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

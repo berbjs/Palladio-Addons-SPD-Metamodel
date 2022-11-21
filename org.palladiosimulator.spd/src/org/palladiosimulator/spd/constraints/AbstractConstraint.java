@@ -3,7 +3,7 @@
  */
 package org.palladiosimulator.spd.constraints;
 
-import org.eclipse.emf.ecore.EObject;
+import de.uka.ipd.sdq.identifier.Identifier;
 
 /**
  * <!-- begin-user-doc -->
@@ -15,5 +15,5 @@ import org.eclipse.emf.ecore.EObject;
  * @model abstract="true"
  * @generated
  */
-public interface AbstractConstraint extends EObject {
+public interface AbstractConstraint extends Identifier {
 } // AbstractConstraint

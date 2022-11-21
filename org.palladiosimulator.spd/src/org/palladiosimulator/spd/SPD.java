@@ -4,7 +4,7 @@
 package org.palladiosimulator.spd;
 
 import org.eclipse.emf.common.util.EList;
-
+import org.palladiosimulator.pcm.core.entity.Entity;
 import org.palladiosimulator.spd.targets.TargetGroup;
 
 /**
@@ -13,7 +13,7 @@ import org.palladiosimulator.spd.targets.TargetGroup;
  * <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
- * The root elements that consists of all scaling policies under analysis for a given cloud application.
+ * The root elements that consists of all scaling policies under analysis for a given cloud application. The SPD is an Entity (PCM), it has a unique identifier and it has a name.
  * <!-- end-model-doc -->
  *
  * <p>
@@ -28,7 +28,7 @@ import org.palladiosimulator.spd.targets.TargetGroup;
  * @model annotation="http://www.eclipse.org/emf/2002/Ecore constraints='nameInvariant noSameTargetGroup'"
  * @generated
  */
-public interface SPD extends NamedElement {
+public interface SPD extends Entity {
 	/**
 	 * Returns the value of the '<em><b>Scaling Policies</b></em>' containment reference list.
 	 * The list contents are of type {@link org.palladiosimulator.spd.ScalingPolicy}.

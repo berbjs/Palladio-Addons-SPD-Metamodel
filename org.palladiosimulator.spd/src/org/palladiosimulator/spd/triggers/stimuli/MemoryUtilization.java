@@ -3,7 +3,6 @@
  */
 package org.palladiosimulator.spd.triggers.stimuli;
 
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Memory Utilization</b></em>'.

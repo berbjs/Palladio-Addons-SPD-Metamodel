@@ -5,14 +5,18 @@ package org.palladiosimulator.spd.constraints.policy.util;
 
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
-
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
-
 import org.eclipse.emf.ecore.EObject;
-
 import org.palladiosimulator.spd.constraints.AbstractConstraint;
+import org.palladiosimulator.spd.constraints.policy.CooldownConstraint;
+import org.palladiosimulator.spd.constraints.policy.IntervallConstraint;
+import org.palladiosimulator.spd.constraints.policy.PolicyConstraint;
+import org.palladiosimulator.spd.constraints.policy.PolicyPackage;
+import org.palladiosimulator.spd.constraints.policy.StateBasedContraint;
+import org.palladiosimulator.spd.constraints.policy.TemporalConstraint;
+import org.palladiosimulator.spd.constraints.policy.ThrashingConstraint;
 
-import org.palladiosimulator.spd.constraints.policy.*;
+import de.uka.ipd.sdq.identifier.Identifier;
 
 /**
  * <!-- begin-user-doc -->
@@ -57,7 +61,7 @@ public class PolicyAdapterFactory extends AdapterFactoryImpl {
 			return true;
 		}
 		if (object instanceof EObject) {
-			return ((EObject)object).eClass().getEPackage() == modelPackage;
+			return ((EObject) object).eClass().getEPackage() == modelPackage;
 		}
 		return false;
 	}
@@ -68,41 +72,52 @@ public class PolicyAdapterFactory extends AdapterFactoryImpl {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected PolicySwitch<Adapter> modelSwitch =
-		new PolicySwitch<Adapter>() {
-			@Override
-			public Adapter casePolicyConstraint(PolicyConstraint object) {
-				return createPolicyConstraintAdapter();
-			}
-			@Override
-			public Adapter caseTemporalConstraint(TemporalConstraint object) {
-				return createTemporalConstraintAdapter();
-			}
-			@Override
-			public Adapter caseIntervallConstraint(IntervallConstraint object) {
-				return createIntervallConstraintAdapter();
-			}
-			@Override
-			public Adapter caseCooldownConstraint(CooldownConstraint object) {
-				return createCooldownConstraintAdapter();
-			}
-			@Override
-			public Adapter caseStateBasedContraint(StateBasedContraint object) {
-				return createStateBasedContraintAdapter();
-			}
-			@Override
-			public Adapter caseThrashingConstraint(ThrashingConstraint object) {
-				return createThrashingConstraintAdapter();
-			}
-			@Override
-			public Adapter caseAbstractConstraint(AbstractConstraint object) {
-				return createAbstractConstraintAdapter();
-			}
-			@Override
-			public Adapter defaultCase(EObject object) {
-				return createEObjectAdapter();
-			}
-		};
+	protected PolicySwitch<Adapter> modelSwitch = new PolicySwitch<>() {
+		@Override
+		public Adapter casePolicyConstraint(PolicyConstraint object) {
+			return createPolicyConstraintAdapter();
+		}
+
+		@Override
+		public Adapter caseTemporalConstraint(TemporalConstraint object) {
+			return createTemporalConstraintAdapter();
+		}
+
+		@Override
+		public Adapter caseIntervallConstraint(IntervallConstraint object) {
+			return createIntervallConstraintAdapter();
+		}
+
+		@Override
+		public Adapter caseCooldownConstraint(CooldownConstraint object) {
+			return createCooldownConstraintAdapter();
+		}
+
+		@Override
+		public Adapter caseStateBasedContraint(StateBasedContraint object) {
+			return createStateBasedContraintAdapter();
+		}
+
+		@Override
+		public Adapter caseThrashingConstraint(ThrashingConstraint object) {
+			return createThrashingConstraintAdapter();
+		}
+
+		@Override
+		public Adapter caseIdentifier(Identifier object) {
+			return createIdentifierAdapter();
+		}
+
+		@Override
+		public Adapter caseAbstractConstraint(AbstractConstraint object) {
+			return createAbstractConstraintAdapter();
+		}
+
+		@Override
+		public Adapter defaultCase(EObject object) {
+			return createEObjectAdapter();
+		}
+	};
 
 	/**
 	 * Creates an adapter for the <code>target</code>.
@@ -114,9 +129,8 @@ public class PolicyAdapterFactory extends AdapterFactoryImpl {
 	 */
 	@Override
 	public Adapter createAdapter(Notifier target) {
-		return modelSwitch.doSwitch((EObject)target);
+		return modelSwitch.doSwitch((EObject) target);
 	}
-
 
 	/**
 	 * Creates a new adapter for an object of class '{@link org.palladiosimulator.spd.constraints.policy.PolicyConstraint <em>Constraint</em>}'.
@@ -199,6 +213,20 @@ public class PolicyAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createThrashingConstraintAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.identifier.Identifier <em>Identifier</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.uka.ipd.sdq.identifier.Identifier
+	 * @generated
+	 */
+	public Adapter createIdentifierAdapter() {
 		return null;
 	}
 

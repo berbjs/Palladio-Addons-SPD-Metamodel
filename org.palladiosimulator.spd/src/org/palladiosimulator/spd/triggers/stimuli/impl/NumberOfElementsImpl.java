@@ -4,7 +4,6 @@
 package org.palladiosimulator.spd.triggers.stimuli.impl;
 
 import org.eclipse.emf.ecore.EClass;
-
 import org.palladiosimulator.spd.triggers.stimuli.NumberOfElements;
 import org.palladiosimulator.spd.triggers.stimuli.StimuliPackage;
 

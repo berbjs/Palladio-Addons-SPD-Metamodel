@@ -3,18 +3,15 @@
  */
 package org.palladiosimulator.spd.triggers.expectations.provider;
 
-
 import java.util.Collection;
 import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
-
 import org.palladiosimulator.spd.triggers.expectations.ExpectationsPackage;
 import org.palladiosimulator.spd.triggers.expectations.ExpectedTime;
 
@@ -58,19 +55,13 @@ public class ExpectedTimeItemProvider extends ExpectedPrimitiveItemProvider {
 	 * @generated
 	 */
 	protected void addValuePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_ExpectedTime_value_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ExpectedTime_value_feature", "_UI_ExpectedTime_type"),
-				 ExpectationsPackage.Literals.EXPECTED_TIME__VALUE,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.REAL_VALUE_IMAGE,
-				 null,
-				 null));
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(), getString("_UI_ExpectedTime_value_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_ExpectedTime_value_feature",
+								"_UI_ExpectedTime_type"),
+						ExpectationsPackage.Literals.EXPECTED_TIME__VALUE, true, false, false,
+						ItemPropertyDescriptor.REAL_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -92,10 +83,9 @@ public class ExpectedTimeItemProvider extends ExpectedPrimitiveItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		ExpectedTime expectedTime = (ExpectedTime)object;
+		ExpectedTime expectedTime = (ExpectedTime) object;
 		return getString("_UI_ExpectedTime_type") + " " + expectedTime.getValue();
 	}
-
 
 	/**
 	 * This handles model notifications by calling {@link #updateChildren} to update any cached
@@ -109,9 +99,9 @@ public class ExpectedTimeItemProvider extends ExpectedPrimitiveItemProvider {
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(ExpectedTime.class)) {
-			case ExpectationsPackage.EXPECTED_TIME__VALUE:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-				return;
+		case ExpectationsPackage.EXPECTED_TIME__VALUE:
+			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+			return;
 		}
 		super.notifyChanged(notification);
 	}

@@ -133,14 +133,7 @@ public enum AGGREGATIONMETHOD implements Enumerator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private static final AGGREGATIONMETHOD[] VALUES_ARRAY =
-		new AGGREGATIONMETHOD[] {
-			AVERAGE,
-			MAX,
-			MIN,
-			MEDIAN,
-			SUM,
-		};
+	private static final AGGREGATIONMETHOD[] VALUES_ARRAY = new AGGREGATIONMETHOD[] { AVERAGE, MAX, MIN, MEDIAN, SUM, };
 
 	/**
 	 * A public read-only list of all the '<em><b>AGGREGATIONMETHOD</b></em>' enumerators.
@@ -159,8 +152,7 @@ public enum AGGREGATIONMETHOD implements Enumerator {
 	 * @generated
 	 */
 	public static AGGREGATIONMETHOD get(String literal) {
-		for (int i = 0; i < VALUES_ARRAY.length; ++i) {
-			AGGREGATIONMETHOD result = VALUES_ARRAY[i];
+		for (AGGREGATIONMETHOD result : VALUES_ARRAY) {
 			if (result.toString().equals(literal)) {
 				return result;
 			}
@@ -177,8 +169,7 @@ public enum AGGREGATIONMETHOD implements Enumerator {
 	 * @generated
 	 */
 	public static AGGREGATIONMETHOD getByName(String name) {
-		for (int i = 0; i < VALUES_ARRAY.length; ++i) {
-			AGGREGATIONMETHOD result = VALUES_ARRAY[i];
+		for (AGGREGATIONMETHOD result : VALUES_ARRAY) {
 			if (result.getName().equals(name)) {
 				return result;
 			}
@@ -196,11 +187,16 @@ public enum AGGREGATIONMETHOD implements Enumerator {
 	 */
 	public static AGGREGATIONMETHOD get(int value) {
 		switch (value) {
-			case AVERAGE_VALUE: return AVERAGE;
-			case MAX_VALUE: return MAX;
-			case MIN_VALUE: return MIN;
-			case MEDIAN_VALUE: return MEDIAN;
-			case SUM_VALUE: return SUM;
+		case AVERAGE_VALUE:
+			return AVERAGE;
+		case MAX_VALUE:
+			return MAX;
+		case MIN_VALUE:
+			return MIN;
+		case MEDIAN_VALUE:
+			return MEDIAN;
+		case SUM_VALUE:
+			return SUM;
 		}
 		return null;
 	}
@@ -245,7 +241,7 @@ public enum AGGREGATIONMETHOD implements Enumerator {
 	 */
 	@Override
 	public int getValue() {
-	  return value;
+		return value;
 	}
 
 	/**
@@ -255,7 +251,7 @@ public enum AGGREGATIONMETHOD implements Enumerator {
 	 */
 	@Override
 	public String getName() {
-	  return name;
+		return name;
 	}
 
 	/**
@@ -265,7 +261,7 @@ public enum AGGREGATIONMETHOD implements Enumerator {
 	 */
 	@Override
 	public String getLiteral() {
-	  return literal;
+		return literal;
 	}
 
 	/**
@@ -278,5 +274,5 @@ public enum AGGREGATIONMETHOD implements Enumerator {
 	public String toString() {
 		return literal;
 	}
-	
+
 } //AGGREGATIONMETHOD

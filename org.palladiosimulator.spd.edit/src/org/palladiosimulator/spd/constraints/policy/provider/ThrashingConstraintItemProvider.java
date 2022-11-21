@@ -3,18 +3,15 @@
  */
 package org.palladiosimulator.spd.constraints.policy.provider;
 
-
 import java.util.Collection;
 import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
-
 import org.palladiosimulator.spd.constraints.policy.PolicyPackage;
 import org.palladiosimulator.spd.constraints.policy.ThrashingConstraint;
 
@@ -58,19 +55,13 @@ public class ThrashingConstraintItemProvider extends TemporalConstraintItemProvi
 	 * @generated
 	 */
 	protected void addMinimumTimeNoThrashingPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_ThrashingConstraint_minimumTimeNoThrashing_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ThrashingConstraint_minimumTimeNoThrashing_feature", "_UI_ThrashingConstraint_type"),
-				 PolicyPackage.Literals.THRASHING_CONSTRAINT__MINIMUM_TIME_NO_THRASHING,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.REAL_VALUE_IMAGE,
-				 null,
-				 null));
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(
+				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+				getString("_UI_ThrashingConstraint_minimumTimeNoThrashing_feature"),
+				getString("_UI_PropertyDescriptor_description",
+						"_UI_ThrashingConstraint_minimumTimeNoThrashing_feature", "_UI_ThrashingConstraint_type"),
+				PolicyPackage.Literals.THRASHING_CONSTRAINT__MINIMUM_TIME_NO_THRASHING, true, false, false,
+				ItemPropertyDescriptor.REAL_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -92,10 +83,10 @@ public class ThrashingConstraintItemProvider extends TemporalConstraintItemProvi
 	 */
 	@Override
 	public String getText(Object object) {
-		ThrashingConstraint thrashingConstraint = (ThrashingConstraint)object;
-		return getString("_UI_ThrashingConstraint_type") + " " + thrashingConstraint.getMinimumTimeNoThrashing();
+		String label = ((ThrashingConstraint) object).getId();
+		return label == null || label.length() == 0 ? getString("_UI_ThrashingConstraint_type")
+				: getString("_UI_ThrashingConstraint_type") + " " + label;
 	}
-
 
 	/**
 	 * This handles model notifications by calling {@link #updateChildren} to update any cached
@@ -109,9 +100,9 @@ public class ThrashingConstraintItemProvider extends TemporalConstraintItemProvi
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(ThrashingConstraint.class)) {
-			case PolicyPackage.THRASHING_CONSTRAINT__MINIMUM_TIME_NO_THRASHING:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-				return;
+		case PolicyPackage.THRASHING_CONSTRAINT__MINIMUM_TIME_NO_THRASHING:
+			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+			return;
 		}
 		super.notifyChanged(notification);
 	}

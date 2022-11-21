@@ -4,9 +4,7 @@
 package org.palladiosimulator.spd.adjustments.impl;
 
 import org.eclipse.emf.ecore.EClass;
-
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
+import org.eclipse.emf.internal.cdo.CDOObjectImpl;
 import org.palladiosimulator.spd.adjustments.AdjustmentType;
 import org.palladiosimulator.spd.adjustments.AdjustmentsPackage;
 
@@ -17,7 +15,7 @@ import org.palladiosimulator.spd.adjustments.AdjustmentsPackage;
  *
  * @generated
  */
-public abstract class AdjustmentTypeImpl extends MinimalEObjectImpl.Container implements AdjustmentType {
+public abstract class AdjustmentTypeImpl extends CDOObjectImpl implements AdjustmentType {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -35,6 +33,16 @@ public abstract class AdjustmentTypeImpl extends MinimalEObjectImpl.Container im
 	@Override
 	protected EClass eStaticClass() {
 		return AdjustmentsPackage.Literals.ADJUSTMENT_TYPE;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	protected int eStaticFeatureCount() {
+		return 0;
 	}
 
 } //AdjustmentTypeImpl

@@ -3,16 +3,13 @@
  */
 package org.palladiosimulator.spd.triggers.stimuli.provider;
 
-
 import java.util.Collection;
 import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
-
 import org.palladiosimulator.spd.triggers.stimuli.StimuliPackage;
 
 /**
@@ -55,19 +52,13 @@ public class OperationResponseTimeItemProvider extends SoruceInterfaceStimulusIt
 	 * @generated
 	 */
 	protected void addOperationSignaturePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_OperationResponseTime_operationSignature_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_OperationResponseTime_operationSignature_feature", "_UI_OperationResponseTime_type"),
-				 StimuliPackage.Literals.OPERATION_RESPONSE_TIME__OPERATION_SIGNATURE,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(
+				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+				getString("_UI_OperationResponseTime_operationSignature_feature"),
+				getString("_UI_PropertyDescriptor_description", "_UI_OperationResponseTime_operationSignature_feature",
+						"_UI_OperationResponseTime_type"),
+				StimuliPackage.Literals.OPERATION_RESPONSE_TIME__OPERATION_SIGNATURE, true, false, true, null, null,
+				null));
 	}
 
 	/**
@@ -91,7 +82,6 @@ public class OperationResponseTimeItemProvider extends SoruceInterfaceStimulusIt
 	public String getText(Object object) {
 		return getString("_UI_OperationResponseTime_type");
 	}
-
 
 	/**
 	 * This handles model notifications by calling {@link #updateChildren} to update any cached

@@ -4,11 +4,10 @@
 package org.palladiosimulator.spd.constraints.impl;
 
 import org.eclipse.emf.ecore.EClass;
-
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
 import org.palladiosimulator.spd.constraints.AbstractConstraint;
 import org.palladiosimulator.spd.constraints.ConstraintsPackage;
+
+import de.uka.ipd.sdq.identifier.impl.IdentifierImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -17,7 +16,7 @@ import org.palladiosimulator.spd.constraints.ConstraintsPackage;
  *
  * @generated
  */
-public abstract class AbstractConstraintImpl extends MinimalEObjectImpl.Container implements AbstractConstraint {
+public abstract class AbstractConstraintImpl extends IdentifierImpl implements AbstractConstraint {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

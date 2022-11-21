@@ -5,12 +5,13 @@ package org.palladiosimulator.spd.adjustments.util;
 
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
-
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
-
 import org.eclipse.emf.ecore.EObject;
-
-import org.palladiosimulator.spd.adjustments.*;
+import org.palladiosimulator.spd.adjustments.AbsoluteAdjustment;
+import org.palladiosimulator.spd.adjustments.AdjustmentType;
+import org.palladiosimulator.spd.adjustments.AdjustmentsPackage;
+import org.palladiosimulator.spd.adjustments.RelativeAdjustment;
+import org.palladiosimulator.spd.adjustments.StepAdjustment;
 
 /**
  * <!-- begin-user-doc -->
@@ -55,7 +56,7 @@ public class AdjustmentsAdapterFactory extends AdapterFactoryImpl {
 			return true;
 		}
 		if (object instanceof EObject) {
-			return ((EObject)object).eClass().getEPackage() == modelPackage;
+			return ((EObject) object).eClass().getEPackage() == modelPackage;
 		}
 		return false;
 	}
@@ -66,29 +67,32 @@ public class AdjustmentsAdapterFactory extends AdapterFactoryImpl {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected AdjustmentsSwitch<Adapter> modelSwitch =
-		new AdjustmentsSwitch<Adapter>() {
-			@Override
-			public Adapter caseAdjustmentType(AdjustmentType object) {
-				return createAdjustmentTypeAdapter();
-			}
-			@Override
-			public Adapter caseRelativeAdjustment(RelativeAdjustment object) {
-				return createRelativeAdjustmentAdapter();
-			}
-			@Override
-			public Adapter caseAbsoluteAdjustment(AbsoluteAdjustment object) {
-				return createAbsoluteAdjustmentAdapter();
-			}
-			@Override
-			public Adapter caseStepAdjustment(StepAdjustment object) {
-				return createStepAdjustmentAdapter();
-			}
-			@Override
-			public Adapter defaultCase(EObject object) {
-				return createEObjectAdapter();
-			}
-		};
+	protected AdjustmentsSwitch<Adapter> modelSwitch = new AdjustmentsSwitch<>() {
+		@Override
+		public Adapter caseAdjustmentType(AdjustmentType object) {
+			return createAdjustmentTypeAdapter();
+		}
+
+		@Override
+		public Adapter caseRelativeAdjustment(RelativeAdjustment object) {
+			return createRelativeAdjustmentAdapter();
+		}
+
+		@Override
+		public Adapter caseAbsoluteAdjustment(AbsoluteAdjustment object) {
+			return createAbsoluteAdjustmentAdapter();
+		}
+
+		@Override
+		public Adapter caseStepAdjustment(StepAdjustment object) {
+			return createStepAdjustmentAdapter();
+		}
+
+		@Override
+		public Adapter defaultCase(EObject object) {
+			return createEObjectAdapter();
+		}
+	};
 
 	/**
 	 * Creates an adapter for the <code>target</code>.
@@ -100,9 +104,8 @@ public class AdjustmentsAdapterFactory extends AdapterFactoryImpl {
 	 */
 	@Override
 	public Adapter createAdapter(Notifier target) {
-		return modelSwitch.doSwitch((EObject)target);
+		return modelSwitch.doSwitch((EObject) target);
 	}
-
 
 	/**
 	 * Creates a new adapter for an object of class '{@link org.palladiosimulator.spd.adjustments.AdjustmentType <em>Adjustment Type</em>}'.

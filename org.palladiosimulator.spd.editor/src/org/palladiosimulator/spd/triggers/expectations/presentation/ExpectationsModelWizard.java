@@ -3,7 +3,6 @@
  */
 package org.palladiosimulator.spd.triggers.expectations.presentation;
 
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
@@ -14,79 +13,52 @@ import java.util.Map;
 import java.util.MissingResourceException;
 import java.util.StringTokenizer;
 
-import org.eclipse.emf.common.CommonPlugin;
-
-import org.eclipse.emf.common.util.URI;
-
-import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EClassifier;
-
-import org.eclipse.emf.ecore.resource.Resource;
-import org.eclipse.emf.ecore.resource.ResourceSet;
-
-import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
-
-import org.eclipse.emf.ecore.EObject;
-
-import org.eclipse.emf.ecore.xmi.XMLResource;
-
-import org.eclipse.emf.edit.ui.provider.ExtendedImageRegistry;
-
 import org.eclipse.core.resources.IContainer;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.resources.ResourcesPlugin;
-
 import org.eclipse.core.runtime.IProgressMonitor;
-
+import org.eclipse.core.runtime.Path;
+import org.eclipse.emf.common.CommonPlugin;
+import org.eclipse.emf.common.util.URI;
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EClassifier;
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.emf.ecore.resource.ResourceSet;
+import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
+import org.eclipse.emf.ecore.xmi.XMLResource;
+import org.eclipse.emf.edit.ui.provider.ExtendedImageRegistry;
 import org.eclipse.jface.dialogs.MessageDialog;
-
+import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.IStructuredSelection;
-
+import org.eclipse.jface.viewers.StructuredSelection;
 import org.eclipse.jface.wizard.Wizard;
 import org.eclipse.jface.wizard.WizardPage;
-
 import org.eclipse.swt.SWT;
-
-import org.eclipse.swt.events.ModifyListener;
 import org.eclipse.swt.events.ModifyEvent;
-
+import org.eclipse.swt.events.ModifyListener;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
-
 import org.eclipse.swt.widgets.Combo;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Label;
-
 import org.eclipse.ui.INewWizard;
 import org.eclipse.ui.IWorkbench;
-
-import org.eclipse.ui.actions.WorkspaceModifyOperation;
-
-import org.eclipse.ui.dialogs.WizardNewFileCreationPage;
-
-import org.eclipse.ui.part.FileEditorInput;
-import org.eclipse.ui.part.ISetSelectionTarget;
-
-import org.palladiosimulator.spd.triggers.expectations.ExpectationsFactory;
-import org.palladiosimulator.spd.triggers.expectations.ExpectationsPackage;
-import org.palladiosimulator.spd.provider.ScalingPolicyDefinitionEditPlugin;
-
-
-import org.eclipse.core.runtime.Path;
-
-import org.eclipse.jface.viewers.ISelection;
-import org.eclipse.jface.viewers.StructuredSelection;
-
 import org.eclipse.ui.IWorkbenchPage;
 import org.eclipse.ui.IWorkbenchPart;
 import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.PartInitException;
-
+import org.eclipse.ui.actions.WorkspaceModifyOperation;
+import org.eclipse.ui.dialogs.WizardNewFileCreationPage;
+import org.eclipse.ui.part.FileEditorInput;
+import org.eclipse.ui.part.ISetSelectionTarget;
 import org.palladiosimulator.spd.presentation.ScalingPolicyDefinitionEditorPlugin;
-
+import org.palladiosimulator.spd.provider.ScalingPolicyDefinitionEditPlugin;
+import org.palladiosimulator.spd.triggers.expectations.ExpectationsFactory;
+import org.palladiosimulator.spd.triggers.expectations.ExpectationsPackage;
 
 /**
  * This is a simple wizard for creating a new model file.
@@ -101,8 +73,9 @@ public class ExpectationsModelWizard extends Wizard implements INewWizard {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final List<String> FILE_EXTENSIONS =
-		Collections.unmodifiableList(Arrays.asList(ScalingPolicyDefinitionEditorPlugin.INSTANCE.getString("_UI_ExpectationsEditorFilenameExtensions").split("\\s*,\\s*")));
+	public static final List<String> FILE_EXTENSIONS = Collections
+			.unmodifiableList(Arrays.asList(ScalingPolicyDefinitionEditorPlugin.INSTANCE
+					.getString("_UI_ExpectationsEditorFilenameExtensions").split("\\s*,\\s*")));
 
 	/**
 	 * A formatted list of supported file extensions, suitable for display.
@@ -110,8 +83,8 @@ public class ExpectationsModelWizard extends Wizard implements INewWizard {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final String FORMATTED_FILE_EXTENSIONS =
-		ScalingPolicyDefinitionEditorPlugin.INSTANCE.getString("_UI_ExpectationsEditorFilenameExtensions").replaceAll("\\s*,\\s*", ", ");
+	public static final String FORMATTED_FILE_EXTENSIONS = ScalingPolicyDefinitionEditorPlugin.INSTANCE
+			.getString("_UI_ExpectationsEditorFilenameExtensions").replaceAll("\\s*,\\s*", ", ");
 
 	/**
 	 * This caches an instance of the model package.
@@ -180,7 +153,8 @@ public class ExpectationsModelWizard extends Wizard implements INewWizard {
 		this.workbench = workbench;
 		this.selection = selection;
 		setWindowTitle(ScalingPolicyDefinitionEditorPlugin.INSTANCE.getString("_UI_Wizard_label"));
-		setDefaultPageImageDescriptor(ExtendedImageRegistry.INSTANCE.getImageDescriptor(ScalingPolicyDefinitionEditorPlugin.INSTANCE.getImage("full/wizban/NewExpectations")));
+		setDefaultPageImageDescriptor(ExtendedImageRegistry.INSTANCE.getImageDescriptor(
+				ScalingPolicyDefinitionEditorPlugin.INSTANCE.getImage("full/wizban/NewExpectations")));
 	}
 
 	/**
@@ -191,10 +165,10 @@ public class ExpectationsModelWizard extends Wizard implements INewWizard {
 	 */
 	protected Collection<String> getInitialObjectNames() {
 		if (initialObjectNames == null) {
-			initialObjectNames = new ArrayList<String>();
+			initialObjectNames = new ArrayList<>();
 			for (EClassifier eClassifier : expectationsPackage.getEClassifiers()) {
 				if (eClassifier instanceof EClass) {
-					EClass eClass = (EClass)eClassifier;
+					EClass eClass = (EClass) eClassifier;
 					if (!eClass.isAbstract()) {
 						initialObjectNames.add(eClass.getName());
 					}
@@ -212,7 +186,7 @@ public class ExpectationsModelWizard extends Wizard implements INewWizard {
 	 * @generated
 	 */
 	protected EObject createInitialModel() {
-		EClass eClass = (EClass)expectationsPackage.getEClassifier(initialObjectCreationPage.getInitialObjectName());
+		EClass eClass = (EClass) expectationsPackage.getEClassifier(initialObjectCreationPage.getInitialObjectName());
 		EObject rootObject = expectationsFactory.create(eClass);
 		return rootObject;
 	}
@@ -232,44 +206,41 @@ public class ExpectationsModelWizard extends Wizard implements INewWizard {
 
 			// Do the work within an operation.
 			//
-			WorkspaceModifyOperation operation =
-				new WorkspaceModifyOperation() {
-					@Override
-					protected void execute(IProgressMonitor progressMonitor) {
-						try {
-							// Create a resource set
-							//
-							ResourceSet resourceSet = new ResourceSetImpl();
+			WorkspaceModifyOperation operation = new WorkspaceModifyOperation() {
+				@Override
+				protected void execute(IProgressMonitor progressMonitor) {
+					try {
+						// Create a resource set
+						//
+						ResourceSet resourceSet = new ResourceSetImpl();
 
-							// Get the URI of the model file.
-							//
-							URI fileURI = URI.createPlatformResourceURI(modelFile.getFullPath().toString(), true);
+						// Get the URI of the model file.
+						//
+						URI fileURI = URI.createPlatformResourceURI(modelFile.getFullPath().toString(), true);
 
-							// Create a resource for this file.
-							//
-							Resource resource = resourceSet.createResource(fileURI);
+						// Create a resource for this file.
+						//
+						Resource resource = resourceSet.createResource(fileURI);
 
-							// Add the initial model object to the contents.
-							//
-							EObject rootObject = createInitialModel();
-							if (rootObject != null) {
-								resource.getContents().add(rootObject);
-							}
-
-							// Save the contents of the resource to the file system.
-							//
-							Map<Object, Object> options = new HashMap<Object, Object>();
-							options.put(XMLResource.OPTION_ENCODING, initialObjectCreationPage.getEncoding());
-							resource.save(options);
+						// Add the initial model object to the contents.
+						//
+						EObject rootObject = createInitialModel();
+						if (rootObject != null) {
+							resource.getContents().add(rootObject);
 						}
-						catch (Exception exception) {
-							ScalingPolicyDefinitionEditorPlugin.INSTANCE.log(exception);
-						}
-						finally {
-							progressMonitor.done();
-						}
+
+						// Save the contents of the resource to the file system.
+						//
+						Map<Object, Object> options = new HashMap<>();
+						options.put(XMLResource.OPTION_ENCODING, initialObjectCreationPage.getEncoding());
+						resource.save(options);
+					} catch (Exception exception) {
+						ScalingPolicyDefinitionEditorPlugin.INSTANCE.log(exception);
+					} finally {
+						progressMonitor.done();
 					}
-				};
+				}
+			};
 
 			getContainer().run(false, false, operation);
 
@@ -280,30 +251,28 @@ public class ExpectationsModelWizard extends Wizard implements INewWizard {
 			final IWorkbenchPart activePart = page.getActivePart();
 			if (activePart instanceof ISetSelectionTarget) {
 				final ISelection targetSelection = new StructuredSelection(modelFile);
-				getShell().getDisplay().asyncExec
-					(new Runnable() {
-						 @Override
-						 public void run() {
-							 ((ISetSelectionTarget)activePart).selectReveal(targetSelection);
-						 }
-					 });
+				getShell().getDisplay().asyncExec(new Runnable() {
+					@Override
+					public void run() {
+						((ISetSelectionTarget) activePart).selectReveal(targetSelection);
+					}
+				});
 			}
 
 			// Open an editor on the new file.
 			//
 			try {
-				page.openEditor
-					(new FileEditorInput(modelFile),
-					 workbench.getEditorRegistry().getDefaultEditor(modelFile.getFullPath().toString()).getId());					 	 
-			}
-			catch (PartInitException exception) {
-				MessageDialog.openError(workbenchWindow.getShell(), ScalingPolicyDefinitionEditorPlugin.INSTANCE.getString("_UI_OpenEditorError_label"), exception.getMessage());
+				page.openEditor(new FileEditorInput(modelFile),
+						workbench.getEditorRegistry().getDefaultEditor(modelFile.getFullPath().toString()).getId());
+			} catch (PartInitException exception) {
+				MessageDialog.openError(workbenchWindow.getShell(),
+						ScalingPolicyDefinitionEditorPlugin.INSTANCE.getString("_UI_OpenEditorError_label"),
+						exception.getMessage());
 				return false;
 			}
 
 			return true;
-		}
-		catch (Exception exception) {
+		} catch (Exception exception) {
 			ScalingPolicyDefinitionEditorPlugin.INSTANCE.log(exception);
 			return false;
 		}
@@ -338,7 +307,8 @@ public class ExpectationsModelWizard extends Wizard implements INewWizard {
 				String extension = new Path(getFileName()).getFileExtension();
 				if (extension == null || !FILE_EXTENSIONS.contains(extension)) {
 					String key = FILE_EXTENSIONS.size() > 1 ? "_WARN_FilenameExtensions" : "_WARN_FilenameExtension";
-					setErrorMessage(ScalingPolicyDefinitionEditorPlugin.INSTANCE.getString(key, new Object [] { FORMATTED_FILE_EXTENSIONS }));
+					setErrorMessage(ScalingPolicyDefinitionEditorPlugin.INSTANCE.getString(key,
+							new Object[] { FORMATTED_FILE_EXTENSIONS }));
 					return false;
 				}
 				return true;
@@ -473,13 +443,12 @@ public class ExpectationsModelWizard extends Wizard implements INewWizard {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		protected ModifyListener validator =
-			new ModifyListener() {
-				@Override
-				public void modifyText(ModifyEvent e) {
-					setPageComplete(validatePage());
-				}
-			};
+		protected ModifyListener validator = new ModifyListener() {
+			@Override
+			public void modifyText(ModifyEvent e) {
+				setPageComplete(validatePage());
+			}
+		};
 
 		/**
 		 * <!-- begin-user-doc -->
@@ -502,8 +471,7 @@ public class ExpectationsModelWizard extends Wizard implements INewWizard {
 				if (initialObjectField.getItemCount() == 1) {
 					initialObjectField.clearSelection();
 					encodingField.setFocus();
-				}
-				else {
+				} else {
 					encodingField.clearSelection();
 					initialObjectField.setFocus();
 				}
@@ -544,8 +512,7 @@ public class ExpectationsModelWizard extends Wizard implements INewWizard {
 		protected String getLabel(String typeName) {
 			try {
 				return ScalingPolicyDefinitionEditPlugin.INSTANCE.getString("_UI_" + typeName + "_type");
-			}
-			catch(MissingResourceException mre) {
+			} catch (MissingResourceException mre) {
 				ScalingPolicyDefinitionEditorPlugin.INSTANCE.log(mre);
 			}
 			return typeName;
@@ -558,8 +525,9 @@ public class ExpectationsModelWizard extends Wizard implements INewWizard {
 		 */
 		protected Collection<String> getEncodings() {
 			if (encodings == null) {
-				encodings = new ArrayList<String>();
-				for (StringTokenizer stringTokenizer = new StringTokenizer(ScalingPolicyDefinitionEditorPlugin.INSTANCE.getString("_UI_XMLEncodingChoices")); stringTokenizer.hasMoreTokens(); ) {
+				encodings = new ArrayList<>();
+				for (StringTokenizer stringTokenizer = new StringTokenizer(ScalingPolicyDefinitionEditorPlugin.INSTANCE
+						.getString("_UI_XMLEncodingChoices")); stringTokenizer.hasMoreTokens();) {
 					encodings.add(stringTokenizer.nextToken());
 				}
 			}
@@ -573,14 +541,18 @@ public class ExpectationsModelWizard extends Wizard implements INewWizard {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-		@Override
+	@Override
 	public void addPages() {
 		// Create a page, set the title, and the initial model file name.
 		//
 		newFileCreationPage = new ExpectationsModelWizardNewFileCreationPage("Whatever", selection);
-		newFileCreationPage.setTitle(ScalingPolicyDefinitionEditorPlugin.INSTANCE.getString("_UI_ExpectationsModelWizard_label"));
-		newFileCreationPage.setDescription(ScalingPolicyDefinitionEditorPlugin.INSTANCE.getString("_UI_ExpectationsModelWizard_description"));
-		newFileCreationPage.setFileName(ScalingPolicyDefinitionEditorPlugin.INSTANCE.getString("_UI_ExpectationsEditorFilenameDefaultBase") + "." + FILE_EXTENSIONS.get(0));
+		newFileCreationPage
+				.setTitle(ScalingPolicyDefinitionEditorPlugin.INSTANCE.getString("_UI_ExpectationsModelWizard_label"));
+		newFileCreationPage.setDescription(
+				ScalingPolicyDefinitionEditorPlugin.INSTANCE.getString("_UI_ExpectationsModelWizard_description"));
+		newFileCreationPage.setFileName(
+				ScalingPolicyDefinitionEditorPlugin.INSTANCE.getString("_UI_ExpectationsEditorFilenameDefaultBase")
+						+ "." + FILE_EXTENSIONS.get(0));
 		addPage(newFileCreationPage);
 
 		// Try and get the resource selection to determine a current directory for the file dialog.
@@ -592,7 +564,7 @@ public class ExpectationsModelWizard extends Wizard implements INewWizard {
 			if (selectedElement instanceof IResource) {
 				// Get the resource parent, if its a file.
 				//
-				IResource selectedResource = (IResource)selectedElement;
+				IResource selectedResource = (IResource) selectedElement;
 				if (selectedResource.getType() == IResource.FILE) {
 					selectedResource = selectedResource.getParent();
 				}
@@ -606,10 +578,11 @@ public class ExpectationsModelWizard extends Wizard implements INewWizard {
 
 					// Make up a unique new name here.
 					//
-					String defaultModelBaseFilename = ScalingPolicyDefinitionEditorPlugin.INSTANCE.getString("_UI_ExpectationsEditorFilenameDefaultBase");
+					String defaultModelBaseFilename = ScalingPolicyDefinitionEditorPlugin.INSTANCE
+							.getString("_UI_ExpectationsEditorFilenameDefaultBase");
 					String defaultModelFilenameExtension = FILE_EXTENSIONS.get(0);
 					String modelFilename = defaultModelBaseFilename + "." + defaultModelFilenameExtension;
-					for (int i = 1; ((IContainer)selectedResource).findMember(modelFilename) != null; ++i) {
+					for (int i = 1; ((IContainer) selectedResource).findMember(modelFilename) != null; ++i) {
 						modelFilename = defaultModelBaseFilename + i + "." + defaultModelFilenameExtension;
 					}
 					newFileCreationPage.setFileName(modelFilename);
@@ -617,8 +590,10 @@ public class ExpectationsModelWizard extends Wizard implements INewWizard {
 			}
 		}
 		initialObjectCreationPage = new ExpectationsModelWizardInitialObjectCreationPage("Whatever2");
-		initialObjectCreationPage.setTitle(ScalingPolicyDefinitionEditorPlugin.INSTANCE.getString("_UI_ExpectationsModelWizard_label"));
-		initialObjectCreationPage.setDescription(ScalingPolicyDefinitionEditorPlugin.INSTANCE.getString("_UI_Wizard_initial_object_description"));
+		initialObjectCreationPage
+				.setTitle(ScalingPolicyDefinitionEditorPlugin.INSTANCE.getString("_UI_ExpectationsModelWizard_label"));
+		initialObjectCreationPage.setDescription(
+				ScalingPolicyDefinitionEditorPlugin.INSTANCE.getString("_UI_Wizard_initial_object_description"));
 		addPage(initialObjectCreationPage);
 	}
 

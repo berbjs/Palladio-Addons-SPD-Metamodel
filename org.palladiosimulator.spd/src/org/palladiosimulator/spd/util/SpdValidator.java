@@ -8,12 +8,13 @@ import java.util.Map;
 import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.common.util.ResourceLocator;
-
 import org.eclipse.emf.ecore.EPackage;
-
 import org.eclipse.emf.ecore.util.EObjectValidator;
+import org.palladiosimulator.spd.SPD;
+import org.palladiosimulator.spd.ScalingPolicy;
+import org.palladiosimulator.spd.SpdPackage;
 
-import org.palladiosimulator.spd.*;
+import de.uka.ipd.sdq.identifier.util.IdentifierValidator;
 
 /**
  * <!-- begin-user-doc -->
@@ -58,6 +59,14 @@ public class SpdValidator extends EObjectValidator {
 	protected static final int DIAGNOSTIC_CODE_COUNT = GENERATED_DIAGNOSTIC_CODE_COUNT;
 
 	/**
+	 * The cached base package validator.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected IdentifierValidator identifierValidator;
+
+	/**
 	 * Creates an instance of the switch.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -65,6 +74,7 @@ public class SpdValidator extends EObjectValidator {
 	 */
 	public SpdValidator() {
 		super();
+		identifierValidator = IdentifierValidator.INSTANCE;
 	}
 
 	/**
@@ -75,7 +85,7 @@ public class SpdValidator extends EObjectValidator {
 	 */
 	@Override
 	protected EPackage getEPackage() {
-	  return SpdPackage.eINSTANCE;
+		return SpdPackage.eINSTANCE;
 	}
 
 	/**
@@ -85,16 +95,15 @@ public class SpdValidator extends EObjectValidator {
 	 * @generated
 	 */
 	@Override
-	protected boolean validate(int classifierID, Object value, DiagnosticChain diagnostics, Map<Object, Object> context) {
+	protected boolean validate(int classifierID, Object value, DiagnosticChain diagnostics,
+			Map<Object, Object> context) {
 		switch (classifierID) {
-			case SpdPackage.SCALING_POLICY:
-				return validateScalingPolicy((ScalingPolicy)value, diagnostics, context);
-			case SpdPackage.SPD:
-				return validateSPD((SPD)value, diagnostics, context);
-			case SpdPackage.NAMED_ELEMENT:
-				return validateNamedElement((NamedElement)value, diagnostics, context);
-			default:
-				return true;
+		case SpdPackage.SCALING_POLICY:
+			return validateScalingPolicy((ScalingPolicy) value, diagnostics, context);
+		case SpdPackage.SPD:
+			return validateSPD((SPD) value, diagnostics, context);
+		default:
+			return true;
 		}
 	}
 
@@ -103,17 +112,29 @@ public class SpdValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validateScalingPolicy(ScalingPolicy scalingPolicy, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		if (!validate_NoCircularContainment(scalingPolicy, diagnostics, context)) return false;
+	public boolean validateScalingPolicy(ScalingPolicy scalingPolicy, DiagnosticChain diagnostics,
+			Map<Object, Object> context) {
+		if (!validate_NoCircularContainment(scalingPolicy, diagnostics, context))
+			return false;
 		boolean result = validate_EveryMultiplicityConforms(scalingPolicy, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(scalingPolicy, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(scalingPolicy, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryBidirectionalReferenceIsPaired(scalingPolicy, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryProxyResolves(scalingPolicy, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_UniqueID(scalingPolicy, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryKeyUnique(scalingPolicy, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(scalingPolicy, diagnostics, context);
-		if (result || diagnostics != null) result &= validateScalingPolicy_policyNameInvariant(scalingPolicy, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validate_EveryDataValueConforms(scalingPolicy, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validate_EveryReferenceIsContained(scalingPolicy, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validate_EveryBidirectionalReferenceIsPaired(scalingPolicy, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validate_EveryProxyResolves(scalingPolicy, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validate_UniqueID(scalingPolicy, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validate_EveryKeyUnique(scalingPolicy, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validate_EveryMapEntryUnique(scalingPolicy, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= identifierValidator.validateIdentifier_identifierIsUnique(scalingPolicy, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validateScalingPolicy_policyNameInvariant(scalingPolicy, diagnostics, context);
 		return result;
 	}
 
@@ -123,22 +144,18 @@ public class SpdValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validateScalingPolicy_policyNameInvariant(ScalingPolicy scalingPolicy, DiagnosticChain diagnostics, Map<Object, Object> context) {
+	public boolean validateScalingPolicy_policyNameInvariant(ScalingPolicy scalingPolicy, DiagnosticChain diagnostics,
+			Map<Object, Object> context) {
 		// TODO implement the constraint
 		// -> specify the condition that violates the constraint
 		// -> verify the diagnostic details, including severity, code, and message
 		// Ensure that you remove @generated or mark it @generated NOT
 		if (false) {
 			if (diagnostics != null) {
-				diagnostics.add
-					(createDiagnostic
-						(Diagnostic.ERROR,
-						 DIAGNOSTIC_SOURCE,
-						 0,
-						 "_UI_GenericConstraint_diagnostic",
-						 new Object[] { "policyNameInvariant", getObjectLabel(scalingPolicy, context) },
-						 new Object[] { scalingPolicy },
-						 context));
+				diagnostics.add(
+						createDiagnostic(Diagnostic.ERROR, DIAGNOSTIC_SOURCE, 0, "_UI_GenericConstraint_diagnostic",
+								new Object[] { "policyNameInvariant", getObjectLabel(scalingPolicy, context) },
+								new Object[] { scalingPolicy }, context));
 			}
 			return false;
 		}
@@ -151,17 +168,29 @@ public class SpdValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateSPD(SPD spd, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		if (!validate_NoCircularContainment(spd, diagnostics, context)) return false;
+		if (!validate_NoCircularContainment(spd, diagnostics, context))
+			return false;
 		boolean result = validate_EveryMultiplicityConforms(spd, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(spd, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(spd, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryBidirectionalReferenceIsPaired(spd, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryProxyResolves(spd, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_UniqueID(spd, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryKeyUnique(spd, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(spd, diagnostics, context);
-		if (result || diagnostics != null) result &= validateSPD_nameInvariant(spd, diagnostics, context);
-		if (result || diagnostics != null) result &= validateSPD_noSameTargetGroup(spd, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validate_EveryDataValueConforms(spd, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validate_EveryReferenceIsContained(spd, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validate_EveryBidirectionalReferenceIsPaired(spd, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validate_EveryProxyResolves(spd, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validate_UniqueID(spd, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validate_EveryKeyUnique(spd, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validate_EveryMapEntryUnique(spd, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= identifierValidator.validateIdentifier_identifierIsUnique(spd, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validateSPD_nameInvariant(spd, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validateSPD_noSameTargetGroup(spd, diagnostics, context);
 		return result;
 	}
 
@@ -178,15 +207,9 @@ public class SpdValidator extends EObjectValidator {
 		// Ensure that you remove @generated or mark it @generated NOT
 		if (false) {
 			if (diagnostics != null) {
-				diagnostics.add
-					(createDiagnostic
-						(Diagnostic.ERROR,
-						 DIAGNOSTIC_SOURCE,
-						 0,
-						 "_UI_GenericConstraint_diagnostic",
-						 new Object[] { "nameInvariant", getObjectLabel(spd, context) },
-						 new Object[] { spd },
-						 context));
+				diagnostics.add(createDiagnostic(Diagnostic.ERROR, DIAGNOSTIC_SOURCE, 0,
+						"_UI_GenericConstraint_diagnostic",
+						new Object[] { "nameInvariant", getObjectLabel(spd, context) }, new Object[] { spd }, context));
 			}
 			return false;
 		}
@@ -206,28 +229,14 @@ public class SpdValidator extends EObjectValidator {
 		// Ensure that you remove @generated or mark it @generated NOT
 		if (false) {
 			if (diagnostics != null) {
-				diagnostics.add
-					(createDiagnostic
-						(Diagnostic.ERROR,
-						 DIAGNOSTIC_SOURCE,
-						 0,
-						 "_UI_GenericConstraint_diagnostic",
-						 new Object[] { "noSameTargetGroup", getObjectLabel(spd, context) },
-						 new Object[] { spd },
-						 context));
+				diagnostics.add(
+						createDiagnostic(Diagnostic.ERROR, DIAGNOSTIC_SOURCE, 0, "_UI_GenericConstraint_diagnostic",
+								new Object[] { "noSameTargetGroup", getObjectLabel(spd, context) },
+								new Object[] { spd }, context));
 			}
 			return false;
 		}
 		return true;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean validateNamedElement(NamedElement namedElement, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(namedElement, diagnostics, context);
 	}
 
 	/**

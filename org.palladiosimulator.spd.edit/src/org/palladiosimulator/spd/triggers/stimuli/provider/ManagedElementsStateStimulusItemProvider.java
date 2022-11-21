@@ -3,20 +3,16 @@
  */
 package org.palladiosimulator.spd.triggers.stimuli.provider;
 
-
 import java.util.Collection;
 import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
-
 import org.palladiosimulator.spd.triggers.AGGREGATIONMETHOD;
-
 import org.palladiosimulator.spd.triggers.stimuli.ManagedElementsStateStimulus;
 import org.palladiosimulator.spd.triggers.stimuli.StimuliPackage;
 
@@ -60,19 +56,14 @@ public class ManagedElementsStateStimulusItemProvider extends TargetGroupStateSt
 	 * @generated
 	 */
 	protected void addAggregationOverElementsPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_ManagedElementsStateStimulus_aggregationOverElements_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ManagedElementsStateStimulus_aggregationOverElements_feature", "_UI_ManagedElementsStateStimulus_type"),
-				 StimuliPackage.Literals.MANAGED_ELEMENTS_STATE_STIMULUS__AGGREGATION_OVER_ELEMENTS,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(
+				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+				getString("_UI_ManagedElementsStateStimulus_aggregationOverElements_feature"),
+				getString("_UI_PropertyDescriptor_description",
+						"_UI_ManagedElementsStateStimulus_aggregationOverElements_feature",
+						"_UI_ManagedElementsStateStimulus_type"),
+				StimuliPackage.Literals.MANAGED_ELEMENTS_STATE_STIMULUS__AGGREGATION_OVER_ELEMENTS, true, false, false,
+				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -83,13 +74,11 @@ public class ManagedElementsStateStimulusItemProvider extends TargetGroupStateSt
 	 */
 	@Override
 	public String getText(Object object) {
-		AGGREGATIONMETHOD labelValue = ((ManagedElementsStateStimulus)object).getAggregationOverElements();
+		AGGREGATIONMETHOD labelValue = ((ManagedElementsStateStimulus) object).getAggregationOverElements();
 		String label = labelValue == null ? null : labelValue.toString();
-		return label == null || label.length() == 0 ?
-			getString("_UI_ManagedElementsStateStimulus_type") :
-			getString("_UI_ManagedElementsStateStimulus_type") + " " + label;
+		return label == null || label.length() == 0 ? getString("_UI_ManagedElementsStateStimulus_type")
+				: getString("_UI_ManagedElementsStateStimulus_type") + " " + label;
 	}
-
 
 	/**
 	 * This handles model notifications by calling {@link #updateChildren} to update any cached
@@ -103,9 +92,9 @@ public class ManagedElementsStateStimulusItemProvider extends TargetGroupStateSt
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(ManagedElementsStateStimulus.class)) {
-			case StimuliPackage.MANAGED_ELEMENTS_STATE_STIMULUS__AGGREGATION_OVER_ELEMENTS:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-				return;
+		case StimuliPackage.MANAGED_ELEMENTS_STATE_STIMULUS__AGGREGATION_OVER_ELEMENTS:
+			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+			return;
 		}
 		super.notifyChanged(notification);
 	}

@@ -31,7 +31,7 @@ public interface OperationResponseTime extends SoruceInterfaceStimulus {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The operation from which the response time is used. 
+	 * The operation from which the response time is used.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Operation Signature</em>' reference.
 	 * @see #setOperationSignature(OperationSignature)

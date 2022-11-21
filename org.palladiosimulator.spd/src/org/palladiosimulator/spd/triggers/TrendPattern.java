@@ -109,13 +109,8 @@ public enum TrendPattern implements Enumerator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private static final TrendPattern[] VALUES_ARRAY =
-		new TrendPattern[] {
-			INCREASING,
-			DECREASING,
-			NON_INCREASING,
-			NON_DECREASING,
-		};
+	private static final TrendPattern[] VALUES_ARRAY = new TrendPattern[] { INCREASING, DECREASING, NON_INCREASING,
+			NON_DECREASING, };
 
 	/**
 	 * A public read-only list of all the '<em><b>Trend Pattern</b></em>' enumerators.
@@ -134,8 +129,7 @@ public enum TrendPattern implements Enumerator {
 	 * @generated
 	 */
 	public static TrendPattern get(String literal) {
-		for (int i = 0; i < VALUES_ARRAY.length; ++i) {
-			TrendPattern result = VALUES_ARRAY[i];
+		for (TrendPattern result : VALUES_ARRAY) {
 			if (result.toString().equals(literal)) {
 				return result;
 			}
@@ -152,8 +146,7 @@ public enum TrendPattern implements Enumerator {
 	 * @generated
 	 */
 	public static TrendPattern getByName(String name) {
-		for (int i = 0; i < VALUES_ARRAY.length; ++i) {
-			TrendPattern result = VALUES_ARRAY[i];
+		for (TrendPattern result : VALUES_ARRAY) {
 			if (result.getName().equals(name)) {
 				return result;
 			}
@@ -171,10 +164,14 @@ public enum TrendPattern implements Enumerator {
 	 */
 	public static TrendPattern get(int value) {
 		switch (value) {
-			case INCREASING_VALUE: return INCREASING;
-			case DECREASING_VALUE: return DECREASING;
-			case NON_INCREASING_VALUE: return NON_INCREASING;
-			case NON_DECREASING_VALUE: return NON_DECREASING;
+		case INCREASING_VALUE:
+			return INCREASING;
+		case DECREASING_VALUE:
+			return DECREASING;
+		case NON_INCREASING_VALUE:
+			return NON_INCREASING;
+		case NON_DECREASING_VALUE:
+			return NON_DECREASING;
 		}
 		return null;
 	}
@@ -219,7 +216,7 @@ public enum TrendPattern implements Enumerator {
 	 */
 	@Override
 	public int getValue() {
-	  return value;
+		return value;
 	}
 
 	/**
@@ -229,7 +226,7 @@ public enum TrendPattern implements Enumerator {
 	 */
 	@Override
 	public String getName() {
-	  return name;
+		return name;
 	}
 
 	/**
@@ -239,7 +236,7 @@ public enum TrendPattern implements Enumerator {
 	 */
 	@Override
 	public String getLiteral() {
-	  return literal;
+		return literal;
 	}
 
 	/**
@@ -252,5 +249,5 @@ public enum TrendPattern implements Enumerator {
 	public String toString() {
 		return literal;
 	}
-	
+
 } //TrendPattern

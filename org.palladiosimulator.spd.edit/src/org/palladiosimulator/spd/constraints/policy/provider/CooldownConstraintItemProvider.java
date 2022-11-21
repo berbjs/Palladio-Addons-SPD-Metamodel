@@ -3,18 +3,15 @@
  */
 package org.palladiosimulator.spd.constraints.policy.provider;
 
-
 import java.util.Collection;
 import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
-
 import org.palladiosimulator.spd.constraints.policy.CooldownConstraint;
 import org.palladiosimulator.spd.constraints.policy.PolicyPackage;
 
@@ -59,19 +56,13 @@ public class CooldownConstraintItemProvider extends TemporalConstraintItemProvid
 	 * @generated
 	 */
 	protected void addCooldownTimePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_CooldownConstraint_cooldownTime_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_CooldownConstraint_cooldownTime_feature", "_UI_CooldownConstraint_type"),
-				 PolicyPackage.Literals.COOLDOWN_CONSTRAINT__COOLDOWN_TIME,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.REAL_VALUE_IMAGE,
-				 null,
-				 null));
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(
+				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+				getString("_UI_CooldownConstraint_cooldownTime_feature"),
+				getString("_UI_PropertyDescriptor_description", "_UI_CooldownConstraint_cooldownTime_feature",
+						"_UI_CooldownConstraint_type"),
+				PolicyPackage.Literals.COOLDOWN_CONSTRAINT__COOLDOWN_TIME, true, false, false,
+				ItemPropertyDescriptor.REAL_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -81,19 +72,13 @@ public class CooldownConstraintItemProvider extends TemporalConstraintItemProvid
 	 * @generated
 	 */
 	protected void addMaxScalingOperationsPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_CooldownConstraint_maxScalingOperations_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_CooldownConstraint_maxScalingOperations_feature", "_UI_CooldownConstraint_type"),
-				 PolicyPackage.Literals.COOLDOWN_CONSTRAINT__MAX_SCALING_OPERATIONS,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
-				 null,
-				 null));
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(), getString("_UI_CooldownConstraint_maxScalingOperations_feature"),
+						getString("_UI_PropertyDescriptor_description",
+								"_UI_CooldownConstraint_maxScalingOperations_feature", "_UI_CooldownConstraint_type"),
+						PolicyPackage.Literals.COOLDOWN_CONSTRAINT__MAX_SCALING_OPERATIONS, true, false, false,
+						ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -115,10 +100,10 @@ public class CooldownConstraintItemProvider extends TemporalConstraintItemProvid
 	 */
 	@Override
 	public String getText(Object object) {
-		CooldownConstraint cooldownConstraint = (CooldownConstraint)object;
-		return getString("_UI_CooldownConstraint_type") + " " + cooldownConstraint.getCooldownTime();
+		String label = ((CooldownConstraint) object).getId();
+		return label == null || label.length() == 0 ? getString("_UI_CooldownConstraint_type")
+				: getString("_UI_CooldownConstraint_type") + " " + label;
 	}
-
 
 	/**
 	 * This handles model notifications by calling {@link #updateChildren} to update any cached
@@ -132,10 +117,10 @@ public class CooldownConstraintItemProvider extends TemporalConstraintItemProvid
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(CooldownConstraint.class)) {
-			case PolicyPackage.COOLDOWN_CONSTRAINT__COOLDOWN_TIME:
-			case PolicyPackage.COOLDOWN_CONSTRAINT__MAX_SCALING_OPERATIONS:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-				return;
+		case PolicyPackage.COOLDOWN_CONSTRAINT__COOLDOWN_TIME:
+		case PolicyPackage.COOLDOWN_CONSTRAINT__MAX_SCALING_OPERATIONS:
+			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+			return;
 		}
 		super.notifyChanged(notification);
 	}

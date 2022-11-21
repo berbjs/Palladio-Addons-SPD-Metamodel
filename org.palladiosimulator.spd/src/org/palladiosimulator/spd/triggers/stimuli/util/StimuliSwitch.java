@@ -5,10 +5,23 @@ package org.palladiosimulator.spd.triggers.stimuli.util;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
-
 import org.eclipse.emf.ecore.util.Switch;
-
-import org.palladiosimulator.spd.triggers.stimuli.*;
+import org.palladiosimulator.spd.triggers.stimuli.CPUUtilization;
+import org.palladiosimulator.spd.triggers.stimuli.HDDUtilization;
+import org.palladiosimulator.spd.triggers.stimuli.ManagedElementsStateStimulus;
+import org.palladiosimulator.spd.triggers.stimuli.MemoryUtilization;
+import org.palladiosimulator.spd.triggers.stimuli.NetworkUtilization;
+import org.palladiosimulator.spd.triggers.stimuli.NumberOfElements;
+import org.palladiosimulator.spd.triggers.stimuli.OperationResponseTime;
+import org.palladiosimulator.spd.triggers.stimuli.QueueLength;
+import org.palladiosimulator.spd.triggers.stimuli.ResourceUtilizationStimulus;
+import org.palladiosimulator.spd.triggers.stimuli.SimulationStateStimulus;
+import org.palladiosimulator.spd.triggers.stimuli.SimulationTime;
+import org.palladiosimulator.spd.triggers.stimuli.SoruceInterfaceStimulus;
+import org.palladiosimulator.spd.triggers.stimuli.StimuliPackage;
+import org.palladiosimulator.spd.triggers.stimuli.Stimulus;
+import org.palladiosimulator.spd.triggers.stimuli.TargetGroupStateStimulus;
+import org.palladiosimulator.spd.triggers.stimuli.TaskCount;
 
 /**
  * <!-- begin-user-doc -->
@@ -67,132 +80,183 @@ public class StimuliSwitch<T> extends Switch<T> {
 	@Override
 	protected T doSwitch(int classifierID, EObject theEObject) {
 		switch (classifierID) {
-			case StimuliPackage.STIMULUS: {
-				Stimulus stimulus = (Stimulus)theEObject;
-				T result = caseStimulus(stimulus);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case StimuliPackage.TARGET_GROUP_STATE_STIMULUS: {
-				TargetGroupStateStimulus targetGroupStateStimulus = (TargetGroupStateStimulus)theEObject;
-				T result = caseTargetGroupStateStimulus(targetGroupStateStimulus);
-				if (result == null) result = caseStimulus(targetGroupStateStimulus);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case StimuliPackage.SIMULATION_STATE_STIMULUS: {
-				SimulationStateStimulus simulationStateStimulus = (SimulationStateStimulus)theEObject;
-				T result = caseSimulationStateStimulus(simulationStateStimulus);
-				if (result == null) result = caseStimulus(simulationStateStimulus);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case StimuliPackage.SORUCE_INTERFACE_STIMULUS: {
-				SoruceInterfaceStimulus soruceInterfaceStimulus = (SoruceInterfaceStimulus)theEObject;
-				T result = caseSoruceInterfaceStimulus(soruceInterfaceStimulus);
-				if (result == null) result = caseStimulus(soruceInterfaceStimulus);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case StimuliPackage.OPERATION_RESPONSE_TIME: {
-				OperationResponseTime operationResponseTime = (OperationResponseTime)theEObject;
-				T result = caseOperationResponseTime(operationResponseTime);
-				if (result == null) result = caseSoruceInterfaceStimulus(operationResponseTime);
-				if (result == null) result = caseStimulus(operationResponseTime);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case StimuliPackage.NUMBER_OF_ELEMENTS: {
-				NumberOfElements numberOfElements = (NumberOfElements)theEObject;
-				T result = caseNumberOfElements(numberOfElements);
-				if (result == null) result = caseTargetGroupStateStimulus(numberOfElements);
-				if (result == null) result = caseStimulus(numberOfElements);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case StimuliPackage.MANAGED_ELEMENTS_STATE_STIMULUS: {
-				ManagedElementsStateStimulus managedElementsStateStimulus = (ManagedElementsStateStimulus)theEObject;
-				T result = caseManagedElementsStateStimulus(managedElementsStateStimulus);
-				if (result == null) result = caseTargetGroupStateStimulus(managedElementsStateStimulus);
-				if (result == null) result = caseStimulus(managedElementsStateStimulus);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case StimuliPackage.CPU_UTILIZATION: {
-				CPUUtilization cpuUtilization = (CPUUtilization)theEObject;
-				T result = caseCPUUtilization(cpuUtilization);
-				if (result == null) result = caseResourceUtilizationStimulus(cpuUtilization);
-				if (result == null) result = caseManagedElementsStateStimulus(cpuUtilization);
-				if (result == null) result = caseTargetGroupStateStimulus(cpuUtilization);
-				if (result == null) result = caseStimulus(cpuUtilization);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case StimuliPackage.MEMORY_UTILIZATION: {
-				MemoryUtilization memoryUtilization = (MemoryUtilization)theEObject;
-				T result = caseMemoryUtilization(memoryUtilization);
-				if (result == null) result = caseResourceUtilizationStimulus(memoryUtilization);
-				if (result == null) result = caseManagedElementsStateStimulus(memoryUtilization);
-				if (result == null) result = caseTargetGroupStateStimulus(memoryUtilization);
-				if (result == null) result = caseStimulus(memoryUtilization);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case StimuliPackage.SIMULATION_TIME: {
-				SimulationTime simulationTime = (SimulationTime)theEObject;
-				T result = caseSimulationTime(simulationTime);
-				if (result == null) result = caseSimulationStateStimulus(simulationTime);
-				if (result == null) result = caseStimulus(simulationTime);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case StimuliPackage.HDD_UTILIZATION: {
-				HDDUtilization hddUtilization = (HDDUtilization)theEObject;
-				T result = caseHDDUtilization(hddUtilization);
-				if (result == null) result = caseResourceUtilizationStimulus(hddUtilization);
-				if (result == null) result = caseManagedElementsStateStimulus(hddUtilization);
-				if (result == null) result = caseTargetGroupStateStimulus(hddUtilization);
-				if (result == null) result = caseStimulus(hddUtilization);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case StimuliPackage.RESOURCE_UTILIZATION_STIMULUS: {
-				ResourceUtilizationStimulus resourceUtilizationStimulus = (ResourceUtilizationStimulus)theEObject;
-				T result = caseResourceUtilizationStimulus(resourceUtilizationStimulus);
-				if (result == null) result = caseManagedElementsStateStimulus(resourceUtilizationStimulus);
-				if (result == null) result = caseTargetGroupStateStimulus(resourceUtilizationStimulus);
-				if (result == null) result = caseStimulus(resourceUtilizationStimulus);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case StimuliPackage.TASK_COUNT: {
-				TaskCount taskCount = (TaskCount)theEObject;
-				T result = caseTaskCount(taskCount);
-				if (result == null) result = caseManagedElementsStateStimulus(taskCount);
-				if (result == null) result = caseTargetGroupStateStimulus(taskCount);
-				if (result == null) result = caseStimulus(taskCount);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case StimuliPackage.QUEUE_LENGTH: {
-				QueueLength queueLength = (QueueLength)theEObject;
-				T result = caseQueueLength(queueLength);
-				if (result == null) result = caseSoruceInterfaceStimulus(queueLength);
-				if (result == null) result = caseStimulus(queueLength);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case StimuliPackage.NETWORK_UTILIZATION: {
-				NetworkUtilization networkUtilization = (NetworkUtilization)theEObject;
-				T result = caseNetworkUtilization(networkUtilization);
-				if (result == null) result = caseResourceUtilizationStimulus(networkUtilization);
-				if (result == null) result = caseManagedElementsStateStimulus(networkUtilization);
-				if (result == null) result = caseTargetGroupStateStimulus(networkUtilization);
-				if (result == null) result = caseStimulus(networkUtilization);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			default: return defaultCase(theEObject);
+		case StimuliPackage.STIMULUS: {
+			Stimulus stimulus = (Stimulus) theEObject;
+			T result = caseStimulus(stimulus);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case StimuliPackage.TARGET_GROUP_STATE_STIMULUS: {
+			TargetGroupStateStimulus targetGroupStateStimulus = (TargetGroupStateStimulus) theEObject;
+			T result = caseTargetGroupStateStimulus(targetGroupStateStimulus);
+			if (result == null)
+				result = caseStimulus(targetGroupStateStimulus);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case StimuliPackage.SIMULATION_STATE_STIMULUS: {
+			SimulationStateStimulus simulationStateStimulus = (SimulationStateStimulus) theEObject;
+			T result = caseSimulationStateStimulus(simulationStateStimulus);
+			if (result == null)
+				result = caseStimulus(simulationStateStimulus);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case StimuliPackage.SORUCE_INTERFACE_STIMULUS: {
+			SoruceInterfaceStimulus soruceInterfaceStimulus = (SoruceInterfaceStimulus) theEObject;
+			T result = caseSoruceInterfaceStimulus(soruceInterfaceStimulus);
+			if (result == null)
+				result = caseStimulus(soruceInterfaceStimulus);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case StimuliPackage.OPERATION_RESPONSE_TIME: {
+			OperationResponseTime operationResponseTime = (OperationResponseTime) theEObject;
+			T result = caseOperationResponseTime(operationResponseTime);
+			if (result == null)
+				result = caseSoruceInterfaceStimulus(operationResponseTime);
+			if (result == null)
+				result = caseStimulus(operationResponseTime);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case StimuliPackage.NUMBER_OF_ELEMENTS: {
+			NumberOfElements numberOfElements = (NumberOfElements) theEObject;
+			T result = caseNumberOfElements(numberOfElements);
+			if (result == null)
+				result = caseTargetGroupStateStimulus(numberOfElements);
+			if (result == null)
+				result = caseStimulus(numberOfElements);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case StimuliPackage.MANAGED_ELEMENTS_STATE_STIMULUS: {
+			ManagedElementsStateStimulus managedElementsStateStimulus = (ManagedElementsStateStimulus) theEObject;
+			T result = caseManagedElementsStateStimulus(managedElementsStateStimulus);
+			if (result == null)
+				result = caseTargetGroupStateStimulus(managedElementsStateStimulus);
+			if (result == null)
+				result = caseStimulus(managedElementsStateStimulus);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case StimuliPackage.CPU_UTILIZATION: {
+			CPUUtilization cpuUtilization = (CPUUtilization) theEObject;
+			T result = caseCPUUtilization(cpuUtilization);
+			if (result == null)
+				result = caseResourceUtilizationStimulus(cpuUtilization);
+			if (result == null)
+				result = caseManagedElementsStateStimulus(cpuUtilization);
+			if (result == null)
+				result = caseTargetGroupStateStimulus(cpuUtilization);
+			if (result == null)
+				result = caseStimulus(cpuUtilization);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case StimuliPackage.MEMORY_UTILIZATION: {
+			MemoryUtilization memoryUtilization = (MemoryUtilization) theEObject;
+			T result = caseMemoryUtilization(memoryUtilization);
+			if (result == null)
+				result = caseResourceUtilizationStimulus(memoryUtilization);
+			if (result == null)
+				result = caseManagedElementsStateStimulus(memoryUtilization);
+			if (result == null)
+				result = caseTargetGroupStateStimulus(memoryUtilization);
+			if (result == null)
+				result = caseStimulus(memoryUtilization);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case StimuliPackage.SIMULATION_TIME: {
+			SimulationTime simulationTime = (SimulationTime) theEObject;
+			T result = caseSimulationTime(simulationTime);
+			if (result == null)
+				result = caseSimulationStateStimulus(simulationTime);
+			if (result == null)
+				result = caseStimulus(simulationTime);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case StimuliPackage.HDD_UTILIZATION: {
+			HDDUtilization hddUtilization = (HDDUtilization) theEObject;
+			T result = caseHDDUtilization(hddUtilization);
+			if (result == null)
+				result = caseResourceUtilizationStimulus(hddUtilization);
+			if (result == null)
+				result = caseManagedElementsStateStimulus(hddUtilization);
+			if (result == null)
+				result = caseTargetGroupStateStimulus(hddUtilization);
+			if (result == null)
+				result = caseStimulus(hddUtilization);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case StimuliPackage.RESOURCE_UTILIZATION_STIMULUS: {
+			ResourceUtilizationStimulus resourceUtilizationStimulus = (ResourceUtilizationStimulus) theEObject;
+			T result = caseResourceUtilizationStimulus(resourceUtilizationStimulus);
+			if (result == null)
+				result = caseManagedElementsStateStimulus(resourceUtilizationStimulus);
+			if (result == null)
+				result = caseTargetGroupStateStimulus(resourceUtilizationStimulus);
+			if (result == null)
+				result = caseStimulus(resourceUtilizationStimulus);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case StimuliPackage.TASK_COUNT: {
+			TaskCount taskCount = (TaskCount) theEObject;
+			T result = caseTaskCount(taskCount);
+			if (result == null)
+				result = caseManagedElementsStateStimulus(taskCount);
+			if (result == null)
+				result = caseTargetGroupStateStimulus(taskCount);
+			if (result == null)
+				result = caseStimulus(taskCount);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case StimuliPackage.QUEUE_LENGTH: {
+			QueueLength queueLength = (QueueLength) theEObject;
+			T result = caseQueueLength(queueLength);
+			if (result == null)
+				result = caseSoruceInterfaceStimulus(queueLength);
+			if (result == null)
+				result = caseStimulus(queueLength);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case StimuliPackage.NETWORK_UTILIZATION: {
+			NetworkUtilization networkUtilization = (NetworkUtilization) theEObject;
+			T result = caseNetworkUtilization(networkUtilization);
+			if (result == null)
+				result = caseResourceUtilizationStimulus(networkUtilization);
+			if (result == null)
+				result = caseManagedElementsStateStimulus(networkUtilization);
+			if (result == null)
+				result = caseTargetGroupStateStimulus(networkUtilization);
+			if (result == null)
+				result = caseStimulus(networkUtilization);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		default:
+			return defaultCase(theEObject);
 		}
 	}
 

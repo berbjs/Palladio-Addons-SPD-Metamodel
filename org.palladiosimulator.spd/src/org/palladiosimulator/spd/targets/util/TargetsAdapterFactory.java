@@ -5,14 +5,19 @@ package org.palladiosimulator.spd.targets.util;
 
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
-
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
-
 import org.eclipse.emf.ecore.EObject;
+import org.palladiosimulator.pcm.PCMBaseClass;
+import org.palladiosimulator.pcm.PCMClass;
+import org.palladiosimulator.pcm.core.entity.Entity;
+import org.palladiosimulator.pcm.core.entity.NamedElement;
+import org.palladiosimulator.spd.targets.CompetingConsumersGroup;
+import org.palladiosimulator.spd.targets.ElasticInfrastructure;
+import org.palladiosimulator.spd.targets.ServiceGroup;
+import org.palladiosimulator.spd.targets.TargetGroup;
+import org.palladiosimulator.spd.targets.TargetsPackage;
 
-import org.palladiosimulator.spd.NamedElement;
-
-import org.palladiosimulator.spd.targets.*;
+import de.uka.ipd.sdq.identifier.Identifier;
 
 /**
  * <!-- begin-user-doc -->
@@ -57,7 +62,7 @@ public class TargetsAdapterFactory extends AdapterFactoryImpl {
 			return true;
 		}
 		if (object instanceof EObject) {
-			return ((EObject)object).eClass().getEPackage() == modelPackage;
+			return ((EObject) object).eClass().getEPackage() == modelPackage;
 		}
 		return false;
 	}
@@ -68,33 +73,57 @@ public class TargetsAdapterFactory extends AdapterFactoryImpl {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected TargetsSwitch<Adapter> modelSwitch =
-		new TargetsSwitch<Adapter>() {
-			@Override
-			public Adapter caseTargetGroup(TargetGroup object) {
-				return createTargetGroupAdapter();
-			}
-			@Override
-			public Adapter caseElasticInfrastructure(ElasticInfrastructure object) {
-				return createElasticInfrastructureAdapter();
-			}
-			@Override
-			public Adapter caseServiceGroup(ServiceGroup object) {
-				return createServiceGroupAdapter();
-			}
-			@Override
-			public Adapter caseCompetingConsumersGroup(CompetingConsumersGroup object) {
-				return createCompetingConsumersGroupAdapter();
-			}
-			@Override
-			public Adapter caseNamedElement(NamedElement object) {
-				return createNamedElementAdapter();
-			}
-			@Override
-			public Adapter defaultCase(EObject object) {
-				return createEObjectAdapter();
-			}
-		};
+	protected TargetsSwitch<Adapter> modelSwitch = new TargetsSwitch<>() {
+		@Override
+		public Adapter caseTargetGroup(TargetGroup object) {
+			return createTargetGroupAdapter();
+		}
+
+		@Override
+		public Adapter caseElasticInfrastructure(ElasticInfrastructure object) {
+			return createElasticInfrastructureAdapter();
+		}
+
+		@Override
+		public Adapter caseServiceGroup(ServiceGroup object) {
+			return createServiceGroupAdapter();
+		}
+
+		@Override
+		public Adapter caseCompetingConsumersGroup(CompetingConsumersGroup object) {
+			return createCompetingConsumersGroupAdapter();
+		}
+
+		@Override
+		public Adapter caseIdentifier(Identifier object) {
+			return createIdentifierAdapter();
+		}
+
+		@Override
+		public Adapter casePCMClass(PCMClass object) {
+			return createPCMClassAdapter();
+		}
+
+		@Override
+		public Adapter casePCMBaseClass(PCMBaseClass object) {
+			return createPCMBaseClassAdapter();
+		}
+
+		@Override
+		public Adapter caseNamedElement(NamedElement object) {
+			return createNamedElementAdapter();
+		}
+
+		@Override
+		public Adapter caseEntity(Entity object) {
+			return createEntityAdapter();
+		}
+
+		@Override
+		public Adapter defaultCase(EObject object) {
+			return createEObjectAdapter();
+		}
+	};
 
 	/**
 	 * Creates an adapter for the <code>target</code>.
@@ -106,9 +135,8 @@ public class TargetsAdapterFactory extends AdapterFactoryImpl {
 	 */
 	@Override
 	public Adapter createAdapter(Notifier target) {
-		return modelSwitch.doSwitch((EObject)target);
+		return modelSwitch.doSwitch((EObject) target);
 	}
-
 
 	/**
 	 * Creates a new adapter for an object of class '{@link org.palladiosimulator.spd.targets.TargetGroup <em>Target Group</em>}'.
@@ -167,16 +195,72 @@ public class TargetsAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.palladiosimulator.spd.NamedElement <em>Named Element</em>}'.
+	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.identifier.Identifier <em>Identifier</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.palladiosimulator.spd.NamedElement
+	 * @see de.uka.ipd.sdq.identifier.Identifier
+	 * @generated
+	 */
+	public Adapter createIdentifierAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.palladiosimulator.pcm.PCMClass <em>PCM Class</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.palladiosimulator.pcm.PCMClass
+	 * @generated
+	 */
+	public Adapter createPCMClassAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.palladiosimulator.pcm.PCMBaseClass <em>PCM Base Class</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.palladiosimulator.pcm.PCMBaseClass
+	 * @generated
+	 */
+	public Adapter createPCMBaseClassAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.palladiosimulator.pcm.core.entity.NamedElement <em>Named Element</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.palladiosimulator.pcm.core.entity.NamedElement
 	 * @generated
 	 */
 	public Adapter createNamedElementAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.palladiosimulator.pcm.core.entity.Entity <em>Entity</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.palladiosimulator.pcm.core.entity.Entity
+	 * @generated
+	 */
+	public Adapter createEntityAdapter() {
 		return null;
 	}
 

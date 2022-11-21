@@ -3,7 +3,6 @@
  */
 package org.palladiosimulator.spd.constraints.policy;
 
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>State Based Contraint</b></em>'.

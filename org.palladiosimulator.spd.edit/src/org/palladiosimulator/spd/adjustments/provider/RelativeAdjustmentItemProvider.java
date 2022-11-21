@@ -3,18 +3,15 @@
  */
 package org.palladiosimulator.spd.adjustments.provider;
 
-
 import java.util.Collection;
 import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
-
 import org.palladiosimulator.spd.adjustments.AdjustmentsPackage;
 import org.palladiosimulator.spd.adjustments.RelativeAdjustment;
 
@@ -59,19 +56,13 @@ public class RelativeAdjustmentItemProvider extends AdjustmentTypeItemProvider {
 	 * @generated
 	 */
 	protected void addPercentageGrowthValuePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_RelativeAdjustment_percentageGrowthValue_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_RelativeAdjustment_percentageGrowthValue_feature", "_UI_RelativeAdjustment_type"),
-				 AdjustmentsPackage.Literals.RELATIVE_ADJUSTMENT__PERCENTAGE_GROWTH_VALUE,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.REAL_VALUE_IMAGE,
-				 null,
-				 null));
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(), getString("_UI_RelativeAdjustment_percentageGrowthValue_feature"),
+						getString("_UI_PropertyDescriptor_description",
+								"_UI_RelativeAdjustment_percentageGrowthValue_feature", "_UI_RelativeAdjustment_type"),
+						AdjustmentsPackage.Literals.RELATIVE_ADJUSTMENT__PERCENTAGE_GROWTH_VALUE, true, false, false,
+						ItemPropertyDescriptor.REAL_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -81,19 +72,13 @@ public class RelativeAdjustmentItemProvider extends AdjustmentTypeItemProvider {
 	 * @generated
 	 */
 	protected void addMinAdjustmentValuePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_RelativeAdjustment_minAdjustmentValue_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_RelativeAdjustment_minAdjustmentValue_feature", "_UI_RelativeAdjustment_type"),
-				 AdjustmentsPackage.Literals.RELATIVE_ADJUSTMENT__MIN_ADJUSTMENT_VALUE,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
-				 null,
-				 null));
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(), getString("_UI_RelativeAdjustment_minAdjustmentValue_feature"),
+						getString("_UI_PropertyDescriptor_description",
+								"_UI_RelativeAdjustment_minAdjustmentValue_feature", "_UI_RelativeAdjustment_type"),
+						AdjustmentsPackage.Literals.RELATIVE_ADJUSTMENT__MIN_ADJUSTMENT_VALUE, true, false, false,
+						ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -115,10 +100,9 @@ public class RelativeAdjustmentItemProvider extends AdjustmentTypeItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		RelativeAdjustment relativeAdjustment = (RelativeAdjustment)object;
+		RelativeAdjustment relativeAdjustment = (RelativeAdjustment) object;
 		return getString("_UI_RelativeAdjustment_type") + " " + relativeAdjustment.getPercentageGrowthValue();
 	}
-
 
 	/**
 	 * This handles model notifications by calling {@link #updateChildren} to update any cached
@@ -132,10 +116,10 @@ public class RelativeAdjustmentItemProvider extends AdjustmentTypeItemProvider {
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(RelativeAdjustment.class)) {
-			case AdjustmentsPackage.RELATIVE_ADJUSTMENT__PERCENTAGE_GROWTH_VALUE:
-			case AdjustmentsPackage.RELATIVE_ADJUSTMENT__MIN_ADJUSTMENT_VALUE:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-				return;
+		case AdjustmentsPackage.RELATIVE_ADJUSTMENT__PERCENTAGE_GROWTH_VALUE:
+		case AdjustmentsPackage.RELATIVE_ADJUSTMENT__MIN_ADJUSTMENT_VALUE:
+			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+			return;
 		}
 		super.notifyChanged(notification);
 	}

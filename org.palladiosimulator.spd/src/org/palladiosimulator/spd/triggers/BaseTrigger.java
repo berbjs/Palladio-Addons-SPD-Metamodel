@@ -4,7 +4,6 @@
 package org.palladiosimulator.spd.triggers;
 
 import org.palladiosimulator.spd.triggers.expectations.ExpectedValue;
-
 import org.palladiosimulator.spd.triggers.stimuli.Stimulus;
 
 /**
@@ -13,7 +12,7 @@ import org.palladiosimulator.spd.triggers.stimuli.Stimulus;
  * <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
- * A BaseTrigger is a class of ScalingTrigger that works on a Stimulus (that entails the information gathered from the environment) and an ExpectedValue. Once the Stimulus 'matches' the ExpectedValue the trigger fires and an adjustment to the model is made. The matching of Stimulus with an ExpectedValue is determined by the subclasses. This can entail simple analysis through relational operators or more advanced transformation/aggregation of the Stimulus and the ExpectedValue. 
+ * A BaseTrigger is a class of ScalingTrigger that works on a Stimulus (that entails the information gathered from the environment) and an ExpectedValue. Once the Stimulus 'matches' the ExpectedValue the trigger fires and an adjustment to the model is made. The matching of Stimulus with an ExpectedValue is determined by the subclasses. This can entail simple analysis through relational operators or more advanced transformation/aggregation of the Stimulus and the ExpectedValue.
  * <!-- end-model-doc -->
  *
  * <p>

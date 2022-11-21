@@ -6,12 +6,13 @@ package org.palladiosimulator.spd.constraints.policy.impl;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
-
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
-
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
-
-import org.palladiosimulator.spd.constraints.policy.*;
+import org.palladiosimulator.spd.constraints.policy.CooldownConstraint;
+import org.palladiosimulator.spd.constraints.policy.IntervallConstraint;
+import org.palladiosimulator.spd.constraints.policy.PolicyFactory;
+import org.palladiosimulator.spd.constraints.policy.PolicyPackage;
+import org.palladiosimulator.spd.constraints.policy.ThrashingConstraint;
 
 /**
  * <!-- begin-user-doc -->
@@ -28,12 +29,12 @@ public class PolicyFactoryImpl extends EFactoryImpl implements PolicyFactory {
 	 */
 	public static PolicyFactory init() {
 		try {
-			PolicyFactory thePolicyFactory = (PolicyFactory)EPackage.Registry.INSTANCE.getEFactory(PolicyPackage.eNS_URI);
+			PolicyFactory thePolicyFactory = (PolicyFactory) EPackage.Registry.INSTANCE
+					.getEFactory(PolicyPackage.eNS_URI);
 			if (thePolicyFactory != null) {
 				return thePolicyFactory;
 			}
-		}
-		catch (Exception exception) {
+		} catch (Exception exception) {
 			EcorePlugin.INSTANCE.log(exception);
 		}
 		return new PolicyFactoryImpl();
@@ -57,11 +58,14 @@ public class PolicyFactoryImpl extends EFactoryImpl implements PolicyFactory {
 	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
-			case PolicyPackage.INTERVALL_CONSTRAINT: return createIntervallConstraint();
-			case PolicyPackage.COOLDOWN_CONSTRAINT: return createCooldownConstraint();
-			case PolicyPackage.THRASHING_CONSTRAINT: return createThrashingConstraint();
-			default:
-				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
+		case PolicyPackage.INTERVALL_CONSTRAINT:
+			return createIntervallConstraint();
+		case PolicyPackage.COOLDOWN_CONSTRAINT:
+			return createCooldownConstraint();
+		case PolicyPackage.THRASHING_CONSTRAINT:
+			return createThrashingConstraint();
+		default:
+			throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
 	}
 
@@ -105,7 +109,7 @@ public class PolicyFactoryImpl extends EFactoryImpl implements PolicyFactory {
 	 */
 	@Override
 	public PolicyPackage getPolicyPackage() {
-		return (PolicyPackage)getEPackage();
+		return (PolicyPackage) getEPackage();
 	}
 
 	/**

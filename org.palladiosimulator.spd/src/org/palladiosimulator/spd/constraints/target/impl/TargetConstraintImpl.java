@@ -4,9 +4,7 @@
 package org.palladiosimulator.spd.constraints.target.impl;
 
 import org.eclipse.emf.ecore.EClass;
-
 import org.palladiosimulator.spd.constraints.impl.AbstractConstraintImpl;
-
 import org.palladiosimulator.spd.constraints.target.TargetConstraint;
 import org.palladiosimulator.spd.constraints.target.TargetPackage;
 

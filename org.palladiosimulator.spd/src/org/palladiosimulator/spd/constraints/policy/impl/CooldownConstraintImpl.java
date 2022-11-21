@@ -3,12 +3,7 @@
  */
 package org.palladiosimulator.spd.constraints.policy.impl;
 
-import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.ecore.EClass;
-
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
-
 import org.palladiosimulator.spd.constraints.policy.CooldownConstraint;
 import org.palladiosimulator.spd.constraints.policy.PolicyPackage;
 
@@ -38,16 +33,6 @@ public class CooldownConstraintImpl extends TemporalConstraintImpl implements Co
 	protected static final double COOLDOWN_TIME_EDEFAULT = 0.0;
 
 	/**
-	 * The cached value of the '{@link #getCooldownTime() <em>Cooldown Time</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getCooldownTime()
-	 * @generated
-	 * @ordered
-	 */
-	protected double cooldownTime = COOLDOWN_TIME_EDEFAULT;
-
-	/**
 	 * The default value of the '{@link #getMaxScalingOperations() <em>Max Scaling Operations</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -56,16 +41,6 @@ public class CooldownConstraintImpl extends TemporalConstraintImpl implements Co
 	 * @ordered
 	 */
 	protected static final int MAX_SCALING_OPERATIONS_EDEFAULT = 0;
-
-	/**
-	 * The cached value of the '{@link #getMaxScalingOperations() <em>Max Scaling Operations</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getMaxScalingOperations()
-	 * @generated
-	 * @ordered
-	 */
-	protected int maxScalingOperations = MAX_SCALING_OPERATIONS_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -93,7 +68,8 @@ public class CooldownConstraintImpl extends TemporalConstraintImpl implements Co
 	 */
 	@Override
 	public double getCooldownTime() {
-		return cooldownTime;
+		return (Double) eDynamicGet(PolicyPackage.COOLDOWN_CONSTRAINT__COOLDOWN_TIME,
+				PolicyPackage.Literals.COOLDOWN_CONSTRAINT__COOLDOWN_TIME, true, true);
 	}
 
 	/**
@@ -103,10 +79,8 @@ public class CooldownConstraintImpl extends TemporalConstraintImpl implements Co
 	 */
 	@Override
 	public void setCooldownTime(double newCooldownTime) {
-		double oldCooldownTime = cooldownTime;
-		cooldownTime = newCooldownTime;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PolicyPackage.COOLDOWN_CONSTRAINT__COOLDOWN_TIME, oldCooldownTime, cooldownTime));
+		eDynamicSet(PolicyPackage.COOLDOWN_CONSTRAINT__COOLDOWN_TIME,
+				PolicyPackage.Literals.COOLDOWN_CONSTRAINT__COOLDOWN_TIME, newCooldownTime);
 	}
 
 	/**
@@ -116,7 +90,8 @@ public class CooldownConstraintImpl extends TemporalConstraintImpl implements Co
 	 */
 	@Override
 	public int getMaxScalingOperations() {
-		return maxScalingOperations;
+		return (Integer) eDynamicGet(PolicyPackage.COOLDOWN_CONSTRAINT__MAX_SCALING_OPERATIONS,
+				PolicyPackage.Literals.COOLDOWN_CONSTRAINT__MAX_SCALING_OPERATIONS, true, true);
 	}
 
 	/**
@@ -126,10 +101,8 @@ public class CooldownConstraintImpl extends TemporalConstraintImpl implements Co
 	 */
 	@Override
 	public void setMaxScalingOperations(int newMaxScalingOperations) {
-		int oldMaxScalingOperations = maxScalingOperations;
-		maxScalingOperations = newMaxScalingOperations;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PolicyPackage.COOLDOWN_CONSTRAINT__MAX_SCALING_OPERATIONS, oldMaxScalingOperations, maxScalingOperations));
+		eDynamicSet(PolicyPackage.COOLDOWN_CONSTRAINT__MAX_SCALING_OPERATIONS,
+				PolicyPackage.Literals.COOLDOWN_CONSTRAINT__MAX_SCALING_OPERATIONS, newMaxScalingOperations);
 	}
 
 	/**
@@ -140,10 +113,10 @@ public class CooldownConstraintImpl extends TemporalConstraintImpl implements Co
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case PolicyPackage.COOLDOWN_CONSTRAINT__COOLDOWN_TIME:
-				return getCooldownTime();
-			case PolicyPackage.COOLDOWN_CONSTRAINT__MAX_SCALING_OPERATIONS:
-				return getMaxScalingOperations();
+		case PolicyPackage.COOLDOWN_CONSTRAINT__COOLDOWN_TIME:
+			return getCooldownTime();
+		case PolicyPackage.COOLDOWN_CONSTRAINT__MAX_SCALING_OPERATIONS:
+			return getMaxScalingOperations();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -156,12 +129,12 @@ public class CooldownConstraintImpl extends TemporalConstraintImpl implements Co
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case PolicyPackage.COOLDOWN_CONSTRAINT__COOLDOWN_TIME:
-				setCooldownTime((Double)newValue);
-				return;
-			case PolicyPackage.COOLDOWN_CONSTRAINT__MAX_SCALING_OPERATIONS:
-				setMaxScalingOperations((Integer)newValue);
-				return;
+		case PolicyPackage.COOLDOWN_CONSTRAINT__COOLDOWN_TIME:
+			setCooldownTime((Double) newValue);
+			return;
+		case PolicyPackage.COOLDOWN_CONSTRAINT__MAX_SCALING_OPERATIONS:
+			setMaxScalingOperations((Integer) newValue);
+			return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -174,12 +147,12 @@ public class CooldownConstraintImpl extends TemporalConstraintImpl implements Co
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case PolicyPackage.COOLDOWN_CONSTRAINT__COOLDOWN_TIME:
-				setCooldownTime(COOLDOWN_TIME_EDEFAULT);
-				return;
-			case PolicyPackage.COOLDOWN_CONSTRAINT__MAX_SCALING_OPERATIONS:
-				setMaxScalingOperations(MAX_SCALING_OPERATIONS_EDEFAULT);
-				return;
+		case PolicyPackage.COOLDOWN_CONSTRAINT__COOLDOWN_TIME:
+			setCooldownTime(COOLDOWN_TIME_EDEFAULT);
+			return;
+		case PolicyPackage.COOLDOWN_CONSTRAINT__MAX_SCALING_OPERATIONS:
+			setMaxScalingOperations(MAX_SCALING_OPERATIONS_EDEFAULT);
+			return;
 		}
 		super.eUnset(featureID);
 	}
@@ -192,30 +165,12 @@ public class CooldownConstraintImpl extends TemporalConstraintImpl implements Co
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case PolicyPackage.COOLDOWN_CONSTRAINT__COOLDOWN_TIME:
-				return cooldownTime != COOLDOWN_TIME_EDEFAULT;
-			case PolicyPackage.COOLDOWN_CONSTRAINT__MAX_SCALING_OPERATIONS:
-				return maxScalingOperations != MAX_SCALING_OPERATIONS_EDEFAULT;
+		case PolicyPackage.COOLDOWN_CONSTRAINT__COOLDOWN_TIME:
+			return getCooldownTime() != COOLDOWN_TIME_EDEFAULT;
+		case PolicyPackage.COOLDOWN_CONSTRAINT__MAX_SCALING_OPERATIONS:
+			return getMaxScalingOperations() != MAX_SCALING_OPERATIONS_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String toString() {
-		if (eIsProxy()) return super.toString();
-
-		StringBuilder result = new StringBuilder(super.toString());
-		result.append(" (cooldownTime: ");
-		result.append(cooldownTime);
-		result.append(", maxScalingOperations: ");
-		result.append(maxScalingOperations);
-		result.append(')');
-		return result.toString();
 	}
 
 } //CooldownConstraintImpl

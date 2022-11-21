@@ -5,12 +5,16 @@ package org.palladiosimulator.spd.triggers.expectations.util;
 
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
-
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
-
 import org.eclipse.emf.ecore.EObject;
-
-import org.palladiosimulator.spd.triggers.expectations.*;
+import org.palladiosimulator.spd.triggers.expectations.ExpectationsPackage;
+import org.palladiosimulator.spd.triggers.expectations.ExpectedCount;
+import org.palladiosimulator.spd.triggers.expectations.ExpectedPercentage;
+import org.palladiosimulator.spd.triggers.expectations.ExpectedPrimitive;
+import org.palladiosimulator.spd.triggers.expectations.ExpectedTime;
+import org.palladiosimulator.spd.triggers.expectations.ExpectedTrend;
+import org.palladiosimulator.spd.triggers.expectations.ExpectedValue;
+import org.palladiosimulator.spd.triggers.expectations.NoExpectation;
 
 /**
  * <!-- begin-user-doc -->
@@ -55,7 +59,7 @@ public class ExpectationsAdapterFactory extends AdapterFactoryImpl {
 			return true;
 		}
 		if (object instanceof EObject) {
-			return ((EObject)object).eClass().getEPackage() == modelPackage;
+			return ((EObject) object).eClass().getEPackage() == modelPackage;
 		}
 		return false;
 	}
@@ -66,41 +70,47 @@ public class ExpectationsAdapterFactory extends AdapterFactoryImpl {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected ExpectationsSwitch<Adapter> modelSwitch =
-		new ExpectationsSwitch<Adapter>() {
-			@Override
-			public Adapter caseExpectedValue(ExpectedValue object) {
-				return createExpectedValueAdapter();
-			}
-			@Override
-			public Adapter caseExpectedPrimitive(ExpectedPrimitive object) {
-				return createExpectedPrimitiveAdapter();
-			}
-			@Override
-			public Adapter caseNoExpectation(NoExpectation object) {
-				return createNoExpectationAdapter();
-			}
-			@Override
-			public Adapter caseExpectedPercentage(ExpectedPercentage object) {
-				return createExpectedPercentageAdapter();
-			}
-			@Override
-			public Adapter caseExpectedCount(ExpectedCount object) {
-				return createExpectedCountAdapter();
-			}
-			@Override
-			public Adapter caseExpectedTime(ExpectedTime object) {
-				return createExpectedTimeAdapter();
-			}
-			@Override
-			public Adapter caseExpectedTrend(ExpectedTrend object) {
-				return createExpectedTrendAdapter();
-			}
-			@Override
-			public Adapter defaultCase(EObject object) {
-				return createEObjectAdapter();
-			}
-		};
+	protected ExpectationsSwitch<Adapter> modelSwitch = new ExpectationsSwitch<>() {
+		@Override
+		public Adapter caseExpectedValue(ExpectedValue object) {
+			return createExpectedValueAdapter();
+		}
+
+		@Override
+		public Adapter caseExpectedPrimitive(ExpectedPrimitive object) {
+			return createExpectedPrimitiveAdapter();
+		}
+
+		@Override
+		public Adapter caseNoExpectation(NoExpectation object) {
+			return createNoExpectationAdapter();
+		}
+
+		@Override
+		public Adapter caseExpectedPercentage(ExpectedPercentage object) {
+			return createExpectedPercentageAdapter();
+		}
+
+		@Override
+		public Adapter caseExpectedCount(ExpectedCount object) {
+			return createExpectedCountAdapter();
+		}
+
+		@Override
+		public Adapter caseExpectedTime(ExpectedTime object) {
+			return createExpectedTimeAdapter();
+		}
+
+		@Override
+		public Adapter caseExpectedTrend(ExpectedTrend object) {
+			return createExpectedTrendAdapter();
+		}
+
+		@Override
+		public Adapter defaultCase(EObject object) {
+			return createEObjectAdapter();
+		}
+	};
 
 	/**
 	 * Creates an adapter for the <code>target</code>.
@@ -112,9 +122,8 @@ public class ExpectationsAdapterFactory extends AdapterFactoryImpl {
 	 */
 	@Override
 	public Adapter createAdapter(Notifier target) {
-		return modelSwitch.doSwitch((EObject)target);
+		return modelSwitch.doSwitch((EObject) target);
 	}
-
 
 	/**
 	 * Creates a new adapter for an object of class '{@link org.palladiosimulator.spd.triggers.expectations.ExpectedValue <em>Expected Value</em>}'.

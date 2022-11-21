@@ -6,12 +6,10 @@ package org.palladiosimulator.spd.constraints.impl;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
-
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
-
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
-
-import org.palladiosimulator.spd.constraints.*;
+import org.palladiosimulator.spd.constraints.ConstraintsFactory;
+import org.palladiosimulator.spd.constraints.ConstraintsPackage;
 
 /**
  * <!-- begin-user-doc -->
@@ -28,12 +26,12 @@ public class ConstraintsFactoryImpl extends EFactoryImpl implements ConstraintsF
 	 */
 	public static ConstraintsFactory init() {
 		try {
-			ConstraintsFactory theConstraintsFactory = (ConstraintsFactory)EPackage.Registry.INSTANCE.getEFactory(ConstraintsPackage.eNS_URI);
+			ConstraintsFactory theConstraintsFactory = (ConstraintsFactory) EPackage.Registry.INSTANCE
+					.getEFactory(ConstraintsPackage.eNS_URI);
 			if (theConstraintsFactory != null) {
 				return theConstraintsFactory;
 			}
-		}
-		catch (Exception exception) {
+		} catch (Exception exception) {
 			EcorePlugin.INSTANCE.log(exception);
 		}
 		return new ConstraintsFactoryImpl();
@@ -57,8 +55,8 @@ public class ConstraintsFactoryImpl extends EFactoryImpl implements ConstraintsF
 	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
-			default:
-				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
+		default:
+			throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
 	}
 
@@ -69,7 +67,7 @@ public class ConstraintsFactoryImpl extends EFactoryImpl implements ConstraintsF
 	 */
 	@Override
 	public ConstraintsPackage getConstraintsPackage() {
-		return (ConstraintsPackage)getEPackage();
+		return (ConstraintsPackage) getEPackage();
 	}
 
 	/**

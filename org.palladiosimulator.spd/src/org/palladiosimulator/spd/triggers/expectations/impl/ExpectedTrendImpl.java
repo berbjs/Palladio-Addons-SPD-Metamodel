@@ -3,14 +3,8 @@
  */
 package org.palladiosimulator.spd.triggers.expectations.impl;
 
-import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.ecore.EClass;
-
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
-
 import org.palladiosimulator.spd.triggers.TrendPattern;
-
 import org.palladiosimulator.spd.triggers.expectations.ExpectationsPackage;
 import org.palladiosimulator.spd.triggers.expectations.ExpectedTrend;
 
@@ -39,16 +33,6 @@ public class ExpectedTrendImpl extends ExpectedValueImpl implements ExpectedTren
 	protected static final TrendPattern TREND_EDEFAULT = TrendPattern.INCREASING;
 
 	/**
-	 * The cached value of the '{@link #getTrend() <em>Trend</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getTrend()
-	 * @generated
-	 * @ordered
-	 */
-	protected TrendPattern trend = TREND_EDEFAULT;
-
-	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -74,7 +58,8 @@ public class ExpectedTrendImpl extends ExpectedValueImpl implements ExpectedTren
 	 */
 	@Override
 	public TrendPattern getTrend() {
-		return trend;
+		return (TrendPattern) eDynamicGet(ExpectationsPackage.EXPECTED_TREND__TREND,
+				ExpectationsPackage.Literals.EXPECTED_TREND__TREND, true, true);
 	}
 
 	/**
@@ -84,10 +69,8 @@ public class ExpectedTrendImpl extends ExpectedValueImpl implements ExpectedTren
 	 */
 	@Override
 	public void setTrend(TrendPattern newTrend) {
-		TrendPattern oldTrend = trend;
-		trend = newTrend == null ? TREND_EDEFAULT : newTrend;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ExpectationsPackage.EXPECTED_TREND__TREND, oldTrend, trend));
+		eDynamicSet(ExpectationsPackage.EXPECTED_TREND__TREND, ExpectationsPackage.Literals.EXPECTED_TREND__TREND,
+				newTrend);
 	}
 
 	/**
@@ -98,8 +81,8 @@ public class ExpectedTrendImpl extends ExpectedValueImpl implements ExpectedTren
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case ExpectationsPackage.EXPECTED_TREND__TREND:
-				return getTrend();
+		case ExpectationsPackage.EXPECTED_TREND__TREND:
+			return getTrend();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -112,9 +95,9 @@ public class ExpectedTrendImpl extends ExpectedValueImpl implements ExpectedTren
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case ExpectationsPackage.EXPECTED_TREND__TREND:
-				setTrend((TrendPattern)newValue);
-				return;
+		case ExpectationsPackage.EXPECTED_TREND__TREND:
+			setTrend((TrendPattern) newValue);
+			return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -127,9 +110,9 @@ public class ExpectedTrendImpl extends ExpectedValueImpl implements ExpectedTren
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case ExpectationsPackage.EXPECTED_TREND__TREND:
-				setTrend(TREND_EDEFAULT);
-				return;
+		case ExpectationsPackage.EXPECTED_TREND__TREND:
+			setTrend(TREND_EDEFAULT);
+			return;
 		}
 		super.eUnset(featureID);
 	}
@@ -142,26 +125,10 @@ public class ExpectedTrendImpl extends ExpectedValueImpl implements ExpectedTren
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case ExpectationsPackage.EXPECTED_TREND__TREND:
-				return trend != TREND_EDEFAULT;
+		case ExpectationsPackage.EXPECTED_TREND__TREND:
+			return getTrend() != TREND_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String toString() {
-		if (eIsProxy()) return super.toString();
-
-		StringBuilder result = new StringBuilder(super.toString());
-		result.append(" (trend: ");
-		result.append(trend);
-		result.append(')');
-		return result.toString();
 	}
 
 } //ExpectedTrendImpl

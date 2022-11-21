@@ -7,6 +7,7 @@ import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
+import org.palladiosimulator.pcm.core.entity.EntityPackage;
 
 /**
  * <!-- begin-user-doc -->
@@ -15,7 +16,6 @@ import org.eclipse.emf.ecore.EReference;
  * <ul>
  *   <li>each class,</li>
  *   <li>each feature of each class,</li>
- *   <li>each operation of each class,</li>
  *   <li>each enum,</li>
  *   <li>and each data type</li>
  * </ul>
@@ -58,43 +58,6 @@ public interface SpdPackage extends EPackage {
 	SpdPackage eINSTANCE = org.palladiosimulator.spd.impl.SpdPackageImpl.init();
 
 	/**
-	 * The meta object id for the '{@link org.palladiosimulator.spd.impl.NamedElementImpl <em>Named Element</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.palladiosimulator.spd.impl.NamedElementImpl
-	 * @see org.palladiosimulator.spd.impl.SpdPackageImpl#getNamedElement()
-	 * @generated
-	 */
-	int NAMED_ELEMENT = 2;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NAMED_ELEMENT__NAME = 0;
-
-	/**
-	 * The number of structural features of the '<em>Named Element</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NAMED_ELEMENT_FEATURE_COUNT = 1;
-
-	/**
-	 * The number of operations of the '<em>Named Element</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NAMED_ELEMENT_OPERATION_COUNT = 0;
-
-	/**
 	 * The meta object id for the '{@link org.palladiosimulator.spd.impl.ScalingPolicyImpl <em>Scaling Policy</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -105,13 +68,22 @@ public interface SpdPackage extends EPackage {
 	int SCALING_POLICY = 0;
 
 	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SCALING_POLICY__NAME = NAMED_ELEMENT__NAME;
+	int SCALING_POLICY__ID = EntityPackage.ENTITY__ID;
+
+	/**
+	 * The feature id for the '<em><b>Entity Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCALING_POLICY__ENTITY_NAME = EntityPackage.ENTITY__ENTITY_NAME;
 
 	/**
 	 * The feature id for the '<em><b>Active</b></em>' attribute.
@@ -120,7 +92,7 @@ public interface SpdPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SCALING_POLICY__ACTIVE = NAMED_ELEMENT_FEATURE_COUNT + 0;
+	int SCALING_POLICY__ACTIVE = EntityPackage.ENTITY_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Adjustment Type</b></em>' containment reference.
@@ -129,7 +101,7 @@ public interface SpdPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SCALING_POLICY__ADJUSTMENT_TYPE = NAMED_ELEMENT_FEATURE_COUNT + 1;
+	int SCALING_POLICY__ADJUSTMENT_TYPE = EntityPackage.ENTITY_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Target Group</b></em>' reference.
@@ -138,7 +110,7 @@ public interface SpdPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SCALING_POLICY__TARGET_GROUP = NAMED_ELEMENT_FEATURE_COUNT + 2;
+	int SCALING_POLICY__TARGET_GROUP = EntityPackage.ENTITY_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Policy Constraints</b></em>' containment reference list.
@@ -147,7 +119,7 @@ public interface SpdPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SCALING_POLICY__POLICY_CONSTRAINTS = NAMED_ELEMENT_FEATURE_COUNT + 3;
+	int SCALING_POLICY__POLICY_CONSTRAINTS = EntityPackage.ENTITY_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Scaling Trigger</b></em>' containment reference.
@@ -156,7 +128,7 @@ public interface SpdPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SCALING_POLICY__SCALING_TRIGGER = NAMED_ELEMENT_FEATURE_COUNT + 4;
+	int SCALING_POLICY__SCALING_TRIGGER = EntityPackage.ENTITY_FEATURE_COUNT + 4;
 
 	/**
 	 * The number of structural features of the '<em>Scaling Policy</em>' class.
@@ -165,16 +137,7 @@ public interface SpdPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SCALING_POLICY_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 5;
-
-	/**
-	 * The number of operations of the '<em>Scaling Policy</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SCALING_POLICY_OPERATION_COUNT = NAMED_ELEMENT_OPERATION_COUNT + 0;
+	int SCALING_POLICY_FEATURE_COUNT = EntityPackage.ENTITY_FEATURE_COUNT + 5;
 
 	/**
 	 * The meta object id for the '{@link org.palladiosimulator.spd.impl.SPDImpl <em>SPD</em>}' class.
@@ -187,13 +150,22 @@ public interface SpdPackage extends EPackage {
 	int SPD = 1;
 
 	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SPD__NAME = NAMED_ELEMENT__NAME;
+	int SPD__ID = EntityPackage.ENTITY__ID;
+
+	/**
+	 * The feature id for the '<em><b>Entity Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SPD__ENTITY_NAME = EntityPackage.ENTITY__ENTITY_NAME;
 
 	/**
 	 * The feature id for the '<em><b>Scaling Policies</b></em>' containment reference list.
@@ -202,7 +174,7 @@ public interface SpdPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SPD__SCALING_POLICIES = NAMED_ELEMENT_FEATURE_COUNT + 0;
+	int SPD__SCALING_POLICIES = EntityPackage.ENTITY_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Target Groups</b></em>' containment reference list.
@@ -211,7 +183,7 @@ public interface SpdPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SPD__TARGET_GROUPS = NAMED_ELEMENT_FEATURE_COUNT + 1;
+	int SPD__TARGET_GROUPS = EntityPackage.ENTITY_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>SPD</em>' class.
@@ -220,17 +192,7 @@ public interface SpdPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SPD_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 2;
-
-	/**
-	 * The number of operations of the '<em>SPD</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SPD_OPERATION_COUNT = NAMED_ELEMENT_OPERATION_COUNT + 0;
-
+	int SPD_FEATURE_COUNT = EntityPackage.ENTITY_FEATURE_COUNT + 2;
 
 	/**
 	 * Returns the meta object for class '{@link org.palladiosimulator.spd.ScalingPolicy <em>Scaling Policy</em>}'.
@@ -330,27 +292,6 @@ public interface SpdPackage extends EPackage {
 	EReference getSPD_TargetGroups();
 
 	/**
-	 * Returns the meta object for class '{@link org.palladiosimulator.spd.NamedElement <em>Named Element</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Named Element</em>'.
-	 * @see org.palladiosimulator.spd.NamedElement
-	 * @generated
-	 */
-	EClass getNamedElement();
-
-	/**
-	 * Returns the meta object for the attribute '{@link org.palladiosimulator.spd.NamedElement#getName <em>Name</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Name</em>'.
-	 * @see org.palladiosimulator.spd.NamedElement#getName()
-	 * @see #getNamedElement()
-	 * @generated
-	 */
-	EAttribute getNamedElement_Name();
-
-	/**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -365,7 +306,6 @@ public interface SpdPackage extends EPackage {
 	 * <ul>
 	 *   <li>each class,</li>
 	 *   <li>each feature of each class,</li>
-	 *   <li>each operation of each class,</li>
 	 *   <li>each enum,</li>
 	 *   <li>and each data type</li>
 	 * </ul>
@@ -448,24 +388,6 @@ public interface SpdPackage extends EPackage {
 		 * @generated
 		 */
 		EReference SPD__TARGET_GROUPS = eINSTANCE.getSPD_TargetGroups();
-
-		/**
-		 * The meta object literal for the '{@link org.palladiosimulator.spd.impl.NamedElementImpl <em>Named Element</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see org.palladiosimulator.spd.impl.NamedElementImpl
-		 * @see org.palladiosimulator.spd.impl.SpdPackageImpl#getNamedElement()
-		 * @generated
-		 */
-		EClass NAMED_ELEMENT = eINSTANCE.getNamedElement();
-
-		/**
-		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute NAMED_ELEMENT__NAME = eINSTANCE.getNamedElement_Name();
 
 	}
 

@@ -6,12 +6,12 @@ package org.palladiosimulator.spd.impl;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
-
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
-
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
-
-import org.palladiosimulator.spd.*;
+import org.palladiosimulator.spd.SPD;
+import org.palladiosimulator.spd.ScalingPolicy;
+import org.palladiosimulator.spd.SpdFactory;
+import org.palladiosimulator.spd.SpdPackage;
 
 /**
  * <!-- begin-user-doc -->
@@ -28,12 +28,11 @@ public class SpdFactoryImpl extends EFactoryImpl implements SpdFactory {
 	 */
 	public static SpdFactory init() {
 		try {
-			SpdFactory theSpdFactory = (SpdFactory)EPackage.Registry.INSTANCE.getEFactory(SpdPackage.eNS_URI);
+			SpdFactory theSpdFactory = (SpdFactory) EPackage.Registry.INSTANCE.getEFactory(SpdPackage.eNS_URI);
 			if (theSpdFactory != null) {
 				return theSpdFactory;
 			}
-		}
-		catch (Exception exception) {
+		} catch (Exception exception) {
 			EcorePlugin.INSTANCE.log(exception);
 		}
 		return new SpdFactoryImpl();
@@ -57,10 +56,12 @@ public class SpdFactoryImpl extends EFactoryImpl implements SpdFactory {
 	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
-			case SpdPackage.SCALING_POLICY: return createScalingPolicy();
-			case SpdPackage.SPD: return createSPD();
-			default:
-				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
+		case SpdPackage.SCALING_POLICY:
+			return createScalingPolicy();
+		case SpdPackage.SPD:
+			return createSPD();
+		default:
+			throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
 	}
 
@@ -93,7 +94,7 @@ public class SpdFactoryImpl extends EFactoryImpl implements SpdFactory {
 	 */
 	@Override
 	public SpdPackage getSpdPackage() {
-		return (SpdPackage)getEPackage();
+		return (SpdPackage) getEPackage();
 	}
 
 	/**

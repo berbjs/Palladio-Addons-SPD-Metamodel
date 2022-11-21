@@ -14,7 +14,6 @@ import org.eclipse.emf.ecore.EPackage;
  * <ul>
  *   <li>each class,</li>
  *   <li>each feature of each class,</li>
- *   <li>each operation of each class,</li>
  *   <li>each enum,</li>
  *   <li>and each data type</li>
  * </ul>
@@ -76,15 +75,6 @@ public interface ExpectationsPackage extends EPackage {
 	int EXPECTED_VALUE_FEATURE_COUNT = 0;
 
 	/**
-	 * The number of operations of the '<em>Expected Value</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXPECTED_VALUE_OPERATION_COUNT = 0;
-
-	/**
 	 * The meta object id for the '{@link org.palladiosimulator.spd.triggers.expectations.impl.ExpectedPrimitiveImpl <em>Expected Primitive</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -104,15 +94,6 @@ public interface ExpectationsPackage extends EPackage {
 	int EXPECTED_PRIMITIVE_FEATURE_COUNT = EXPECTED_VALUE_FEATURE_COUNT + 0;
 
 	/**
-	 * The number of operations of the '<em>Expected Primitive</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXPECTED_PRIMITIVE_OPERATION_COUNT = EXPECTED_VALUE_OPERATION_COUNT + 0;
-
-	/**
 	 * The meta object id for the '{@link org.palladiosimulator.spd.triggers.expectations.impl.NoExpectationImpl <em>No Expectation</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -130,15 +111,6 @@ public interface ExpectationsPackage extends EPackage {
 	 * @ordered
 	 */
 	int NO_EXPECTATION_FEATURE_COUNT = EXPECTED_VALUE_FEATURE_COUNT + 0;
-
-	/**
-	 * The number of operations of the '<em>No Expectation</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NO_EXPECTATION_OPERATION_COUNT = EXPECTED_VALUE_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link org.palladiosimulator.spd.triggers.expectations.impl.ExpectedPercentageImpl <em>Expected Percentage</em>}' class.
@@ -169,15 +141,6 @@ public interface ExpectationsPackage extends EPackage {
 	int EXPECTED_PERCENTAGE_FEATURE_COUNT = EXPECTED_PRIMITIVE_FEATURE_COUNT + 1;
 
 	/**
-	 * The number of operations of the '<em>Expected Percentage</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXPECTED_PERCENTAGE_OPERATION_COUNT = EXPECTED_PRIMITIVE_OPERATION_COUNT + 0;
-
-	/**
 	 * The meta object id for the '{@link org.palladiosimulator.spd.triggers.expectations.impl.ExpectedCountImpl <em>Expected Count</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -204,15 +167,6 @@ public interface ExpectationsPackage extends EPackage {
 	 * @ordered
 	 */
 	int EXPECTED_COUNT_FEATURE_COUNT = EXPECTED_PRIMITIVE_FEATURE_COUNT + 1;
-
-	/**
-	 * The number of operations of the '<em>Expected Count</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXPECTED_COUNT_OPERATION_COUNT = EXPECTED_PRIMITIVE_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link org.palladiosimulator.spd.triggers.expectations.impl.ExpectedTimeImpl <em>Expected Time</em>}' class.
@@ -243,15 +197,6 @@ public interface ExpectationsPackage extends EPackage {
 	int EXPECTED_TIME_FEATURE_COUNT = EXPECTED_PRIMITIVE_FEATURE_COUNT + 1;
 
 	/**
-	 * The number of operations of the '<em>Expected Time</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXPECTED_TIME_OPERATION_COUNT = EXPECTED_PRIMITIVE_OPERATION_COUNT + 0;
-
-	/**
 	 * The meta object id for the '{@link org.palladiosimulator.spd.triggers.expectations.impl.ExpectedTrendImpl <em>Expected Trend</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -278,16 +223,6 @@ public interface ExpectationsPackage extends EPackage {
 	 * @ordered
 	 */
 	int EXPECTED_TREND_FEATURE_COUNT = EXPECTED_VALUE_FEATURE_COUNT + 1;
-
-	/**
-	 * The number of operations of the '<em>Expected Trend</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXPECTED_TREND_OPERATION_COUNT = EXPECTED_VALUE_OPERATION_COUNT + 0;
-
 
 	/**
 	 * Returns the meta object for class '{@link org.palladiosimulator.spd.triggers.expectations.ExpectedValue <em>Expected Value</em>}'.
@@ -418,7 +353,6 @@ public interface ExpectationsPackage extends EPackage {
 	 * <ul>
 	 *   <li>each class,</li>
 	 *   <li>each feature of each class,</li>
-	 *   <li>each operation of each class,</li>
 	 *   <li>each enum,</li>
 	 *   <li>and each data type</li>
 	 * </ul>

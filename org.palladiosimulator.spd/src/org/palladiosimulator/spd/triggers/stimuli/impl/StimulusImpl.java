@@ -4,9 +4,7 @@
 package org.palladiosimulator.spd.triggers.stimuli.impl;
 
 import org.eclipse.emf.ecore.EClass;
-
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
+import org.eclipse.emf.internal.cdo.CDOObjectImpl;
 import org.palladiosimulator.spd.triggers.stimuli.StimuliPackage;
 import org.palladiosimulator.spd.triggers.stimuli.Stimulus;
 
@@ -17,7 +15,7 @@ import org.palladiosimulator.spd.triggers.stimuli.Stimulus;
  *
  * @generated
  */
-public abstract class StimulusImpl extends MinimalEObjectImpl.Container implements Stimulus {
+public abstract class StimulusImpl extends CDOObjectImpl implements Stimulus {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -35,6 +33,16 @@ public abstract class StimulusImpl extends MinimalEObjectImpl.Container implemen
 	@Override
 	protected EClass eStaticClass() {
 		return StimuliPackage.Literals.STIMULUS;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	protected int eStaticFeatureCount() {
+		return 0;
 	}
 
 } //StimulusImpl

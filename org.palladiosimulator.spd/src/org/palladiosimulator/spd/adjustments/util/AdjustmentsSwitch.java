@@ -5,10 +5,12 @@ package org.palladiosimulator.spd.adjustments.util;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
-
 import org.eclipse.emf.ecore.util.Switch;
-
-import org.palladiosimulator.spd.adjustments.*;
+import org.palladiosimulator.spd.adjustments.AbsoluteAdjustment;
+import org.palladiosimulator.spd.adjustments.AdjustmentType;
+import org.palladiosimulator.spd.adjustments.AdjustmentsPackage;
+import org.palladiosimulator.spd.adjustments.RelativeAdjustment;
+import org.palladiosimulator.spd.adjustments.StepAdjustment;
 
 /**
  * <!-- begin-user-doc -->
@@ -67,34 +69,42 @@ public class AdjustmentsSwitch<T> extends Switch<T> {
 	@Override
 	protected T doSwitch(int classifierID, EObject theEObject) {
 		switch (classifierID) {
-			case AdjustmentsPackage.ADJUSTMENT_TYPE: {
-				AdjustmentType adjustmentType = (AdjustmentType)theEObject;
-				T result = caseAdjustmentType(adjustmentType);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case AdjustmentsPackage.RELATIVE_ADJUSTMENT: {
-				RelativeAdjustment relativeAdjustment = (RelativeAdjustment)theEObject;
-				T result = caseRelativeAdjustment(relativeAdjustment);
-				if (result == null) result = caseAdjustmentType(relativeAdjustment);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case AdjustmentsPackage.ABSOLUTE_ADJUSTMENT: {
-				AbsoluteAdjustment absoluteAdjustment = (AbsoluteAdjustment)theEObject;
-				T result = caseAbsoluteAdjustment(absoluteAdjustment);
-				if (result == null) result = caseAdjustmentType(absoluteAdjustment);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case AdjustmentsPackage.STEP_ADJUSTMENT: {
-				StepAdjustment stepAdjustment = (StepAdjustment)theEObject;
-				T result = caseStepAdjustment(stepAdjustment);
-				if (result == null) result = caseAdjustmentType(stepAdjustment);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			default: return defaultCase(theEObject);
+		case AdjustmentsPackage.ADJUSTMENT_TYPE: {
+			AdjustmentType adjustmentType = (AdjustmentType) theEObject;
+			T result = caseAdjustmentType(adjustmentType);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case AdjustmentsPackage.RELATIVE_ADJUSTMENT: {
+			RelativeAdjustment relativeAdjustment = (RelativeAdjustment) theEObject;
+			T result = caseRelativeAdjustment(relativeAdjustment);
+			if (result == null)
+				result = caseAdjustmentType(relativeAdjustment);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case AdjustmentsPackage.ABSOLUTE_ADJUSTMENT: {
+			AbsoluteAdjustment absoluteAdjustment = (AbsoluteAdjustment) theEObject;
+			T result = caseAbsoluteAdjustment(absoluteAdjustment);
+			if (result == null)
+				result = caseAdjustmentType(absoluteAdjustment);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case AdjustmentsPackage.STEP_ADJUSTMENT: {
+			StepAdjustment stepAdjustment = (StepAdjustment) theEObject;
+			T result = caseStepAdjustment(stepAdjustment);
+			if (result == null)
+				result = caseAdjustmentType(stepAdjustment);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		default:
+			return defaultCase(theEObject);
 		}
 	}
 

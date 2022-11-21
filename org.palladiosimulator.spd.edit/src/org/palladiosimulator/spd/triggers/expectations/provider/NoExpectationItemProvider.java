@@ -3,13 +3,11 @@
  */
 package org.palladiosimulator.spd.triggers.expectations.provider;
 
-
 import java.util.Collection;
 import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 
 /**
@@ -65,7 +63,6 @@ public class NoExpectationItemProvider extends ExpectedValueItemProvider {
 	public String getText(Object object) {
 		return getString("_UI_NoExpectation_type");
 	}
-
 
 	/**
 	 * This handles model notifications by calling {@link #updateChildren} to update any cached

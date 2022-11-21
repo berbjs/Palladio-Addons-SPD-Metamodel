@@ -3,7 +3,7 @@
  */
 package org.palladiosimulator.spd.triggers.expectations;
 
-import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.cdo.CDOObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -13,7 +13,8 @@ import org.eclipse.emf.ecore.EObject;
  *
  * @see org.palladiosimulator.spd.triggers.expectations.ExpectationsPackage#getExpectedValue()
  * @model abstract="true"
+ * @extends CDOObject
  * @generated
  */
-public interface ExpectedValue extends EObject {
+public interface ExpectedValue extends CDOObject {
 } // ExpectedValue

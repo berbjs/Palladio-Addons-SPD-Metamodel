@@ -3,10 +3,8 @@
  */
 package org.palladiosimulator.spd.presentation;
 
-
 import java.io.IOException;
 import java.io.InputStream;
-
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
@@ -25,24 +23,55 @@ import org.eclipse.core.resources.IResourceChangeListener;
 import org.eclipse.core.resources.IResourceDelta;
 import org.eclipse.core.resources.IResourceDeltaVisitor;
 import org.eclipse.core.resources.ResourcesPlugin;
-
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IPath;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.NullProgressMonitor;
-
+import org.eclipse.emf.common.command.BasicCommandStack;
+import org.eclipse.emf.common.command.Command;
+import org.eclipse.emf.common.command.CommandStack;
+import org.eclipse.emf.common.command.CommandStackListener;
+import org.eclipse.emf.common.notify.AdapterFactory;
+import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.ui.MarkerHelper;
+import org.eclipse.emf.common.ui.ViewerPane;
+import org.eclipse.emf.common.ui.editor.ProblemEditorPart;
+import org.eclipse.emf.common.ui.viewer.IViewerProvider;
+import org.eclipse.emf.common.util.BasicDiagnostic;
+import org.eclipse.emf.common.util.Diagnostic;
+import org.eclipse.emf.common.util.URI;
+import org.eclipse.emf.ecore.provider.EcoreItemProviderAdapterFactory;
+import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.emf.ecore.resource.ResourceSet;
+import org.eclipse.emf.ecore.util.EContentAdapter;
+import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.emf.edit.domain.AdapterFactoryEditingDomain;
+import org.eclipse.emf.edit.domain.EditingDomain;
+import org.eclipse.emf.edit.domain.IEditingDomainProvider;
+import org.eclipse.emf.edit.provider.AdapterFactoryItemDelegator;
+import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
+import org.eclipse.emf.edit.provider.ReflectiveItemProviderAdapterFactory;
+import org.eclipse.emf.edit.provider.resource.ResourceItemProviderAdapterFactory;
+import org.eclipse.emf.edit.ui.action.EditingDomainActionBarContributor;
+import org.eclipse.emf.edit.ui.celleditor.AdapterFactoryTreeEditor;
+import org.eclipse.emf.edit.ui.dnd.EditingDomainViewerDropAdapter;
+import org.eclipse.emf.edit.ui.dnd.LocalTransfer;
+import org.eclipse.emf.edit.ui.dnd.ViewerDragAdapter;
+import org.eclipse.emf.edit.ui.provider.AdapterFactoryContentProvider;
+import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider;
+import org.eclipse.emf.edit.ui.provider.UnwrappingSelectionProvider;
+import org.eclipse.emf.edit.ui.util.EditUIMarkerHelper;
+import org.eclipse.emf.edit.ui.util.EditUIUtil;
+import org.eclipse.emf.edit.ui.view.ExtendedPropertySheetPage;
 import org.eclipse.jface.action.IMenuListener;
 import org.eclipse.jface.action.IMenuManager;
 import org.eclipse.jface.action.IStatusLineManager;
 import org.eclipse.jface.action.IToolBarManager;
 import org.eclipse.jface.action.MenuManager;
 import org.eclipse.jface.action.Separator;
-
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.dialogs.ProgressMonitorDialog;
-
 import org.eclipse.jface.util.LocalSelectionTransfer;
-
 import org.eclipse.jface.viewers.ColumnWeightData;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.ISelectionChangedListener;
@@ -56,30 +85,22 @@ import org.eclipse.jface.viewers.TableLayout;
 import org.eclipse.jface.viewers.TableViewer;
 import org.eclipse.jface.viewers.TreeViewer;
 import org.eclipse.jface.viewers.Viewer;
-
 import org.eclipse.swt.SWT;
-
 import org.eclipse.swt.custom.CTabFolder;
-
 import org.eclipse.swt.dnd.DND;
 import org.eclipse.swt.dnd.FileTransfer;
 import org.eclipse.swt.dnd.Transfer;
-
 import org.eclipse.swt.events.ControlAdapter;
 import org.eclipse.swt.events.ControlEvent;
-
 import org.eclipse.swt.graphics.Point;
 import org.eclipse.swt.graphics.Rectangle;
-
 import org.eclipse.swt.layout.FillLayout;
-
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Menu;
 import org.eclipse.swt.widgets.Table;
 import org.eclipse.swt.widgets.TableColumn;
 import org.eclipse.swt.widgets.Tree;
 import org.eclipse.swt.widgets.TreeColumn;
-
 import org.eclipse.ui.IActionBars;
 import org.eclipse.ui.IEditorInput;
 import org.eclipse.ui.IEditorPart;
@@ -87,145 +108,51 @@ import org.eclipse.ui.IEditorSite;
 import org.eclipse.ui.IPartListener;
 import org.eclipse.ui.IWorkbenchPart;
 import org.eclipse.ui.PartInitException;
-
+import org.eclipse.ui.actions.WorkspaceModifyOperation;
 import org.eclipse.ui.dialogs.SaveAsDialog;
-
 import org.eclipse.ui.ide.IGotoMarker;
-
 import org.eclipse.ui.part.FileEditorInput;
 import org.eclipse.ui.part.MultiPageEditorPart;
-
 import org.eclipse.ui.views.contentoutline.ContentOutline;
 import org.eclipse.ui.views.contentoutline.ContentOutlinePage;
 import org.eclipse.ui.views.contentoutline.IContentOutlinePage;
-
 import org.eclipse.ui.views.properties.IPropertySheetPage;
 import org.eclipse.ui.views.properties.PropertySheet;
 import org.eclipse.ui.views.properties.PropertySheetPage;
-
-import org.eclipse.emf.common.command.BasicCommandStack;
-import org.eclipse.emf.common.command.Command;
-import org.eclipse.emf.common.command.CommandStack;
-import org.eclipse.emf.common.command.CommandStackListener;
-
-import org.eclipse.emf.common.notify.AdapterFactory;
-import org.eclipse.emf.common.notify.Notification;
-
-import org.eclipse.emf.common.ui.MarkerHelper;
-import org.eclipse.emf.common.ui.ViewerPane;
-
-import org.eclipse.emf.common.ui.editor.ProblemEditorPart;
-
-import org.eclipse.emf.common.ui.viewer.IViewerProvider;
-
-import org.eclipse.emf.common.util.BasicDiagnostic;
-import org.eclipse.emf.common.util.Diagnostic;
-import org.eclipse.emf.common.util.URI;
-
-
-import org.eclipse.emf.ecore.resource.Resource;
-import org.eclipse.emf.ecore.resource.ResourceSet;
-
-import org.eclipse.emf.ecore.util.EContentAdapter;
-import org.eclipse.emf.ecore.util.EcoreUtil;
-
-import org.eclipse.emf.edit.domain.AdapterFactoryEditingDomain;
-import org.eclipse.emf.edit.domain.EditingDomain;
-import org.eclipse.emf.edit.domain.IEditingDomainProvider;
-
-import org.eclipse.emf.edit.provider.AdapterFactoryItemDelegator;
-import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
-import org.eclipse.emf.edit.provider.ReflectiveItemProviderAdapterFactory;
-
-import org.eclipse.emf.edit.provider.resource.ResourceItemProviderAdapterFactory;
-
-import org.eclipse.emf.edit.ui.action.EditingDomainActionBarContributor;
-
-import org.eclipse.emf.edit.ui.celleditor.AdapterFactoryTreeEditor;
-
-import org.eclipse.emf.edit.ui.dnd.EditingDomainViewerDropAdapter;
-import org.eclipse.emf.edit.ui.dnd.LocalTransfer;
-import org.eclipse.emf.edit.ui.dnd.ViewerDragAdapter;
-
-import org.eclipse.emf.edit.ui.provider.AdapterFactoryContentProvider;
-import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider;
-import org.eclipse.emf.edit.ui.provider.UnwrappingSelectionProvider;
-
-import org.eclipse.emf.edit.ui.util.EditUIMarkerHelper;
-import org.eclipse.emf.edit.ui.util.EditUIUtil;
-
-import org.eclipse.emf.edit.ui.view.ExtendedPropertySheetPage;
-
-import org.palladiosimulator.spd.provider.SpdItemProviderAdapterFactory;
-
-import de.uka.ipd.sdq.identifier.provider.IdentifierItemProviderAdapterFactory;
-
-import de.uka.ipd.sdq.probfunction.provider.ProbfunctionItemProviderAdapterFactory;
-
-import de.uka.ipd.sdq.stoex.provider.StoexItemProviderAdapterFactory;
-
-import de.uka.ipd.sdq.units.provider.UnitsItemProviderAdapterFactory;
-
-import org.eclipse.emf.ecore.provider.EcoreItemProviderAdapterFactory;
-
-import org.eclipse.ui.actions.WorkspaceModifyOperation;
-
 import org.palladiosimulator.pcm.allocation.provider.AllocationItemProviderAdapterFactory;
-
 import org.palladiosimulator.pcm.core.composition.provider.CompositionItemProviderAdapterFactory;
-
 import org.palladiosimulator.pcm.core.entity.provider.EntityItemProviderAdapterFactory;
-
 import org.palladiosimulator.pcm.core.provider.CoreItemProviderAdapterFactory;
-
 import org.palladiosimulator.pcm.parameter.provider.ParameterItemProviderAdapterFactory;
-
 import org.palladiosimulator.pcm.protocol.provider.ProtocolItemProviderAdapterFactory;
-
 import org.palladiosimulator.pcm.provider.PcmItemProviderAdapterFactory;
-
 import org.palladiosimulator.pcm.qosannotations.provider.QosannotationsItemProviderAdapterFactory;
-
 import org.palladiosimulator.pcm.qosannotations.qos_performance.provider.QosPerformanceItemProviderAdapterFactory;
-
 import org.palladiosimulator.pcm.qosannotations.qos_reliability.provider.QosReliabilityItemProviderAdapterFactory;
-
 import org.palladiosimulator.pcm.reliability.provider.ReliabilityItemProviderAdapterFactory;
-
 import org.palladiosimulator.pcm.repository.provider.RepositoryItemProviderAdapterFactory;
-
 import org.palladiosimulator.pcm.resourceenvironment.provider.ResourceenvironmentItemProviderAdapterFactory;
-
 import org.palladiosimulator.pcm.resourcetype.provider.ResourcetypeItemProviderAdapterFactory;
-
 import org.palladiosimulator.pcm.seff.provider.SeffItemProviderAdapterFactory;
-
 import org.palladiosimulator.pcm.seff.seff_performance.provider.SeffPerformanceItemProviderAdapterFactory;
-
 import org.palladiosimulator.pcm.seff.seff_reliability.provider.SeffReliabilityItemProviderAdapterFactory;
-
 import org.palladiosimulator.pcm.subsystem.provider.SubsystemItemProviderAdapterFactory;
-
 import org.palladiosimulator.pcm.system.provider.SystemItemProviderAdapterFactory;
-
 import org.palladiosimulator.pcm.usagemodel.provider.UsagemodelItemProviderAdapterFactory;
-
 import org.palladiosimulator.spd.adjustments.provider.AdjustmentsItemProviderAdapterFactory;
-
 import org.palladiosimulator.spd.constraints.policy.provider.PolicyItemProviderAdapterFactory;
-
 import org.palladiosimulator.spd.constraints.provider.ConstraintsItemProviderAdapterFactory;
-
 import org.palladiosimulator.spd.constraints.target.provider.TargetItemProviderAdapterFactory;
-
+import org.palladiosimulator.spd.provider.SpdItemProviderAdapterFactory;
 import org.palladiosimulator.spd.targets.provider.TargetsItemProviderAdapterFactory;
-
 import org.palladiosimulator.spd.triggers.expectations.provider.ExpectationsItemProviderAdapterFactory;
-
 import org.palladiosimulator.spd.triggers.provider.TriggersItemProviderAdapterFactory;
-
 import org.palladiosimulator.spd.triggers.stimuli.provider.StimuliItemProviderAdapterFactory;
 
+import de.uka.ipd.sdq.identifier.provider.IdentifierItemProviderAdapterFactory;
+import de.uka.ipd.sdq.probfunction.provider.ProbfunctionItemProviderAdapterFactory;
+import de.uka.ipd.sdq.stoex.provider.StoexItemProviderAdapterFactory;
+import de.uka.ipd.sdq.units.provider.UnitsItemProviderAdapterFactory;
 
 /**
  * This is an example of a Spd model editor.
@@ -233,9 +160,8 @@ import org.palladiosimulator.spd.triggers.stimuli.provider.StimuliItemProviderAd
  * <!-- end-user-doc -->
  * @generated
  */
-public class SpdEditor
-	extends MultiPageEditorPart
-	implements IEditingDomainProvider, ISelectionProvider, IMenuListener, IViewerProvider, IGotoMarker {
+public class SpdEditor extends MultiPageEditorPart
+		implements IEditingDomainProvider, ISelectionProvider, IMenuListener, IViewerProvider, IGotoMarker {
 	/**
 	 * This keeps track of the editing domain that is used to track all changes to the model.
 	 * <!-- begin-user-doc -->
@@ -282,7 +208,7 @@ public class SpdEditor
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected List<PropertySheetPage> propertySheetPages = new ArrayList<PropertySheetPage>();
+	protected List<PropertySheetPage> propertySheetPages = new ArrayList<>();
 
 	/**
 	 * This is the viewer that shadows the selection in the content outline.
@@ -365,7 +291,7 @@ public class SpdEditor
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected Collection<ISelectionChangedListener> selectionChangedListeners = new ArrayList<ISelectionChangedListener>();
+	protected Collection<ISelectionChangedListener> selectionChangedListeners = new ArrayList<>();
 
 	/**
 	 * This keeps track of the selection of the editor as a whole.
@@ -390,44 +316,45 @@ public class SpdEditor
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected IPartListener partListener =
-		new IPartListener() {
-			@Override
-			public void partActivated(IWorkbenchPart p) {
-				if (p instanceof ContentOutline) {
-					if (((ContentOutline)p).getCurrentPage() == contentOutlinePage) {
-						getActionBarContributor().setActiveEditor(SpdEditor.this);
+	protected IPartListener partListener = new IPartListener() {
+		@Override
+		public void partActivated(IWorkbenchPart p) {
+			if (p instanceof ContentOutline) {
+				if (((ContentOutline) p).getCurrentPage() == contentOutlinePage) {
+					getActionBarContributor().setActiveEditor(SpdEditor.this);
 
-						setCurrentViewer(contentOutlineViewer);
-					}
+					setCurrentViewer(contentOutlineViewer);
 				}
-				else if (p instanceof PropertySheet) {
-					if (propertySheetPages.contains(((PropertySheet)p).getCurrentPage())) {
-						getActionBarContributor().setActiveEditor(SpdEditor.this);
-						handleActivate();
-					}
-				}
-				else if (p == SpdEditor.this) {
+			} else if (p instanceof PropertySheet) {
+				if (propertySheetPages.contains(((PropertySheet) p).getCurrentPage())) {
+					getActionBarContributor().setActiveEditor(SpdEditor.this);
 					handleActivate();
 				}
+			} else if (p == SpdEditor.this) {
+				handleActivate();
 			}
-			@Override
-			public void partBroughtToTop(IWorkbenchPart p) {
-				// Ignore.
-			}
-			@Override
-			public void partClosed(IWorkbenchPart p) {
-				// Ignore.
-			}
-			@Override
-			public void partDeactivated(IWorkbenchPart p) {
-				// Ignore.
-			}
-			@Override
-			public void partOpened(IWorkbenchPart p) {
-				// Ignore.
-			}
-		};
+		}
+
+		@Override
+		public void partBroughtToTop(IWorkbenchPart p) {
+			// Ignore.
+		}
+
+		@Override
+		public void partClosed(IWorkbenchPart p) {
+			// Ignore.
+		}
+
+		@Override
+		public void partDeactivated(IWorkbenchPart p) {
+			// Ignore.
+		}
+
+		@Override
+		public void partOpened(IWorkbenchPart p) {
+			// Ignore.
+		}
+	};
 
 	/**
 	 * Resources that have been removed since last activation.
@@ -435,7 +362,7 @@ public class SpdEditor
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected Collection<Resource> removedResources = new ArrayList<Resource>();
+	protected Collection<Resource> removedResources = new ArrayList<>();
 
 	/**
 	 * Resources that have been changed since last activation.
@@ -443,7 +370,7 @@ public class SpdEditor
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected Collection<Resource> changedResources = new ArrayList<Resource>();
+	protected Collection<Resource> changedResources = new ArrayList<>();
 
 	/**
 	 * Resources that have been saved.
@@ -451,7 +378,7 @@ public class SpdEditor
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected Collection<Resource> savedResources = new ArrayList<Resource>();
+	protected Collection<Resource> savedResources = new ArrayList<>();
 
 	/**
 	 * Map to store the diagnostic associated with a resource.
@@ -459,7 +386,7 @@ public class SpdEditor
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected Map<Resource, Diagnostic> resourceToDiagnosticMap = new LinkedHashMap<Resource, Diagnostic>();
+	protected Map<Resource, Diagnostic> resourceToDiagnosticMap = new LinkedHashMap<>();
 
 	/**
 	 * Controls whether the problem indication should be updated.
@@ -475,61 +402,57 @@ public class SpdEditor
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected EContentAdapter problemIndicationAdapter =
-		new EContentAdapter() {
-			protected boolean dispatching;
+	protected EContentAdapter problemIndicationAdapter = new EContentAdapter() {
+		protected boolean dispatching;
 
-			@Override
-			public void notifyChanged(Notification notification) {
-				if (notification.getNotifier() instanceof Resource) {
-					switch (notification.getFeatureID(Resource.class)) {
-						case Resource.RESOURCE__IS_LOADED:
-						case Resource.RESOURCE__ERRORS:
-						case Resource.RESOURCE__WARNINGS: {
-							Resource resource = (Resource)notification.getNotifier();
-							Diagnostic diagnostic = analyzeResourceProblems(resource, null);
-							if (diagnostic.getSeverity() != Diagnostic.OK) {
-								resourceToDiagnosticMap.put(resource, diagnostic);
-							}
-							else {
-								resourceToDiagnosticMap.remove(resource);
-							}
-							dispatchUpdateProblemIndication();
-							break;
-						}
+		@Override
+		public void notifyChanged(Notification notification) {
+			if (notification.getNotifier() instanceof Resource) {
+				switch (notification.getFeatureID(Resource.class)) {
+				case Resource.RESOURCE__IS_LOADED:
+				case Resource.RESOURCE__ERRORS:
+				case Resource.RESOURCE__WARNINGS: {
+					Resource resource = (Resource) notification.getNotifier();
+					Diagnostic diagnostic = analyzeResourceProblems(resource, null);
+					if (diagnostic.getSeverity() != Diagnostic.OK) {
+						resourceToDiagnosticMap.put(resource, diagnostic);
+					} else {
+						resourceToDiagnosticMap.remove(resource);
 					}
+					dispatchUpdateProblemIndication();
+					break;
 				}
-				else {
-					super.notifyChanged(notification);
 				}
+			} else {
+				super.notifyChanged(notification);
 			}
+		}
 
-			protected void dispatchUpdateProblemIndication() {
-				if (updateProblemIndication && !dispatching) {
-					dispatching = true;
-					getSite().getShell().getDisplay().asyncExec
-						(new Runnable() {
-							 @Override
-							 public void run() {
-								 dispatching = false;
-								 updateProblemIndication();
-							 }
-						 });
-				}
+		protected void dispatchUpdateProblemIndication() {
+			if (updateProblemIndication && !dispatching) {
+				dispatching = true;
+				getSite().getShell().getDisplay().asyncExec(new Runnable() {
+					@Override
+					public void run() {
+						dispatching = false;
+						updateProblemIndication();
+					}
+				});
 			}
+		}
 
-			@Override
-			protected void setTarget(Resource target) {
-				basicSetTarget(target);
-			}
+		@Override
+		protected void setTarget(Resource target) {
+			basicSetTarget(target);
+		}
 
-			@Override
-			protected void unsetTarget(Resource target) {
-				basicUnsetTarget(target);
-				resourceToDiagnosticMap.remove(target);
-				dispatchUpdateProblemIndication();
-			}
-		};
+		@Override
+		protected void unsetTarget(Resource target) {
+			basicUnsetTarget(target);
+			resourceToDiagnosticMap.remove(target);
+			dispatchUpdateProblemIndication();
+		}
+	};
 
 	/**
 	 * This listens for workspace changes.
@@ -537,81 +460,77 @@ public class SpdEditor
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected IResourceChangeListener resourceChangeListener =
-		new IResourceChangeListener() {
-			@Override
-			public void resourceChanged(IResourceChangeEvent event) {
-				IResourceDelta delta = event.getDelta();
-				try {
-					class ResourceDeltaVisitor implements IResourceDeltaVisitor {
-						protected ResourceSet resourceSet = editingDomain.getResourceSet();
-						protected Collection<Resource> changedResources = new ArrayList<Resource>();
-						protected Collection<Resource> removedResources = new ArrayList<Resource>();
+	protected IResourceChangeListener resourceChangeListener = new IResourceChangeListener() {
+		@Override
+		public void resourceChanged(IResourceChangeEvent event) {
+			IResourceDelta delta = event.getDelta();
+			try {
+				class ResourceDeltaVisitor implements IResourceDeltaVisitor {
+					protected ResourceSet resourceSet = editingDomain.getResourceSet();
+					protected Collection<Resource> changedResources = new ArrayList<>();
+					protected Collection<Resource> removedResources = new ArrayList<>();
 
-						@Override
-						public boolean visit(IResourceDelta delta) {
-							if (delta.getResource().getType() == IResource.FILE) {
-								if (delta.getKind() == IResourceDelta.REMOVED ||
-								    delta.getKind() == IResourceDelta.CHANGED && delta.getFlags() != IResourceDelta.MARKERS) {
-									Resource resource = resourceSet.getResource(URI.createPlatformResourceURI(delta.getFullPath().toString(), true), false);
-									if (resource != null) {
-										if (delta.getKind() == IResourceDelta.REMOVED) {
-											removedResources.add(resource);
-										}
-										else if (!savedResources.remove(resource)) {
-											changedResources.add(resource);
-										}
+					@Override
+					public boolean visit(IResourceDelta delta) {
+						if (delta.getResource().getType() == IResource.FILE) {
+							if (delta.getKind() == IResourceDelta.REMOVED || delta.getKind() == IResourceDelta.CHANGED
+									&& delta.getFlags() != IResourceDelta.MARKERS) {
+								Resource resource = resourceSet.getResource(
+										URI.createPlatformResourceURI(delta.getFullPath().toString(), true), false);
+								if (resource != null) {
+									if (delta.getKind() == IResourceDelta.REMOVED) {
+										removedResources.add(resource);
+									} else if (!savedResources.remove(resource)) {
+										changedResources.add(resource);
 									}
 								}
-								return false;
 							}
-
-							return true;
+							return false;
 						}
 
-						public Collection<Resource> getChangedResources() {
-							return changedResources;
-						}
-
-						public Collection<Resource> getRemovedResources() {
-							return removedResources;
-						}
+						return true;
 					}
 
-					final ResourceDeltaVisitor visitor = new ResourceDeltaVisitor();
-					delta.accept(visitor);
-
-					if (!visitor.getRemovedResources().isEmpty()) {
-						getSite().getShell().getDisplay().asyncExec
-							(new Runnable() {
-								 @Override
-								 public void run() {
-									 removedResources.addAll(visitor.getRemovedResources());
-									 if (!isDirty()) {
-										 getSite().getPage().closeEditor(SpdEditor.this, false);
-									 }
-								 }
-							 });
+					public Collection<Resource> getChangedResources() {
+						return changedResources;
 					}
 
-					if (!visitor.getChangedResources().isEmpty()) {
-						getSite().getShell().getDisplay().asyncExec
-							(new Runnable() {
-								 @Override
-								 public void run() {
-									 changedResources.addAll(visitor.getChangedResources());
-									 if (getSite().getPage().getActiveEditor() == SpdEditor.this) {
-										 handleActivate();
-									 }
-								 }
-							 });
+					public Collection<Resource> getRemovedResources() {
+						return removedResources;
 					}
 				}
-				catch (CoreException exception) {
-					ScalingPolicyDefinitionEditorPlugin.INSTANCE.log(exception);
+
+				final ResourceDeltaVisitor visitor = new ResourceDeltaVisitor();
+				delta.accept(visitor);
+
+				if (!visitor.getRemovedResources().isEmpty()) {
+					getSite().getShell().getDisplay().asyncExec(new Runnable() {
+						@Override
+						public void run() {
+							removedResources.addAll(visitor.getRemovedResources());
+							if (!isDirty()) {
+								getSite().getPage().closeEditor(SpdEditor.this, false);
+							}
+						}
+					});
 				}
+
+				if (!visitor.getChangedResources().isEmpty()) {
+					getSite().getShell().getDisplay().asyncExec(new Runnable() {
+						@Override
+						public void run() {
+							changedResources.addAll(visitor.getChangedResources());
+							if (getSite().getPage().getActiveEditor() == SpdEditor.this) {
+								handleActivate();
+							}
+						}
+					});
+				}
+			} catch (CoreException exception) {
+				ScalingPolicyDefinitionEditorPlugin.INSTANCE.log(exception);
 			}
-		};
+		}
+	};
 
 	/**
 	 * Handles activation of the editor or it's associated views.
@@ -623,24 +542,22 @@ public class SpdEditor
 		// Recompute the read only state.
 		//
 		if (editingDomain.getResourceToReadOnlyMap() != null) {
-		  editingDomain.getResourceToReadOnlyMap().clear();
+			editingDomain.getResourceToReadOnlyMap().clear();
 
-		  // Refresh any actions that may become enabled or disabled.
-		  //
-		  setSelection(getSelection());
+			// Refresh any actions that may become enabled or disabled.
+			//
+			setSelection(getSelection());
 		}
 
 		if (!removedResources.isEmpty()) {
 			if (handleDirtyConflict()) {
 				getSite().getPage().closeEditor(SpdEditor.this, false);
-			}
-			else {
+			} else {
 				removedResources.clear();
 				changedResources.clear();
 				savedResources.clear();
 			}
-		}
-		else if (!changedResources.isEmpty()) {
+		} else if (!changedResources.isEmpty()) {
 			changedResources.removeAll(savedResources);
 			handleChangedResources();
 			changedResources.clear();
@@ -668,8 +585,7 @@ public class SpdEditor
 					resource.unload();
 					try {
 						resource.load(resourceSet.getLoadOptions());
-					}
-					catch (IOException exception) {
+					} catch (IOException exception) {
 						if (!resourceToDiagnosticMap.containsKey(resource)) {
 							resourceToDiagnosticMap.put(resource, analyzeResourceProblems(resource, exception));
 						}
@@ -694,13 +610,8 @@ public class SpdEditor
 	 */
 	protected void updateProblemIndication() {
 		if (updateProblemIndication) {
-			BasicDiagnostic diagnostic =
-				new BasicDiagnostic
-					(Diagnostic.OK,
-					 "org.palladiosimulator.spd.editor",
-					 0,
-					 null,
-					 new Object [] { editingDomain.getResourceSet() });
+			BasicDiagnostic diagnostic = new BasicDiagnostic(Diagnostic.OK, "org.palladiosimulator.spd.editor", 0, null,
+					new Object[] { editingDomain.getResourceSet() });
 			for (Diagnostic childDiagnostic : resourceToDiagnosticMap.values()) {
 				if (childDiagnostic.getSeverity() != Diagnostic.OK) {
 					diagnostic.add(childDiagnostic);
@@ -709,12 +620,11 @@ public class SpdEditor
 
 			int lastEditorPage = getPageCount() - 1;
 			if (lastEditorPage >= 0 && getEditor(lastEditorPage) instanceof ProblemEditorPart) {
-				((ProblemEditorPart)getEditor(lastEditorPage)).setDiagnostic(diagnostic);
+				((ProblemEditorPart) getEditor(lastEditorPage)).setDiagnostic(diagnostic);
 				if (diagnostic.getSeverity() != Diagnostic.OK) {
 					setActivePage(lastEditorPage);
 				}
-			}
-			else if (diagnostic.getSeverity() != Diagnostic.OK) {
+			} else if (diagnostic.getSeverity() != Diagnostic.OK) {
 				ProblemEditorPart problemEditorPart = new ProblemEditorPart();
 				problemEditorPart.setDiagnostic(diagnostic);
 				problemEditorPart.setMarkerHelper(markerHelper);
@@ -723,8 +633,7 @@ public class SpdEditor
 					setPageText(lastEditorPage, problemEditorPart.getPartName());
 					setActivePage(lastEditorPage);
 					showTabs();
-				}
-				catch (PartInitException exception) {
+				} catch (PartInitException exception) {
 					ScalingPolicyDefinitionEditorPlugin.INSTANCE.log(exception);
 				}
 			}
@@ -732,8 +641,7 @@ public class SpdEditor
 			if (markerHelper.hasMarkers(editingDomain.getResourceSet())) {
 				try {
 					markerHelper.updateMarkers(diagnostic);
-				}
-				catch (CoreException exception) {
+				} catch (CoreException exception) {
 					ScalingPolicyDefinitionEditorPlugin.INSTANCE.log(exception);
 				}
 			}
@@ -747,11 +655,8 @@ public class SpdEditor
 	 * @generated
 	 */
 	protected boolean handleDirtyConflict() {
-		return
-			MessageDialog.openQuestion
-				(getSite().getShell(),
-				 getString("_UI_FileConflict_label"),
-				 getString("_WARN_FileConflict"));
+		return MessageDialog.openQuestion(getSite().getShell(), getString("_UI_FileConflict_label"),
+				getString("_WARN_FileConflict"));
 	}
 
 	/**
@@ -819,35 +724,32 @@ public class SpdEditor
 
 		// Add a listener to set the most recent command's affected objects to be the selection of the viewer with focus.
 		//
-		commandStack.addCommandStackListener
-			(new CommandStackListener() {
-				 @Override
-				 public void commandStackChanged(final EventObject event) {
-					 getContainer().getDisplay().asyncExec
-						 (new Runnable() {
-							  @Override
-							  public void run() {
-								  firePropertyChange(IEditorPart.PROP_DIRTY);
+		commandStack.addCommandStackListener(new CommandStackListener() {
+			@Override
+			public void commandStackChanged(final EventObject event) {
+				getContainer().getDisplay().asyncExec(new Runnable() {
+					@Override
+					public void run() {
+						firePropertyChange(IEditorPart.PROP_DIRTY);
 
-								  // Try to select the affected objects.
-								  //
-								  Command mostRecentCommand = ((CommandStack)event.getSource()).getMostRecentCommand();
-								  if (mostRecentCommand != null) {
-									  setSelectionToViewer(mostRecentCommand.getAffectedObjects());
-								  }
-								  for (Iterator<PropertySheetPage> i = propertySheetPages.iterator(); i.hasNext(); ) {
-									  PropertySheetPage propertySheetPage = i.next();
-									  if (propertySheetPage.getControl() == null || propertySheetPage.getControl().isDisposed()) {
-										  i.remove();
-									  }
-									  else {
-										  propertySheetPage.refresh();
-									  }
-								  }
-							  }
-						  });
-				 }
-			 });
+						// Try to select the affected objects.
+						//
+						Command mostRecentCommand = ((CommandStack) event.getSource()).getMostRecentCommand();
+						if (mostRecentCommand != null) {
+							setSelectionToViewer(mostRecentCommand.getAffectedObjects());
+						}
+						for (Iterator<PropertySheetPage> i = propertySheetPages.iterator(); i.hasNext();) {
+							PropertySheetPage propertySheetPage = i.next();
+							if (propertySheetPage.getControl() == null || propertySheetPage.getControl().isDisposed()) {
+								i.remove();
+							} else {
+								propertySheetPage.refresh();
+							}
+						}
+					}
+				});
+			}
+		});
 
 		// Create the editing domain with a special command stack.
 		//
@@ -860,7 +762,7 @@ public class SpdEditor
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-			@Override
+	@Override
 	protected void firePropertyChange(int action) {
 		super.firePropertyChange(action);
 	}
@@ -876,17 +778,16 @@ public class SpdEditor
 		// Make sure it's okay.
 		//
 		if (theSelection != null && !theSelection.isEmpty()) {
-			Runnable runnable =
-				new Runnable() {
-					@Override
-					public void run() {
-						// Try to select the items in the current content viewer of the editor.
-						//
-						if (currentViewer != null) {
-							currentViewer.setSelection(new StructuredSelection(theSelection.toArray()), true);
-						}
+			Runnable runnable = new Runnable() {
+				@Override
+				public void run() {
+					// Try to select the items in the current content viewer of the editor.
+					//
+					if (currentViewer != null) {
+						currentViewer.setSelection(new StructuredSelection(theSelection.toArray()), true);
 					}
-				};
+				}
+			};
 			getSite().getShell().getDisplay().asyncExec(runnable);
 		}
 	}
@@ -925,7 +826,7 @@ public class SpdEditor
 		 * @generated
 		 */
 		@Override
-		public Object [] getElements(Object object) {
+		public Object[] getElements(Object object) {
 			Object parent = super.getParent(object);
 			return (parent == null ? Collections.EMPTY_SET : Collections.singleton(parent)).toArray();
 		}
@@ -936,7 +837,7 @@ public class SpdEditor
 		 * @generated
 		 */
 		@Override
-		public Object [] getChildren(Object object) {
+		public Object[] getChildren(Object object) {
 			Object parent = super.getParent(object);
 			return (parent == null ? Collections.EMPTY_SET : Collections.singleton(parent)).toArray();
 		}
@@ -992,15 +893,14 @@ public class SpdEditor
 			if (selectionChangedListener == null) {
 				// Create the listener on demand.
 				//
-				selectionChangedListener =
-					new ISelectionChangedListener() {
-						// This just notifies those things that are affected by the section.
-						//
-						@Override
-						public void selectionChanged(SelectionChangedEvent selectionChangedEvent) {
-							setSelection(selectionChangedEvent.getSelection());
-						}
-					};
+				selectionChangedListener = new ISelectionChangedListener() {
+					// This just notifies those things that are affected by the section.
+					//
+					@Override
+					public void selectionChanged(SelectionChangedEvent selectionChangedEvent) {
+						setSelection(selectionChangedEvent.getSelection());
+					}
+				};
 			}
 
 			// Stop listening to the old one.
@@ -1047,12 +947,13 @@ public class SpdEditor
 		contextMenu.add(new Separator("additions"));
 		contextMenu.setRemoveAllWhenShown(true);
 		contextMenu.addMenuListener(this);
-		Menu menu= contextMenu.createContextMenu(viewer.getControl());
+		Menu menu = contextMenu.createContextMenu(viewer.getControl());
 		viewer.getControl().setMenu(menu);
 		getSite().registerContextMenu(contextMenu, new UnwrappingSelectionProvider(viewer));
 
 		int dndOperations = DND.DROP_COPY | DND.DROP_MOVE | DND.DROP_LINK;
-		Transfer[] transfers = new Transfer[] { LocalTransfer.getInstance(), LocalSelectionTransfer.getTransfer(), FileTransfer.getInstance() };
+		Transfer[] transfers = new Transfer[] { LocalTransfer.getInstance(), LocalSelectionTransfer.getTransfer(),
+				FileTransfer.getInstance() };
 		viewer.addDragSupport(dndOperations, transfers, new ViewerDragAdapter(viewer));
 		viewer.addDropSupport(dndOperations, transfers, new EditingDomainViewerDropAdapter(editingDomain, viewer));
 	}
@@ -1071,15 +972,14 @@ public class SpdEditor
 			// Load the resource through the editing domain.
 			//
 			resource = editingDomain.getResourceSet().getResource(resourceURI, true);
-		}
-		catch (Exception e) {
+		} catch (Exception e) {
 			exception = e;
 			resource = editingDomain.getResourceSet().getResource(resourceURI, false);
 		}
 
 		Diagnostic diagnostic = analyzeResourceProblems(resource, exception);
 		if (diagnostic.getSeverity() != Diagnostic.OK) {
-			resourceToDiagnosticMap.put(resource,  analyzeResourceProblems(resource, exception));
+			resourceToDiagnosticMap.put(resource, analyzeResourceProblems(resource, exception));
 		}
 		editingDomain.getResourceSet().eAdapters().add(problemIndicationAdapter);
 	}
@@ -1094,26 +994,15 @@ public class SpdEditor
 	public Diagnostic analyzeResourceProblems(Resource resource, Exception exception) {
 		boolean hasErrors = !resource.getErrors().isEmpty();
 		if (hasErrors || !resource.getWarnings().isEmpty()) {
-			BasicDiagnostic basicDiagnostic =
-				new BasicDiagnostic
-					(hasErrors ? Diagnostic.ERROR : Diagnostic.WARNING,
-					 "org.palladiosimulator.spd.editor",
-					 0,
-					 getString("_UI_CreateModelError_message", resource.getURI()),
-					 new Object [] { exception == null ? (Object)resource : exception });
+			BasicDiagnostic basicDiagnostic = new BasicDiagnostic(hasErrors ? Diagnostic.ERROR : Diagnostic.WARNING,
+					"org.palladiosimulator.spd.editor", 0, getString("_UI_CreateModelError_message", resource.getURI()),
+					new Object[] { exception == null ? (Object) resource : exception });
 			basicDiagnostic.merge(EcoreUtil.computeDiagnostic(resource, true));
 			return basicDiagnostic;
-		}
-		else if (exception != null) {
-			return
-				new BasicDiagnostic
-					(Diagnostic.ERROR,
-					 "org.palladiosimulator.spd.editor",
-					 0,
-					 getString("_UI_CreateModelError_message", resource.getURI()),
-					 new Object[] { exception });
-		}
-		else {
+		} else if (exception != null) {
+			return new BasicDiagnostic(Diagnostic.ERROR, "org.palladiosimulator.spd.editor", 0,
+					getString("_UI_CreateModelError_message", resource.getURI()), new Object[] { exception });
+		} else {
 			return Diagnostic.OK_INSTANCE;
 		}
 	}
@@ -1136,29 +1025,30 @@ public class SpdEditor
 			// Create a page for the selection tree view.
 			//
 			{
-				ViewerPane viewerPane =
-					new ViewerPane(getSite().getPage(), SpdEditor.this) {
-						@Override
-						public Viewer createViewer(Composite composite) {
-							Tree tree = new Tree(composite, SWT.MULTI);
-							TreeViewer newTreeViewer = new TreeViewer(tree);
-							return newTreeViewer;
-						}
-						@Override
-						public void requestActivation() {
-							super.requestActivation();
-							setCurrentViewerPane(this);
-						}
-					};
+				ViewerPane viewerPane = new ViewerPane(getSite().getPage(), SpdEditor.this) {
+					@Override
+					public Viewer createViewer(Composite composite) {
+						Tree tree = new Tree(composite, SWT.MULTI);
+						TreeViewer newTreeViewer = new TreeViewer(tree);
+						return newTreeViewer;
+					}
+
+					@Override
+					public void requestActivation() {
+						super.requestActivation();
+						setCurrentViewerPane(this);
+					}
+				};
 				viewerPane.createControl(getContainer());
 
-				selectionViewer = (TreeViewer)viewerPane.getViewer();
+				selectionViewer = (TreeViewer) viewerPane.getViewer();
 				selectionViewer.setContentProvider(new AdapterFactoryContentProvider(adapterFactory));
 				selectionViewer.setUseHashlookup(true);
 
 				selectionViewer.setLabelProvider(new AdapterFactoryLabelProvider(adapterFactory));
 				selectionViewer.setInput(editingDomain.getResourceSet());
-				selectionViewer.setSelection(new StructuredSelection(editingDomain.getResourceSet().getResources().get(0)), true);
+				selectionViewer.setSelection(
+						new StructuredSelection(editingDomain.getResourceSet().getResources().get(0)), true);
 				viewerPane.setTitle(editingDomain.getResourceSet());
 
 				new AdapterFactoryTreeEditor(selectionViewer.getTree(), adapterFactory);
@@ -1171,23 +1061,23 @@ public class SpdEditor
 			// Create a page for the parent tree view.
 			//
 			{
-				ViewerPane viewerPane =
-					new ViewerPane(getSite().getPage(), SpdEditor.this) {
-						@Override
-						public Viewer createViewer(Composite composite) {
-							Tree tree = new Tree(composite, SWT.MULTI);
-							TreeViewer newTreeViewer = new TreeViewer(tree);
-							return newTreeViewer;
-						}
-						@Override
-						public void requestActivation() {
-							super.requestActivation();
-							setCurrentViewerPane(this);
-						}
-					};
+				ViewerPane viewerPane = new ViewerPane(getSite().getPage(), SpdEditor.this) {
+					@Override
+					public Viewer createViewer(Composite composite) {
+						Tree tree = new Tree(composite, SWT.MULTI);
+						TreeViewer newTreeViewer = new TreeViewer(tree);
+						return newTreeViewer;
+					}
+
+					@Override
+					public void requestActivation() {
+						super.requestActivation();
+						setCurrentViewerPane(this);
+					}
+				};
 				viewerPane.createControl(getContainer());
 
-				parentViewer = (TreeViewer)viewerPane.getViewer();
+				parentViewer = (TreeViewer) viewerPane.getViewer();
 				parentViewer.setAutoExpandLevel(30);
 				parentViewer.setContentProvider(new ReverseAdapterFactoryContentProvider(adapterFactory));
 				parentViewer.setLabelProvider(new AdapterFactoryLabelProvider(adapterFactory));
@@ -1200,20 +1090,20 @@ public class SpdEditor
 			// This is the page for the list viewer
 			//
 			{
-				ViewerPane viewerPane =
-					new ViewerPane(getSite().getPage(), SpdEditor.this) {
-						@Override
-						public Viewer createViewer(Composite composite) {
-							return new ListViewer(composite);
-						}
-						@Override
-						public void requestActivation() {
-							super.requestActivation();
-							setCurrentViewerPane(this);
-						}
-					};
+				ViewerPane viewerPane = new ViewerPane(getSite().getPage(), SpdEditor.this) {
+					@Override
+					public Viewer createViewer(Composite composite) {
+						return new ListViewer(composite);
+					}
+
+					@Override
+					public void requestActivation() {
+						super.requestActivation();
+						setCurrentViewerPane(this);
+					}
+				};
 				viewerPane.createControl(getContainer());
-				listViewer = (ListViewer)viewerPane.getViewer();
+				listViewer = (ListViewer) viewerPane.getViewer();
 				listViewer.setContentProvider(new AdapterFactoryContentProvider(adapterFactory));
 				listViewer.setLabelProvider(new AdapterFactoryLabelProvider(adapterFactory));
 
@@ -1225,20 +1115,20 @@ public class SpdEditor
 			// This is the page for the tree viewer
 			//
 			{
-				ViewerPane viewerPane =
-					new ViewerPane(getSite().getPage(), SpdEditor.this) {
-						@Override
-						public Viewer createViewer(Composite composite) {
-							return new TreeViewer(composite);
-						}
-						@Override
-						public void requestActivation() {
-							super.requestActivation();
-							setCurrentViewerPane(this);
-						}
-					};
+				ViewerPane viewerPane = new ViewerPane(getSite().getPage(), SpdEditor.this) {
+					@Override
+					public Viewer createViewer(Composite composite) {
+						return new TreeViewer(composite);
+					}
+
+					@Override
+					public void requestActivation() {
+						super.requestActivation();
+						setCurrentViewerPane(this);
+					}
+				};
 				viewerPane.createControl(getContainer());
-				treeViewer = (TreeViewer)viewerPane.getViewer();
+				treeViewer = (TreeViewer) viewerPane.getViewer();
 				treeViewer.setContentProvider(new AdapterFactoryContentProvider(adapterFactory));
 				treeViewer.setLabelProvider(new AdapterFactoryLabelProvider(adapterFactory));
 
@@ -1252,20 +1142,20 @@ public class SpdEditor
 			// This is the page for the table viewer.
 			//
 			{
-				ViewerPane viewerPane =
-					new ViewerPane(getSite().getPage(), SpdEditor.this) {
-						@Override
-						public Viewer createViewer(Composite composite) {
-							return new TableViewer(composite);
-						}
-						@Override
-						public void requestActivation() {
-							super.requestActivation();
-							setCurrentViewerPane(this);
-						}
-					};
+				ViewerPane viewerPane = new ViewerPane(getSite().getPage(), SpdEditor.this) {
+					@Override
+					public Viewer createViewer(Composite composite) {
+						return new TableViewer(composite);
+					}
+
+					@Override
+					public void requestActivation() {
+						super.requestActivation();
+						setCurrentViewerPane(this);
+					}
+				};
 				viewerPane.createControl(getContainer());
-				tableViewer = (TableViewer)viewerPane.getViewer();
+				tableViewer = (TableViewer) viewerPane.getViewer();
 
 				Table table = tableViewer.getTable();
 				TableLayout layout = new TableLayout();
@@ -1283,7 +1173,7 @@ public class SpdEditor
 				selfColumn.setText(getString("_UI_SelfColumn_label"));
 				selfColumn.setResizable(true);
 
-				tableViewer.setColumnProperties(new String [] {"a", "b"});
+				tableViewer.setColumnProperties(new String[] { "a", "b" });
 				tableViewer.setContentProvider(new AdapterFactoryContentProvider(adapterFactory));
 				tableViewer.setLabelProvider(new AdapterFactoryLabelProvider(adapterFactory));
 
@@ -1295,21 +1185,21 @@ public class SpdEditor
 			// This is the page for the table tree viewer.
 			//
 			{
-				ViewerPane viewerPane =
-					new ViewerPane(getSite().getPage(), SpdEditor.this) {
-						@Override
-						public Viewer createViewer(Composite composite) {
-							return new TreeViewer(composite);
-						}
-						@Override
-						public void requestActivation() {
-							super.requestActivation();
-							setCurrentViewerPane(this);
-						}
-					};
+				ViewerPane viewerPane = new ViewerPane(getSite().getPage(), SpdEditor.this) {
+					@Override
+					public Viewer createViewer(Composite composite) {
+						return new TreeViewer(composite);
+					}
+
+					@Override
+					public void requestActivation() {
+						super.requestActivation();
+						setCurrentViewerPane(this);
+					}
+				};
 				viewerPane.createControl(getContainer());
 
-				treeViewerWithColumns = (TreeViewer)viewerPane.getViewer();
+				treeViewerWithColumns = (TreeViewer) viewerPane.getViewer();
 
 				Tree tree = treeViewerWithColumns.getTree();
 				tree.setLayoutData(new FillLayout());
@@ -1326,7 +1216,7 @@ public class SpdEditor
 				selfColumn.setResizable(true);
 				selfColumn.setWidth(200);
 
-				treeViewerWithColumns.setColumnProperties(new String [] {"a", "b"});
+				treeViewerWithColumns.setColumnProperties(new String[] { "a", "b" });
 				treeViewerWithColumns.setContentProvider(new AdapterFactoryContentProvider(adapterFactory));
 				treeViewerWithColumns.setLabelProvider(new AdapterFactoryLabelProvider(adapterFactory));
 
@@ -1335,40 +1225,38 @@ public class SpdEditor
 				setPageText(pageIndex, getString("_UI_TreeWithColumnsPage_label"));
 			}
 
-			getSite().getShell().getDisplay().asyncExec
-				(new Runnable() {
-					 @Override
-					 public void run() {
-						 if (!getContainer().isDisposed()) {
-							 setActivePage(0);
-						 }
-					 }
-				 });
+			getSite().getShell().getDisplay().asyncExec(new Runnable() {
+				@Override
+				public void run() {
+					if (!getContainer().isDisposed()) {
+						setActivePage(0);
+					}
+				}
+			});
 		}
 
 		// Ensures that this editor will only display the page's tab
 		// area if there are more than one page
 		//
-		getContainer().addControlListener
-			(new ControlAdapter() {
-				boolean guard = false;
-				@Override
-				public void controlResized(ControlEvent event) {
-					if (!guard) {
-						guard = true;
-						hideTabs();
-						guard = false;
-					}
-				}
-			 });
+		getContainer().addControlListener(new ControlAdapter() {
+			boolean guard = false;
 
-		getSite().getShell().getDisplay().asyncExec
-			(new Runnable() {
-				 @Override
-				 public void run() {
-					 updateProblemIndication();
-				 }
-			 });
+			@Override
+			public void controlResized(ControlEvent event) {
+				if (!guard) {
+					guard = true;
+					hideTabs();
+					guard = false;
+				}
+			}
+		});
+
+		getSite().getShell().getDisplay().asyncExec(new Runnable() {
+			@Override
+			public void run() {
+				updateProblemIndication();
+			}
+		});
 	}
 
 	/**
@@ -1384,7 +1272,7 @@ public class SpdEditor
 			if (getContainer() instanceof CTabFolder) {
 				Point point = getContainer().getSize();
 				Rectangle clientArea = getContainer().getClientArea();
-				getContainer().setSize(point.x,  2 * point.y - clientArea.height - clientArea.y);
+				getContainer().setSize(point.x, 2 * point.y - clientArea.height - clientArea.y);
 			}
 		}
 	}
@@ -1432,14 +1320,11 @@ public class SpdEditor
 	public <T> T getAdapter(Class<T> key) {
 		if (key.equals(IContentOutlinePage.class)) {
 			return showOutlineView() ? key.cast(getContentOutlinePage()) : null;
-		}
-		else if (key.equals(IPropertySheetPage.class)) {
+		} else if (key.equals(IPropertySheetPage.class)) {
 			return key.cast(getPropertySheetPage());
-		}
-		else if (key.equals(IGotoMarker.class)) {
+		} else if (key.equals(IGotoMarker.class)) {
 			return key.cast(this);
-		}
-		else {
+		} else {
 			return super.getAdapter(key);
 		}
 	}
@@ -1473,14 +1358,16 @@ public class SpdEditor
 					createContextMenuFor(contentOutlineViewer);
 
 					if (!editingDomain.getResourceSet().getResources().isEmpty()) {
-					  // Select the root object in the view.
-					  //
-					  contentOutlineViewer.setSelection(new StructuredSelection(editingDomain.getResourceSet().getResources().get(0)), true);
+						// Select the root object in the view.
+						//
+						contentOutlineViewer.setSelection(
+								new StructuredSelection(editingDomain.getResourceSet().getResources().get(0)), true);
 					}
 				}
 
 				@Override
-				public void makeContributions(IMenuManager menuManager, IToolBarManager toolBarManager, IStatusLineManager statusLineManager) {
+				public void makeContributions(IMenuManager menuManager, IToolBarManager toolBarManager,
+						IStatusLineManager statusLineManager) {
 					super.makeContributions(menuManager, toolBarManager, statusLineManager);
 					contentOutlineStatusLineManager = statusLineManager;
 				}
@@ -1496,15 +1383,14 @@ public class SpdEditor
 
 			// Listen to selection so that we can handle it is a special way.
 			//
-			contentOutlinePage.addSelectionChangedListener
-				(new ISelectionChangedListener() {
-					 // This ensures that we handle selections correctly.
-					 //
-					 @Override
-					 public void selectionChanged(SelectionChangedEvent event) {
-						 handleContentOutlineSelection(event.getSelection());
-					 }
-				 });
+			contentOutlinePage.addSelectionChangedListener(new ISelectionChangedListener() {
+				// This ensures that we handle selections correctly.
+				//
+				@Override
+				public void selectionChanged(SelectionChangedEvent event) {
+					handleContentOutlineSelection(event.getSelection());
+				}
+			});
 		}
 
 		return contentOutlinePage;
@@ -1517,20 +1403,20 @@ public class SpdEditor
 	 * @generated
 	 */
 	public IPropertySheetPage getPropertySheetPage() {
-		PropertySheetPage propertySheetPage =
-			new ExtendedPropertySheetPage(editingDomain, ExtendedPropertySheetPage.Decoration.NONE, null, 0, false) {
-				@Override
-				public void setSelectionToViewer(List<?> selection) {
-					SpdEditor.this.setSelectionToViewer(selection);
-					SpdEditor.this.setFocus();
-				}
+		PropertySheetPage propertySheetPage = new ExtendedPropertySheetPage(editingDomain,
+				ExtendedPropertySheetPage.Decoration.NONE, null, 0, false) {
+			@Override
+			public void setSelectionToViewer(List<?> selection) {
+				SpdEditor.this.setSelectionToViewer(selection);
+				SpdEditor.this.setFocus();
+			}
 
-				@Override
-				public void setActionBars(IActionBars actionBars) {
-					super.setActionBars(actionBars);
-					getActionBarContributor().shareGlobalActions(this, actionBars);
-				}
-			};
+			@Override
+			public void setActionBars(IActionBars actionBars) {
+				super.setActionBars(actionBars);
+				getActionBarContributor().shareGlobalActions(this, actionBars);
+			}
+		};
 		propertySheetPage.setPropertySourceProvider(new AdapterFactoryContentProvider(adapterFactory));
 		propertySheetPages.add(propertySheetPage);
 
@@ -1545,7 +1431,7 @@ public class SpdEditor
 	 */
 	public void handleContentOutlineSelection(ISelection selection) {
 		if (currentViewerPane != null && !selection.isEmpty() && selection instanceof IStructuredSelection) {
-			Iterator<?> selectedElements = ((IStructuredSelection)selection).iterator();
+			Iterator<?> selectedElements = ((IStructuredSelection) selection).iterator();
 			if (selectedElements.hasNext()) {
 				// Get the first selected element.
 				//
@@ -1554,7 +1440,7 @@ public class SpdEditor
 				// If it's the selection viewer, then we want it to select the same selection as this selection.
 				//
 				if (currentViewerPane.getViewer() == selectionViewer) {
-					ArrayList<Object> selectionList = new ArrayList<Object>();
+					ArrayList<Object> selectionList = new ArrayList<>();
 					selectionList.add(selectedElement);
 					while (selectedElements.hasNext()) {
 						selectionList.add(selectedElements.next());
@@ -1563,8 +1449,7 @@ public class SpdEditor
 					// Set the selection to the widget.
 					//
 					selectionViewer.setSelection(new StructuredSelection(selectionList));
-				}
-				else {
+				} else {
 					// Set the input to the widget.
 					//
 					if (currentViewerPane.getViewer().getInput() != selectedElement) {
@@ -1584,7 +1469,7 @@ public class SpdEditor
 	 */
 	@Override
 	public boolean isDirty() {
-		return ((BasicCommandStack)editingDomain.getCommandStack()).isSaveNeeded();
+		return ((BasicCommandStack) editingDomain.getCommandStack()).isSaveNeeded();
 	}
 
 	/**
@@ -1597,40 +1482,38 @@ public class SpdEditor
 	public void doSave(IProgressMonitor progressMonitor) {
 		// Save only resources that have actually changed.
 		//
-		final Map<Object, Object> saveOptions = new HashMap<Object, Object>();
+		final Map<Object, Object> saveOptions = new HashMap<>();
 		saveOptions.put(Resource.OPTION_SAVE_ONLY_IF_CHANGED, Resource.OPTION_SAVE_ONLY_IF_CHANGED_MEMORY_BUFFER);
 		saveOptions.put(Resource.OPTION_LINE_DELIMITER, Resource.OPTION_LINE_DELIMITER_UNSPECIFIED);
 
 		// Do the work within an operation because this is a long running activity that modifies the workbench.
 		//
-		WorkspaceModifyOperation operation =
-			new WorkspaceModifyOperation() {
-				// This is the method that gets invoked when the operation runs.
+		WorkspaceModifyOperation operation = new WorkspaceModifyOperation() {
+			// This is the method that gets invoked when the operation runs.
+			//
+			@Override
+			public void execute(IProgressMonitor monitor) {
+				// Save the resources to the file system.
 				//
-				@Override
-				public void execute(IProgressMonitor monitor) {
-					// Save the resources to the file system.
-					//
-					boolean first = true;
-					List<Resource> resources = editingDomain.getResourceSet().getResources();
-					for (int i = 0; i < resources.size(); ++i) {
-						Resource resource = resources.get(i);
-						if ((first || !resource.getContents().isEmpty() || isPersisted(resource)) && !editingDomain.isReadOnly(resource)) {
-							try {
-								long timeStamp = resource.getTimeStamp();
-								resource.save(saveOptions);
-								if (resource.getTimeStamp() != timeStamp) {
-									savedResources.add(resource);
-								}
+				boolean first = true;
+				List<Resource> resources = editingDomain.getResourceSet().getResources();
+				for (Resource resource : resources) {
+					if ((first || !resource.getContents().isEmpty() || isPersisted(resource))
+							&& !editingDomain.isReadOnly(resource)) {
+						try {
+							long timeStamp = resource.getTimeStamp();
+							resource.save(saveOptions);
+							if (resource.getTimeStamp() != timeStamp) {
+								savedResources.add(resource);
 							}
-							catch (Exception exception) {
-								resourceToDiagnosticMap.put(resource, analyzeResourceProblems(resource, exception));
-							}
-							first = false;
+						} catch (Exception exception) {
+							resourceToDiagnosticMap.put(resource, analyzeResourceProblems(resource, exception));
 						}
+						first = false;
 					}
 				}
-			};
+			}
+		};
 
 		updateProblemIndication = false;
 		try {
@@ -1640,10 +1523,9 @@ public class SpdEditor
 
 			// Refresh the necessary state.
 			//
-			((BasicCommandStack)editingDomain.getCommandStack()).saveIsDone();
+			((BasicCommandStack) editingDomain.getCommandStack()).saveIsDone();
 			firePropertyChange(IEditorPart.PROP_DIRTY);
-		}
-		catch (Exception exception) {
+		} catch (Exception exception) {
 			// Something went wrong that shouldn't.
 			//
 			ScalingPolicyDefinitionEditorPlugin.INSTANCE.log(exception);
@@ -1667,8 +1549,7 @@ public class SpdEditor
 				result = true;
 				stream.close();
 			}
-		}
-		catch (IOException e) {
+		} catch (IOException e) {
 			// Ignore
 		}
 		return result;
@@ -1713,10 +1594,9 @@ public class SpdEditor
 		(editingDomain.getResourceSet().getResources().get(0)).setURI(uri);
 		setInputWithNotify(editorInput);
 		setPartName(editorInput.getName());
-		IProgressMonitor progressMonitor =
-			getActionBars().getStatusLineManager() != null ?
-				getActionBars().getStatusLineManager().getProgressMonitor() :
-				new NullProgressMonitor();
+		IProgressMonitor progressMonitor = getActionBars().getStatusLineManager() != null
+				? getActionBars().getStatusLineManager().getProgressMonitor()
+				: new NullProgressMonitor();
 		doSave(progressMonitor);
 	}
 
@@ -1746,7 +1626,8 @@ public class SpdEditor
 		setPartName(editorInput.getName());
 		site.setSelectionProvider(this);
 		site.getPage().addPartListener(partListener);
-		ResourcesPlugin.getWorkspace().addResourceChangeListener(resourceChangeListener, IResourceChangeEvent.POST_CHANGE);
+		ResourcesPlugin.getWorkspace().addResourceChangeListener(resourceChangeListener,
+				IResourceChangeEvent.POST_CHANGE);
 	}
 
 	/**
@@ -1758,8 +1639,7 @@ public class SpdEditor
 	public void setFocus() {
 		if (currentViewerPane != null) {
 			currentViewerPane.setFocus();
-		}
-		else {
+		} else {
 			getControl(getActivePage()).setFocus();
 		}
 	}
@@ -1820,29 +1700,30 @@ public class SpdEditor
 	 * @generated
 	 */
 	public void setStatusLineManager(ISelection selection) {
-		IStatusLineManager statusLineManager = currentViewer != null && currentViewer == contentOutlineViewer ?
-			contentOutlineStatusLineManager : getActionBars().getStatusLineManager();
+		IStatusLineManager statusLineManager = currentViewer != null && currentViewer == contentOutlineViewer
+				? contentOutlineStatusLineManager
+				: getActionBars().getStatusLineManager();
 
 		if (statusLineManager != null) {
 			if (selection instanceof IStructuredSelection) {
-				Collection<?> collection = ((IStructuredSelection)selection).toList();
+				Collection<?> collection = ((IStructuredSelection) selection).toList();
 				switch (collection.size()) {
-					case 0: {
-						statusLineManager.setMessage(getString("_UI_NoObjectSelected"));
-						break;
-					}
-					case 1: {
-						String text = new AdapterFactoryItemDelegator(adapterFactory).getText(collection.iterator().next());
-						statusLineManager.setMessage(getString("_UI_SingleObjectSelected", text));
-						break;
-					}
-					default: {
-						statusLineManager.setMessage(getString("_UI_MultiObjectSelected", Integer.toString(collection.size())));
-						break;
-					}
+				case 0: {
+					statusLineManager.setMessage(getString("_UI_NoObjectSelected"));
+					break;
 				}
-			}
-			else {
+				case 1: {
+					String text = new AdapterFactoryItemDelegator(adapterFactory).getText(collection.iterator().next());
+					statusLineManager.setMessage(getString("_UI_SingleObjectSelected", text));
+					break;
+				}
+				default: {
+					statusLineManager
+							.setMessage(getString("_UI_MultiObjectSelected", Integer.toString(collection.size())));
+					break;
+				}
+				}
+			} else {
 				statusLineManager.setMessage("");
 			}
 		}
@@ -1865,7 +1746,7 @@ public class SpdEditor
 	 * @generated
 	 */
 	private static String getString(String key, Object s1) {
-		return ScalingPolicyDefinitionEditorPlugin.INSTANCE.getString(key, new Object [] { s1 });
+		return ScalingPolicyDefinitionEditorPlugin.INSTANCE.getString(key, new Object[] { s1 });
 	}
 
 	/**
@@ -1876,7 +1757,7 @@ public class SpdEditor
 	 */
 	@Override
 	public void menuAboutToShow(IMenuManager menuManager) {
-		((IMenuListener)getEditorSite().getActionBarContributor()).menuAboutToShow(menuManager);
+		((IMenuListener) getEditorSite().getActionBarContributor()).menuAboutToShow(menuManager);
 	}
 
 	/**
@@ -1885,7 +1766,7 @@ public class SpdEditor
 	 * @generated
 	 */
 	public EditingDomainActionBarContributor getActionBarContributor() {
-		return (EditingDomainActionBarContributor)getEditorSite().getActionBarContributor();
+		return (EditingDomainActionBarContributor) getEditorSite().getActionBarContributor();
 	}
 
 	/**

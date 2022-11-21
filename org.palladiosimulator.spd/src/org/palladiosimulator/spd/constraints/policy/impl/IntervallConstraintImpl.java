@@ -3,12 +3,7 @@
  */
 package org.palladiosimulator.spd.constraints.policy.impl;
 
-import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.ecore.EClass;
-
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
-
 import org.palladiosimulator.spd.constraints.policy.IntervallConstraint;
 import org.palladiosimulator.spd.constraints.policy.PolicyPackage;
 
@@ -38,16 +33,6 @@ public class IntervallConstraintImpl extends TemporalConstraintImpl implements I
 	protected static final int OFFSET_EDEFAULT = 0;
 
 	/**
-	 * The cached value of the '{@link #getOffset() <em>Offset</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getOffset()
-	 * @generated
-	 * @ordered
-	 */
-	protected int offset = OFFSET_EDEFAULT;
-
-	/**
 	 * The default value of the '{@link #getIntervallDuration() <em>Intervall Duration</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -56,16 +41,6 @@ public class IntervallConstraintImpl extends TemporalConstraintImpl implements I
 	 * @ordered
 	 */
 	protected static final int INTERVALL_DURATION_EDEFAULT = 0;
-
-	/**
-	 * The cached value of the '{@link #getIntervallDuration() <em>Intervall Duration</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getIntervallDuration()
-	 * @generated
-	 * @ordered
-	 */
-	protected int intervallDuration = INTERVALL_DURATION_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -93,7 +68,8 @@ public class IntervallConstraintImpl extends TemporalConstraintImpl implements I
 	 */
 	@Override
 	public int getOffset() {
-		return offset;
+		return (Integer) eDynamicGet(PolicyPackage.INTERVALL_CONSTRAINT__OFFSET,
+				PolicyPackage.Literals.INTERVALL_CONSTRAINT__OFFSET, true, true);
 	}
 
 	/**
@@ -103,10 +79,8 @@ public class IntervallConstraintImpl extends TemporalConstraintImpl implements I
 	 */
 	@Override
 	public void setOffset(int newOffset) {
-		int oldOffset = offset;
-		offset = newOffset;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PolicyPackage.INTERVALL_CONSTRAINT__OFFSET, oldOffset, offset));
+		eDynamicSet(PolicyPackage.INTERVALL_CONSTRAINT__OFFSET, PolicyPackage.Literals.INTERVALL_CONSTRAINT__OFFSET,
+				newOffset);
 	}
 
 	/**
@@ -116,7 +90,8 @@ public class IntervallConstraintImpl extends TemporalConstraintImpl implements I
 	 */
 	@Override
 	public int getIntervallDuration() {
-		return intervallDuration;
+		return (Integer) eDynamicGet(PolicyPackage.INTERVALL_CONSTRAINT__INTERVALL_DURATION,
+				PolicyPackage.Literals.INTERVALL_CONSTRAINT__INTERVALL_DURATION, true, true);
 	}
 
 	/**
@@ -126,10 +101,8 @@ public class IntervallConstraintImpl extends TemporalConstraintImpl implements I
 	 */
 	@Override
 	public void setIntervallDuration(int newIntervallDuration) {
-		int oldIntervallDuration = intervallDuration;
-		intervallDuration = newIntervallDuration;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PolicyPackage.INTERVALL_CONSTRAINT__INTERVALL_DURATION, oldIntervallDuration, intervallDuration));
+		eDynamicSet(PolicyPackage.INTERVALL_CONSTRAINT__INTERVALL_DURATION,
+				PolicyPackage.Literals.INTERVALL_CONSTRAINT__INTERVALL_DURATION, newIntervallDuration);
 	}
 
 	/**
@@ -140,10 +113,10 @@ public class IntervallConstraintImpl extends TemporalConstraintImpl implements I
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case PolicyPackage.INTERVALL_CONSTRAINT__OFFSET:
-				return getOffset();
-			case PolicyPackage.INTERVALL_CONSTRAINT__INTERVALL_DURATION:
-				return getIntervallDuration();
+		case PolicyPackage.INTERVALL_CONSTRAINT__OFFSET:
+			return getOffset();
+		case PolicyPackage.INTERVALL_CONSTRAINT__INTERVALL_DURATION:
+			return getIntervallDuration();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -156,12 +129,12 @@ public class IntervallConstraintImpl extends TemporalConstraintImpl implements I
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case PolicyPackage.INTERVALL_CONSTRAINT__OFFSET:
-				setOffset((Integer)newValue);
-				return;
-			case PolicyPackage.INTERVALL_CONSTRAINT__INTERVALL_DURATION:
-				setIntervallDuration((Integer)newValue);
-				return;
+		case PolicyPackage.INTERVALL_CONSTRAINT__OFFSET:
+			setOffset((Integer) newValue);
+			return;
+		case PolicyPackage.INTERVALL_CONSTRAINT__INTERVALL_DURATION:
+			setIntervallDuration((Integer) newValue);
+			return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -174,12 +147,12 @@ public class IntervallConstraintImpl extends TemporalConstraintImpl implements I
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case PolicyPackage.INTERVALL_CONSTRAINT__OFFSET:
-				setOffset(OFFSET_EDEFAULT);
-				return;
-			case PolicyPackage.INTERVALL_CONSTRAINT__INTERVALL_DURATION:
-				setIntervallDuration(INTERVALL_DURATION_EDEFAULT);
-				return;
+		case PolicyPackage.INTERVALL_CONSTRAINT__OFFSET:
+			setOffset(OFFSET_EDEFAULT);
+			return;
+		case PolicyPackage.INTERVALL_CONSTRAINT__INTERVALL_DURATION:
+			setIntervallDuration(INTERVALL_DURATION_EDEFAULT);
+			return;
 		}
 		super.eUnset(featureID);
 	}
@@ -192,30 +165,12 @@ public class IntervallConstraintImpl extends TemporalConstraintImpl implements I
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case PolicyPackage.INTERVALL_CONSTRAINT__OFFSET:
-				return offset != OFFSET_EDEFAULT;
-			case PolicyPackage.INTERVALL_CONSTRAINT__INTERVALL_DURATION:
-				return intervallDuration != INTERVALL_DURATION_EDEFAULT;
+		case PolicyPackage.INTERVALL_CONSTRAINT__OFFSET:
+			return getOffset() != OFFSET_EDEFAULT;
+		case PolicyPackage.INTERVALL_CONSTRAINT__INTERVALL_DURATION:
+			return getIntervallDuration() != INTERVALL_DURATION_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String toString() {
-		if (eIsProxy()) return super.toString();
-
-		StringBuilder result = new StringBuilder(super.toString());
-		result.append(" (offset: ");
-		result.append(offset);
-		result.append(", intervallDuration: ");
-		result.append(intervallDuration);
-		result.append(')');
-		return result.toString();
 	}
 
 } //IntervallConstraintImpl

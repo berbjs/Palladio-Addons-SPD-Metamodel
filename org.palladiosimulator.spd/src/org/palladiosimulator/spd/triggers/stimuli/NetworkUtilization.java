@@ -11,7 +11,7 @@ import org.palladiosimulator.spd.triggers.NETWORKUSAGETYPE;
  * <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
- * If the link has been modelled with a certain capacity, then the NetworkUtilization of a certain type determines the fraction of that capacity that is being used by the elements of the target group. 
+ * If the link has been modelled with a certain capacity, then the NetworkUtilization of a certain type determines the fraction of that capacity that is being used by the elements of the target group.
  * <!-- end-model-doc -->
  *
  * <p>

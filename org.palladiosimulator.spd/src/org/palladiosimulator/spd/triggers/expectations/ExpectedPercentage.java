@@ -3,7 +3,6 @@
  */
 package org.palladiosimulator.spd.triggers.expectations;
 
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Expected Percentage</b></em>'.

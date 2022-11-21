@@ -4,13 +4,10 @@
 package org.palladiosimulator.spd;
 
 import org.eclipse.emf.common.util.EList;
-
+import org.palladiosimulator.pcm.core.entity.Entity;
 import org.palladiosimulator.spd.adjustments.AdjustmentType;
-
 import org.palladiosimulator.spd.constraints.policy.PolicyConstraint;
-
 import org.palladiosimulator.spd.targets.TargetGroup;
-
 import org.palladiosimulator.spd.triggers.ScalingTrigger;
 
 /**
@@ -19,7 +16,7 @@ import org.palladiosimulator.spd.triggers.ScalingTrigger;
  * <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
- * A scaling policy determines the complete information for scaling a parituclar target.
+ * A scaling policy determines the complete information for scaling a parituclar target. Each ScalingPolicy is an Entity (PCM), it has a unique identifier and it has a name.
  * <!-- end-model-doc -->
  *
  * <p>
@@ -37,7 +34,7 @@ import org.palladiosimulator.spd.triggers.ScalingTrigger;
  * @model annotation="http://www.eclipse.org/emf/2002/Ecore constraints='policyNameInvariant'"
  * @generated
  */
-public interface ScalingPolicy extends NamedElement {
+public interface ScalingPolicy extends Entity {
 	/**
 	 * Returns the value of the '<em><b>Active</b></em>' attribute.
 	 * <!-- begin-user-doc -->

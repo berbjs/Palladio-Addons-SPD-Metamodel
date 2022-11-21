@@ -3,63 +3,41 @@
  */
 package org.palladiosimulator.spd.targets.impl;
 
-import de.uka.ipd.sdq.identifier.IdentifierPackage;
-
-import de.uka.ipd.sdq.probfunction.ProbfunctionPackage;
-
-import de.uka.ipd.sdq.stoex.StoexPackage;
-
-import de.uka.ipd.sdq.units.UnitsPackage;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.EcorePackage;
-
 import org.eclipse.emf.ecore.impl.EPackageImpl;
-
 import org.palladiosimulator.pcm.PcmPackage;
-
+import org.palladiosimulator.pcm.core.entity.EntityPackage;
 import org.palladiosimulator.pcm.resourceenvironment.ResourceenvironmentPackage;
-
 import org.palladiosimulator.spd.SpdPackage;
-
 import org.palladiosimulator.spd.adjustments.AdjustmentsPackage;
-
 import org.palladiosimulator.spd.adjustments.impl.AdjustmentsPackageImpl;
-
 import org.palladiosimulator.spd.constraints.ConstraintsPackage;
-
 import org.palladiosimulator.spd.constraints.impl.ConstraintsPackageImpl;
-
 import org.palladiosimulator.spd.constraints.policy.PolicyPackage;
-
 import org.palladiosimulator.spd.constraints.policy.impl.PolicyPackageImpl;
-
 import org.palladiosimulator.spd.constraints.target.TargetPackage;
-
 import org.palladiosimulator.spd.constraints.target.impl.TargetPackageImpl;
-
 import org.palladiosimulator.spd.impl.SpdPackageImpl;
-
 import org.palladiosimulator.spd.targets.CompetingConsumersGroup;
 import org.palladiosimulator.spd.targets.ElasticInfrastructure;
 import org.palladiosimulator.spd.targets.ServiceGroup;
 import org.palladiosimulator.spd.targets.TargetGroup;
 import org.palladiosimulator.spd.targets.TargetsFactory;
 import org.palladiosimulator.spd.targets.TargetsPackage;
-
 import org.palladiosimulator.spd.triggers.TriggersPackage;
-
 import org.palladiosimulator.spd.triggers.expectations.ExpectationsPackage;
-
 import org.palladiosimulator.spd.triggers.expectations.impl.ExpectationsPackageImpl;
-
 import org.palladiosimulator.spd.triggers.impl.TriggersPackageImpl;
-
 import org.palladiosimulator.spd.triggers.stimuli.StimuliPackage;
-
 import org.palladiosimulator.spd.triggers.stimuli.impl.StimuliPackageImpl;
+
+import de.uka.ipd.sdq.identifier.IdentifierPackage;
+import de.uka.ipd.sdq.probfunction.ProbfunctionPackage;
+import de.uka.ipd.sdq.stoex.StoexPackage;
+import de.uka.ipd.sdq.units.UnitsPackage;
 
 /**
  * <!-- begin-user-doc -->
@@ -135,11 +113,14 @@ public class TargetsPackageImpl extends EPackageImpl implements TargetsPackage {
 	 * @generated
 	 */
 	public static TargetsPackage init() {
-		if (isInited) return (TargetsPackage)EPackage.Registry.INSTANCE.getEPackage(TargetsPackage.eNS_URI);
+		if (isInited)
+			return (TargetsPackage) EPackage.Registry.INSTANCE.getEPackage(TargetsPackage.eNS_URI);
 
 		// Obtain or create and register package
 		Object registeredTargetsPackage = EPackage.Registry.INSTANCE.get(eNS_URI);
-		TargetsPackageImpl theTargetsPackage = registeredTargetsPackage instanceof TargetsPackageImpl ? (TargetsPackageImpl)registeredTargetsPackage : new TargetsPackageImpl();
+		TargetsPackageImpl theTargetsPackage = registeredTargetsPackage instanceof TargetsPackageImpl
+				? (TargetsPackageImpl) registeredTargetsPackage
+				: new TargetsPackageImpl();
 
 		isInited = true;
 
@@ -153,21 +134,36 @@ public class TargetsPackageImpl extends EPackageImpl implements TargetsPackage {
 
 		// Obtain or create and register interdependencies
 		Object registeredPackage = EPackage.Registry.INSTANCE.getEPackage(SpdPackage.eNS_URI);
-		SpdPackageImpl theSpdPackage = (SpdPackageImpl)(registeredPackage instanceof SpdPackageImpl ? registeredPackage : SpdPackage.eINSTANCE);
+		SpdPackageImpl theSpdPackage = (SpdPackageImpl) (registeredPackage instanceof SpdPackageImpl ? registeredPackage
+				: SpdPackage.eINSTANCE);
 		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(AdjustmentsPackage.eNS_URI);
-		AdjustmentsPackageImpl theAdjustmentsPackage = (AdjustmentsPackageImpl)(registeredPackage instanceof AdjustmentsPackageImpl ? registeredPackage : AdjustmentsPackage.eINSTANCE);
+		AdjustmentsPackageImpl theAdjustmentsPackage = (AdjustmentsPackageImpl) (registeredPackage instanceof AdjustmentsPackageImpl
+				? registeredPackage
+				: AdjustmentsPackage.eINSTANCE);
 		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(ConstraintsPackage.eNS_URI);
-		ConstraintsPackageImpl theConstraintsPackage = (ConstraintsPackageImpl)(registeredPackage instanceof ConstraintsPackageImpl ? registeredPackage : ConstraintsPackage.eINSTANCE);
+		ConstraintsPackageImpl theConstraintsPackage = (ConstraintsPackageImpl) (registeredPackage instanceof ConstraintsPackageImpl
+				? registeredPackage
+				: ConstraintsPackage.eINSTANCE);
 		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(PolicyPackage.eNS_URI);
-		PolicyPackageImpl thePolicyPackage = (PolicyPackageImpl)(registeredPackage instanceof PolicyPackageImpl ? registeredPackage : PolicyPackage.eINSTANCE);
+		PolicyPackageImpl thePolicyPackage = (PolicyPackageImpl) (registeredPackage instanceof PolicyPackageImpl
+				? registeredPackage
+				: PolicyPackage.eINSTANCE);
 		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(TargetPackage.eNS_URI);
-		TargetPackageImpl theTargetPackage = (TargetPackageImpl)(registeredPackage instanceof TargetPackageImpl ? registeredPackage : TargetPackage.eINSTANCE);
+		TargetPackageImpl theTargetPackage = (TargetPackageImpl) (registeredPackage instanceof TargetPackageImpl
+				? registeredPackage
+				: TargetPackage.eINSTANCE);
 		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(TriggersPackage.eNS_URI);
-		TriggersPackageImpl theTriggersPackage = (TriggersPackageImpl)(registeredPackage instanceof TriggersPackageImpl ? registeredPackage : TriggersPackage.eINSTANCE);
+		TriggersPackageImpl theTriggersPackage = (TriggersPackageImpl) (registeredPackage instanceof TriggersPackageImpl
+				? registeredPackage
+				: TriggersPackage.eINSTANCE);
 		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(StimuliPackage.eNS_URI);
-		StimuliPackageImpl theStimuliPackage = (StimuliPackageImpl)(registeredPackage instanceof StimuliPackageImpl ? registeredPackage : StimuliPackage.eINSTANCE);
+		StimuliPackageImpl theStimuliPackage = (StimuliPackageImpl) (registeredPackage instanceof StimuliPackageImpl
+				? registeredPackage
+				: StimuliPackage.eINSTANCE);
 		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(ExpectationsPackage.eNS_URI);
-		ExpectationsPackageImpl theExpectationsPackage = (ExpectationsPackageImpl)(registeredPackage instanceof ExpectationsPackageImpl ? registeredPackage : ExpectationsPackage.eINSTANCE);
+		ExpectationsPackageImpl theExpectationsPackage = (ExpectationsPackageImpl) (registeredPackage instanceof ExpectationsPackageImpl
+				? registeredPackage
+				: ExpectationsPackage.eINSTANCE);
 
 		// Create package meta-data objects
 		theTargetsPackage.createPackageContents();
@@ -216,7 +212,7 @@ public class TargetsPackageImpl extends EPackageImpl implements TargetsPackage {
 	 */
 	@Override
 	public EReference getTargetGroup_TargetConstraints() {
-		return (EReference)targetGroupEClass.getEStructuralFeatures().get(0);
+		return (EReference) targetGroupEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -236,7 +232,7 @@ public class TargetsPackageImpl extends EPackageImpl implements TargetsPackage {
 	 */
 	@Override
 	public EReference getElasticInfrastructure_PCM_ResourceEnvironment() {
-		return (EReference)elasticInfrastructureEClass.getEStructuralFeatures().get(0);
+		return (EReference) elasticInfrastructureEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -266,7 +262,7 @@ public class TargetsPackageImpl extends EPackageImpl implements TargetsPackage {
 	 */
 	@Override
 	public TargetsFactory getTargetsFactory() {
-		return (TargetsFactory)getEFactoryInstance();
+		return (TargetsFactory) getEFactoryInstance();
 	}
 
 	/**
@@ -284,7 +280,8 @@ public class TargetsPackageImpl extends EPackageImpl implements TargetsPackage {
 	 * @generated
 	 */
 	public void createPackageContents() {
-		if (isCreated) return;
+		if (isCreated)
+			return;
 		isCreated = true;
 
 		// Create classes and their features
@@ -314,7 +311,8 @@ public class TargetsPackageImpl extends EPackageImpl implements TargetsPackage {
 	 * @generated
 	 */
 	public void initializePackageContents() {
-		if (isInitialized) return;
+		if (isInitialized)
+			return;
 		isInitialized = true;
 
 		// Initialize package
@@ -323,30 +321,40 @@ public class TargetsPackageImpl extends EPackageImpl implements TargetsPackage {
 		setNsURI(eNS_URI);
 
 		// Obtain other dependent packages
-		SpdPackage theSpdPackage = (SpdPackage)EPackage.Registry.INSTANCE.getEPackage(SpdPackage.eNS_URI);
-		TargetPackage theTargetPackage = (TargetPackage)EPackage.Registry.INSTANCE.getEPackage(TargetPackage.eNS_URI);
-		ResourceenvironmentPackage theResourceenvironmentPackage = (ResourceenvironmentPackage)EPackage.Registry.INSTANCE.getEPackage(ResourceenvironmentPackage.eNS_URI);
+		EntityPackage theEntityPackage = (EntityPackage) EPackage.Registry.INSTANCE.getEPackage(EntityPackage.eNS_URI);
+		TargetPackage theTargetPackage = (TargetPackage) EPackage.Registry.INSTANCE.getEPackage(TargetPackage.eNS_URI);
+		ResourceenvironmentPackage theResourceenvironmentPackage = (ResourceenvironmentPackage) EPackage.Registry.INSTANCE
+				.getEPackage(ResourceenvironmentPackage.eNS_URI);
 
 		// Create type parameters
 
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
-		targetGroupEClass.getESuperTypes().add(theSpdPackage.getNamedElement());
+		targetGroupEClass.getESuperTypes().add(theEntityPackage.getEntity());
 		elasticInfrastructureEClass.getESuperTypes().add(this.getTargetGroup());
 		serviceGroupEClass.getESuperTypes().add(this.getTargetGroup());
 		competingConsumersGroupEClass.getESuperTypes().add(this.getTargetGroup());
 
-		// Initialize classes, features, and operations; add parameters
-		initEClass(targetGroupEClass, TargetGroup.class, "TargetGroup", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getTargetGroup_TargetConstraints(), theTargetPackage.getTargetConstraint(), null, "targetConstraints", null, 0, -1, TargetGroup.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		// Initialize classes and features; add operations and parameters
+		initEClass(targetGroupEClass, TargetGroup.class, "TargetGroup", IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getTargetGroup_TargetConstraints(), theTargetPackage.getTargetConstraint(), null,
+				"targetConstraints", null, 0, -1, TargetGroup.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
+				IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(elasticInfrastructureEClass, ElasticInfrastructure.class, "ElasticInfrastructure", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getElasticInfrastructure_PCM_ResourceEnvironment(), theResourceenvironmentPackage.getResourceEnvironment(), null, "PCM_ResourceEnvironment", null, 0, 1, ElasticInfrastructure.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(elasticInfrastructureEClass, ElasticInfrastructure.class, "ElasticInfrastructure", !IS_ABSTRACT,
+				!IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getElasticInfrastructure_PCM_ResourceEnvironment(),
+				theResourceenvironmentPackage.getResourceEnvironment(), null, "PCM_ResourceEnvironment", null, 0, 1,
+				ElasticInfrastructure.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
+				IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(serviceGroupEClass, ServiceGroup.class, "ServiceGroup", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(serviceGroupEClass, ServiceGroup.class, "ServiceGroup", !IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(competingConsumersGroupEClass, CompetingConsumersGroup.class, "CompetingConsumersGroup", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(competingConsumersGroupEClass, CompetingConsumersGroup.class, "CompetingConsumersGroup",
+				!IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 	}
 
 } //TargetsPackageImpl

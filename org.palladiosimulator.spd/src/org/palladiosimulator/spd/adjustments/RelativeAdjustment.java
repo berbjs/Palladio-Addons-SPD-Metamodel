@@ -3,7 +3,6 @@
  */
 package org.palladiosimulator.spd.adjustments;
 
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Relative Adjustment</b></em>'.
@@ -58,7 +57,7 @@ public interface RelativeAdjustment extends AdjustmentType {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * A minimum adjustment value in case the percentage is 0. 
+	 * A minimum adjustment value in case the percentage is 0.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Min Adjustment Value</em>' attribute.
 	 * @see #setMinAdjustmentValue(int)

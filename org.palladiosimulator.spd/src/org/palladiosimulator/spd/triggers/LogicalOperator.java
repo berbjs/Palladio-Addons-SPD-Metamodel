@@ -88,12 +88,7 @@ public enum LogicalOperator implements Enumerator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private static final LogicalOperator[] VALUES_ARRAY =
-		new LogicalOperator[] {
-			AND,
-			OR,
-			XOR,
-		};
+	private static final LogicalOperator[] VALUES_ARRAY = new LogicalOperator[] { AND, OR, XOR, };
 
 	/**
 	 * A public read-only list of all the '<em><b>Logical Operator</b></em>' enumerators.
@@ -112,8 +107,7 @@ public enum LogicalOperator implements Enumerator {
 	 * @generated
 	 */
 	public static LogicalOperator get(String literal) {
-		for (int i = 0; i < VALUES_ARRAY.length; ++i) {
-			LogicalOperator result = VALUES_ARRAY[i];
+		for (LogicalOperator result : VALUES_ARRAY) {
 			if (result.toString().equals(literal)) {
 				return result;
 			}
@@ -130,8 +124,7 @@ public enum LogicalOperator implements Enumerator {
 	 * @generated
 	 */
 	public static LogicalOperator getByName(String name) {
-		for (int i = 0; i < VALUES_ARRAY.length; ++i) {
-			LogicalOperator result = VALUES_ARRAY[i];
+		for (LogicalOperator result : VALUES_ARRAY) {
 			if (result.getName().equals(name)) {
 				return result;
 			}
@@ -149,9 +142,12 @@ public enum LogicalOperator implements Enumerator {
 	 */
 	public static LogicalOperator get(int value) {
 		switch (value) {
-			case AND_VALUE: return AND;
-			case OR_VALUE: return OR;
-			case XOR_VALUE: return XOR;
+		case AND_VALUE:
+			return AND;
+		case OR_VALUE:
+			return OR;
+		case XOR_VALUE:
+			return XOR;
 		}
 		return null;
 	}
@@ -196,7 +192,7 @@ public enum LogicalOperator implements Enumerator {
 	 */
 	@Override
 	public int getValue() {
-	  return value;
+		return value;
 	}
 
 	/**
@@ -206,7 +202,7 @@ public enum LogicalOperator implements Enumerator {
 	 */
 	@Override
 	public String getName() {
-	  return name;
+		return name;
 	}
 
 	/**
@@ -216,7 +212,7 @@ public enum LogicalOperator implements Enumerator {
 	 */
 	@Override
 	public String getLiteral() {
-	  return literal;
+		return literal;
 	}
 
 	/**
@@ -229,5 +225,5 @@ public enum LogicalOperator implements Enumerator {
 	public String toString() {
 		return literal;
 	}
-	
+
 } //LogicalOperator

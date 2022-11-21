@@ -5,14 +5,14 @@ package org.palladiosimulator.spd.constraints.target.util;
 
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
-
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
-
 import org.eclipse.emf.ecore.EObject;
-
 import org.palladiosimulator.spd.constraints.AbstractConstraint;
+import org.palladiosimulator.spd.constraints.target.TargetConstraint;
+import org.palladiosimulator.spd.constraints.target.TargetGroupSizeConstraint;
+import org.palladiosimulator.spd.constraints.target.TargetPackage;
 
-import org.palladiosimulator.spd.constraints.target.*;
+import de.uka.ipd.sdq.identifier.Identifier;
 
 /**
  * <!-- begin-user-doc -->
@@ -57,7 +57,7 @@ public class TargetAdapterFactory extends AdapterFactoryImpl {
 			return true;
 		}
 		if (object instanceof EObject) {
-			return ((EObject)object).eClass().getEPackage() == modelPackage;
+			return ((EObject) object).eClass().getEPackage() == modelPackage;
 		}
 		return false;
 	}
@@ -68,25 +68,32 @@ public class TargetAdapterFactory extends AdapterFactoryImpl {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected TargetSwitch<Adapter> modelSwitch =
-		new TargetSwitch<Adapter>() {
-			@Override
-			public Adapter caseTargetConstraint(TargetConstraint object) {
-				return createTargetConstraintAdapter();
-			}
-			@Override
-			public Adapter caseTargetGroupSizeConstraint(TargetGroupSizeConstraint object) {
-				return createTargetGroupSizeConstraintAdapter();
-			}
-			@Override
-			public Adapter caseAbstractConstraint(AbstractConstraint object) {
-				return createAbstractConstraintAdapter();
-			}
-			@Override
-			public Adapter defaultCase(EObject object) {
-				return createEObjectAdapter();
-			}
-		};
+	protected TargetSwitch<Adapter> modelSwitch = new TargetSwitch<>() {
+		@Override
+		public Adapter caseTargetConstraint(TargetConstraint object) {
+			return createTargetConstraintAdapter();
+		}
+
+		@Override
+		public Adapter caseTargetGroupSizeConstraint(TargetGroupSizeConstraint object) {
+			return createTargetGroupSizeConstraintAdapter();
+		}
+
+		@Override
+		public Adapter caseIdentifier(Identifier object) {
+			return createIdentifierAdapter();
+		}
+
+		@Override
+		public Adapter caseAbstractConstraint(AbstractConstraint object) {
+			return createAbstractConstraintAdapter();
+		}
+
+		@Override
+		public Adapter defaultCase(EObject object) {
+			return createEObjectAdapter();
+		}
+	};
 
 	/**
 	 * Creates an adapter for the <code>target</code>.
@@ -98,9 +105,8 @@ public class TargetAdapterFactory extends AdapterFactoryImpl {
 	 */
 	@Override
 	public Adapter createAdapter(Notifier target) {
-		return modelSwitch.doSwitch((EObject)target);
+		return modelSwitch.doSwitch((EObject) target);
 	}
-
 
 	/**
 	 * Creates a new adapter for an object of class '{@link org.palladiosimulator.spd.constraints.target.TargetConstraint <em>Constraint</em>}'.
@@ -127,6 +133,20 @@ public class TargetAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createTargetGroupSizeConstraintAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.identifier.Identifier <em>Identifier</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.uka.ipd.sdq.identifier.Identifier
+	 * @generated
+	 */
+	public Adapter createIdentifierAdapter() {
 		return null;
 	}
 

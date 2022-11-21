@@ -14,7 +14,6 @@ import org.eclipse.emf.ecore.EPackage;
  * <ul>
  *   <li>each class,</li>
  *   <li>each feature of each class,</li>
- *   <li>each operation of each class,</li>
  *   <li>each enum,</li>
  *   <li>and each data type</li>
  * </ul>
@@ -76,15 +75,6 @@ public interface AdjustmentsPackage extends EPackage {
 	int ADJUSTMENT_TYPE_FEATURE_COUNT = 0;
 
 	/**
-	 * The number of operations of the '<em>Adjustment Type</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ADJUSTMENT_TYPE_OPERATION_COUNT = 0;
-
-	/**
 	 * The meta object id for the '{@link org.palladiosimulator.spd.adjustments.impl.RelativeAdjustmentImpl <em>Relative Adjustment</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -122,15 +112,6 @@ public interface AdjustmentsPackage extends EPackage {
 	int RELATIVE_ADJUSTMENT_FEATURE_COUNT = ADJUSTMENT_TYPE_FEATURE_COUNT + 2;
 
 	/**
-	 * The number of operations of the '<em>Relative Adjustment</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RELATIVE_ADJUSTMENT_OPERATION_COUNT = ADJUSTMENT_TYPE_OPERATION_COUNT + 0;
-
-	/**
 	 * The meta object id for the '{@link org.palladiosimulator.spd.adjustments.impl.AbsoluteAdjustmentImpl <em>Absolute Adjustment</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -159,15 +140,6 @@ public interface AdjustmentsPackage extends EPackage {
 	int ABSOLUTE_ADJUSTMENT_FEATURE_COUNT = ADJUSTMENT_TYPE_FEATURE_COUNT + 1;
 
 	/**
-	 * The number of operations of the '<em>Absolute Adjustment</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ABSOLUTE_ADJUSTMENT_OPERATION_COUNT = ADJUSTMENT_TYPE_OPERATION_COUNT + 0;
-
-	/**
 	 * The meta object id for the '{@link org.palladiosimulator.spd.adjustments.impl.StepAdjustmentImpl <em>Step Adjustment</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -194,16 +166,6 @@ public interface AdjustmentsPackage extends EPackage {
 	 * @ordered
 	 */
 	int STEP_ADJUSTMENT_FEATURE_COUNT = ADJUSTMENT_TYPE_FEATURE_COUNT + 1;
-
-	/**
-	 * The number of operations of the '<em>Step Adjustment</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int STEP_ADJUSTMENT_OPERATION_COUNT = ADJUSTMENT_TYPE_OPERATION_COUNT + 0;
-
 
 	/**
 	 * Returns the meta object for class '{@link org.palladiosimulator.spd.adjustments.AdjustmentType <em>Adjustment Type</em>}'.
@@ -304,7 +266,6 @@ public interface AdjustmentsPackage extends EPackage {
 	 * <ul>
 	 *   <li>each class,</li>
 	 *   <li>each feature of each class,</li>
-	 *   <li>each operation of each class,</li>
 	 *   <li>each enum,</li>
 	 *   <li>and each data type</li>
 	 * </ul>
@@ -338,7 +299,8 @@ public interface AdjustmentsPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute RELATIVE_ADJUSTMENT__PERCENTAGE_GROWTH_VALUE = eINSTANCE.getRelativeAdjustment_PercentageGrowthValue();
+		EAttribute RELATIVE_ADJUSTMENT__PERCENTAGE_GROWTH_VALUE = eINSTANCE
+				.getRelativeAdjustment_PercentageGrowthValue();
 
 		/**
 		 * The meta object literal for the '<em><b>Min Adjustment Value</b></em>' attribute feature.

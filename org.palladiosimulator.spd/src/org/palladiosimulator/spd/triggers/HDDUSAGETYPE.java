@@ -70,11 +70,7 @@ public enum HDDUSAGETYPE implements Enumerator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private static final HDDUSAGETYPE[] VALUES_ARRAY =
-		new HDDUSAGETYPE[] {
-			READ,
-			WRITE,
-		};
+	private static final HDDUSAGETYPE[] VALUES_ARRAY = new HDDUSAGETYPE[] { READ, WRITE, };
 
 	/**
 	 * A public read-only list of all the '<em><b>HDDUSAGETYPE</b></em>' enumerators.
@@ -93,8 +89,7 @@ public enum HDDUSAGETYPE implements Enumerator {
 	 * @generated
 	 */
 	public static HDDUSAGETYPE get(String literal) {
-		for (int i = 0; i < VALUES_ARRAY.length; ++i) {
-			HDDUSAGETYPE result = VALUES_ARRAY[i];
+		for (HDDUSAGETYPE result : VALUES_ARRAY) {
 			if (result.toString().equals(literal)) {
 				return result;
 			}
@@ -111,8 +106,7 @@ public enum HDDUSAGETYPE implements Enumerator {
 	 * @generated
 	 */
 	public static HDDUSAGETYPE getByName(String name) {
-		for (int i = 0; i < VALUES_ARRAY.length; ++i) {
-			HDDUSAGETYPE result = VALUES_ARRAY[i];
+		for (HDDUSAGETYPE result : VALUES_ARRAY) {
 			if (result.getName().equals(name)) {
 				return result;
 			}
@@ -130,8 +124,10 @@ public enum HDDUSAGETYPE implements Enumerator {
 	 */
 	public static HDDUSAGETYPE get(int value) {
 		switch (value) {
-			case READ_VALUE: return READ;
-			case WRITE_VALUE: return WRITE;
+		case READ_VALUE:
+			return READ;
+		case WRITE_VALUE:
+			return WRITE;
 		}
 		return null;
 	}
@@ -176,7 +172,7 @@ public enum HDDUSAGETYPE implements Enumerator {
 	 */
 	@Override
 	public int getValue() {
-	  return value;
+		return value;
 	}
 
 	/**
@@ -186,7 +182,7 @@ public enum HDDUSAGETYPE implements Enumerator {
 	 */
 	@Override
 	public String getName() {
-	  return name;
+		return name;
 	}
 
 	/**
@@ -196,7 +192,7 @@ public enum HDDUSAGETYPE implements Enumerator {
 	 */
 	@Override
 	public String getLiteral() {
-	  return literal;
+		return literal;
 	}
 
 	/**
@@ -209,5 +205,5 @@ public enum HDDUSAGETYPE implements Enumerator {
 	public String toString() {
 		return literal;
 	}
-	
+
 } //HDDUSAGETYPE

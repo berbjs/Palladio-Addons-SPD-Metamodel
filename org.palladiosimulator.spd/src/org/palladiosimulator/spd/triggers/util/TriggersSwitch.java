@@ -5,10 +5,15 @@ package org.palladiosimulator.spd.triggers.util;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
-
 import org.eclipse.emf.ecore.util.Switch;
+import org.palladiosimulator.spd.triggers.BaseTrigger;
+import org.palladiosimulator.spd.triggers.ComposedTrigger;
+import org.palladiosimulator.spd.triggers.ScalingTrigger;
+import org.palladiosimulator.spd.triggers.SimpleFireOnTrend;
+import org.palladiosimulator.spd.triggers.SimpleFireOnValue;
+import org.palladiosimulator.spd.triggers.TriggersPackage;
 
-import org.palladiosimulator.spd.triggers.*;
+import de.uka.ipd.sdq.identifier.Identifier;
 
 /**
  * <!-- begin-user-doc -->
@@ -67,43 +72,65 @@ public class TriggersSwitch<T> extends Switch<T> {
 	@Override
 	protected T doSwitch(int classifierID, EObject theEObject) {
 		switch (classifierID) {
-			case TriggersPackage.SCALING_TRIGGER: {
-				ScalingTrigger scalingTrigger = (ScalingTrigger)theEObject;
-				T result = caseScalingTrigger(scalingTrigger);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case TriggersPackage.BASE_TRIGGER: {
-				BaseTrigger baseTrigger = (BaseTrigger)theEObject;
-				T result = caseBaseTrigger(baseTrigger);
-				if (result == null) result = caseScalingTrigger(baseTrigger);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case TriggersPackage.COMPOSED_TRIGGER: {
-				ComposedTrigger composedTrigger = (ComposedTrigger)theEObject;
-				T result = caseComposedTrigger(composedTrigger);
-				if (result == null) result = caseScalingTrigger(composedTrigger);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case TriggersPackage.SIMPLE_FIRE_ON_VALUE: {
-				SimpleFireOnValue simpleFireOnValue = (SimpleFireOnValue)theEObject;
-				T result = caseSimpleFireOnValue(simpleFireOnValue);
-				if (result == null) result = caseBaseTrigger(simpleFireOnValue);
-				if (result == null) result = caseScalingTrigger(simpleFireOnValue);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case TriggersPackage.SIMPLE_FIRE_ON_TREND: {
-				SimpleFireOnTrend simpleFireOnTrend = (SimpleFireOnTrend)theEObject;
-				T result = caseSimpleFireOnTrend(simpleFireOnTrend);
-				if (result == null) result = caseBaseTrigger(simpleFireOnTrend);
-				if (result == null) result = caseScalingTrigger(simpleFireOnTrend);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			default: return defaultCase(theEObject);
+		case TriggersPackage.SCALING_TRIGGER: {
+			ScalingTrigger scalingTrigger = (ScalingTrigger) theEObject;
+			T result = caseScalingTrigger(scalingTrigger);
+			if (result == null)
+				result = caseIdentifier(scalingTrigger);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case TriggersPackage.BASE_TRIGGER: {
+			BaseTrigger baseTrigger = (BaseTrigger) theEObject;
+			T result = caseBaseTrigger(baseTrigger);
+			if (result == null)
+				result = caseScalingTrigger(baseTrigger);
+			if (result == null)
+				result = caseIdentifier(baseTrigger);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case TriggersPackage.COMPOSED_TRIGGER: {
+			ComposedTrigger composedTrigger = (ComposedTrigger) theEObject;
+			T result = caseComposedTrigger(composedTrigger);
+			if (result == null)
+				result = caseScalingTrigger(composedTrigger);
+			if (result == null)
+				result = caseIdentifier(composedTrigger);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case TriggersPackage.SIMPLE_FIRE_ON_VALUE: {
+			SimpleFireOnValue simpleFireOnValue = (SimpleFireOnValue) theEObject;
+			T result = caseSimpleFireOnValue(simpleFireOnValue);
+			if (result == null)
+				result = caseBaseTrigger(simpleFireOnValue);
+			if (result == null)
+				result = caseScalingTrigger(simpleFireOnValue);
+			if (result == null)
+				result = caseIdentifier(simpleFireOnValue);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case TriggersPackage.SIMPLE_FIRE_ON_TREND: {
+			SimpleFireOnTrend simpleFireOnTrend = (SimpleFireOnTrend) theEObject;
+			T result = caseSimpleFireOnTrend(simpleFireOnTrend);
+			if (result == null)
+				result = caseBaseTrigger(simpleFireOnTrend);
+			if (result == null)
+				result = caseScalingTrigger(simpleFireOnTrend);
+			if (result == null)
+				result = caseIdentifier(simpleFireOnTrend);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		default:
+			return defaultCase(theEObject);
 		}
 	}
 
@@ -179,6 +206,21 @@ public class TriggersSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseSimpleFireOnTrend(SimpleFireOnTrend object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Identifier</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Identifier</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseIdentifier(Identifier object) {
 		return null;
 	}
 

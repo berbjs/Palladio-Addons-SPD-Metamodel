@@ -6,12 +6,13 @@ package org.palladiosimulator.spd.targets.impl;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
-
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
-
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
-
-import org.palladiosimulator.spd.targets.*;
+import org.palladiosimulator.spd.targets.CompetingConsumersGroup;
+import org.palladiosimulator.spd.targets.ElasticInfrastructure;
+import org.palladiosimulator.spd.targets.ServiceGroup;
+import org.palladiosimulator.spd.targets.TargetsFactory;
+import org.palladiosimulator.spd.targets.TargetsPackage;
 
 /**
  * <!-- begin-user-doc -->
@@ -28,12 +29,12 @@ public class TargetsFactoryImpl extends EFactoryImpl implements TargetsFactory {
 	 */
 	public static TargetsFactory init() {
 		try {
-			TargetsFactory theTargetsFactory = (TargetsFactory)EPackage.Registry.INSTANCE.getEFactory(TargetsPackage.eNS_URI);
+			TargetsFactory theTargetsFactory = (TargetsFactory) EPackage.Registry.INSTANCE
+					.getEFactory(TargetsPackage.eNS_URI);
 			if (theTargetsFactory != null) {
 				return theTargetsFactory;
 			}
-		}
-		catch (Exception exception) {
+		} catch (Exception exception) {
 			EcorePlugin.INSTANCE.log(exception);
 		}
 		return new TargetsFactoryImpl();
@@ -57,11 +58,14 @@ public class TargetsFactoryImpl extends EFactoryImpl implements TargetsFactory {
 	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
-			case TargetsPackage.ELASTIC_INFRASTRUCTURE: return createElasticInfrastructure();
-			case TargetsPackage.SERVICE_GROUP: return createServiceGroup();
-			case TargetsPackage.COMPETING_CONSUMERS_GROUP: return createCompetingConsumersGroup();
-			default:
-				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
+		case TargetsPackage.ELASTIC_INFRASTRUCTURE:
+			return createElasticInfrastructure();
+		case TargetsPackage.SERVICE_GROUP:
+			return createServiceGroup();
+		case TargetsPackage.COMPETING_CONSUMERS_GROUP:
+			return createCompetingConsumersGroup();
+		default:
+			throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
 	}
 
@@ -105,7 +109,7 @@ public class TargetsFactoryImpl extends EFactoryImpl implements TargetsFactory {
 	 */
 	@Override
 	public TargetsPackage getTargetsPackage() {
-		return (TargetsPackage)getEPackage();
+		return (TargetsPackage) getEPackage();
 	}
 
 	/**

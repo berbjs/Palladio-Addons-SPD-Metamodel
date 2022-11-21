@@ -4,7 +4,6 @@
 package org.palladiosimulator.spd.triggers.impl;
 
 import org.eclipse.emf.ecore.EClass;
-
 import org.palladiosimulator.spd.triggers.SimpleFireOnTrend;
 import org.palladiosimulator.spd.triggers.TriggersPackage;
 

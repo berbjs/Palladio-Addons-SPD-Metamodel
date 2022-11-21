@@ -3,49 +3,26 @@
  */
 package org.palladiosimulator.spd.triggers.impl;
 
-import de.uka.ipd.sdq.identifier.IdentifierPackage;
-
-import de.uka.ipd.sdq.probfunction.ProbfunctionPackage;
-
-import de.uka.ipd.sdq.stoex.StoexPackage;
-
-import de.uka.ipd.sdq.units.UnitsPackage;
-
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.EcorePackage;
-
 import org.eclipse.emf.ecore.impl.EPackageImpl;
-
 import org.palladiosimulator.pcm.PcmPackage;
-
 import org.palladiosimulator.spd.SpdPackage;
-
 import org.palladiosimulator.spd.adjustments.AdjustmentsPackage;
-
 import org.palladiosimulator.spd.adjustments.impl.AdjustmentsPackageImpl;
-
 import org.palladiosimulator.spd.constraints.ConstraintsPackage;
-
 import org.palladiosimulator.spd.constraints.impl.ConstraintsPackageImpl;
-
 import org.palladiosimulator.spd.constraints.policy.PolicyPackage;
-
 import org.palladiosimulator.spd.constraints.policy.impl.PolicyPackageImpl;
-
 import org.palladiosimulator.spd.constraints.target.TargetPackage;
-
 import org.palladiosimulator.spd.constraints.target.impl.TargetPackageImpl;
-
 import org.palladiosimulator.spd.impl.SpdPackageImpl;
-
 import org.palladiosimulator.spd.targets.TargetsPackage;
-
 import org.palladiosimulator.spd.targets.impl.TargetsPackageImpl;
-
 import org.palladiosimulator.spd.triggers.BaseTrigger;
 import org.palladiosimulator.spd.triggers.ComposedTrigger;
 import org.palladiosimulator.spd.triggers.LogicalOperator;
@@ -56,14 +33,15 @@ import org.palladiosimulator.spd.triggers.SimpleFireOnValue;
 import org.palladiosimulator.spd.triggers.TrendPattern;
 import org.palladiosimulator.spd.triggers.TriggersFactory;
 import org.palladiosimulator.spd.triggers.TriggersPackage;
-
 import org.palladiosimulator.spd.triggers.expectations.ExpectationsPackage;
-
 import org.palladiosimulator.spd.triggers.expectations.impl.ExpectationsPackageImpl;
-
 import org.palladiosimulator.spd.triggers.stimuli.StimuliPackage;
-
 import org.palladiosimulator.spd.triggers.stimuli.impl.StimuliPackageImpl;
+
+import de.uka.ipd.sdq.identifier.IdentifierPackage;
+import de.uka.ipd.sdq.probfunction.ProbfunctionPackage;
+import de.uka.ipd.sdq.stoex.StoexPackage;
+import de.uka.ipd.sdq.units.UnitsPackage;
 
 /**
  * <!-- begin-user-doc -->
@@ -188,11 +166,14 @@ public class TriggersPackageImpl extends EPackageImpl implements TriggersPackage
 	 * @generated
 	 */
 	public static TriggersPackage init() {
-		if (isInited) return (TriggersPackage)EPackage.Registry.INSTANCE.getEPackage(TriggersPackage.eNS_URI);
+		if (isInited)
+			return (TriggersPackage) EPackage.Registry.INSTANCE.getEPackage(TriggersPackage.eNS_URI);
 
 		// Obtain or create and register package
 		Object registeredTriggersPackage = EPackage.Registry.INSTANCE.get(eNS_URI);
-		TriggersPackageImpl theTriggersPackage = registeredTriggersPackage instanceof TriggersPackageImpl ? (TriggersPackageImpl)registeredTriggersPackage : new TriggersPackageImpl();
+		TriggersPackageImpl theTriggersPackage = registeredTriggersPackage instanceof TriggersPackageImpl
+				? (TriggersPackageImpl) registeredTriggersPackage
+				: new TriggersPackageImpl();
 
 		isInited = true;
 
@@ -206,21 +187,36 @@ public class TriggersPackageImpl extends EPackageImpl implements TriggersPackage
 
 		// Obtain or create and register interdependencies
 		Object registeredPackage = EPackage.Registry.INSTANCE.getEPackage(SpdPackage.eNS_URI);
-		SpdPackageImpl theSpdPackage = (SpdPackageImpl)(registeredPackage instanceof SpdPackageImpl ? registeredPackage : SpdPackage.eINSTANCE);
+		SpdPackageImpl theSpdPackage = (SpdPackageImpl) (registeredPackage instanceof SpdPackageImpl ? registeredPackage
+				: SpdPackage.eINSTANCE);
 		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(TargetsPackage.eNS_URI);
-		TargetsPackageImpl theTargetsPackage = (TargetsPackageImpl)(registeredPackage instanceof TargetsPackageImpl ? registeredPackage : TargetsPackage.eINSTANCE);
+		TargetsPackageImpl theTargetsPackage = (TargetsPackageImpl) (registeredPackage instanceof TargetsPackageImpl
+				? registeredPackage
+				: TargetsPackage.eINSTANCE);
 		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(AdjustmentsPackage.eNS_URI);
-		AdjustmentsPackageImpl theAdjustmentsPackage = (AdjustmentsPackageImpl)(registeredPackage instanceof AdjustmentsPackageImpl ? registeredPackage : AdjustmentsPackage.eINSTANCE);
+		AdjustmentsPackageImpl theAdjustmentsPackage = (AdjustmentsPackageImpl) (registeredPackage instanceof AdjustmentsPackageImpl
+				? registeredPackage
+				: AdjustmentsPackage.eINSTANCE);
 		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(ConstraintsPackage.eNS_URI);
-		ConstraintsPackageImpl theConstraintsPackage = (ConstraintsPackageImpl)(registeredPackage instanceof ConstraintsPackageImpl ? registeredPackage : ConstraintsPackage.eINSTANCE);
+		ConstraintsPackageImpl theConstraintsPackage = (ConstraintsPackageImpl) (registeredPackage instanceof ConstraintsPackageImpl
+				? registeredPackage
+				: ConstraintsPackage.eINSTANCE);
 		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(PolicyPackage.eNS_URI);
-		PolicyPackageImpl thePolicyPackage = (PolicyPackageImpl)(registeredPackage instanceof PolicyPackageImpl ? registeredPackage : PolicyPackage.eINSTANCE);
+		PolicyPackageImpl thePolicyPackage = (PolicyPackageImpl) (registeredPackage instanceof PolicyPackageImpl
+				? registeredPackage
+				: PolicyPackage.eINSTANCE);
 		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(TargetPackage.eNS_URI);
-		TargetPackageImpl theTargetPackage = (TargetPackageImpl)(registeredPackage instanceof TargetPackageImpl ? registeredPackage : TargetPackage.eINSTANCE);
+		TargetPackageImpl theTargetPackage = (TargetPackageImpl) (registeredPackage instanceof TargetPackageImpl
+				? registeredPackage
+				: TargetPackage.eINSTANCE);
 		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(StimuliPackage.eNS_URI);
-		StimuliPackageImpl theStimuliPackage = (StimuliPackageImpl)(registeredPackage instanceof StimuliPackageImpl ? registeredPackage : StimuliPackage.eINSTANCE);
+		StimuliPackageImpl theStimuliPackage = (StimuliPackageImpl) (registeredPackage instanceof StimuliPackageImpl
+				? registeredPackage
+				: StimuliPackage.eINSTANCE);
 		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(ExpectationsPackage.eNS_URI);
-		ExpectationsPackageImpl theExpectationsPackage = (ExpectationsPackageImpl)(registeredPackage instanceof ExpectationsPackageImpl ? registeredPackage : ExpectationsPackage.eINSTANCE);
+		ExpectationsPackageImpl theExpectationsPackage = (ExpectationsPackageImpl) (registeredPackage instanceof ExpectationsPackageImpl
+				? registeredPackage
+				: ExpectationsPackage.eINSTANCE);
 
 		// Create package meta-data objects
 		theTriggersPackage.createPackageContents();
@@ -279,7 +275,7 @@ public class TriggersPackageImpl extends EPackageImpl implements TriggersPackage
 	 */
 	@Override
 	public EReference getBaseTrigger_Stimulus() {
-		return (EReference)baseTriggerEClass.getEStructuralFeatures().get(0);
+		return (EReference) baseTriggerEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -289,7 +285,7 @@ public class TriggersPackageImpl extends EPackageImpl implements TriggersPackage
 	 */
 	@Override
 	public EReference getBaseTrigger_ExpectedValue() {
-		return (EReference)baseTriggerEClass.getEStructuralFeatures().get(1);
+		return (EReference) baseTriggerEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -309,7 +305,7 @@ public class TriggersPackageImpl extends EPackageImpl implements TriggersPackage
 	 */
 	@Override
 	public EReference getComposedTrigger_Scalingtrigger() {
-		return (EReference)composedTriggerEClass.getEStructuralFeatures().get(0);
+		return (EReference) composedTriggerEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -319,7 +315,7 @@ public class TriggersPackageImpl extends EPackageImpl implements TriggersPackage
 	 */
 	@Override
 	public EAttribute getComposedTrigger_LogicalOperator() {
-		return (EAttribute)composedTriggerEClass.getEStructuralFeatures().get(1);
+		return (EAttribute) composedTriggerEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -339,7 +335,7 @@ public class TriggersPackageImpl extends EPackageImpl implements TriggersPackage
 	 */
 	@Override
 	public EAttribute getSimpleFireOnValue_RelationalOperator() {
-		return (EAttribute)simpleFireOnValueEClass.getEStructuralFeatures().get(0);
+		return (EAttribute) simpleFireOnValueEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -419,7 +415,7 @@ public class TriggersPackageImpl extends EPackageImpl implements TriggersPackage
 	 */
 	@Override
 	public TriggersFactory getTriggersFactory() {
-		return (TriggersFactory)getEFactoryInstance();
+		return (TriggersFactory) getEFactoryInstance();
 	}
 
 	/**
@@ -437,7 +433,8 @@ public class TriggersPackageImpl extends EPackageImpl implements TriggersPackage
 	 * @generated
 	 */
 	public void createPackageContents() {
-		if (isCreated) return;
+		if (isCreated)
+			return;
 		isCreated = true;
 
 		// Create classes and their features
@@ -480,7 +477,8 @@ public class TriggersPackageImpl extends EPackageImpl implements TriggersPackage
 	 * @generated
 	 */
 	public void initializePackageContents() {
-		if (isInitialized) return;
+		if (isInitialized)
+			return;
 		isInitialized = true;
 
 		// Initialize package
@@ -489,8 +487,12 @@ public class TriggersPackageImpl extends EPackageImpl implements TriggersPackage
 		setNsURI(eNS_URI);
 
 		// Obtain other dependent packages
-		StimuliPackage theStimuliPackage = (StimuliPackage)EPackage.Registry.INSTANCE.getEPackage(StimuliPackage.eNS_URI);
-		ExpectationsPackage theExpectationsPackage = (ExpectationsPackage)EPackage.Registry.INSTANCE.getEPackage(ExpectationsPackage.eNS_URI);
+		StimuliPackage theStimuliPackage = (StimuliPackage) EPackage.Registry.INSTANCE
+				.getEPackage(StimuliPackage.eNS_URI);
+		ExpectationsPackage theExpectationsPackage = (ExpectationsPackage) EPackage.Registry.INSTANCE
+				.getEPackage(ExpectationsPackage.eNS_URI);
+		IdentifierPackage theIdentifierPackage = (IdentifierPackage) EPackage.Registry.INSTANCE
+				.getEPackage(IdentifierPackage.eNS_URI);
 
 		// Add subpackages
 		getESubpackages().add(theStimuliPackage);
@@ -501,29 +503,46 @@ public class TriggersPackageImpl extends EPackageImpl implements TriggersPackage
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
+		scalingTriggerEClass.getESuperTypes().add(theIdentifierPackage.getIdentifier());
 		baseTriggerEClass.getESuperTypes().add(this.getScalingTrigger());
 		composedTriggerEClass.getESuperTypes().add(this.getScalingTrigger());
 		simpleFireOnValueEClass.getESuperTypes().add(this.getBaseTrigger());
 		simpleFireOnTrendEClass.getESuperTypes().add(this.getBaseTrigger());
 
-		// Initialize classes, features, and operations; add parameters
-		initEClass(scalingTriggerEClass, ScalingTrigger.class, "ScalingTrigger", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		// Initialize classes and features; add operations and parameters
+		initEClass(scalingTriggerEClass, ScalingTrigger.class, "ScalingTrigger", IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(baseTriggerEClass, BaseTrigger.class, "BaseTrigger", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getBaseTrigger_Stimulus(), theStimuliPackage.getStimulus(), null, "stimulus", null, 1, 1, BaseTrigger.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getBaseTrigger_ExpectedValue(), theExpectationsPackage.getExpectedValue(), null, "expectedValue", null, 1, 1, BaseTrigger.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(baseTriggerEClass, BaseTrigger.class, "BaseTrigger", IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getBaseTrigger_Stimulus(), theStimuliPackage.getStimulus(), null, "stimulus", null, 1, 1,
+				BaseTrigger.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
+				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getBaseTrigger_ExpectedValue(), theExpectationsPackage.getExpectedValue(), null, "expectedValue",
+				null, 1, 1, BaseTrigger.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
+				!IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(composedTriggerEClass, ComposedTrigger.class, "ComposedTrigger", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getComposedTrigger_Scalingtrigger(), this.getScalingTrigger(), null, "scalingtrigger", null, 2, -1, ComposedTrigger.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getComposedTrigger_LogicalOperator(), this.getLogicalOperator(), "logicalOperator", null, 0, 1, ComposedTrigger.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(composedTriggerEClass, ComposedTrigger.class, "ComposedTrigger", !IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getComposedTrigger_Scalingtrigger(), this.getScalingTrigger(), null, "scalingtrigger", null, 2,
+				-1, ComposedTrigger.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
+				!IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getComposedTrigger_LogicalOperator(), this.getLogicalOperator(), "logicalOperator", null, 0, 1,
+				ComposedTrigger.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+				!IS_DERIVED, IS_ORDERED);
 
-		initEClass(simpleFireOnValueEClass, SimpleFireOnValue.class, "SimpleFireOnValue", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getSimpleFireOnValue_RelationalOperator(), this.getRelationalOperator(), "relationalOperator", null, 0, 1, SimpleFireOnValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(simpleFireOnValueEClass, SimpleFireOnValue.class, "SimpleFireOnValue", !IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getSimpleFireOnValue_RelationalOperator(), this.getRelationalOperator(), "relationalOperator",
+				null, 0, 1, SimpleFireOnValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
+				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(simpleFireOnTrendEClass, SimpleFireOnTrend.class, "SimpleFireOnTrend", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(simpleFireOnTrendEClass, SimpleFireOnTrend.class, "SimpleFireOnTrend", !IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
 
 		// Initialize enums and add enum literals
-		initEEnum(aggregationmethodEEnum, org.palladiosimulator.spd.triggers.AGGREGATIONMETHOD.class, "AGGREGATIONMETHOD");
+		initEEnum(aggregationmethodEEnum, org.palladiosimulator.spd.triggers.AGGREGATIONMETHOD.class,
+				"AGGREGATIONMETHOD");
 		addEEnumLiteral(aggregationmethodEEnum, org.palladiosimulator.spd.triggers.AGGREGATIONMETHOD.AVERAGE);
 		addEEnumLiteral(aggregationmethodEEnum, org.palladiosimulator.spd.triggers.AGGREGATIONMETHOD.MAX);
 		addEEnumLiteral(aggregationmethodEEnum, org.palladiosimulator.spd.triggers.AGGREGATIONMETHOD.MIN);

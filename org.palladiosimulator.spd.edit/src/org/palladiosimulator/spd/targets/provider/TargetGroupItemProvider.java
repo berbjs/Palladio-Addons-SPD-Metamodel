@@ -3,25 +3,18 @@
  */
 package org.palladiosimulator.spd.targets.provider;
 
-
 import java.util.Collection;
 import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.common.util.ResourceLocator;
-
 import org.eclipse.emf.ecore.EStructuralFeature;
-
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
-
+import org.palladiosimulator.pcm.core.entity.provider.EntityItemProvider;
 import org.palladiosimulator.spd.constraints.target.TargetFactory;
-
-import org.palladiosimulator.spd.provider.NamedElementItemProvider;
 import org.palladiosimulator.spd.provider.ScalingPolicyDefinitionEditPlugin;
-
 import org.palladiosimulator.spd.targets.TargetGroup;
 import org.palladiosimulator.spd.targets.TargetsPackage;
 
@@ -31,7 +24,7 @@ import org.palladiosimulator.spd.targets.TargetsPackage;
  * <!-- end-user-doc -->
  * @generated
  */
-public class TargetGroupItemProvider extends NamedElementItemProvider {
+public class TargetGroupItemProvider extends EntityItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -95,12 +88,10 @@ public class TargetGroupItemProvider extends NamedElementItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((TargetGroup)object).getName();
-		return label == null || label.length() == 0 ?
-			getString("_UI_TargetGroup_type") :
-			getString("_UI_TargetGroup_type") + " " + label;
+		String label = ((TargetGroup) object).getEntityName();
+		return label == null || label.length() == 0 ? getString("_UI_TargetGroup_type")
+				: getString("_UI_TargetGroup_type") + " " + label;
 	}
-
 
 	/**
 	 * This handles model notifications by calling {@link #updateChildren} to update any cached
@@ -114,9 +105,9 @@ public class TargetGroupItemProvider extends NamedElementItemProvider {
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(TargetGroup.class)) {
-			case TargetsPackage.TARGET_GROUP__TARGET_CONSTRAINTS:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
-				return;
+		case TargetsPackage.TARGET_GROUP__TARGET_CONSTRAINTS:
+			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
+			return;
 		}
 		super.notifyChanged(notification);
 	}
@@ -132,10 +123,8 @@ public class TargetGroupItemProvider extends NamedElementItemProvider {
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 
-		newChildDescriptors.add
-			(createChildParameter
-				(TargetsPackage.Literals.TARGET_GROUP__TARGET_CONSTRAINTS,
-				 TargetFactory.eINSTANCE.createTargetGroupSizeConstraint()));
+		newChildDescriptors.add(createChildParameter(TargetsPackage.Literals.TARGET_GROUP__TARGET_CONSTRAINTS,
+				TargetFactory.eINSTANCE.createTargetGroupSizeConstraint()));
 	}
 
 	/**

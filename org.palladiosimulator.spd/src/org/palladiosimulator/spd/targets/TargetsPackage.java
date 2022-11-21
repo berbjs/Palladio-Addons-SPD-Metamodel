@@ -6,8 +6,7 @@ package org.palladiosimulator.spd.targets;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
-
-import org.palladiosimulator.spd.SpdPackage;
+import org.palladiosimulator.pcm.core.entity.EntityPackage;
 
 /**
  * <!-- begin-user-doc -->
@@ -16,7 +15,6 @@ import org.palladiosimulator.spd.SpdPackage;
  * <ul>
  *   <li>each class,</li>
  *   <li>each feature of each class,</li>
- *   <li>each operation of each class,</li>
  *   <li>each enum,</li>
  *   <li>and each data type</li>
  * </ul>
@@ -69,13 +67,22 @@ public interface TargetsPackage extends EPackage {
 	int TARGET_GROUP = 0;
 
 	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TARGET_GROUP__NAME = SpdPackage.NAMED_ELEMENT__NAME;
+	int TARGET_GROUP__ID = EntityPackage.ENTITY__ID;
+
+	/**
+	 * The feature id for the '<em><b>Entity Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TARGET_GROUP__ENTITY_NAME = EntityPackage.ENTITY__ENTITY_NAME;
 
 	/**
 	 * The feature id for the '<em><b>Target Constraints</b></em>' containment reference list.
@@ -84,7 +91,7 @@ public interface TargetsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TARGET_GROUP__TARGET_CONSTRAINTS = SpdPackage.NAMED_ELEMENT_FEATURE_COUNT + 0;
+	int TARGET_GROUP__TARGET_CONSTRAINTS = EntityPackage.ENTITY_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Target Group</em>' class.
@@ -93,16 +100,7 @@ public interface TargetsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TARGET_GROUP_FEATURE_COUNT = SpdPackage.NAMED_ELEMENT_FEATURE_COUNT + 1;
-
-	/**
-	 * The number of operations of the '<em>Target Group</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TARGET_GROUP_OPERATION_COUNT = SpdPackage.NAMED_ELEMENT_OPERATION_COUNT + 0;
+	int TARGET_GROUP_FEATURE_COUNT = EntityPackage.ENTITY_FEATURE_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link org.palladiosimulator.spd.targets.impl.ElasticInfrastructureImpl <em>Elastic Infrastructure</em>}' class.
@@ -115,13 +113,22 @@ public interface TargetsPackage extends EPackage {
 	int ELASTIC_INFRASTRUCTURE = 1;
 
 	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ELASTIC_INFRASTRUCTURE__NAME = TARGET_GROUP__NAME;
+	int ELASTIC_INFRASTRUCTURE__ID = TARGET_GROUP__ID;
+
+	/**
+	 * The feature id for the '<em><b>Entity Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ELASTIC_INFRASTRUCTURE__ENTITY_NAME = TARGET_GROUP__ENTITY_NAME;
 
 	/**
 	 * The feature id for the '<em><b>Target Constraints</b></em>' containment reference list.
@@ -151,15 +158,6 @@ public interface TargetsPackage extends EPackage {
 	int ELASTIC_INFRASTRUCTURE_FEATURE_COUNT = TARGET_GROUP_FEATURE_COUNT + 1;
 
 	/**
-	 * The number of operations of the '<em>Elastic Infrastructure</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ELASTIC_INFRASTRUCTURE_OPERATION_COUNT = TARGET_GROUP_OPERATION_COUNT + 0;
-
-	/**
 	 * The meta object id for the '{@link org.palladiosimulator.spd.targets.impl.ServiceGroupImpl <em>Service Group</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -170,13 +168,22 @@ public interface TargetsPackage extends EPackage {
 	int SERVICE_GROUP = 2;
 
 	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SERVICE_GROUP__NAME = TARGET_GROUP__NAME;
+	int SERVICE_GROUP__ID = TARGET_GROUP__ID;
+
+	/**
+	 * The feature id for the '<em><b>Entity Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SERVICE_GROUP__ENTITY_NAME = TARGET_GROUP__ENTITY_NAME;
 
 	/**
 	 * The feature id for the '<em><b>Target Constraints</b></em>' containment reference list.
@@ -197,15 +204,6 @@ public interface TargetsPackage extends EPackage {
 	int SERVICE_GROUP_FEATURE_COUNT = TARGET_GROUP_FEATURE_COUNT + 0;
 
 	/**
-	 * The number of operations of the '<em>Service Group</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SERVICE_GROUP_OPERATION_COUNT = TARGET_GROUP_OPERATION_COUNT + 0;
-
-	/**
 	 * The meta object id for the '{@link org.palladiosimulator.spd.targets.impl.CompetingConsumersGroupImpl <em>Competing Consumers Group</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -216,13 +214,22 @@ public interface TargetsPackage extends EPackage {
 	int COMPETING_CONSUMERS_GROUP = 3;
 
 	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMPETING_CONSUMERS_GROUP__NAME = TARGET_GROUP__NAME;
+	int COMPETING_CONSUMERS_GROUP__ID = TARGET_GROUP__ID;
+
+	/**
+	 * The feature id for the '<em><b>Entity Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPETING_CONSUMERS_GROUP__ENTITY_NAME = TARGET_GROUP__ENTITY_NAME;
 
 	/**
 	 * The feature id for the '<em><b>Target Constraints</b></em>' containment reference list.
@@ -241,16 +248,6 @@ public interface TargetsPackage extends EPackage {
 	 * @ordered
 	 */
 	int COMPETING_CONSUMERS_GROUP_FEATURE_COUNT = TARGET_GROUP_FEATURE_COUNT + 0;
-
-	/**
-	 * The number of operations of the '<em>Competing Consumers Group</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COMPETING_CONSUMERS_GROUP_OPERATION_COUNT = TARGET_GROUP_OPERATION_COUNT + 0;
-
 
 	/**
 	 * Returns the meta object for class '{@link org.palladiosimulator.spd.targets.TargetGroup <em>Target Group</em>}'.
@@ -329,7 +326,6 @@ public interface TargetsPackage extends EPackage {
 	 * <ul>
 	 *   <li>each class,</li>
 	 *   <li>each feature of each class,</li>
-	 *   <li>each operation of each class,</li>
 	 *   <li>each enum,</li>
 	 *   <li>and each data type</li>
 	 * </ul>
@@ -371,7 +367,8 @@ public interface TargetsPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference ELASTIC_INFRASTRUCTURE__PCM_RESOURCE_ENVIRONMENT = eINSTANCE.getElasticInfrastructure_PCM_ResourceEnvironment();
+		EReference ELASTIC_INFRASTRUCTURE__PCM_RESOURCE_ENVIRONMENT = eINSTANCE
+				.getElasticInfrastructure_PCM_ResourceEnvironment();
 
 		/**
 		 * The meta object literal for the '{@link org.palladiosimulator.spd.targets.impl.ServiceGroupImpl <em>Service Group</em>}' class.

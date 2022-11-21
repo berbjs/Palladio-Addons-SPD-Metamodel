@@ -9,7 +9,6 @@ import java.util.Collection;
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.Notifier;
-
 import org.eclipse.emf.edit.provider.ChangeNotifier;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
@@ -21,7 +20,6 @@ import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.INotifyChangedListener;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
-
 import org.palladiosimulator.spd.targets.util.TargetsAdapterFactory;
 
 /**
@@ -33,7 +31,8 @@ import org.palladiosimulator.spd.targets.util.TargetsAdapterFactory;
  * <!-- end-user-doc -->
  * @generated
  */
-public class TargetsItemProviderAdapterFactory extends TargetsAdapterFactory implements ComposeableAdapterFactory, IChangeNotifier, IDisposable {
+public class TargetsItemProviderAdapterFactory extends TargetsAdapterFactory
+		implements ComposeableAdapterFactory, IChangeNotifier, IDisposable {
 	/**
 	 * This keeps track of the root adapter factory that delegates to this adapter factory.
 	 * <!-- begin-user-doc -->
@@ -56,7 +55,7 @@ public class TargetsItemProviderAdapterFactory extends TargetsAdapterFactory imp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected Collection<Object> supportedTypes = new ArrayList<Object>();
+	protected Collection<Object> supportedTypes = new ArrayList<>();
 
 	/**
 	 * This constructs an instance.
@@ -193,7 +192,7 @@ public class TargetsItemProviderAdapterFactory extends TargetsAdapterFactory imp
 	public Object adapt(Object object, Object type) {
 		if (isFactoryForType(type)) {
 			Object adapter = super.adapt(object, type);
-			if (!(type instanceof Class<?>) || (((Class<?>)type).isInstance(adapter))) {
+			if (!(type instanceof Class<?>) || (((Class<?>) type).isInstance(adapter))) {
 				return adapter;
 			}
 		}
@@ -239,16 +238,19 @@ public class TargetsItemProviderAdapterFactory extends TargetsAdapterFactory imp
 	}
 
 	/**
-	 * This disposes all of the item providers created by this factory. 
+	 * This disposes all of the item providers created by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public void dispose() {
-		if (elasticInfrastructureItemProvider != null) elasticInfrastructureItemProvider.dispose();
-		if (serviceGroupItemProvider != null) serviceGroupItemProvider.dispose();
-		if (competingConsumersGroupItemProvider != null) competingConsumersGroupItemProvider.dispose();
+		if (elasticInfrastructureItemProvider != null)
+			elasticInfrastructureItemProvider.dispose();
+		if (serviceGroupItemProvider != null)
+			serviceGroupItemProvider.dispose();
+		if (competingConsumersGroupItemProvider != null)
+			competingConsumersGroupItemProvider.dispose();
 	}
 
 }

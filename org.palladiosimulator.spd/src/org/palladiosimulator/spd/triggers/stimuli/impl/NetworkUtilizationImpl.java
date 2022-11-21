@@ -3,14 +3,8 @@
  */
 package org.palladiosimulator.spd.triggers.stimuli.impl;
 
-import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.ecore.EClass;
-
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
-
 import org.palladiosimulator.spd.triggers.NETWORKUSAGETYPE;
-
 import org.palladiosimulator.spd.triggers.stimuli.NetworkUtilization;
 import org.palladiosimulator.spd.triggers.stimuli.StimuliPackage;
 
@@ -39,16 +33,6 @@ public class NetworkUtilizationImpl extends ResourceUtilizationStimulusImpl impl
 	protected static final NETWORKUSAGETYPE USAGE_TYPE_EDEFAULT = NETWORKUSAGETYPE.SEND;
 
 	/**
-	 * The cached value of the '{@link #getUsageType() <em>Usage Type</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getUsageType()
-	 * @generated
-	 * @ordered
-	 */
-	protected NETWORKUSAGETYPE usageType = USAGE_TYPE_EDEFAULT;
-
-	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -74,7 +58,8 @@ public class NetworkUtilizationImpl extends ResourceUtilizationStimulusImpl impl
 	 */
 	@Override
 	public NETWORKUSAGETYPE getUsageType() {
-		return usageType;
+		return (NETWORKUSAGETYPE) eDynamicGet(StimuliPackage.NETWORK_UTILIZATION__USAGE_TYPE,
+				StimuliPackage.Literals.NETWORK_UTILIZATION__USAGE_TYPE, true, true);
 	}
 
 	/**
@@ -84,10 +69,8 @@ public class NetworkUtilizationImpl extends ResourceUtilizationStimulusImpl impl
 	 */
 	@Override
 	public void setUsageType(NETWORKUSAGETYPE newUsageType) {
-		NETWORKUSAGETYPE oldUsageType = usageType;
-		usageType = newUsageType == null ? USAGE_TYPE_EDEFAULT : newUsageType;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, StimuliPackage.NETWORK_UTILIZATION__USAGE_TYPE, oldUsageType, usageType));
+		eDynamicSet(StimuliPackage.NETWORK_UTILIZATION__USAGE_TYPE,
+				StimuliPackage.Literals.NETWORK_UTILIZATION__USAGE_TYPE, newUsageType);
 	}
 
 	/**
@@ -98,8 +81,8 @@ public class NetworkUtilizationImpl extends ResourceUtilizationStimulusImpl impl
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case StimuliPackage.NETWORK_UTILIZATION__USAGE_TYPE:
-				return getUsageType();
+		case StimuliPackage.NETWORK_UTILIZATION__USAGE_TYPE:
+			return getUsageType();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -112,9 +95,9 @@ public class NetworkUtilizationImpl extends ResourceUtilizationStimulusImpl impl
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case StimuliPackage.NETWORK_UTILIZATION__USAGE_TYPE:
-				setUsageType((NETWORKUSAGETYPE)newValue);
-				return;
+		case StimuliPackage.NETWORK_UTILIZATION__USAGE_TYPE:
+			setUsageType((NETWORKUSAGETYPE) newValue);
+			return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -127,9 +110,9 @@ public class NetworkUtilizationImpl extends ResourceUtilizationStimulusImpl impl
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case StimuliPackage.NETWORK_UTILIZATION__USAGE_TYPE:
-				setUsageType(USAGE_TYPE_EDEFAULT);
-				return;
+		case StimuliPackage.NETWORK_UTILIZATION__USAGE_TYPE:
+			setUsageType(USAGE_TYPE_EDEFAULT);
+			return;
 		}
 		super.eUnset(featureID);
 	}
@@ -142,26 +125,10 @@ public class NetworkUtilizationImpl extends ResourceUtilizationStimulusImpl impl
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case StimuliPackage.NETWORK_UTILIZATION__USAGE_TYPE:
-				return usageType != USAGE_TYPE_EDEFAULT;
+		case StimuliPackage.NETWORK_UTILIZATION__USAGE_TYPE:
+			return getUsageType() != USAGE_TYPE_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String toString() {
-		if (eIsProxy()) return super.toString();
-
-		StringBuilder result = new StringBuilder(super.toString());
-		result.append(" (usageType: ");
-		result.append(usageType);
-		result.append(')');
-		return result.toString();
 	}
 
 } //NetworkUtilizationImpl

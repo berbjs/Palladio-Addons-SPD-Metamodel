@@ -3,17 +3,13 @@
  */
 package org.palladiosimulator.spd.triggers.stimuli.provider;
 
-
 import java.util.Collection;
 import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
-
 import org.palladiosimulator.spd.triggers.AGGREGATIONMETHOD;
-
 import org.palladiosimulator.spd.triggers.stimuli.CPUUtilization;
 
 /**
@@ -67,13 +63,11 @@ public class CPUUtilizationItemProvider extends ResourceUtilizationStimulusItemP
 	 */
 	@Override
 	public String getText(Object object) {
-		AGGREGATIONMETHOD labelValue = ((CPUUtilization)object).getAggregationOverElements();
+		AGGREGATIONMETHOD labelValue = ((CPUUtilization) object).getAggregationOverElements();
 		String label = labelValue == null ? null : labelValue.toString();
-		return label == null || label.length() == 0 ?
-			getString("_UI_CPUUtilization_type") :
-			getString("_UI_CPUUtilization_type") + " " + label;
+		return label == null || label.length() == 0 ? getString("_UI_CPUUtilization_type")
+				: getString("_UI_CPUUtilization_type") + " " + label;
 	}
-
 
 	/**
 	 * This handles model notifications by calling {@link #updateChildren} to update any cached

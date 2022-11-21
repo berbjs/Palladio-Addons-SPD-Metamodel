@@ -9,6 +9,8 @@ import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
+import de.uka.ipd.sdq.identifier.IdentifierPackage;
+
 /**
  * <!-- begin-user-doc -->
  * The <b>Package</b> for the model.
@@ -16,7 +18,6 @@ import org.eclipse.emf.ecore.EReference;
  * <ul>
  *   <li>each class,</li>
  *   <li>each feature of each class,</li>
- *   <li>each operation of each class,</li>
  *   <li>each enum,</li>
  *   <li>and each data type</li>
  * </ul>
@@ -69,22 +70,22 @@ public interface TriggersPackage extends EPackage {
 	int SCALING_TRIGGER = 0;
 
 	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCALING_TRIGGER__ID = IdentifierPackage.IDENTIFIER__ID;
+
+	/**
 	 * The number of structural features of the '<em>Scaling Trigger</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SCALING_TRIGGER_FEATURE_COUNT = 0;
-
-	/**
-	 * The number of operations of the '<em>Scaling Trigger</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SCALING_TRIGGER_OPERATION_COUNT = 0;
+	int SCALING_TRIGGER_FEATURE_COUNT = IdentifierPackage.IDENTIFIER_FEATURE_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link org.palladiosimulator.spd.triggers.impl.BaseTriggerImpl <em>Base Trigger</em>}' class.
@@ -95,6 +96,15 @@ public interface TriggersPackage extends EPackage {
 	 * @generated
 	 */
 	int BASE_TRIGGER = 1;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BASE_TRIGGER__ID = SCALING_TRIGGER__ID;
 
 	/**
 	 * The feature id for the '<em><b>Stimulus</b></em>' containment reference.
@@ -124,15 +134,6 @@ public interface TriggersPackage extends EPackage {
 	int BASE_TRIGGER_FEATURE_COUNT = SCALING_TRIGGER_FEATURE_COUNT + 2;
 
 	/**
-	 * The number of operations of the '<em>Base Trigger</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BASE_TRIGGER_OPERATION_COUNT = SCALING_TRIGGER_OPERATION_COUNT + 0;
-
-	/**
 	 * The meta object id for the '{@link org.palladiosimulator.spd.triggers.impl.ComposedTriggerImpl <em>Composed Trigger</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -141,6 +142,15 @@ public interface TriggersPackage extends EPackage {
 	 * @generated
 	 */
 	int COMPOSED_TRIGGER = 2;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPOSED_TRIGGER__ID = SCALING_TRIGGER__ID;
 
 	/**
 	 * The feature id for the '<em><b>Scalingtrigger</b></em>' containment reference list.
@@ -170,15 +180,6 @@ public interface TriggersPackage extends EPackage {
 	int COMPOSED_TRIGGER_FEATURE_COUNT = SCALING_TRIGGER_FEATURE_COUNT + 2;
 
 	/**
-	 * The number of operations of the '<em>Composed Trigger</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COMPOSED_TRIGGER_OPERATION_COUNT = SCALING_TRIGGER_OPERATION_COUNT + 0;
-
-	/**
 	 * The meta object id for the '{@link org.palladiosimulator.spd.triggers.impl.SimpleFireOnValueImpl <em>Simple Fire On Value</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -187,6 +188,15 @@ public interface TriggersPackage extends EPackage {
 	 * @generated
 	 */
 	int SIMPLE_FIRE_ON_VALUE = 3;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SIMPLE_FIRE_ON_VALUE__ID = BASE_TRIGGER__ID;
 
 	/**
 	 * The feature id for the '<em><b>Stimulus</b></em>' containment reference.
@@ -225,15 +235,6 @@ public interface TriggersPackage extends EPackage {
 	int SIMPLE_FIRE_ON_VALUE_FEATURE_COUNT = BASE_TRIGGER_FEATURE_COUNT + 1;
 
 	/**
-	 * The number of operations of the '<em>Simple Fire On Value</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SIMPLE_FIRE_ON_VALUE_OPERATION_COUNT = BASE_TRIGGER_OPERATION_COUNT + 0;
-
-	/**
 	 * The meta object id for the '{@link org.palladiosimulator.spd.triggers.impl.SimpleFireOnTrendImpl <em>Simple Fire On Trend</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -242,6 +243,15 @@ public interface TriggersPackage extends EPackage {
 	 * @generated
 	 */
 	int SIMPLE_FIRE_ON_TREND = 4;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SIMPLE_FIRE_ON_TREND__ID = BASE_TRIGGER__ID;
 
 	/**
 	 * The feature id for the '<em><b>Stimulus</b></em>' containment reference.
@@ -269,15 +279,6 @@ public interface TriggersPackage extends EPackage {
 	 * @ordered
 	 */
 	int SIMPLE_FIRE_ON_TREND_FEATURE_COUNT = BASE_TRIGGER_FEATURE_COUNT + 0;
-
-	/**
-	 * The number of operations of the '<em>Simple Fire On Trend</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SIMPLE_FIRE_ON_TREND_OPERATION_COUNT = BASE_TRIGGER_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link org.palladiosimulator.spd.triggers.AGGREGATIONMETHOD <em>AGGREGATIONMETHOD</em>}' enum.
@@ -338,7 +339,6 @@ public interface TriggersPackage extends EPackage {
 	 * @generated
 	 */
 	int TREND_PATTERN = 10;
-
 
 	/**
 	 * Returns the meta object for class '{@link org.palladiosimulator.spd.triggers.ScalingTrigger <em>Scaling Trigger</em>}'.
@@ -520,7 +520,6 @@ public interface TriggersPackage extends EPackage {
 	 * <ul>
 	 *   <li>each class,</li>
 	 *   <li>each feature of each class,</li>
-	 *   <li>each operation of each class,</li>
 	 *   <li>each enum,</li>
 	 *   <li>and each data type</li>
 	 * </ul>

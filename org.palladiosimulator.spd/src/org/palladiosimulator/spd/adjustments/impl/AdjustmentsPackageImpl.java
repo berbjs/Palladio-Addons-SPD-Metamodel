@@ -3,61 +3,39 @@
  */
 package org.palladiosimulator.spd.adjustments.impl;
 
-import de.uka.ipd.sdq.identifier.IdentifierPackage;
-
-import de.uka.ipd.sdq.probfunction.ProbfunctionPackage;
-
-import de.uka.ipd.sdq.stoex.StoexPackage;
-
-import de.uka.ipd.sdq.units.UnitsPackage;
-
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EcorePackage;
-
 import org.eclipse.emf.ecore.impl.EPackageImpl;
-
 import org.palladiosimulator.pcm.PcmPackage;
-
 import org.palladiosimulator.spd.SpdPackage;
-
 import org.palladiosimulator.spd.adjustments.AbsoluteAdjustment;
 import org.palladiosimulator.spd.adjustments.AdjustmentType;
 import org.palladiosimulator.spd.adjustments.AdjustmentsFactory;
 import org.palladiosimulator.spd.adjustments.AdjustmentsPackage;
 import org.palladiosimulator.spd.adjustments.RelativeAdjustment;
 import org.palladiosimulator.spd.adjustments.StepAdjustment;
-
 import org.palladiosimulator.spd.constraints.ConstraintsPackage;
-
 import org.palladiosimulator.spd.constraints.impl.ConstraintsPackageImpl;
-
 import org.palladiosimulator.spd.constraints.policy.PolicyPackage;
-
 import org.palladiosimulator.spd.constraints.policy.impl.PolicyPackageImpl;
-
 import org.palladiosimulator.spd.constraints.target.TargetPackage;
-
 import org.palladiosimulator.spd.constraints.target.impl.TargetPackageImpl;
-
 import org.palladiosimulator.spd.impl.SpdPackageImpl;
-
 import org.palladiosimulator.spd.targets.TargetsPackage;
-
 import org.palladiosimulator.spd.targets.impl.TargetsPackageImpl;
-
 import org.palladiosimulator.spd.triggers.TriggersPackage;
-
 import org.palladiosimulator.spd.triggers.expectations.ExpectationsPackage;
-
 import org.palladiosimulator.spd.triggers.expectations.impl.ExpectationsPackageImpl;
-
 import org.palladiosimulator.spd.triggers.impl.TriggersPackageImpl;
-
 import org.palladiosimulator.spd.triggers.stimuli.StimuliPackage;
-
 import org.palladiosimulator.spd.triggers.stimuli.impl.StimuliPackageImpl;
+
+import de.uka.ipd.sdq.identifier.IdentifierPackage;
+import de.uka.ipd.sdq.probfunction.ProbfunctionPackage;
+import de.uka.ipd.sdq.stoex.StoexPackage;
+import de.uka.ipd.sdq.units.UnitsPackage;
 
 /**
  * <!-- begin-user-doc -->
@@ -133,11 +111,14 @@ public class AdjustmentsPackageImpl extends EPackageImpl implements AdjustmentsP
 	 * @generated
 	 */
 	public static AdjustmentsPackage init() {
-		if (isInited) return (AdjustmentsPackage)EPackage.Registry.INSTANCE.getEPackage(AdjustmentsPackage.eNS_URI);
+		if (isInited)
+			return (AdjustmentsPackage) EPackage.Registry.INSTANCE.getEPackage(AdjustmentsPackage.eNS_URI);
 
 		// Obtain or create and register package
 		Object registeredAdjustmentsPackage = EPackage.Registry.INSTANCE.get(eNS_URI);
-		AdjustmentsPackageImpl theAdjustmentsPackage = registeredAdjustmentsPackage instanceof AdjustmentsPackageImpl ? (AdjustmentsPackageImpl)registeredAdjustmentsPackage : new AdjustmentsPackageImpl();
+		AdjustmentsPackageImpl theAdjustmentsPackage = registeredAdjustmentsPackage instanceof AdjustmentsPackageImpl
+				? (AdjustmentsPackageImpl) registeredAdjustmentsPackage
+				: new AdjustmentsPackageImpl();
 
 		isInited = true;
 
@@ -151,21 +132,36 @@ public class AdjustmentsPackageImpl extends EPackageImpl implements AdjustmentsP
 
 		// Obtain or create and register interdependencies
 		Object registeredPackage = EPackage.Registry.INSTANCE.getEPackage(SpdPackage.eNS_URI);
-		SpdPackageImpl theSpdPackage = (SpdPackageImpl)(registeredPackage instanceof SpdPackageImpl ? registeredPackage : SpdPackage.eINSTANCE);
+		SpdPackageImpl theSpdPackage = (SpdPackageImpl) (registeredPackage instanceof SpdPackageImpl ? registeredPackage
+				: SpdPackage.eINSTANCE);
 		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(TargetsPackage.eNS_URI);
-		TargetsPackageImpl theTargetsPackage = (TargetsPackageImpl)(registeredPackage instanceof TargetsPackageImpl ? registeredPackage : TargetsPackage.eINSTANCE);
+		TargetsPackageImpl theTargetsPackage = (TargetsPackageImpl) (registeredPackage instanceof TargetsPackageImpl
+				? registeredPackage
+				: TargetsPackage.eINSTANCE);
 		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(ConstraintsPackage.eNS_URI);
-		ConstraintsPackageImpl theConstraintsPackage = (ConstraintsPackageImpl)(registeredPackage instanceof ConstraintsPackageImpl ? registeredPackage : ConstraintsPackage.eINSTANCE);
+		ConstraintsPackageImpl theConstraintsPackage = (ConstraintsPackageImpl) (registeredPackage instanceof ConstraintsPackageImpl
+				? registeredPackage
+				: ConstraintsPackage.eINSTANCE);
 		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(PolicyPackage.eNS_URI);
-		PolicyPackageImpl thePolicyPackage = (PolicyPackageImpl)(registeredPackage instanceof PolicyPackageImpl ? registeredPackage : PolicyPackage.eINSTANCE);
+		PolicyPackageImpl thePolicyPackage = (PolicyPackageImpl) (registeredPackage instanceof PolicyPackageImpl
+				? registeredPackage
+				: PolicyPackage.eINSTANCE);
 		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(TargetPackage.eNS_URI);
-		TargetPackageImpl theTargetPackage = (TargetPackageImpl)(registeredPackage instanceof TargetPackageImpl ? registeredPackage : TargetPackage.eINSTANCE);
+		TargetPackageImpl theTargetPackage = (TargetPackageImpl) (registeredPackage instanceof TargetPackageImpl
+				? registeredPackage
+				: TargetPackage.eINSTANCE);
 		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(TriggersPackage.eNS_URI);
-		TriggersPackageImpl theTriggersPackage = (TriggersPackageImpl)(registeredPackage instanceof TriggersPackageImpl ? registeredPackage : TriggersPackage.eINSTANCE);
+		TriggersPackageImpl theTriggersPackage = (TriggersPackageImpl) (registeredPackage instanceof TriggersPackageImpl
+				? registeredPackage
+				: TriggersPackage.eINSTANCE);
 		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(StimuliPackage.eNS_URI);
-		StimuliPackageImpl theStimuliPackage = (StimuliPackageImpl)(registeredPackage instanceof StimuliPackageImpl ? registeredPackage : StimuliPackage.eINSTANCE);
+		StimuliPackageImpl theStimuliPackage = (StimuliPackageImpl) (registeredPackage instanceof StimuliPackageImpl
+				? registeredPackage
+				: StimuliPackage.eINSTANCE);
 		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(ExpectationsPackage.eNS_URI);
-		ExpectationsPackageImpl theExpectationsPackage = (ExpectationsPackageImpl)(registeredPackage instanceof ExpectationsPackageImpl ? registeredPackage : ExpectationsPackage.eINSTANCE);
+		ExpectationsPackageImpl theExpectationsPackage = (ExpectationsPackageImpl) (registeredPackage instanceof ExpectationsPackageImpl
+				? registeredPackage
+				: ExpectationsPackage.eINSTANCE);
 
 		// Create package meta-data objects
 		theAdjustmentsPackage.createPackageContents();
@@ -224,7 +220,7 @@ public class AdjustmentsPackageImpl extends EPackageImpl implements AdjustmentsP
 	 */
 	@Override
 	public EAttribute getRelativeAdjustment_PercentageGrowthValue() {
-		return (EAttribute)relativeAdjustmentEClass.getEStructuralFeatures().get(0);
+		return (EAttribute) relativeAdjustmentEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -234,7 +230,7 @@ public class AdjustmentsPackageImpl extends EPackageImpl implements AdjustmentsP
 	 */
 	@Override
 	public EAttribute getRelativeAdjustment_MinAdjustmentValue() {
-		return (EAttribute)relativeAdjustmentEClass.getEStructuralFeatures().get(1);
+		return (EAttribute) relativeAdjustmentEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -254,7 +250,7 @@ public class AdjustmentsPackageImpl extends EPackageImpl implements AdjustmentsP
 	 */
 	@Override
 	public EAttribute getAbsoluteAdjustment_GoalValue() {
-		return (EAttribute)absoluteAdjustmentEClass.getEStructuralFeatures().get(0);
+		return (EAttribute) absoluteAdjustmentEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -274,7 +270,7 @@ public class AdjustmentsPackageImpl extends EPackageImpl implements AdjustmentsP
 	 */
 	@Override
 	public EAttribute getStepAdjustment_StepValue() {
-		return (EAttribute)stepAdjustmentEClass.getEStructuralFeatures().get(0);
+		return (EAttribute) stepAdjustmentEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -284,7 +280,7 @@ public class AdjustmentsPackageImpl extends EPackageImpl implements AdjustmentsP
 	 */
 	@Override
 	public AdjustmentsFactory getAdjustmentsFactory() {
-		return (AdjustmentsFactory)getEFactoryInstance();
+		return (AdjustmentsFactory) getEFactoryInstance();
 	}
 
 	/**
@@ -302,7 +298,8 @@ public class AdjustmentsPackageImpl extends EPackageImpl implements AdjustmentsP
 	 * @generated
 	 */
 	public void createPackageContents() {
-		if (isCreated) return;
+		if (isCreated)
+			return;
 		isCreated = true;
 
 		// Create classes and their features
@@ -334,7 +331,8 @@ public class AdjustmentsPackageImpl extends EPackageImpl implements AdjustmentsP
 	 * @generated
 	 */
 	public void initializePackageContents() {
-		if (isInitialized) return;
+		if (isInitialized)
+			return;
 		isInitialized = true;
 
 		// Initialize package
@@ -351,18 +349,30 @@ public class AdjustmentsPackageImpl extends EPackageImpl implements AdjustmentsP
 		absoluteAdjustmentEClass.getESuperTypes().add(this.getAdjustmentType());
 		stepAdjustmentEClass.getESuperTypes().add(this.getAdjustmentType());
 
-		// Initialize classes, features, and operations; add parameters
-		initEClass(adjustmentTypeEClass, AdjustmentType.class, "AdjustmentType", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		// Initialize classes and features; add operations and parameters
+		initEClass(adjustmentTypeEClass, AdjustmentType.class, "AdjustmentType", IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(relativeAdjustmentEClass, RelativeAdjustment.class, "RelativeAdjustment", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getRelativeAdjustment_PercentageGrowthValue(), ecorePackage.getEDouble(), "percentageGrowthValue", "0.0", 1, 1, RelativeAdjustment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getRelativeAdjustment_MinAdjustmentValue(), ecorePackage.getEInt(), "minAdjustmentValue", "0", 1, 1, RelativeAdjustment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(relativeAdjustmentEClass, RelativeAdjustment.class, "RelativeAdjustment", !IS_ABSTRACT,
+				!IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getRelativeAdjustment_PercentageGrowthValue(), ecorePackage.getEDouble(),
+				"percentageGrowthValue", "0.0", 1, 1, RelativeAdjustment.class, !IS_TRANSIENT, !IS_VOLATILE,
+				IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getRelativeAdjustment_MinAdjustmentValue(), ecorePackage.getEInt(), "minAdjustmentValue", "0", 1,
+				1, RelativeAdjustment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
+				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(absoluteAdjustmentEClass, AbsoluteAdjustment.class, "AbsoluteAdjustment", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getAbsoluteAdjustment_GoalValue(), ecorePackage.getEInt(), "goalValue", "0", 1, 1, AbsoluteAdjustment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(absoluteAdjustmentEClass, AbsoluteAdjustment.class, "AbsoluteAdjustment", !IS_ABSTRACT,
+				!IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getAbsoluteAdjustment_GoalValue(), ecorePackage.getEInt(), "goalValue", "0", 1, 1,
+				AbsoluteAdjustment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+				!IS_DERIVED, IS_ORDERED);
 
-		initEClass(stepAdjustmentEClass, StepAdjustment.class, "StepAdjustment", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getStepAdjustment_StepValue(), ecorePackage.getEInt(), "stepValue", "0", 1, 1, StepAdjustment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(stepAdjustmentEClass, StepAdjustment.class, "StepAdjustment", !IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getStepAdjustment_StepValue(), ecorePackage.getEInt(), "stepValue", "0", 1, 1,
+				StepAdjustment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+				!IS_DERIVED, IS_ORDERED);
 	}
 
 } //AdjustmentsPackageImpl

@@ -6,7 +6,6 @@ package org.palladiosimulator.spd.constraints.policy;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
-
 import org.palladiosimulator.spd.constraints.ConstraintsPackage;
 
 /**
@@ -16,7 +15,6 @@ import org.palladiosimulator.spd.constraints.ConstraintsPackage;
  * <ul>
  *   <li>each class,</li>
  *   <li>each feature of each class,</li>
- *   <li>each operation of each class,</li>
  *   <li>each enum,</li>
  *   <li>and each data type</li>
  * </ul>
@@ -69,6 +67,15 @@ public interface PolicyPackage extends EPackage {
 	int POLICY_CONSTRAINT = 0;
 
 	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int POLICY_CONSTRAINT__ID = ConstraintsPackage.ABSTRACT_CONSTRAINT__ID;
+
+	/**
 	 * The number of structural features of the '<em>Constraint</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -76,15 +83,6 @@ public interface PolicyPackage extends EPackage {
 	 * @ordered
 	 */
 	int POLICY_CONSTRAINT_FEATURE_COUNT = ConstraintsPackage.ABSTRACT_CONSTRAINT_FEATURE_COUNT + 0;
-
-	/**
-	 * The number of operations of the '<em>Constraint</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int POLICY_CONSTRAINT_OPERATION_COUNT = ConstraintsPackage.ABSTRACT_CONSTRAINT_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link org.palladiosimulator.spd.constraints.policy.impl.TemporalConstraintImpl <em>Temporal Constraint</em>}' class.
@@ -97,6 +95,15 @@ public interface PolicyPackage extends EPackage {
 	int TEMPORAL_CONSTRAINT = 1;
 
 	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEMPORAL_CONSTRAINT__ID = POLICY_CONSTRAINT__ID;
+
+	/**
 	 * The number of structural features of the '<em>Temporal Constraint</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -104,15 +111,6 @@ public interface PolicyPackage extends EPackage {
 	 * @ordered
 	 */
 	int TEMPORAL_CONSTRAINT_FEATURE_COUNT = POLICY_CONSTRAINT_FEATURE_COUNT + 0;
-
-	/**
-	 * The number of operations of the '<em>Temporal Constraint</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TEMPORAL_CONSTRAINT_OPERATION_COUNT = POLICY_CONSTRAINT_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link org.palladiosimulator.spd.constraints.policy.impl.IntervallConstraintImpl <em>Intervall Constraint</em>}' class.
@@ -123,6 +121,15 @@ public interface PolicyPackage extends EPackage {
 	 * @generated
 	 */
 	int INTERVALL_CONSTRAINT = 2;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INTERVALL_CONSTRAINT__ID = TEMPORAL_CONSTRAINT__ID;
 
 	/**
 	 * The feature id for the '<em><b>Offset</b></em>' attribute.
@@ -152,15 +159,6 @@ public interface PolicyPackage extends EPackage {
 	int INTERVALL_CONSTRAINT_FEATURE_COUNT = TEMPORAL_CONSTRAINT_FEATURE_COUNT + 2;
 
 	/**
-	 * The number of operations of the '<em>Intervall Constraint</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int INTERVALL_CONSTRAINT_OPERATION_COUNT = TEMPORAL_CONSTRAINT_OPERATION_COUNT + 0;
-
-	/**
 	 * The meta object id for the '{@link org.palladiosimulator.spd.constraints.policy.impl.CooldownConstraintImpl <em>Cooldown Constraint</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -169,6 +167,15 @@ public interface PolicyPackage extends EPackage {
 	 * @generated
 	 */
 	int COOLDOWN_CONSTRAINT = 3;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COOLDOWN_CONSTRAINT__ID = TEMPORAL_CONSTRAINT__ID;
 
 	/**
 	 * The feature id for the '<em><b>Cooldown Time</b></em>' attribute.
@@ -198,15 +205,6 @@ public interface PolicyPackage extends EPackage {
 	int COOLDOWN_CONSTRAINT_FEATURE_COUNT = TEMPORAL_CONSTRAINT_FEATURE_COUNT + 2;
 
 	/**
-	 * The number of operations of the '<em>Cooldown Constraint</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COOLDOWN_CONSTRAINT_OPERATION_COUNT = TEMPORAL_CONSTRAINT_OPERATION_COUNT + 0;
-
-	/**
 	 * The meta object id for the '{@link org.palladiosimulator.spd.constraints.policy.impl.StateBasedContraintImpl <em>State Based Contraint</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -215,6 +213,15 @@ public interface PolicyPackage extends EPackage {
 	 * @generated
 	 */
 	int STATE_BASED_CONTRAINT = 4;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STATE_BASED_CONTRAINT__ID = POLICY_CONSTRAINT__ID;
 
 	/**
 	 * The number of structural features of the '<em>State Based Contraint</em>' class.
@@ -226,15 +233,6 @@ public interface PolicyPackage extends EPackage {
 	int STATE_BASED_CONTRAINT_FEATURE_COUNT = POLICY_CONSTRAINT_FEATURE_COUNT + 0;
 
 	/**
-	 * The number of operations of the '<em>State Based Contraint</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int STATE_BASED_CONTRAINT_OPERATION_COUNT = POLICY_CONSTRAINT_OPERATION_COUNT + 0;
-
-	/**
 	 * The meta object id for the '{@link org.palladiosimulator.spd.constraints.policy.impl.ThrashingConstraintImpl <em>Thrashing Constraint</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -243,6 +241,15 @@ public interface PolicyPackage extends EPackage {
 	 * @generated
 	 */
 	int THRASHING_CONSTRAINT = 5;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int THRASHING_CONSTRAINT__ID = TEMPORAL_CONSTRAINT__ID;
 
 	/**
 	 * The feature id for the '<em><b>Minimum Time No Thrashing</b></em>' attribute.
@@ -261,16 +268,6 @@ public interface PolicyPackage extends EPackage {
 	 * @ordered
 	 */
 	int THRASHING_CONSTRAINT_FEATURE_COUNT = TEMPORAL_CONSTRAINT_FEATURE_COUNT + 1;
-
-	/**
-	 * The number of operations of the '<em>Thrashing Constraint</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int THRASHING_CONSTRAINT_OPERATION_COUNT = TEMPORAL_CONSTRAINT_OPERATION_COUNT + 0;
-
 
 	/**
 	 * Returns the meta object for class '{@link org.palladiosimulator.spd.constraints.policy.PolicyConstraint <em>Constraint</em>}'.
@@ -402,7 +399,6 @@ public interface PolicyPackage extends EPackage {
 	 * <ul>
 	 *   <li>each class,</li>
 	 *   <li>each feature of each class,</li>
-	 *   <li>each operation of each class,</li>
 	 *   <li>each enum,</li>
 	 *   <li>and each data type</li>
 	 * </ul>
@@ -508,7 +504,8 @@ public interface PolicyPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute THRASHING_CONSTRAINT__MINIMUM_TIME_NO_THRASHING = eINSTANCE.getThrashingConstraint_MinimumTimeNoThrashing();
+		EAttribute THRASHING_CONSTRAINT__MINIMUM_TIME_NO_THRASHING = eINSTANCE
+				.getThrashingConstraint_MinimumTimeNoThrashing();
 
 	}
 

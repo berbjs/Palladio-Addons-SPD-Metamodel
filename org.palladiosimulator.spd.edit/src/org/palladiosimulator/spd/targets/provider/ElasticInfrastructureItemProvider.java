@@ -3,16 +3,13 @@
  */
 package org.palladiosimulator.spd.targets.provider;
 
-
 import java.util.Collection;
 import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
-
 import org.palladiosimulator.spd.targets.ElasticInfrastructure;
 import org.palladiosimulator.spd.targets.TargetsPackage;
 
@@ -56,19 +53,13 @@ public class ElasticInfrastructureItemProvider extends TargetGroupItemProvider {
 	 * @generated
 	 */
 	protected void addPCM_ResourceEnvironmentPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_ElasticInfrastructure_PCM_ResourceEnvironment_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ElasticInfrastructure_PCM_ResourceEnvironment_feature", "_UI_ElasticInfrastructure_type"),
-				 TargetsPackage.Literals.ELASTIC_INFRASTRUCTURE__PCM_RESOURCE_ENVIRONMENT,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(
+				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+				getString("_UI_ElasticInfrastructure_PCM_ResourceEnvironment_feature"),
+				getString("_UI_PropertyDescriptor_description",
+						"_UI_ElasticInfrastructure_PCM_ResourceEnvironment_feature", "_UI_ElasticInfrastructure_type"),
+				TargetsPackage.Literals.ELASTIC_INFRASTRUCTURE__PCM_RESOURCE_ENVIRONMENT, true, false, true, null, null,
+				null));
 	}
 
 	/**
@@ -90,12 +81,10 @@ public class ElasticInfrastructureItemProvider extends TargetGroupItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((ElasticInfrastructure)object).getName();
-		return label == null || label.length() == 0 ?
-			getString("_UI_ElasticInfrastructure_type") :
-			getString("_UI_ElasticInfrastructure_type") + " " + label;
+		String label = ((ElasticInfrastructure) object).getEntityName();
+		return label == null || label.length() == 0 ? getString("_UI_ElasticInfrastructure_type")
+				: getString("_UI_ElasticInfrastructure_type") + " " + label;
 	}
-
 
 	/**
 	 * This handles model notifications by calling {@link #updateChildren} to update any cached

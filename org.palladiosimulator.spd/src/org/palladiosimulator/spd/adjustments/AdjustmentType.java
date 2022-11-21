@@ -3,7 +3,7 @@
  */
 package org.palladiosimulator.spd.adjustments;
 
-import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.cdo.CDOObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -11,13 +11,14 @@ import org.eclipse.emf.ecore.EObject;
  * <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
- * An AdjustmentType determines a type of adjusting a group. 
+ * An AdjustmentType determines a type of adjusting a group.
  * <!-- end-model-doc -->
  *
  *
  * @see org.palladiosimulator.spd.adjustments.AdjustmentsPackage#getAdjustmentType()
  * @model abstract="true"
+ * @extends CDOObject
  * @generated
  */
-public interface AdjustmentType extends EObject {
+public interface AdjustmentType extends CDOObject {
 } // AdjustmentType

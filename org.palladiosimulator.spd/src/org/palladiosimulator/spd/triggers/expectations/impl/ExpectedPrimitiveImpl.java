@@ -4,7 +4,6 @@
 package org.palladiosimulator.spd.triggers.expectations.impl;
 
 import org.eclipse.emf.ecore.EClass;
-
 import org.palladiosimulator.spd.triggers.expectations.ExpectationsPackage;
 import org.palladiosimulator.spd.triggers.expectations.ExpectedPrimitive;
 

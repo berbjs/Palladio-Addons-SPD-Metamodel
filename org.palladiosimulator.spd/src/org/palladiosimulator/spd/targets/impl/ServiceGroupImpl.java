@@ -4,7 +4,6 @@
 package org.palladiosimulator.spd.targets.impl;
 
 import org.eclipse.emf.ecore.EClass;
-
 import org.palladiosimulator.spd.targets.ServiceGroup;
 import org.palladiosimulator.spd.targets.TargetsPackage;
 

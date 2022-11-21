@@ -3,12 +3,7 @@
  */
 package org.palladiosimulator.spd.adjustments.impl;
 
-import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.ecore.EClass;
-
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
-
 import org.palladiosimulator.spd.adjustments.AdjustmentsPackage;
 import org.palladiosimulator.spd.adjustments.RelativeAdjustment;
 
@@ -38,16 +33,6 @@ public class RelativeAdjustmentImpl extends AdjustmentTypeImpl implements Relati
 	protected static final double PERCENTAGE_GROWTH_VALUE_EDEFAULT = 0.0;
 
 	/**
-	 * The cached value of the '{@link #getPercentageGrowthValue() <em>Percentage Growth Value</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getPercentageGrowthValue()
-	 * @generated
-	 * @ordered
-	 */
-	protected double percentageGrowthValue = PERCENTAGE_GROWTH_VALUE_EDEFAULT;
-
-	/**
 	 * The default value of the '{@link #getMinAdjustmentValue() <em>Min Adjustment Value</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -56,16 +41,6 @@ public class RelativeAdjustmentImpl extends AdjustmentTypeImpl implements Relati
 	 * @ordered
 	 */
 	protected static final int MIN_ADJUSTMENT_VALUE_EDEFAULT = 0;
-
-	/**
-	 * The cached value of the '{@link #getMinAdjustmentValue() <em>Min Adjustment Value</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getMinAdjustmentValue()
-	 * @generated
-	 * @ordered
-	 */
-	protected int minAdjustmentValue = MIN_ADJUSTMENT_VALUE_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -93,7 +68,8 @@ public class RelativeAdjustmentImpl extends AdjustmentTypeImpl implements Relati
 	 */
 	@Override
 	public double getPercentageGrowthValue() {
-		return percentageGrowthValue;
+		return (Double) eDynamicGet(AdjustmentsPackage.RELATIVE_ADJUSTMENT__PERCENTAGE_GROWTH_VALUE,
+				AdjustmentsPackage.Literals.RELATIVE_ADJUSTMENT__PERCENTAGE_GROWTH_VALUE, true, true);
 	}
 
 	/**
@@ -103,10 +79,8 @@ public class RelativeAdjustmentImpl extends AdjustmentTypeImpl implements Relati
 	 */
 	@Override
 	public void setPercentageGrowthValue(double newPercentageGrowthValue) {
-		double oldPercentageGrowthValue = percentageGrowthValue;
-		percentageGrowthValue = newPercentageGrowthValue;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, AdjustmentsPackage.RELATIVE_ADJUSTMENT__PERCENTAGE_GROWTH_VALUE, oldPercentageGrowthValue, percentageGrowthValue));
+		eDynamicSet(AdjustmentsPackage.RELATIVE_ADJUSTMENT__PERCENTAGE_GROWTH_VALUE,
+				AdjustmentsPackage.Literals.RELATIVE_ADJUSTMENT__PERCENTAGE_GROWTH_VALUE, newPercentageGrowthValue);
 	}
 
 	/**
@@ -116,7 +90,8 @@ public class RelativeAdjustmentImpl extends AdjustmentTypeImpl implements Relati
 	 */
 	@Override
 	public int getMinAdjustmentValue() {
-		return minAdjustmentValue;
+		return (Integer) eDynamicGet(AdjustmentsPackage.RELATIVE_ADJUSTMENT__MIN_ADJUSTMENT_VALUE,
+				AdjustmentsPackage.Literals.RELATIVE_ADJUSTMENT__MIN_ADJUSTMENT_VALUE, true, true);
 	}
 
 	/**
@@ -126,10 +101,8 @@ public class RelativeAdjustmentImpl extends AdjustmentTypeImpl implements Relati
 	 */
 	@Override
 	public void setMinAdjustmentValue(int newMinAdjustmentValue) {
-		int oldMinAdjustmentValue = minAdjustmentValue;
-		minAdjustmentValue = newMinAdjustmentValue;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, AdjustmentsPackage.RELATIVE_ADJUSTMENT__MIN_ADJUSTMENT_VALUE, oldMinAdjustmentValue, minAdjustmentValue));
+		eDynamicSet(AdjustmentsPackage.RELATIVE_ADJUSTMENT__MIN_ADJUSTMENT_VALUE,
+				AdjustmentsPackage.Literals.RELATIVE_ADJUSTMENT__MIN_ADJUSTMENT_VALUE, newMinAdjustmentValue);
 	}
 
 	/**
@@ -140,10 +113,10 @@ public class RelativeAdjustmentImpl extends AdjustmentTypeImpl implements Relati
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case AdjustmentsPackage.RELATIVE_ADJUSTMENT__PERCENTAGE_GROWTH_VALUE:
-				return getPercentageGrowthValue();
-			case AdjustmentsPackage.RELATIVE_ADJUSTMENT__MIN_ADJUSTMENT_VALUE:
-				return getMinAdjustmentValue();
+		case AdjustmentsPackage.RELATIVE_ADJUSTMENT__PERCENTAGE_GROWTH_VALUE:
+			return getPercentageGrowthValue();
+		case AdjustmentsPackage.RELATIVE_ADJUSTMENT__MIN_ADJUSTMENT_VALUE:
+			return getMinAdjustmentValue();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -156,12 +129,12 @@ public class RelativeAdjustmentImpl extends AdjustmentTypeImpl implements Relati
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case AdjustmentsPackage.RELATIVE_ADJUSTMENT__PERCENTAGE_GROWTH_VALUE:
-				setPercentageGrowthValue((Double)newValue);
-				return;
-			case AdjustmentsPackage.RELATIVE_ADJUSTMENT__MIN_ADJUSTMENT_VALUE:
-				setMinAdjustmentValue((Integer)newValue);
-				return;
+		case AdjustmentsPackage.RELATIVE_ADJUSTMENT__PERCENTAGE_GROWTH_VALUE:
+			setPercentageGrowthValue((Double) newValue);
+			return;
+		case AdjustmentsPackage.RELATIVE_ADJUSTMENT__MIN_ADJUSTMENT_VALUE:
+			setMinAdjustmentValue((Integer) newValue);
+			return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -174,12 +147,12 @@ public class RelativeAdjustmentImpl extends AdjustmentTypeImpl implements Relati
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case AdjustmentsPackage.RELATIVE_ADJUSTMENT__PERCENTAGE_GROWTH_VALUE:
-				setPercentageGrowthValue(PERCENTAGE_GROWTH_VALUE_EDEFAULT);
-				return;
-			case AdjustmentsPackage.RELATIVE_ADJUSTMENT__MIN_ADJUSTMENT_VALUE:
-				setMinAdjustmentValue(MIN_ADJUSTMENT_VALUE_EDEFAULT);
-				return;
+		case AdjustmentsPackage.RELATIVE_ADJUSTMENT__PERCENTAGE_GROWTH_VALUE:
+			setPercentageGrowthValue(PERCENTAGE_GROWTH_VALUE_EDEFAULT);
+			return;
+		case AdjustmentsPackage.RELATIVE_ADJUSTMENT__MIN_ADJUSTMENT_VALUE:
+			setMinAdjustmentValue(MIN_ADJUSTMENT_VALUE_EDEFAULT);
+			return;
 		}
 		super.eUnset(featureID);
 	}
@@ -192,30 +165,12 @@ public class RelativeAdjustmentImpl extends AdjustmentTypeImpl implements Relati
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case AdjustmentsPackage.RELATIVE_ADJUSTMENT__PERCENTAGE_GROWTH_VALUE:
-				return percentageGrowthValue != PERCENTAGE_GROWTH_VALUE_EDEFAULT;
-			case AdjustmentsPackage.RELATIVE_ADJUSTMENT__MIN_ADJUSTMENT_VALUE:
-				return minAdjustmentValue != MIN_ADJUSTMENT_VALUE_EDEFAULT;
+		case AdjustmentsPackage.RELATIVE_ADJUSTMENT__PERCENTAGE_GROWTH_VALUE:
+			return getPercentageGrowthValue() != PERCENTAGE_GROWTH_VALUE_EDEFAULT;
+		case AdjustmentsPackage.RELATIVE_ADJUSTMENT__MIN_ADJUSTMENT_VALUE:
+			return getMinAdjustmentValue() != MIN_ADJUSTMENT_VALUE_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String toString() {
-		if (eIsProxy()) return super.toString();
-
-		StringBuilder result = new StringBuilder(super.toString());
-		result.append(" (percentageGrowthValue: ");
-		result.append(percentageGrowthValue);
-		result.append(", minAdjustmentValue: ");
-		result.append(minAdjustmentValue);
-		result.append(')');
-		return result.toString();
 	}
 
 } //RelativeAdjustmentImpl

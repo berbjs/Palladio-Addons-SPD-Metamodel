@@ -5,10 +5,15 @@ package org.palladiosimulator.spd.triggers.expectations.util;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
-
 import org.eclipse.emf.ecore.util.Switch;
-
-import org.palladiosimulator.spd.triggers.expectations.*;
+import org.palladiosimulator.spd.triggers.expectations.ExpectationsPackage;
+import org.palladiosimulator.spd.triggers.expectations.ExpectedCount;
+import org.palladiosimulator.spd.triggers.expectations.ExpectedPercentage;
+import org.palladiosimulator.spd.triggers.expectations.ExpectedPrimitive;
+import org.palladiosimulator.spd.triggers.expectations.ExpectedTime;
+import org.palladiosimulator.spd.triggers.expectations.ExpectedTrend;
+import org.palladiosimulator.spd.triggers.expectations.ExpectedValue;
+import org.palladiosimulator.spd.triggers.expectations.NoExpectation;
 
 /**
  * <!-- begin-user-doc -->
@@ -67,58 +72,75 @@ public class ExpectationsSwitch<T> extends Switch<T> {
 	@Override
 	protected T doSwitch(int classifierID, EObject theEObject) {
 		switch (classifierID) {
-			case ExpectationsPackage.EXPECTED_VALUE: {
-				ExpectedValue expectedValue = (ExpectedValue)theEObject;
-				T result = caseExpectedValue(expectedValue);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case ExpectationsPackage.EXPECTED_PRIMITIVE: {
-				ExpectedPrimitive expectedPrimitive = (ExpectedPrimitive)theEObject;
-				T result = caseExpectedPrimitive(expectedPrimitive);
-				if (result == null) result = caseExpectedValue(expectedPrimitive);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case ExpectationsPackage.NO_EXPECTATION: {
-				NoExpectation noExpectation = (NoExpectation)theEObject;
-				T result = caseNoExpectation(noExpectation);
-				if (result == null) result = caseExpectedValue(noExpectation);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case ExpectationsPackage.EXPECTED_PERCENTAGE: {
-				ExpectedPercentage expectedPercentage = (ExpectedPercentage)theEObject;
-				T result = caseExpectedPercentage(expectedPercentage);
-				if (result == null) result = caseExpectedPrimitive(expectedPercentage);
-				if (result == null) result = caseExpectedValue(expectedPercentage);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case ExpectationsPackage.EXPECTED_COUNT: {
-				ExpectedCount expectedCount = (ExpectedCount)theEObject;
-				T result = caseExpectedCount(expectedCount);
-				if (result == null) result = caseExpectedPrimitive(expectedCount);
-				if (result == null) result = caseExpectedValue(expectedCount);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case ExpectationsPackage.EXPECTED_TIME: {
-				ExpectedTime expectedTime = (ExpectedTime)theEObject;
-				T result = caseExpectedTime(expectedTime);
-				if (result == null) result = caseExpectedPrimitive(expectedTime);
-				if (result == null) result = caseExpectedValue(expectedTime);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case ExpectationsPackage.EXPECTED_TREND: {
-				ExpectedTrend expectedTrend = (ExpectedTrend)theEObject;
-				T result = caseExpectedTrend(expectedTrend);
-				if (result == null) result = caseExpectedValue(expectedTrend);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			default: return defaultCase(theEObject);
+		case ExpectationsPackage.EXPECTED_VALUE: {
+			ExpectedValue expectedValue = (ExpectedValue) theEObject;
+			T result = caseExpectedValue(expectedValue);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case ExpectationsPackage.EXPECTED_PRIMITIVE: {
+			ExpectedPrimitive expectedPrimitive = (ExpectedPrimitive) theEObject;
+			T result = caseExpectedPrimitive(expectedPrimitive);
+			if (result == null)
+				result = caseExpectedValue(expectedPrimitive);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case ExpectationsPackage.NO_EXPECTATION: {
+			NoExpectation noExpectation = (NoExpectation) theEObject;
+			T result = caseNoExpectation(noExpectation);
+			if (result == null)
+				result = caseExpectedValue(noExpectation);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case ExpectationsPackage.EXPECTED_PERCENTAGE: {
+			ExpectedPercentage expectedPercentage = (ExpectedPercentage) theEObject;
+			T result = caseExpectedPercentage(expectedPercentage);
+			if (result == null)
+				result = caseExpectedPrimitive(expectedPercentage);
+			if (result == null)
+				result = caseExpectedValue(expectedPercentage);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case ExpectationsPackage.EXPECTED_COUNT: {
+			ExpectedCount expectedCount = (ExpectedCount) theEObject;
+			T result = caseExpectedCount(expectedCount);
+			if (result == null)
+				result = caseExpectedPrimitive(expectedCount);
+			if (result == null)
+				result = caseExpectedValue(expectedCount);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case ExpectationsPackage.EXPECTED_TIME: {
+			ExpectedTime expectedTime = (ExpectedTime) theEObject;
+			T result = caseExpectedTime(expectedTime);
+			if (result == null)
+				result = caseExpectedPrimitive(expectedTime);
+			if (result == null)
+				result = caseExpectedValue(expectedTime);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case ExpectationsPackage.EXPECTED_TREND: {
+			ExpectedTrend expectedTrend = (ExpectedTrend) theEObject;
+			T result = caseExpectedTrend(expectedTrend);
+			if (result == null)
+				result = caseExpectedValue(expectedTrend);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		default:
+			return defaultCase(theEObject);
 		}
 	}
 

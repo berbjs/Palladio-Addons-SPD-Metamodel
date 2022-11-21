@@ -130,14 +130,8 @@ public enum RelationalOperator implements Enumerator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private static final RelationalOperator[] VALUES_ARRAY =
-		new RelationalOperator[] {
-			LESS_THAN,
-			GREATER_THAN,
-			EQUAL_TO,
-			LESS_THAN_OR_EQUAL_TO,
-			GREATER_THAN_OR_EQUAL_TO,
-		};
+	private static final RelationalOperator[] VALUES_ARRAY = new RelationalOperator[] { LESS_THAN, GREATER_THAN,
+			EQUAL_TO, LESS_THAN_OR_EQUAL_TO, GREATER_THAN_OR_EQUAL_TO, };
 
 	/**
 	 * A public read-only list of all the '<em><b>Relational Operator</b></em>' enumerators.
@@ -156,8 +150,7 @@ public enum RelationalOperator implements Enumerator {
 	 * @generated
 	 */
 	public static RelationalOperator get(String literal) {
-		for (int i = 0; i < VALUES_ARRAY.length; ++i) {
-			RelationalOperator result = VALUES_ARRAY[i];
+		for (RelationalOperator result : VALUES_ARRAY) {
 			if (result.toString().equals(literal)) {
 				return result;
 			}
@@ -174,8 +167,7 @@ public enum RelationalOperator implements Enumerator {
 	 * @generated
 	 */
 	public static RelationalOperator getByName(String name) {
-		for (int i = 0; i < VALUES_ARRAY.length; ++i) {
-			RelationalOperator result = VALUES_ARRAY[i];
+		for (RelationalOperator result : VALUES_ARRAY) {
 			if (result.getName().equals(name)) {
 				return result;
 			}
@@ -193,11 +185,16 @@ public enum RelationalOperator implements Enumerator {
 	 */
 	public static RelationalOperator get(int value) {
 		switch (value) {
-			case LESS_THAN_VALUE: return LESS_THAN;
-			case GREATER_THAN_VALUE: return GREATER_THAN;
-			case EQUAL_TO_VALUE: return EQUAL_TO;
-			case LESS_THAN_OR_EQUAL_TO_VALUE: return LESS_THAN_OR_EQUAL_TO;
-			case GREATER_THAN_OR_EQUAL_TO_VALUE: return GREATER_THAN_OR_EQUAL_TO;
+		case LESS_THAN_VALUE:
+			return LESS_THAN;
+		case GREATER_THAN_VALUE:
+			return GREATER_THAN;
+		case EQUAL_TO_VALUE:
+			return EQUAL_TO;
+		case LESS_THAN_OR_EQUAL_TO_VALUE:
+			return LESS_THAN_OR_EQUAL_TO;
+		case GREATER_THAN_OR_EQUAL_TO_VALUE:
+			return GREATER_THAN_OR_EQUAL_TO;
 		}
 		return null;
 	}
@@ -242,7 +239,7 @@ public enum RelationalOperator implements Enumerator {
 	 */
 	@Override
 	public int getValue() {
-	  return value;
+		return value;
 	}
 
 	/**
@@ -252,7 +249,7 @@ public enum RelationalOperator implements Enumerator {
 	 */
 	@Override
 	public String getName() {
-	  return name;
+		return name;
 	}
 
 	/**
@@ -262,7 +259,7 @@ public enum RelationalOperator implements Enumerator {
 	 */
 	@Override
 	public String getLiteral() {
-	  return literal;
+		return literal;
 	}
 
 	/**
@@ -275,5 +272,5 @@ public enum RelationalOperator implements Enumerator {
 	public String toString() {
 		return literal;
 	}
-	
+
 } //RelationalOperator

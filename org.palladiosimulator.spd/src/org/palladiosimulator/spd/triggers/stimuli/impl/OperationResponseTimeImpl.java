@@ -3,15 +3,8 @@
  */
 package org.palladiosimulator.spd.triggers.stimuli.impl;
 
-import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.InternalEObject;
-
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
-
 import org.palladiosimulator.pcm.repository.OperationSignature;
-
 import org.palladiosimulator.spd.triggers.stimuli.OperationResponseTime;
 import org.palladiosimulator.spd.triggers.stimuli.StimuliPackage;
 
@@ -29,16 +22,6 @@ import org.palladiosimulator.spd.triggers.stimuli.StimuliPackage;
  * @generated
  */
 public class OperationResponseTimeImpl extends SoruceInterfaceStimulusImpl implements OperationResponseTime {
-	/**
-	 * The cached value of the '{@link #getOperationSignature() <em>Operation Signature</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getOperationSignature()
-	 * @generated
-	 * @ordered
-	 */
-	protected OperationSignature operationSignature;
-
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -65,15 +48,8 @@ public class OperationResponseTimeImpl extends SoruceInterfaceStimulusImpl imple
 	 */
 	@Override
 	public OperationSignature getOperationSignature() {
-		if (operationSignature != null && operationSignature.eIsProxy()) {
-			InternalEObject oldOperationSignature = (InternalEObject)operationSignature;
-			operationSignature = (OperationSignature)eResolveProxy(oldOperationSignature);
-			if (operationSignature != oldOperationSignature) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, StimuliPackage.OPERATION_RESPONSE_TIME__OPERATION_SIGNATURE, oldOperationSignature, operationSignature));
-			}
-		}
-		return operationSignature;
+		return (OperationSignature) eDynamicGet(StimuliPackage.OPERATION_RESPONSE_TIME__OPERATION_SIGNATURE,
+				StimuliPackage.Literals.OPERATION_RESPONSE_TIME__OPERATION_SIGNATURE, true, true);
 	}
 
 	/**
@@ -82,7 +58,8 @@ public class OperationResponseTimeImpl extends SoruceInterfaceStimulusImpl imple
 	 * @generated
 	 */
 	public OperationSignature basicGetOperationSignature() {
-		return operationSignature;
+		return (OperationSignature) eDynamicGet(StimuliPackage.OPERATION_RESPONSE_TIME__OPERATION_SIGNATURE,
+				StimuliPackage.Literals.OPERATION_RESPONSE_TIME__OPERATION_SIGNATURE, false, true);
 	}
 
 	/**
@@ -92,10 +69,8 @@ public class OperationResponseTimeImpl extends SoruceInterfaceStimulusImpl imple
 	 */
 	@Override
 	public void setOperationSignature(OperationSignature newOperationSignature) {
-		OperationSignature oldOperationSignature = operationSignature;
-		operationSignature = newOperationSignature;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, StimuliPackage.OPERATION_RESPONSE_TIME__OPERATION_SIGNATURE, oldOperationSignature, operationSignature));
+		eDynamicSet(StimuliPackage.OPERATION_RESPONSE_TIME__OPERATION_SIGNATURE,
+				StimuliPackage.Literals.OPERATION_RESPONSE_TIME__OPERATION_SIGNATURE, newOperationSignature);
 	}
 
 	/**
@@ -106,9 +81,10 @@ public class OperationResponseTimeImpl extends SoruceInterfaceStimulusImpl imple
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case StimuliPackage.OPERATION_RESPONSE_TIME__OPERATION_SIGNATURE:
-				if (resolve) return getOperationSignature();
-				return basicGetOperationSignature();
+		case StimuliPackage.OPERATION_RESPONSE_TIME__OPERATION_SIGNATURE:
+			if (resolve)
+				return getOperationSignature();
+			return basicGetOperationSignature();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -121,9 +97,9 @@ public class OperationResponseTimeImpl extends SoruceInterfaceStimulusImpl imple
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case StimuliPackage.OPERATION_RESPONSE_TIME__OPERATION_SIGNATURE:
-				setOperationSignature((OperationSignature)newValue);
-				return;
+		case StimuliPackage.OPERATION_RESPONSE_TIME__OPERATION_SIGNATURE:
+			setOperationSignature((OperationSignature) newValue);
+			return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -136,9 +112,9 @@ public class OperationResponseTimeImpl extends SoruceInterfaceStimulusImpl imple
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case StimuliPackage.OPERATION_RESPONSE_TIME__OPERATION_SIGNATURE:
-				setOperationSignature((OperationSignature)null);
-				return;
+		case StimuliPackage.OPERATION_RESPONSE_TIME__OPERATION_SIGNATURE:
+			setOperationSignature((OperationSignature) null);
+			return;
 		}
 		super.eUnset(featureID);
 	}
@@ -151,8 +127,8 @@ public class OperationResponseTimeImpl extends SoruceInterfaceStimulusImpl imple
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case StimuliPackage.OPERATION_RESPONSE_TIME__OPERATION_SIGNATURE:
-				return operationSignature != null;
+		case StimuliPackage.OPERATION_RESPONSE_TIME__OPERATION_SIGNATURE:
+			return basicGetOperationSignature() != null;
 		}
 		return super.eIsSet(featureID);
 	}

@@ -2,12 +2,12 @@
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="spd" nsURI="http://palladiosimulator.org/ScalingPolicyDefinition/1.0"
     nsPrefix="spd">
-  <eClassifiers xsi:type="ecore:EClass" name="ScalingPolicy" eSuperTypes="#//NamedElement">
+  <eClassifiers xsi:type="ecore:EClass" name="ScalingPolicy" eSuperTypes="../../org.palladiosimulator.pcm/model/pcm.ecore#//core/entity/Entity">
     <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
       <details key="constraints" value="policyNameInvariant"/>
     </eAnnotations>
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-      <details key="documentation" value="A scaling policy determines the complete information for scaling a parituclar target."/>
+      <details key="documentation" value="A scaling policy determines the complete information for scaling a parituclar target. Each ScalingPolicy is an Entity (PCM), it has a unique identifier and it has a name.  "/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="active" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="adjustmentType" lowerBound="1"
@@ -19,12 +19,12 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="scalingTrigger" lowerBound="1"
         eType="#//triggers/ScalingTrigger" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="SPD" eSuperTypes="#//NamedElement">
+  <eClassifiers xsi:type="ecore:EClass" name="SPD" eSuperTypes="../../org.palladiosimulator.pcm/model/pcm.ecore#//core/entity/Entity">
     <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
       <details key="constraints" value="nameInvariant noSameTargetGroup"/>
     </eAnnotations>
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-      <details key="documentation" value="The root elements that consists of all scaling policies under analysis for a given cloud application."/>
+      <details key="documentation" value="The root elements that consists of all scaling policies under analysis for a given cloud application. The SPD is an Entity (PCM), it has a unique identifier and it has a name.  "/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="scalingPolicies" lowerBound="1"
         upperBound="-1" eType="#//ScalingPolicy" containment="true">
@@ -35,12 +35,12 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="targetGroups" lowerBound="1"
         upperBound="-1" eType="#//targets/TargetGroup" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="NamedElement" abstract="true">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
-  </eClassifiers>
   <eSubpackages name="targets" nsURI="http://palladiosimulator.org/ScalingPolicyDefinition/Targets/1.0"
       nsPrefix="targets">
-    <eClassifiers xsi:type="ecore:EClass" name="TargetGroup" abstract="true" eSuperTypes="#//NamedElement">
+    <eClassifiers xsi:type="ecore:EClass" name="TargetGroup" abstract="true" eSuperTypes="../../org.palladiosimulator.pcm/model/pcm.ecore#//core/entity/Entity">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="A TargetGroup defines a management group in SPD. It is both uniqely identified as well as it has a name, thus it extends from the Entity class of the PCM. "/>
+      </eAnnotations>
       <eStructuralFeatures xsi:type="ecore:EReference" name="targetConstraints" upperBound="-1"
           eType="#//constraints/target/TargetConstraint" containment="true"/>
     </eClassifiers>
@@ -101,7 +101,8 @@
   </eSubpackages>
   <eSubpackages name="constraints" nsURI="http://palladiosimulator.org/ScalingPolicyDefinition/Constraints/1.0"
       nsPrefix="constraints">
-    <eClassifiers xsi:type="ecore:EClass" name="AbstractConstraint" abstract="true"/>
+    <eClassifiers xsi:type="ecore:EClass" name="AbstractConstraint" abstract="true"
+        eSuperTypes="../../de.uka.ipd.sdq.identifier/model/identifier.ecore#//Identifier"/>
     <eSubpackages name="policy" nsURI="http://palladiosimulator.org/ScalingPolicyDefinition/Constraints/Policy/1.0"
         nsPrefix="policy">
       <eClassifiers xsi:type="ecore:EClass" name="PolicyConstraint" abstract="true"
@@ -168,9 +169,9 @@
       <eLiterals name="SEND"/>
       <eLiterals name="RECEIVE" value="1"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="ScalingTrigger" abstract="true">
+    <eClassifiers xsi:type="ecore:EClass" name="ScalingTrigger" abstract="true" eSuperTypes="../../de.uka.ipd.sdq.identifier/model/identifier.ecore#//Identifier">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="The ScalingTrigger is a core concept in SPD. It entails both the information that is fetched from the simulation and models as well as the type of analysis that is performed on that information. "/>
+        <details key="documentation" value="The ScalingTrigger is a core concept in SPD. It entails both the information that is fetched from the simulation and models as well as the type of analysis that is performed on that information. It is uniquely identified as it extends from Idenfier (PCM)."/>
       </eAnnotations>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="BaseTrigger" abstract="true" eSuperTypes="#//triggers/ScalingTrigger">
@@ -223,7 +224,7 @@
         nsPrefix="stimuli">
       <eClassifiers xsi:type="ecore:EClass" name="Stimulus" abstract="true">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-          <details key="documentation" value="The Stimulus defines observable information during the simulation of an architectural model upon which a trigger can fire."/>
+          <details key="documentation" value="The Stimulus defines observable information during the simulation of an architectural model upon which a trigger can fire. Each Stimulus "/>
         </eAnnotations>
       </eClassifiers>
       <eClassifiers xsi:type="ecore:EClass" name="TargetGroupStateStimulus" abstract="true"
@@ -327,13 +328,13 @@
       </eClassifiers>
       <eClassifiers xsi:type="ecore:EClass" name="NoExpectation" eSuperTypes="#//triggers/expectations/ExpectedValue"/>
       <eClassifiers xsi:type="ecore:EClass" name="ExpectedPercentage" eSuperTypes="#//triggers/expectations/ExpectedPrimitive">
-        <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EDouble"/>
+        <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EDouble"/>
       </eClassifiers>
       <eClassifiers xsi:type="ecore:EClass" name="ExpectedCount" eSuperTypes="#//triggers/expectations/ExpectedPrimitive">
-        <eStructuralFeatures xsi:type="ecore:EAttribute" name="count" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EInt"/>
+        <eStructuralFeatures xsi:type="ecore:EAttribute" name="count" eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EInt"/>
       </eClassifiers>
       <eClassifiers xsi:type="ecore:EClass" name="ExpectedTime" eSuperTypes="#//triggers/expectations/ExpectedPrimitive">
-        <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EDouble"/>
+        <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EDouble"/>
       </eClassifiers>
       <eClassifiers xsi:type="ecore:EClass" name="ExpectedTrend" eSuperTypes="#//triggers/expectations/ExpectedValue">
         <eStructuralFeatures xsi:type="ecore:EAttribute" name="trend" eType="#//triggers/TrendPattern"/>

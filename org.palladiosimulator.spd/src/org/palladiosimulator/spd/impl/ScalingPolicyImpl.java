@@ -5,28 +5,17 @@ package org.palladiosimulator.spd.impl;
 
 import java.util.Collection;
 
-import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
-
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
-
+import org.palladiosimulator.pcm.core.entity.impl.EntityImpl;
 import org.palladiosimulator.spd.ScalingPolicy;
 import org.palladiosimulator.spd.SpdPackage;
-
 import org.palladiosimulator.spd.adjustments.AdjustmentType;
-
 import org.palladiosimulator.spd.constraints.policy.PolicyConstraint;
-
 import org.palladiosimulator.spd.targets.TargetGroup;
-
 import org.palladiosimulator.spd.triggers.ScalingTrigger;
 
 /**
@@ -46,7 +35,7 @@ import org.palladiosimulator.spd.triggers.ScalingTrigger;
  *
  * @generated
  */
-public class ScalingPolicyImpl extends NamedElementImpl implements ScalingPolicy {
+public class ScalingPolicyImpl extends EntityImpl implements ScalingPolicy {
 	/**
 	 * The default value of the '{@link #isActive() <em>Active</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -56,56 +45,6 @@ public class ScalingPolicyImpl extends NamedElementImpl implements ScalingPolicy
 	 * @ordered
 	 */
 	protected static final boolean ACTIVE_EDEFAULT = false;
-
-	/**
-	 * The cached value of the '{@link #isActive() <em>Active</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #isActive()
-	 * @generated
-	 * @ordered
-	 */
-	protected boolean active = ACTIVE_EDEFAULT;
-
-	/**
-	 * The cached value of the '{@link #getAdjustmentType() <em>Adjustment Type</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getAdjustmentType()
-	 * @generated
-	 * @ordered
-	 */
-	protected AdjustmentType adjustmentType;
-
-	/**
-	 * The cached value of the '{@link #getTargetGroup() <em>Target Group</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getTargetGroup()
-	 * @generated
-	 * @ordered
-	 */
-	protected TargetGroup targetGroup;
-
-	/**
-	 * The cached value of the '{@link #getPolicyConstraints() <em>Policy Constraints</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getPolicyConstraints()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<PolicyConstraint> policyConstraints;
-
-	/**
-	 * The cached value of the '{@link #getScalingTrigger() <em>Scaling Trigger</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getScalingTrigger()
-	 * @generated
-	 * @ordered
-	 */
-	protected ScalingTrigger scalingTrigger;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -133,7 +72,8 @@ public class ScalingPolicyImpl extends NamedElementImpl implements ScalingPolicy
 	 */
 	@Override
 	public boolean isActive() {
-		return active;
+		return (Boolean) eDynamicGet(SpdPackage.SCALING_POLICY__ACTIVE, SpdPackage.Literals.SCALING_POLICY__ACTIVE,
+				true, true);
 	}
 
 	/**
@@ -143,10 +83,7 @@ public class ScalingPolicyImpl extends NamedElementImpl implements ScalingPolicy
 	 */
 	@Override
 	public void setActive(boolean newActive) {
-		boolean oldActive = active;
-		active = newActive;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, SpdPackage.SCALING_POLICY__ACTIVE, oldActive, active));
+		eDynamicSet(SpdPackage.SCALING_POLICY__ACTIVE, SpdPackage.Literals.SCALING_POLICY__ACTIVE, newActive);
 	}
 
 	/**
@@ -156,7 +93,8 @@ public class ScalingPolicyImpl extends NamedElementImpl implements ScalingPolicy
 	 */
 	@Override
 	public AdjustmentType getAdjustmentType() {
-		return adjustmentType;
+		return (AdjustmentType) eDynamicGet(SpdPackage.SCALING_POLICY__ADJUSTMENT_TYPE,
+				SpdPackage.Literals.SCALING_POLICY__ADJUSTMENT_TYPE, true, true);
 	}
 
 	/**
@@ -165,12 +103,8 @@ public class ScalingPolicyImpl extends NamedElementImpl implements ScalingPolicy
 	 * @generated
 	 */
 	public NotificationChain basicSetAdjustmentType(AdjustmentType newAdjustmentType, NotificationChain msgs) {
-		AdjustmentType oldAdjustmentType = adjustmentType;
-		adjustmentType = newAdjustmentType;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, SpdPackage.SCALING_POLICY__ADJUSTMENT_TYPE, oldAdjustmentType, newAdjustmentType);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
+		msgs = eDynamicInverseAdd((InternalEObject) newAdjustmentType, SpdPackage.SCALING_POLICY__ADJUSTMENT_TYPE,
+				msgs);
 		return msgs;
 	}
 
@@ -181,17 +115,8 @@ public class ScalingPolicyImpl extends NamedElementImpl implements ScalingPolicy
 	 */
 	@Override
 	public void setAdjustmentType(AdjustmentType newAdjustmentType) {
-		if (newAdjustmentType != adjustmentType) {
-			NotificationChain msgs = null;
-			if (adjustmentType != null)
-				msgs = ((InternalEObject)adjustmentType).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - SpdPackage.SCALING_POLICY__ADJUSTMENT_TYPE, null, msgs);
-			if (newAdjustmentType != null)
-				msgs = ((InternalEObject)newAdjustmentType).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - SpdPackage.SCALING_POLICY__ADJUSTMENT_TYPE, null, msgs);
-			msgs = basicSetAdjustmentType(newAdjustmentType, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, SpdPackage.SCALING_POLICY__ADJUSTMENT_TYPE, newAdjustmentType, newAdjustmentType));
+		eDynamicSet(SpdPackage.SCALING_POLICY__ADJUSTMENT_TYPE, SpdPackage.Literals.SCALING_POLICY__ADJUSTMENT_TYPE,
+				newAdjustmentType);
 	}
 
 	/**
@@ -201,15 +126,8 @@ public class ScalingPolicyImpl extends NamedElementImpl implements ScalingPolicy
 	 */
 	@Override
 	public TargetGroup getTargetGroup() {
-		if (targetGroup != null && targetGroup.eIsProxy()) {
-			InternalEObject oldTargetGroup = (InternalEObject)targetGroup;
-			targetGroup = (TargetGroup)eResolveProxy(oldTargetGroup);
-			if (targetGroup != oldTargetGroup) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, SpdPackage.SCALING_POLICY__TARGET_GROUP, oldTargetGroup, targetGroup));
-			}
-		}
-		return targetGroup;
+		return (TargetGroup) eDynamicGet(SpdPackage.SCALING_POLICY__TARGET_GROUP,
+				SpdPackage.Literals.SCALING_POLICY__TARGET_GROUP, true, true);
 	}
 
 	/**
@@ -218,7 +136,8 @@ public class ScalingPolicyImpl extends NamedElementImpl implements ScalingPolicy
 	 * @generated
 	 */
 	public TargetGroup basicGetTargetGroup() {
-		return targetGroup;
+		return (TargetGroup) eDynamicGet(SpdPackage.SCALING_POLICY__TARGET_GROUP,
+				SpdPackage.Literals.SCALING_POLICY__TARGET_GROUP, false, true);
 	}
 
 	/**
@@ -228,10 +147,8 @@ public class ScalingPolicyImpl extends NamedElementImpl implements ScalingPolicy
 	 */
 	@Override
 	public void setTargetGroup(TargetGroup newTargetGroup) {
-		TargetGroup oldTargetGroup = targetGroup;
-		targetGroup = newTargetGroup;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, SpdPackage.SCALING_POLICY__TARGET_GROUP, oldTargetGroup, targetGroup));
+		eDynamicSet(SpdPackage.SCALING_POLICY__TARGET_GROUP, SpdPackage.Literals.SCALING_POLICY__TARGET_GROUP,
+				newTargetGroup);
 	}
 
 	/**
@@ -239,12 +156,11 @@ public class ScalingPolicyImpl extends NamedElementImpl implements ScalingPolicy
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public EList<PolicyConstraint> getPolicyConstraints() {
-		if (policyConstraints == null) {
-			policyConstraints = new EObjectContainmentEList<PolicyConstraint>(PolicyConstraint.class, this, SpdPackage.SCALING_POLICY__POLICY_CONSTRAINTS);
-		}
-		return policyConstraints;
+		return (EList<PolicyConstraint>) eDynamicGet(SpdPackage.SCALING_POLICY__POLICY_CONSTRAINTS,
+				SpdPackage.Literals.SCALING_POLICY__POLICY_CONSTRAINTS, true, true);
 	}
 
 	/**
@@ -254,7 +170,8 @@ public class ScalingPolicyImpl extends NamedElementImpl implements ScalingPolicy
 	 */
 	@Override
 	public ScalingTrigger getScalingTrigger() {
-		return scalingTrigger;
+		return (ScalingTrigger) eDynamicGet(SpdPackage.SCALING_POLICY__SCALING_TRIGGER,
+				SpdPackage.Literals.SCALING_POLICY__SCALING_TRIGGER, true, true);
 	}
 
 	/**
@@ -263,12 +180,8 @@ public class ScalingPolicyImpl extends NamedElementImpl implements ScalingPolicy
 	 * @generated
 	 */
 	public NotificationChain basicSetScalingTrigger(ScalingTrigger newScalingTrigger, NotificationChain msgs) {
-		ScalingTrigger oldScalingTrigger = scalingTrigger;
-		scalingTrigger = newScalingTrigger;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, SpdPackage.SCALING_POLICY__SCALING_TRIGGER, oldScalingTrigger, newScalingTrigger);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
+		msgs = eDynamicInverseAdd((InternalEObject) newScalingTrigger, SpdPackage.SCALING_POLICY__SCALING_TRIGGER,
+				msgs);
 		return msgs;
 	}
 
@@ -279,17 +192,8 @@ public class ScalingPolicyImpl extends NamedElementImpl implements ScalingPolicy
 	 */
 	@Override
 	public void setScalingTrigger(ScalingTrigger newScalingTrigger) {
-		if (newScalingTrigger != scalingTrigger) {
-			NotificationChain msgs = null;
-			if (scalingTrigger != null)
-				msgs = ((InternalEObject)scalingTrigger).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - SpdPackage.SCALING_POLICY__SCALING_TRIGGER, null, msgs);
-			if (newScalingTrigger != null)
-				msgs = ((InternalEObject)newScalingTrigger).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - SpdPackage.SCALING_POLICY__SCALING_TRIGGER, null, msgs);
-			msgs = basicSetScalingTrigger(newScalingTrigger, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, SpdPackage.SCALING_POLICY__SCALING_TRIGGER, newScalingTrigger, newScalingTrigger));
+		eDynamicSet(SpdPackage.SCALING_POLICY__SCALING_TRIGGER, SpdPackage.Literals.SCALING_POLICY__SCALING_TRIGGER,
+				newScalingTrigger);
 	}
 
 	/**
@@ -300,12 +204,12 @@ public class ScalingPolicyImpl extends NamedElementImpl implements ScalingPolicy
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case SpdPackage.SCALING_POLICY__ADJUSTMENT_TYPE:
-				return basicSetAdjustmentType(null, msgs);
-			case SpdPackage.SCALING_POLICY__POLICY_CONSTRAINTS:
-				return ((InternalEList<?>)getPolicyConstraints()).basicRemove(otherEnd, msgs);
-			case SpdPackage.SCALING_POLICY__SCALING_TRIGGER:
-				return basicSetScalingTrigger(null, msgs);
+		case SpdPackage.SCALING_POLICY__ADJUSTMENT_TYPE:
+			return basicSetAdjustmentType(null, msgs);
+		case SpdPackage.SCALING_POLICY__POLICY_CONSTRAINTS:
+			return ((InternalEList<?>) getPolicyConstraints()).basicRemove(otherEnd, msgs);
+		case SpdPackage.SCALING_POLICY__SCALING_TRIGGER:
+			return basicSetScalingTrigger(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -318,17 +222,18 @@ public class ScalingPolicyImpl extends NamedElementImpl implements ScalingPolicy
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case SpdPackage.SCALING_POLICY__ACTIVE:
-				return isActive();
-			case SpdPackage.SCALING_POLICY__ADJUSTMENT_TYPE:
-				return getAdjustmentType();
-			case SpdPackage.SCALING_POLICY__TARGET_GROUP:
-				if (resolve) return getTargetGroup();
-				return basicGetTargetGroup();
-			case SpdPackage.SCALING_POLICY__POLICY_CONSTRAINTS:
-				return getPolicyConstraints();
-			case SpdPackage.SCALING_POLICY__SCALING_TRIGGER:
-				return getScalingTrigger();
+		case SpdPackage.SCALING_POLICY__ACTIVE:
+			return isActive();
+		case SpdPackage.SCALING_POLICY__ADJUSTMENT_TYPE:
+			return getAdjustmentType();
+		case SpdPackage.SCALING_POLICY__TARGET_GROUP:
+			if (resolve)
+				return getTargetGroup();
+			return basicGetTargetGroup();
+		case SpdPackage.SCALING_POLICY__POLICY_CONSTRAINTS:
+			return getPolicyConstraints();
+		case SpdPackage.SCALING_POLICY__SCALING_TRIGGER:
+			return getScalingTrigger();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -342,22 +247,22 @@ public class ScalingPolicyImpl extends NamedElementImpl implements ScalingPolicy
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case SpdPackage.SCALING_POLICY__ACTIVE:
-				setActive((Boolean)newValue);
-				return;
-			case SpdPackage.SCALING_POLICY__ADJUSTMENT_TYPE:
-				setAdjustmentType((AdjustmentType)newValue);
-				return;
-			case SpdPackage.SCALING_POLICY__TARGET_GROUP:
-				setTargetGroup((TargetGroup)newValue);
-				return;
-			case SpdPackage.SCALING_POLICY__POLICY_CONSTRAINTS:
-				getPolicyConstraints().clear();
-				getPolicyConstraints().addAll((Collection<? extends PolicyConstraint>)newValue);
-				return;
-			case SpdPackage.SCALING_POLICY__SCALING_TRIGGER:
-				setScalingTrigger((ScalingTrigger)newValue);
-				return;
+		case SpdPackage.SCALING_POLICY__ACTIVE:
+			setActive((Boolean) newValue);
+			return;
+		case SpdPackage.SCALING_POLICY__ADJUSTMENT_TYPE:
+			setAdjustmentType((AdjustmentType) newValue);
+			return;
+		case SpdPackage.SCALING_POLICY__TARGET_GROUP:
+			setTargetGroup((TargetGroup) newValue);
+			return;
+		case SpdPackage.SCALING_POLICY__POLICY_CONSTRAINTS:
+			getPolicyConstraints().clear();
+			getPolicyConstraints().addAll((Collection<? extends PolicyConstraint>) newValue);
+			return;
+		case SpdPackage.SCALING_POLICY__SCALING_TRIGGER:
+			setScalingTrigger((ScalingTrigger) newValue);
+			return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -370,21 +275,21 @@ public class ScalingPolicyImpl extends NamedElementImpl implements ScalingPolicy
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case SpdPackage.SCALING_POLICY__ACTIVE:
-				setActive(ACTIVE_EDEFAULT);
-				return;
-			case SpdPackage.SCALING_POLICY__ADJUSTMENT_TYPE:
-				setAdjustmentType((AdjustmentType)null);
-				return;
-			case SpdPackage.SCALING_POLICY__TARGET_GROUP:
-				setTargetGroup((TargetGroup)null);
-				return;
-			case SpdPackage.SCALING_POLICY__POLICY_CONSTRAINTS:
-				getPolicyConstraints().clear();
-				return;
-			case SpdPackage.SCALING_POLICY__SCALING_TRIGGER:
-				setScalingTrigger((ScalingTrigger)null);
-				return;
+		case SpdPackage.SCALING_POLICY__ACTIVE:
+			setActive(ACTIVE_EDEFAULT);
+			return;
+		case SpdPackage.SCALING_POLICY__ADJUSTMENT_TYPE:
+			setAdjustmentType((AdjustmentType) null);
+			return;
+		case SpdPackage.SCALING_POLICY__TARGET_GROUP:
+			setTargetGroup((TargetGroup) null);
+			return;
+		case SpdPackage.SCALING_POLICY__POLICY_CONSTRAINTS:
+			getPolicyConstraints().clear();
+			return;
+		case SpdPackage.SCALING_POLICY__SCALING_TRIGGER:
+			setScalingTrigger((ScalingTrigger) null);
+			return;
 		}
 		super.eUnset(featureID);
 	}
@@ -397,34 +302,18 @@ public class ScalingPolicyImpl extends NamedElementImpl implements ScalingPolicy
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case SpdPackage.SCALING_POLICY__ACTIVE:
-				return active != ACTIVE_EDEFAULT;
-			case SpdPackage.SCALING_POLICY__ADJUSTMENT_TYPE:
-				return adjustmentType != null;
-			case SpdPackage.SCALING_POLICY__TARGET_GROUP:
-				return targetGroup != null;
-			case SpdPackage.SCALING_POLICY__POLICY_CONSTRAINTS:
-				return policyConstraints != null && !policyConstraints.isEmpty();
-			case SpdPackage.SCALING_POLICY__SCALING_TRIGGER:
-				return scalingTrigger != null;
+		case SpdPackage.SCALING_POLICY__ACTIVE:
+			return isActive() != ACTIVE_EDEFAULT;
+		case SpdPackage.SCALING_POLICY__ADJUSTMENT_TYPE:
+			return getAdjustmentType() != null;
+		case SpdPackage.SCALING_POLICY__TARGET_GROUP:
+			return basicGetTargetGroup() != null;
+		case SpdPackage.SCALING_POLICY__POLICY_CONSTRAINTS:
+			return !getPolicyConstraints().isEmpty();
+		case SpdPackage.SCALING_POLICY__SCALING_TRIGGER:
+			return getScalingTrigger() != null;
 		}
 		return super.eIsSet(featureID);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String toString() {
-		if (eIsProxy()) return super.toString();
-
-		StringBuilder result = new StringBuilder(super.toString());
-		result.append(" (active: ");
-		result.append(active);
-		result.append(')');
-		return result.toString();
 	}
 
 } //ScalingPolicyImpl

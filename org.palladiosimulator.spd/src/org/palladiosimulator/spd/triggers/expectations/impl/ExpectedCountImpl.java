@@ -3,12 +3,7 @@
  */
 package org.palladiosimulator.spd.triggers.expectations.impl;
 
-import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.ecore.EClass;
-
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
-
 import org.palladiosimulator.spd.triggers.expectations.ExpectationsPackage;
 import org.palladiosimulator.spd.triggers.expectations.ExpectedCount;
 
@@ -37,16 +32,6 @@ public class ExpectedCountImpl extends ExpectedPrimitiveImpl implements Expected
 	protected static final int COUNT_EDEFAULT = 0;
 
 	/**
-	 * The cached value of the '{@link #getCount() <em>Count</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getCount()
-	 * @generated
-	 * @ordered
-	 */
-	protected int count = COUNT_EDEFAULT;
-
-	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -72,7 +57,8 @@ public class ExpectedCountImpl extends ExpectedPrimitiveImpl implements Expected
 	 */
 	@Override
 	public int getCount() {
-		return count;
+		return (Integer) eDynamicGet(ExpectationsPackage.EXPECTED_COUNT__COUNT,
+				ExpectationsPackage.Literals.EXPECTED_COUNT__COUNT, true, true);
 	}
 
 	/**
@@ -82,10 +68,8 @@ public class ExpectedCountImpl extends ExpectedPrimitiveImpl implements Expected
 	 */
 	@Override
 	public void setCount(int newCount) {
-		int oldCount = count;
-		count = newCount;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ExpectationsPackage.EXPECTED_COUNT__COUNT, oldCount, count));
+		eDynamicSet(ExpectationsPackage.EXPECTED_COUNT__COUNT, ExpectationsPackage.Literals.EXPECTED_COUNT__COUNT,
+				newCount);
 	}
 
 	/**
@@ -96,8 +80,8 @@ public class ExpectedCountImpl extends ExpectedPrimitiveImpl implements Expected
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case ExpectationsPackage.EXPECTED_COUNT__COUNT:
-				return getCount();
+		case ExpectationsPackage.EXPECTED_COUNT__COUNT:
+			return getCount();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -110,9 +94,9 @@ public class ExpectedCountImpl extends ExpectedPrimitiveImpl implements Expected
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case ExpectationsPackage.EXPECTED_COUNT__COUNT:
-				setCount((Integer)newValue);
-				return;
+		case ExpectationsPackage.EXPECTED_COUNT__COUNT:
+			setCount((Integer) newValue);
+			return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -125,9 +109,9 @@ public class ExpectedCountImpl extends ExpectedPrimitiveImpl implements Expected
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case ExpectationsPackage.EXPECTED_COUNT__COUNT:
-				setCount(COUNT_EDEFAULT);
-				return;
+		case ExpectationsPackage.EXPECTED_COUNT__COUNT:
+			setCount(COUNT_EDEFAULT);
+			return;
 		}
 		super.eUnset(featureID);
 	}
@@ -140,26 +124,10 @@ public class ExpectedCountImpl extends ExpectedPrimitiveImpl implements Expected
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case ExpectationsPackage.EXPECTED_COUNT__COUNT:
-				return count != COUNT_EDEFAULT;
+		case ExpectationsPackage.EXPECTED_COUNT__COUNT:
+			return getCount() != COUNT_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String toString() {
-		if (eIsProxy()) return super.toString();
-
-		StringBuilder result = new StringBuilder(super.toString());
-		result.append(" (count: ");
-		result.append(count);
-		result.append(')');
-		return result.toString();
 	}
 
 } //ExpectedCountImpl

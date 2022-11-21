@@ -6,6 +6,8 @@ package org.palladiosimulator.spd.constraints;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
 
+import de.uka.ipd.sdq.identifier.IdentifierPackage;
+
 /**
  * <!-- begin-user-doc -->
  * The <b>Package</b> for the model.
@@ -13,7 +15,6 @@ import org.eclipse.emf.ecore.EPackage;
  * <ul>
  *   <li>each class,</li>
  *   <li>each feature of each class,</li>
- *   <li>each operation of each class,</li>
  *   <li>each enum,</li>
  *   <li>and each data type</li>
  * </ul>
@@ -66,23 +67,22 @@ public interface ConstraintsPackage extends EPackage {
 	int ABSTRACT_CONSTRAINT = 0;
 
 	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ABSTRACT_CONSTRAINT__ID = IdentifierPackage.IDENTIFIER__ID;
+
+	/**
 	 * The number of structural features of the '<em>Abstract Constraint</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ABSTRACT_CONSTRAINT_FEATURE_COUNT = 0;
-
-	/**
-	 * The number of operations of the '<em>Abstract Constraint</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ABSTRACT_CONSTRAINT_OPERATION_COUNT = 0;
-
+	int ABSTRACT_CONSTRAINT_FEATURE_COUNT = IdentifierPackage.IDENTIFIER_FEATURE_COUNT + 0;
 
 	/**
 	 * Returns the meta object for class '{@link org.palladiosimulator.spd.constraints.AbstractConstraint <em>Abstract Constraint</em>}'.
@@ -109,7 +109,6 @@ public interface ConstraintsPackage extends EPackage {
 	 * <ul>
 	 *   <li>each class,</li>
 	 *   <li>each feature of each class,</li>
-	 *   <li>each operation of each class,</li>
 	 *   <li>each enum,</li>
 	 *   <li>and each data type</li>
 	 * </ul>

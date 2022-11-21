@@ -4,7 +4,6 @@
 package org.palladiosimulator.spd.constraints.policy.impl;
 
 import org.eclipse.emf.ecore.EClass;
-
 import org.palladiosimulator.spd.constraints.policy.PolicyPackage;
 import org.palladiosimulator.spd.constraints.policy.TemporalConstraint;
 

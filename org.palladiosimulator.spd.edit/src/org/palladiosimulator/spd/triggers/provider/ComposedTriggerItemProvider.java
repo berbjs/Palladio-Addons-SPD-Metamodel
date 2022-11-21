@@ -3,22 +3,17 @@
  */
 package org.palladiosimulator.spd.triggers.provider;
 
-
 import java.util.Collection;
 import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.ecore.EStructuralFeature;
-
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
-
 import org.palladiosimulator.spd.triggers.ComposedTrigger;
-import org.palladiosimulator.spd.triggers.LogicalOperator;
 import org.palladiosimulator.spd.triggers.TriggersFactory;
 import org.palladiosimulator.spd.triggers.TriggersPackage;
 
@@ -62,19 +57,13 @@ public class ComposedTriggerItemProvider extends ScalingTriggerItemProvider {
 	 * @generated
 	 */
 	protected void addLogicalOperatorPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_ComposedTrigger_logicalOperator_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ComposedTrigger_logicalOperator_feature", "_UI_ComposedTrigger_type"),
-				 TriggersPackage.Literals.COMPOSED_TRIGGER__LOGICAL_OPERATOR,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(
+				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+				getString("_UI_ComposedTrigger_logicalOperator_feature"),
+				getString("_UI_PropertyDescriptor_description", "_UI_ComposedTrigger_logicalOperator_feature",
+						"_UI_ComposedTrigger_type"),
+				TriggersPackage.Literals.COMPOSED_TRIGGER__LOGICAL_OPERATOR, true, false, false,
+				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -126,13 +115,10 @@ public class ComposedTriggerItemProvider extends ScalingTriggerItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		LogicalOperator labelValue = ((ComposedTrigger)object).getLogicalOperator();
-		String label = labelValue == null ? null : labelValue.toString();
-		return label == null || label.length() == 0 ?
-			getString("_UI_ComposedTrigger_type") :
-			getString("_UI_ComposedTrigger_type") + " " + label;
+		String label = ((ComposedTrigger) object).getId();
+		return label == null || label.length() == 0 ? getString("_UI_ComposedTrigger_type")
+				: getString("_UI_ComposedTrigger_type") + " " + label;
 	}
-
 
 	/**
 	 * This handles model notifications by calling {@link #updateChildren} to update any cached
@@ -146,12 +132,12 @@ public class ComposedTriggerItemProvider extends ScalingTriggerItemProvider {
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(ComposedTrigger.class)) {
-			case TriggersPackage.COMPOSED_TRIGGER__LOGICAL_OPERATOR:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-				return;
-			case TriggersPackage.COMPOSED_TRIGGER__SCALINGTRIGGER:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
-				return;
+		case TriggersPackage.COMPOSED_TRIGGER__LOGICAL_OPERATOR:
+			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+			return;
+		case TriggersPackage.COMPOSED_TRIGGER__SCALINGTRIGGER:
+			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
+			return;
 		}
 		super.notifyChanged(notification);
 	}
@@ -167,20 +153,14 @@ public class ComposedTriggerItemProvider extends ScalingTriggerItemProvider {
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 
-		newChildDescriptors.add
-			(createChildParameter
-				(TriggersPackage.Literals.COMPOSED_TRIGGER__SCALINGTRIGGER,
-				 TriggersFactory.eINSTANCE.createComposedTrigger()));
+		newChildDescriptors.add(createChildParameter(TriggersPackage.Literals.COMPOSED_TRIGGER__SCALINGTRIGGER,
+				TriggersFactory.eINSTANCE.createComposedTrigger()));
 
-		newChildDescriptors.add
-			(createChildParameter
-				(TriggersPackage.Literals.COMPOSED_TRIGGER__SCALINGTRIGGER,
-				 TriggersFactory.eINSTANCE.createSimpleFireOnValue()));
+		newChildDescriptors.add(createChildParameter(TriggersPackage.Literals.COMPOSED_TRIGGER__SCALINGTRIGGER,
+				TriggersFactory.eINSTANCE.createSimpleFireOnValue()));
 
-		newChildDescriptors.add
-			(createChildParameter
-				(TriggersPackage.Literals.COMPOSED_TRIGGER__SCALINGTRIGGER,
-				 TriggersFactory.eINSTANCE.createSimpleFireOnTrend()));
+		newChildDescriptors.add(createChildParameter(TriggersPackage.Literals.COMPOSED_TRIGGER__SCALINGTRIGGER,
+				TriggersFactory.eINSTANCE.createSimpleFireOnTrend()));
 	}
 
 }

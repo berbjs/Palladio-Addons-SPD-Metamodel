@@ -11,7 +11,7 @@ import org.eclipse.emf.common.util.EList;
  * <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
- * A ComposedTrigger composes two or more ScalingTriggers through a logical operator (i.e., AND, OR, XOR). This enables the defintion of composed triggers which encapsulate more advanced conditions on the state to fire the trigger. 
+ * A ComposedTrigger composes two or more ScalingTriggers through a logical operator (i.e., AND, OR, XOR). This enables the defintion of composed triggers which encapsulate more advanced conditions on the state to fire the trigger.
  * <!-- end-model-doc -->
  *
  * <p>

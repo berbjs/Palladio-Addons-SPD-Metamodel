@@ -3,14 +3,13 @@
  */
 package org.palladiosimulator.spd.constraints.policy;
 
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Thrashing Constraint</b></em>'.
  * <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
- * Thrashing constraint is used to constraint the thrashing of resources i.e. increase and decrease of resources. The constraint is defined by the minimum amount of time where no two decicions with adjustments in two oposite directions can occur. 
+ * Thrashing constraint is used to constraint the thrashing of resources i.e. increase and decrease of resources. The constraint is defined by the minimum amount of time where no two decicions with adjustments in two oposite directions can occur.
  * <!-- end-model-doc -->
  *
  * <p>

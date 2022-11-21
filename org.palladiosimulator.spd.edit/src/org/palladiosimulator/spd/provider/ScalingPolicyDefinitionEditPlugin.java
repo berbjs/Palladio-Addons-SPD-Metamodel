@@ -3,21 +3,15 @@
  */
 package org.palladiosimulator.spd.provider;
 
-import de.uka.ipd.sdq.identifier.provider.IdentifierEditPlugin;
-
-import de.uka.ipd.sdq.probfunction.provider.ProbabilityFunctionEditPlugin;
-
-import de.uka.ipd.sdq.stoex.provider.StoexEditPlugin;
-
-import de.uka.ipd.sdq.units.provider.UnitsEditPlugin;
-
 import org.eclipse.emf.common.EMFPlugin;
-
 import org.eclipse.emf.common.util.ResourceLocator;
-
 import org.eclipse.emf.ecore.provider.EcoreEditPlugin;
-
 import org.palladiosimulator.pcm.core.provider.PalladioComponentModelEditPlugin;
+
+import de.uka.ipd.sdq.identifier.provider.IdentifierEditPlugin;
+import de.uka.ipd.sdq.probfunction.provider.ProbabilityFunctionEditPlugin;
+import de.uka.ipd.sdq.stoex.provider.StoexEditPlugin;
+import de.uka.ipd.sdq.units.provider.UnitsEditPlugin;
 
 /**
  * This is the central singleton for the ScalingPolicyDefinition edit plugin.
@@ -49,15 +43,9 @@ public final class ScalingPolicyDefinitionEditPlugin extends EMFPlugin {
 	 * @generated
 	 */
 	public ScalingPolicyDefinitionEditPlugin() {
-		super
-		  (new ResourceLocator [] {
-		     EcoreEditPlugin.INSTANCE,
-		     IdentifierEditPlugin.INSTANCE,
-		     PalladioComponentModelEditPlugin.INSTANCE,
-		     ProbabilityFunctionEditPlugin.INSTANCE,
-		     StoexEditPlugin.INSTANCE,
-		     UnitsEditPlugin.INSTANCE,
-		   });
+		super(new ResourceLocator[] { EcoreEditPlugin.INSTANCE, IdentifierEditPlugin.INSTANCE,
+				PalladioComponentModelEditPlugin.INSTANCE, ProbabilityFunctionEditPlugin.INSTANCE,
+				StoexEditPlugin.INSTANCE, UnitsEditPlugin.INSTANCE, });
 	}
 
 	/**

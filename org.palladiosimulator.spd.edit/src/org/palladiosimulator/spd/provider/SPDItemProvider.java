@@ -3,22 +3,19 @@
  */
 package org.palladiosimulator.spd.provider;
 
-
 import java.util.Collection;
 import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-
+import org.eclipse.emf.common.util.ResourceLocator;
 import org.eclipse.emf.ecore.EStructuralFeature;
-
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
-
+import org.palladiosimulator.pcm.core.entity.provider.EntityItemProvider;
 import org.palladiosimulator.spd.SPD;
 import org.palladiosimulator.spd.SpdFactory;
 import org.palladiosimulator.spd.SpdPackage;
-
 import org.palladiosimulator.spd.targets.TargetsFactory;
 
 /**
@@ -27,7 +24,7 @@ import org.palladiosimulator.spd.targets.TargetsFactory;
  * <!-- end-user-doc -->
  * @generated
  */
-public class SPDItemProvider extends NamedElementItemProvider {
+public class SPDItemProvider extends EntityItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -103,12 +100,10 @@ public class SPDItemProvider extends NamedElementItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((SPD)object).getName();
-		return label == null || label.length() == 0 ?
-			getString("_UI_SPD_type") :
-			getString("_UI_SPD_type") + " " + label;
+		String label = ((SPD) object).getEntityName();
+		return label == null || label.length() == 0 ? getString("_UI_SPD_type")
+				: getString("_UI_SPD_type") + " " + label;
 	}
-
 
 	/**
 	 * This handles model notifications by calling {@link #updateChildren} to update any cached
@@ -122,10 +117,10 @@ public class SPDItemProvider extends NamedElementItemProvider {
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(SPD.class)) {
-			case SpdPackage.SPD__SCALING_POLICIES:
-			case SpdPackage.SPD__TARGET_GROUPS:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
-				return;
+		case SpdPackage.SPD__SCALING_POLICIES:
+		case SpdPackage.SPD__TARGET_GROUPS:
+			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
+			return;
 		}
 		super.notifyChanged(notification);
 	}
@@ -141,25 +136,28 @@ public class SPDItemProvider extends NamedElementItemProvider {
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 
-		newChildDescriptors.add
-			(createChildParameter
-				(SpdPackage.Literals.SPD__SCALING_POLICIES,
-				 SpdFactory.eINSTANCE.createScalingPolicy()));
+		newChildDescriptors.add(createChildParameter(SpdPackage.Literals.SPD__SCALING_POLICIES,
+				SpdFactory.eINSTANCE.createScalingPolicy()));
 
-		newChildDescriptors.add
-			(createChildParameter
-				(SpdPackage.Literals.SPD__TARGET_GROUPS,
-				 TargetsFactory.eINSTANCE.createElasticInfrastructure()));
+		newChildDescriptors.add(createChildParameter(SpdPackage.Literals.SPD__TARGET_GROUPS,
+				TargetsFactory.eINSTANCE.createElasticInfrastructure()));
 
-		newChildDescriptors.add
-			(createChildParameter
-				(SpdPackage.Literals.SPD__TARGET_GROUPS,
-				 TargetsFactory.eINSTANCE.createServiceGroup()));
+		newChildDescriptors.add(createChildParameter(SpdPackage.Literals.SPD__TARGET_GROUPS,
+				TargetsFactory.eINSTANCE.createServiceGroup()));
 
-		newChildDescriptors.add
-			(createChildParameter
-				(SpdPackage.Literals.SPD__TARGET_GROUPS,
-				 TargetsFactory.eINSTANCE.createCompetingConsumersGroup()));
+		newChildDescriptors.add(createChildParameter(SpdPackage.Literals.SPD__TARGET_GROUPS,
+				TargetsFactory.eINSTANCE.createCompetingConsumersGroup()));
+	}
+
+	/**
+	 * Return the resource locator for this item provider's resources.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public ResourceLocator getResourceLocator() {
+		return ScalingPolicyDefinitionEditPlugin.INSTANCE;
 	}
 
 }

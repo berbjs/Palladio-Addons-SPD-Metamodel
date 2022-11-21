@@ -3,23 +3,16 @@
  */
 package org.palladiosimulator.spd.presentation;
 
-import de.uka.ipd.sdq.identifier.provider.IdentifierEditPlugin;
-
-import de.uka.ipd.sdq.probfunction.provider.ProbabilityFunctionEditPlugin;
-
-import de.uka.ipd.sdq.stoex.provider.StoexEditPlugin;
-
-import de.uka.ipd.sdq.units.provider.UnitsEditPlugin;
-
 import org.eclipse.emf.common.EMFPlugin;
-
 import org.eclipse.emf.common.ui.EclipseUIPlugin;
-
 import org.eclipse.emf.common.util.ResourceLocator;
-
 import org.eclipse.emf.ecore.provider.EcoreEditPlugin;
-
 import org.palladiosimulator.pcm.core.provider.PalladioComponentModelEditPlugin;
+
+import de.uka.ipd.sdq.identifier.provider.IdentifierEditPlugin;
+import de.uka.ipd.sdq.probfunction.provider.ProbabilityFunctionEditPlugin;
+import de.uka.ipd.sdq.stoex.provider.StoexEditPlugin;
+import de.uka.ipd.sdq.units.provider.UnitsEditPlugin;
 
 /**
  * This is the central singleton for the ScalingPolicyDefinition editor plugin.
@@ -35,7 +28,7 @@ public final class ScalingPolicyDefinitionEditorPlugin extends EMFPlugin {
 	 * @generated
 	 */
 	public static final ScalingPolicyDefinitionEditorPlugin INSTANCE = new ScalingPolicyDefinitionEditorPlugin();
-	
+
 	/**
 	 * Keep track of the singleton.
 	 * <!-- begin-user-doc -->
@@ -51,15 +44,9 @@ public final class ScalingPolicyDefinitionEditorPlugin extends EMFPlugin {
 	 * @generated
 	 */
 	public ScalingPolicyDefinitionEditorPlugin() {
-		super
-			(new ResourceLocator [] {
-				EcoreEditPlugin.INSTANCE,
-				IdentifierEditPlugin.INSTANCE,
-				PalladioComponentModelEditPlugin.INSTANCE,
-				ProbabilityFunctionEditPlugin.INSTANCE,
-				StoexEditPlugin.INSTANCE,
-				UnitsEditPlugin.INSTANCE,
-			});
+		super(new ResourceLocator[] { EcoreEditPlugin.INSTANCE, IdentifierEditPlugin.INSTANCE,
+				PalladioComponentModelEditPlugin.INSTANCE, ProbabilityFunctionEditPlugin.INSTANCE,
+				StoexEditPlugin.INSTANCE, UnitsEditPlugin.INSTANCE, });
 	}
 
 	/**
@@ -73,7 +60,7 @@ public final class ScalingPolicyDefinitionEditorPlugin extends EMFPlugin {
 	public ResourceLocator getPluginResourceLocator() {
 		return plugin;
 	}
-	
+
 	/**
 	 * Returns the singleton instance of the Eclipse plugin.
 	 * <!-- begin-user-doc -->
@@ -84,7 +71,7 @@ public final class ScalingPolicyDefinitionEditorPlugin extends EMFPlugin {
 	public static Implementation getPlugin() {
 		return plugin;
 	}
-	
+
 	/**
 	 * The actual implementation of the Eclipse <b>Plugin</b>.
 	 * <!-- begin-user-doc -->
@@ -100,7 +87,7 @@ public final class ScalingPolicyDefinitionEditorPlugin extends EMFPlugin {
 		 */
 		public Implementation() {
 			super();
-	
+
 			// Remember the static instance.
 			//
 			plugin = this;

@@ -6,12 +6,19 @@ package org.palladiosimulator.spd.triggers.stimuli.impl;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
-
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
-
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
-
-import org.palladiosimulator.spd.triggers.stimuli.*;
+import org.palladiosimulator.spd.triggers.stimuli.CPUUtilization;
+import org.palladiosimulator.spd.triggers.stimuli.HDDUtilization;
+import org.palladiosimulator.spd.triggers.stimuli.MemoryUtilization;
+import org.palladiosimulator.spd.triggers.stimuli.NetworkUtilization;
+import org.palladiosimulator.spd.triggers.stimuli.NumberOfElements;
+import org.palladiosimulator.spd.triggers.stimuli.OperationResponseTime;
+import org.palladiosimulator.spd.triggers.stimuli.QueueLength;
+import org.palladiosimulator.spd.triggers.stimuli.SimulationTime;
+import org.palladiosimulator.spd.triggers.stimuli.StimuliFactory;
+import org.palladiosimulator.spd.triggers.stimuli.StimuliPackage;
+import org.palladiosimulator.spd.triggers.stimuli.TaskCount;
 
 /**
  * <!-- begin-user-doc -->
@@ -28,12 +35,12 @@ public class StimuliFactoryImpl extends EFactoryImpl implements StimuliFactory {
 	 */
 	public static StimuliFactory init() {
 		try {
-			StimuliFactory theStimuliFactory = (StimuliFactory)EPackage.Registry.INSTANCE.getEFactory(StimuliPackage.eNS_URI);
+			StimuliFactory theStimuliFactory = (StimuliFactory) EPackage.Registry.INSTANCE
+					.getEFactory(StimuliPackage.eNS_URI);
 			if (theStimuliFactory != null) {
 				return theStimuliFactory;
 			}
-		}
-		catch (Exception exception) {
+		} catch (Exception exception) {
 			EcorePlugin.INSTANCE.log(exception);
 		}
 		return new StimuliFactoryImpl();
@@ -57,17 +64,26 @@ public class StimuliFactoryImpl extends EFactoryImpl implements StimuliFactory {
 	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
-			case StimuliPackage.OPERATION_RESPONSE_TIME: return createOperationResponseTime();
-			case StimuliPackage.NUMBER_OF_ELEMENTS: return createNumberOfElements();
-			case StimuliPackage.CPU_UTILIZATION: return createCPUUtilization();
-			case StimuliPackage.MEMORY_UTILIZATION: return createMemoryUtilization();
-			case StimuliPackage.SIMULATION_TIME: return createSimulationTime();
-			case StimuliPackage.HDD_UTILIZATION: return createHDDUtilization();
-			case StimuliPackage.TASK_COUNT: return createTaskCount();
-			case StimuliPackage.QUEUE_LENGTH: return createQueueLength();
-			case StimuliPackage.NETWORK_UTILIZATION: return createNetworkUtilization();
-			default:
-				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
+		case StimuliPackage.OPERATION_RESPONSE_TIME:
+			return createOperationResponseTime();
+		case StimuliPackage.NUMBER_OF_ELEMENTS:
+			return createNumberOfElements();
+		case StimuliPackage.CPU_UTILIZATION:
+			return createCPUUtilization();
+		case StimuliPackage.MEMORY_UTILIZATION:
+			return createMemoryUtilization();
+		case StimuliPackage.SIMULATION_TIME:
+			return createSimulationTime();
+		case StimuliPackage.HDD_UTILIZATION:
+			return createHDDUtilization();
+		case StimuliPackage.TASK_COUNT:
+			return createTaskCount();
+		case StimuliPackage.QUEUE_LENGTH:
+			return createQueueLength();
+		case StimuliPackage.NETWORK_UTILIZATION:
+			return createNetworkUtilization();
+		default:
+			throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
 	}
 
@@ -177,7 +193,7 @@ public class StimuliFactoryImpl extends EFactoryImpl implements StimuliFactory {
 	 */
 	@Override
 	public StimuliPackage getStimuliPackage() {
-		return (StimuliPackage)getEPackage();
+		return (StimuliPackage) getEPackage();
 	}
 
 	/**

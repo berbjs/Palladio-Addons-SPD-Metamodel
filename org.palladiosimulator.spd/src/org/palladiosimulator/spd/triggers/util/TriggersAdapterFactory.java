@@ -5,12 +5,16 @@ package org.palladiosimulator.spd.triggers.util;
 
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
-
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
-
 import org.eclipse.emf.ecore.EObject;
+import org.palladiosimulator.spd.triggers.BaseTrigger;
+import org.palladiosimulator.spd.triggers.ComposedTrigger;
+import org.palladiosimulator.spd.triggers.ScalingTrigger;
+import org.palladiosimulator.spd.triggers.SimpleFireOnTrend;
+import org.palladiosimulator.spd.triggers.SimpleFireOnValue;
+import org.palladiosimulator.spd.triggers.TriggersPackage;
 
-import org.palladiosimulator.spd.triggers.*;
+import de.uka.ipd.sdq.identifier.Identifier;
 
 /**
  * <!-- begin-user-doc -->
@@ -55,7 +59,7 @@ public class TriggersAdapterFactory extends AdapterFactoryImpl {
 			return true;
 		}
 		if (object instanceof EObject) {
-			return ((EObject)object).eClass().getEPackage() == modelPackage;
+			return ((EObject) object).eClass().getEPackage() == modelPackage;
 		}
 		return false;
 	}
@@ -66,33 +70,42 @@ public class TriggersAdapterFactory extends AdapterFactoryImpl {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected TriggersSwitch<Adapter> modelSwitch =
-		new TriggersSwitch<Adapter>() {
-			@Override
-			public Adapter caseScalingTrigger(ScalingTrigger object) {
-				return createScalingTriggerAdapter();
-			}
-			@Override
-			public Adapter caseBaseTrigger(BaseTrigger object) {
-				return createBaseTriggerAdapter();
-			}
-			@Override
-			public Adapter caseComposedTrigger(ComposedTrigger object) {
-				return createComposedTriggerAdapter();
-			}
-			@Override
-			public Adapter caseSimpleFireOnValue(SimpleFireOnValue object) {
-				return createSimpleFireOnValueAdapter();
-			}
-			@Override
-			public Adapter caseSimpleFireOnTrend(SimpleFireOnTrend object) {
-				return createSimpleFireOnTrendAdapter();
-			}
-			@Override
-			public Adapter defaultCase(EObject object) {
-				return createEObjectAdapter();
-			}
-		};
+	protected TriggersSwitch<Adapter> modelSwitch = new TriggersSwitch<>() {
+		@Override
+		public Adapter caseScalingTrigger(ScalingTrigger object) {
+			return createScalingTriggerAdapter();
+		}
+
+		@Override
+		public Adapter caseBaseTrigger(BaseTrigger object) {
+			return createBaseTriggerAdapter();
+		}
+
+		@Override
+		public Adapter caseComposedTrigger(ComposedTrigger object) {
+			return createComposedTriggerAdapter();
+		}
+
+		@Override
+		public Adapter caseSimpleFireOnValue(SimpleFireOnValue object) {
+			return createSimpleFireOnValueAdapter();
+		}
+
+		@Override
+		public Adapter caseSimpleFireOnTrend(SimpleFireOnTrend object) {
+			return createSimpleFireOnTrendAdapter();
+		}
+
+		@Override
+		public Adapter caseIdentifier(Identifier object) {
+			return createIdentifierAdapter();
+		}
+
+		@Override
+		public Adapter defaultCase(EObject object) {
+			return createEObjectAdapter();
+		}
+	};
 
 	/**
 	 * Creates an adapter for the <code>target</code>.
@@ -104,9 +117,8 @@ public class TriggersAdapterFactory extends AdapterFactoryImpl {
 	 */
 	@Override
 	public Adapter createAdapter(Notifier target) {
-		return modelSwitch.doSwitch((EObject)target);
+		return modelSwitch.doSwitch((EObject) target);
 	}
-
 
 	/**
 	 * Creates a new adapter for an object of class '{@link org.palladiosimulator.spd.triggers.ScalingTrigger <em>Scaling Trigger</em>}'.
@@ -175,6 +187,20 @@ public class TriggersAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createSimpleFireOnTrendAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.identifier.Identifier <em>Identifier</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.uka.ipd.sdq.identifier.Identifier
+	 * @generated
+	 */
+	public Adapter createIdentifierAdapter() {
 		return null;
 	}
 

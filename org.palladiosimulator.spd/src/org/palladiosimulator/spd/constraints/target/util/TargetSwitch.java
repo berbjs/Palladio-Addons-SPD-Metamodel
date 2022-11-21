@@ -5,12 +5,13 @@ package org.palladiosimulator.spd.constraints.target.util;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
-
 import org.eclipse.emf.ecore.util.Switch;
-
 import org.palladiosimulator.spd.constraints.AbstractConstraint;
+import org.palladiosimulator.spd.constraints.target.TargetConstraint;
+import org.palladiosimulator.spd.constraints.target.TargetGroupSizeConstraint;
+import org.palladiosimulator.spd.constraints.target.TargetPackage;
 
-import org.palladiosimulator.spd.constraints.target.*;
+import de.uka.ipd.sdq.identifier.Identifier;
 
 /**
  * <!-- begin-user-doc -->
@@ -69,22 +70,32 @@ public class TargetSwitch<T> extends Switch<T> {
 	@Override
 	protected T doSwitch(int classifierID, EObject theEObject) {
 		switch (classifierID) {
-			case TargetPackage.TARGET_CONSTRAINT: {
-				TargetConstraint targetConstraint = (TargetConstraint)theEObject;
-				T result = caseTargetConstraint(targetConstraint);
-				if (result == null) result = caseAbstractConstraint(targetConstraint);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case TargetPackage.TARGET_GROUP_SIZE_CONSTRAINT: {
-				TargetGroupSizeConstraint targetGroupSizeConstraint = (TargetGroupSizeConstraint)theEObject;
-				T result = caseTargetGroupSizeConstraint(targetGroupSizeConstraint);
-				if (result == null) result = caseTargetConstraint(targetGroupSizeConstraint);
-				if (result == null) result = caseAbstractConstraint(targetGroupSizeConstraint);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			default: return defaultCase(theEObject);
+		case TargetPackage.TARGET_CONSTRAINT: {
+			TargetConstraint targetConstraint = (TargetConstraint) theEObject;
+			T result = caseTargetConstraint(targetConstraint);
+			if (result == null)
+				result = caseAbstractConstraint(targetConstraint);
+			if (result == null)
+				result = caseIdentifier(targetConstraint);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case TargetPackage.TARGET_GROUP_SIZE_CONSTRAINT: {
+			TargetGroupSizeConstraint targetGroupSizeConstraint = (TargetGroupSizeConstraint) theEObject;
+			T result = caseTargetGroupSizeConstraint(targetGroupSizeConstraint);
+			if (result == null)
+				result = caseTargetConstraint(targetGroupSizeConstraint);
+			if (result == null)
+				result = caseAbstractConstraint(targetGroupSizeConstraint);
+			if (result == null)
+				result = caseIdentifier(targetGroupSizeConstraint);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		default:
+			return defaultCase(theEObject);
 		}
 	}
 
@@ -115,6 +126,21 @@ public class TargetSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseTargetGroupSizeConstraint(TargetGroupSizeConstraint object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Identifier</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Identifier</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseIdentifier(Identifier object) {
 		return null;
 	}
 

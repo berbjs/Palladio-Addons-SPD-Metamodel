@@ -3,59 +3,37 @@
  */
 package org.palladiosimulator.spd.constraints.target.impl;
 
-import de.uka.ipd.sdq.identifier.IdentifierPackage;
-
-import de.uka.ipd.sdq.probfunction.ProbfunctionPackage;
-
-import de.uka.ipd.sdq.stoex.StoexPackage;
-
-import de.uka.ipd.sdq.units.UnitsPackage;
-
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EcorePackage;
-
 import org.eclipse.emf.ecore.impl.EPackageImpl;
-
 import org.palladiosimulator.pcm.PcmPackage;
-
 import org.palladiosimulator.spd.SpdPackage;
-
 import org.palladiosimulator.spd.adjustments.AdjustmentsPackage;
-
 import org.palladiosimulator.spd.adjustments.impl.AdjustmentsPackageImpl;
-
 import org.palladiosimulator.spd.constraints.ConstraintsPackage;
-
 import org.palladiosimulator.spd.constraints.impl.ConstraintsPackageImpl;
-
 import org.palladiosimulator.spd.constraints.policy.PolicyPackage;
-
 import org.palladiosimulator.spd.constraints.policy.impl.PolicyPackageImpl;
-
 import org.palladiosimulator.spd.constraints.target.TargetConstraint;
 import org.palladiosimulator.spd.constraints.target.TargetFactory;
 import org.palladiosimulator.spd.constraints.target.TargetGroupSizeConstraint;
 import org.palladiosimulator.spd.constraints.target.TargetPackage;
-
 import org.palladiosimulator.spd.impl.SpdPackageImpl;
-
 import org.palladiosimulator.spd.targets.TargetsPackage;
-
 import org.palladiosimulator.spd.targets.impl.TargetsPackageImpl;
-
 import org.palladiosimulator.spd.triggers.TriggersPackage;
-
 import org.palladiosimulator.spd.triggers.expectations.ExpectationsPackage;
-
 import org.palladiosimulator.spd.triggers.expectations.impl.ExpectationsPackageImpl;
-
 import org.palladiosimulator.spd.triggers.impl.TriggersPackageImpl;
-
 import org.palladiosimulator.spd.triggers.stimuli.StimuliPackage;
-
 import org.palladiosimulator.spd.triggers.stimuli.impl.StimuliPackageImpl;
+
+import de.uka.ipd.sdq.identifier.IdentifierPackage;
+import de.uka.ipd.sdq.probfunction.ProbfunctionPackage;
+import de.uka.ipd.sdq.stoex.StoexPackage;
+import de.uka.ipd.sdq.units.UnitsPackage;
 
 /**
  * <!-- begin-user-doc -->
@@ -117,11 +95,14 @@ public class TargetPackageImpl extends EPackageImpl implements TargetPackage {
 	 * @generated
 	 */
 	public static TargetPackage init() {
-		if (isInited) return (TargetPackage)EPackage.Registry.INSTANCE.getEPackage(TargetPackage.eNS_URI);
+		if (isInited)
+			return (TargetPackage) EPackage.Registry.INSTANCE.getEPackage(TargetPackage.eNS_URI);
 
 		// Obtain or create and register package
 		Object registeredTargetPackage = EPackage.Registry.INSTANCE.get(eNS_URI);
-		TargetPackageImpl theTargetPackage = registeredTargetPackage instanceof TargetPackageImpl ? (TargetPackageImpl)registeredTargetPackage : new TargetPackageImpl();
+		TargetPackageImpl theTargetPackage = registeredTargetPackage instanceof TargetPackageImpl
+				? (TargetPackageImpl) registeredTargetPackage
+				: new TargetPackageImpl();
 
 		isInited = true;
 
@@ -135,21 +116,36 @@ public class TargetPackageImpl extends EPackageImpl implements TargetPackage {
 
 		// Obtain or create and register interdependencies
 		Object registeredPackage = EPackage.Registry.INSTANCE.getEPackage(SpdPackage.eNS_URI);
-		SpdPackageImpl theSpdPackage = (SpdPackageImpl)(registeredPackage instanceof SpdPackageImpl ? registeredPackage : SpdPackage.eINSTANCE);
+		SpdPackageImpl theSpdPackage = (SpdPackageImpl) (registeredPackage instanceof SpdPackageImpl ? registeredPackage
+				: SpdPackage.eINSTANCE);
 		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(TargetsPackage.eNS_URI);
-		TargetsPackageImpl theTargetsPackage = (TargetsPackageImpl)(registeredPackage instanceof TargetsPackageImpl ? registeredPackage : TargetsPackage.eINSTANCE);
+		TargetsPackageImpl theTargetsPackage = (TargetsPackageImpl) (registeredPackage instanceof TargetsPackageImpl
+				? registeredPackage
+				: TargetsPackage.eINSTANCE);
 		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(AdjustmentsPackage.eNS_URI);
-		AdjustmentsPackageImpl theAdjustmentsPackage = (AdjustmentsPackageImpl)(registeredPackage instanceof AdjustmentsPackageImpl ? registeredPackage : AdjustmentsPackage.eINSTANCE);
+		AdjustmentsPackageImpl theAdjustmentsPackage = (AdjustmentsPackageImpl) (registeredPackage instanceof AdjustmentsPackageImpl
+				? registeredPackage
+				: AdjustmentsPackage.eINSTANCE);
 		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(ConstraintsPackage.eNS_URI);
-		ConstraintsPackageImpl theConstraintsPackage = (ConstraintsPackageImpl)(registeredPackage instanceof ConstraintsPackageImpl ? registeredPackage : ConstraintsPackage.eINSTANCE);
+		ConstraintsPackageImpl theConstraintsPackage = (ConstraintsPackageImpl) (registeredPackage instanceof ConstraintsPackageImpl
+				? registeredPackage
+				: ConstraintsPackage.eINSTANCE);
 		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(PolicyPackage.eNS_URI);
-		PolicyPackageImpl thePolicyPackage = (PolicyPackageImpl)(registeredPackage instanceof PolicyPackageImpl ? registeredPackage : PolicyPackage.eINSTANCE);
+		PolicyPackageImpl thePolicyPackage = (PolicyPackageImpl) (registeredPackage instanceof PolicyPackageImpl
+				? registeredPackage
+				: PolicyPackage.eINSTANCE);
 		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(TriggersPackage.eNS_URI);
-		TriggersPackageImpl theTriggersPackage = (TriggersPackageImpl)(registeredPackage instanceof TriggersPackageImpl ? registeredPackage : TriggersPackage.eINSTANCE);
+		TriggersPackageImpl theTriggersPackage = (TriggersPackageImpl) (registeredPackage instanceof TriggersPackageImpl
+				? registeredPackage
+				: TriggersPackage.eINSTANCE);
 		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(StimuliPackage.eNS_URI);
-		StimuliPackageImpl theStimuliPackage = (StimuliPackageImpl)(registeredPackage instanceof StimuliPackageImpl ? registeredPackage : StimuliPackage.eINSTANCE);
+		StimuliPackageImpl theStimuliPackage = (StimuliPackageImpl) (registeredPackage instanceof StimuliPackageImpl
+				? registeredPackage
+				: StimuliPackage.eINSTANCE);
 		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(ExpectationsPackage.eNS_URI);
-		ExpectationsPackageImpl theExpectationsPackage = (ExpectationsPackageImpl)(registeredPackage instanceof ExpectationsPackageImpl ? registeredPackage : ExpectationsPackage.eINSTANCE);
+		ExpectationsPackageImpl theExpectationsPackage = (ExpectationsPackageImpl) (registeredPackage instanceof ExpectationsPackageImpl
+				? registeredPackage
+				: ExpectationsPackage.eINSTANCE);
 
 		// Create package meta-data objects
 		theTargetPackage.createPackageContents();
@@ -208,7 +204,7 @@ public class TargetPackageImpl extends EPackageImpl implements TargetPackage {
 	 */
 	@Override
 	public EAttribute getTargetGroupSizeConstraint_MinSize() {
-		return (EAttribute)targetGroupSizeConstraintEClass.getEStructuralFeatures().get(0);
+		return (EAttribute) targetGroupSizeConstraintEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -218,7 +214,7 @@ public class TargetPackageImpl extends EPackageImpl implements TargetPackage {
 	 */
 	@Override
 	public EAttribute getTargetGroupSizeConstraint_MaxSize() {
-		return (EAttribute)targetGroupSizeConstraintEClass.getEStructuralFeatures().get(1);
+		return (EAttribute) targetGroupSizeConstraintEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -228,7 +224,7 @@ public class TargetPackageImpl extends EPackageImpl implements TargetPackage {
 	 */
 	@Override
 	public TargetFactory getTargetFactory() {
-		return (TargetFactory)getEFactoryInstance();
+		return (TargetFactory) getEFactoryInstance();
 	}
 
 	/**
@@ -246,7 +242,8 @@ public class TargetPackageImpl extends EPackageImpl implements TargetPackage {
 	 * @generated
 	 */
 	public void createPackageContents() {
-		if (isCreated) return;
+		if (isCreated)
+			return;
 		isCreated = true;
 
 		// Create classes and their features
@@ -272,7 +269,8 @@ public class TargetPackageImpl extends EPackageImpl implements TargetPackage {
 	 * @generated
 	 */
 	public void initializePackageContents() {
-		if (isInitialized) return;
+		if (isInitialized)
+			return;
 		isInitialized = true;
 
 		// Initialize package
@@ -281,7 +279,8 @@ public class TargetPackageImpl extends EPackageImpl implements TargetPackage {
 		setNsURI(eNS_URI);
 
 		// Obtain other dependent packages
-		ConstraintsPackage theConstraintsPackage = (ConstraintsPackage)EPackage.Registry.INSTANCE.getEPackage(ConstraintsPackage.eNS_URI);
+		ConstraintsPackage theConstraintsPackage = (ConstraintsPackage) EPackage.Registry.INSTANCE
+				.getEPackage(ConstraintsPackage.eNS_URI);
 
 		// Create type parameters
 
@@ -291,12 +290,18 @@ public class TargetPackageImpl extends EPackageImpl implements TargetPackage {
 		targetConstraintEClass.getESuperTypes().add(theConstraintsPackage.getAbstractConstraint());
 		targetGroupSizeConstraintEClass.getESuperTypes().add(this.getTargetConstraint());
 
-		// Initialize classes, features, and operations; add parameters
-		initEClass(targetConstraintEClass, TargetConstraint.class, "TargetConstraint", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		// Initialize classes and features; add operations and parameters
+		initEClass(targetConstraintEClass, TargetConstraint.class, "TargetConstraint", IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(targetGroupSizeConstraintEClass, TargetGroupSizeConstraint.class, "TargetGroupSizeConstraint", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getTargetGroupSizeConstraint_MinSize(), ecorePackage.getEInt(), "minSize", null, 1, 1, TargetGroupSizeConstraint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getTargetGroupSizeConstraint_MaxSize(), ecorePackage.getEInt(), "maxSize", null, 1, 1, TargetGroupSizeConstraint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(targetGroupSizeConstraintEClass, TargetGroupSizeConstraint.class, "TargetGroupSizeConstraint",
+				!IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getTargetGroupSizeConstraint_MinSize(), ecorePackage.getEInt(), "minSize", null, 1, 1,
+				TargetGroupSizeConstraint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
+				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getTargetGroupSizeConstraint_MaxSize(), ecorePackage.getEInt(), "maxSize", null, 1, 1,
+				TargetGroupSizeConstraint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
+				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 	}
 
 } //TargetPackageImpl

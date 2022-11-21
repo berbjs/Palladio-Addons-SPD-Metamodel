@@ -3,63 +3,40 @@
  */
 package org.palladiosimulator.spd.impl;
 
-import de.uka.ipd.sdq.identifier.IdentifierPackage;
-
-import de.uka.ipd.sdq.probfunction.ProbfunctionPackage;
-
-import de.uka.ipd.sdq.stoex.StoexPackage;
-
-import de.uka.ipd.sdq.units.UnitsPackage;
-
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.EValidator;
 import org.eclipse.emf.ecore.EcorePackage;
-
 import org.eclipse.emf.ecore.impl.EPackageImpl;
-
 import org.palladiosimulator.pcm.PcmPackage;
-
-import org.palladiosimulator.spd.NamedElement;
+import org.palladiosimulator.pcm.core.entity.EntityPackage;
 import org.palladiosimulator.spd.ScalingPolicy;
 import org.palladiosimulator.spd.SpdFactory;
 import org.palladiosimulator.spd.SpdPackage;
-
 import org.palladiosimulator.spd.adjustments.AdjustmentsPackage;
-
 import org.palladiosimulator.spd.adjustments.impl.AdjustmentsPackageImpl;
-
 import org.palladiosimulator.spd.constraints.ConstraintsPackage;
-
 import org.palladiosimulator.spd.constraints.impl.ConstraintsPackageImpl;
-
 import org.palladiosimulator.spd.constraints.policy.PolicyPackage;
-
 import org.palladiosimulator.spd.constraints.policy.impl.PolicyPackageImpl;
-
 import org.palladiosimulator.spd.constraints.target.TargetPackage;
-
 import org.palladiosimulator.spd.constraints.target.impl.TargetPackageImpl;
-
 import org.palladiosimulator.spd.targets.TargetsPackage;
-
 import org.palladiosimulator.spd.targets.impl.TargetsPackageImpl;
-
 import org.palladiosimulator.spd.triggers.TriggersPackage;
-
 import org.palladiosimulator.spd.triggers.expectations.ExpectationsPackage;
-
 import org.palladiosimulator.spd.triggers.expectations.impl.ExpectationsPackageImpl;
-
 import org.palladiosimulator.spd.triggers.impl.TriggersPackageImpl;
-
 import org.palladiosimulator.spd.triggers.stimuli.StimuliPackage;
-
 import org.palladiosimulator.spd.triggers.stimuli.impl.StimuliPackageImpl;
-
 import org.palladiosimulator.spd.util.SpdValidator;
+
+import de.uka.ipd.sdq.identifier.IdentifierPackage;
+import de.uka.ipd.sdq.probfunction.ProbfunctionPackage;
+import de.uka.ipd.sdq.stoex.StoexPackage;
+import de.uka.ipd.sdq.units.UnitsPackage;
 
 /**
  * <!-- begin-user-doc -->
@@ -81,13 +58,6 @@ public class SpdPackageImpl extends EPackageImpl implements SpdPackage {
 	 * @generated
 	 */
 	private EClass spdEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass namedElementEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -128,11 +98,14 @@ public class SpdPackageImpl extends EPackageImpl implements SpdPackage {
 	 * @generated
 	 */
 	public static SpdPackage init() {
-		if (isInited) return (SpdPackage)EPackage.Registry.INSTANCE.getEPackage(SpdPackage.eNS_URI);
+		if (isInited)
+			return (SpdPackage) EPackage.Registry.INSTANCE.getEPackage(SpdPackage.eNS_URI);
 
 		// Obtain or create and register package
 		Object registeredSpdPackage = EPackage.Registry.INSTANCE.get(eNS_URI);
-		SpdPackageImpl theSpdPackage = registeredSpdPackage instanceof SpdPackageImpl ? (SpdPackageImpl)registeredSpdPackage : new SpdPackageImpl();
+		SpdPackageImpl theSpdPackage = registeredSpdPackage instanceof SpdPackageImpl
+				? (SpdPackageImpl) registeredSpdPackage
+				: new SpdPackageImpl();
 
 		isInited = true;
 
@@ -146,21 +119,37 @@ public class SpdPackageImpl extends EPackageImpl implements SpdPackage {
 
 		// Obtain or create and register interdependencies
 		Object registeredPackage = EPackage.Registry.INSTANCE.getEPackage(TargetsPackage.eNS_URI);
-		TargetsPackageImpl theTargetsPackage = (TargetsPackageImpl)(registeredPackage instanceof TargetsPackageImpl ? registeredPackage : TargetsPackage.eINSTANCE);
+		TargetsPackageImpl theTargetsPackage = (TargetsPackageImpl) (registeredPackage instanceof TargetsPackageImpl
+				? registeredPackage
+				: TargetsPackage.eINSTANCE);
 		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(AdjustmentsPackage.eNS_URI);
-		AdjustmentsPackageImpl theAdjustmentsPackage = (AdjustmentsPackageImpl)(registeredPackage instanceof AdjustmentsPackageImpl ? registeredPackage : AdjustmentsPackage.eINSTANCE);
+		AdjustmentsPackageImpl theAdjustmentsPackage = (AdjustmentsPackageImpl) (registeredPackage instanceof AdjustmentsPackageImpl
+				? registeredPackage
+				: AdjustmentsPackage.eINSTANCE);
 		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(ConstraintsPackage.eNS_URI);
-		ConstraintsPackageImpl theConstraintsPackage = (ConstraintsPackageImpl)(registeredPackage instanceof ConstraintsPackageImpl ? registeredPackage : ConstraintsPackage.eINSTANCE);
+		ConstraintsPackageImpl theConstraintsPackage = (ConstraintsPackageImpl) (registeredPackage instanceof ConstraintsPackageImpl
+				? registeredPackage
+				: ConstraintsPackage.eINSTANCE);
 		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(PolicyPackage.eNS_URI);
-		PolicyPackageImpl thePolicyPackage = (PolicyPackageImpl)(registeredPackage instanceof PolicyPackageImpl ? registeredPackage : PolicyPackage.eINSTANCE);
+		PolicyPackageImpl thePolicyPackage = (PolicyPackageImpl) (registeredPackage instanceof PolicyPackageImpl
+				? registeredPackage
+				: PolicyPackage.eINSTANCE);
 		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(TargetPackage.eNS_URI);
-		TargetPackageImpl theTargetPackage = (TargetPackageImpl)(registeredPackage instanceof TargetPackageImpl ? registeredPackage : TargetPackage.eINSTANCE);
+		TargetPackageImpl theTargetPackage = (TargetPackageImpl) (registeredPackage instanceof TargetPackageImpl
+				? registeredPackage
+				: TargetPackage.eINSTANCE);
 		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(TriggersPackage.eNS_URI);
-		TriggersPackageImpl theTriggersPackage = (TriggersPackageImpl)(registeredPackage instanceof TriggersPackageImpl ? registeredPackage : TriggersPackage.eINSTANCE);
+		TriggersPackageImpl theTriggersPackage = (TriggersPackageImpl) (registeredPackage instanceof TriggersPackageImpl
+				? registeredPackage
+				: TriggersPackage.eINSTANCE);
 		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(StimuliPackage.eNS_URI);
-		StimuliPackageImpl theStimuliPackage = (StimuliPackageImpl)(registeredPackage instanceof StimuliPackageImpl ? registeredPackage : StimuliPackage.eINSTANCE);
+		StimuliPackageImpl theStimuliPackage = (StimuliPackageImpl) (registeredPackage instanceof StimuliPackageImpl
+				? registeredPackage
+				: StimuliPackage.eINSTANCE);
 		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(ExpectationsPackage.eNS_URI);
-		ExpectationsPackageImpl theExpectationsPackage = (ExpectationsPackageImpl)(registeredPackage instanceof ExpectationsPackageImpl ? registeredPackage : ExpectationsPackage.eINSTANCE);
+		ExpectationsPackageImpl theExpectationsPackage = (ExpectationsPackageImpl) (registeredPackage instanceof ExpectationsPackageImpl
+				? registeredPackage
+				: ExpectationsPackage.eINSTANCE);
 
 		// Create package meta-data objects
 		theSpdPackage.createPackageContents();
@@ -185,14 +174,12 @@ public class SpdPackageImpl extends EPackageImpl implements SpdPackage {
 		theExpectationsPackage.initializePackageContents();
 
 		// Register package validator
-		EValidator.Registry.INSTANCE.put
-			(theSpdPackage,
-			 new EValidator.Descriptor() {
-				 @Override
-				 public EValidator getEValidator() {
-					 return SpdValidator.INSTANCE;
-				 }
-			 });
+		EValidator.Registry.INSTANCE.put(theSpdPackage, new EValidator.Descriptor() {
+			@Override
+			public EValidator getEValidator() {
+				return SpdValidator.INSTANCE;
+			}
+		});
 
 		// Mark meta-data to indicate it can't be changed
 		theSpdPackage.freeze();
@@ -219,7 +206,7 @@ public class SpdPackageImpl extends EPackageImpl implements SpdPackage {
 	 */
 	@Override
 	public EAttribute getScalingPolicy_Active() {
-		return (EAttribute)scalingPolicyEClass.getEStructuralFeatures().get(0);
+		return (EAttribute) scalingPolicyEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -229,7 +216,7 @@ public class SpdPackageImpl extends EPackageImpl implements SpdPackage {
 	 */
 	@Override
 	public EReference getScalingPolicy_AdjustmentType() {
-		return (EReference)scalingPolicyEClass.getEStructuralFeatures().get(1);
+		return (EReference) scalingPolicyEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -239,7 +226,7 @@ public class SpdPackageImpl extends EPackageImpl implements SpdPackage {
 	 */
 	@Override
 	public EReference getScalingPolicy_TargetGroup() {
-		return (EReference)scalingPolicyEClass.getEStructuralFeatures().get(2);
+		return (EReference) scalingPolicyEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -249,7 +236,7 @@ public class SpdPackageImpl extends EPackageImpl implements SpdPackage {
 	 */
 	@Override
 	public EReference getScalingPolicy_PolicyConstraints() {
-		return (EReference)scalingPolicyEClass.getEStructuralFeatures().get(3);
+		return (EReference) scalingPolicyEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -259,7 +246,7 @@ public class SpdPackageImpl extends EPackageImpl implements SpdPackage {
 	 */
 	@Override
 	public EReference getScalingPolicy_ScalingTrigger() {
-		return (EReference)scalingPolicyEClass.getEStructuralFeatures().get(4);
+		return (EReference) scalingPolicyEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -279,7 +266,7 @@ public class SpdPackageImpl extends EPackageImpl implements SpdPackage {
 	 */
 	@Override
 	public EReference getSPD_ScalingPolicies() {
-		return (EReference)spdEClass.getEStructuralFeatures().get(0);
+		return (EReference) spdEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -289,27 +276,7 @@ public class SpdPackageImpl extends EPackageImpl implements SpdPackage {
 	 */
 	@Override
 	public EReference getSPD_TargetGroups() {
-		return (EReference)spdEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EClass getNamedElement() {
-		return namedElementEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EAttribute getNamedElement_Name() {
-		return (EAttribute)namedElementEClass.getEStructuralFeatures().get(0);
+		return (EReference) spdEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -319,7 +286,7 @@ public class SpdPackageImpl extends EPackageImpl implements SpdPackage {
 	 */
 	@Override
 	public SpdFactory getSpdFactory() {
-		return (SpdFactory)getEFactoryInstance();
+		return (SpdFactory) getEFactoryInstance();
 	}
 
 	/**
@@ -337,7 +304,8 @@ public class SpdPackageImpl extends EPackageImpl implements SpdPackage {
 	 * @generated
 	 */
 	public void createPackageContents() {
-		if (isCreated) return;
+		if (isCreated)
+			return;
 		isCreated = true;
 
 		// Create classes and their features
@@ -351,9 +319,6 @@ public class SpdPackageImpl extends EPackageImpl implements SpdPackage {
 		spdEClass = createEClass(SPD);
 		createEReference(spdEClass, SPD__SCALING_POLICIES);
 		createEReference(spdEClass, SPD__TARGET_GROUPS);
-
-		namedElementEClass = createEClass(NAMED_ELEMENT);
-		createEAttribute(namedElementEClass, NAMED_ELEMENT__NAME);
 	}
 
 	/**
@@ -371,7 +336,8 @@ public class SpdPackageImpl extends EPackageImpl implements SpdPackage {
 	 * @generated
 	 */
 	public void initializePackageContents() {
-		if (isInitialized) return;
+		if (isInitialized)
+			return;
 		isInitialized = true;
 
 		// Initialize package
@@ -380,12 +346,16 @@ public class SpdPackageImpl extends EPackageImpl implements SpdPackage {
 		setNsURI(eNS_URI);
 
 		// Obtain other dependent packages
-		TargetsPackage theTargetsPackage = (TargetsPackage)EPackage.Registry.INSTANCE.getEPackage(TargetsPackage.eNS_URI);
-		AdjustmentsPackage theAdjustmentsPackage = (AdjustmentsPackage)EPackage.Registry.INSTANCE.getEPackage(AdjustmentsPackage.eNS_URI);
-		ConstraintsPackage theConstraintsPackage = (ConstraintsPackage)EPackage.Registry.INSTANCE.getEPackage(ConstraintsPackage.eNS_URI);
-		TriggersPackage theTriggersPackage = (TriggersPackage)EPackage.Registry.INSTANCE.getEPackage(TriggersPackage.eNS_URI);
-		PolicyPackage thePolicyPackage = (PolicyPackage)EPackage.Registry.INSTANCE.getEPackage(PolicyPackage.eNS_URI);
-		EcorePackage theEcorePackage = (EcorePackage)EPackage.Registry.INSTANCE.getEPackage(EcorePackage.eNS_URI);
+		TargetsPackage theTargetsPackage = (TargetsPackage) EPackage.Registry.INSTANCE
+				.getEPackage(TargetsPackage.eNS_URI);
+		AdjustmentsPackage theAdjustmentsPackage = (AdjustmentsPackage) EPackage.Registry.INSTANCE
+				.getEPackage(AdjustmentsPackage.eNS_URI);
+		ConstraintsPackage theConstraintsPackage = (ConstraintsPackage) EPackage.Registry.INSTANCE
+				.getEPackage(ConstraintsPackage.eNS_URI);
+		TriggersPackage theTriggersPackage = (TriggersPackage) EPackage.Registry.INSTANCE
+				.getEPackage(TriggersPackage.eNS_URI);
+		EntityPackage theEntityPackage = (EntityPackage) EPackage.Registry.INSTANCE.getEPackage(EntityPackage.eNS_URI);
+		PolicyPackage thePolicyPackage = (PolicyPackage) EPackage.Registry.INSTANCE.getEPackage(PolicyPackage.eNS_URI);
 
 		// Add subpackages
 		getESubpackages().add(theTargetsPackage);
@@ -398,23 +368,35 @@ public class SpdPackageImpl extends EPackageImpl implements SpdPackage {
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
-		scalingPolicyEClass.getESuperTypes().add(this.getNamedElement());
-		spdEClass.getESuperTypes().add(this.getNamedElement());
+		scalingPolicyEClass.getESuperTypes().add(theEntityPackage.getEntity());
+		spdEClass.getESuperTypes().add(theEntityPackage.getEntity());
 
-		// Initialize classes, features, and operations; add parameters
-		initEClass(scalingPolicyEClass, ScalingPolicy.class, "ScalingPolicy", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getScalingPolicy_Active(), ecorePackage.getEBoolean(), "active", null, 0, 1, ScalingPolicy.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getScalingPolicy_AdjustmentType(), theAdjustmentsPackage.getAdjustmentType(), null, "adjustmentType", null, 1, 1, ScalingPolicy.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getScalingPolicy_TargetGroup(), theTargetsPackage.getTargetGroup(), null, "targetGroup", null, 1, 1, ScalingPolicy.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getScalingPolicy_PolicyConstraints(), thePolicyPackage.getPolicyConstraint(), null, "policyConstraints", null, 0, -1, ScalingPolicy.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getScalingPolicy_ScalingTrigger(), theTriggersPackage.getScalingTrigger(), null, "scalingTrigger", null, 1, 1, ScalingPolicy.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		// Initialize classes and features; add operations and parameters
+		initEClass(scalingPolicyEClass, ScalingPolicy.class, "ScalingPolicy", !IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getScalingPolicy_Active(), ecorePackage.getEBoolean(), "active", null, 0, 1, ScalingPolicy.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getScalingPolicy_AdjustmentType(), theAdjustmentsPackage.getAdjustmentType(), null,
+				"adjustmentType", null, 1, 1, ScalingPolicy.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
+				IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getScalingPolicy_TargetGroup(), theTargetsPackage.getTargetGroup(), null, "targetGroup", null, 1,
+				1, ScalingPolicy.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
+				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getScalingPolicy_PolicyConstraints(), thePolicyPackage.getPolicyConstraint(), null,
+				"policyConstraints", null, 0, -1, ScalingPolicy.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
+				IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getScalingPolicy_ScalingTrigger(), theTriggersPackage.getScalingTrigger(), null,
+				"scalingTrigger", null, 1, 1, ScalingPolicy.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
+				IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(spdEClass, org.palladiosimulator.spd.SPD.class, "SPD", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getSPD_ScalingPolicies(), this.getScalingPolicy(), null, "scalingPolicies", null, 1, -1, org.palladiosimulator.spd.SPD.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getSPD_TargetGroups(), theTargetsPackage.getTargetGroup(), null, "targetGroups", null, 1, -1, org.palladiosimulator.spd.SPD.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(namedElementEClass, NamedElement.class, "NamedElement", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getNamedElement_Name(), theEcorePackage.getEString(), "name", null, 0, 1, NamedElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(spdEClass, org.palladiosimulator.spd.SPD.class, "SPD", !IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getSPD_ScalingPolicies(), this.getScalingPolicy(), null, "scalingPolicies", null, 1, -1,
+				org.palladiosimulator.spd.SPD.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
+				!IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getSPD_TargetGroups(), theTargetsPackage.getTargetGroup(), null, "targetGroups", null, 1, -1,
+				org.palladiosimulator.spd.SPD.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
+				!IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);
@@ -432,18 +414,8 @@ public class SpdPackageImpl extends EPackageImpl implements SpdPackage {
 	 */
 	protected void createEcoreAnnotations() {
 		String source = "http://www.eclipse.org/emf/2002/Ecore";
-		addAnnotation
-		  (scalingPolicyEClass,
-		   source,
-		   new String[] {
-			   "constraints", "policyNameInvariant"
-		   });
-		addAnnotation
-		  (spdEClass,
-		   source,
-		   new String[] {
-			   "constraints", "nameInvariant noSameTargetGroup"
-		   });
+		addAnnotation(scalingPolicyEClass, source, new String[] { "constraints", "policyNameInvariant" });
+		addAnnotation(spdEClass, source, new String[] { "constraints", "nameInvariant noSameTargetGroup" });
 	}
 
 } //SpdPackageImpl

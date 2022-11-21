@@ -32,7 +32,7 @@ public interface ManagedElementsStateStimulus extends TargetGroupStateStimulus {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * The aggregation accross different resource containers in the Target Group. For example if two containers C1 and C2 have a resource utilizaiton of 0.6, respectively 0.8, then choosing AVERAGE as an aggreagtion method then it determines that the value of 0.7 should be compared against the threshold value. 
+	 * The aggregation accross different resource containers in the Target Group. For example if two containers C1 and C2 have a resource utilizaiton of 0.6, respectively 0.8, then choosing AVERAGE as an aggreagtion method then it determines that the value of 0.7 should be compared against the threshold value.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Aggregation Over Elements</em>' attribute.
 	 * @see org.palladiosimulator.spd.triggers.AGGREGATIONMETHOD

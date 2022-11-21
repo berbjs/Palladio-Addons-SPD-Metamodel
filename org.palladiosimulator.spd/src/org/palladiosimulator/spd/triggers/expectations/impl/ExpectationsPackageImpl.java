@@ -3,49 +3,25 @@
  */
 package org.palladiosimulator.spd.triggers.expectations.impl;
 
-import de.uka.ipd.sdq.identifier.IdentifierPackage;
-
-import de.uka.ipd.sdq.probfunction.ProbfunctionPackage;
-
-import de.uka.ipd.sdq.stoex.StoexPackage;
-
-import de.uka.ipd.sdq.units.UnitsPackage;
-
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EcorePackage;
-
 import org.eclipse.emf.ecore.impl.EPackageImpl;
-
 import org.palladiosimulator.pcm.PcmPackage;
-
 import org.palladiosimulator.spd.SpdPackage;
-
 import org.palladiosimulator.spd.adjustments.AdjustmentsPackage;
-
 import org.palladiosimulator.spd.adjustments.impl.AdjustmentsPackageImpl;
-
 import org.palladiosimulator.spd.constraints.ConstraintsPackage;
-
 import org.palladiosimulator.spd.constraints.impl.ConstraintsPackageImpl;
-
 import org.palladiosimulator.spd.constraints.policy.PolicyPackage;
-
 import org.palladiosimulator.spd.constraints.policy.impl.PolicyPackageImpl;
-
 import org.palladiosimulator.spd.constraints.target.TargetPackage;
-
 import org.palladiosimulator.spd.constraints.target.impl.TargetPackageImpl;
-
 import org.palladiosimulator.spd.impl.SpdPackageImpl;
-
 import org.palladiosimulator.spd.targets.TargetsPackage;
-
 import org.palladiosimulator.spd.targets.impl.TargetsPackageImpl;
-
 import org.palladiosimulator.spd.triggers.TriggersPackage;
-
 import org.palladiosimulator.spd.triggers.expectations.ExpectationsFactory;
 import org.palladiosimulator.spd.triggers.expectations.ExpectationsPackage;
 import org.palladiosimulator.spd.triggers.expectations.ExpectedCount;
@@ -55,12 +31,14 @@ import org.palladiosimulator.spd.triggers.expectations.ExpectedTime;
 import org.palladiosimulator.spd.triggers.expectations.ExpectedTrend;
 import org.palladiosimulator.spd.triggers.expectations.ExpectedValue;
 import org.palladiosimulator.spd.triggers.expectations.NoExpectation;
-
 import org.palladiosimulator.spd.triggers.impl.TriggersPackageImpl;
-
 import org.palladiosimulator.spd.triggers.stimuli.StimuliPackage;
-
 import org.palladiosimulator.spd.triggers.stimuli.impl.StimuliPackageImpl;
+
+import de.uka.ipd.sdq.identifier.IdentifierPackage;
+import de.uka.ipd.sdq.probfunction.ProbfunctionPackage;
+import de.uka.ipd.sdq.stoex.StoexPackage;
+import de.uka.ipd.sdq.units.UnitsPackage;
 
 /**
  * <!-- begin-user-doc -->
@@ -157,11 +135,14 @@ public class ExpectationsPackageImpl extends EPackageImpl implements Expectation
 	 * @generated
 	 */
 	public static ExpectationsPackage init() {
-		if (isInited) return (ExpectationsPackage)EPackage.Registry.INSTANCE.getEPackage(ExpectationsPackage.eNS_URI);
+		if (isInited)
+			return (ExpectationsPackage) EPackage.Registry.INSTANCE.getEPackage(ExpectationsPackage.eNS_URI);
 
 		// Obtain or create and register package
 		Object registeredExpectationsPackage = EPackage.Registry.INSTANCE.get(eNS_URI);
-		ExpectationsPackageImpl theExpectationsPackage = registeredExpectationsPackage instanceof ExpectationsPackageImpl ? (ExpectationsPackageImpl)registeredExpectationsPackage : new ExpectationsPackageImpl();
+		ExpectationsPackageImpl theExpectationsPackage = registeredExpectationsPackage instanceof ExpectationsPackageImpl
+				? (ExpectationsPackageImpl) registeredExpectationsPackage
+				: new ExpectationsPackageImpl();
 
 		isInited = true;
 
@@ -175,21 +156,36 @@ public class ExpectationsPackageImpl extends EPackageImpl implements Expectation
 
 		// Obtain or create and register interdependencies
 		Object registeredPackage = EPackage.Registry.INSTANCE.getEPackage(SpdPackage.eNS_URI);
-		SpdPackageImpl theSpdPackage = (SpdPackageImpl)(registeredPackage instanceof SpdPackageImpl ? registeredPackage : SpdPackage.eINSTANCE);
+		SpdPackageImpl theSpdPackage = (SpdPackageImpl) (registeredPackage instanceof SpdPackageImpl ? registeredPackage
+				: SpdPackage.eINSTANCE);
 		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(TargetsPackage.eNS_URI);
-		TargetsPackageImpl theTargetsPackage = (TargetsPackageImpl)(registeredPackage instanceof TargetsPackageImpl ? registeredPackage : TargetsPackage.eINSTANCE);
+		TargetsPackageImpl theTargetsPackage = (TargetsPackageImpl) (registeredPackage instanceof TargetsPackageImpl
+				? registeredPackage
+				: TargetsPackage.eINSTANCE);
 		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(AdjustmentsPackage.eNS_URI);
-		AdjustmentsPackageImpl theAdjustmentsPackage = (AdjustmentsPackageImpl)(registeredPackage instanceof AdjustmentsPackageImpl ? registeredPackage : AdjustmentsPackage.eINSTANCE);
+		AdjustmentsPackageImpl theAdjustmentsPackage = (AdjustmentsPackageImpl) (registeredPackage instanceof AdjustmentsPackageImpl
+				? registeredPackage
+				: AdjustmentsPackage.eINSTANCE);
 		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(ConstraintsPackage.eNS_URI);
-		ConstraintsPackageImpl theConstraintsPackage = (ConstraintsPackageImpl)(registeredPackage instanceof ConstraintsPackageImpl ? registeredPackage : ConstraintsPackage.eINSTANCE);
+		ConstraintsPackageImpl theConstraintsPackage = (ConstraintsPackageImpl) (registeredPackage instanceof ConstraintsPackageImpl
+				? registeredPackage
+				: ConstraintsPackage.eINSTANCE);
 		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(PolicyPackage.eNS_URI);
-		PolicyPackageImpl thePolicyPackage = (PolicyPackageImpl)(registeredPackage instanceof PolicyPackageImpl ? registeredPackage : PolicyPackage.eINSTANCE);
+		PolicyPackageImpl thePolicyPackage = (PolicyPackageImpl) (registeredPackage instanceof PolicyPackageImpl
+				? registeredPackage
+				: PolicyPackage.eINSTANCE);
 		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(TargetPackage.eNS_URI);
-		TargetPackageImpl theTargetPackage = (TargetPackageImpl)(registeredPackage instanceof TargetPackageImpl ? registeredPackage : TargetPackage.eINSTANCE);
+		TargetPackageImpl theTargetPackage = (TargetPackageImpl) (registeredPackage instanceof TargetPackageImpl
+				? registeredPackage
+				: TargetPackage.eINSTANCE);
 		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(TriggersPackage.eNS_URI);
-		TriggersPackageImpl theTriggersPackage = (TriggersPackageImpl)(registeredPackage instanceof TriggersPackageImpl ? registeredPackage : TriggersPackage.eINSTANCE);
+		TriggersPackageImpl theTriggersPackage = (TriggersPackageImpl) (registeredPackage instanceof TriggersPackageImpl
+				? registeredPackage
+				: TriggersPackage.eINSTANCE);
 		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(StimuliPackage.eNS_URI);
-		StimuliPackageImpl theStimuliPackage = (StimuliPackageImpl)(registeredPackage instanceof StimuliPackageImpl ? registeredPackage : StimuliPackage.eINSTANCE);
+		StimuliPackageImpl theStimuliPackage = (StimuliPackageImpl) (registeredPackage instanceof StimuliPackageImpl
+				? registeredPackage
+				: StimuliPackage.eINSTANCE);
 
 		// Create package meta-data objects
 		theExpectationsPackage.createPackageContents();
@@ -268,7 +264,7 @@ public class ExpectationsPackageImpl extends EPackageImpl implements Expectation
 	 */
 	@Override
 	public EAttribute getExpectedPercentage_Value() {
-		return (EAttribute)expectedPercentageEClass.getEStructuralFeatures().get(0);
+		return (EAttribute) expectedPercentageEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -288,7 +284,7 @@ public class ExpectationsPackageImpl extends EPackageImpl implements Expectation
 	 */
 	@Override
 	public EAttribute getExpectedCount_Count() {
-		return (EAttribute)expectedCountEClass.getEStructuralFeatures().get(0);
+		return (EAttribute) expectedCountEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -308,7 +304,7 @@ public class ExpectationsPackageImpl extends EPackageImpl implements Expectation
 	 */
 	@Override
 	public EAttribute getExpectedTime_Value() {
-		return (EAttribute)expectedTimeEClass.getEStructuralFeatures().get(0);
+		return (EAttribute) expectedTimeEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -328,7 +324,7 @@ public class ExpectationsPackageImpl extends EPackageImpl implements Expectation
 	 */
 	@Override
 	public EAttribute getExpectedTrend_Trend() {
-		return (EAttribute)expectedTrendEClass.getEStructuralFeatures().get(0);
+		return (EAttribute) expectedTrendEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -338,7 +334,7 @@ public class ExpectationsPackageImpl extends EPackageImpl implements Expectation
 	 */
 	@Override
 	public ExpectationsFactory getExpectationsFactory() {
-		return (ExpectationsFactory)getEFactoryInstance();
+		return (ExpectationsFactory) getEFactoryInstance();
 	}
 
 	/**
@@ -356,7 +352,8 @@ public class ExpectationsPackageImpl extends EPackageImpl implements Expectation
 	 * @generated
 	 */
 	public void createPackageContents() {
-		if (isCreated) return;
+		if (isCreated)
+			return;
 		isCreated = true;
 
 		// Create classes and their features
@@ -394,7 +391,8 @@ public class ExpectationsPackageImpl extends EPackageImpl implements Expectation
 	 * @generated
 	 */
 	public void initializePackageContents() {
-		if (isInitialized) return;
+		if (isInitialized)
+			return;
 		isInitialized = true;
 
 		// Initialize package
@@ -403,8 +401,9 @@ public class ExpectationsPackageImpl extends EPackageImpl implements Expectation
 		setNsURI(eNS_URI);
 
 		// Obtain other dependent packages
-		EcorePackage theEcorePackage = (EcorePackage)EPackage.Registry.INSTANCE.getEPackage(EcorePackage.eNS_URI);
-		TriggersPackage theTriggersPackage = (TriggersPackage)EPackage.Registry.INSTANCE.getEPackage(TriggersPackage.eNS_URI);
+		EcorePackage theEcorePackage = (EcorePackage) EPackage.Registry.INSTANCE.getEPackage(EcorePackage.eNS_URI);
+		TriggersPackage theTriggersPackage = (TriggersPackage) EPackage.Registry.INSTANCE
+				.getEPackage(TriggersPackage.eNS_URI);
 
 		// Create type parameters
 
@@ -418,24 +417,37 @@ public class ExpectationsPackageImpl extends EPackageImpl implements Expectation
 		expectedTimeEClass.getESuperTypes().add(this.getExpectedPrimitive());
 		expectedTrendEClass.getESuperTypes().add(this.getExpectedValue());
 
-		// Initialize classes, features, and operations; add parameters
-		initEClass(expectedValueEClass, ExpectedValue.class, "ExpectedValue", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		// Initialize classes and features; add operations and parameters
+		initEClass(expectedValueEClass, ExpectedValue.class, "ExpectedValue", IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(expectedPrimitiveEClass, ExpectedPrimitive.class, "ExpectedPrimitive", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(expectedPrimitiveEClass, ExpectedPrimitive.class, "ExpectedPrimitive", IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(noExpectationEClass, NoExpectation.class, "NoExpectation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(noExpectationEClass, NoExpectation.class, "NoExpectation", !IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(expectedPercentageEClass, ExpectedPercentage.class, "ExpectedPercentage", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getExpectedPercentage_Value(), theEcorePackage.getEDouble(), "value", null, 0, 1, ExpectedPercentage.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(expectedPercentageEClass, ExpectedPercentage.class, "ExpectedPercentage", !IS_ABSTRACT,
+				!IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getExpectedPercentage_Value(), theEcorePackage.getEDouble(), "value", null, 0, 1,
+				ExpectedPercentage.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+				!IS_DERIVED, IS_ORDERED);
 
-		initEClass(expectedCountEClass, ExpectedCount.class, "ExpectedCount", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getExpectedCount_Count(), theEcorePackage.getEInt(), "count", null, 0, 1, ExpectedCount.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(expectedCountEClass, ExpectedCount.class, "ExpectedCount", !IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getExpectedCount_Count(), theEcorePackage.getEInt(), "count", null, 0, 1, ExpectedCount.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(expectedTimeEClass, ExpectedTime.class, "ExpectedTime", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getExpectedTime_Value(), theEcorePackage.getEDouble(), "value", null, 0, 1, ExpectedTime.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(expectedTimeEClass, ExpectedTime.class, "ExpectedTime", !IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getExpectedTime_Value(), theEcorePackage.getEDouble(), "value", null, 0, 1, ExpectedTime.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(expectedTrendEClass, ExpectedTrend.class, "ExpectedTrend", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getExpectedTrend_Trend(), theTriggersPackage.getTrendPattern(), "trend", null, 0, 1, ExpectedTrend.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(expectedTrendEClass, ExpectedTrend.class, "ExpectedTrend", !IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getExpectedTrend_Trend(), theTriggersPackage.getTrendPattern(), "trend", null, 0, 1,
+				ExpectedTrend.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+				!IS_DERIVED, IS_ORDERED);
 	}
 
 } //ExpectationsPackageImpl

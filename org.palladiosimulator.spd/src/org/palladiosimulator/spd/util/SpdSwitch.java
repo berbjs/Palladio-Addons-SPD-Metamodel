@@ -5,10 +5,16 @@ package org.palladiosimulator.spd.util;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
-
 import org.eclipse.emf.ecore.util.Switch;
+import org.palladiosimulator.pcm.PCMBaseClass;
+import org.palladiosimulator.pcm.PCMClass;
+import org.palladiosimulator.pcm.core.entity.Entity;
+import org.palladiosimulator.pcm.core.entity.NamedElement;
+import org.palladiosimulator.spd.SPD;
+import org.palladiosimulator.spd.ScalingPolicy;
+import org.palladiosimulator.spd.SpdPackage;
 
-import org.palladiosimulator.spd.*;
+import de.uka.ipd.sdq.identifier.Identifier;
 
 /**
  * <!-- begin-user-doc -->
@@ -67,27 +73,42 @@ public class SpdSwitch<T> extends Switch<T> {
 	@Override
 	protected T doSwitch(int classifierID, EObject theEObject) {
 		switch (classifierID) {
-			case SpdPackage.SCALING_POLICY: {
-				ScalingPolicy scalingPolicy = (ScalingPolicy)theEObject;
-				T result = caseScalingPolicy(scalingPolicy);
-				if (result == null) result = caseNamedElement(scalingPolicy);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case SpdPackage.SPD: {
-				SPD spd = (SPD)theEObject;
-				T result = caseSPD(spd);
-				if (result == null) result = caseNamedElement(spd);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case SpdPackage.NAMED_ELEMENT: {
-				NamedElement namedElement = (NamedElement)theEObject;
-				T result = caseNamedElement(namedElement);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			default: return defaultCase(theEObject);
+		case SpdPackage.SCALING_POLICY: {
+			ScalingPolicy scalingPolicy = (ScalingPolicy) theEObject;
+			T result = caseScalingPolicy(scalingPolicy);
+			if (result == null)
+				result = caseEntity(scalingPolicy);
+			if (result == null)
+				result = caseIdentifier(scalingPolicy);
+			if (result == null)
+				result = caseNamedElement(scalingPolicy);
+			if (result == null)
+				result = casePCMBaseClass(scalingPolicy);
+			if (result == null)
+				result = casePCMClass(scalingPolicy);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case SpdPackage.SPD: {
+			SPD spd = (SPD) theEObject;
+			T result = caseSPD(spd);
+			if (result == null)
+				result = caseEntity(spd);
+			if (result == null)
+				result = caseIdentifier(spd);
+			if (result == null)
+				result = caseNamedElement(spd);
+			if (result == null)
+				result = casePCMBaseClass(spd);
+			if (result == null)
+				result = casePCMClass(spd);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		default:
+			return defaultCase(theEObject);
 		}
 	}
 
@@ -122,6 +143,51 @@ public class SpdSwitch<T> extends Switch<T> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Identifier</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Identifier</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseIdentifier(Identifier object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>PCM Class</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>PCM Class</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T casePCMClass(PCMClass object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>PCM Base Class</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>PCM Base Class</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T casePCMBaseClass(PCMBaseClass object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Named Element</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -133,6 +199,21 @@ public class SpdSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseNamedElement(NamedElement object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Entity</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Entity</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseEntity(Entity object) {
 		return null;
 	}
 

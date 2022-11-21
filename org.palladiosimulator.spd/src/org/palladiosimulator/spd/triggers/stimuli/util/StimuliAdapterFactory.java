@@ -5,12 +5,24 @@ package org.palladiosimulator.spd.triggers.stimuli.util;
 
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
-
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
-
 import org.eclipse.emf.ecore.EObject;
-
-import org.palladiosimulator.spd.triggers.stimuli.*;
+import org.palladiosimulator.spd.triggers.stimuli.CPUUtilization;
+import org.palladiosimulator.spd.triggers.stimuli.HDDUtilization;
+import org.palladiosimulator.spd.triggers.stimuli.ManagedElementsStateStimulus;
+import org.palladiosimulator.spd.triggers.stimuli.MemoryUtilization;
+import org.palladiosimulator.spd.triggers.stimuli.NetworkUtilization;
+import org.palladiosimulator.spd.triggers.stimuli.NumberOfElements;
+import org.palladiosimulator.spd.triggers.stimuli.OperationResponseTime;
+import org.palladiosimulator.spd.triggers.stimuli.QueueLength;
+import org.palladiosimulator.spd.triggers.stimuli.ResourceUtilizationStimulus;
+import org.palladiosimulator.spd.triggers.stimuli.SimulationStateStimulus;
+import org.palladiosimulator.spd.triggers.stimuli.SimulationTime;
+import org.palladiosimulator.spd.triggers.stimuli.SoruceInterfaceStimulus;
+import org.palladiosimulator.spd.triggers.stimuli.StimuliPackage;
+import org.palladiosimulator.spd.triggers.stimuli.Stimulus;
+import org.palladiosimulator.spd.triggers.stimuli.TargetGroupStateStimulus;
+import org.palladiosimulator.spd.triggers.stimuli.TaskCount;
 
 /**
  * <!-- begin-user-doc -->
@@ -55,7 +67,7 @@ public class StimuliAdapterFactory extends AdapterFactoryImpl {
 			return true;
 		}
 		if (object instanceof EObject) {
-			return ((EObject)object).eClass().getEPackage() == modelPackage;
+			return ((EObject) object).eClass().getEPackage() == modelPackage;
 		}
 		return false;
 	}
@@ -66,73 +78,87 @@ public class StimuliAdapterFactory extends AdapterFactoryImpl {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected StimuliSwitch<Adapter> modelSwitch =
-		new StimuliSwitch<Adapter>() {
-			@Override
-			public Adapter caseStimulus(Stimulus object) {
-				return createStimulusAdapter();
-			}
-			@Override
-			public Adapter caseTargetGroupStateStimulus(TargetGroupStateStimulus object) {
-				return createTargetGroupStateStimulusAdapter();
-			}
-			@Override
-			public Adapter caseSimulationStateStimulus(SimulationStateStimulus object) {
-				return createSimulationStateStimulusAdapter();
-			}
-			@Override
-			public Adapter caseSoruceInterfaceStimulus(SoruceInterfaceStimulus object) {
-				return createSoruceInterfaceStimulusAdapter();
-			}
-			@Override
-			public Adapter caseOperationResponseTime(OperationResponseTime object) {
-				return createOperationResponseTimeAdapter();
-			}
-			@Override
-			public Adapter caseNumberOfElements(NumberOfElements object) {
-				return createNumberOfElementsAdapter();
-			}
-			@Override
-			public Adapter caseManagedElementsStateStimulus(ManagedElementsStateStimulus object) {
-				return createManagedElementsStateStimulusAdapter();
-			}
-			@Override
-			public Adapter caseCPUUtilization(CPUUtilization object) {
-				return createCPUUtilizationAdapter();
-			}
-			@Override
-			public Adapter caseMemoryUtilization(MemoryUtilization object) {
-				return createMemoryUtilizationAdapter();
-			}
-			@Override
-			public Adapter caseSimulationTime(SimulationTime object) {
-				return createSimulationTimeAdapter();
-			}
-			@Override
-			public Adapter caseHDDUtilization(HDDUtilization object) {
-				return createHDDUtilizationAdapter();
-			}
-			@Override
-			public Adapter caseResourceUtilizationStimulus(ResourceUtilizationStimulus object) {
-				return createResourceUtilizationStimulusAdapter();
-			}
-			@Override
-			public Adapter caseTaskCount(TaskCount object) {
-				return createTaskCountAdapter();
-			}
-			@Override
-			public Adapter caseQueueLength(QueueLength object) {
-				return createQueueLengthAdapter();
-			}
-			@Override
-			public Adapter caseNetworkUtilization(NetworkUtilization object) {
-				return createNetworkUtilizationAdapter();
-			}
-			@Override
-			public Adapter defaultCase(EObject object) {
-				return createEObjectAdapter();
-			}
-		};
+	protected StimuliSwitch<Adapter> modelSwitch = new StimuliSwitch<>() {
+		@Override
+		public Adapter caseStimulus(Stimulus object) {
+			return createStimulusAdapter();
+		}
+
+		@Override
+		public Adapter caseTargetGroupStateStimulus(TargetGroupStateStimulus object) {
+			return createTargetGroupStateStimulusAdapter();
+		}
+
+		@Override
+		public Adapter caseSimulationStateStimulus(SimulationStateStimulus object) {
+			return createSimulationStateStimulusAdapter();
+		}
+
+		@Override
+		public Adapter caseSoruceInterfaceStimulus(SoruceInterfaceStimulus object) {
+			return createSoruceInterfaceStimulusAdapter();
+		}
+
+		@Override
+		public Adapter caseOperationResponseTime(OperationResponseTime object) {
+			return createOperationResponseTimeAdapter();
+		}
+
+		@Override
+		public Adapter caseNumberOfElements(NumberOfElements object) {
+			return createNumberOfElementsAdapter();
+		}
+
+		@Override
+		public Adapter caseManagedElementsStateStimulus(ManagedElementsStateStimulus object) {
+			return createManagedElementsStateStimulusAdapter();
+		}
+
+		@Override
+		public Adapter caseCPUUtilization(CPUUtilization object) {
+			return createCPUUtilizationAdapter();
+		}
+
+		@Override
+		public Adapter caseMemoryUtilization(MemoryUtilization object) {
+			return createMemoryUtilizationAdapter();
+		}
+
+		@Override
+		public Adapter caseSimulationTime(SimulationTime object) {
+			return createSimulationTimeAdapter();
+		}
+
+		@Override
+		public Adapter caseHDDUtilization(HDDUtilization object) {
+			return createHDDUtilizationAdapter();
+		}
+
+		@Override
+		public Adapter caseResourceUtilizationStimulus(ResourceUtilizationStimulus object) {
+			return createResourceUtilizationStimulusAdapter();
+		}
+
+		@Override
+		public Adapter caseTaskCount(TaskCount object) {
+			return createTaskCountAdapter();
+		}
+
+		@Override
+		public Adapter caseQueueLength(QueueLength object) {
+			return createQueueLengthAdapter();
+		}
+
+		@Override
+		public Adapter caseNetworkUtilization(NetworkUtilization object) {
+			return createNetworkUtilizationAdapter();
+		}
+
+		@Override
+		public Adapter defaultCase(EObject object) {
+			return createEObjectAdapter();
+		}
+	};
 
 	/**
 	 * Creates an adapter for the <code>target</code>.
@@ -144,9 +170,8 @@ public class StimuliAdapterFactory extends AdapterFactoryImpl {
 	 */
 	@Override
 	public Adapter createAdapter(Notifier target) {
-		return modelSwitch.doSwitch((EObject)target);
+		return modelSwitch.doSwitch((EObject) target);
 	}
-
 
 	/**
 	 * Creates a new adapter for an object of class '{@link org.palladiosimulator.spd.triggers.stimuli.Stimulus <em>Stimulus</em>}'.

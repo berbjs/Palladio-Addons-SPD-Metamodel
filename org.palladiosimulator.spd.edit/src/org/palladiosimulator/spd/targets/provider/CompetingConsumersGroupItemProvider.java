@@ -3,15 +3,12 @@
  */
 package org.palladiosimulator.spd.targets.provider;
 
-
 import java.util.Collection;
 import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
-
 import org.palladiosimulator.spd.targets.CompetingConsumersGroup;
 
 /**
@@ -65,12 +62,10 @@ public class CompetingConsumersGroupItemProvider extends TargetGroupItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((CompetingConsumersGroup)object).getName();
-		return label == null || label.length() == 0 ?
-			getString("_UI_CompetingConsumersGroup_type") :
-			getString("_UI_CompetingConsumersGroup_type") + " " + label;
+		String label = ((CompetingConsumersGroup) object).getEntityName();
+		return label == null || label.length() == 0 ? getString("_UI_CompetingConsumersGroup_type")
+				: getString("_UI_CompetingConsumersGroup_type") + " " + label;
 	}
-
 
 	/**
 	 * This handles model notifications by calling {@link #updateChildren} to update any cached

@@ -3,19 +3,15 @@
  */
 package org.palladiosimulator.spd.triggers.provider;
 
-
 import java.util.Collection;
 import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
-
-import org.palladiosimulator.spd.triggers.RelationalOperator;
 import org.palladiosimulator.spd.triggers.SimpleFireOnValue;
 import org.palladiosimulator.spd.triggers.TriggersPackage;
 
@@ -59,19 +55,13 @@ public class SimpleFireOnValueItemProvider extends BaseTriggerItemProvider {
 	 * @generated
 	 */
 	protected void addRelationalOperatorPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_SimpleFireOnValue_relationalOperator_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_SimpleFireOnValue_relationalOperator_feature", "_UI_SimpleFireOnValue_type"),
-				 TriggersPackage.Literals.SIMPLE_FIRE_ON_VALUE__RELATIONAL_OPERATOR,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(), getString("_UI_SimpleFireOnValue_relationalOperator_feature"),
+						getString("_UI_PropertyDescriptor_description",
+								"_UI_SimpleFireOnValue_relationalOperator_feature", "_UI_SimpleFireOnValue_type"),
+						TriggersPackage.Literals.SIMPLE_FIRE_ON_VALUE__RELATIONAL_OPERATOR, true, false, false,
+						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -93,13 +83,10 @@ public class SimpleFireOnValueItemProvider extends BaseTriggerItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		RelationalOperator labelValue = ((SimpleFireOnValue)object).getRelationalOperator();
-		String label = labelValue == null ? null : labelValue.toString();
-		return label == null || label.length() == 0 ?
-			getString("_UI_SimpleFireOnValue_type") :
-			getString("_UI_SimpleFireOnValue_type") + " " + label;
+		String label = ((SimpleFireOnValue) object).getId();
+		return label == null || label.length() == 0 ? getString("_UI_SimpleFireOnValue_type")
+				: getString("_UI_SimpleFireOnValue_type") + " " + label;
 	}
-
 
 	/**
 	 * This handles model notifications by calling {@link #updateChildren} to update any cached
@@ -113,9 +100,9 @@ public class SimpleFireOnValueItemProvider extends BaseTriggerItemProvider {
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(SimpleFireOnValue.class)) {
-			case TriggersPackage.SIMPLE_FIRE_ON_VALUE__RELATIONAL_OPERATOR:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-				return;
+		case TriggersPackage.SIMPLE_FIRE_ON_VALUE__RELATIONAL_OPERATOR:
+			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+			return;
 		}
 		super.notifyChanged(notification);
 	}

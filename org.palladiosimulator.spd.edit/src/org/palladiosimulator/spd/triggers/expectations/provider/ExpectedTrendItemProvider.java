@@ -3,20 +3,16 @@
  */
 package org.palladiosimulator.spd.triggers.expectations.provider;
 
-
 import java.util.Collection;
 import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
-
 import org.palladiosimulator.spd.triggers.TrendPattern;
-
 import org.palladiosimulator.spd.triggers.expectations.ExpectationsPackage;
 import org.palladiosimulator.spd.triggers.expectations.ExpectedTrend;
 
@@ -60,19 +56,13 @@ public class ExpectedTrendItemProvider extends ExpectedValueItemProvider {
 	 * @generated
 	 */
 	protected void addTrendPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_ExpectedTrend_trend_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ExpectedTrend_trend_feature", "_UI_ExpectedTrend_type"),
-				 ExpectationsPackage.Literals.EXPECTED_TREND__TREND,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(), getString("_UI_ExpectedTrend_trend_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_ExpectedTrend_trend_feature",
+								"_UI_ExpectedTrend_type"),
+						ExpectationsPackage.Literals.EXPECTED_TREND__TREND, true, false, false,
+						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -94,13 +84,11 @@ public class ExpectedTrendItemProvider extends ExpectedValueItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		TrendPattern labelValue = ((ExpectedTrend)object).getTrend();
+		TrendPattern labelValue = ((ExpectedTrend) object).getTrend();
 		String label = labelValue == null ? null : labelValue.toString();
-		return label == null || label.length() == 0 ?
-			getString("_UI_ExpectedTrend_type") :
-			getString("_UI_ExpectedTrend_type") + " " + label;
+		return label == null || label.length() == 0 ? getString("_UI_ExpectedTrend_type")
+				: getString("_UI_ExpectedTrend_type") + " " + label;
 	}
-
 
 	/**
 	 * This handles model notifications by calling {@link #updateChildren} to update any cached
@@ -114,9 +102,9 @@ public class ExpectedTrendItemProvider extends ExpectedValueItemProvider {
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(ExpectedTrend.class)) {
-			case ExpectationsPackage.EXPECTED_TREND__TREND:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-				return;
+		case ExpectationsPackage.EXPECTED_TREND__TREND:
+			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+			return;
 		}
 		super.notifyChanged(notification);
 	}

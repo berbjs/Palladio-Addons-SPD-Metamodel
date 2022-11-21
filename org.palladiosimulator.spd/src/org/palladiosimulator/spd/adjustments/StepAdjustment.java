@@ -3,7 +3,6 @@
  */
 package org.palladiosimulator.spd.adjustments;
 
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Step Adjustment</b></em>'.

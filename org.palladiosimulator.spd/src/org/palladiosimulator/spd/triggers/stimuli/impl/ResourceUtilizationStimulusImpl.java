@@ -4,7 +4,6 @@
 package org.palladiosimulator.spd.triggers.stimuli.impl;
 
 import org.eclipse.emf.ecore.EClass;
-
 import org.palladiosimulator.spd.triggers.stimuli.ResourceUtilizationStimulus;
 import org.palladiosimulator.spd.triggers.stimuli.StimuliPackage;
 
@@ -15,7 +14,8 @@ import org.palladiosimulator.spd.triggers.stimuli.StimuliPackage;
  *
  * @generated
  */
-public abstract class ResourceUtilizationStimulusImpl extends ManagedElementsStateStimulusImpl implements ResourceUtilizationStimulus {
+public abstract class ResourceUtilizationStimulusImpl extends ManagedElementsStateStimulusImpl
+		implements ResourceUtilizationStimulus {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

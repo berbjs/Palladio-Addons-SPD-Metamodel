@@ -3,23 +3,17 @@
  */
 package org.palladiosimulator.spd.triggers.provider;
 
-
 import java.util.Collection;
 import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.ecore.EStructuralFeature;
-
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
-
 import org.palladiosimulator.spd.triggers.BaseTrigger;
 import org.palladiosimulator.spd.triggers.TriggersPackage;
-
 import org.palladiosimulator.spd.triggers.expectations.ExpectationsFactory;
-
 import org.palladiosimulator.spd.triggers.stimuli.StimuliFactory;
 
 /**
@@ -93,9 +87,10 @@ public class BaseTriggerItemProvider extends ScalingTriggerItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_BaseTrigger_type");
+		String label = ((BaseTrigger) object).getId();
+		return label == null || label.length() == 0 ? getString("_UI_BaseTrigger_type")
+				: getString("_UI_BaseTrigger_type") + " " + label;
 	}
-
 
 	/**
 	 * This handles model notifications by calling {@link #updateChildren} to update any cached
@@ -109,10 +104,10 @@ public class BaseTriggerItemProvider extends ScalingTriggerItemProvider {
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(BaseTrigger.class)) {
-			case TriggersPackage.BASE_TRIGGER__STIMULUS:
-			case TriggersPackage.BASE_TRIGGER__EXPECTED_VALUE:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
-				return;
+		case TriggersPackage.BASE_TRIGGER__STIMULUS:
+		case TriggersPackage.BASE_TRIGGER__EXPECTED_VALUE:
+			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
+			return;
 		}
 		super.notifyChanged(notification);
 	}
@@ -128,75 +123,47 @@ public class BaseTriggerItemProvider extends ScalingTriggerItemProvider {
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 
-		newChildDescriptors.add
-			(createChildParameter
-				(TriggersPackage.Literals.BASE_TRIGGER__STIMULUS,
-				 StimuliFactory.eINSTANCE.createOperationResponseTime()));
+		newChildDescriptors.add(createChildParameter(TriggersPackage.Literals.BASE_TRIGGER__STIMULUS,
+				StimuliFactory.eINSTANCE.createOperationResponseTime()));
 
-		newChildDescriptors.add
-			(createChildParameter
-				(TriggersPackage.Literals.BASE_TRIGGER__STIMULUS,
-				 StimuliFactory.eINSTANCE.createNumberOfElements()));
+		newChildDescriptors.add(createChildParameter(TriggersPackage.Literals.BASE_TRIGGER__STIMULUS,
+				StimuliFactory.eINSTANCE.createNumberOfElements()));
 
-		newChildDescriptors.add
-			(createChildParameter
-				(TriggersPackage.Literals.BASE_TRIGGER__STIMULUS,
-				 StimuliFactory.eINSTANCE.createCPUUtilization()));
+		newChildDescriptors.add(createChildParameter(TriggersPackage.Literals.BASE_TRIGGER__STIMULUS,
+				StimuliFactory.eINSTANCE.createCPUUtilization()));
 
-		newChildDescriptors.add
-			(createChildParameter
-				(TriggersPackage.Literals.BASE_TRIGGER__STIMULUS,
-				 StimuliFactory.eINSTANCE.createMemoryUtilization()));
+		newChildDescriptors.add(createChildParameter(TriggersPackage.Literals.BASE_TRIGGER__STIMULUS,
+				StimuliFactory.eINSTANCE.createMemoryUtilization()));
 
-		newChildDescriptors.add
-			(createChildParameter
-				(TriggersPackage.Literals.BASE_TRIGGER__STIMULUS,
-				 StimuliFactory.eINSTANCE.createSimulationTime()));
+		newChildDescriptors.add(createChildParameter(TriggersPackage.Literals.BASE_TRIGGER__STIMULUS,
+				StimuliFactory.eINSTANCE.createSimulationTime()));
 
-		newChildDescriptors.add
-			(createChildParameter
-				(TriggersPackage.Literals.BASE_TRIGGER__STIMULUS,
-				 StimuliFactory.eINSTANCE.createHDDUtilization()));
+		newChildDescriptors.add(createChildParameter(TriggersPackage.Literals.BASE_TRIGGER__STIMULUS,
+				StimuliFactory.eINSTANCE.createHDDUtilization()));
 
-		newChildDescriptors.add
-			(createChildParameter
-				(TriggersPackage.Literals.BASE_TRIGGER__STIMULUS,
-				 StimuliFactory.eINSTANCE.createTaskCount()));
+		newChildDescriptors.add(createChildParameter(TriggersPackage.Literals.BASE_TRIGGER__STIMULUS,
+				StimuliFactory.eINSTANCE.createTaskCount()));
 
-		newChildDescriptors.add
-			(createChildParameter
-				(TriggersPackage.Literals.BASE_TRIGGER__STIMULUS,
-				 StimuliFactory.eINSTANCE.createQueueLength()));
+		newChildDescriptors.add(createChildParameter(TriggersPackage.Literals.BASE_TRIGGER__STIMULUS,
+				StimuliFactory.eINSTANCE.createQueueLength()));
 
-		newChildDescriptors.add
-			(createChildParameter
-				(TriggersPackage.Literals.BASE_TRIGGER__STIMULUS,
-				 StimuliFactory.eINSTANCE.createNetworkUtilization()));
+		newChildDescriptors.add(createChildParameter(TriggersPackage.Literals.BASE_TRIGGER__STIMULUS,
+				StimuliFactory.eINSTANCE.createNetworkUtilization()));
 
-		newChildDescriptors.add
-			(createChildParameter
-				(TriggersPackage.Literals.BASE_TRIGGER__EXPECTED_VALUE,
-				 ExpectationsFactory.eINSTANCE.createNoExpectation()));
+		newChildDescriptors.add(createChildParameter(TriggersPackage.Literals.BASE_TRIGGER__EXPECTED_VALUE,
+				ExpectationsFactory.eINSTANCE.createNoExpectation()));
 
-		newChildDescriptors.add
-			(createChildParameter
-				(TriggersPackage.Literals.BASE_TRIGGER__EXPECTED_VALUE,
-				 ExpectationsFactory.eINSTANCE.createExpectedPercentage()));
+		newChildDescriptors.add(createChildParameter(TriggersPackage.Literals.BASE_TRIGGER__EXPECTED_VALUE,
+				ExpectationsFactory.eINSTANCE.createExpectedPercentage()));
 
-		newChildDescriptors.add
-			(createChildParameter
-				(TriggersPackage.Literals.BASE_TRIGGER__EXPECTED_VALUE,
-				 ExpectationsFactory.eINSTANCE.createExpectedCount()));
+		newChildDescriptors.add(createChildParameter(TriggersPackage.Literals.BASE_TRIGGER__EXPECTED_VALUE,
+				ExpectationsFactory.eINSTANCE.createExpectedCount()));
 
-		newChildDescriptors.add
-			(createChildParameter
-				(TriggersPackage.Literals.BASE_TRIGGER__EXPECTED_VALUE,
-				 ExpectationsFactory.eINSTANCE.createExpectedTime()));
+		newChildDescriptors.add(createChildParameter(TriggersPackage.Literals.BASE_TRIGGER__EXPECTED_VALUE,
+				ExpectationsFactory.eINSTANCE.createExpectedTime()));
 
-		newChildDescriptors.add
-			(createChildParameter
-				(TriggersPackage.Literals.BASE_TRIGGER__EXPECTED_VALUE,
-				 ExpectationsFactory.eINSTANCE.createExpectedTrend()));
+		newChildDescriptors.add(createChildParameter(TriggersPackage.Literals.BASE_TRIGGER__EXPECTED_VALUE,
+				ExpectationsFactory.eINSTANCE.createExpectedTrend()));
 	}
 
 }

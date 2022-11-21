@@ -5,10 +5,11 @@ package org.palladiosimulator.spd.constraints.util;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
-
 import org.eclipse.emf.ecore.util.Switch;
+import org.palladiosimulator.spd.constraints.AbstractConstraint;
+import org.palladiosimulator.spd.constraints.ConstraintsPackage;
 
-import org.palladiosimulator.spd.constraints.*;
+import de.uka.ipd.sdq.identifier.Identifier;
 
 /**
  * <!-- begin-user-doc -->
@@ -67,13 +68,17 @@ public class ConstraintsSwitch<T> extends Switch<T> {
 	@Override
 	protected T doSwitch(int classifierID, EObject theEObject) {
 		switch (classifierID) {
-			case ConstraintsPackage.ABSTRACT_CONSTRAINT: {
-				AbstractConstraint abstractConstraint = (AbstractConstraint)theEObject;
-				T result = caseAbstractConstraint(abstractConstraint);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			default: return defaultCase(theEObject);
+		case ConstraintsPackage.ABSTRACT_CONSTRAINT: {
+			AbstractConstraint abstractConstraint = (AbstractConstraint) theEObject;
+			T result = caseAbstractConstraint(abstractConstraint);
+			if (result == null)
+				result = caseIdentifier(abstractConstraint);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		default:
+			return defaultCase(theEObject);
 		}
 	}
 
@@ -89,6 +94,21 @@ public class ConstraintsSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseAbstractConstraint(AbstractConstraint object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Identifier</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Identifier</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseIdentifier(Identifier object) {
 		return null;
 	}
 

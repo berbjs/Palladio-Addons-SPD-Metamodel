@@ -3,7 +3,6 @@
  */
 package org.palladiosimulator.spd.targets;
 
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Competing Consumers Group</b></em>'.
