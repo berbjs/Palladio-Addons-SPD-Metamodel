@@ -2,13 +2,6 @@ import 'SPD.ecore'
 
 package spd
 
-context NamedElement
---
--- example invariant with a custom error message to verify that
--- the 'name' property of all 'spd::ScalingPolicy' instances is non-null
---
-inv NonNull_name('The \'name\' property of "' + self.toString() + '" is null'):
-	name <> null
 
 context SPD
 inv antinomicalTargets: self.targetGroups->exists(t | t.oclIsKindOf(spd::targets::ElasticInfrastructure)) xor (self.targetGroups->exists(t | t.oclIsKindOf(spd::targets::CompetingConsumersGroup)) or self.targetGroups->exists(t | t.oclIsKindOf(spd::targets::ServiceGroup)))
@@ -26,11 +19,6 @@ inv singleGroupSizeConstraint('The TargetGroup can have only a single TargetGrou
 endpackage
 
 package spd::triggers
-
-context PointInTimeTrigger
-inv positiveSimulationTime('The pointInTime trigger has to point to a positive simulation time'): 
-	self.pointInTime>0
-
 endpackage
 
 package spd::adjustments
