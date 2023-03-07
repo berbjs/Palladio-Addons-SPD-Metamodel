@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<spd:SPD xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:adjustments="http://palladiosimulator.org/ScalingPolicyDefinition/Adjustments/1.0"
+    xmlns:expectations="http://palladiosimulator.org/ScalingPolicyDefinition/Triggers/Expectations/1.0"
+    xmlns:spd="http://palladiosimulator.org/ScalingPolicyDefinition/1.0"
+    xmlns:stimuli="http://palladiosimulator.org/ScalingPolicyDefinition/Triggers/Stimuli/1.0"
+    xmlns:targets="http://palladiosimulator.org/ScalingPolicyDefinition/Targets/1.0"
+    xmlns:triggers="http://palladiosimulator.org/ScalingPolicyDefinition/Triggers/1.0"
+    xsi:schemaLocation="http://palladiosimulator.org/ScalingPolicyDefinition/Adjustments/1.0 ../../model/SPD.ecore#//adjustments http://palladiosimulator.org/ScalingPolicyDefinition/Triggers/Expectations/1.0 ../../model/SPD.ecore#//triggers/expectations http://palladiosimulator.org/ScalingPolicyDefinition/1.0 ../../model/SPD.ecore http://palladiosimulator.org/ScalingPolicyDefinition/Triggers/Stimuli/1.0 ../../model/SPD.ecore#//triggers/stimuli http://palladiosimulator.org/ScalingPolicyDefinition/Targets/1.0 ../../model/SPD.ecore#//targets http://palladiosimulator.org/ScalingPolicyDefinition/Triggers/1.0 ../../model/SPD.ecore#//triggers">
+  <scalingPolicies
+      id="scaleOut"
+      entityName="scaling policy"
+      active="true"
+      targetGroup="//@targetGroups.0">
+    <adjustmentType
+        xsi:type="adjustments:StepAdjustment"
+        stepValue="1"/>
+    <scalingTrigger
+        xsi:type="triggers:SimpleFireOnValue"
+        relationalOperator="GreaterThan">
+      <stimulus
+          xsi:type="stimuli:CPUUtilization"
+          aggregationOverElements="MAX"/>
+      <expectedValue
+          xsi:type="expectations:ExpectedPercentage"
+          value="80.0"/>
+    </scalingTrigger>
+  </scalingPolicies>
+  <scalingPolicies
+      id="scaleIn"
+      entityName="scaleIn"
+      active="true"
+      targetGroup="//@targetGroups.0">
+    <adjustmentType
+        xsi:type="adjustments:StepAdjustment"
+        stepValue="-1"/>
+    <scalingTrigger
+        xsi:type="triggers:SimpleFireOnValue">
+      <stimulus
+          xsi:type="stimuli:CPUUtilization"/>
+      <expectedValue
+          xsi:type="expectations:ExpectedPercentage"
+          value="30.0"/>
+    </scalingTrigger>
+  </scalingPolicies>
+  <targetGroups
+      xsi:type="targets:ElasticInfrastructure"
+      entityName="ElasticInfrastructure"/>
+</spd:SPD>
