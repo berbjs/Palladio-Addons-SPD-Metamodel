@@ -239,13 +239,13 @@
           <details key="documentation" value="The SimulationStateStimulus classifies all stimuli that has the source from the simulation state. A direct subclass is for example the SimulationTime stimulus. "/>
         </eAnnotations>
       </eClassifiers>
-      <eClassifiers xsi:type="ecore:EClass" name="SoruceInterfaceStimulus" abstract="true"
+      <eClassifiers xsi:type="ecore:EClass" name="SourceInterfaceStimulus" abstract="true"
           eSuperTypes="#//triggers/stimuli/Stimulus">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
           <details key="documentation" value="The SourceInterfaceStimulus encapsulates all stimuli that is comming from the source of the target group. For example, in case of a load balanced service then the operation response time is a stimulus that"/>
         </eAnnotations>
       </eClassifiers>
-      <eClassifiers xsi:type="ecore:EClass" name="OperationResponseTime" eSuperTypes="#//triggers/stimuli/SoruceInterfaceStimulus">
+      <eClassifiers xsi:type="ecore:EClass" name="OperationResponseTime" eSuperTypes="#//triggers/stimuli/SourceInterfaceStimulus">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
           <details key="documentation" value="A stimulus based on the response time of a given operation. It requires specifying the operationSignature."/>
         </eAnnotations>
@@ -301,7 +301,7 @@
           <details key="documentation" value="The TaskCount stimulus is a concrete stimulus that represents the number of tasks that are currently being processed by the managed elements."/>
         </eAnnotations>
       </eClassifiers>
-      <eClassifiers xsi:type="ecore:EClass" name="QueueLength" eSuperTypes="#//triggers/stimuli/SoruceInterfaceStimulus">
+      <eClassifiers xsi:type="ecore:EClass" name="QueueLength" eSuperTypes="#//triggers/stimuli/SourceInterfaceStimulus">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
           <details key="documentation" value="A queue length based stimulus from the source of the target group. A precondition is that the target group is of type CompetingConsumers. "/>
         </eAnnotations>

@@ -14,7 +14,7 @@ import junit.textui.TestRunner;
  * <!-- end-user-doc -->
  * @generated
  */
-public class OperationResponseTimeTest extends SoruceInterfaceStimulusTest {
+public class OperationResponseTimeTest extends SourceInterfaceStimulusTest {
 
 	/**
 	 * <!-- begin-user-doc -->

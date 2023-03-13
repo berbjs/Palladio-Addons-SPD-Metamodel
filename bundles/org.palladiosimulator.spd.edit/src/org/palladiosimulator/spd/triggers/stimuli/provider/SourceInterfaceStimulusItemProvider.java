@@ -11,19 +11,19 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 
 /**
- * This is the item provider adapter for a {@link org.palladiosimulator.spd.triggers.stimuli.SoruceInterfaceStimulus} object.
+ * This is the item provider adapter for a {@link org.palladiosimulator.spd.triggers.stimuli.SourceInterfaceStimulus} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class SoruceInterfaceStimulusItemProvider extends StimulusItemProvider {
+public class SourceInterfaceStimulusItemProvider extends StimulusItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public SoruceInterfaceStimulusItemProvider(AdapterFactory adapterFactory) {
+	public SourceInterfaceStimulusItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -50,7 +50,7 @@ public class SoruceInterfaceStimulusItemProvider extends StimulusItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_SoruceInterfaceStimulus_type");
+		return getString("_UI_SourceInterfaceStimulus_type");
 	}
 
 	/**

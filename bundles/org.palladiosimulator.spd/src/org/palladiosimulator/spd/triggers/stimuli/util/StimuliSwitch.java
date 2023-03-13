@@ -17,7 +17,7 @@ import org.palladiosimulator.spd.triggers.stimuli.QueueLength;
 import org.palladiosimulator.spd.triggers.stimuli.ResourceUtilizationStimulus;
 import org.palladiosimulator.spd.triggers.stimuli.SimulationStateStimulus;
 import org.palladiosimulator.spd.triggers.stimuli.SimulationTime;
-import org.palladiosimulator.spd.triggers.stimuli.SoruceInterfaceStimulus;
+import org.palladiosimulator.spd.triggers.stimuli.SourceInterfaceStimulus;
 import org.palladiosimulator.spd.triggers.stimuli.StimuliPackage;
 import org.palladiosimulator.spd.triggers.stimuli.Stimulus;
 import org.palladiosimulator.spd.triggers.stimuli.TargetGroupStateStimulus;
@@ -105,11 +105,11 @@ public class StimuliSwitch<T> extends Switch<T> {
 				result = defaultCase(theEObject);
 			return result;
 		}
-		case StimuliPackage.SORUCE_INTERFACE_STIMULUS: {
-			SoruceInterfaceStimulus soruceInterfaceStimulus = (SoruceInterfaceStimulus) theEObject;
-			T result = caseSoruceInterfaceStimulus(soruceInterfaceStimulus);
+		case StimuliPackage.SOURCE_INTERFACE_STIMULUS: {
+			SourceInterfaceStimulus sourceInterfaceStimulus = (SourceInterfaceStimulus) theEObject;
+			T result = caseSourceInterfaceStimulus(sourceInterfaceStimulus);
 			if (result == null)
-				result = caseStimulus(soruceInterfaceStimulus);
+				result = caseStimulus(sourceInterfaceStimulus);
 			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
@@ -118,7 +118,7 @@ public class StimuliSwitch<T> extends Switch<T> {
 			OperationResponseTime operationResponseTime = (OperationResponseTime) theEObject;
 			T result = caseOperationResponseTime(operationResponseTime);
 			if (result == null)
-				result = caseSoruceInterfaceStimulus(operationResponseTime);
+				result = caseSourceInterfaceStimulus(operationResponseTime);
 			if (result == null)
 				result = caseStimulus(operationResponseTime);
 			if (result == null)
@@ -233,7 +233,7 @@ public class StimuliSwitch<T> extends Switch<T> {
 			QueueLength queueLength = (QueueLength) theEObject;
 			T result = caseQueueLength(queueLength);
 			if (result == null)
-				result = caseSoruceInterfaceStimulus(queueLength);
+				result = caseSourceInterfaceStimulus(queueLength);
 			if (result == null)
 				result = caseStimulus(queueLength);
 			if (result == null)
@@ -306,17 +306,17 @@ public class StimuliSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Soruce Interface Stimulus</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Source Interface Stimulus</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Soruce Interface Stimulus</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Source Interface Stimulus</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseSoruceInterfaceStimulus(SoruceInterfaceStimulus object) {
+	public T caseSourceInterfaceStimulus(SourceInterfaceStimulus object) {
 		return null;
 	}
 

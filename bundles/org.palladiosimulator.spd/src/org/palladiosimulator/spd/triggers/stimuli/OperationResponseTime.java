@@ -25,7 +25,7 @@ import org.palladiosimulator.pcm.repository.OperationSignature;
  * @model
  * @generated
  */
-public interface OperationResponseTime extends SoruceInterfaceStimulus {
+public interface OperationResponseTime extends SourceInterfaceStimulus {
 	/**
 	 * Returns the value of the '<em><b>Operation Signature</b></em>' reference.
 	 * <!-- begin-user-doc -->

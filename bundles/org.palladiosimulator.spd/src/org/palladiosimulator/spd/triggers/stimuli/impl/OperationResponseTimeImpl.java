@@ -21,7 +21,7 @@ import org.palladiosimulator.spd.triggers.stimuli.StimuliPackage;
  *
  * @generated
  */
-public class OperationResponseTimeImpl extends SoruceInterfaceStimulusImpl implements OperationResponseTime {
+public class OperationResponseTimeImpl extends SourceInterfaceStimulusImpl implements OperationResponseTime {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

@@ -114,23 +114,23 @@ public interface StimuliPackage extends EPackage {
 	int SIMULATION_STATE_STIMULUS_FEATURE_COUNT = STIMULUS_FEATURE_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link org.palladiosimulator.spd.triggers.stimuli.impl.SoruceInterfaceStimulusImpl <em>Soruce Interface Stimulus</em>}' class.
+	 * The meta object id for the '{@link org.palladiosimulator.spd.triggers.stimuli.impl.SourceInterfaceStimulusImpl <em>Source Interface Stimulus</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see org.palladiosimulator.spd.triggers.stimuli.impl.SoruceInterfaceStimulusImpl
-	 * @see org.palladiosimulator.spd.triggers.stimuli.impl.StimuliPackageImpl#getSoruceInterfaceStimulus()
+	 * @see org.palladiosimulator.spd.triggers.stimuli.impl.SourceInterfaceStimulusImpl
+	 * @see org.palladiosimulator.spd.triggers.stimuli.impl.StimuliPackageImpl#getSourceInterfaceStimulus()
 	 * @generated
 	 */
-	int SORUCE_INTERFACE_STIMULUS = 3;
+	int SOURCE_INTERFACE_STIMULUS = 3;
 
 	/**
-	 * The number of structural features of the '<em>Soruce Interface Stimulus</em>' class.
+	 * The number of structural features of the '<em>Source Interface Stimulus</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SORUCE_INTERFACE_STIMULUS_FEATURE_COUNT = STIMULUS_FEATURE_COUNT + 0;
+	int SOURCE_INTERFACE_STIMULUS_FEATURE_COUNT = STIMULUS_FEATURE_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link org.palladiosimulator.spd.triggers.stimuli.impl.OperationResponseTimeImpl <em>Operation Response Time</em>}' class.
@@ -149,7 +149,7 @@ public interface StimuliPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int OPERATION_RESPONSE_TIME__OPERATION_SIGNATURE = SORUCE_INTERFACE_STIMULUS_FEATURE_COUNT + 0;
+	int OPERATION_RESPONSE_TIME__OPERATION_SIGNATURE = SOURCE_INTERFACE_STIMULUS_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Operation Response Time</em>' class.
@@ -158,7 +158,7 @@ public interface StimuliPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int OPERATION_RESPONSE_TIME_FEATURE_COUNT = SORUCE_INTERFACE_STIMULUS_FEATURE_COUNT + 1;
+	int OPERATION_RESPONSE_TIME_FEATURE_COUNT = SOURCE_INTERFACE_STIMULUS_FEATURE_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link org.palladiosimulator.spd.triggers.stimuli.impl.NumberOfElementsImpl <em>Number Of Elements</em>}' class.
@@ -392,7 +392,7 @@ public interface StimuliPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int QUEUE_LENGTH_FEATURE_COUNT = SORUCE_INTERFACE_STIMULUS_FEATURE_COUNT + 0;
+	int QUEUE_LENGTH_FEATURE_COUNT = SOURCE_INTERFACE_STIMULUS_FEATURE_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link org.palladiosimulator.spd.triggers.stimuli.impl.NetworkUtilizationImpl <em>Network Utilization</em>}' class.
@@ -462,14 +462,14 @@ public interface StimuliPackage extends EPackage {
 	EClass getSimulationStateStimulus();
 
 	/**
-	 * Returns the meta object for class '{@link org.palladiosimulator.spd.triggers.stimuli.SoruceInterfaceStimulus <em>Soruce Interface Stimulus</em>}'.
+	 * Returns the meta object for class '{@link org.palladiosimulator.spd.triggers.stimuli.SourceInterfaceStimulus <em>Source Interface Stimulus</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Soruce Interface Stimulus</em>'.
-	 * @see org.palladiosimulator.spd.triggers.stimuli.SoruceInterfaceStimulus
+	 * @return the meta object for class '<em>Source Interface Stimulus</em>'.
+	 * @see org.palladiosimulator.spd.triggers.stimuli.SourceInterfaceStimulus
 	 * @generated
 	 */
-	EClass getSoruceInterfaceStimulus();
+	EClass getSourceInterfaceStimulus();
 
 	/**
 	 * Returns the meta object for class '{@link org.palladiosimulator.spd.triggers.stimuli.OperationResponseTime <em>Operation Response Time</em>}'.
@@ -678,14 +678,14 @@ public interface StimuliPackage extends EPackage {
 		EClass SIMULATION_STATE_STIMULUS = eINSTANCE.getSimulationStateStimulus();
 
 		/**
-		 * The meta object literal for the '{@link org.palladiosimulator.spd.triggers.stimuli.impl.SoruceInterfaceStimulusImpl <em>Soruce Interface Stimulus</em>}' class.
+		 * The meta object literal for the '{@link org.palladiosimulator.spd.triggers.stimuli.impl.SourceInterfaceStimulusImpl <em>Source Interface Stimulus</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see org.palladiosimulator.spd.triggers.stimuli.impl.SoruceInterfaceStimulusImpl
-		 * @see org.palladiosimulator.spd.triggers.stimuli.impl.StimuliPackageImpl#getSoruceInterfaceStimulus()
+		 * @see org.palladiosimulator.spd.triggers.stimuli.impl.SourceInterfaceStimulusImpl
+		 * @see org.palladiosimulator.spd.triggers.stimuli.impl.StimuliPackageImpl#getSourceInterfaceStimulus()
 		 * @generated
 		 */
-		EClass SORUCE_INTERFACE_STIMULUS = eINSTANCE.getSoruceInterfaceStimulus();
+		EClass SOURCE_INTERFACE_STIMULUS = eINSTANCE.getSourceInterfaceStimulus();
 
 		/**
 		 * The meta object literal for the '{@link org.palladiosimulator.spd.triggers.stimuli.impl.OperationResponseTimeImpl <em>Operation Response Time</em>}' class.

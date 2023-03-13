@@ -17,5 +17,5 @@ package org.palladiosimulator.spd.triggers.stimuli;
  * @model
  * @generated
  */
-public interface QueueLength extends SoruceInterfaceStimulus {
+public interface QueueLength extends SourceInterfaceStimulus {
 } // QueueLength
