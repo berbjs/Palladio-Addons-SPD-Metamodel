@@ -18,7 +18,7 @@ import org.palladiosimulator.spd.triggers.stimuli.QueueLength;
 import org.palladiosimulator.spd.triggers.stimuli.ResourceUtilizationStimulus;
 import org.palladiosimulator.spd.triggers.stimuli.SimulationStateStimulus;
 import org.palladiosimulator.spd.triggers.stimuli.SimulationTime;
-import org.palladiosimulator.spd.triggers.stimuli.SoruceInterfaceStimulus;
+import org.palladiosimulator.spd.triggers.stimuli.SourceInterfaceStimulus;
 import org.palladiosimulator.spd.triggers.stimuli.StimuliPackage;
 import org.palladiosimulator.spd.triggers.stimuli.Stimulus;
 import org.palladiosimulator.spd.triggers.stimuli.TargetGroupStateStimulus;
@@ -95,8 +95,8 @@ public class StimuliAdapterFactory extends AdapterFactoryImpl {
 		}
 
 		@Override
-		public Adapter caseSoruceInterfaceStimulus(SoruceInterfaceStimulus object) {
-			return createSoruceInterfaceStimulusAdapter();
+		public Adapter caseSourceInterfaceStimulus(SourceInterfaceStimulus object) {
+			return createSourceInterfaceStimulusAdapter();
 		}
 
 		@Override
@@ -216,16 +216,16 @@ public class StimuliAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.palladiosimulator.spd.triggers.stimuli.SoruceInterfaceStimulus <em>Soruce Interface Stimulus</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.palladiosimulator.spd.triggers.stimuli.SourceInterfaceStimulus <em>Source Interface Stimulus</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.palladiosimulator.spd.triggers.stimuli.SoruceInterfaceStimulus
+	 * @see org.palladiosimulator.spd.triggers.stimuli.SourceInterfaceStimulus
 	 * @generated
 	 */
-	public Adapter createSoruceInterfaceStimulusAdapter() {
+	public Adapter createSourceInterfaceStimulusAdapter() {
 		return null;
 	}
 

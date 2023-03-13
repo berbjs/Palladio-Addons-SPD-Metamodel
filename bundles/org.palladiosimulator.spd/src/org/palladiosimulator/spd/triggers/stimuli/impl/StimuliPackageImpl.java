@@ -38,7 +38,7 @@ import org.palladiosimulator.spd.triggers.stimuli.QueueLength;
 import org.palladiosimulator.spd.triggers.stimuli.ResourceUtilizationStimulus;
 import org.palladiosimulator.spd.triggers.stimuli.SimulationStateStimulus;
 import org.palladiosimulator.spd.triggers.stimuli.SimulationTime;
-import org.palladiosimulator.spd.triggers.stimuli.SoruceInterfaceStimulus;
+import org.palladiosimulator.spd.triggers.stimuli.SourceInterfaceStimulus;
 import org.palladiosimulator.spd.triggers.stimuli.StimuliFactory;
 import org.palladiosimulator.spd.triggers.stimuli.StimuliPackage;
 import org.palladiosimulator.spd.triggers.stimuli.Stimulus;
@@ -83,7 +83,7 @@ public class StimuliPackageImpl extends EPackageImpl implements StimuliPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass soruceInterfaceStimulusEClass = null;
+	private EClass sourceInterfaceStimulusEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -319,8 +319,8 @@ public class StimuliPackageImpl extends EPackageImpl implements StimuliPackage {
 	 * @generated
 	 */
 	@Override
-	public EClass getSoruceInterfaceStimulus() {
-		return soruceInterfaceStimulusEClass;
+	public EClass getSourceInterfaceStimulus() {
+		return sourceInterfaceStimulusEClass;
 	}
 
 	/**
@@ -509,7 +509,7 @@ public class StimuliPackageImpl extends EPackageImpl implements StimuliPackage {
 
 		simulationStateStimulusEClass = createEClass(SIMULATION_STATE_STIMULUS);
 
-		soruceInterfaceStimulusEClass = createEClass(SORUCE_INTERFACE_STIMULUS);
+		sourceInterfaceStimulusEClass = createEClass(SOURCE_INTERFACE_STIMULUS);
 
 		operationResponseTimeEClass = createEClass(OPERATION_RESPONSE_TIME);
 		createEReference(operationResponseTimeEClass, OPERATION_RESPONSE_TIME__OPERATION_SIGNATURE);
@@ -576,8 +576,8 @@ public class StimuliPackageImpl extends EPackageImpl implements StimuliPackage {
 		// Add supertypes to classes
 		targetGroupStateStimulusEClass.getESuperTypes().add(this.getStimulus());
 		simulationStateStimulusEClass.getESuperTypes().add(this.getStimulus());
-		soruceInterfaceStimulusEClass.getESuperTypes().add(this.getStimulus());
-		operationResponseTimeEClass.getESuperTypes().add(this.getSoruceInterfaceStimulus());
+		sourceInterfaceStimulusEClass.getESuperTypes().add(this.getStimulus());
+		operationResponseTimeEClass.getESuperTypes().add(this.getSourceInterfaceStimulus());
 		numberOfElementsEClass.getESuperTypes().add(this.getTargetGroupStateStimulus());
 		managedElementsStateStimulusEClass.getESuperTypes().add(this.getTargetGroupStateStimulus());
 		cpuUtilizationEClass.getESuperTypes().add(this.getResourceUtilizationStimulus());
@@ -586,7 +586,7 @@ public class StimuliPackageImpl extends EPackageImpl implements StimuliPackage {
 		hddUtilizationEClass.getESuperTypes().add(this.getResourceUtilizationStimulus());
 		resourceUtilizationStimulusEClass.getESuperTypes().add(this.getManagedElementsStateStimulus());
 		taskCountEClass.getESuperTypes().add(this.getManagedElementsStateStimulus());
-		queueLengthEClass.getESuperTypes().add(this.getSoruceInterfaceStimulus());
+		queueLengthEClass.getESuperTypes().add(this.getSourceInterfaceStimulus());
 		networkUtilizationEClass.getESuperTypes().add(this.getResourceUtilizationStimulus());
 
 		// Initialize classes and features; add operations and parameters
@@ -598,7 +598,7 @@ public class StimuliPackageImpl extends EPackageImpl implements StimuliPackage {
 		initEClass(simulationStateStimulusEClass, SimulationStateStimulus.class, "SimulationStateStimulus", IS_ABSTRACT,
 				!IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(soruceInterfaceStimulusEClass, SoruceInterfaceStimulus.class, "SoruceInterfaceStimulus", IS_ABSTRACT,
+		initEClass(sourceInterfaceStimulusEClass, SourceInterfaceStimulus.class, "SourceInterfaceStimulus", IS_ABSTRACT,
 				!IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(operationResponseTimeEClass, OperationResponseTime.class, "OperationResponseTime", !IS_ABSTRACT,

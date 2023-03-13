@@ -4,23 +4,23 @@
 package org.palladiosimulator.spd.triggers.stimuli.impl;
 
 import org.eclipse.emf.ecore.EClass;
-import org.palladiosimulator.spd.triggers.stimuli.SoruceInterfaceStimulus;
+import org.palladiosimulator.spd.triggers.stimuli.SourceInterfaceStimulus;
 import org.palladiosimulator.spd.triggers.stimuli.StimuliPackage;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Soruce Interface Stimulus</b></em>'.
+ * An implementation of the model object '<em><b>Source Interface Stimulus</b></em>'.
  * <!-- end-user-doc -->
  *
  * @generated
  */
-public abstract class SoruceInterfaceStimulusImpl extends StimulusImpl implements SoruceInterfaceStimulus {
+public abstract class SourceInterfaceStimulusImpl extends StimulusImpl implements SourceInterfaceStimulus {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected SoruceInterfaceStimulusImpl() {
+	protected SourceInterfaceStimulusImpl() {
 		super();
 	}
 
@@ -31,7 +31,7 @@ public abstract class SoruceInterfaceStimulusImpl extends StimulusImpl implement
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return StimuliPackage.Literals.SORUCE_INTERFACE_STIMULUS;
+		return StimuliPackage.Literals.SOURCE_INTERFACE_STIMULUS;
 	}
 
-} //SoruceInterfaceStimulusImpl
+} //SourceInterfaceStimulusImpl

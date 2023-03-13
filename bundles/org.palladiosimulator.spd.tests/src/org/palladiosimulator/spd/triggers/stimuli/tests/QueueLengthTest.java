@@ -14,7 +14,7 @@ import junit.textui.TestRunner;
  * <!-- end-user-doc -->
  * @generated
  */
-public class QueueLengthTest extends SoruceInterfaceStimulusTest {
+public class QueueLengthTest extends SourceInterfaceStimulusTest {
 
 	/**
 	 * <!-- begin-user-doc -->

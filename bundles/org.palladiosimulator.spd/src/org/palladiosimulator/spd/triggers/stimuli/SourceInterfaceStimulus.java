@@ -5,7 +5,7 @@ package org.palladiosimulator.spd.triggers.stimuli;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>Soruce Interface Stimulus</b></em>'.
+ * A representation of the model object '<em><b>Source Interface Stimulus</b></em>'.
  * <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
@@ -13,9 +13,9 @@ package org.palladiosimulator.spd.triggers.stimuli;
  * <!-- end-model-doc -->
  *
  *
- * @see org.palladiosimulator.spd.triggers.stimuli.StimuliPackage#getSoruceInterfaceStimulus()
+ * @see org.palladiosimulator.spd.triggers.stimuli.StimuliPackage#getSourceInterfaceStimulus()
  * @model abstract="true"
  * @generated
  */
-public interface SoruceInterfaceStimulus extends Stimulus {
-} // SoruceInterfaceStimulus
+public interface SourceInterfaceStimulus extends Stimulus {
+} // SourceInterfaceStimulus

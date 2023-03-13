@@ -14,7 +14,7 @@ import org.palladiosimulator.spd.triggers.stimuli.StimuliPackage;
  *
  * @generated
  */
-public class QueueLengthImpl extends SoruceInterfaceStimulusImpl implements QueueLength {
+public class QueueLengthImpl extends SourceInterfaceStimulusImpl implements QueueLength {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

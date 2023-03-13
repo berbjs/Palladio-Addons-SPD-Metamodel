@@ -18,7 +18,7 @@ import org.palladiosimulator.spd.triggers.stimuli.StimuliPackage;
  * <!-- end-user-doc -->
  * @generated
  */
-public class OperationResponseTimeItemProvider extends SoruceInterfaceStimulusItemProvider {
+public class OperationResponseTimeItemProvider extends SourceInterfaceStimulusItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
