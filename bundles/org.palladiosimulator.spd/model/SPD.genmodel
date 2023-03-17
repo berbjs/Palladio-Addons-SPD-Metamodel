@@ -130,7 +130,7 @@
         <genClasses image="false" ecoreClass="SPD.ecore#//triggers/stimuli/Stimulus"/>
         <genClasses image="false" ecoreClass="SPD.ecore#//triggers/stimuli/TargetGroupStateStimulus"/>
         <genClasses image="false" ecoreClass="SPD.ecore#//triggers/stimuli/SimulationStateStimulus"/>
-        <genClasses image="false" ecoreClass="SPD.ecore#//triggers/stimuli/SoruceInterfaceStimulus"/>
+        <genClasses image="false" ecoreClass="SPD.ecore#//triggers/stimuli/SourceInterfaceStimulus"/>
         <genClasses ecoreClass="SPD.ecore#//triggers/stimuli/OperationResponseTime">
           <genFeatures notify="false" createChild="false" propertySortChoices="true"
               ecoreFeature="ecore:EReference SPD.ecore#//triggers/stimuli/OperationResponseTime/operationSignature"/>
