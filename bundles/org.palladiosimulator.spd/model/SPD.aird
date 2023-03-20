@@ -38,7 +38,7 @@
         <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']"/>
         <target xmi:type="ecore:EPackage" href="SPD.ecore#//constraints/target"/>
       </ownedRepresentationDescriptors>
-      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_k8N7kDpQEe2stoOmSwELEA" name="triggers class diagram" repPath="#_k8MtcDpQEe2stoOmSwELEA" changeId="fe631b7e-b112-4d30-aede-16e5e106d4d1">
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_k8N7kDpQEe2stoOmSwELEA" name="triggers class diagram" repPath="#_k8MtcDpQEe2stoOmSwELEA" changeId="209b47d1-b64c-409d-87f6-5f5bf5f777e2">
         <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']"/>
         <target xmi:type="ecore:EPackage" href="SPD.ecore#//triggers"/>
       </ownedRepresentationDescriptors>
@@ -2148,7 +2148,7 @@
       </ownedStyle>
       <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC%20ESupertypes']"/>
     </ownedDiagramElements>
-    <ownedDiagramElements xmi:type="diagram:DNodeList" uid="_UR0c8GmGEe26PcOHLpJoQQ" name="Identifier" tooltipText="" incomingEdges="_V-GYqGmGEe26PcOHLpJoQQ" width="12" height="10">
+    <ownedDiagramElements xmi:type="diagram:DNodeList" uid="_UR0c8GmGEe26PcOHLpJoQQ" name="Identifier" tooltipText="&#xA;OK : Failed to create Xtext resource for '_2v1LMMb6Ee2S9c2L-uxm5A.essentialocl'" incomingEdges="_V-GYqGmGEe26PcOHLpJoQQ" width="12" height="10">
       <target xmi:type="ecore:EClass" href="platform:/plugin/de.uka.ipd.sdq.identifier/model/identifier.ecore#//Identifier"/>
       <semanticElements xmi:type="ecore:EClass" href="platform:/plugin/de.uka.ipd.sdq.identifier/model/identifier.ecore#//Identifier"/>
       <decorations xmi:type="viewpoint:Decoration" uid="_UR1EAWmGEe26PcOHLpJoQQ">

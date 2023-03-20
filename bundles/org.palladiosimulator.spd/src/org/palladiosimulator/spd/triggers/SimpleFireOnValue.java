@@ -9,7 +9,7 @@ package org.palladiosimulator.spd.triggers;
  * <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
- * The SimpleFireOnValue trigger the most simplistic BaseTrigger that works on the fed stimulus through a relational operator with an expected value. In case 'LessThen' is specified then the the trigger will fire upon stiumuls <= expectedValue.
+ * The SimpleFireOnValue trigger the most simplistic BaseTrigger that works on the fed stimulus through a relational operator with an expected value. In case 'LessThen' is specified then the the trigger will fire upon stiumuls < expectedValue.
  * <!-- end-model-doc -->
  *
  * <p>

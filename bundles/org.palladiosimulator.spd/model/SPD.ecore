@@ -2,7 +2,7 @@
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="spd" nsURI="http://palladiosimulator.org/ScalingPolicyDefinition/1.0"
     nsPrefix="spd">
-  <eClassifiers xsi:type="ecore:EClass" name="ScalingPolicy" eSuperTypes="platform:/plugin/org.palladiosimulator.pcm/model/pcm.ecore#//core/entity/Entity">
+  <eClassifiers xsi:type="ecore:EClass" name="ScalingPolicy" eSuperTypes="../../org.palladiosimulator.pcm/model/pcm.ecore#//core/entity/Entity">
     <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
       <details key="constraints" value="policyNameInvariant"/>
     </eAnnotations>
@@ -19,7 +19,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="scalingTrigger" lowerBound="1"
         eType="#//triggers/ScalingTrigger" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="SPD" eSuperTypes="platform:/plugin/org.palladiosimulator.pcm/model/pcm.ecore#//core/entity/Entity">
+  <eClassifiers xsi:type="ecore:EClass" name="SPD" eSuperTypes="../../org.palladiosimulator.pcm/model/pcm.ecore#//core/entity/Entity">
     <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
       <details key="constraints" value="nameInvariant noSameTargetGroup"/>
     </eAnnotations>
@@ -37,7 +37,7 @@
   </eClassifiers>
   <eSubpackages name="targets" nsURI="http://palladiosimulator.org/ScalingPolicyDefinition/Targets/1.0"
       nsPrefix="targets">
-    <eClassifiers xsi:type="ecore:EClass" name="TargetGroup" abstract="true" eSuperTypes="platform:/plugin/org.palladiosimulator.pcm/model/pcm.ecore#//core/entity/Entity">
+    <eClassifiers xsi:type="ecore:EClass" name="TargetGroup" abstract="true" eSuperTypes="../../org.palladiosimulator.pcm/model/pcm.ecore#//core/entity/Entity">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="A TargetGroup defines a management group in SPD. It is both uniqely identified as well as it has a name, thus it extends from the Entity class of the PCM. "/>
       </eAnnotations>
@@ -46,7 +46,7 @@
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ElasticInfrastructure" eSuperTypes="#//targets/TargetGroup">
       <eStructuralFeatures xsi:type="ecore:EReference" name="PCM_ResourceEnvironment"
-          eType="ecore:EClass platform:/plugin/org.palladiosimulator.pcm/model/pcm.ecore#//resourceenvironment/ResourceEnvironment"/>
+          eType="ecore:EClass ../../org.palladiosimulator.pcm/model/pcm.ecore#//resourceenvironment/ResourceEnvironment"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ServiceGroup" eSuperTypes="#//targets/TargetGroup"/>
     <eClassifiers xsi:type="ecore:EClass" name="CompetingConsumersGroup" eSuperTypes="#//targets/TargetGroup"/>
@@ -198,7 +198,7 @@
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="SimpleFireOnValue" eSuperTypes="#//triggers/BaseTrigger">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="The SimpleFireOnValue trigger the most simplistic BaseTrigger that works on the fed stimulus through a relational operator with an expected value. In case 'LessThen' is specified then the the trigger will fire upon stiumuls &lt;= expectedValue. "/>
+        <details key="documentation" value="The SimpleFireOnValue trigger the most simplistic BaseTrigger that works on the fed stimulus through a relational operator with an expected value. In case 'LessThen' is specified then the the trigger will fire upon stiumuls &lt; expectedValue. "/>
       </eAnnotations>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="relationalOperator" eType="#//triggers/RelationalOperator"/>
     </eClassifiers>
@@ -250,7 +250,7 @@
           <details key="documentation" value="A stimulus based on the response time of a given operation. It requires specifying the operationSignature."/>
         </eAnnotations>
         <eStructuralFeatures xsi:type="ecore:EReference" name="operationSignature"
-            eType="ecore:EClass platform:/plugin/org.palladiosimulator.pcm/model/pcm.ecore#//repository/OperationSignature">
+            eType="ecore:EClass ../../org.palladiosimulator.pcm/model/pcm.ecore#//repository/OperationSignature">
           <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
             <details key="documentation" value="The operation from which the response time is used. "/>
           </eAnnotations>
