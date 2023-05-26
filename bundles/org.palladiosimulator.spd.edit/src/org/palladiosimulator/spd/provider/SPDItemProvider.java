@@ -82,14 +82,14 @@ public class SPDItemProvider extends EntityItemProvider {
 	}
 
 	/**
-	 * This returns SPD.gif.
+	 * This returns the icon for SPD.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/SPD"));
+		return overlayImage(object, getResourceLocator().getImage("full/spdicons16/spd-icon-alt.png"));
 	}
 
 	/**

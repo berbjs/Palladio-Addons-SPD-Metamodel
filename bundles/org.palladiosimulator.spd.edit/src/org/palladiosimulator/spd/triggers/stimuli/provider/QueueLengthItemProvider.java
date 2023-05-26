@@ -43,14 +43,14 @@ public class QueueLengthItemProvider extends SourceInterfaceStimulusItemProvider
 	}
 
 	/**
-	 * This returns QueueLength.gif.
+	 * This returns the icon for queue length stimulus.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/QueueLength"));
+		return overlayImage(object, getResourceLocator().getImage("full/spdicons16/stimulus-queuelength.png"));
 	}
 
 	/**

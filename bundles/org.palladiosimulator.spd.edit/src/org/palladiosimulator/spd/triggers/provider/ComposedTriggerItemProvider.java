@@ -96,17 +96,16 @@ public class ComposedTriggerItemProvider extends ScalingTriggerItemProvider {
 		return super.getChildFeature(object, child);
 	}
 
-	/**
-	 * This returns ComposedTrigger.gif.
+	/*
+	 * This overrides and reuses the icon for a trigger.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/ComposedTrigger"));
+		return super.getImage(object);
 	}
-
 	/**
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->

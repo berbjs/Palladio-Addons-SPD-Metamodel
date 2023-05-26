@@ -43,14 +43,14 @@ public class SimulationTimeItemProvider extends SimulationStateStimulusItemProvi
 	}
 
 	/**
-	 * This returns SimulationTime.gif.
+	 * This returns the icon for simulation time stimulus.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/SimulationTime"));
+		return overlayImage(object, getResourceLocator().getImage("full/spdicons16/stimulus-simulationtime.png"));
 	}
 
 	/**

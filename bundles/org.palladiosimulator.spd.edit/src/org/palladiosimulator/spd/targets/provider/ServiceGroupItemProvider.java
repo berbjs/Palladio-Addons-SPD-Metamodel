@@ -42,16 +42,16 @@ public class ServiceGroupItemProvider extends TargetGroupItemProvider {
 		}
 		return itemPropertyDescriptors;
 	}
-
-	/**
-	 * This returns ServiceGroup.gif.
+	
+	/*
+	 * This overrides and reuses the icon for a TargetGroup.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/ServiceGroup"));
+		return super.getImage(object);
 	}
 
 	/**

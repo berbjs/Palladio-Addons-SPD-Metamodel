@@ -42,18 +42,17 @@ public class CompetingConsumersGroupItemProvider extends TargetGroupItemProvider
 		}
 		return itemPropertyDescriptors;
 	}
-
-	/**
-	 * This returns CompetingConsumersGroup.gif.
+	/*
+	 * This overrides and reuses the icon for a TargetGroup.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/CompetingConsumersGroup"));
+		return super.getImage(object);
 	}
-
+	
 	/**
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
