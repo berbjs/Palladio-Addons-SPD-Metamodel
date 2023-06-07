@@ -1,0 +1,115 @@
+library BottomUpTransformationResourceEnvironment;
+
+import spd.common.AdjustmentCalculator;
+import pcm.helpers.Commons;
+
+modeltype PCM uses 'http://palladiosimulator.org/PalladioComponentModel/5.2';
+modeltype PCM_ALLOC uses 'http://palladiosimulator.org/PalladioComponentModel/Allocation/5.2';
+modeltype PCM_REP uses 'http://palladiosimulator.org/PalladioComponentModel/Repository/5.2';
+modeltype PCM_SEFF uses 'http://palladiosimulator.org/PalladioComponentModel/SEFF/5.2';
+modeltype PCM_SYS uses 'http://palladiosimulator.org/PalladioComponentModel/System/5.2';
+modeltype PCM_RES_ENV uses 'http://palladiosimulator.org/PalladioComponentModel/ResourceEnvironment/5.2';
+modeltype PCM_RES_TYPE uses 'http://palladiosimulator.org/PalladioComponentModel/ResourceType/5.2';
+modeltype PCM_CORE uses 'http://palladiosimulator.org/PalladioComponentModel/Core/5.2';
+modeltype PCM_COMP uses 'http://palladiosimulator.org/PalladioComponentModel/Core/Composition/5.2';
+modeltype PCM_ENTITY uses 'http://palladiosimulator.org/PalladioComponentModel/Core/Entity/5.2';
+modeltype PCM_PARAM uses 'http://palladiosimulator.org/PalladioComponentModel/Parameter/5.2';
+
+modeltype SPD_MOD uses 'http://palladiosimulator.org/ScalingPolicyDefinition/1.0';
+modeltype SPD_ADJ uses 'http://palladiosimulator.org/ScalingPolicyDefinition/Adjustments/1.0';
+modeltype SPD_TRI uses 'http://palladiosimulator.org/ScalingPolicyDefinition/Triggers/1.0';
+modeltype SPD_TAR uses 'http://palladiosimulator.org/ScalingPolicyDefinition/Targets/1.0';
+
+modeltype SPD_CON uses 'http://palladiosimulator.org/ScalingPolicyDefinition/Constraints/1.0';
+modeltype SPD_CONP uses 'http://palladiosimulator.org/ScalingPolicyDefinition/Constraints/Policy/1.0';
+modeltype SPD_CONT uses 'http://palladiosimulator.org/ScalingPolicyDefinition/Constraints/Target/1.0';
+
+modeltype SPD_SEM uses 'http://palladiosimulator.org/ScalingPolicyDefinitionSemantic/1.0';
+
+
+/**
+* The ElasticInfrastructureCfg is modified by transforming the elements and adding the policy to the enactedPolicies.
+*
+*/
+mapping inout ElasticInfrastructureCfg::transformElasticInfrastructure(enactedPolicy:ScalingPolicy){
+	init{
+		var resourceContainers:Set(ResourceContainer);
+		resourceContainers := AdjustElasticInfrastructure(enactedPolicy.adjustmentType,self);
+		var union:Set(ResourceContainer) := self.elements->union(resourceContainers);
+		var intersection:Set(ResourceContainer) := self.elements->intersection(resourceContainers);
+	}
+	elements := union - intersection;
+	enactedPolicies += enactedPolicy;
+}
+
+mapping inout ResourceEnvironment::modifyResourceEnvironment(elasticInfrastructureCfg:ElasticInfrastructureCfg){
+	resourceContainer_ResourceEnvironment := elasticInfrastructureCfg.elements;
+	linkingResources__ResourceEnvironment.map modifyLinkingResource(elasticInfrastructureCfg.elements);
+}
+
+mapping inout LinkingResource::modifyLinkingResource(resourceContainers:Set(ResourceContainer)){
+	connectedResourceContainers_LinkingResource := resourceContainers;
+}
+
+/**
+*
+* Semantic of adjusting an ElasticInfrastructure according to an AdjustmentType. 
+* This helper method does not modify the elasticInfrastructureCfg, but it yields the change that should occur through a set of resource containers.
+* 
+* In case the returned set contains elements that exist in the ElasticInfrastructureCfg.elements then either a scale in or no scale occurs.
+* In case the returned set contains new Resource Containers then the ElasticInfrastructureCfg then the ElasticInfrastructure scales out. 
+*
+* @param adjustment 				The type of adjustmend from the enacted policy from SPD.
+* @param elasticInfrastructureCfg	The elastic infrastructure configuration that is modified.
+* @return Set(ResourceContainer)	The set of resource containers to be added or removed from the ElasticInfrastructureCfg
+*/
+helper AdjustElasticInfrastructure(adjustment: AdjustmentType, elasticInfrastructureCfg: ElasticInfrastructureCfg) : Set(ResourceContainer) {
+	var resourceContainers : Set(ResourceContainer) := Set{};
+	
+	
+	var currentSize : Integer = elasticInfrastructureCfg.resourceEnvironment.resourceContainer_ResourceEnvironment->size();
+	var desiredChange : Real := Interprete_adjustmentType(adjustment, currentSize);
+	
+	log('Current number of containers ' + currentSize.toString());
+	
+	// in case 0 -> no change desired, in case > 0 -> add by creating new ones, in case < 0 -> select existing
+	if(desiredChange>0) {
+		var i : Integer := 0;
+		while (i < desiredChange) {
+			log('lets create');		
+			var resourceContainer := Helper_createResourceContainerBasedOn(elasticInfrastructureCfg.unit);
+			resourceContainers += resourceContainer;
+			i := i + 1;
+		};						
+	} else if (desiredChange<0){
+		desiredChange := desiredChange.abs();
+		var index : Integer := desiredChange.round();
+		resourceContainers += elasticInfrastructureCfg.elements->subOrderedSet(1, index);
+	};	
+	return resourceContainers;
+}
+
+
+/**
+ * Create a resource container replica based on the templateResourceContainer
+ *
+ * @param templateResourceContainer		The template resource container from which the processing specification is copied.
+ */
+helper Helper_createResourceContainerBasedOn(templateResourceContainer : ResourceContainer) : ResourceContainer {
+	
+	// duplicate resource container with same active resource specification
+	var newResContainer := object ResourceContainer {
+		entityName := templateResourceContainer.entityName+Commons_getUniqueElementNameSuffix();
+	};
+	var processingRate := object PCMRandomVariable {
+		specification := templateResourceContainer.activeResourceSpecifications_ResourceContainer.processingRate_ProcessingResourceSpecification->any(true).specification;
+	};
+	
+	var newResourceSpec := object ProcessingResourceSpecification {
+		activeResourceType_ActiveResourceSpecification := templateResourceContainer.activeResourceSpecifications_ResourceContainer.activeResourceType_ActiveResourceSpecification->any(true);
+		processingRate_ProcessingResourceSpecification := processingRate;
+		schedulingPolicy := templateResourceContainer.activeResourceSpecifications_ResourceContainer.schedulingPolicy->any(true);
+	};
+	newResContainer.activeResourceSpecifications_ResourceContainer += newResourceSpec;
+	return newResContainer;
+}
