@@ -22,5 +22,4 @@ in the folder `spd.semantic.qvto`.
 The transformation can be executed by creating a run configuration for the file and providing the models that 
 should be transformed as arguments.
 
-An example model is provided as part of this repository named `test-spd`.
 
