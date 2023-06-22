@@ -38,6 +38,7 @@ mapping inout ServiceGroupCfg::transformServiceGroup(enactedPolicy:ScalingPolicy
 	//TODO:: add scaling down of the service group
 	init{
 		var newAssemblies:Set(AssemblyContext) := Set{};
+		var assembliesToPreserve:Set(AssemblyContext) := Set{};
 		var system:System :=  sys;
 		var allocation:Allocation := alloc;
 		
@@ -52,8 +53,11 @@ mapping inout ServiceGroupCfg::transformServiceGroup(enactedPolicy:ScalingPolicy
 	}
 	
 	elements += newAssemblies;
-	if(newAssemblies->size()=0 and elasticInfraCfg.elements->size()<>self.elements->size()){
-		elements := elements->subOrderedSet(1,elasticInfraCfg.elements->size());
+	if(newAssemblies->size()=0 and elasticInfraCfg.elements->size() < self.elements->size()){
+		// subset elements to those for which an allocation points to a resource container that will exist after the transformation
+		elements := allocation.allocationContexts_Allocation->select(allocCtx | elasticInfraCfg.elements->includes(allocCtx.resourceContainer_AllocationContext) 
+		and elements->includes(allocCtx.assemblyContext_AllocationContext)).assemblyContext_AllocationContext;
+		
 		alloc.map modifyAllocationOnScaleIn(elements);
 		self.loadBalancingAssembly.encapsulatedComponent__AssemblyContext[BasicComponent].map modifyLoadBalancerOnScaleIn(self);
 		system.map modifySystemModelOnScaleIn(self);
