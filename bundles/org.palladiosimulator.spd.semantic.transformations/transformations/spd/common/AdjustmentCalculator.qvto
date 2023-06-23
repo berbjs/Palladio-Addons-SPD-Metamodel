@@ -1,0 +1,69 @@
+library AdjustmentCalculator;
+
+modeltype SPD_MOD uses 'http://palladiosimulator.org/ScalingPolicyDefinition/1.0';
+modeltype SPD_ADJ uses 'http://palladiosimulator.org/ScalingPolicyDefinition/Adjustments/1.0';
+modeltype SPD_TRI uses 'http://palladiosimulator.org/ScalingPolicyDefinition/Triggers/1.0';
+modeltype SPD_TAR uses 'http://palladiosimulator.org/ScalingPolicyDefinition/Targets/1.0';
+
+/**
+* Interpretation of the AdjustmentType given the currentSize of the TargetGroup. 
+* The interpretation of the AdjustmentType given the currentSize of the target group yields a Ratio value that denotes the desiredChange in capacity for the target group.
+*
+* @param adjustment 	The type of adjustment being interpreted.
+* @param currentSize	The number of elements in the target group.
+* @return Real 			The desired change in capacity for the target group. 
+*/
+helper Interprete_adjustmentType(adjustment: AdjustmentType, currentSize: Integer) : Real {
+	var desiredChange : Real := 0;
+	switch {
+		case (adjustment.oclIsTypeOf(RelativeAdjustment)) {
+			var relativeAdjustment : RelativeAdjustment := adjustment.oclAsType(RelativeAdjustment);
+			desiredChange := caseRelativeAdjustmentType(relativeAdjustment, currentSize);
+		};
+		case (adjustment.oclIsTypeOf(AbsoluteAdjustment)) {	
+			var absoluteAdjustment : AbsoluteAdjustment := adjustment.oclAsType(AbsoluteAdjustment);
+			desiredChange := caseAbsoluteAdjustmentType(absoluteAdjustment, currentSize);
+		};
+		case (adjustment.oclIsTypeOf(StepAdjustment)){
+			var stepAdjustment : StepAdjustment := adjustment.oclAsType(StepAdjustment);
+			desiredChange := caseStepAdjustmentType(stepAdjustment, currentSize);
+		};
+	};
+	return desiredChange;
+}
+
+helper caseRelativeAdjustmentType(adjustment: RelativeAdjustment, currentSize: Integer) : Real {
+	var desiredChange : Real := 0;
+	var relativeAdjustment : RelativeAdjustment := adjustment.oclAsType(RelativeAdjustment);
+	var minAdjustmentValue : Integer := relativeAdjustment.minAdjustmentValue;
+	var percentageGrowthValue : Integer := relativeAdjustment.percentageGrowthValue;
+	log('A relative adjustment has been specified with min value: '+minAdjustmentValue.toString()+', and percentage growth '+percentageGrowthValue.toString());
+	
+	var desiredNumberOfNewResourceContainers:Real := currentSize * percentageGrowthValue/100.0;
+	
+	if(desiredNumberOfNewResourceContainers>0){
+		desiredChange := desiredNumberOfNewResourceContainers.max(minAdjustmentValue);
+	} else {
+		desiredChange := desiredNumberOfNewResourceContainers.min(minAdjustmentValue);
+	};
+	return desiredChange;
+}
+
+helper caseAbsoluteAdjustmentType(adjustment: AbsoluteAdjustment, currentSize: Integer) : Real {
+	var desiredChange : Real := 0;
+	var absoluteAdjustment : AbsoluteAdjustment := adjustment.oclAsType(AbsoluteAdjustment);
+	var goalValue := absoluteAdjustment.goalValue;
+	
+	assert fatal(goalValue>0) with log ('The specified goal value has to be greater then 0.'); 
+	desiredChange := goalValue - currentSize;
+	return desiredChange;
+}
+
+helper caseStepAdjustmentType(adjustment: StepAdjustment, currentSize: Integer) : Real {
+	var stepAdjustment : StepAdjustment := adjustment.oclAsType(StepAdjustment);
+	var stepSize : Integer := stepAdjustment.stepValue;
+	
+	return  stepSize;
+}
+
+
