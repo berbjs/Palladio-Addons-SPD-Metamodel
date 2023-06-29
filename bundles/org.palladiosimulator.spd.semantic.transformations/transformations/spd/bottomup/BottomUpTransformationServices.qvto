@@ -83,7 +83,15 @@ mapping inout BasicComponent::modifyLoadBalancer(serviceGroupCfg:ServiceGroupCfg
 	init{
 		var operationProvidedRole := serviceGroupCfg.unit.encapsulatedComponent__AssemblyContext.providedRoles_InterfaceProvidingEntity.oclAsType(OperationProvidedRole);
 		var operationInterface := operationProvidedRole.providedInterface__OperationProvidedRole;
-		var branchAction:BranchAction := self.serviceEffectSpecifications__BasicComponent.oclAsType(ResourceDemandingSEFF).steps_Behaviour->selectByType(BranchAction)->any(true);
+		
+		var branchActions:Set(BranchAction) := Set{};
+		
+		self.serviceEffectSpecifications__BasicComponent.oclAsType(ResourceDemandingSEFF)->forEach(seff){
+			var branches:Set(BranchAction) := seff.steps_Behaviour->selectByType(BranchAction);
+			assert fatal(branches->size()=1) with log('Supports LoadBalancer with only BranchAction for RDSEFF');
+			branchActions += branches;
+		};
+		
 		var actualNumberOfRequiredRoles:Integer := self.requiredRoles_InterfaceRequiringEntity.oclAsType(OperationRequiredRole)->size();
 		var numberOfnewRoles:Integer :=  serviceGroupCfg.elements->size()-actualNumberOfRequiredRoles;
 		var newRoles:Set(OperationRequiredRole) := Set{};
@@ -97,14 +105,23 @@ mapping inout BasicComponent::modifyLoadBalancer(serviceGroupCfg:ServiceGroupCfg
 	}
 	
 	requiredRoles_InterfaceRequiringEntity += newRoles;
-	branchAction.map modifyBranchAction(serviceGroupCfg, operationInterface->any(true), newRoles);
-	branchAction.branches_Branch->select(b | b.oclIsTypeOf(ProbabilisticBranchTransition))[ProbabilisticBranchTransition]->map modifyProbability(requiredRoles_InterfaceRequiringEntity->size());
+	branchActions-> modifyBranchAction(serviceGroupCfg, operationInterface->any(true), newRoles);
+	
+	branchActions->forEach(branchAction){	
+		branchAction.branches_Branch->select(b | b.oclIsTypeOf(ProbabilisticBranchTransition))[ProbabilisticBranchTransition]->map modifyProbability(requiredRoles_InterfaceRequiringEntity->size());
+	}
 
 }
 
 mapping inout BasicComponent::modifyLoadBalancerOnScaleIn(serviceGroupCfg:ServiceGroupCfg){
 	init {
-		var branchAction:BranchAction := self.serviceEffectSpecifications__BasicComponent.oclAsType(ResourceDemandingSEFF).steps_Behaviour->selectByType(BranchAction)->any(true);
+		var branchActions:Set(BranchAction) := Set{};
+		
+		self.serviceEffectSpecifications__BasicComponent.oclAsType(ResourceDemandingSEFF)->forEach(seff){
+			var branches:Set(BranchAction) := seff.steps_Behaviour->selectByType(BranchAction);
+			assert fatal(branches->size()=1) with log('Supports LoadBalancer with only BranchAction for RDSEFF');
+			branchActions += branches;
+		};
 		var sys:System := serviceGroupCfg.loadBalancingAssembly.parentStructure__AssemblyContext[System]->any(true);
 		var assemblyConnectors:Set(AssemblyConnector) := sys.connectors__ComposedStructure[AssemblyConnector]
 			->select(asmblConnector | asmblConnector.requiringAssemblyContext_AssemblyConnector.encapsulatedComponent__AssemblyContext = self)
@@ -112,16 +129,20 @@ mapping inout BasicComponent::modifyLoadBalancerOnScaleIn(serviceGroupCfg:Servic
 		var rolesToPreserve:Bag(OperationRequiredRole) := assemblyConnectors.requiredRole_AssemblyConnector;
 	}
 	requiredRoles_InterfaceRequiringEntity := rolesToPreserve;
-	branchAction.map modifyBranchActionOnScaleIn(rolesToPreserve);
-	branchAction.branches_Branch->select(b | b.oclIsTypeOf(ProbabilisticBranchTransition))[ProbabilisticBranchTransition]->map modifyProbability(requiredRoles_InterfaceRequiringEntity->size());
+	branchActions->map modifyBranchActionOnScaleIn(rolesToPreserve);
 	
+	branchActions->forEach(branchAction){	
+		branchAction.branches_Branch->select(b | b.oclIsTypeOf(ProbabilisticBranchTransition))[ProbabilisticBranchTransition]->map modifyProbability(requiredRoles_InterfaceRequiringEntity->size());
+	}
 }
+
+
 
 mapping inout BranchAction::modifyBranchAction(serviceGroupCfg:ServiceGroupCfg, opInterface:OperationInterface, newRoles:Set(OperationRequiredRole)){
 	init {
 		var newProbabilisticBranches:Set(ProbabilisticBranchTransition) := Set{};
 		newRoles->forEach(role){
-			var operationSignature:OperationSignature := opInterface.signatures__OperationInterface->any(true); 
+			var operationSignature:OperationSignature := self.branches_Branch.branchBehaviour_BranchTransition.steps_Behaviour[ExternalCallAction]->any(true).calledService_ExternalService;
 			newProbabilisticBranches += new ProbabilisticBranchTransition(operationSignature,role);
 		}	
 	}
