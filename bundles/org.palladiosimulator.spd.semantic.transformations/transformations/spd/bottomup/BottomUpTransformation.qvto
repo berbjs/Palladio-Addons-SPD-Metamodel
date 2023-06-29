@@ -52,9 +52,15 @@ main() {
 		// *********************
 		// Modify infrastructure
 		// *********************
+		var invariantResourceContainers:Set(ResourceContainer) := Set{};		
 		var elasticInfrastructureCfg : ElasticInfrastructureCfg := cfg.targetCfgs[ElasticInfrastructureCfg]->any(true);
+		resourceEnvironment.resourceContainer_ResourceEnvironment->forEach(rc){
+			if(elasticInfrastructureCfg.elements->excludes(rc)){
+				invariantResourceContainers += rc;		
+			};
+		};
 		elasticInfrastructureCfg.map transformElasticInfrastructure(cfg.enactedPolicy);
-		resourceEnvironment.map modifyResourceEnvironment(elasticInfrastructureCfg);
+		resourceEnvironment.map modifyResourceEnvironment(elasticInfrastructureCfg, invariantResourceContainers);
 		
 		// *******************************
 		// Modify simulated service groups
