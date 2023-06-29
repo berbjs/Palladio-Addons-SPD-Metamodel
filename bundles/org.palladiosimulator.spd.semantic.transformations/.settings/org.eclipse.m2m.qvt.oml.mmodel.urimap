@@ -8,4 +8,6 @@
   <mapping sourceURI="http://palladiosimulator.org/ScalingPolicyDefinition/Constraints/Policy/1.0" targetURI="platform:/resource/org.palladiosimulator.spd/model/SPD.ecore#//constraints/policy"/>
   <mapping sourceURI="http://palladiosimulator.org/ScalingPolicyDefinition/Constraints/Target/1.0" targetURI="platform:/resource/org.palladiosimulator.spd/model/SPD.ecore#//constraints/target"/>
   <mapping sourceURI="http://palladiosimulator.org/ScalingPolicyDefinitionSemantic/1.0" targetURI="platform:/resource/org.palladiosimulator.spd.semantic/model/semantic.ecore#/"/>
+  <mapping sourceURI="http://palladiosimulator.org/ScalingPolicyDefinition/Triggers/Stimuli/1.0" targetURI="platform:/resource/org.palladiosimulator.spd/model/SPD.ecore#//triggers/stimuli"/>
+  <mapping sourceURI="http://palladiosimulator.org/ScalingPolicyDefinition/Triggers/Expectations/1.0" targetURI="platform:/resource/org.palladiosimulator.spd/model/SPD.ecore#//triggers/expectations"/>
 </uriMap:MappingContainer>
