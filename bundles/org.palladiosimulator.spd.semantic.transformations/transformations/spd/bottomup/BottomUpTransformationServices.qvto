@@ -58,7 +58,7 @@ mapping inout ServiceGroupCfg::transformServiceGroup(enactedPolicy:ScalingPolicy
 		elements := allocation.allocationContexts_Allocation->select(allocCtx | elasticInfraCfg.elements->includes(allocCtx.resourceContainer_AllocationContext) 
 		and elements->includes(allocCtx.assemblyContext_AllocationContext)).assemblyContext_AllocationContext;
 		
-		alloc.map modifyAllocationOnScaleIn(elements);
+		alloc.map modifyAllocationOnScaleIn(elements, self.unit);
 		self.loadBalancingAssembly.encapsulatedComponent__AssemblyContext[BasicComponent].map modifyLoadBalancerOnScaleIn(self);
 		system.map modifySystemModelOnScaleIn(self);
 	} else {
@@ -68,15 +68,18 @@ mapping inout ServiceGroupCfg::transformServiceGroup(enactedPolicy:ScalingPolicy
 	enactedPolicies += enactedPolicy;
 }
 
-mapping inout Allocation::modifyAllocationOnScaleIn(existingAssemblies:Set(AssemblyContext)){
+mapping inout Allocation::modifyAllocationOnScaleIn(existingAssemblies:Set(AssemblyContext), unit:AssemblyContext){
 	init {
-		var allocationToPreserve:Set(AllocationContext) := Set{};	
+		var allocationToPreserve:Set(AllocationContext) := Set{};
+		var allAllocationsOfUnit:Set(AllocationContext) := self.allocationContexts_Allocation->select(allocCtxt | allocCtxt.assemblyContext_AllocationContext.encapsulatedComponent__AssemblyContext.id=unit.encapsulatedComponent__AssemblyContext.id);
 		existingAssemblies->forEach(assembly){
 			allocationToPreserve += self.allocationContexts_Allocation->select(allocCtx | allocCtx.assemblyContext_AllocationContext = assembly);
 		};
+		var allocationToRemove:Set(AllocationContext) := allAllocationsOfUnit - allocationToPreserve;
+		
 		assert fatal(allocationToPreserve->size()=existingAssemblies->size()) with log('The number of assemblies that should exist and allocations that should exist does not match!');
 	}
-	allocationContexts_Allocation := allocationToPreserve;
+	allocationContexts_Allocation := self.allocationContexts_Allocation - allocationToRemove;
 }
 
 mapping inout BasicComponent::modifyLoadBalancer(serviceGroupCfg:ServiceGroupCfg){
