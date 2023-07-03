@@ -43,9 +43,14 @@ mapping inout ElasticInfrastructureCfg::transformElasticInfrastructure(enactedPo
 	enactedPolicies += enactedPolicy;
 }
 
-mapping inout ResourceEnvironment::modifyResourceEnvironment(elasticInfrastructureCfg:ElasticInfrastructureCfg){
-	resourceContainer_ResourceEnvironment := elasticInfrastructureCfg.elements;
-	linkingResources__ResourceEnvironment.map modifyLinkingResource(elasticInfrastructureCfg.elements);
+mapping inout ResourceEnvironment::modifyResourceEnvironment(elasticInfrastructureCfg:ElasticInfrastructureCfg, invariantResourceContainers:Set(ResourceContainer)){
+	init { 
+		var completeSetOfResourceContainers:Set(ResourceContainer) := Set{};
+		completeSetOfResourceContainers+=elasticInfrastructureCfg.elements;
+		completeSetOfResourceContainers+=invariantResourceContainers;
+	}
+	resourceContainer_ResourceEnvironment := completeSetOfResourceContainers;
+	linkingResources__ResourceEnvironment.map modifyLinkingResource(completeSetOfResourceContainers);
 }
 
 mapping inout LinkingResource::modifyLinkingResource(resourceContainers:Set(ResourceContainer)){
@@ -68,7 +73,7 @@ helper AdjustElasticInfrastructure(adjustment: AdjustmentType, elasticInfrastruc
 	var resourceContainers : Set(ResourceContainer) := Set{};
 	
 	
-	var currentSize : Integer = elasticInfrastructureCfg.resourceEnvironment.resourceContainer_ResourceEnvironment->size();
+	var currentSize : Integer = elasticInfrastructureCfg.elements->size();
 	var desiredChange : Real := Interprete_adjustmentType(adjustment, currentSize);
 	
 	log('Current number of containers ' + currentSize.toString());
