@@ -15,7 +15,11 @@ modeltype PCM_RESOURCETYPE uses pcm::resourcetype('http://palladiosimulator.org/
 
 library Wiring();
 
-
+/**
+* Currently the implementation assumes that the LoadBalancer component is connected only through AssemblyConnectors with the assemblies that are elements of a service group.
+*
+* @author klinakuf
+*/
 helper connectExistingLoadBalancerAndNewAssemblyContexts(loadBalancedAssemblyContext : AssemblyContext, loadBalancerAssemblyContext : AssemblyContext, duplicatedAssemblyContextSet : OrderedSet(AssemblyContext), inout system:System){
 	var duplicatedAssemblyContexts : OrderedSet(AssemblyContext):= duplicatedAssemblyContextSet;
 	var connectors : Set(Connector) := system.connectors__ComposedStructure;
@@ -37,6 +41,13 @@ helper connectExistingLoadBalancerAndNewAssemblyContexts(loadBalancedAssemblyCon
 	loadBalancerNeededRequiredRoles := loadBalancerAllRequiredRoles - loadBalancerFilledRequiredRoles;
 	createAssemblyConnectorsBetweenLoadbalancerAndLoadbalancedAssemblyContexts(assemblyConnectorProvidedInterface,loadBalancerAssemblyContext,loadBalancerNeededRequiredRoles,duplicatedAssemblyContexts);
 	
+	//Connect the duplicated AssemblyContext with required AssemblyContexts 
+	if (loadBalancedAssemblyContext.encapsulatedComponent__AssemblyContext.requiredRoles_InterfaceRequiringEntity != null){
+					addRequiredRolesAssemblyConnectors(loadBalancedAssemblyContext, duplicatedAssemblyContextSet, system);
+					addRequiredRolesSystemDelegationConnectors(loadBalancedAssemblyContext, duplicatedAssemblyContextSet);
+					addRequiredRolesAssemblyInfrastructureConnectors(loadBalancedAssemblyContext, duplicatedAssemblyContextSet);
+				    addRequiredRolesInfrastructureDelegationConnectors(loadBalancedAssemblyContext, duplicatedAssemblyContextSet);
+	};
 }
 
 
