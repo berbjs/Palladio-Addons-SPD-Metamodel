@@ -75,11 +75,18 @@ mapping inout ElasticInfrastructureCfg::transformElasticInfrastructure(enactedPo
 	enactedPolicies += enactedPolicy;
 }
 
+
+mapping inout Allocation::modifyAllocation(serviceGroupCfg:ServiceGroupCfg, elasticInfrastructureCfg:ElasticInfrastructureCfg, scaling:Integer) 
+disjuncts Allocation::modifyAllocationOnScaleOut, Allocation::modifyAllocationOnScaleIn {};
+
+
 /** 
 * The modifyAllocation makes sure that all assemblies in the serviceGroupCfg.elements are allocated to resource containers in the ElasticInfrastructure while respecting placement constraints.  
 * 
 */
-mapping inout Allocation::modifyAllocation(serviceGroupCfg:ServiceGroupCfg, elasticInfrastructureCfg:ElasticInfrastructureCfg){
+mapping inout Allocation::modifyAllocationOnScaleOut(serviceGroupCfg:ServiceGroupCfg, elasticInfrastructureCfg:ElasticInfrastructureCfg, scaling:Integer)
+when {scaling>0;}
+{
 	init{
 		var allocationCtxtsToAdd:Set(AllocationContext) := Set{};
 		var allocationCtxtsToRemove:Set(AllocationContext) := Set{};
@@ -108,4 +115,14 @@ mapping inout Allocation::modifyAllocation(serviceGroupCfg:ServiceGroupCfg, elas
 	}
 	
 	allocationContexts_Allocation := (self.allocationContexts_Allocation->union(allocationCtxtsToAdd))  - allocationCtxtsToRemove;
+}
+
+mapping inout Allocation::modifyAllocationOnScaleIn(serviceGroupCfg:ServiceGroupCfg, elasticInfrastructureCfg:ElasticInfrastructureCfg, scaling:Integer)
+when{scaling<0;}
+{
+	init {
+		// when system model is updated and assemblies are removed, the allocation model is transformed as well by making the ctxts with assemblies with nullablle components.  
+		var allocationsWithNullComponent:Set(AllocationContext) := self.allocationContexts_Allocation->select(allocCtxt | allocCtxt.assemblyContext_AllocationContext.encapsulatedComponent__AssemblyContext=null);
+	}
+	allocationContexts_Allocation := self.allocationContexts_Allocation - allocationsWithNullComponent;
 }

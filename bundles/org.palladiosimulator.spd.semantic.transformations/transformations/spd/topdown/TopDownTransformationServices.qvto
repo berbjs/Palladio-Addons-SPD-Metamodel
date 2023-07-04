@@ -30,36 +30,43 @@ modeltype SPD_CONT uses 'http://palladiosimulator.org/ScalingPolicyDefinition/Co
 modeltype SPD_SEM uses 'http://palladiosimulator.org/ScalingPolicyDefinitionSemantic/1.0';
 
 
-// The mapping transforms the service group configuration, as a side-effect creates new assemblies.
+// The mapping transforms the service group configuration, as a side-effect creates new assemblies that are not allocated.
 mapping inout ServiceGroupCfg::transformServiceGroup(enactedPolicy:ScalingPolicy, system:System){
 	init {
-		var assembliesDiff:Set(AssemblyContext) := ComputeDiffBasedOnAdjustmentType(self.unit, enactedPolicy.adjustmentType, system, self);
-		var union:Set(AssemblyContext) := self.elements->union(assembliesDiff);
+		var assembliesDiff:OrderedSet(AssemblyContext) := ComputeDiffBasedOnAdjustmentType(self.unit, enactedPolicy.adjustmentType, system, self);
+		var newAssemblies:OrderedSet(AssemblyContext) := OrderedSet{};
 		var intersection:Set(AssemblyContext) := self.elements->intersection(assembliesDiff);
-		var currentElements:Set(AssemblyContext) := self.elements;
+		if(intersection->size()=0){
+			//append all assemblies to elements
+			newAssemblies := self.elements;
+			assembliesDiff->forEach(assembly){
+				newAssemblies := newAssemblies->append(assembly);
+			}
+		} else {
+			newAssemblies := assembliesDiff;
+		}
 	}
+	elements := newAssemblies;
+	enactedPolicies += enactedPolicy;
 	
-	elements := union - intersection;
-	
-	if(intersection->size()=0 and union->size()>currentElements->size() ){
+	if(intersection->size()=0 and assembliesDiff->size()>0){
 		self.loadBalancingAssembly.encapsulatedComponent__AssemblyContext[BasicComponent].map modifyLoadBalancer(self);
 		system.map modifySystemModel(self);
-	};
+	};	
 	
-//	if(intersection->size()>0){
-//		allocation.map modifyAllocationOnScaleIn(elements);
-//		self.loadBalancingAssembly.encapsulatedComponent__AssemblyContext[BasicComponent].map modifyLoadBalancerOnScaleIn(self);
-//		system.map modifySystemModelOnScaleIn(self);
-//	};	
-
-	enactedPolicies += enactedPolicy;
+	if(intersection->size()>0){
+		system.map modifySystemModelOnScaleIn(self);
+		self.loadBalancingAssembly.encapsulatedComponent__AssemblyContext[BasicComponent].map modifyLoadBalancerOnScaleIn(self);
+	};	
 }
+
+
 //
 //
 // @return Set(AssemblyContext) assemblies that should be added or removed.
-helper ComputeDiffBasedOnAdjustmentType(unitAssembly:AssemblyContext, adjustment: AdjustmentType, system:System, serviceGroupCfg:ServiceGroupCfg) : Set(AssemblyContext){
+helper ComputeDiffBasedOnAdjustmentType(unitAssembly:AssemblyContext, adjustment: AdjustmentType, system:System, serviceGroupCfg:ServiceGroupCfg) : OrderedSet(AssemblyContext){
 
-	var assembliesDiff : Set(AssemblyContext) := Set{};
+	var assembliesDiff : OrderedSet(AssemblyContext) := OrderedSet{};
 	var desiredChange : Real := Interprete_adjustmentType(adjustment, serviceGroupCfg.elements->size());
 	log('Current number of assemblies ' + serviceGroupCfg.elements->size().toString());
 	var uniqueContext:AssemblyContext := unitAssembly;
@@ -76,8 +83,18 @@ helper ComputeDiffBasedOnAdjustmentType(unitAssembly:AssemblyContext, adjustment
 		};						
 	} else if (desiredChange<0){
 		desiredChange := desiredChange.abs();
-		var index : Integer := desiredChange.round();
+		var minimalNumberOfAssemblies : Integer := 1;
+		var index : Integer := minimalNumberOfAssemblies.max(serviceGroupCfg.elements->size()-desiredChange.round());
+		/*
+		* subOrderedSet contract:
+		* pre : 1 <= lower
+		* pre : lower <= upper
+		* pre : upper <= self->size()
+		* post: result->size() = upper -lower + 1
+		* post: Sequence{lower..upper}->forAll( index | result->at(index - lower + 1) = self->at(index))
+		*/
 		assembliesDiff += serviceGroupCfg.elements->subOrderedSet(1, index);
+		assert fatal(assembliesDiff->includes(serviceGroupCfg.unit)) with log('The assembly unit is not contained in the final elements, check whether unit is not the first element in elements.');
 	};	
 	return assembliesDiff;
 

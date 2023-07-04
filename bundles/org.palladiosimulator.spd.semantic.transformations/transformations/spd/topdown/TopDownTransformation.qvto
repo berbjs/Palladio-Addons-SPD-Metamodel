@@ -52,6 +52,7 @@ main(){
 		//TODO::fix add assembly ctx to the service group
 		//var serviceGroupCfg : ServiceGroupCfg := cfg.targetCfgs[ServiceGroupCfg]->any(svcGCfg | svcGCfg.unit.id = cfg.enactedPolicy.targetGroup.oclAsType(ServiceGroup).id);
 		var serviceGroupCfg : ServiceGroupCfg := cfg.targetCfgs[ServiceGroupCfg]->any(true);
+		var currentNumberOfElements : Integer := serviceGroupCfg.elements->size();
 		serviceGroupCfg.map transformServiceGroup(cfg.enactedPolicy, system);
 		
 		// *************
@@ -66,6 +67,6 @@ main(){
 		};
 		
 		elasticInfrastructureCfg.map transformElasticInfrastructure(cfg.enactedPolicy, serviceGroupCfg, allocation);
-		allocation.map modifyAllocation(serviceGroupCfg, elasticInfrastructureCfg);
+		allocation.map modifyAllocation(serviceGroupCfg, elasticInfrastructureCfg, serviceGroupCfg.elements->size()-currentNumberOfElements);
 		resourceEnvironment.map modifyResourceEnvironment(elasticInfrastructureCfg, invariantResourceContainers);
 }
