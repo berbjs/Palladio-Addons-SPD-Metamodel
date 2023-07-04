@@ -89,8 +89,20 @@ helper AdjustElasticInfrastructure(adjustment: AdjustmentType, elasticInfrastruc
 		};						
 	} else if (desiredChange<0){
 		desiredChange := desiredChange.abs();
-		var index : Integer := desiredChange.round();
+		var minimalNumberOfResourceContainers : Integer := 1;
+		var index : Integer := minimalNumberOfResourceContainers.max(elasticInfrastructureCfg.elements->size()-desiredChange.round());
+		
+		/*
+		* subOrderedSet contract:
+		* pre : 1 <= lower
+		* pre : lower <= upper
+		* pre : upper <= self->size()
+		* post: result->size() = upper -lower + 1
+		* post: Sequence{lower..upper}->forAll( index | result->at(index - lower + 1) = self->at(index))
+		*/
+		
 		resourceContainers += elasticInfrastructureCfg.elements->subOrderedSet(1, index);
+		assert fatal(resourceContainers->excludes(elasticInfrastructureCfg.unit)) with log('The unit is not the first element in the elements configuration, hence it would be destroyed!');
 	};	
 	return resourceContainers;
 }
