@@ -114,11 +114,18 @@ mapping inout System::modifySystemModelOnScaleIn(serviceCfg:ServiceGroupCfg){
 		->select(assembly | 
 			serviceCfg.elements->includes(assembly) 
 			or assembly.encapsulatedComponent__AssemblyContext<>serviceCfg.unit.encapsulatedComponent__AssemblyContext);
+
+		var assembliesForDeletion:Set(AssemblyContext) :=  self.assemblyContexts__ComposedStructure
+		->select(assembly | 
+			serviceCfg.elements->excludes(assembly)
+			and assembly.encapsulatedComponent__AssemblyContext=serviceCfg.unit.encapsulatedComponent__AssemblyContext);
 			
 		var connectorsToRemove:Set(Connector) :=  self.connectors__ComposedStructure
 		->select(connector | 
 			connector.oclIsTypeOf(AssemblyConnector)
-			and serviceCfg.elements->excludes(connector.oclAsType(AssemblyConnector).providingAssemblyContext_AssemblyConnector));
+			and (assembliesForDeletion->includes(connector.oclAsType(AssemblyConnector).providingAssemblyContext_AssemblyConnector)
+			or assembliesForDeletion->includes(connector.oclAsType(AssemblyConnector).requiringAssemblyContext_AssemblyConnector)));
+			
 		var connectorsToPreserve:Set(Connector) := self.connectors__ComposedStructure - connectorsToRemove;
 	}
 	assemblyContexts__ComposedStructure := assembliesToPreserve;
