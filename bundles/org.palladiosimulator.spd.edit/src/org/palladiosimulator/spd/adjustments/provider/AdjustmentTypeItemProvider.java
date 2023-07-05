@@ -61,7 +61,7 @@ public class AdjustmentTypeItemProvider extends ItemProviderAdapter implements I
 	public String getText(Object object) {
 		return getString("_UI_AdjustmentType_type");
 	}
-	
+
 	/**
 	 * Returns adjustment icon pointing upwards for all adjustment types.
 	 * <!-- begin-user-doc -->

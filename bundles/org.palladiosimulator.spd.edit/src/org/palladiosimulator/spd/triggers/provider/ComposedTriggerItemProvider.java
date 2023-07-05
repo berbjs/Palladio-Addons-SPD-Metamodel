@@ -106,6 +106,7 @@ public class ComposedTriggerItemProvider extends ScalingTriggerItemProvider {
 	public Object getImage(Object object) {
 		return super.getImage(object);
 	}
+
 	/**
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->

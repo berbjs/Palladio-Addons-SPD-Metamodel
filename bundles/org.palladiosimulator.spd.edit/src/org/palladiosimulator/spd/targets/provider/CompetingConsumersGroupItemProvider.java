@@ -42,6 +42,7 @@ public class CompetingConsumersGroupItemProvider extends TargetGroupItemProvider
 		}
 		return itemPropertyDescriptors;
 	}
+
 	/*
 	 * This overrides and reuses the icon for a TargetGroup.
 	 * <!-- begin-user-doc -->
@@ -52,7 +53,7 @@ public class CompetingConsumersGroupItemProvider extends TargetGroupItemProvider
 	public Object getImage(Object object) {
 		return super.getImage(object);
 	}
-	
+
 	/**
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->

@@ -92,7 +92,7 @@ public class TargetGroupItemProvider extends EntityItemProvider {
 		return label == null || label.length() == 0 ? getString("_UI_TargetGroup_type")
 				: getString("_UI_TargetGroup_type") + " " + label;
 	}
-	
+
 	/**
 	 * This returns the icon for a target group.
 	 * <!-- begin-user-doc -->
@@ -104,8 +104,6 @@ public class TargetGroupItemProvider extends EntityItemProvider {
 		return overlayImage(object, getResourceLocator().getImage("full/spdicons16/target-icon.png"));
 	}
 
-
-	
 	/**
 	 * This handles model notifications by calling {@link #updateChildren} to update any cached
 	 * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}.
