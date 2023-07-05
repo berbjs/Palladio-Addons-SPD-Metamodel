@@ -8,8 +8,10 @@ import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.palladiosimulator.spd.targets.ServiceGroup;
+import org.palladiosimulator.spd.targets.TargetsPackage;
 
 /**
  * This is the item provider adapter for a {@link org.palladiosimulator.spd.targets.ServiceGroup} object.
@@ -39,10 +41,26 @@ public class ServiceGroupItemProvider extends TargetGroupItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
+			addUnitAssemblyPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
-	
+
+	/**
+	 * This adds a property descriptor for the Unit Assembly feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addUnitAssemblyPropertyDescriptor(Object object) {
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(), getString("_UI_ServiceGroup_unitAssembly_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_ServiceGroup_unitAssembly_feature",
+								"_UI_ServiceGroup_type"),
+						TargetsPackage.Literals.SERVICE_GROUP__UNIT_ASSEMBLY, true, false, true, null, null, null));
+	}
+
 	/*
 	 * This overrides and reuses the icon for a TargetGroup.
 	 * <!-- begin-user-doc -->

@@ -195,13 +195,22 @@ public interface TargetsPackage extends EPackage {
 	int SERVICE_GROUP__TARGET_CONSTRAINTS = TARGET_GROUP__TARGET_CONSTRAINTS;
 
 	/**
+	 * The feature id for the '<em><b>Unit Assembly</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SERVICE_GROUP__UNIT_ASSEMBLY = TARGET_GROUP_FEATURE_COUNT + 0;
+
+	/**
 	 * The number of structural features of the '<em>Service Group</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SERVICE_GROUP_FEATURE_COUNT = TARGET_GROUP_FEATURE_COUNT + 0;
+	int SERVICE_GROUP_FEATURE_COUNT = TARGET_GROUP_FEATURE_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link org.palladiosimulator.spd.targets.impl.CompetingConsumersGroupImpl <em>Competing Consumers Group</em>}' class.
@@ -302,6 +311,17 @@ public interface TargetsPackage extends EPackage {
 	EClass getServiceGroup();
 
 	/**
+	 * Returns the meta object for the reference '{@link org.palladiosimulator.spd.targets.ServiceGroup#getUnitAssembly <em>Unit Assembly</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Unit Assembly</em>'.
+	 * @see org.palladiosimulator.spd.targets.ServiceGroup#getUnitAssembly()
+	 * @see #getServiceGroup()
+	 * @generated
+	 */
+	EReference getServiceGroup_UnitAssembly();
+
+	/**
 	 * Returns the meta object for class '{@link org.palladiosimulator.spd.targets.CompetingConsumersGroup <em>Competing Consumers Group</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -379,6 +399,14 @@ public interface TargetsPackage extends EPackage {
 		 * @generated
 		 */
 		EClass SERVICE_GROUP = eINSTANCE.getServiceGroup();
+
+		/**
+		 * The meta object literal for the '<em><b>Unit Assembly</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SERVICE_GROUP__UNIT_ASSEMBLY = eINSTANCE.getServiceGroup_UnitAssembly();
 
 		/**
 		 * The meta object literal for the '{@link org.palladiosimulator.spd.targets.impl.CompetingConsumersGroupImpl <em>Competing Consumers Group</em>}' class.

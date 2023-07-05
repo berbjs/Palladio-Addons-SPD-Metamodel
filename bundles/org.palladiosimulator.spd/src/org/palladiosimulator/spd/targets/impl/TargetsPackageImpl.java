@@ -9,6 +9,7 @@ import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.EcorePackage;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 import org.palladiosimulator.pcm.PcmPackage;
+import org.palladiosimulator.pcm.core.composition.CompositionPackage;
 import org.palladiosimulator.pcm.core.entity.EntityPackage;
 import org.palladiosimulator.pcm.resourceenvironment.ResourceenvironmentPackage;
 import org.palladiosimulator.spd.SpdPackage;
@@ -251,6 +252,16 @@ public class TargetsPackageImpl extends EPackageImpl implements TargetsPackage {
 	 * @generated
 	 */
 	@Override
+	public EReference getServiceGroup_UnitAssembly() {
+		return (EReference) serviceGroupEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getCompetingConsumersGroup() {
 		return competingConsumersGroupEClass;
 	}
@@ -292,6 +303,7 @@ public class TargetsPackageImpl extends EPackageImpl implements TargetsPackage {
 		createEReference(elasticInfrastructureEClass, ELASTIC_INFRASTRUCTURE__PCM_RESOURCE_ENVIRONMENT);
 
 		serviceGroupEClass = createEClass(SERVICE_GROUP);
+		createEReference(serviceGroupEClass, SERVICE_GROUP__UNIT_ASSEMBLY);
 
 		competingConsumersGroupEClass = createEClass(COMPETING_CONSUMERS_GROUP);
 	}
@@ -325,6 +337,8 @@ public class TargetsPackageImpl extends EPackageImpl implements TargetsPackage {
 		TargetPackage theTargetPackage = (TargetPackage) EPackage.Registry.INSTANCE.getEPackage(TargetPackage.eNS_URI);
 		ResourceenvironmentPackage theResourceenvironmentPackage = (ResourceenvironmentPackage) EPackage.Registry.INSTANCE
 				.getEPackage(ResourceenvironmentPackage.eNS_URI);
+		CompositionPackage theCompositionPackage = (CompositionPackage) EPackage.Registry.INSTANCE
+				.getEPackage(CompositionPackage.eNS_URI);
 
 		// Create type parameters
 
@@ -352,6 +366,9 @@ public class TargetsPackageImpl extends EPackageImpl implements TargetsPackage {
 
 		initEClass(serviceGroupEClass, ServiceGroup.class, "ServiceGroup", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getServiceGroup_UnitAssembly(), theCompositionPackage.getAssemblyContext(), null, "unitAssembly",
+				null, 0, 1, ServiceGroup.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
+				IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(competingConsumersGroupEClass, CompetingConsumersGroup.class, "CompetingConsumersGroup",
 				!IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);

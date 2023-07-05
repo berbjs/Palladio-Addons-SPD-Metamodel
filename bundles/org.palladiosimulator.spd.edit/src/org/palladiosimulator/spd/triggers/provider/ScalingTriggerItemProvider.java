@@ -59,7 +59,7 @@ public class ScalingTriggerItemProvider extends IdentifierItemProvider {
 		return label == null || label.length() == 0 ? getString("_UI_ScalingTrigger_type")
 				: getString("_UI_ScalingTrigger_type") + " " + label;
 	}
-	
+
 	/**
 	 * This returns the icon for the scaling trigger.
 	 * <!-- begin-user-doc -->
@@ -70,7 +70,6 @@ public class ScalingTriggerItemProvider extends IdentifierItemProvider {
 	public Object getImage(Object object) {
 		return overlayImage(object, getResourceLocator().getImage("full/spdicons16/trigger-icon.png"));
 	}
-
 
 	/**
 	 * This handles model notifications by calling {@link #updateChildren} to update any cached
