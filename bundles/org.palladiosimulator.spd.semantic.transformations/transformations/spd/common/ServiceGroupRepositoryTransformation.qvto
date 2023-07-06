@@ -119,17 +119,40 @@ mapping inout System::modifySystemModelOnScaleIn(serviceCfg:ServiceGroupCfg){
 		->select(assembly | 
 			serviceCfg.elements->excludes(assembly)
 			and assembly.encapsulatedComponent__AssemblyContext=serviceCfg.unit.encapsulatedComponent__AssemblyContext);
-			
-		var connectorsToRemove:Set(Connector) :=  self.connectors__ComposedStructure
-		->select(connector | 
-			connector.oclIsTypeOf(AssemblyConnector)
-			and (assembliesForDeletion->includes(connector.oclAsType(AssemblyConnector).providingAssemblyContext_AssemblyConnector)
-			or assembliesForDeletion->includes(connector.oclAsType(AssemblyConnector).requiringAssemblyContext_AssemblyConnector)));
-			
+		
+		var connectorsToRemove:Set(Connector) := self.selectConnectorsForRemoval(assembliesForDeletion);
 		var connectorsToPreserve:Set(Connector) := self.connectors__ComposedStructure - connectorsToRemove;
 	}
 	assemblyContexts__ComposedStructure := assembliesToPreserve;
 	connectors__ComposedStructure := connectorsToPreserve;
+}
+
+/**
+* Helper method to select connectors that should be removed in case of a scale in.
+*
+* @param assembliesForDeletion - the set of AssemblyContext that will be removed after the transformation.
+* @return Set of connectors that should be removed which is a union of the selection based on different connector types.
+*/
+helper System::selectConnectorsForRemoval(assembliesForDeletion:Set(AssemblyContext)):Set(Connector){
+	
+	var assemblyConnectors:Set(Connector) :=  self.connectors__ComposedStructure
+	->select(connector | 
+		connector.oclIsTypeOf(AssemblyConnector)
+		and (assembliesForDeletion->includes(connector.oclAsType(AssemblyConnector).providingAssemblyContext_AssemblyConnector)
+		or assembliesForDeletion->includes(connector.oclAsType(AssemblyConnector).requiringAssemblyContext_AssemblyConnector)));
+	
+	var systemDelegationConnectors:Set(Connector) := self.connectors__ComposedStructure
+	->select(connector | 
+		connector.oclIsTypeOf(ProvidedDelegationConnector)
+		and (assembliesForDeletion->includes(connector.oclAsType(ProvidedDelegationConnector).assemblyContext_ProvidedDelegationConnector)));
+		
+	var assemblyInfrastructureConnectors:Set(Connector) := self.connectors__ComposedStructure
+	->select(connector | 
+		connector.oclIsTypeOf(AssemblyInfrastructureConnector)
+		and (assembliesForDeletion->includes(connector.oclAsType(AssemblyInfrastructureConnector).providingAssemblyContext__AssemblyInfrastructureConnector)
+		or assembliesForDeletion->includes(connector.oclAsType(AssemblyInfrastructureConnector).requiringAssemblyContext__AssemblyInfrastructureConnector)));
+	
+	return assemblyConnectors->union(systemDelegationConnectors)->union(assemblyInfrastructureConnectors);
 }
 
 mapping inout System::modifySystemModel(serviceCfg:ServiceGroupCfg){
