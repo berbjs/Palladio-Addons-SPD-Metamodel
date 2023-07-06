@@ -51,9 +51,15 @@ mapping inout ElasticInfrastructureCfg::transformElasticInfrastructure(enactedPo
 		if(allocationsOfService->size()<serviceGroupCfg.elements->size()){
 			// scale out infrastructure if needed
 			// create new if the diff cannot be accomodated considering the constraint which currently is fixed in the script to 3. See max_assemblies_per_host.
+			
+			var currentAllocations:Integer := allocation.allocationContexts_Allocation->select(alloc | self.elements->includes(alloc.resourceContainer_AllocationContext))->size();
 			var newElements:Integer := serviceGroupCfg.elements->size() - allocationsOfService->size();
-			var numberOfContainers:Integer := serviceGroupCfg.elements->size().div(max_assemblies_per_host);
-			var remainder:Integer := serviceGroupCfg.elements->size().mod(max_assemblies_per_host);
+			
+			var totalAllocationsAfterAdjustment:Integer := currentAllocations+newElements;
+			
+			//placement constraints
+			var numberOfContainers:Integer := totalAllocationsAfterAdjustment.div(max_assemblies_per_host);
+			var remainder:Integer := totalAllocationsAfterAdjustment.mod(max_assemblies_per_host);
 			
 			if(remainder>0){
 				numberOfContainers := numberOfContainers+1;
