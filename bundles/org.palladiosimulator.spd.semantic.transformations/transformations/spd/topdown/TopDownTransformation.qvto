@@ -48,10 +48,8 @@ main(){
 		// *********************
 		// Transform Service Group of the Scaling Policy
 		// *********************
+		var serviceGroupCfg : ServiceGroupCfg := cfg.targetCfgs[ServiceGroupCfg]->selectOne(svcConf | svcConf.unit = cfg.enactedPolicy.targetGroup.oclAsType(ServiceGroup).unitAssembly);
 		
-		//TODO::fix add assembly ctx to the service group
-		//var serviceGroupCfg : ServiceGroupCfg := cfg.targetCfgs[ServiceGroupCfg]->any(svcGCfg | svcGCfg.unit.id = cfg.enactedPolicy.targetGroup.oclAsType(ServiceGroup).id);
-		var serviceGroupCfg : ServiceGroupCfg := cfg.targetCfgs[ServiceGroupCfg]->any(true);
 		var currentNumberOfElements : Integer := serviceGroupCfg.elements->size();
 		serviceGroupCfg.map transformServiceGroup(cfg.enactedPolicy, system);
 		
