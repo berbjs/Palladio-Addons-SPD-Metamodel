@@ -197,9 +197,13 @@ helper createAssemblyConnectorsBetweenLoadbalancerAndLoadbalancedAssemblyContext
 /**
  * Creates an AssemblyConnector for each of the duplicated AssemblyContext in duplicatedAssemblyContextSet to 
  * an OperationRequiredRole specified by the loadBalancedAssemblyContext
+ *
+ * !--- Modified from the original implementation to support consecutive scaling.
+ *
+ * @author Modified by klinakuf
  */
 helper addRequiredRolesAssemblyConnectors(loadBalancedAssemblyContext : AssemblyContext, duplicatedAssemblyContextSet : OrderedSet(AssemblyContext), inout system:System){
-	var assemblyConnectors : Collection(AssemblyConnector) := system.connectors__ComposedStructure ->selectByType(AssemblyConnector);
+	var assemblyConnectors : Collection(AssemblyConnector) := system.connectors__ComposedStructure[AssemblyConnector]->select(assemblyConnector | assemblyConnector.requiringAssemblyContext_AssemblyConnector=loadBalancedAssemblyContext);
 	var loadBalancedRequiredRoles : Set(RequiredRole) := loadBalancedAssemblyContext.encapsulatedComponent__AssemblyContext.requiredRoles_InterfaceRequiringEntity;
 	var requiredRoleLoadBalancedAssemblyContextConnectors : Collection(AssemblyConnector) := assemblyConnectors -> select(assemblyConnector : AssemblyConnector | loadBalancedRequiredRoles -> includes(assemblyConnector.requiredRole_AssemblyConnector));
 	requiredRoleLoadBalancedAssemblyContextConnectors -> forEach(assemblyConnector){
@@ -213,11 +217,15 @@ helper addRequiredRolesAssemblyConnectors(loadBalancedAssemblyContext : Assembly
 /**
  * Creates an AssemblyInfrastructureConnector for each of the duplicated AssemblyContext in duplicatedAssemblyContextSet to 
  * an InfrastructureRequiredRole specified by the loadBalancedAssemblyContext
+ *
+ * !--- Modified from the original implementation to support consecutive scaling.
+ *
+ * @author Modified by klinakuf
  */
 helper addRequiredRolesAssemblyInfrastructureConnectors(loadBalancedAssemblyContext : AssemblyContext, duplicatedAssemblyContextSet : OrderedSet(AssemblyContext)){
 	var system : System := loadBalancedAssemblyContext.parentStructure__AssemblyContext![System];
 	
-	var assemblyInfrastructureConnectors : Collection(AssemblyInfrastructureConnector) := system.connectors__ComposedStructure ->selectByType(AssemblyInfrastructureConnector);
+	var assemblyInfrastructureConnectors : Collection(AssemblyInfrastructureConnector) := system.connectors__ComposedStructure[AssemblyInfrastructureConnector]->select(assemblyConnector | assemblyConnector.requiringAssemblyContext__AssemblyInfrastructureConnector=loadBalancedAssemblyContext);
 	var loadBalancedRequiredRoles : Set(RequiredRole) := loadBalancedAssemblyContext.encapsulatedComponent__AssemblyContext.requiredRoles_InterfaceRequiringEntity;
 	var requiredRoleLoadBalancedAssemblyContextConnectors : Collection(AssemblyInfrastructureConnector) := assemblyInfrastructureConnectors -> select(assemblyInfrastructureConnector : AssemblyInfrastructureConnector | loadBalancedRequiredRoles -> includes(assemblyInfrastructureConnector.requiredRole__AssemblyInfrastructureConnector));
 	requiredRoleLoadBalancedAssemblyContextConnectors -> forEach(assemblyConnector){
@@ -234,7 +242,7 @@ helper addRequiredRolesAssemblyInfrastructureConnectors(loadBalancedAssemblyCont
  */
 helper addRequiredRolesSystemDelegationConnectors(loadBalancedAssemblyContext : AssemblyContext, duplicatedAssemblyContextSet : OrderedSet(AssemblyContext)){
 	var system : System := loadBalancedAssemblyContext.parentStructure__AssemblyContext![System];
-	var delegationConnectors : Collection(RequiredDelegationConnector) := system.connectors__ComposedStructure -> selectByType(RequiredDelegationConnector);
+	var delegationConnectors : Collection(RequiredDelegationConnector) := system.connectors__ComposedStructure[RequiredDelegationConnector]->select(connector | connector.assemblyContext_RequiredDelegationConnector=loadBalancedAssemblyContext);
 	var loadBalancedRequiredRoles : Set(RequiredRole) := loadBalancedAssemblyContext.encapsulatedComponent__AssemblyContext.requiredRoles_InterfaceRequiringEntity;
 	var requiredRoleLoadBalancedAssemblyContextDelegationConnectors : Collection(RequiredDelegationConnector) := delegationConnectors -> select(delegationConnector : RequiredDelegationConnector | loadBalancedRequiredRoles -> includes(delegationConnector.innerRequiredRole_RequiredDelegationConnector));
 	requiredRoleLoadBalancedAssemblyContextDelegationConnectors -> forEach(delegationConnector){
@@ -247,10 +255,14 @@ helper addRequiredRolesSystemDelegationConnectors(loadBalancedAssemblyContext : 
 /**
  * Creates a RequiredInfrastructureDelegationConnector for each of the duplicated AssemblyContext in duplicatedAssemblyContextSet to 
  * the InfrastructureRequiredRole specified by the loadBalancedAssemblyContext
+ *
+ * !--- Modified from the original implementation to support consecutive scaling.
+ *
+ * @author Modified by klinakuf
  */
 helper addRequiredRolesInfrastructureDelegationConnectors(loadBalancedAssemblyContext : AssemblyContext, duplicatedAssemblyContextSet : OrderedSet(AssemblyContext)){
 	var system : System := loadBalancedAssemblyContext.parentStructure__AssemblyContext![System];
-	var delegationConnectors : Collection(RequiredInfrastructureDelegationConnector) := system.connectors__ComposedStructure -> selectByType(RequiredInfrastructureDelegationConnector);
+	var delegationConnectors : Collection(RequiredInfrastructureDelegationConnector) := system.connectors__ComposedStructure[RequiredInfrastructureDelegationConnector]->select(connectors | connectors.assemblyContext__RequiredInfrastructureDelegationConnector=loadBalancedAssemblyContext);
 	var loadBalancedRequiredRoles : Set(RequiredRole) := loadBalancedAssemblyContext.encapsulatedComponent__AssemblyContext.requiredRoles_InterfaceRequiringEntity;
 	var requiredRoleLoadBalancedAssemblyContextDelegationConnectors : Collection(RequiredInfrastructureDelegationConnector) := delegationConnectors -> select(delegationConnector : RequiredInfrastructureDelegationConnector | loadBalancedRequiredRoles -> includes(delegationConnector.innerRequiredRole__RequiredInfrastructureDelegationConnector));
 	requiredRoleLoadBalancedAssemblyContextDelegationConnectors -> forEach(delegationConnector){
