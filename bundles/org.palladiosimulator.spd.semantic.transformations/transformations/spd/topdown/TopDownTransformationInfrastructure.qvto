@@ -41,7 +41,11 @@ mapping inout ElasticInfrastructureCfg::transformElasticInfrastructure(enactedPo
 		var allocationsTotal:Set(AllocationContext) := allocation.allocationContexts_Allocation->select(alloc | self.elements->includes(alloc.resourceContainer_AllocationContext));
 		var allocationsOfService:Set(AllocationContext) := allocation.allocationContexts_Allocation->select(alloc | serviceGroupCfg.elements->includes(alloc.assemblyContext_AllocationContext));
 		
-		if(allocationsOfService->size()>serviceGroupCfg.elements->size()){
+		/* 
+		* in case allocations match elements then no scale out has happened, 
+		* while allocationOfService selects existing allocations of elements, and this is executed prior the creation of new allocations
+		*/			
+		if(allocationsOfService->size()=serviceGroupCfg.elements->size()){
 			// scale in infrastructure if needed
 			// NOW: Remove all resource containers which have no allocations at the moment. This allows to happen that allocationCtxts are removed initially but not the resource container. 
 			// TODO:: Future: all resource containers that will be empty after the scale in, shall be removed, no rebalancing
