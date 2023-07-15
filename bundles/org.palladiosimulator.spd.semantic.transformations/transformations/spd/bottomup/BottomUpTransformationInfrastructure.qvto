@@ -36,7 +36,7 @@ mapping inout ElasticInfrastructureCfg::transformElasticInfrastructure(enactedPo
 	init{
 		var resourceContainers:OrderedSet(ResourceContainer);
 		var newElements:OrderedSet(ResourceContainer);
-		resourceContainers := AdjustElasticInfrastructure(enactedPolicy.adjustmentType,self);
+		resourceContainers := AdjustElasticInfrastructure(enactedPolicy,self);
 		var intersection:Set(ResourceContainer) := self.elements->intersection(resourceContainers);
 		if(intersection->size()=0){
 			//append all rcs to elements
@@ -65,12 +65,18 @@ mapping inout ElasticInfrastructureCfg::transformElasticInfrastructure(enactedPo
 * @param elasticInfrastructureCfg	The elastic infrastructure configuration that is modified.
 * @return Set(ResourceContainer)	The set of resource containers to be added or removed from the ElasticInfrastructureCfg
 */
-helper AdjustElasticInfrastructure(adjustment: AdjustmentType, elasticInfrastructureCfg: ElasticInfrastructureCfg) : OrderedSet(ResourceContainer) {
+helper AdjustElasticInfrastructure(policy: ScalingPolicy, elasticInfrastructureCfg: ElasticInfrastructureCfg) : OrderedSet(ResourceContainer) {
 	var resourceContainers : OrderedSet(ResourceContainer) := OrderedSet{};
 	
+	var adjustment: AdjustmentType := policy.adjustmentType;
 	
 	var currentSize : Integer = elasticInfrastructureCfg.elements->size();
 	var desiredChange : Real := Interprete_adjustmentType(adjustment, currentSize);
+	
+	if(policy.targetGroup.targetConstraints[TargetGroupSizeConstraint]->notEmpty()){
+		desiredChange := Interprete_GroupSizeConstraints(elasticInfrastructureCfg.elements->size(),desiredChange,policy.targetGroup.targetConstraints[TargetGroupSizeConstraint]->any(true));
+	};
+	
 	
 	log('Current number of containers ' + currentSize.toString());
 	

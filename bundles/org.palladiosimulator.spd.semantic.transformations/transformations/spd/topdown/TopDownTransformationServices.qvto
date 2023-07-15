@@ -33,7 +33,7 @@ modeltype SPD_SEM uses 'http://palladiosimulator.org/ScalingPolicyDefinitionSema
 // The mapping transforms the service group configuration, as a side-effect creates new assemblies that are not allocated.
 mapping inout ServiceGroupCfg::transformServiceGroup(enactedPolicy:ScalingPolicy, system:System){
 	init {
-		var assembliesDiff:OrderedSet(AssemblyContext) := ComputeDiffBasedOnAdjustmentType(self.unit, enactedPolicy.adjustmentType, system, self);
+		var assembliesDiff:OrderedSet(AssemblyContext) := ComputeDiffBasedOnAdjustmentType(self.unit, enactedPolicy, system, self);
 		var newAssemblies:OrderedSet(AssemblyContext) := OrderedSet{};
 		var intersection:Set(AssemblyContext) := self.elements->intersection(assembliesDiff);
 		if(intersection->size()=0){
@@ -64,10 +64,18 @@ mapping inout ServiceGroupCfg::transformServiceGroup(enactedPolicy:ScalingPolicy
 //
 //
 // @return Set(AssemblyContext) assemblies that should be added or removed.
-helper ComputeDiffBasedOnAdjustmentType(unitAssembly:AssemblyContext, adjustment: AdjustmentType, system:System, serviceGroupCfg:ServiceGroupCfg) : OrderedSet(AssemblyContext){
+helper ComputeDiffBasedOnAdjustmentType(unitAssembly:AssemblyContext, policy: ScalingPolicy, system:System, serviceGroupCfg:ServiceGroupCfg) : OrderedSet(AssemblyContext){
 
 	var assembliesDiff : OrderedSet(AssemblyContext) := OrderedSet{};
+	
+	var adjustment: AdjustmentType := policy.adjustmentType;
 	var desiredChange : Real := Interprete_adjustmentType(adjustment, serviceGroupCfg.elements->size());
+	
+	if(policy.targetGroup.targetConstraints[TargetGroupSizeConstraint]->notEmpty()){
+		desiredChange := Interprete_GroupSizeConstraints(serviceGroupCfg.elements->size(),desiredChange,policy.targetGroup.targetConstraints[TargetGroupSizeConstraint]->any(true));
+	};
+	
+	
 	log('Current number of assemblies ' + serviceGroupCfg.elements->size().toString());
 	var uniqueContext:AssemblyContext := unitAssembly;
 	//TODO:Create Assemblies	
