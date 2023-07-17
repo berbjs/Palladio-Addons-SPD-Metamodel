@@ -46,7 +46,7 @@ helper Interprete_adjustmentType(adjustment: AdjustmentType, currentSize: Intege
 */
 helper Interprete_GroupSizeConstraints(currentSize:Integer, desiredChange:Real, groupSizeConstraints:TargetGroupSizeConstraint) : Real {
 	assert fatal(groupSizeConstraints.minSize>=1) with log('A minimum below 1 is not permitted for a group size constraints.');
-	assert fatal(groupSizeConstraints.maxSize>1) with log('The maximum group size constraint equal or below 1 is not permitted for a group size constraint.');
+	assert fatal(groupSizeConstraints.maxSize>groupSizeConstraints.minSize) with log('The maximum constraint lower or equal to the minimum is not permitted in a group size constraint.');
 	
 	var modifiedDesiredChange:Real := desiredChange.min(groupSizeConstraints.maxSize-currentSize);
 	modifiedDesiredChange := modifiedDesiredChange.max(groupSizeConstraints.minSize-currentSize);
