@@ -187,7 +187,10 @@ public class ScalingPolicyItemProvider extends EntityItemProvider {
 				AdjustmentsFactory.eINSTANCE.createStepAdjustment()));
 
 		newChildDescriptors.add(createChildParameter(SpdPackage.Literals.SCALING_POLICY__POLICY_CONSTRAINTS,
-				PolicyFactory.eINSTANCE.createIntervallConstraint()));
+				PolicyFactory.eINSTANCE.createIntervalConstraint()));
+
+		newChildDescriptors.add(createChildParameter(SpdPackage.Literals.SCALING_POLICY__POLICY_CONSTRAINTS,
+				PolicyFactory.eINSTANCE.createCooldownConstraint()));
 
 		newChildDescriptors.add(createChildParameter(SpdPackage.Literals.SCALING_POLICY__SCALING_TRIGGER,
 				TriggersFactory.eINSTANCE.createComposedTrigger()));

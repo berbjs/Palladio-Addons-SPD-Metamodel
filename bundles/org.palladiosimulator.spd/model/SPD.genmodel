@@ -5,7 +5,7 @@
     modelPluginID="org.palladiosimulator.spd" modelName="ScalingPolicyDefinition"
     rootExtendsInterface="org.eclipse.emf.cdo.CDOObject" rootExtendsClass="org.eclipse.emf.internal.cdo.CDOObjectImpl"
     codeFormatting="true" importerID="org.eclipse.emf.importer.ecore" featureDelegation="Dynamic"
-    complianceLevel="17.0" copyrightFields="false" editPluginID="org.palladiosimulator.spd.edit"
+    complianceLevel="11.0" copyrightFields="false" editPluginID="org.palladiosimulator.spd.edit"
     editorPluginID="org.palladiosimulator.spd.editor" language="en" usedGenPackages="platform:/plugin/org.eclipse.emf.ecore/model/Ecore.genmodel#//ecore platform:/plugin/de.uka.ipd.sdq.identifier/model/identifier.genmodel#//identifier platform:/plugin/org.palladiosimulator.pcm/model/pcm.genmodel#//pcm platform:/plugin/de.uka.ipd.sdq.probfunction/model/ProbabilityFunction.genmodel#//probfunction platform:/plugin/de.uka.ipd.sdq.stoex/model/stoex.genmodel#//stoex platform:/plugin/de.uka.ipd.sdq.units/model/Units.genmodel#//units"
     importOrganizing="true" cleanup="true">
   <foreignModel>SPD.ecore</foreignModel>
@@ -59,9 +59,9 @@
       <nestedGenPackages prefix="Policy" basePackage="org.palladiosimulator.spd.constraints"
           disposableProviderFactory="true" ecorePackage="SPD.ecore#//constraints/policy">
         <genClasses image="false" ecoreClass="SPD.ecore#//constraints/policy/PolicyConstraint"/>
-        <genClasses ecoreClass="SPD.ecore#//constraints/policy/IntervallConstraint">
-          <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SPD.ecore#//constraints/policy/IntervallConstraint/offset"/>
-          <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SPD.ecore#//constraints/policy/IntervallConstraint/intervallDuration"/>
+        <genClasses ecoreClass="SPD.ecore#//constraints/policy/IntervalConstraint">
+          <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SPD.ecore#//constraints/policy/IntervalConstraint/offset"/>
+          <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SPD.ecore#//constraints/policy/IntervalConstraint/intervallDuration"/>
         </genClasses>
         <genClasses ecoreClass="SPD.ecore#//constraints/policy/CooldownConstraint">
           <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SPD.ecore#//constraints/policy/CooldownConstraint/cooldownTime"/>

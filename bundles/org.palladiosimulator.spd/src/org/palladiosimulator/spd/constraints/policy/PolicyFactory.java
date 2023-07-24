@@ -23,13 +23,13 @@ public interface PolicyFactory extends EFactory {
 	PolicyFactory eINSTANCE = org.palladiosimulator.spd.constraints.policy.impl.PolicyFactoryImpl.init();
 
 	/**
-	 * Returns a new object of class '<em>Intervall Constraint</em>'.
+	 * Returns a new object of class '<em>Interval Constraint</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Intervall Constraint</em>'.
+	 * @return a new object of class '<em>Interval Constraint</em>'.
 	 * @generated
 	 */
-	IntervallConstraint createIntervallConstraint();
+	IntervalConstraint createIntervalConstraint();
 
 	/**
 	 * Returns a new object of class '<em>Cooldown Constraint</em>'.

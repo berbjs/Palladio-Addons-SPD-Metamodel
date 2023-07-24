@@ -10,7 +10,7 @@ import org.eclipse.emf.ecore.EObject;
 import org.palladiosimulator.spd.constraints.AbstractConstraint;
 import org.palladiosimulator.spd.constraints.TemporalConstraint;
 import org.palladiosimulator.spd.constraints.policy.CooldownConstraint;
-import org.palladiosimulator.spd.constraints.policy.IntervallConstraint;
+import org.palladiosimulator.spd.constraints.policy.IntervalConstraint;
 import org.palladiosimulator.spd.constraints.policy.PolicyConstraint;
 import org.palladiosimulator.spd.constraints.policy.PolicyPackage;
 
@@ -77,8 +77,8 @@ public class PolicyAdapterFactory extends AdapterFactoryImpl {
 		}
 
 		@Override
-		public Adapter caseIntervallConstraint(IntervallConstraint object) {
-			return createIntervallConstraintAdapter();
+		public Adapter caseIntervalConstraint(IntervalConstraint object) {
+			return createIntervalConstraintAdapter();
 		}
 
 		@Override
@@ -135,16 +135,16 @@ public class PolicyAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.palladiosimulator.spd.constraints.policy.IntervallConstraint <em>Intervall Constraint</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.palladiosimulator.spd.constraints.policy.IntervalConstraint <em>Interval Constraint</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.palladiosimulator.spd.constraints.policy.IntervallConstraint
+	 * @see org.palladiosimulator.spd.constraints.policy.IntervalConstraint
 	 * @generated
 	 */
-	public Adapter createIntervallConstraintAdapter() {
+	public Adapter createIntervalConstraintAdapter() {
 		return null;
 	}
 

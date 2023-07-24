@@ -9,7 +9,7 @@ import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
 import org.palladiosimulator.spd.constraints.policy.CooldownConstraint;
-import org.palladiosimulator.spd.constraints.policy.IntervallConstraint;
+import org.palladiosimulator.spd.constraints.policy.IntervalConstraint;
 import org.palladiosimulator.spd.constraints.policy.PolicyFactory;
 import org.palladiosimulator.spd.constraints.policy.PolicyPackage;
 
@@ -57,8 +57,8 @@ public class PolicyFactoryImpl extends EFactoryImpl implements PolicyFactory {
 	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
-		case PolicyPackage.INTERVALL_CONSTRAINT:
-			return createIntervallConstraint();
+		case PolicyPackage.INTERVAL_CONSTRAINT:
+			return createIntervalConstraint();
 		case PolicyPackage.COOLDOWN_CONSTRAINT:
 			return createCooldownConstraint();
 		default:
@@ -72,9 +72,9 @@ public class PolicyFactoryImpl extends EFactoryImpl implements PolicyFactory {
 	 * @generated
 	 */
 	@Override
-	public IntervallConstraint createIntervallConstraint() {
-		IntervallConstraintImpl intervallConstraint = new IntervallConstraintImpl();
-		return intervallConstraint;
+	public IntervalConstraint createIntervalConstraint() {
+		IntervalConstraintImpl intervalConstraint = new IntervalConstraintImpl();
+		return intervalConstraint;
 	}
 
 	/**

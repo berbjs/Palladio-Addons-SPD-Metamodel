@@ -67,15 +67,15 @@ public class ThrashingConstraintItemProvider extends TemporalConstraintItemProvi
 				ItemPropertyDescriptor.REAL_VALUE_IMAGE, null, null));
 	}
 
-	/**
-	 * This returns ThrashingConstraint.gif.
+	/*
+	 * This overrides and reuses the icon for a Constraint.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/ThrashingConstraint"));
+		return super.getImage(object);
 	}
 
 	/**

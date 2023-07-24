@@ -46,7 +46,19 @@ public class AbstractConstraintItemProvider extends IdentifierItemProvider {
 		}
 		return itemPropertyDescriptors;
 	}
-
+	
+	/**
+	 * This returns the icon for a constraint.
+	 * For now, all constraints are denoted with an octagon (following the STOP sign shape).
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public Object getImage(Object object) {
+		return overlayImage(object, getResourceLocator().getImage("full/spdicons16/constraint-icon.png"));
+	}
+	
 	/**
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->

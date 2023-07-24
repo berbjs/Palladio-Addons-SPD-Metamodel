@@ -3,7 +3,7 @@
  */
 package org.palladiosimulator.spd.constraints.policy.tests;
 
-import org.palladiosimulator.spd.constraints.policy.IntervallConstraint;
+import org.palladiosimulator.spd.constraints.policy.IntervalConstraint;
 import org.palladiosimulator.spd.constraints.policy.PolicyFactory;
 import org.palladiosimulator.spd.constraints.tests.TemporalConstraintTest;
 
@@ -11,11 +11,11 @@ import junit.textui.TestRunner;
 
 /**
  * <!-- begin-user-doc -->
- * A test case for the model object '<em><b>Intervall Constraint</b></em>'.
+ * A test case for the model object '<em><b>Interval Constraint</b></em>'.
  * <!-- end-user-doc -->
  * @generated
  */
-public class IntervallConstraintTest extends TemporalConstraintTest {
+public class IntervalConstraintTest extends TemporalConstraintTest {
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -23,28 +23,28 @@ public class IntervallConstraintTest extends TemporalConstraintTest {
 	 * @generated
 	 */
 	public static void main(String[] args) {
-		TestRunner.run(IntervallConstraintTest.class);
+		TestRunner.run(IntervalConstraintTest.class);
 	}
 
 	/**
-	 * Constructs a new Intervall Constraint test case with the given name.
+	 * Constructs a new Interval Constraint test case with the given name.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public IntervallConstraintTest(String name) {
+	public IntervalConstraintTest(String name) {
 		super(name);
 	}
 
 	/**
-	 * Returns the fixture for this Intervall Constraint test case.
+	 * Returns the fixture for this Interval Constraint test case.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	protected IntervallConstraint getFixture() {
-		return (IntervallConstraint) fixture;
+	protected IntervalConstraint getFixture() {
+		return (IntervalConstraint) fixture;
 	}
 
 	/**
@@ -55,7 +55,7 @@ public class IntervallConstraintTest extends TemporalConstraintTest {
 	 */
 	@Override
 	protected void setUp() throws Exception {
-		setFixture(PolicyFactory.eINSTANCE.createIntervallConstraint());
+		setFixture(PolicyFactory.eINSTANCE.createIntervalConstraint());
 	}
 
 	/**
@@ -69,4 +69,4 @@ public class IntervallConstraintTest extends TemporalConstraintTest {
 		setFixture(null);
 	}
 
-} //IntervallConstraintTest
+} //IntervalConstraintTest

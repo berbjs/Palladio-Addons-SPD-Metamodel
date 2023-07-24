@@ -28,7 +28,7 @@ import org.palladiosimulator.spd.constraints.TemporalConstraint;
  * @model
  * @generated
  */
-public interface CooldownConstraint extends TemporalConstraint {
+public interface CooldownConstraint extends TemporalConstraint, PolicyConstraint {
 	/**
 	 * Returns the value of the '<em><b>Cooldown Time</b></em>' attribute.
 	 * <!-- begin-user-doc -->
@@ -53,12 +53,13 @@ public interface CooldownConstraint extends TemporalConstraint {
 
 	/**
 	 * Returns the value of the '<em><b>Max Scaling Operations</b></em>' attribute.
+	 * The default value is <code>"0"</code>.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Max Scaling Operations</em>' attribute.
 	 * @see #setMaxScalingOperations(int)
 	 * @see org.palladiosimulator.spd.constraints.policy.PolicyPackage#getCooldownConstraint_MaxScalingOperations()
-	 * @model required="true"
+	 * @model default="0" required="true"
 	 * @generated
 	 */
 	int getMaxScalingOperations();

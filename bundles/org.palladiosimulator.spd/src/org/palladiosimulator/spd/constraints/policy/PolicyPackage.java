@@ -85,14 +85,14 @@ public interface PolicyPackage extends EPackage {
 	int POLICY_CONSTRAINT_FEATURE_COUNT = ConstraintsPackage.ABSTRACT_CONSTRAINT_FEATURE_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link org.palladiosimulator.spd.constraints.policy.impl.IntervallConstraintImpl <em>Intervall Constraint</em>}' class.
+	 * The meta object id for the '{@link org.palladiosimulator.spd.constraints.policy.impl.IntervalConstraintImpl <em>Interval Constraint</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see org.palladiosimulator.spd.constraints.policy.impl.IntervallConstraintImpl
-	 * @see org.palladiosimulator.spd.constraints.policy.impl.PolicyPackageImpl#getIntervallConstraint()
+	 * @see org.palladiosimulator.spd.constraints.policy.impl.IntervalConstraintImpl
+	 * @see org.palladiosimulator.spd.constraints.policy.impl.PolicyPackageImpl#getIntervalConstraint()
 	 * @generated
 	 */
-	int INTERVALL_CONSTRAINT = 1;
+	int INTERVAL_CONSTRAINT = 1;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -101,7 +101,7 @@ public interface PolicyPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int INTERVALL_CONSTRAINT__ID = ConstraintsPackage.TEMPORAL_CONSTRAINT__ID;
+	int INTERVAL_CONSTRAINT__ID = ConstraintsPackage.TEMPORAL_CONSTRAINT__ID;
 
 	/**
 	 * The feature id for the '<em><b>Offset</b></em>' attribute.
@@ -110,7 +110,7 @@ public interface PolicyPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int INTERVALL_CONSTRAINT__OFFSET = ConstraintsPackage.TEMPORAL_CONSTRAINT_FEATURE_COUNT + 0;
+	int INTERVAL_CONSTRAINT__OFFSET = ConstraintsPackage.TEMPORAL_CONSTRAINT_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Intervall Duration</b></em>' attribute.
@@ -119,16 +119,16 @@ public interface PolicyPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int INTERVALL_CONSTRAINT__INTERVALL_DURATION = ConstraintsPackage.TEMPORAL_CONSTRAINT_FEATURE_COUNT + 1;
+	int INTERVAL_CONSTRAINT__INTERVALL_DURATION = ConstraintsPackage.TEMPORAL_CONSTRAINT_FEATURE_COUNT + 1;
 
 	/**
-	 * The number of structural features of the '<em>Intervall Constraint</em>' class.
+	 * The number of structural features of the '<em>Interval Constraint</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int INTERVALL_CONSTRAINT_FEATURE_COUNT = ConstraintsPackage.TEMPORAL_CONSTRAINT_FEATURE_COUNT + 2;
+	int INTERVAL_CONSTRAINT_FEATURE_COUNT = ConstraintsPackage.TEMPORAL_CONSTRAINT_FEATURE_COUNT + 2;
 
 	/**
 	 * The meta object id for the '{@link org.palladiosimulator.spd.constraints.policy.impl.CooldownConstraintImpl <em>Cooldown Constraint</em>}' class.
@@ -187,36 +187,36 @@ public interface PolicyPackage extends EPackage {
 	EClass getPolicyConstraint();
 
 	/**
-	 * Returns the meta object for class '{@link org.palladiosimulator.spd.constraints.policy.IntervallConstraint <em>Intervall Constraint</em>}'.
+	 * Returns the meta object for class '{@link org.palladiosimulator.spd.constraints.policy.IntervalConstraint <em>Interval Constraint</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Intervall Constraint</em>'.
-	 * @see org.palladiosimulator.spd.constraints.policy.IntervallConstraint
+	 * @return the meta object for class '<em>Interval Constraint</em>'.
+	 * @see org.palladiosimulator.spd.constraints.policy.IntervalConstraint
 	 * @generated
 	 */
-	EClass getIntervallConstraint();
+	EClass getIntervalConstraint();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.palladiosimulator.spd.constraints.policy.IntervallConstraint#getOffset <em>Offset</em>}'.
+	 * Returns the meta object for the attribute '{@link org.palladiosimulator.spd.constraints.policy.IntervalConstraint#getOffset <em>Offset</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Offset</em>'.
-	 * @see org.palladiosimulator.spd.constraints.policy.IntervallConstraint#getOffset()
-	 * @see #getIntervallConstraint()
+	 * @see org.palladiosimulator.spd.constraints.policy.IntervalConstraint#getOffset()
+	 * @see #getIntervalConstraint()
 	 * @generated
 	 */
-	EAttribute getIntervallConstraint_Offset();
+	EAttribute getIntervalConstraint_Offset();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.palladiosimulator.spd.constraints.policy.IntervallConstraint#getIntervallDuration <em>Intervall Duration</em>}'.
+	 * Returns the meta object for the attribute '{@link org.palladiosimulator.spd.constraints.policy.IntervalConstraint#getIntervallDuration <em>Intervall Duration</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Intervall Duration</em>'.
-	 * @see org.palladiosimulator.spd.constraints.policy.IntervallConstraint#getIntervallDuration()
-	 * @see #getIntervallConstraint()
+	 * @see org.palladiosimulator.spd.constraints.policy.IntervalConstraint#getIntervallDuration()
+	 * @see #getIntervalConstraint()
 	 * @generated
 	 */
-	EAttribute getIntervallConstraint_IntervallDuration();
+	EAttribute getIntervalConstraint_IntervallDuration();
 
 	/**
 	 * Returns the meta object for class '{@link org.palladiosimulator.spd.constraints.policy.CooldownConstraint <em>Cooldown Constraint</em>}'.
@@ -283,14 +283,14 @@ public interface PolicyPackage extends EPackage {
 		EClass POLICY_CONSTRAINT = eINSTANCE.getPolicyConstraint();
 
 		/**
-		 * The meta object literal for the '{@link org.palladiosimulator.spd.constraints.policy.impl.IntervallConstraintImpl <em>Intervall Constraint</em>}' class.
+		 * The meta object literal for the '{@link org.palladiosimulator.spd.constraints.policy.impl.IntervalConstraintImpl <em>Interval Constraint</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see org.palladiosimulator.spd.constraints.policy.impl.IntervallConstraintImpl
-		 * @see org.palladiosimulator.spd.constraints.policy.impl.PolicyPackageImpl#getIntervallConstraint()
+		 * @see org.palladiosimulator.spd.constraints.policy.impl.IntervalConstraintImpl
+		 * @see org.palladiosimulator.spd.constraints.policy.impl.PolicyPackageImpl#getIntervalConstraint()
 		 * @generated
 		 */
-		EClass INTERVALL_CONSTRAINT = eINSTANCE.getIntervallConstraint();
+		EClass INTERVAL_CONSTRAINT = eINSTANCE.getIntervalConstraint();
 
 		/**
 		 * The meta object literal for the '<em><b>Offset</b></em>' attribute feature.
@@ -298,7 +298,7 @@ public interface PolicyPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute INTERVALL_CONSTRAINT__OFFSET = eINSTANCE.getIntervallConstraint_Offset();
+		EAttribute INTERVAL_CONSTRAINT__OFFSET = eINSTANCE.getIntervalConstraint_Offset();
 
 		/**
 		 * The meta object literal for the '<em><b>Intervall Duration</b></em>' attribute feature.
@@ -306,7 +306,7 @@ public interface PolicyPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute INTERVALL_CONSTRAINT__INTERVALL_DURATION = eINSTANCE.getIntervallConstraint_IntervallDuration();
+		EAttribute INTERVAL_CONSTRAINT__INTERVALL_DURATION = eINSTANCE.getIntervalConstraint_IntervallDuration();
 
 		/**
 		 * The meta object literal for the '{@link org.palladiosimulator.spd.constraints.policy.impl.CooldownConstraintImpl <em>Cooldown Constraint</em>}' class.

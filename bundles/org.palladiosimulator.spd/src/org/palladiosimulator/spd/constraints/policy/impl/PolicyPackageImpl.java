@@ -15,7 +15,7 @@ import org.palladiosimulator.spd.adjustments.impl.AdjustmentsPackageImpl;
 import org.palladiosimulator.spd.constraints.ConstraintsPackage;
 import org.palladiosimulator.spd.constraints.impl.ConstraintsPackageImpl;
 import org.palladiosimulator.spd.constraints.policy.CooldownConstraint;
-import org.palladiosimulator.spd.constraints.policy.IntervallConstraint;
+import org.palladiosimulator.spd.constraints.policy.IntervalConstraint;
 import org.palladiosimulator.spd.constraints.policy.PolicyConstraint;
 import org.palladiosimulator.spd.constraints.policy.PolicyFactory;
 import org.palladiosimulator.spd.constraints.policy.PolicyPackage;
@@ -55,7 +55,7 @@ public class PolicyPackageImpl extends EPackageImpl implements PolicyPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass intervallConstraintEClass = null;
+	private EClass intervalConstraintEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -201,8 +201,8 @@ public class PolicyPackageImpl extends EPackageImpl implements PolicyPackage {
 	 * @generated
 	 */
 	@Override
-	public EClass getIntervallConstraint() {
-		return intervallConstraintEClass;
+	public EClass getIntervalConstraint() {
+		return intervalConstraintEClass;
 	}
 
 	/**
@@ -211,8 +211,8 @@ public class PolicyPackageImpl extends EPackageImpl implements PolicyPackage {
 	 * @generated
 	 */
 	@Override
-	public EAttribute getIntervallConstraint_Offset() {
-		return (EAttribute) intervallConstraintEClass.getEStructuralFeatures().get(0);
+	public EAttribute getIntervalConstraint_Offset() {
+		return (EAttribute) intervalConstraintEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -221,8 +221,8 @@ public class PolicyPackageImpl extends EPackageImpl implements PolicyPackage {
 	 * @generated
 	 */
 	@Override
-	public EAttribute getIntervallConstraint_IntervallDuration() {
-		return (EAttribute) intervallConstraintEClass.getEStructuralFeatures().get(1);
+	public EAttribute getIntervalConstraint_IntervallDuration() {
+		return (EAttribute) intervalConstraintEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -287,9 +287,9 @@ public class PolicyPackageImpl extends EPackageImpl implements PolicyPackage {
 		// Create classes and their features
 		policyConstraintEClass = createEClass(POLICY_CONSTRAINT);
 
-		intervallConstraintEClass = createEClass(INTERVALL_CONSTRAINT);
-		createEAttribute(intervallConstraintEClass, INTERVALL_CONSTRAINT__OFFSET);
-		createEAttribute(intervallConstraintEClass, INTERVALL_CONSTRAINT__INTERVALL_DURATION);
+		intervalConstraintEClass = createEClass(INTERVAL_CONSTRAINT);
+		createEAttribute(intervalConstraintEClass, INTERVAL_CONSTRAINT__OFFSET);
+		createEAttribute(intervalConstraintEClass, INTERVAL_CONSTRAINT__INTERVALL_DURATION);
 
 		cooldownConstraintEClass = createEClass(COOLDOWN_CONSTRAINT);
 		createEAttribute(cooldownConstraintEClass, COOLDOWN_CONSTRAINT__COOLDOWN_TIME);
@@ -330,21 +330,22 @@ public class PolicyPackageImpl extends EPackageImpl implements PolicyPackage {
 
 		// Add supertypes to classes
 		policyConstraintEClass.getESuperTypes().add(theConstraintsPackage.getAbstractConstraint());
-		intervallConstraintEClass.getESuperTypes().add(theConstraintsPackage.getTemporalConstraint());
-		intervallConstraintEClass.getESuperTypes().add(this.getPolicyConstraint());
+		intervalConstraintEClass.getESuperTypes().add(theConstraintsPackage.getTemporalConstraint());
+		intervalConstraintEClass.getESuperTypes().add(this.getPolicyConstraint());
 		cooldownConstraintEClass.getESuperTypes().add(theConstraintsPackage.getTemporalConstraint());
+		cooldownConstraintEClass.getESuperTypes().add(this.getPolicyConstraint());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(policyConstraintEClass, PolicyConstraint.class, "PolicyConstraint", IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(intervallConstraintEClass, IntervallConstraint.class, "IntervallConstraint", !IS_ABSTRACT,
+		initEClass(intervalConstraintEClass, IntervalConstraint.class, "IntervalConstraint", !IS_ABSTRACT,
 				!IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getIntervallConstraint_Offset(), ecorePackage.getEInt(), "offset", null, 1, 1,
-				IntervallConstraint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
-				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getIntervallConstraint_IntervallDuration(), ecorePackage.getEInt(), "intervallDuration", null, 1,
-				1, IntervallConstraint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
+		initEAttribute(getIntervalConstraint_Offset(), ecorePackage.getEDouble(), "offset", null, 1, 1,
+				IntervalConstraint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+				!IS_DERIVED, IS_ORDERED);
+		initEAttribute(getIntervalConstraint_IntervallDuration(), ecorePackage.getEDouble(), "intervallDuration", null,
+				1, 1, IntervalConstraint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
 				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(cooldownConstraintEClass, CooldownConstraint.class, "CooldownConstraint", !IS_ABSTRACT,
@@ -353,8 +354,8 @@ public class PolicyPackageImpl extends EPackageImpl implements PolicyPackage {
 				CooldownConstraint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
 				!IS_DERIVED, IS_ORDERED);
 		initEAttribute(getCooldownConstraint_MaxScalingOperations(), ecorePackage.getEInt(), "maxScalingOperations",
-				null, 1, 1, CooldownConstraint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE,
-				!IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+				"0", 1, 1, CooldownConstraint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
+				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 	}
 
 } //PolicyPackageImpl

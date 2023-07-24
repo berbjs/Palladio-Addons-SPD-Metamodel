@@ -117,31 +117,32 @@
         nsPrefix="policy">
       <eClassifiers xsi:type="ecore:EClass" name="PolicyConstraint" abstract="true"
           eSuperTypes="#//constraints/AbstractConstraint"/>
-      <eClassifiers xsi:type="ecore:EClass" name="IntervallConstraint" eSuperTypes="#//constraints/TemporalConstraint #//constraints/policy/PolicyConstraint">
+      <eClassifiers xsi:type="ecore:EClass" name="IntervalConstraint" eSuperTypes="#//constraints/TemporalConstraint #//constraints/policy/PolicyConstraint">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
           <details key="documentation" value="The IntervalConstraint identifies fixed intervals in which a policy enacts adjustments. Contrary to the CooldownConstraint, the IntervalConstraint predefines the enactment of the policy in time. "/>
         </eAnnotations>
         <eStructuralFeatures xsi:type="ecore:EAttribute" name="offset" lowerBound="1"
-            eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt">
+            eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble">
           <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
             <details key="documentation" value="The offset determines a period of time from which the interval constraint should begin. "/>
           </eAnnotations>
         </eStructuralFeatures>
         <eStructuralFeatures xsi:type="ecore:EAttribute" name="intervallDuration"
-            lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt">
+            lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble">
           <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
             <details key="documentation" value="The duration in which no enactment by the policy occurs. "/>
           </eAnnotations>
         </eStructuralFeatures>
       </eClassifiers>
-      <eClassifiers xsi:type="ecore:EClass" name="CooldownConstraint" eSuperTypes="#//constraints/TemporalConstraint">
+      <eClassifiers xsi:type="ecore:EClass" name="CooldownConstraint" eSuperTypes="#//constraints/TemporalConstraint #//constraints/policy/PolicyConstraint">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
           <details key="documentation" value="The CoolDown constraint defines a quiescence period in which the target group is not enacted by the policy. &#xA;In addition one can specify the maximum number of scaling operations that can occur in the defined quiescence period. &#xA;Contrary to the IntervalConstraint, the CooldownConstraint determines the future enactment of the policy after an adjustment has happened."/>
         </eAnnotations>
         <eStructuralFeatures xsi:type="ecore:EAttribute" name="cooldownTime" lowerBound="1"
             eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
         <eStructuralFeatures xsi:type="ecore:EAttribute" name="maxScalingOperations"
-            lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+            lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
+            defaultValueLiteral="0"/>
       </eClassifiers>
     </eSubpackages>
     <eSubpackages name="target" nsURI="http://palladiosimulator.org/ScalingPolicyDefinition/Constraints/Target/1.0"

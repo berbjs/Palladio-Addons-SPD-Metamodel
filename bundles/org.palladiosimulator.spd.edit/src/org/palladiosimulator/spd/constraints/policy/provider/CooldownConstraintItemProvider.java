@@ -84,15 +84,15 @@ public class CooldownConstraintItemProvider extends TemporalConstraintItemProvid
 						ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE, null, null));
 	}
 
-	/**
-	 * This returns CooldownConstraint.gif.
+	/*
+	 * This overrides and reuses the icon for a Constraint.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/CooldownConstraint"));
+		return super.getImage(object);
 	}
 
 	/**
