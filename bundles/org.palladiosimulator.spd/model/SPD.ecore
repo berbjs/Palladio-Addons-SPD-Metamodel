@@ -127,10 +127,16 @@
             <details key="documentation" value="The offset determines a period of time from which the interval constraint should begin. "/>
           </eAnnotations>
         </eStructuralFeatures>
-        <eStructuralFeatures xsi:type="ecore:EAttribute" name="intervallDuration"
-            lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble">
+        <eStructuralFeatures xsi:type="ecore:EAttribute" name="intervalDuration" lowerBound="1"
+            eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble">
           <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
             <details key="documentation" value="The duration in which no enactment by the policy occurs. "/>
+          </eAnnotations>
+        </eStructuralFeatures>
+        <eStructuralFeatures xsi:type="ecore:EAttribute" name="repeat" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+            defaultValueLiteral="false">
+          <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+            <details key="documentation" value="The repeat property determines whether the interval constraint should repeat throughout the simulation or is applied once, which is the default case (false)."/>
           </eAnnotations>
         </eStructuralFeatures>
       </eClassifiers>

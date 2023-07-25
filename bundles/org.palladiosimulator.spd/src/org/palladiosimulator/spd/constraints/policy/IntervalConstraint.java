@@ -19,7 +19,8 @@ import org.palladiosimulator.spd.constraints.TemporalConstraint;
  * </p>
  * <ul>
  *   <li>{@link org.palladiosimulator.spd.constraints.policy.IntervalConstraint#getOffset <em>Offset</em>}</li>
- *   <li>{@link org.palladiosimulator.spd.constraints.policy.IntervalConstraint#getIntervallDuration <em>Intervall Duration</em>}</li>
+ *   <li>{@link org.palladiosimulator.spd.constraints.policy.IntervalConstraint#getIntervalDuration <em>Interval Duration</em>}</li>
+ *   <li>{@link org.palladiosimulator.spd.constraints.policy.IntervalConstraint#isRepeat <em>Repeat</em>}</li>
  * </ul>
  *
  * @see org.palladiosimulator.spd.constraints.policy.PolicyPackage#getIntervalConstraint()
@@ -53,28 +54,54 @@ public interface IntervalConstraint extends TemporalConstraint, PolicyConstraint
 	void setOffset(double value);
 
 	/**
-	 * Returns the value of the '<em><b>Intervall Duration</b></em>' attribute.
+	 * Returns the value of the '<em><b>Interval Duration</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * The duration in which no enactment by the policy occurs.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Intervall Duration</em>' attribute.
-	 * @see #setIntervallDuration(double)
-	 * @see org.palladiosimulator.spd.constraints.policy.PolicyPackage#getIntervalConstraint_IntervallDuration()
+	 * @return the value of the '<em>Interval Duration</em>' attribute.
+	 * @see #setIntervalDuration(double)
+	 * @see org.palladiosimulator.spd.constraints.policy.PolicyPackage#getIntervalConstraint_IntervalDuration()
 	 * @model required="true"
 	 * @generated
 	 */
-	double getIntervallDuration();
+	double getIntervalDuration();
 
 	/**
-	 * Sets the value of the '{@link org.palladiosimulator.spd.constraints.policy.IntervalConstraint#getIntervallDuration <em>Intervall Duration</em>}' attribute.
+	 * Sets the value of the '{@link org.palladiosimulator.spd.constraints.policy.IntervalConstraint#getIntervalDuration <em>Interval Duration</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Intervall Duration</em>' attribute.
-	 * @see #getIntervallDuration()
+	 * @param value the new value of the '<em>Interval Duration</em>' attribute.
+	 * @see #getIntervalDuration()
 	 * @generated
 	 */
-	void setIntervallDuration(double value);
+	void setIntervalDuration(double value);
+
+	/**
+	 * Returns the value of the '<em><b>Repeat</b></em>' attribute.
+	 * The default value is <code>"false"</code>.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The repeat property determines whether the interval constraint should repeat throughout the simulation or is applied once, which is the default case (false).
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Repeat</em>' attribute.
+	 * @see #setRepeat(boolean)
+	 * @see org.palladiosimulator.spd.constraints.policy.PolicyPackage#getIntervalConstraint_Repeat()
+	 * @model default="false"
+	 * @generated
+	 */
+	boolean isRepeat();
+
+	/**
+	 * Sets the value of the '{@link org.palladiosimulator.spd.constraints.policy.IntervalConstraint#isRepeat <em>Repeat</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Repeat</em>' attribute.
+	 * @see #isRepeat()
+	 * @generated
+	 */
+	void setRepeat(boolean value);
 
 } // IntervalConstraint

@@ -43,7 +43,6 @@ public class StateBasedContraintItemProvider extends AbstractConstraintItemProvi
 		return itemPropertyDescriptors;
 	}
 
-	
 	/*
 	 * This overrides and reuses the icon for a Constraint.
 	 * <!-- begin-user-doc -->
@@ -54,7 +53,7 @@ public class StateBasedContraintItemProvider extends AbstractConstraintItemProvi
 	public Object getImage(Object object) {
 		return super.getImage(object);
 	}
-	
+
 	/**
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->

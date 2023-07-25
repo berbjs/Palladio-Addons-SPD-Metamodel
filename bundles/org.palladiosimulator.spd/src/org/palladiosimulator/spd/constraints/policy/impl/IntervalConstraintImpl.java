@@ -17,7 +17,8 @@ import org.palladiosimulator.spd.constraints.policy.PolicyPackage;
  * </p>
  * <ul>
  *   <li>{@link org.palladiosimulator.spd.constraints.policy.impl.IntervalConstraintImpl#getOffset <em>Offset</em>}</li>
- *   <li>{@link org.palladiosimulator.spd.constraints.policy.impl.IntervalConstraintImpl#getIntervallDuration <em>Intervall Duration</em>}</li>
+ *   <li>{@link org.palladiosimulator.spd.constraints.policy.impl.IntervalConstraintImpl#getIntervalDuration <em>Interval Duration</em>}</li>
+ *   <li>{@link org.palladiosimulator.spd.constraints.policy.impl.IntervalConstraintImpl#isRepeat <em>Repeat</em>}</li>
  * </ul>
  *
  * @generated
@@ -34,14 +35,24 @@ public class IntervalConstraintImpl extends TemporalConstraintImpl implements In
 	protected static final double OFFSET_EDEFAULT = 0.0;
 
 	/**
-	 * The default value of the '{@link #getIntervallDuration() <em>Intervall Duration</em>}' attribute.
+	 * The default value of the '{@link #getIntervalDuration() <em>Interval Duration</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getIntervallDuration()
+	 * @see #getIntervalDuration()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final double INTERVALL_DURATION_EDEFAULT = 0.0;
+	protected static final double INTERVAL_DURATION_EDEFAULT = 0.0;
+
+	/**
+	 * The default value of the '{@link #isRepeat() <em>Repeat</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isRepeat()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean REPEAT_EDEFAULT = false;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -90,9 +101,9 @@ public class IntervalConstraintImpl extends TemporalConstraintImpl implements In
 	 * @generated
 	 */
 	@Override
-	public double getIntervallDuration() {
-		return (Double) eDynamicGet(PolicyPackage.INTERVAL_CONSTRAINT__INTERVALL_DURATION,
-				PolicyPackage.Literals.INTERVAL_CONSTRAINT__INTERVALL_DURATION, true, true);
+	public double getIntervalDuration() {
+		return (Double) eDynamicGet(PolicyPackage.INTERVAL_CONSTRAINT__INTERVAL_DURATION,
+				PolicyPackage.Literals.INTERVAL_CONSTRAINT__INTERVAL_DURATION, true, true);
 	}
 
 	/**
@@ -101,9 +112,31 @@ public class IntervalConstraintImpl extends TemporalConstraintImpl implements In
 	 * @generated
 	 */
 	@Override
-	public void setIntervallDuration(double newIntervallDuration) {
-		eDynamicSet(PolicyPackage.INTERVAL_CONSTRAINT__INTERVALL_DURATION,
-				PolicyPackage.Literals.INTERVAL_CONSTRAINT__INTERVALL_DURATION, newIntervallDuration);
+	public void setIntervalDuration(double newIntervalDuration) {
+		eDynamicSet(PolicyPackage.INTERVAL_CONSTRAINT__INTERVAL_DURATION,
+				PolicyPackage.Literals.INTERVAL_CONSTRAINT__INTERVAL_DURATION, newIntervalDuration);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public boolean isRepeat() {
+		return (Boolean) eDynamicGet(PolicyPackage.INTERVAL_CONSTRAINT__REPEAT,
+				PolicyPackage.Literals.INTERVAL_CONSTRAINT__REPEAT, true, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setRepeat(boolean newRepeat) {
+		eDynamicSet(PolicyPackage.INTERVAL_CONSTRAINT__REPEAT, PolicyPackage.Literals.INTERVAL_CONSTRAINT__REPEAT,
+				newRepeat);
 	}
 
 	/**
@@ -116,8 +149,10 @@ public class IntervalConstraintImpl extends TemporalConstraintImpl implements In
 		switch (featureID) {
 		case PolicyPackage.INTERVAL_CONSTRAINT__OFFSET:
 			return getOffset();
-		case PolicyPackage.INTERVAL_CONSTRAINT__INTERVALL_DURATION:
-			return getIntervallDuration();
+		case PolicyPackage.INTERVAL_CONSTRAINT__INTERVAL_DURATION:
+			return getIntervalDuration();
+		case PolicyPackage.INTERVAL_CONSTRAINT__REPEAT:
+			return isRepeat();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -133,8 +168,11 @@ public class IntervalConstraintImpl extends TemporalConstraintImpl implements In
 		case PolicyPackage.INTERVAL_CONSTRAINT__OFFSET:
 			setOffset((Double) newValue);
 			return;
-		case PolicyPackage.INTERVAL_CONSTRAINT__INTERVALL_DURATION:
-			setIntervallDuration((Double) newValue);
+		case PolicyPackage.INTERVAL_CONSTRAINT__INTERVAL_DURATION:
+			setIntervalDuration((Double) newValue);
+			return;
+		case PolicyPackage.INTERVAL_CONSTRAINT__REPEAT:
+			setRepeat((Boolean) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -151,8 +189,11 @@ public class IntervalConstraintImpl extends TemporalConstraintImpl implements In
 		case PolicyPackage.INTERVAL_CONSTRAINT__OFFSET:
 			setOffset(OFFSET_EDEFAULT);
 			return;
-		case PolicyPackage.INTERVAL_CONSTRAINT__INTERVALL_DURATION:
-			setIntervallDuration(INTERVALL_DURATION_EDEFAULT);
+		case PolicyPackage.INTERVAL_CONSTRAINT__INTERVAL_DURATION:
+			setIntervalDuration(INTERVAL_DURATION_EDEFAULT);
+			return;
+		case PolicyPackage.INTERVAL_CONSTRAINT__REPEAT:
+			setRepeat(REPEAT_EDEFAULT);
 			return;
 		}
 		super.eUnset(featureID);
@@ -168,8 +209,10 @@ public class IntervalConstraintImpl extends TemporalConstraintImpl implements In
 		switch (featureID) {
 		case PolicyPackage.INTERVAL_CONSTRAINT__OFFSET:
 			return getOffset() != OFFSET_EDEFAULT;
-		case PolicyPackage.INTERVAL_CONSTRAINT__INTERVALL_DURATION:
-			return getIntervallDuration() != INTERVALL_DURATION_EDEFAULT;
+		case PolicyPackage.INTERVAL_CONSTRAINT__INTERVAL_DURATION:
+			return getIntervalDuration() != INTERVAL_DURATION_EDEFAULT;
+		case PolicyPackage.INTERVAL_CONSTRAINT__REPEAT:
+			return isRepeat() != REPEAT_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}

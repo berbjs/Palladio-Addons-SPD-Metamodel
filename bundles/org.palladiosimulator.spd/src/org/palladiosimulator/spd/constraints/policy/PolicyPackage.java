@@ -113,13 +113,22 @@ public interface PolicyPackage extends EPackage {
 	int INTERVAL_CONSTRAINT__OFFSET = ConstraintsPackage.TEMPORAL_CONSTRAINT_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Intervall Duration</b></em>' attribute.
+	 * The feature id for the '<em><b>Interval Duration</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int INTERVAL_CONSTRAINT__INTERVALL_DURATION = ConstraintsPackage.TEMPORAL_CONSTRAINT_FEATURE_COUNT + 1;
+	int INTERVAL_CONSTRAINT__INTERVAL_DURATION = ConstraintsPackage.TEMPORAL_CONSTRAINT_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Repeat</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INTERVAL_CONSTRAINT__REPEAT = ConstraintsPackage.TEMPORAL_CONSTRAINT_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of structural features of the '<em>Interval Constraint</em>' class.
@@ -128,7 +137,7 @@ public interface PolicyPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int INTERVAL_CONSTRAINT_FEATURE_COUNT = ConstraintsPackage.TEMPORAL_CONSTRAINT_FEATURE_COUNT + 2;
+	int INTERVAL_CONSTRAINT_FEATURE_COUNT = ConstraintsPackage.TEMPORAL_CONSTRAINT_FEATURE_COUNT + 3;
 
 	/**
 	 * The meta object id for the '{@link org.palladiosimulator.spd.constraints.policy.impl.CooldownConstraintImpl <em>Cooldown Constraint</em>}' class.
@@ -208,15 +217,26 @@ public interface PolicyPackage extends EPackage {
 	EAttribute getIntervalConstraint_Offset();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.palladiosimulator.spd.constraints.policy.IntervalConstraint#getIntervallDuration <em>Intervall Duration</em>}'.
+	 * Returns the meta object for the attribute '{@link org.palladiosimulator.spd.constraints.policy.IntervalConstraint#getIntervalDuration <em>Interval Duration</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Intervall Duration</em>'.
-	 * @see org.palladiosimulator.spd.constraints.policy.IntervalConstraint#getIntervallDuration()
+	 * @return the meta object for the attribute '<em>Interval Duration</em>'.
+	 * @see org.palladiosimulator.spd.constraints.policy.IntervalConstraint#getIntervalDuration()
 	 * @see #getIntervalConstraint()
 	 * @generated
 	 */
-	EAttribute getIntervalConstraint_IntervallDuration();
+	EAttribute getIntervalConstraint_IntervalDuration();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.palladiosimulator.spd.constraints.policy.IntervalConstraint#isRepeat <em>Repeat</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Repeat</em>'.
+	 * @see org.palladiosimulator.spd.constraints.policy.IntervalConstraint#isRepeat()
+	 * @see #getIntervalConstraint()
+	 * @generated
+	 */
+	EAttribute getIntervalConstraint_Repeat();
 
 	/**
 	 * Returns the meta object for class '{@link org.palladiosimulator.spd.constraints.policy.CooldownConstraint <em>Cooldown Constraint</em>}'.
@@ -301,12 +321,20 @@ public interface PolicyPackage extends EPackage {
 		EAttribute INTERVAL_CONSTRAINT__OFFSET = eINSTANCE.getIntervalConstraint_Offset();
 
 		/**
-		 * The meta object literal for the '<em><b>Intervall Duration</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Interval Duration</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute INTERVAL_CONSTRAINT__INTERVALL_DURATION = eINSTANCE.getIntervalConstraint_IntervallDuration();
+		EAttribute INTERVAL_CONSTRAINT__INTERVAL_DURATION = eINSTANCE.getIntervalConstraint_IntervalDuration();
+
+		/**
+		 * The meta object literal for the '<em><b>Repeat</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute INTERVAL_CONSTRAINT__REPEAT = eINSTANCE.getIntervalConstraint_Repeat();
 
 		/**
 		 * The meta object literal for the '{@link org.palladiosimulator.spd.constraints.policy.impl.CooldownConstraintImpl <em>Cooldown Constraint</em>}' class.

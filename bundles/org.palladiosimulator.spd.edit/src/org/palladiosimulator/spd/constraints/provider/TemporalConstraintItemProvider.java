@@ -42,7 +42,7 @@ public class TemporalConstraintItemProvider extends AbstractConstraintItemProvid
 		}
 		return itemPropertyDescriptors;
 	}
-	
+
 	/*
 	 * This overrides and reuses the icon for a Constraint.
 	 * <!-- begin-user-doc -->

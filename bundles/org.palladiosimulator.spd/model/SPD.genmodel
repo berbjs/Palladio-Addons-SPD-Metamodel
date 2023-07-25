@@ -61,7 +61,8 @@
         <genClasses image="false" ecoreClass="SPD.ecore#//constraints/policy/PolicyConstraint"/>
         <genClasses ecoreClass="SPD.ecore#//constraints/policy/IntervalConstraint">
           <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SPD.ecore#//constraints/policy/IntervalConstraint/offset"/>
-          <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SPD.ecore#//constraints/policy/IntervalConstraint/intervallDuration"/>
+          <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SPD.ecore#//constraints/policy/IntervalConstraint/intervalDuration"/>
+          <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SPD.ecore#//constraints/policy/IntervalConstraint/repeat"/>
         </genClasses>
         <genClasses ecoreClass="SPD.ecore#//constraints/policy/CooldownConstraint">
           <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SPD.ecore#//constraints/policy/CooldownConstraint/cooldownTime"/>

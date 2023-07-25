@@ -47,7 +47,8 @@ public class IntervalConstraintItemProvider extends TemporalConstraintItemProvid
 			super.getPropertyDescriptors(object);
 
 			addOffsetPropertyDescriptor(object);
-			addIntervallDurationPropertyDescriptor(object);
+			addIntervalDurationPropertyDescriptor(object);
+			addRepeatPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -69,19 +70,35 @@ public class IntervalConstraintItemProvider extends TemporalConstraintItemProvid
 	}
 
 	/**
-	 * This adds a property descriptor for the Intervall Duration feature.
+	 * This adds a property descriptor for the Interval Duration feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addIntervallDurationPropertyDescriptor(Object object) {
+	protected void addIntervalDurationPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
 				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-				getString("_UI_IntervalConstraint_intervallDuration_feature"),
-				getString("_UI_PropertyDescriptor_description", "_UI_IntervalConstraint_intervallDuration_feature",
+				getString("_UI_IntervalConstraint_intervalDuration_feature"),
+				getString("_UI_PropertyDescriptor_description", "_UI_IntervalConstraint_intervalDuration_feature",
 						"_UI_IntervalConstraint_type"),
-				PolicyPackage.Literals.INTERVAL_CONSTRAINT__INTERVALL_DURATION, true, false, false,
+				PolicyPackage.Literals.INTERVAL_CONSTRAINT__INTERVAL_DURATION, true, false, false,
 				ItemPropertyDescriptor.REAL_VALUE_IMAGE, null, null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Repeat feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addRepeatPropertyDescriptor(Object object) {
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(), getString("_UI_IntervalConstraint_repeat_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_IntervalConstraint_repeat_feature",
+								"_UI_IntervalConstraint_type"),
+						PolicyPackage.Literals.INTERVAL_CONSTRAINT__REPEAT, true, false, false,
+						ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, null, null));
 	}
 
 	/*
@@ -121,7 +138,8 @@ public class IntervalConstraintItemProvider extends TemporalConstraintItemProvid
 
 		switch (notification.getFeatureID(IntervalConstraint.class)) {
 		case PolicyPackage.INTERVAL_CONSTRAINT__OFFSET:
-		case PolicyPackage.INTERVAL_CONSTRAINT__INTERVALL_DURATION:
+		case PolicyPackage.INTERVAL_CONSTRAINT__INTERVAL_DURATION:
+		case PolicyPackage.INTERVAL_CONSTRAINT__REPEAT:
 			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 			return;
 		}

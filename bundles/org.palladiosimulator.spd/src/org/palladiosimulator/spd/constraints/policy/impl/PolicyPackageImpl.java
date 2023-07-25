@@ -221,8 +221,18 @@ public class PolicyPackageImpl extends EPackageImpl implements PolicyPackage {
 	 * @generated
 	 */
 	@Override
-	public EAttribute getIntervalConstraint_IntervallDuration() {
+	public EAttribute getIntervalConstraint_IntervalDuration() {
 		return (EAttribute) intervalConstraintEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getIntervalConstraint_Repeat() {
+		return (EAttribute) intervalConstraintEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -289,7 +299,8 @@ public class PolicyPackageImpl extends EPackageImpl implements PolicyPackage {
 
 		intervalConstraintEClass = createEClass(INTERVAL_CONSTRAINT);
 		createEAttribute(intervalConstraintEClass, INTERVAL_CONSTRAINT__OFFSET);
-		createEAttribute(intervalConstraintEClass, INTERVAL_CONSTRAINT__INTERVALL_DURATION);
+		createEAttribute(intervalConstraintEClass, INTERVAL_CONSTRAINT__INTERVAL_DURATION);
+		createEAttribute(intervalConstraintEClass, INTERVAL_CONSTRAINT__REPEAT);
 
 		cooldownConstraintEClass = createEClass(COOLDOWN_CONSTRAINT);
 		createEAttribute(cooldownConstraintEClass, COOLDOWN_CONSTRAINT__COOLDOWN_TIME);
@@ -344,9 +355,12 @@ public class PolicyPackageImpl extends EPackageImpl implements PolicyPackage {
 		initEAttribute(getIntervalConstraint_Offset(), ecorePackage.getEDouble(), "offset", null, 1, 1,
 				IntervalConstraint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
 				!IS_DERIVED, IS_ORDERED);
-		initEAttribute(getIntervalConstraint_IntervallDuration(), ecorePackage.getEDouble(), "intervallDuration", null,
-				1, 1, IntervalConstraint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
+		initEAttribute(getIntervalConstraint_IntervalDuration(), ecorePackage.getEDouble(), "intervalDuration", null, 1,
+				1, IntervalConstraint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
 				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getIntervalConstraint_Repeat(), ecorePackage.getEBoolean(), "repeat", "false", 0, 1,
+				IntervalConstraint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+				!IS_DERIVED, IS_ORDERED);
 
 		initEClass(cooldownConstraintEClass, CooldownConstraint.class, "CooldownConstraint", !IS_ABSTRACT,
 				!IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
