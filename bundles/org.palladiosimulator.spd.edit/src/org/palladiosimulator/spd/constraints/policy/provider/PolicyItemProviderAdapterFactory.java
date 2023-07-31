@@ -72,26 +72,26 @@ public class PolicyItemProviderAdapterFactory extends PolicyAdapterFactory
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link org.palladiosimulator.spd.constraints.policy.IntervallConstraint} instances.
+	 * This keeps track of the one adapter used for all {@link org.palladiosimulator.spd.constraints.policy.IntervalConstraint} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected IntervallConstraintItemProvider intervallConstraintItemProvider;
+	protected IntervalConstraintItemProvider intervalConstraintItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link org.palladiosimulator.spd.constraints.policy.IntervallConstraint}.
+	 * This creates an adapter for a {@link org.palladiosimulator.spd.constraints.policy.IntervalConstraint}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createIntervallConstraintAdapter() {
-		if (intervallConstraintItemProvider == null) {
-			intervallConstraintItemProvider = new IntervallConstraintItemProvider(this);
+	public Adapter createIntervalConstraintAdapter() {
+		if (intervalConstraintItemProvider == null) {
+			intervalConstraintItemProvider = new IntervalConstraintItemProvider(this);
 		}
 
-		return intervallConstraintItemProvider;
+		return intervalConstraintItemProvider;
 	}
 
 	/**
@@ -222,8 +222,8 @@ public class PolicyItemProviderAdapterFactory extends PolicyAdapterFactory
 	 */
 	@Override
 	public void dispose() {
-		if (intervallConstraintItemProvider != null)
-			intervallConstraintItemProvider.dispose();
+		if (intervalConstraintItemProvider != null)
+			intervalConstraintItemProvider.dispose();
 		if (cooldownConstraintItemProvider != null)
 			cooldownConstraintItemProvider.dispose();
 	}

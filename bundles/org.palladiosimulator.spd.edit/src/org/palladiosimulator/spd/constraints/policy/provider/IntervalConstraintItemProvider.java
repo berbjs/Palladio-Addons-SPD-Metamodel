@@ -13,25 +13,25 @@ import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
-import org.palladiosimulator.spd.constraints.policy.IntervallConstraint;
+import org.palladiosimulator.spd.constraints.policy.IntervalConstraint;
 import org.palladiosimulator.spd.constraints.policy.PolicyPackage;
 import org.palladiosimulator.spd.constraints.provider.TemporalConstraintItemProvider;
 import org.palladiosimulator.spd.provider.ScalingPolicyDefinitionEditPlugin;
 
 /**
- * This is the item provider adapter for a {@link org.palladiosimulator.spd.constraints.policy.IntervallConstraint} object.
+ * This is the item provider adapter for a {@link org.palladiosimulator.spd.constraints.policy.IntervalConstraint} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class IntervallConstraintItemProvider extends TemporalConstraintItemProvider {
+public class IntervalConstraintItemProvider extends TemporalConstraintItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public IntervallConstraintItemProvider(AdapterFactory adapterFactory) {
+	public IntervalConstraintItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -47,7 +47,8 @@ public class IntervallConstraintItemProvider extends TemporalConstraintItemProvi
 			super.getPropertyDescriptors(object);
 
 			addOffsetPropertyDescriptor(object);
-			addIntervallDurationPropertyDescriptor(object);
+			addIntervalDurationPropertyDescriptor(object);
+			addRepeatPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -61,38 +62,54 @@ public class IntervallConstraintItemProvider extends TemporalConstraintItemProvi
 	protected void addOffsetPropertyDescriptor(Object object) {
 		itemPropertyDescriptors
 				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-						getResourceLocator(), getString("_UI_IntervallConstraint_offset_feature"),
-						getString("_UI_PropertyDescriptor_description", "_UI_IntervallConstraint_offset_feature",
-								"_UI_IntervallConstraint_type"),
-						PolicyPackage.Literals.INTERVALL_CONSTRAINT__OFFSET, true, false, false,
-						ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE, null, null));
+						getResourceLocator(), getString("_UI_IntervalConstraint_offset_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_IntervalConstraint_offset_feature",
+								"_UI_IntervalConstraint_type"),
+						PolicyPackage.Literals.INTERVAL_CONSTRAINT__OFFSET, true, false, false,
+						ItemPropertyDescriptor.REAL_VALUE_IMAGE, null, null));
 	}
 
 	/**
-	 * This adds a property descriptor for the Intervall Duration feature.
+	 * This adds a property descriptor for the Interval Duration feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addIntervallDurationPropertyDescriptor(Object object) {
-		itemPropertyDescriptors
-				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-						getResourceLocator(), getString("_UI_IntervallConstraint_intervallDuration_feature"),
-						getString("_UI_PropertyDescriptor_description",
-								"_UI_IntervallConstraint_intervallDuration_feature", "_UI_IntervallConstraint_type"),
-						PolicyPackage.Literals.INTERVALL_CONSTRAINT__INTERVALL_DURATION, true, false, false,
-						ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE, null, null));
+	protected void addIntervalDurationPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(
+				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+				getString("_UI_IntervalConstraint_intervalDuration_feature"),
+				getString("_UI_PropertyDescriptor_description", "_UI_IntervalConstraint_intervalDuration_feature",
+						"_UI_IntervalConstraint_type"),
+				PolicyPackage.Literals.INTERVAL_CONSTRAINT__INTERVAL_DURATION, true, false, false,
+				ItemPropertyDescriptor.REAL_VALUE_IMAGE, null, null));
 	}
 
 	/**
-	 * This returns IntervallConstraint.gif.
+	 * This adds a property descriptor for the Repeat feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
+	 */
+	protected void addRepeatPropertyDescriptor(Object object) {
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(), getString("_UI_IntervalConstraint_repeat_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_IntervalConstraint_repeat_feature",
+								"_UI_IntervalConstraint_type"),
+						PolicyPackage.Literals.INTERVAL_CONSTRAINT__REPEAT, true, false, false,
+						ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, null, null));
+	}
+
+	/*
+	 * This overrides and reuses the icon for a Constraint.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/IntervallConstraint"));
+		return super.getImage(object);
 	}
 
 	/**
@@ -103,9 +120,9 @@ public class IntervallConstraintItemProvider extends TemporalConstraintItemProvi
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((IntervallConstraint) object).getId();
-		return label == null || label.length() == 0 ? getString("_UI_IntervallConstraint_type")
-				: getString("_UI_IntervallConstraint_type") + " " + label;
+		String label = ((IntervalConstraint) object).getId();
+		return label == null || label.length() == 0 ? getString("_UI_IntervalConstraint_type")
+				: getString("_UI_IntervalConstraint_type") + " " + label;
 	}
 
 	/**
@@ -119,9 +136,10 @@ public class IntervallConstraintItemProvider extends TemporalConstraintItemProvi
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(IntervallConstraint.class)) {
-		case PolicyPackage.INTERVALL_CONSTRAINT__OFFSET:
-		case PolicyPackage.INTERVALL_CONSTRAINT__INTERVALL_DURATION:
+		switch (notification.getFeatureID(IntervalConstraint.class)) {
+		case PolicyPackage.INTERVAL_CONSTRAINT__OFFSET:
+		case PolicyPackage.INTERVAL_CONSTRAINT__INTERVAL_DURATION:
+		case PolicyPackage.INTERVAL_CONSTRAINT__REPEAT:
 			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 			return;
 		}

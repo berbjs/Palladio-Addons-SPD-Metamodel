@@ -9,7 +9,7 @@ import org.eclipse.emf.ecore.util.Switch;
 import org.palladiosimulator.spd.constraints.AbstractConstraint;
 import org.palladiosimulator.spd.constraints.TemporalConstraint;
 import org.palladiosimulator.spd.constraints.policy.CooldownConstraint;
-import org.palladiosimulator.spd.constraints.policy.IntervallConstraint;
+import org.palladiosimulator.spd.constraints.policy.IntervalConstraint;
 import org.palladiosimulator.spd.constraints.policy.PolicyConstraint;
 import org.palladiosimulator.spd.constraints.policy.PolicyPackage;
 
@@ -83,17 +83,17 @@ public class PolicySwitch<T> extends Switch<T> {
 				result = defaultCase(theEObject);
 			return result;
 		}
-		case PolicyPackage.INTERVALL_CONSTRAINT: {
-			IntervallConstraint intervallConstraint = (IntervallConstraint) theEObject;
-			T result = caseIntervallConstraint(intervallConstraint);
+		case PolicyPackage.INTERVAL_CONSTRAINT: {
+			IntervalConstraint intervalConstraint = (IntervalConstraint) theEObject;
+			T result = caseIntervalConstraint(intervalConstraint);
 			if (result == null)
-				result = caseTemporalConstraint(intervallConstraint);
+				result = caseTemporalConstraint(intervalConstraint);
 			if (result == null)
-				result = casePolicyConstraint(intervallConstraint);
+				result = casePolicyConstraint(intervalConstraint);
 			if (result == null)
-				result = caseAbstractConstraint(intervallConstraint);
+				result = caseAbstractConstraint(intervalConstraint);
 			if (result == null)
-				result = caseIdentifier(intervallConstraint);
+				result = caseIdentifier(intervalConstraint);
 			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
@@ -103,6 +103,8 @@ public class PolicySwitch<T> extends Switch<T> {
 			T result = caseCooldownConstraint(cooldownConstraint);
 			if (result == null)
 				result = caseTemporalConstraint(cooldownConstraint);
+			if (result == null)
+				result = casePolicyConstraint(cooldownConstraint);
 			if (result == null)
 				result = caseAbstractConstraint(cooldownConstraint);
 			if (result == null)
@@ -132,17 +134,17 @@ public class PolicySwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Intervall Constraint</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Interval Constraint</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Intervall Constraint</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Interval Constraint</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseIntervallConstraint(IntervallConstraint object) {
+	public T caseIntervalConstraint(IntervalConstraint object) {
 		return null;
 	}
 
