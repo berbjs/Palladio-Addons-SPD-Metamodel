@@ -1,4 +1,4 @@
-bundles/org.palladiosimulator.spd.semantic.tests/src/org/palladiosimulator/semanticspd/tests/QueueTest.java/**
+/**
  */
 package org.palladiosimulator.semanticspd.tests;
 

@@ -1,4 +1,4 @@
-bundles/org.palladiosimulator.spd.semantic.edit/src/org/palladiosimulator/semanticspd/provider/QueueItemProvider.java/**
+/**
  */
 package org.palladiosimulator.semanticspd.provider;
 
