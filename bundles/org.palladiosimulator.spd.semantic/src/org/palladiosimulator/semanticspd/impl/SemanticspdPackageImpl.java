@@ -10,6 +10,7 @@ import de.uka.ipd.sdq.stoex.StoexPackage;
 
 import de.uka.ipd.sdq.units.UnitsPackage;
 
+import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
@@ -22,15 +23,16 @@ import org.palladiosimulator.pcm.PcmPackage;
 import org.palladiosimulator.pcm.allocation.AllocationPackage;
 
 import org.palladiosimulator.pcm.core.composition.CompositionPackage;
-
 import org.palladiosimulator.pcm.repository.RepositoryPackage;
 
 import org.palladiosimulator.pcm.resourceenvironment.ResourceenvironmentPackage;
 
 import org.palladiosimulator.pcm.system.SystemPackage;
 
+import org.palladiosimulator.semanticspd.CompetingConsumersGroupCfg;
 import org.palladiosimulator.semanticspd.Configuration;
 import org.palladiosimulator.semanticspd.ElasticInfrastructureCfg;
+import org.palladiosimulator.semanticspd.Queue;
 import org.palladiosimulator.semanticspd.SemanticspdFactory;
 import org.palladiosimulator.semanticspd.SemanticspdPackage;
 import org.palladiosimulator.semanticspd.ServiceGroupCfg;
@@ -72,6 +74,20 @@ public class SemanticspdPackageImpl extends EPackageImpl implements SemanticspdP
 	 * @generated
 	 */
 	private EClass serviceGroupCfgEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass competingConsumersGroupCfgEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass queueEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -319,6 +335,87 @@ public class SemanticspdPackageImpl extends EPackageImpl implements SemanticspdP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getCompetingConsumersGroupCfg() {
+		return competingConsumersGroupCfgEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getCompetingConsumersGroupCfg_Unit() {
+		return (EReference)competingConsumersGroupCfgEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getCompetingConsumersGroupCfg_Elements() {
+		return (EReference)competingConsumersGroupCfgEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getCompetingConsumersGroupCfg_BrokerAssembly() {
+		return (EReference)competingConsumersGroupCfgEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getCompetingConsumersGroupCfg_Queue() {
+		return (EReference)competingConsumersGroupCfgEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getQueue() {
+		return queueEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getQueue_RequiredRole() {
+		return (EReference)queueEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getQueue_PassiveResourceQueueMessages() {
+		return (EReference)queueEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getQueue_Name() {
+		return (EAttribute)queueEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public SemanticspdFactory getSemanticspdFactory() {
 		return (SemanticspdFactory)getEFactoryInstance();
 	}
@@ -364,6 +461,17 @@ public class SemanticspdPackageImpl extends EPackageImpl implements SemanticspdP
 		createEReference(serviceGroupCfgEClass, SERVICE_GROUP_CFG__UNIT);
 		createEReference(serviceGroupCfgEClass, SERVICE_GROUP_CFG__ELEMENTS);
 		createEReference(serviceGroupCfgEClass, SERVICE_GROUP_CFG__LOAD_BALANCING_ASSEMBLY);
+
+		competingConsumersGroupCfgEClass = createEClass(COMPETING_CONSUMERS_GROUP_CFG);
+		createEReference(competingConsumersGroupCfgEClass, COMPETING_CONSUMERS_GROUP_CFG__UNIT);
+		createEReference(competingConsumersGroupCfgEClass, COMPETING_CONSUMERS_GROUP_CFG__ELEMENTS);
+		createEReference(competingConsumersGroupCfgEClass, COMPETING_CONSUMERS_GROUP_CFG__BROKER_ASSEMBLY);
+		createEReference(competingConsumersGroupCfgEClass, COMPETING_CONSUMERS_GROUP_CFG__QUEUE);
+
+		queueEClass = createEClass(QUEUE);
+		createEReference(queueEClass, QUEUE__REQUIRED_ROLE);
+		createEReference(queueEClass, QUEUE__PASSIVE_RESOURCE_QUEUE_MESSAGES);
+		createEAttribute(queueEClass, QUEUE__NAME);
 	}
 
 	/**
@@ -396,6 +504,7 @@ public class SemanticspdPackageImpl extends EPackageImpl implements SemanticspdP
 		ResourceenvironmentPackage theResourceenvironmentPackage = (ResourceenvironmentPackage)EPackage.Registry.INSTANCE.getEPackage(ResourceenvironmentPackage.eNS_URI);
 		RepositoryPackage theRepositoryPackage = (RepositoryPackage)EPackage.Registry.INSTANCE.getEPackage(RepositoryPackage.eNS_URI);
 		CompositionPackage theCompositionPackage = (CompositionPackage)EPackage.Registry.INSTANCE.getEPackage(CompositionPackage.eNS_URI);
+		EcorePackage theEcorePackage = (EcorePackage)EPackage.Registry.INSTANCE.getEPackage(EcorePackage.eNS_URI);
 
 		// Create type parameters
 
@@ -404,6 +513,7 @@ public class SemanticspdPackageImpl extends EPackageImpl implements SemanticspdP
 		// Add supertypes to classes
 		elasticInfrastructureCfgEClass.getESuperTypes().add(this.getTargetGroupCfg());
 		serviceGroupCfgEClass.getESuperTypes().add(this.getTargetGroupCfg());
+		competingConsumersGroupCfgEClass.getESuperTypes().add(this.getTargetGroupCfg());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(configurationEClass, Configuration.class, "Configuration", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -420,14 +530,25 @@ public class SemanticspdPackageImpl extends EPackageImpl implements SemanticspdP
 
 		initEClass(elasticInfrastructureCfgEClass, ElasticInfrastructureCfg.class, "ElasticInfrastructureCfg", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getElasticInfrastructureCfg_Unit(), theResourceenvironmentPackage.getResourceContainer(), null, "unit", null, 0, 1, ElasticInfrastructureCfg.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getElasticInfrastructureCfg_Elements(), theResourceenvironmentPackage.getResourceContainer(), null, "elements", null, 0, -1, ElasticInfrastructureCfg.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getElasticInfrastructureCfg_Elements(), theResourceenvironmentPackage.getResourceContainer(), null, "elements", null, 1, -1, ElasticInfrastructureCfg.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getElasticInfrastructureCfg_LinkingResource(), theResourceenvironmentPackage.getLinkingResource(), null, "linkingResource", null, 0, 1, ElasticInfrastructureCfg.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getElasticInfrastructureCfg_ResourceEnvironment(), theResourceenvironmentPackage.getResourceEnvironment(), null, "resourceEnvironment", null, 0, 1, ElasticInfrastructureCfg.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(serviceGroupCfgEClass, ServiceGroupCfg.class, "ServiceGroupCfg", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getServiceGroupCfg_Unit(), theCompositionPackage.getAssemblyContext(), null, "unit", null, 0, 1, ServiceGroupCfg.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getServiceGroupCfg_Elements(), theCompositionPackage.getAssemblyContext(), null, "elements", null, 0, -1, ServiceGroupCfg.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getServiceGroupCfg_Elements(), theCompositionPackage.getAssemblyContext(), null, "elements", null, 1, -1, ServiceGroupCfg.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getServiceGroupCfg_LoadBalancingAssembly(), theCompositionPackage.getAssemblyContext(), null, "loadBalancingAssembly", null, 0, 1, ServiceGroupCfg.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(competingConsumersGroupCfgEClass, CompetingConsumersGroupCfg.class, "CompetingConsumersGroupCfg", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getCompetingConsumersGroupCfg_Unit(), theCompositionPackage.getAssemblyContext(), null, "unit", null, 0, 1, CompetingConsumersGroupCfg.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getCompetingConsumersGroupCfg_Elements(), theCompositionPackage.getAssemblyContext(), null, "elements", null, 1, -1, CompetingConsumersGroupCfg.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getCompetingConsumersGroupCfg_BrokerAssembly(), theCompositionPackage.getAssemblyContext(), null, "brokerAssembly", null, 0, 1, CompetingConsumersGroupCfg.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getCompetingConsumersGroupCfg_Queue(), this.getQueue(), null, "queue", null, 0, -1, CompetingConsumersGroupCfg.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(queueEClass, Queue.class, "Queue", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getQueue_RequiredRole(), theRepositoryPackage.getRequiredRole(), null, "requiredRole", null, 0, 1, Queue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getQueue_PassiveResourceQueueMessages(), theRepositoryPackage.getPassiveResource(), null, "passiveResourceQueueMessages", null, 0, 1, Queue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getQueue_Name(), theEcorePackage.getEString(), "name", null, 0, 1, Queue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);

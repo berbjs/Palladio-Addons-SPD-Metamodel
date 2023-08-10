@@ -141,6 +141,52 @@ public class SemanticspdItemProviderAdapterFactory extends SemanticspdAdapterFac
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link org.palladiosimulator.semanticspd.CompetingConsumersGroupCfg} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected CompetingConsumersGroupCfgItemProvider competingConsumersGroupCfgItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.palladiosimulator.semanticspd.CompetingConsumersGroupCfg}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createCompetingConsumersGroupCfgAdapter() {
+		if (competingConsumersGroupCfgItemProvider == null) {
+			competingConsumersGroupCfgItemProvider = new CompetingConsumersGroupCfgItemProvider(this);
+		}
+
+		return competingConsumersGroupCfgItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.palladiosimulator.semanticspd.Queue} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected QueueItemProvider queueItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.palladiosimulator.semanticspd.Queue}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createQueueAdapter() {
+		if (queueItemProvider == null) {
+			queueItemProvider = new QueueItemProvider(this);
+		}
+
+		return queueItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -242,6 +288,8 @@ public class SemanticspdItemProviderAdapterFactory extends SemanticspdAdapterFac
 		if (configurationItemProvider != null) configurationItemProvider.dispose();
 		if (elasticInfrastructureCfgItemProvider != null) elasticInfrastructureCfgItemProvider.dispose();
 		if (serviceGroupCfgItemProvider != null) serviceGroupCfgItemProvider.dispose();
+		if (competingConsumersGroupCfgItemProvider != null) competingConsumersGroupCfgItemProvider.dispose();
+		if (queueItemProvider != null) queueItemProvider.dispose();
 	}
 
 }

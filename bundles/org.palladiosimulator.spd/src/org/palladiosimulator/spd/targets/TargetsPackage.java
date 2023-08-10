@@ -250,13 +250,22 @@ public interface TargetsPackage extends EPackage {
 	int COMPETING_CONSUMERS_GROUP__TARGET_CONSTRAINTS = TARGET_GROUP__TARGET_CONSTRAINTS;
 
 	/**
+	 * The feature id for the '<em><b>Unit Assembly</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPETING_CONSUMERS_GROUP__UNIT_ASSEMBLY = TARGET_GROUP_FEATURE_COUNT + 0;
+
+	/**
 	 * The number of structural features of the '<em>Competing Consumers Group</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMPETING_CONSUMERS_GROUP_FEATURE_COUNT = TARGET_GROUP_FEATURE_COUNT + 0;
+	int COMPETING_CONSUMERS_GROUP_FEATURE_COUNT = TARGET_GROUP_FEATURE_COUNT + 1;
 
 	/**
 	 * Returns the meta object for class '{@link org.palladiosimulator.spd.targets.TargetGroup <em>Target Group</em>}'.
@@ -330,6 +339,17 @@ public interface TargetsPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getCompetingConsumersGroup();
+
+	/**
+	 * Returns the meta object for the reference '{@link org.palladiosimulator.spd.targets.CompetingConsumersGroup#getUnitAssembly <em>Unit Assembly</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Unit Assembly</em>'.
+	 * @see org.palladiosimulator.spd.targets.CompetingConsumersGroup#getUnitAssembly()
+	 * @see #getCompetingConsumersGroup()
+	 * @generated
+	 */
+	EReference getCompetingConsumersGroup_UnitAssembly();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -417,6 +437,14 @@ public interface TargetsPackage extends EPackage {
 		 * @generated
 		 */
 		EClass COMPETING_CONSUMERS_GROUP = eINSTANCE.getCompetingConsumersGroup();
+
+		/**
+		 * The meta object literal for the '<em><b>Unit Assembly</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference COMPETING_CONSUMERS_GROUP__UNIT_ASSEMBLY = eINSTANCE.getCompetingConsumersGroup_UnitAssembly();
 
 	}
 

@@ -459,6 +459,16 @@ public class StimuliPackageImpl extends EPackageImpl implements StimuliPackage {
 	 * @generated
 	 */
 	@Override
+	public EReference getQueueLength_PassiveResource() {
+		return (EReference) queueLengthEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getNetworkUtilization() {
 		return networkUtilizationEClass;
 	}
@@ -534,6 +544,7 @@ public class StimuliPackageImpl extends EPackageImpl implements StimuliPackage {
 		taskCountEClass = createEClass(TASK_COUNT);
 
 		queueLengthEClass = createEClass(QUEUE_LENGTH);
+		createEReference(queueLengthEClass, QUEUE_LENGTH__PASSIVE_RESOURCE);
 
 		networkUtilizationEClass = createEClass(NETWORK_UTILIZATION);
 		createEAttribute(networkUtilizationEClass, NETWORK_UTILIZATION__USAGE_TYPE);
@@ -640,6 +651,9 @@ public class StimuliPackageImpl extends EPackageImpl implements StimuliPackage {
 
 		initEClass(queueLengthEClass, QueueLength.class, "QueueLength", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getQueueLength_PassiveResource(), theRepositoryPackage.getPassiveResource(), null,
+				"passiveResource", null, 0, 1, QueueLength.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
+				!IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(networkUtilizationEClass, NetworkUtilization.class, "NetworkUtilization", !IS_ABSTRACT,
 				!IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);

@@ -54,7 +54,7 @@ public interface ServiceGroupCfg extends TargetGroupCfg {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Elements</em>' reference list.
 	 * @see org.palladiosimulator.semanticspd.SemanticspdPackage#getServiceGroupCfg_Elements()
-	 * @model
+	 * @model required="true"
 	 * @generated
 	 */
 	EList<AssemblyContext> getElements();

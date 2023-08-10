@@ -31,5 +31,16 @@
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference semantic.ecore#//ServiceGroupCfg/elements"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference semantic.ecore#//ServiceGroupCfg/loadBalancingAssembly"/>
     </genClasses>
+    <genClasses ecoreClass="semantic.ecore#//CompetingConsumersGroupCfg">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference semantic.ecore#//CompetingConsumersGroupCfg/unit"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference semantic.ecore#//CompetingConsumersGroupCfg/elements"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference semantic.ecore#//CompetingConsumersGroupCfg/brokerAssembly"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference semantic.ecore#//CompetingConsumersGroupCfg/queue"/>
+    </genClasses>
+    <genClasses ecoreClass="semantic.ecore#//Queue">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference semantic.ecore#//Queue/requiredRole"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference semantic.ecore#//Queue/passiveResourceQueueMessages"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute semantic.ecore#//Queue/name"/>
+    </genClasses>
   </genPackages>
 </genmodel:GenModel>

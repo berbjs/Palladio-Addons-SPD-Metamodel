@@ -8,7 +8,6 @@ import org.eclipse.emf.common.notify.Notifier;
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
 
 import org.eclipse.emf.ecore.EObject;
-
 import org.palladiosimulator.semanticspd.*;
 
 /**
@@ -84,6 +83,14 @@ public class SemanticspdAdapterFactory extends AdapterFactoryImpl {
 				return createServiceGroupCfgAdapter();
 			}
 			@Override
+			public Adapter caseCompetingConsumersGroupCfg(CompetingConsumersGroupCfg object) {
+				return createCompetingConsumersGroupCfgAdapter();
+			}
+			@Override
+			public Adapter caseQueue(Queue object) {
+				return createQueueAdapter();
+			}
+			@Override
 			public Adapter defaultCase(EObject object) {
 				return createEObjectAdapter();
 			}
@@ -156,6 +163,34 @@ public class SemanticspdAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createServiceGroupCfgAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.palladiosimulator.semanticspd.CompetingConsumersGroupCfg <em>Competing Consumers Group Cfg</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.palladiosimulator.semanticspd.CompetingConsumersGroupCfg
+	 * @generated
+	 */
+	public Adapter createCompetingConsumersGroupCfgAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.palladiosimulator.semanticspd.Queue <em>Queue</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.palladiosimulator.semanticspd.Queue
+	 * @generated
+	 */
+	public Adapter createQueueAdapter() {
 		return null;
 	}
 

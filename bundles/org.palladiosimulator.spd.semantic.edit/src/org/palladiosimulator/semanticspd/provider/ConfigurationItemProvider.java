@@ -296,6 +296,11 @@ public class ConfigurationItemProvider
 			(createChildParameter
 				(SemanticspdPackage.Literals.CONFIGURATION__TARGET_CFGS,
 				 SemanticspdFactory.eINSTANCE.createServiceGroupCfg()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(SemanticspdPackage.Literals.CONFIGURATION__TARGET_CFGS,
+				 SemanticspdFactory.eINSTANCE.createCompetingConsumersGroupCfg()));
 	}
 
 	/**

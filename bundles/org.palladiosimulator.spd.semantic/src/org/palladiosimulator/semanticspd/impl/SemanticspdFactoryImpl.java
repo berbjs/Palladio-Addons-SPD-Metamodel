@@ -59,6 +59,8 @@ public class SemanticspdFactoryImpl extends EFactoryImpl implements SemanticspdF
 			case SemanticspdPackage.CONFIGURATION: return createConfiguration();
 			case SemanticspdPackage.ELASTIC_INFRASTRUCTURE_CFG: return createElasticInfrastructureCfg();
 			case SemanticspdPackage.SERVICE_GROUP_CFG: return createServiceGroupCfg();
+			case SemanticspdPackage.COMPETING_CONSUMERS_GROUP_CFG: return createCompetingConsumersGroupCfg();
+			case SemanticspdPackage.QUEUE: return createQueue();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -92,6 +94,26 @@ public class SemanticspdFactoryImpl extends EFactoryImpl implements SemanticspdF
 	public ServiceGroupCfg createServiceGroupCfg() {
 		ServiceGroupCfgImpl serviceGroupCfg = new ServiceGroupCfgImpl();
 		return serviceGroupCfg;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public CompetingConsumersGroupCfg createCompetingConsumersGroupCfg() {
+		CompetingConsumersGroupCfgImpl competingConsumersGroupCfg = new CompetingConsumersGroupCfgImpl();
+		return competingConsumersGroupCfg;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Queue createQueue() {
+		QueueImpl queue = new QueueImpl();
+		return queue;
 	}
 
 	/**

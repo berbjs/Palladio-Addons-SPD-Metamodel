@@ -386,13 +386,22 @@ public interface StimuliPackage extends EPackage {
 	int QUEUE_LENGTH = 13;
 
 	/**
+	 * The feature id for the '<em><b>Passive Resource</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int QUEUE_LENGTH__PASSIVE_RESOURCE = SOURCE_INTERFACE_STIMULUS_FEATURE_COUNT + 0;
+
+	/**
 	 * The number of structural features of the '<em>Queue Length</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int QUEUE_LENGTH_FEATURE_COUNT = SOURCE_INTERFACE_STIMULUS_FEATURE_COUNT + 0;
+	int QUEUE_LENGTH_FEATURE_COUNT = SOURCE_INTERFACE_STIMULUS_FEATURE_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link org.palladiosimulator.spd.triggers.stimuli.impl.NetworkUtilizationImpl <em>Network Utilization</em>}' class.
@@ -605,6 +614,17 @@ public interface StimuliPackage extends EPackage {
 	EClass getQueueLength();
 
 	/**
+	 * Returns the meta object for the reference '{@link org.palladiosimulator.spd.triggers.stimuli.QueueLength#getPassiveResource <em>Passive Resource</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Passive Resource</em>'.
+	 * @see org.palladiosimulator.spd.triggers.stimuli.QueueLength#getPassiveResource()
+	 * @see #getQueueLength()
+	 * @generated
+	 */
+	EReference getQueueLength_PassiveResource();
+
+	/**
 	 * Returns the meta object for class '{@link org.palladiosimulator.spd.triggers.stimuli.NetworkUtilization <em>Network Utilization</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -812,6 +832,14 @@ public interface StimuliPackage extends EPackage {
 		 * @generated
 		 */
 		EClass QUEUE_LENGTH = eINSTANCE.getQueueLength();
+
+		/**
+		 * The meta object literal for the '<em><b>Passive Resource</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference QUEUE_LENGTH__PASSIVE_RESOURCE = eINSTANCE.getQueueLength_PassiveResource();
 
 		/**
 		 * The meta object literal for the '{@link org.palladiosimulator.spd.triggers.stimuli.impl.NetworkUtilizationImpl <em>Network Utilization</em>}' class.
