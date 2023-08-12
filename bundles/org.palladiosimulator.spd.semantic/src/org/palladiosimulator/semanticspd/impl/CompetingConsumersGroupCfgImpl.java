@@ -35,7 +35,7 @@ import org.palladiosimulator.semanticspd.SemanticspdPackage;
  *   <li>{@link org.palladiosimulator.semanticspd.impl.CompetingConsumersGroupCfgImpl#getUnit <em>Unit</em>}</li>
  *   <li>{@link org.palladiosimulator.semanticspd.impl.CompetingConsumersGroupCfgImpl#getElements <em>Elements</em>}</li>
  *   <li>{@link org.palladiosimulator.semanticspd.impl.CompetingConsumersGroupCfgImpl#getBrokerAssembly <em>Broker Assembly</em>}</li>
- *   <li>{@link org.palladiosimulator.semanticspd.impl.CompetingConsumersGroupCfgImpl#getQueue <em>Queue</em>}</li>
+ *   <li>{@link org.palladiosimulator.semanticspd.impl.CompetingConsumersGroupCfgImpl#getUnitQueues <em>Unit Queues</em>}</li>
  * </ul>
  *
  * @generated
@@ -72,14 +72,14 @@ public class CompetingConsumersGroupCfgImpl extends TargetGroupCfgImpl implement
 	protected AssemblyContext brokerAssembly;
 
 	/**
-	 * The cached value of the '{@link #getQueue() <em>Queue</em>}' containment reference list.
+	 * The cached value of the '{@link #getUnitQueues() <em>Unit Queues</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getQueue()
+	 * @see #getUnitQueues()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Queue> queue;
+	protected EList<Queue> unitQueues;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -193,11 +193,11 @@ public class CompetingConsumersGroupCfgImpl extends TargetGroupCfgImpl implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Queue> getQueue() {
-		if (queue == null) {
-			queue = new EObjectContainmentEList<Queue>(Queue.class, this, SemanticspdPackage.COMPETING_CONSUMERS_GROUP_CFG__QUEUE);
+	public EList<Queue> getUnitQueues() {
+		if (unitQueues == null) {
+			unitQueues = new EObjectContainmentEList<Queue>(Queue.class, this, SemanticspdPackage.COMPETING_CONSUMERS_GROUP_CFG__UNIT_QUEUES);
 		}
-		return queue;
+		return unitQueues;
 	}
 
 	/**
@@ -208,8 +208,8 @@ public class CompetingConsumersGroupCfgImpl extends TargetGroupCfgImpl implement
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case SemanticspdPackage.COMPETING_CONSUMERS_GROUP_CFG__QUEUE:
-				return ((InternalEList<?>)getQueue()).basicRemove(otherEnd, msgs);
+			case SemanticspdPackage.COMPETING_CONSUMERS_GROUP_CFG__UNIT_QUEUES:
+				return ((InternalEList<?>)getUnitQueues()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -230,8 +230,8 @@ public class CompetingConsumersGroupCfgImpl extends TargetGroupCfgImpl implement
 			case SemanticspdPackage.COMPETING_CONSUMERS_GROUP_CFG__BROKER_ASSEMBLY:
 				if (resolve) return getBrokerAssembly();
 				return basicGetBrokerAssembly();
-			case SemanticspdPackage.COMPETING_CONSUMERS_GROUP_CFG__QUEUE:
-				return getQueue();
+			case SemanticspdPackage.COMPETING_CONSUMERS_GROUP_CFG__UNIT_QUEUES:
+				return getUnitQueues();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -255,9 +255,9 @@ public class CompetingConsumersGroupCfgImpl extends TargetGroupCfgImpl implement
 			case SemanticspdPackage.COMPETING_CONSUMERS_GROUP_CFG__BROKER_ASSEMBLY:
 				setBrokerAssembly((AssemblyContext)newValue);
 				return;
-			case SemanticspdPackage.COMPETING_CONSUMERS_GROUP_CFG__QUEUE:
-				getQueue().clear();
-				getQueue().addAll((Collection<? extends Queue>)newValue);
+			case SemanticspdPackage.COMPETING_CONSUMERS_GROUP_CFG__UNIT_QUEUES:
+				getUnitQueues().clear();
+				getUnitQueues().addAll((Collection<? extends Queue>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -280,8 +280,8 @@ public class CompetingConsumersGroupCfgImpl extends TargetGroupCfgImpl implement
 			case SemanticspdPackage.COMPETING_CONSUMERS_GROUP_CFG__BROKER_ASSEMBLY:
 				setBrokerAssembly((AssemblyContext)null);
 				return;
-			case SemanticspdPackage.COMPETING_CONSUMERS_GROUP_CFG__QUEUE:
-				getQueue().clear();
+			case SemanticspdPackage.COMPETING_CONSUMERS_GROUP_CFG__UNIT_QUEUES:
+				getUnitQueues().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -301,8 +301,8 @@ public class CompetingConsumersGroupCfgImpl extends TargetGroupCfgImpl implement
 				return elements != null && !elements.isEmpty();
 			case SemanticspdPackage.COMPETING_CONSUMERS_GROUP_CFG__BROKER_ASSEMBLY:
 				return brokerAssembly != null;
-			case SemanticspdPackage.COMPETING_CONSUMERS_GROUP_CFG__QUEUE:
-				return queue != null && !queue.isEmpty();
+			case SemanticspdPackage.COMPETING_CONSUMERS_GROUP_CFG__UNIT_QUEUES:
+				return unitQueues != null && !unitQueues.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

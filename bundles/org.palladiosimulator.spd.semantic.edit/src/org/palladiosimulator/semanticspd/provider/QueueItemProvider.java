@@ -53,33 +53,11 @@ public class QueueItemProvider extends ItemProviderAdapter implements IEditingDo
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addRequiredRolePropertyDescriptor(object);
 			addPassiveResourceQueueMessagesPropertyDescriptor(object);
 			addNamePropertyDescriptor(object);
+			addUsageScenarioForConsumptionPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
-	}
-
-	/**
-	 * This adds a property descriptor for the Required Role feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addRequiredRolePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Queue_requiredRole_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Queue_requiredRole_feature", "_UI_Queue_type"),
-				 SemanticspdPackage.Literals.QUEUE__REQUIRED_ROLE,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
 	}
 
 	/**
@@ -122,6 +100,28 @@ public class QueueItemProvider extends ItemProviderAdapter implements IEditingDo
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Usage Scenario For Consumption feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addUsageScenarioForConsumptionPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Queue_usageScenarioForConsumption_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Queue_usageScenarioForConsumption_feature", "_UI_Queue_type"),
+				 SemanticspdPackage.Literals.QUEUE__USAGE_SCENARIO_FOR_CONSUMPTION,
+				 true,
+				 false,
+				 true,
+				 null,
 				 null,
 				 null));
 	}

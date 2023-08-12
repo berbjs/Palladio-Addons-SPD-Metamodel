@@ -18,7 +18,7 @@ import org.palladiosimulator.pcm.core.composition.AssemblyContext;
  *   <li>{@link org.palladiosimulator.semanticspd.CompetingConsumersGroupCfg#getUnit <em>Unit</em>}</li>
  *   <li>{@link org.palladiosimulator.semanticspd.CompetingConsumersGroupCfg#getElements <em>Elements</em>}</li>
  *   <li>{@link org.palladiosimulator.semanticspd.CompetingConsumersGroupCfg#getBrokerAssembly <em>Broker Assembly</em>}</li>
- *   <li>{@link org.palladiosimulator.semanticspd.CompetingConsumersGroupCfg#getQueue <em>Queue</em>}</li>
+ *   <li>{@link org.palladiosimulator.semanticspd.CompetingConsumersGroupCfg#getUnitQueues <em>Unit Queues</em>}</li>
  * </ul>
  *
  * @see org.palladiosimulator.semanticspd.SemanticspdPackage#getCompetingConsumersGroupCfg()
@@ -83,15 +83,15 @@ public interface CompetingConsumersGroupCfg extends TargetGroupCfg {
 	void setBrokerAssembly(AssemblyContext value);
 
 	/**
-	 * Returns the value of the '<em><b>Queue</b></em>' containment reference list.
+	 * Returns the value of the '<em><b>Unit Queues</b></em>' containment reference list.
 	 * The list contents are of type {@link org.palladiosimulator.semanticspd.Queue}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Queue</em>' containment reference list.
-	 * @see org.palladiosimulator.semanticspd.SemanticspdPackage#getCompetingConsumersGroupCfg_Queue()
-	 * @model containment="true"
+	 * @return the value of the '<em>Unit Queues</em>' containment reference list.
+	 * @see org.palladiosimulator.semanticspd.SemanticspdPackage#getCompetingConsumersGroupCfg_UnitQueues()
+	 * @model containment="true" required="true"
 	 * @generated
 	 */
-	EList<Queue> getQueue();
+	EList<Queue> getUnitQueues();
 
 } // CompetingConsumersGroupCfg

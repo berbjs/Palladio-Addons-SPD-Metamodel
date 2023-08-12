@@ -132,7 +132,7 @@ public class CompetingConsumersGroupCfgItemProvider extends TargetGroupCfgItemPr
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(SemanticspdPackage.Literals.COMPETING_CONSUMERS_GROUP_CFG__QUEUE);
+			childrenFeatures.add(SemanticspdPackage.Literals.COMPETING_CONSUMERS_GROUP_CFG__UNIT_QUEUES);
 		}
 		return childrenFeatures;
 	}
@@ -185,7 +185,7 @@ public class CompetingConsumersGroupCfgItemProvider extends TargetGroupCfgItemPr
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(CompetingConsumersGroupCfg.class)) {
-			case SemanticspdPackage.COMPETING_CONSUMERS_GROUP_CFG__QUEUE:
+			case SemanticspdPackage.COMPETING_CONSUMERS_GROUP_CFG__UNIT_QUEUES:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -205,7 +205,7 @@ public class CompetingConsumersGroupCfgItemProvider extends TargetGroupCfgItemPr
 
 		newChildDescriptors.add
 			(createChildParameter
-				(SemanticspdPackage.Literals.COMPETING_CONSUMERS_GROUP_CFG__QUEUE,
+				(SemanticspdPackage.Literals.COMPETING_CONSUMERS_GROUP_CFG__UNIT_QUEUES,
 				 SemanticspdFactory.eINSTANCE.createQueue()));
 	}
 

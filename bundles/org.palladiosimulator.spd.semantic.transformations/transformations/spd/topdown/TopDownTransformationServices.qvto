@@ -60,6 +60,11 @@ mapping inout ServiceGroupCfg::transformServiceGroup(enactedPolicy:ScalingPolicy
 	};	
 }
 
+mapping inout CompetingConsumersGroupCfg::transformCompetingConsumersGroup(){
+	
+}
+
+
 
 //
 //

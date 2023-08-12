@@ -21,6 +21,8 @@ modeltype PCM_CORE uses 'http://palladiosimulator.org/PalladioComponentModel/Cor
 modeltype PCM_COMP uses 'http://palladiosimulator.org/PalladioComponentModel/Core/Composition/5.2';
 modeltype PCM_ENTITY uses 'http://palladiosimulator.org/PalladioComponentModel/Core/Entity/5.2';
 modeltype PCM_PARAM uses 'http://palladiosimulator.org/PalladioComponentModel/Parameter/5.2';
+modeltype PCM_USG uses 'http://palladiosimulator.org/PalladioComponentModel/UsageModel/5.2';
+
 
 modeltype SPD_CON uses 'http://palladiosimulator.org/ScalingPolicyDefinition/Constraints/1.0';
 modeltype SPD_CONP uses 'http://palladiosimulator.org/ScalingPolicyDefinition/Constraints/Policy/1.0';
@@ -127,6 +129,7 @@ mapping inout System::modifySystemModelOnScaleIn(serviceCfg:ServiceGroupCfg){
 	connectors__ComposedStructure := connectorsToPreserve;
 }
 
+
 /**
 * Helper method to select connectors that should be removed in case of a scale in.
 *
@@ -166,3 +169,4 @@ mapping inout System::modifySystemModel(serviceCfg:ServiceGroupCfg){
 	}
 	connectExistingLoadBalancerAndNewAssemblyContexts(serviceCfg.unit, serviceCfg.loadBalancingAssembly, newAssemblies, self);
 }
+

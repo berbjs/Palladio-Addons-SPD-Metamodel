@@ -368,13 +368,13 @@ public interface SemanticspdPackage extends EPackage {
 	int COMPETING_CONSUMERS_GROUP_CFG__BROKER_ASSEMBLY = TARGET_GROUP_CFG_FEATURE_COUNT + 2;
 
 	/**
-	 * The feature id for the '<em><b>Queue</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Unit Queues</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMPETING_CONSUMERS_GROUP_CFG__QUEUE = TARGET_GROUP_CFG_FEATURE_COUNT + 3;
+	int COMPETING_CONSUMERS_GROUP_CFG__UNIT_QUEUES = TARGET_GROUP_CFG_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of structural features of the '<em>Competing Consumers Group Cfg</em>' class.
@@ -405,22 +405,13 @@ public interface SemanticspdPackage extends EPackage {
 	int QUEUE = 5;
 
 	/**
-	 * The feature id for the '<em><b>Required Role</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int QUEUE__REQUIRED_ROLE = 0;
-
-	/**
 	 * The feature id for the '<em><b>Passive Resource Queue Messages</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int QUEUE__PASSIVE_RESOURCE_QUEUE_MESSAGES = 1;
+	int QUEUE__PASSIVE_RESOURCE_QUEUE_MESSAGES = 0;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -429,7 +420,16 @@ public interface SemanticspdPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int QUEUE__NAME = 2;
+	int QUEUE__NAME = 1;
+
+	/**
+	 * The feature id for the '<em><b>Usage Scenario For Consumption</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int QUEUE__USAGE_SCENARIO_FOR_CONSUMPTION = 2;
 
 	/**
 	 * The number of structural features of the '<em>Queue</em>' class.
@@ -699,15 +699,15 @@ public interface SemanticspdPackage extends EPackage {
 	EReference getCompetingConsumersGroupCfg_BrokerAssembly();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link org.palladiosimulator.semanticspd.CompetingConsumersGroupCfg#getQueue <em>Queue</em>}'.
+	 * Returns the meta object for the containment reference list '{@link org.palladiosimulator.semanticspd.CompetingConsumersGroupCfg#getUnitQueues <em>Unit Queues</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Queue</em>'.
-	 * @see org.palladiosimulator.semanticspd.CompetingConsumersGroupCfg#getQueue()
+	 * @return the meta object for the containment reference list '<em>Unit Queues</em>'.
+	 * @see org.palladiosimulator.semanticspd.CompetingConsumersGroupCfg#getUnitQueues()
 	 * @see #getCompetingConsumersGroupCfg()
 	 * @generated
 	 */
-	EReference getCompetingConsumersGroupCfg_Queue();
+	EReference getCompetingConsumersGroupCfg_UnitQueues();
 
 	/**
 	 * Returns the meta object for class '{@link org.palladiosimulator.semanticspd.Queue <em>Queue</em>}'.
@@ -718,17 +718,6 @@ public interface SemanticspdPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getQueue();
-
-	/**
-	 * Returns the meta object for the reference '{@link org.palladiosimulator.semanticspd.Queue#getRequiredRole <em>Required Role</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Required Role</em>'.
-	 * @see org.palladiosimulator.semanticspd.Queue#getRequiredRole()
-	 * @see #getQueue()
-	 * @generated
-	 */
-	EReference getQueue_RequiredRole();
 
 	/**
 	 * Returns the meta object for the reference '{@link org.palladiosimulator.semanticspd.Queue#getPassiveResourceQueueMessages <em>Passive Resource Queue Messages</em>}'.
@@ -751,6 +740,17 @@ public interface SemanticspdPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getQueue_Name();
+
+	/**
+	 * Returns the meta object for the reference '{@link org.palladiosimulator.semanticspd.Queue#getUsageScenarioForConsumption <em>Usage Scenario For Consumption</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Usage Scenario For Consumption</em>'.
+	 * @see org.palladiosimulator.semanticspd.Queue#getUsageScenarioForConsumption()
+	 * @see #getQueue()
+	 * @generated
+	 */
+	EReference getQueue_UsageScenarioForConsumption();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -970,12 +970,12 @@ public interface SemanticspdPackage extends EPackage {
 		EReference COMPETING_CONSUMERS_GROUP_CFG__BROKER_ASSEMBLY = eINSTANCE.getCompetingConsumersGroupCfg_BrokerAssembly();
 
 		/**
-		 * The meta object literal for the '<em><b>Queue</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Unit Queues</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference COMPETING_CONSUMERS_GROUP_CFG__QUEUE = eINSTANCE.getCompetingConsumersGroupCfg_Queue();
+		EReference COMPETING_CONSUMERS_GROUP_CFG__UNIT_QUEUES = eINSTANCE.getCompetingConsumersGroupCfg_UnitQueues();
 
 		/**
 		 * The meta object literal for the '{@link org.palladiosimulator.semanticspd.impl.QueueImpl <em>Queue</em>}' class.
@@ -986,14 +986,6 @@ public interface SemanticspdPackage extends EPackage {
 		 * @generated
 		 */
 		EClass QUEUE = eINSTANCE.getQueue();
-
-		/**
-		 * The meta object literal for the '<em><b>Required Role</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference QUEUE__REQUIRED_ROLE = eINSTANCE.getQueue_RequiredRole();
 
 		/**
 		 * The meta object literal for the '<em><b>Passive Resource Queue Messages</b></em>' reference feature.
@@ -1010,6 +1002,14 @@ public interface SemanticspdPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute QUEUE__NAME = eINSTANCE.getQueue_Name();
+
+		/**
+		 * The meta object literal for the '<em><b>Usage Scenario For Consumption</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference QUEUE__USAGE_SCENARIO_FOR_CONSUMPTION = eINSTANCE.getQueue_UsageScenarioForConsumption();
 
 	}
 

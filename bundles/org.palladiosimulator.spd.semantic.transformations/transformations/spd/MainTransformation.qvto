@@ -36,7 +36,8 @@ transformation MainTransformation(	inout pcmAllocation : PCM_ALLOC,
 									inout pcmResourceEnvironment : PCM_RES_ENV,
 									inout repository : PCM_REP,
 									in spd : SPD_MOD,
-									inout spdSemantic : SPD_SEM );
+									inout spdSemantic : SPD_SEM,
+									inout usageModel : PCM_USAGE );
 									
 configuration property max_assemblies_per_host : Integer;
 

@@ -4,7 +4,7 @@ package org.palladiosimulator.semanticspd;
 
 import org.eclipse.emf.ecore.EObject;
 import org.palladiosimulator.pcm.repository.PassiveResource;
-import org.palladiosimulator.pcm.repository.RequiredRole;
+import org.palladiosimulator.pcm.usagemodel.UsageScenario;
 
 /**
  * <!-- begin-user-doc -->
@@ -15,9 +15,9 @@ import org.palladiosimulator.pcm.repository.RequiredRole;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.palladiosimulator.semanticspd.Queue#getRequiredRole <em>Required Role</em>}</li>
  *   <li>{@link org.palladiosimulator.semanticspd.Queue#getPassiveResourceQueueMessages <em>Passive Resource Queue Messages</em>}</li>
  *   <li>{@link org.palladiosimulator.semanticspd.Queue#getName <em>Name</em>}</li>
+ *   <li>{@link org.palladiosimulator.semanticspd.Queue#getUsageScenarioForConsumption <em>Usage Scenario For Consumption</em>}</li>
  * </ul>
  *
  * @see org.palladiosimulator.semanticspd.SemanticspdPackage#getQueue()
@@ -25,28 +25,6 @@ import org.palladiosimulator.pcm.repository.RequiredRole;
  * @generated
  */
 public interface Queue extends EObject {
-	/**
-	 * Returns the value of the '<em><b>Required Role</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Required Role</em>' reference.
-	 * @see #setRequiredRole(RequiredRole)
-	 * @see org.palladiosimulator.semanticspd.SemanticspdPackage#getQueue_RequiredRole()
-	 * @model
-	 * @generated
-	 */
-	RequiredRole getRequiredRole();
-
-	/**
-	 * Sets the value of the '{@link org.palladiosimulator.semanticspd.Queue#getRequiredRole <em>Required Role</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Required Role</em>' reference.
-	 * @see #getRequiredRole()
-	 * @generated
-	 */
-	void setRequiredRole(RequiredRole value);
-
 	/**
 	 * Returns the value of the '<em><b>Passive Resource Queue Messages</b></em>' reference.
 	 * <!-- begin-user-doc -->
@@ -90,5 +68,27 @@ public interface Queue extends EObject {
 	 * @generated
 	 */
 	void setName(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Usage Scenario For Consumption</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Usage Scenario For Consumption</em>' reference.
+	 * @see #setUsageScenarioForConsumption(UsageScenario)
+	 * @see org.palladiosimulator.semanticspd.SemanticspdPackage#getQueue_UsageScenarioForConsumption()
+	 * @model
+	 * @generated
+	 */
+	UsageScenario getUsageScenarioForConsumption();
+
+	/**
+	 * Sets the value of the '{@link org.palladiosimulator.semanticspd.Queue#getUsageScenarioForConsumption <em>Usage Scenario For Consumption</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Usage Scenario For Consumption</em>' reference.
+	 * @see #getUsageScenarioForConsumption()
+	 * @generated
+	 */
+	void setUsageScenarioForConsumption(UsageScenario value);
 
 } // Queue

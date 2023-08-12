@@ -110,7 +110,7 @@
   <eSubpackages name="constraints" nsURI="http://palladiosimulator.org/ScalingPolicyDefinition/Constraints/1.0"
       nsPrefix="constraints">
     <eClassifiers xsi:type="ecore:EClass" name="AbstractConstraint" abstract="true"
-        eSuperTypes="../../de.uka.ipd.sdq.identifier/model/identifier.ecore#//Identifier"/>
+        eSuperTypes="platform:/plugin/de.uka.ipd.sdq.identifier/model/identifier.ecore#//Identifier"/>
     <eClassifiers xsi:type="ecore:EClass" name="TemporalConstraint" abstract="true"
         eSuperTypes="#//constraints/AbstractConstraint"/>
     <eClassifiers xsi:type="ecore:EClass" name="StateBasedContraint" abstract="true"
@@ -198,7 +198,7 @@
       <eLiterals name="SEND"/>
       <eLiterals name="RECEIVE" value="1"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="ScalingTrigger" abstract="true" eSuperTypes="../../de.uka.ipd.sdq.identifier/model/identifier.ecore#//Identifier">
+    <eClassifiers xsi:type="ecore:EClass" name="ScalingTrigger" abstract="true" eSuperTypes="platform:/plugin/de.uka.ipd.sdq.identifier/model/identifier.ecore#//Identifier">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="The ScalingTrigger is a core concept in SPD. It entails both the information that is fetched from the simulation and models as well as the type of analysis that is performed on that information. It is uniquely identified as it extends from Idenfier (PCM)."/>
       </eAnnotations>
@@ -358,13 +358,13 @@
       </eClassifiers>
       <eClassifiers xsi:type="ecore:EClass" name="NoExpectation" eSuperTypes="#//triggers/expectations/ExpectedValue"/>
       <eClassifiers xsi:type="ecore:EClass" name="ExpectedPercentage" eSuperTypes="#//triggers/expectations/ExpectedPrimitive">
-        <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EDouble"/>
+        <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EDouble"/>
       </eClassifiers>
       <eClassifiers xsi:type="ecore:EClass" name="ExpectedCount" eSuperTypes="#//triggers/expectations/ExpectedPrimitive">
-        <eStructuralFeatures xsi:type="ecore:EAttribute" name="count" eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EInt"/>
+        <eStructuralFeatures xsi:type="ecore:EAttribute" name="count" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EInt"/>
       </eClassifiers>
       <eClassifiers xsi:type="ecore:EClass" name="ExpectedTime" eSuperTypes="#//triggers/expectations/ExpectedPrimitive">
-        <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EDouble"/>
+        <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EDouble"/>
       </eClassifiers>
       <eClassifiers xsi:type="ecore:EClass" name="ExpectedTrend" eSuperTypes="#//triggers/expectations/ExpectedValue">
         <eStructuralFeatures xsi:type="ecore:EAttribute" name="trend" eType="#//triggers/TrendPattern"/>

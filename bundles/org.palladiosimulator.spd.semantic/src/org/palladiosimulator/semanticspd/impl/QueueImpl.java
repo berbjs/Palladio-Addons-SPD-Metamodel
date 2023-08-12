@@ -11,8 +11,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.palladiosimulator.pcm.repository.PassiveResource;
-import org.palladiosimulator.pcm.repository.RequiredRole;
-
+import org.palladiosimulator.pcm.usagemodel.UsageScenario;
 import org.palladiosimulator.semanticspd.Queue;
 import org.palladiosimulator.semanticspd.SemanticspdPackage;
 
@@ -24,24 +23,14 @@ import org.palladiosimulator.semanticspd.SemanticspdPackage;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.palladiosimulator.semanticspd.impl.QueueImpl#getRequiredRole <em>Required Role</em>}</li>
  *   <li>{@link org.palladiosimulator.semanticspd.impl.QueueImpl#getPassiveResourceQueueMessages <em>Passive Resource Queue Messages</em>}</li>
  *   <li>{@link org.palladiosimulator.semanticspd.impl.QueueImpl#getName <em>Name</em>}</li>
+ *   <li>{@link org.palladiosimulator.semanticspd.impl.QueueImpl#getUsageScenarioForConsumption <em>Usage Scenario For Consumption</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class QueueImpl extends MinimalEObjectImpl.Container implements Queue {
-	/**
-	 * The cached value of the '{@link #getRequiredRole() <em>Required Role</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getRequiredRole()
-	 * @generated
-	 * @ordered
-	 */
-	protected RequiredRole requiredRole;
-
 	/**
 	 * The cached value of the '{@link #getPassiveResourceQueueMessages() <em>Passive Resource Queue Messages</em>}' reference.
 	 * <!-- begin-user-doc -->
@@ -73,6 +62,16 @@ public class QueueImpl extends MinimalEObjectImpl.Container implements Queue {
 	protected String name = NAME_EDEFAULT;
 
 	/**
+	 * The cached value of the '{@link #getUsageScenarioForConsumption() <em>Usage Scenario For Consumption</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getUsageScenarioForConsumption()
+	 * @generated
+	 * @ordered
+	 */
+	protected UsageScenario usageScenarioForConsumption;
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -89,44 +88,6 @@ public class QueueImpl extends MinimalEObjectImpl.Container implements Queue {
 	@Override
 	protected EClass eStaticClass() {
 		return SemanticspdPackage.Literals.QUEUE;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public RequiredRole getRequiredRole() {
-		if (requiredRole != null && requiredRole.eIsProxy()) {
-			InternalEObject oldRequiredRole = (InternalEObject)requiredRole;
-			requiredRole = (RequiredRole)eResolveProxy(oldRequiredRole);
-			if (requiredRole != oldRequiredRole) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, SemanticspdPackage.QUEUE__REQUIRED_ROLE, oldRequiredRole, requiredRole));
-			}
-		}
-		return requiredRole;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public RequiredRole basicGetRequiredRole() {
-		return requiredRole;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setRequiredRole(RequiredRole newRequiredRole) {
-		RequiredRole oldRequiredRole = requiredRole;
-		requiredRole = newRequiredRole;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, SemanticspdPackage.QUEUE__REQUIRED_ROLE, oldRequiredRole, requiredRole));
 	}
 
 	/**
@@ -193,17 +154,55 @@ public class QueueImpl extends MinimalEObjectImpl.Container implements Queue {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public UsageScenario getUsageScenarioForConsumption() {
+		if (usageScenarioForConsumption != null && usageScenarioForConsumption.eIsProxy()) {
+			InternalEObject oldUsageScenarioForConsumption = (InternalEObject)usageScenarioForConsumption;
+			usageScenarioForConsumption = (UsageScenario)eResolveProxy(oldUsageScenarioForConsumption);
+			if (usageScenarioForConsumption != oldUsageScenarioForConsumption) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, SemanticspdPackage.QUEUE__USAGE_SCENARIO_FOR_CONSUMPTION, oldUsageScenarioForConsumption, usageScenarioForConsumption));
+			}
+		}
+		return usageScenarioForConsumption;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public UsageScenario basicGetUsageScenarioForConsumption() {
+		return usageScenarioForConsumption;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setUsageScenarioForConsumption(UsageScenario newUsageScenarioForConsumption) {
+		UsageScenario oldUsageScenarioForConsumption = usageScenarioForConsumption;
+		usageScenarioForConsumption = newUsageScenarioForConsumption;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, SemanticspdPackage.QUEUE__USAGE_SCENARIO_FOR_CONSUMPTION, oldUsageScenarioForConsumption, usageScenarioForConsumption));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case SemanticspdPackage.QUEUE__REQUIRED_ROLE:
-				if (resolve) return getRequiredRole();
-				return basicGetRequiredRole();
 			case SemanticspdPackage.QUEUE__PASSIVE_RESOURCE_QUEUE_MESSAGES:
 				if (resolve) return getPassiveResourceQueueMessages();
 				return basicGetPassiveResourceQueueMessages();
 			case SemanticspdPackage.QUEUE__NAME:
 				return getName();
+			case SemanticspdPackage.QUEUE__USAGE_SCENARIO_FOR_CONSUMPTION:
+				if (resolve) return getUsageScenarioForConsumption();
+				return basicGetUsageScenarioForConsumption();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -216,14 +215,14 @@ public class QueueImpl extends MinimalEObjectImpl.Container implements Queue {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case SemanticspdPackage.QUEUE__REQUIRED_ROLE:
-				setRequiredRole((RequiredRole)newValue);
-				return;
 			case SemanticspdPackage.QUEUE__PASSIVE_RESOURCE_QUEUE_MESSAGES:
 				setPassiveResourceQueueMessages((PassiveResource)newValue);
 				return;
 			case SemanticspdPackage.QUEUE__NAME:
 				setName((String)newValue);
+				return;
+			case SemanticspdPackage.QUEUE__USAGE_SCENARIO_FOR_CONSUMPTION:
+				setUsageScenarioForConsumption((UsageScenario)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -237,14 +236,14 @@ public class QueueImpl extends MinimalEObjectImpl.Container implements Queue {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case SemanticspdPackage.QUEUE__REQUIRED_ROLE:
-				setRequiredRole((RequiredRole)null);
-				return;
 			case SemanticspdPackage.QUEUE__PASSIVE_RESOURCE_QUEUE_MESSAGES:
 				setPassiveResourceQueueMessages((PassiveResource)null);
 				return;
 			case SemanticspdPackage.QUEUE__NAME:
 				setName(NAME_EDEFAULT);
+				return;
+			case SemanticspdPackage.QUEUE__USAGE_SCENARIO_FOR_CONSUMPTION:
+				setUsageScenarioForConsumption((UsageScenario)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -258,12 +257,12 @@ public class QueueImpl extends MinimalEObjectImpl.Container implements Queue {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case SemanticspdPackage.QUEUE__REQUIRED_ROLE:
-				return requiredRole != null;
 			case SemanticspdPackage.QUEUE__PASSIVE_RESOURCE_QUEUE_MESSAGES:
 				return passiveResourceQueueMessages != null;
 			case SemanticspdPackage.QUEUE__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+			case SemanticspdPackage.QUEUE__USAGE_SCENARIO_FOR_CONSUMPTION:
+				return usageScenarioForConsumption != null;
 		}
 		return super.eIsSet(featureID);
 	}
