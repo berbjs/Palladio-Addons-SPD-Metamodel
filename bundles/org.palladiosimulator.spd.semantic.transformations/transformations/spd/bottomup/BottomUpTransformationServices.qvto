@@ -96,8 +96,7 @@ mapping inout CompetingConsumersGroupCfg::transformCompetingConsumersGroup(enact
 		alloc.map modifyAllocationOnScaleIn(elements, self.unit);
 		system.map modifySystemModelOnScaleIn(self);
 	} else {
-		system.map modifySystemModel(self, newAssemblies); // add system roles, connect assembly with other assemblies
-//		self.unitQueues.usageScenarioForConsumption->map modifyUsageScenarioOnScaleOut();
+		system.map modifySystemModel(self, newAssemblies); 
 	};
 	enactedPolicies += enactedPolicy;
 

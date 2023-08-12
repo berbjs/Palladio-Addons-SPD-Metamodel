@@ -129,6 +129,17 @@ mapping inout System::modifySystemModelOnScaleIn(serviceCfg:ServiceGroupCfg){
 	connectors__ComposedStructure := connectorsToPreserve;
 }
 
+mapping inout System::modifySystemModel(serviceCfg:ServiceGroupCfg){
+	init {
+		var newAssemblies:OrderedSet(AssemblyContext) := OrderedSet{};
+		serviceCfg.elements->forEach(element){
+			if(self.connectors__ComposedStructure[AssemblyConnector]->exists(connector | connector.providingAssemblyContext_AssemblyConnector=element)=false){
+				newAssemblies += element;
+			}
+		}	
+	}
+	connectExistingLoadBalancerAndNewAssemblyContexts(serviceCfg.unit, serviceCfg.loadBalancingAssembly, newAssemblies, self);
+}
 
 /**
 * Helper method to select connectors that should be removed in case of a scale in.
@@ -158,15 +169,21 @@ helper System::selectConnectorsForRemoval(assembliesForDeletion:Set(AssemblyCont
 	return assemblyConnectors->union(systemDelegationConnectors)->union(assemblyInfrastructureConnectors);
 }
 
-mapping inout System::modifySystemModel(serviceCfg:ServiceGroupCfg){
-	init {
-		var newAssemblies:OrderedSet(AssemblyContext) := OrderedSet{};
-		serviceCfg.elements->forEach(element){
-			if(self.connectors__ComposedStructure[AssemblyConnector]->exists(connector | connector.providingAssemblyContext_AssemblyConnector=element)=false){
-				newAssemblies += element;
-			}
-		}	
-	}
-	connectExistingLoadBalancerAndNewAssemblyContexts(serviceCfg.unit, serviceCfg.loadBalancingAssembly, newAssemblies, self);
+/**
+* Helper method to select system provided roles that should be removed in case of a scale in.
+* 
+* Pre-condition: connectors exists. i.e. a method for removing connectors has to be called after this method.
+* 
+* @param assembliesForDeletion - the set of AssemblyContext that will be removed after the transformation.
+* @return Set of connectors that should be removed which is a union of the selection based on different connector types.
+*/
+helper System::selectRolesForRemoval(assembliesForDeletion:Set(AssemblyContext)):Set(OperationProvidedRole){
+	
+	var systemDelegationConnectorsToDeletedAssemblies:Set(ProvidedDelegationConnector) := self.connectors__ComposedStructure[ProvidedDelegationConnector]
+->select(connector | assembliesForDeletion->includes(connector.oclAsType(ProvidedDelegationConnector).assemblyContext_ProvidedDelegationConnector));
+	
+	var providedRoles:Set(OperationProvidedRole) := self.providedRoles_InterfaceProvidingEntity[OperationProvidedRole]->select(role | systemDelegationConnectorsToDeletedAssemblies.outerProvidedRole_ProvidedDelegationConnector->includes(role));
+	return providedRoles;	
 }
+
 

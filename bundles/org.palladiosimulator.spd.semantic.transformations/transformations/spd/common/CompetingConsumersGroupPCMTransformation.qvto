@@ -1,6 +1,5 @@
 library CompetingConsumersGroupPCMTransformation();
 
-
 import pcm.helpers.Constructors;
 import pcm.helpers.Commons;
 import pcm.helpers.Wiring;
@@ -39,9 +38,18 @@ mapping inout UsageScenario::modifyUsageScenarioOnScaleOut(competingConsumersGro
 	workload_UsageScenario[ClosedWorkload].map modifyClosedWorkload(competingConsumersGroupCfg.elements->size());
 }
 
+mapping inout UsageScenario::modifyUsageScenarioOnScaleIn(competingConsumersGroupCfg:CompetingConsumersGroupCfg, deletedRoles:Set(OperationProvidedRole)){
+	scenarioBehaviour_UsageScenario.actions_ScenarioBehaviour[Branch].map modifyUsageScenarioBranchOnScaleIn(competingConsumersGroupCfg, deletedRoles);
+	workload_UsageScenario[ClosedWorkload].map modifyClosedWorkload(deletedRoles->size()+competingConsumersGroupCfg.elements->size(),competingConsumersGroupCfg.elements->size());
+}
+
 mapping inout ClosedWorkload::modifyClosedWorkload(numberOfReplicas:Integer){
 	// in case the workload configuration initially forsees more threads than one per replica
 	_population := numberOfReplicas * self._population;
+}
+mapping inout ClosedWorkload::modifyClosedWorkload(currentNumber:Integer, newNumberOfReplicas:Integer){
+	// in case the workload configuration initially forsees more threads than one per replica
+	_population := self._population.div(currentNumber) * newNumberOfReplicas;
 }
 
 mapping inout Branch::modifyUsageScenarioBranch(competingConsumersGroupCfg:CompetingConsumersGroupCfg, newRoles:Set(OperationProvidedRole)){
@@ -54,6 +62,21 @@ mapping inout Branch::modifyUsageScenarioBranch(competingConsumersGroupCfg:Compe
 		}	
 	}
 	branchTransitions_Branch += newProbabilisticBranches;
+	branchTransitions_Branch->map modifyProbability(competingConsumersGroupCfg.elements->size());
+}
+
+
+mapping inout Branch::modifyUsageScenarioBranchOnScaleIn(competingConsumersGroupCfg:CompetingConsumersGroupCfg, deletedRoles:Set(OperationProvidedRole)){
+	
+	init {
+		var opprovidedRoles:Bag(OperationProvidedRole) := self.branchTransitions_Branch[BranchTransition].branchedBehaviour_BranchTransition.actions_ScenarioBehaviour[EntryLevelSystemCall].providedRole_EntryLevelSystemCall;
+		var branchTransitionsToPreserve:Set(BranchTransition) := self.branchTransitions_Branch[BranchTransition]
+		->select(bt | deletedRoles->excludes(
+			bt.branchedBehaviour_BranchTransition.actions_ScenarioBehaviour[EntryLevelSystemCall]->any(true).providedRole_EntryLevelSystemCall)
+		);	
+	}
+	
+	branchTransitions_Branch := branchTransitionsToPreserve;
 	branchTransitions_Branch->map modifyProbability(competingConsumersGroupCfg.elements->size());
 }
 
@@ -111,8 +134,13 @@ mapping inout System::modifySystemModelOnScaleIn(queueConsumers:CompetingConsume
 			and assembly.encapsulatedComponent__AssemblyContext=queueConsumers.unit.encapsulatedComponent__AssemblyContext);
 		
 		var connectorsToRemove:Set(Connector) := self.selectConnectorsForRemoval(assembliesForDeletion);
+		var operationProvidedRolesToRemove:Set(OperationProvidedRole) := self.selectRolesForRemoval(assembliesForDeletion);
 		var connectorsToPreserve:Set(Connector) := self.connectors__ComposedStructure - connectorsToRemove;
+		var rolesToPreserve:Set(ProvidedRole) := self.providedRoles_InterfaceProvidingEntity - operationProvidedRolesToRemove;
+		queueConsumers.unitQueues.usageScenarioForConsumption->map modifyUsageScenarioOnScaleIn(queueConsumers, operationProvidedRolesToRemove);
 	}
 	assemblyContexts__ComposedStructure := assembliesToPreserve;
 	connectors__ComposedStructure := connectorsToPreserve;
+	providedRoles_InterfaceProvidingEntity := rolesToPreserve;
+	
 }
