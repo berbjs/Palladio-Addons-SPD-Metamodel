@@ -1,7 +1,7 @@
 import TopDownTransformationInfrastructure;
 import TopDownTransformationServices;
 import spd.common.ResourceEnvironmentTransformation;
-import spd.common.TargetGroupQueries;
+import spd.common.queries.TargetGroupQueries;
 
 modeltype PCM uses 'http://palladiosimulator.org/PalladioComponentModel/5.2';
 modeltype PCM_ALLOC uses 'http://palladiosimulator.org/PalladioComponentModel/Allocation/5.2';

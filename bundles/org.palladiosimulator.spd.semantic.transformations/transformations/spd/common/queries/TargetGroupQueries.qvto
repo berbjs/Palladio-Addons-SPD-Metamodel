@@ -1,3 +1,9 @@
+/**
+* TargetGroupQueries
+* 
+* A list of queries that enrich the TargetGroup and TargetGroupCfg with operations to easier query their state.
+*
+*/
 library TargetGroupQueries;
 
 modeltype SPD_MOD uses 'http://palladiosimulator.org/ScalingPolicyDefinition/1.0';
