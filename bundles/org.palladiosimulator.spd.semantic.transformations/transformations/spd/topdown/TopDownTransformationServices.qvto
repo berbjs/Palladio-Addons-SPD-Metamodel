@@ -5,6 +5,8 @@ import spd.common.ServiceGroupRepositoryTransformation;
 import pcm.helpers.Constructors;
 import pcm.helpers.Commons;
 import pcm.helpers.Wiring;
+import spd.common.TargetGroupQueries;
+import spd.common.CompetingConsumersGroupPCMTransformation;
 
 modeltype PCM uses 'http://palladiosimulator.org/PalladioComponentModel/5.2';
 modeltype PCM_ALLOC uses 'http://palladiosimulator.org/PalladioComponentModel/Allocation/5.2';
@@ -60,28 +62,51 @@ mapping inout ServiceGroupCfg::transformServiceGroup(enactedPolicy:ScalingPolicy
 	};	
 }
 
-mapping inout CompetingConsumersGroupCfg::transformCompetingConsumersGroup(){
+mapping inout CompetingConsumersGroupCfg::transformCompetingConsumersGroup(enactedPolicy:ScalingPolicy, system:System){
+	init {
+		var assembliesDiff:OrderedSet(AssemblyContext) := ComputeDiffBasedOnAdjustmentType(self.unit, enactedPolicy, system, self);
+		var newAssemblies:OrderedSet(AssemblyContext) := OrderedSet{};
+		var intersection:Set(AssemblyContext) := self.elements->intersection(assembliesDiff);
+		if(intersection->size()=0){
+			//append all assemblies to elements
+			newAssemblies := self.elements;
+			assembliesDiff->forEach(assembly){
+				newAssemblies := newAssemblies->append(assembly);
+			}
+		} else {
+			newAssemblies := assembliesDiff;
+		}
+	}
+	elements := newAssemblies;
+	enactedPolicies += enactedPolicy;
 	
+	if(intersection->size()=0 and assembliesDiff->size()>0){
+		system.map modifySystemModel(self, assembliesDiff);
+	};	
+		
+	if(intersection->size()>0){
+		system.map modifySystemModelOnScaleIn(self);
+	};	
 }
-
-
-
 //
 //
 // @return Set(AssemblyContext) assemblies that should be added or removed.
-helper ComputeDiffBasedOnAdjustmentType(unitAssembly:AssemblyContext, policy: ScalingPolicy, system:System, serviceGroupCfg:ServiceGroupCfg) : OrderedSet(AssemblyContext){
+helper ComputeDiffBasedOnAdjustmentType(unitAssembly:AssemblyContext, policy: ScalingPolicy, system:System, targetGroupCfg:TargetGroupCfg) : OrderedSet(AssemblyContext){
+
+	assert fatal(targetGroupCfg.isServicePattern()) with log('ComputeDifBasedOnAdjustmentType applicable only for service targets');
+	var numberOfElements:Integer := targetGroupCfg.numberOfElements();	
 
 	var assembliesDiff : OrderedSet(AssemblyContext) := OrderedSet{};
 	
 	var adjustment: AdjustmentType := policy.adjustmentType;
-	var desiredChange : Real := Interprete_adjustmentType(adjustment, serviceGroupCfg.elements->size());
+	var desiredChange : Real := Interprete_adjustmentType(adjustment, numberOfElements);
 	
 	if(policy.targetGroup.targetConstraints[TargetGroupSizeConstraint]->notEmpty()){
-		desiredChange := Interprete_GroupSizeConstraints(serviceGroupCfg.elements->size(),desiredChange,policy.targetGroup.targetConstraints[TargetGroupSizeConstraint]->any(true));
+		desiredChange := Interprete_GroupSizeConstraints(numberOfElements, desiredChange, policy.targetGroup.targetConstraints[TargetGroupSizeConstraint]->any(true));
 	};
 	
 	
-	log('Current number of assemblies ' + serviceGroupCfg.elements->size().toString());
+	log('Current number of assemblies ' + numberOfElements.toString());
 	var uniqueContext:AssemblyContext := unitAssembly;
 	//TODO:Create Assemblies	
 	// in case 0 -> no change desired, in case > 0 -> add by creating new ones, in case < 0 -> select existing
@@ -97,7 +122,7 @@ helper ComputeDiffBasedOnAdjustmentType(unitAssembly:AssemblyContext, policy: Sc
 	} else if (desiredChange<0){
 		desiredChange := desiredChange.abs();
 		var minimalNumberOfAssemblies : Integer := 1;
-		var index : Integer := minimalNumberOfAssemblies.max(serviceGroupCfg.elements->size()-desiredChange.round());
+		var index : Integer := minimalNumberOfAssemblies.max(numberOfElements-desiredChange.round());
 		/*
 		* subOrderedSet contract:
 		* pre : 1 <= lower
@@ -106,8 +131,8 @@ helper ComputeDiffBasedOnAdjustmentType(unitAssembly:AssemblyContext, policy: Sc
 		* post: result->size() = upper -lower + 1
 		* post: Sequence{lower..upper}->forAll( index | result->at(index - lower + 1) = self->at(index))
 		*/
-		assembliesDiff += serviceGroupCfg.elements->subOrderedSet(1, index);
-		assert fatal(assembliesDiff->includes(serviceGroupCfg.unit)) with log('The assembly unit is not contained in the final elements, check whether unit is not the first element in elements.');
+		assembliesDiff += targetGroupCfg.retrieveAssemblyElements()->subOrderedSet(1, index);
+		assert fatal(assembliesDiff->includes(targetGroupCfg.retrieveUnit())) with log('The assembly unit is not contained in the final elements, check whether unit is not the first element in elements.');
 	};	
 	return assembliesDiff;
 
