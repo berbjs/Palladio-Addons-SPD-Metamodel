@@ -10,6 +10,10 @@ import org.palladiosimulator.pcm.core.composition.AssemblyContext;
  * A representation of the model object '<em><b>Service Group</b></em>'.
  * <!-- end-user-doc -->
  *
+ * <!-- begin-model-doc -->
+ * The ServiceGroup groups a set of components that are load balanced and can be horizontally replicated. Upon replication the load balancer distributes the load to the new replicas according to the predefined load balancing strategy.
+ * <!-- end-model-doc -->
+ *
  * <p>
  * The following features are supported:
  * </p>
