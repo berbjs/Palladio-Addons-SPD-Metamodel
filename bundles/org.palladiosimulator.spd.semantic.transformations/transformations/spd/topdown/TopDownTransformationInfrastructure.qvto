@@ -41,8 +41,10 @@ mapping inout ElasticInfrastructureCfg::transformElasticInfrastructure(enactedPo
 		
 		assert fatal(serviceGroupCfg.isServicePattern()) with log('The transformation of ElasticInfrastructureCfg expects a service target group');
 		
+		var serviceGroupAssemblies:OrderedSet(AssemblyContext) := serviceGroupCfg.retrieveAssemblyElements();
+		
 		var allocationsTotal:Set(AllocationContext) := allocation.allocationContexts_Allocation->select(alloc | self.elements->includes(alloc.resourceContainer_AllocationContext));
-		var allocationsOfService:Set(AllocationContext) := allocation.allocationContexts_Allocation->select(alloc | serviceGroupCfg->retrieveAssemblyElements()->includes(alloc.assemblyContext_AllocationContext));
+		var allocationsOfService:Set(AllocationContext) := allocation.allocationContexts_Allocation->select(alloc | serviceGroupAssemblies->includes(alloc.assemblyContext_AllocationContext));
 		
 		/* 
 		* in case allocations match elements then no scale out has happened, 
