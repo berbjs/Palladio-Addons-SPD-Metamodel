@@ -2,6 +2,7 @@
  */
 package org.palladiosimulator.semanticspd;
 
+import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
@@ -320,6 +321,134 @@ public interface SemanticspdPackage extends EPackage {
 	 */
 	int SERVICE_GROUP_CFG_OPERATION_COUNT = TARGET_GROUP_CFG_OPERATION_COUNT + 0;
 
+	/**
+	 * The meta object id for the '{@link org.palladiosimulator.semanticspd.impl.CompetingConsumersGroupCfgImpl <em>Competing Consumers Group Cfg</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.palladiosimulator.semanticspd.impl.CompetingConsumersGroupCfgImpl
+	 * @see org.palladiosimulator.semanticspd.impl.SemanticspdPackageImpl#getCompetingConsumersGroupCfg()
+	 * @generated
+	 */
+	int COMPETING_CONSUMERS_GROUP_CFG = 4;
+
+	/**
+	 * The feature id for the '<em><b>Enacted Policies</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPETING_CONSUMERS_GROUP_CFG__ENACTED_POLICIES = TARGET_GROUP_CFG__ENACTED_POLICIES;
+
+	/**
+	 * The feature id for the '<em><b>Unit</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPETING_CONSUMERS_GROUP_CFG__UNIT = TARGET_GROUP_CFG_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Elements</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPETING_CONSUMERS_GROUP_CFG__ELEMENTS = TARGET_GROUP_CFG_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Broker Assembly</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPETING_CONSUMERS_GROUP_CFG__BROKER_ASSEMBLY = TARGET_GROUP_CFG_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Unit Queues</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPETING_CONSUMERS_GROUP_CFG__UNIT_QUEUES = TARGET_GROUP_CFG_FEATURE_COUNT + 3;
+
+	/**
+	 * The number of structural features of the '<em>Competing Consumers Group Cfg</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPETING_CONSUMERS_GROUP_CFG_FEATURE_COUNT = TARGET_GROUP_CFG_FEATURE_COUNT + 4;
+
+	/**
+	 * The number of operations of the '<em>Competing Consumers Group Cfg</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPETING_CONSUMERS_GROUP_CFG_OPERATION_COUNT = TARGET_GROUP_CFG_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link org.palladiosimulator.semanticspd.impl.QueueImpl <em>Queue</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.palladiosimulator.semanticspd.impl.QueueImpl
+	 * @see org.palladiosimulator.semanticspd.impl.SemanticspdPackageImpl#getQueue()
+	 * @generated
+	 */
+	int QUEUE = 5;
+
+	/**
+	 * The feature id for the '<em><b>Passive Resource Queue Messages</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int QUEUE__PASSIVE_RESOURCE_QUEUE_MESSAGES = 0;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int QUEUE__NAME = 1;
+
+	/**
+	 * The feature id for the '<em><b>Usage Scenario For Consumption</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int QUEUE__USAGE_SCENARIO_FOR_CONSUMPTION = 2;
+
+	/**
+	 * The number of structural features of the '<em>Queue</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int QUEUE_FEATURE_COUNT = 3;
+
+	/**
+	 * The number of operations of the '<em>Queue</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int QUEUE_OPERATION_COUNT = 0;
+
 
 	/**
 	 * Returns the meta object for class '{@link org.palladiosimulator.semanticspd.Configuration <em>Configuration</em>}'.
@@ -527,6 +656,103 @@ public interface SemanticspdPackage extends EPackage {
 	EReference getServiceGroupCfg_LoadBalancingAssembly();
 
 	/**
+	 * Returns the meta object for class '{@link org.palladiosimulator.semanticspd.CompetingConsumersGroupCfg <em>Competing Consumers Group Cfg</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Competing Consumers Group Cfg</em>'.
+	 * @see org.palladiosimulator.semanticspd.CompetingConsumersGroupCfg
+	 * @generated
+	 */
+	EClass getCompetingConsumersGroupCfg();
+
+	/**
+	 * Returns the meta object for the reference '{@link org.palladiosimulator.semanticspd.CompetingConsumersGroupCfg#getUnit <em>Unit</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Unit</em>'.
+	 * @see org.palladiosimulator.semanticspd.CompetingConsumersGroupCfg#getUnit()
+	 * @see #getCompetingConsumersGroupCfg()
+	 * @generated
+	 */
+	EReference getCompetingConsumersGroupCfg_Unit();
+
+	/**
+	 * Returns the meta object for the reference list '{@link org.palladiosimulator.semanticspd.CompetingConsumersGroupCfg#getElements <em>Elements</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Elements</em>'.
+	 * @see org.palladiosimulator.semanticspd.CompetingConsumersGroupCfg#getElements()
+	 * @see #getCompetingConsumersGroupCfg()
+	 * @generated
+	 */
+	EReference getCompetingConsumersGroupCfg_Elements();
+
+	/**
+	 * Returns the meta object for the reference '{@link org.palladiosimulator.semanticspd.CompetingConsumersGroupCfg#getBrokerAssembly <em>Broker Assembly</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Broker Assembly</em>'.
+	 * @see org.palladiosimulator.semanticspd.CompetingConsumersGroupCfg#getBrokerAssembly()
+	 * @see #getCompetingConsumersGroupCfg()
+	 * @generated
+	 */
+	EReference getCompetingConsumersGroupCfg_BrokerAssembly();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link org.palladiosimulator.semanticspd.CompetingConsumersGroupCfg#getUnitQueues <em>Unit Queues</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Unit Queues</em>'.
+	 * @see org.palladiosimulator.semanticspd.CompetingConsumersGroupCfg#getUnitQueues()
+	 * @see #getCompetingConsumersGroupCfg()
+	 * @generated
+	 */
+	EReference getCompetingConsumersGroupCfg_UnitQueues();
+
+	/**
+	 * Returns the meta object for class '{@link org.palladiosimulator.semanticspd.Queue <em>Queue</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Queue</em>'.
+	 * @see org.palladiosimulator.semanticspd.Queue
+	 * @generated
+	 */
+	EClass getQueue();
+
+	/**
+	 * Returns the meta object for the reference '{@link org.palladiosimulator.semanticspd.Queue#getPassiveResourceQueueMessages <em>Passive Resource Queue Messages</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Passive Resource Queue Messages</em>'.
+	 * @see org.palladiosimulator.semanticspd.Queue#getPassiveResourceQueueMessages()
+	 * @see #getQueue()
+	 * @generated
+	 */
+	EReference getQueue_PassiveResourceQueueMessages();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.palladiosimulator.semanticspd.Queue#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see org.palladiosimulator.semanticspd.Queue#getName()
+	 * @see #getQueue()
+	 * @generated
+	 */
+	EAttribute getQueue_Name();
+
+	/**
+	 * Returns the meta object for the reference '{@link org.palladiosimulator.semanticspd.Queue#getUsageScenarioForConsumption <em>Usage Scenario For Consumption</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Usage Scenario For Consumption</em>'.
+	 * @see org.palladiosimulator.semanticspd.Queue#getUsageScenarioForConsumption()
+	 * @see #getQueue()
+	 * @generated
+	 */
+	EReference getQueue_UsageScenarioForConsumption();
+
+	/**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -708,6 +934,82 @@ public interface SemanticspdPackage extends EPackage {
 		 * @generated
 		 */
 		EReference SERVICE_GROUP_CFG__LOAD_BALANCING_ASSEMBLY = eINSTANCE.getServiceGroupCfg_LoadBalancingAssembly();
+
+		/**
+		 * The meta object literal for the '{@link org.palladiosimulator.semanticspd.impl.CompetingConsumersGroupCfgImpl <em>Competing Consumers Group Cfg</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.palladiosimulator.semanticspd.impl.CompetingConsumersGroupCfgImpl
+		 * @see org.palladiosimulator.semanticspd.impl.SemanticspdPackageImpl#getCompetingConsumersGroupCfg()
+		 * @generated
+		 */
+		EClass COMPETING_CONSUMERS_GROUP_CFG = eINSTANCE.getCompetingConsumersGroupCfg();
+
+		/**
+		 * The meta object literal for the '<em><b>Unit</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference COMPETING_CONSUMERS_GROUP_CFG__UNIT = eINSTANCE.getCompetingConsumersGroupCfg_Unit();
+
+		/**
+		 * The meta object literal for the '<em><b>Elements</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference COMPETING_CONSUMERS_GROUP_CFG__ELEMENTS = eINSTANCE.getCompetingConsumersGroupCfg_Elements();
+
+		/**
+		 * The meta object literal for the '<em><b>Broker Assembly</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference COMPETING_CONSUMERS_GROUP_CFG__BROKER_ASSEMBLY = eINSTANCE.getCompetingConsumersGroupCfg_BrokerAssembly();
+
+		/**
+		 * The meta object literal for the '<em><b>Unit Queues</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference COMPETING_CONSUMERS_GROUP_CFG__UNIT_QUEUES = eINSTANCE.getCompetingConsumersGroupCfg_UnitQueues();
+
+		/**
+		 * The meta object literal for the '{@link org.palladiosimulator.semanticspd.impl.QueueImpl <em>Queue</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.palladiosimulator.semanticspd.impl.QueueImpl
+		 * @see org.palladiosimulator.semanticspd.impl.SemanticspdPackageImpl#getQueue()
+		 * @generated
+		 */
+		EClass QUEUE = eINSTANCE.getQueue();
+
+		/**
+		 * The meta object literal for the '<em><b>Passive Resource Queue Messages</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference QUEUE__PASSIVE_RESOURCE_QUEUE_MESSAGES = eINSTANCE.getQueue_PassiveResourceQueueMessages();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute QUEUE__NAME = eINSTANCE.getQueue_Name();
+
+		/**
+		 * The meta object literal for the '<em><b>Usage Scenario For Consumption</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference QUEUE__USAGE_SCENARIO_FOR_CONSUMPTION = eINSTANCE.getQueue_UsageScenarioForConsumption();
 
 	}
 

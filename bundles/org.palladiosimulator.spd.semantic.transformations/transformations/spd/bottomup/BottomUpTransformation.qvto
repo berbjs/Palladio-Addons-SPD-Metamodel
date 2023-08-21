@@ -68,6 +68,8 @@ main() {
 		// Modify simulated service groups
 		// *******************************
 		cfg.targetCfgs[ServiceGroupCfg]->map transformServiceGroup(cfg.enactedPolicy, elasticInfrastructureCfg, system, allocation);
+		
+		cfg.targetCfgs[CompetingConsumersGroupCfg]->map transformCompetingConsumersGroup(cfg.enactedPolicy, elasticInfrastructureCfg, system, allocation);
 }
 
 helper homogeneous_environment_assertion(){

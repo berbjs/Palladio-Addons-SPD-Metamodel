@@ -272,6 +272,16 @@ public class TargetsPackageImpl extends EPackageImpl implements TargetsPackage {
 	 * @generated
 	 */
 	@Override
+	public EReference getCompetingConsumersGroup_UnitAssembly() {
+		return (EReference) competingConsumersGroupEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public TargetsFactory getTargetsFactory() {
 		return (TargetsFactory) getEFactoryInstance();
 	}
@@ -306,6 +316,7 @@ public class TargetsPackageImpl extends EPackageImpl implements TargetsPackage {
 		createEReference(serviceGroupEClass, SERVICE_GROUP__UNIT_ASSEMBLY);
 
 		competingConsumersGroupEClass = createEClass(COMPETING_CONSUMERS_GROUP);
+		createEReference(competingConsumersGroupEClass, COMPETING_CONSUMERS_GROUP__UNIT_ASSEMBLY);
 	}
 
 	/**
@@ -372,6 +383,9 @@ public class TargetsPackageImpl extends EPackageImpl implements TargetsPackage {
 
 		initEClass(competingConsumersGroupEClass, CompetingConsumersGroup.class, "CompetingConsumersGroup",
 				!IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getCompetingConsumersGroup_UnitAssembly(), theCompositionPackage.getAssemblyContext(), null,
+				"unitAssembly", null, 0, 1, CompetingConsumersGroup.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
+				!IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 	}
 
 } //TargetsPackageImpl

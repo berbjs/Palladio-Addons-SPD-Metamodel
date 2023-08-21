@@ -1,6 +1,7 @@
 import TopDownTransformationInfrastructure;
 import TopDownTransformationServices;
 import spd.common.ResourceEnvironmentTransformation;
+import spd.common.queries.TargetGroupQueries;
 
 modeltype PCM uses 'http://palladiosimulator.org/PalladioComponentModel/5.2';
 modeltype PCM_ALLOC uses 'http://palladiosimulator.org/PalladioComponentModel/Allocation/5.2';
@@ -47,11 +48,19 @@ main(){
 		
 		// *********************
 		// Transform Service Group of the Scaling Policy
-		// *********************
-		var serviceGroupCfg : ServiceGroupCfg := cfg.targetCfgs[ServiceGroupCfg]->selectOne(svcConf | svcConf.unit = cfg.enactedPolicy.targetGroup.oclAsType(ServiceGroup).unitAssembly);
+		// *********************		
+		var serviceTargetCfg:TargetGroupCfg := cfg.targetCfgs->retrieveServiceTargetCfgOfPolicy(cfg.enactedPolicy);
 		
-		var currentNumberOfElements : Integer := serviceGroupCfg.elements->size();
-		serviceGroupCfg.map transformServiceGroup(cfg.enactedPolicy, system);
+		var currentNumberOfElements : Integer := serviceTargetCfg.numberOfElements();
+		
+		switch {
+			case (serviceTargetCfg.oclIsKindOf(ServiceGroupCfg)) {
+				serviceTargetCfg.oclAsType(ServiceGroupCfg).map transformServiceGroup(cfg.enactedPolicy, system);
+			};
+			case (serviceTargetCfg.oclIsKindOf(CompetingConsumersGroupCfg)) {
+				serviceTargetCfg.oclAsType(CompetingConsumersGroupCfg).map transformCompetingConsumersGroup(cfg.enactedPolicy, system);
+			};
+		};
 		
 		// *************
 		// Transform Elastic Infrastructure Accordingly 
@@ -64,7 +73,7 @@ main(){
 			};
 		};
 		
-		elasticInfrastructureCfg.map transformElasticInfrastructure(cfg.enactedPolicy, serviceGroupCfg, allocation);
-		allocation.map modifyAllocation(serviceGroupCfg, elasticInfrastructureCfg, serviceGroupCfg.elements->size()-currentNumberOfElements);
+		elasticInfrastructureCfg.map transformElasticInfrastructure(cfg.enactedPolicy, serviceTargetCfg, allocation);
+		allocation.map modifyAllocation(serviceTargetCfg, elasticInfrastructureCfg, serviceTargetCfg.numberOfElements()-currentNumberOfElements);
 		resourceEnvironment.map modifyResourceEnvironment(elasticInfrastructureCfg, invariantResourceContainers);
 }

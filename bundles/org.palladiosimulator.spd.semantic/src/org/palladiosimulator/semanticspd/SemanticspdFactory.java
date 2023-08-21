@@ -49,6 +49,24 @@ public interface SemanticspdFactory extends EFactory {
 	ServiceGroupCfg createServiceGroupCfg();
 
 	/**
+	 * Returns a new object of class '<em>Competing Consumers Group Cfg</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Competing Consumers Group Cfg</em>'.
+	 * @generated
+	 */
+	CompetingConsumersGroupCfg createCompetingConsumersGroupCfg();
+
+	/**
+	 * Returns a new object of class '<em>Queue</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Queue</em>'.
+	 * @generated
+	 */
+	Queue createQueue();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

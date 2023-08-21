@@ -51,6 +51,25 @@ helper connectExistingLoadBalancerAndNewAssemblyContexts(loadBalancedAssemblyCon
 }
 
 
+helper createDelegationConnectorsForProvidedRoles(unitAssembly: AssemblyContext, replicatedAssemblies : OrderedSet(AssemblyContext), inout system:System){
+	// connect all delegation connectors for provider roles
+	
+}
+
+
+helper createConnectorsForRequiredRolesForReplicatedAssemblies(unitAssembly: AssemblyContext, replicatedAssemblies : OrderedSet(AssemblyContext), inout system:System){
+	//Connect the duplicated AssemblyContext with required AssemblyContexts 
+	if (unitAssembly.encapsulatedComponent__AssemblyContext.requiredRoles_InterfaceRequiringEntity != null){
+					addRequiredRolesAssemblyConnectors(unitAssembly, replicatedAssemblies, system);
+					addRequiredRolesSystemDelegationConnectors(unitAssembly, replicatedAssemblies);
+					addRequiredRolesAssemblyInfrastructureConnectors(unitAssembly, replicatedAssemblies);
+				    addRequiredRolesInfrastructureDelegationConnectors(unitAssembly, replicatedAssemblies);
+	};
+}
+
+
+
+
 /**
  * Creates  connections between the AssemblyContext, previously connected with the stereotyped AssemblyContext, and the LoadBalancer. 
  * Then it connects the LoadBalancer with the stereotyped and duplicate AssemblyContext.

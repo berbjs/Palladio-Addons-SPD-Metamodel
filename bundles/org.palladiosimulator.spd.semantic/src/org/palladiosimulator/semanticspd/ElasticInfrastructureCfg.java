@@ -57,7 +57,7 @@ public interface ElasticInfrastructureCfg extends TargetGroupCfg {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Elements</em>' reference list.
 	 * @see org.palladiosimulator.semanticspd.SemanticspdPackage#getElasticInfrastructureCfg_Elements()
-	 * @model
+	 * @model required="true"
 	 * @generated
 	 */
 	EList<ResourceContainer> getElements();

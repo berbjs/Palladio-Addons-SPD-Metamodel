@@ -6,7 +6,6 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 
 import org.eclipse.emf.ecore.util.Switch;
-
 import org.palladiosimulator.semanticspd.*;
 
 /**
@@ -92,6 +91,19 @@ public class SemanticspdSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case SemanticspdPackage.COMPETING_CONSUMERS_GROUP_CFG: {
+				CompetingConsumersGroupCfg competingConsumersGroupCfg = (CompetingConsumersGroupCfg)theEObject;
+				T result = caseCompetingConsumersGroupCfg(competingConsumersGroupCfg);
+				if (result == null) result = caseTargetGroupCfg(competingConsumersGroupCfg);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case SemanticspdPackage.QUEUE: {
+				Queue queue = (Queue)theEObject;
+				T result = caseQueue(queue);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			default: return defaultCase(theEObject);
 		}
 	}
@@ -153,6 +165,36 @@ public class SemanticspdSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseServiceGroupCfg(ServiceGroupCfg object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Competing Consumers Group Cfg</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Competing Consumers Group Cfg</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseCompetingConsumersGroupCfg(CompetingConsumersGroupCfg object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Queue</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Queue</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseQueue(Queue object) {
 		return null;
 	}
 

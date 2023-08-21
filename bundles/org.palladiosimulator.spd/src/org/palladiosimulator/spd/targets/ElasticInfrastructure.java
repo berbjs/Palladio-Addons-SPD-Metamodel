@@ -10,6 +10,10 @@ import org.palladiosimulator.pcm.resourceenvironment.ResourceEnvironment;
  * A representation of the model object '<em><b>Elastic Infrastructure</b></em>'.
  * <!-- end-user-doc -->
  *
+ * <!-- begin-model-doc -->
+ * The ElasticInfrastructure target groups resource containers on which components are allocated. The ElasticInfrastructure allows the definition of scaling policies for the whole infrastructure which is a common use case covered by the prominent cloud providers. For example, AWS allows the definition of an Autoscaling Group where EC2 instances are automatically provisioned.
+ * <!-- end-model-doc -->
+ *
  * <p>
  * The following features are supported:
  * </p>

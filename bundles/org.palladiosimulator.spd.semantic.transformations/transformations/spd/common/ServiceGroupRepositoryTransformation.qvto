@@ -3,6 +3,7 @@ library ServiceGroupRepositoryTransformation;
 import pcm.helpers.Constructors;
 import pcm.helpers.Commons;
 import pcm.helpers.Wiring;
+import spd.common.queries.SystemQueries;
 
 modeltype SPD_MOD uses 'http://palladiosimulator.org/ScalingPolicyDefinition/1.0';
 modeltype SPD_ADJ uses 'http://palladiosimulator.org/ScalingPolicyDefinition/Adjustments/1.0';
@@ -21,6 +22,8 @@ modeltype PCM_CORE uses 'http://palladiosimulator.org/PalladioComponentModel/Cor
 modeltype PCM_COMP uses 'http://palladiosimulator.org/PalladioComponentModel/Core/Composition/5.2';
 modeltype PCM_ENTITY uses 'http://palladiosimulator.org/PalladioComponentModel/Core/Entity/5.2';
 modeltype PCM_PARAM uses 'http://palladiosimulator.org/PalladioComponentModel/Parameter/5.2';
+modeltype PCM_USG uses 'http://palladiosimulator.org/PalladioComponentModel/UsageModel/5.2';
+
 
 modeltype SPD_CON uses 'http://palladiosimulator.org/ScalingPolicyDefinition/Constraints/1.0';
 modeltype SPD_CONP uses 'http://palladiosimulator.org/ScalingPolicyDefinition/Constraints/Policy/1.0';
@@ -127,34 +130,6 @@ mapping inout System::modifySystemModelOnScaleIn(serviceCfg:ServiceGroupCfg){
 	connectors__ComposedStructure := connectorsToPreserve;
 }
 
-/**
-* Helper method to select connectors that should be removed in case of a scale in.
-*
-* @param assembliesForDeletion - the set of AssemblyContext that will be removed after the transformation.
-* @return Set of connectors that should be removed which is a union of the selection based on different connector types.
-*/
-helper System::selectConnectorsForRemoval(assembliesForDeletion:Set(AssemblyContext)):Set(Connector){
-	
-	var assemblyConnectors:Set(Connector) :=  self.connectors__ComposedStructure
-	->select(connector | 
-		connector.oclIsTypeOf(AssemblyConnector)
-		and (assembliesForDeletion->includes(connector.oclAsType(AssemblyConnector).providingAssemblyContext_AssemblyConnector)
-		or assembliesForDeletion->includes(connector.oclAsType(AssemblyConnector).requiringAssemblyContext_AssemblyConnector)));
-	
-	var systemDelegationConnectors:Set(Connector) := self.connectors__ComposedStructure
-	->select(connector | 
-		connector.oclIsTypeOf(ProvidedDelegationConnector)
-		and (assembliesForDeletion->includes(connector.oclAsType(ProvidedDelegationConnector).assemblyContext_ProvidedDelegationConnector)));
-		
-	var assemblyInfrastructureConnectors:Set(Connector) := self.connectors__ComposedStructure
-	->select(connector | 
-		connector.oclIsTypeOf(AssemblyInfrastructureConnector)
-		and (assembliesForDeletion->includes(connector.oclAsType(AssemblyInfrastructureConnector).providingAssemblyContext__AssemblyInfrastructureConnector)
-		or assembliesForDeletion->includes(connector.oclAsType(AssemblyInfrastructureConnector).requiringAssemblyContext__AssemblyInfrastructureConnector)));
-	
-	return assemblyConnectors->union(systemDelegationConnectors)->union(assemblyInfrastructureConnectors);
-}
-
 mapping inout System::modifySystemModel(serviceCfg:ServiceGroupCfg){
 	init {
 		var newAssemblies:OrderedSet(AssemblyContext) := OrderedSet{};
@@ -166,3 +141,5 @@ mapping inout System::modifySystemModel(serviceCfg:ServiceGroupCfg){
 	}
 	connectExistingLoadBalancerAndNewAssemblyContexts(serviceCfg.unit, serviceCfg.loadBalancingAssembly, newAssemblies, self);
 }
+
+
