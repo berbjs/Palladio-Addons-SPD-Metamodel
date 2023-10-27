@@ -73,7 +73,7 @@ public class SPDAssemblyContextMeasuringPointImpl extends MeasuringPointImpl
 	 * @generated
 	 */
 	@Override
-	public void setAssembly(AssemblyContext newAssembly) {
+	public void setAssembly(final AssemblyContext newAssembly) {
 		eDynamicSet(SpdmeasuringpointPackage.SPD_ASSEMBLY_CONTEXT_MEASURING_POINT__ASSEMBLY,
 				PcmmeasuringpointPackage.Literals.ASSEMBLY_REFERENCE__ASSEMBLY, newAssembly);
 	}
@@ -84,7 +84,7 @@ public class SPDAssemblyContextMeasuringPointImpl extends MeasuringPointImpl
 	 * @generated
 	 */
 	@Override
-	public Object eGet(int featureID, boolean resolve, boolean coreType) {
+	public Object eGet(final int featureID, final boolean resolve, final boolean coreType) {
 		switch (featureID) {
 		case SpdmeasuringpointPackage.SPD_ASSEMBLY_CONTEXT_MEASURING_POINT__ASSEMBLY:
 			if (resolve)
@@ -100,7 +100,7 @@ public class SPDAssemblyContextMeasuringPointImpl extends MeasuringPointImpl
 	 * @generated
 	 */
 	@Override
-	public void eSet(int featureID, Object newValue) {
+	public void eSet(final int featureID, final Object newValue) {
 		switch (featureID) {
 		case SpdmeasuringpointPackage.SPD_ASSEMBLY_CONTEXT_MEASURING_POINT__ASSEMBLY:
 			setAssembly((AssemblyContext) newValue);
@@ -115,7 +115,7 @@ public class SPDAssemblyContextMeasuringPointImpl extends MeasuringPointImpl
 	 * @generated
 	 */
 	@Override
-	public void eUnset(int featureID) {
+	public void eUnset(final int featureID) {
 		switch (featureID) {
 		case SpdmeasuringpointPackage.SPD_ASSEMBLY_CONTEXT_MEASURING_POINT__ASSEMBLY:
 			setAssembly((AssemblyContext) null);
@@ -130,7 +130,7 @@ public class SPDAssemblyContextMeasuringPointImpl extends MeasuringPointImpl
 	 * @generated
 	 */
 	@Override
-	public boolean eIsSet(int featureID) {
+	public boolean eIsSet(final int featureID) {
 		switch (featureID) {
 		case SpdmeasuringpointPackage.SPD_ASSEMBLY_CONTEXT_MEASURING_POINT__ASSEMBLY:
 			return basicGetAssembly() != null;
@@ -144,7 +144,7 @@ public class SPDAssemblyContextMeasuringPointImpl extends MeasuringPointImpl
 	 * @generated
 	 */
 	@Override
-	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
+	public int eBaseStructuralFeatureID(final int derivedFeatureID, final Class<?> baseClass) {
 		if (baseClass == AssemblyReference.class) {
 			switch (derivedFeatureID) {
 			case SpdmeasuringpointPackage.SPD_ASSEMBLY_CONTEXT_MEASURING_POINT__ASSEMBLY:
@@ -162,7 +162,7 @@ public class SPDAssemblyContextMeasuringPointImpl extends MeasuringPointImpl
 	 * @generated
 	 */
 	@Override
-	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
+	public int eDerivedStructuralFeatureID(final int baseFeatureID, final Class<?> baseClass) {
 		if (baseClass == AssemblyReference.class) {
 			switch (baseFeatureID) {
 			case PcmmeasuringpointPackage.ASSEMBLY_REFERENCE__ASSEMBLY:
@@ -193,7 +193,7 @@ public class SPDAssemblyContextMeasuringPointImpl extends MeasuringPointImpl
 
 		final StringBuilder result = new StringBuilder();
 
-		result.append("Resource Container ");
+		result.append("Assembly Context ");
 		result.append(this.getAssembly().getEntityName());
 		result.append(" [");
 		result.append(this.getAssembly().getId());
