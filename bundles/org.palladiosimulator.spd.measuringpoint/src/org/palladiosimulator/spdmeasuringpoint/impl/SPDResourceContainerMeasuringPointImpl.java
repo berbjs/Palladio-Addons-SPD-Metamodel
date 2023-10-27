@@ -2,21 +2,13 @@
  */
 package org.palladiosimulator.spdmeasuringpoint.impl;
 
-import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.InternalEObject;
-
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.palladiosimulator.commons.emfutils.EMFLoadHelper;
 import org.palladiosimulator.edp2.models.measuringpoint.impl.MeasuringPointImpl;
-
 import org.palladiosimulator.pcm.resourceenvironment.ResourceContainer;
-
 import org.palladiosimulator.pcmmeasuringpoint.PcmmeasuringpointPackage;
 import org.palladiosimulator.pcmmeasuringpoint.ResourceContainerReference;
-
 import org.palladiosimulator.spdmeasuringpoint.SPDResourceContainerMeasuringPoint;
 import org.palladiosimulator.spdmeasuringpoint.SpdmeasuringpointPackage;
 
@@ -35,16 +27,6 @@ import org.palladiosimulator.spdmeasuringpoint.SpdmeasuringpointPackage;
  */
 public class SPDResourceContainerMeasuringPointImpl extends MeasuringPointImpl
 		implements SPDResourceContainerMeasuringPoint {
-	/**
-	 * The cached value of the '{@link #getResourceContainer() <em>Resource Container</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getResourceContainer()
-	 * @generated
-	 * @ordered
-	 */
-	protected ResourceContainer resourceContainer;
-
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -71,17 +53,9 @@ public class SPDResourceContainerMeasuringPointImpl extends MeasuringPointImpl
 	 */
 	@Override
 	public ResourceContainer getResourceContainer() {
-		if (resourceContainer != null && resourceContainer.eIsProxy()) {
-			InternalEObject oldResourceContainer = (InternalEObject) resourceContainer;
-			resourceContainer = (ResourceContainer) eResolveProxy(oldResourceContainer);
-			if (resourceContainer != oldResourceContainer) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE,
-							SpdmeasuringpointPackage.SPD_RESOURCE_CONTAINER_MEASURING_POINT__RESOURCE_CONTAINER,
-							oldResourceContainer, resourceContainer));
-			}
-		}
-		return resourceContainer;
+		return (ResourceContainer) eDynamicGet(
+				SpdmeasuringpointPackage.SPD_RESOURCE_CONTAINER_MEASURING_POINT__RESOURCE_CONTAINER,
+				PcmmeasuringpointPackage.Literals.RESOURCE_CONTAINER_REFERENCE__RESOURCE_CONTAINER, true, true);
 	}
 
 	/**
@@ -90,7 +64,9 @@ public class SPDResourceContainerMeasuringPointImpl extends MeasuringPointImpl
 	 * @generated
 	 */
 	public ResourceContainer basicGetResourceContainer() {
-		return resourceContainer;
+		return (ResourceContainer) eDynamicGet(
+				SpdmeasuringpointPackage.SPD_RESOURCE_CONTAINER_MEASURING_POINT__RESOURCE_CONTAINER,
+				PcmmeasuringpointPackage.Literals.RESOURCE_CONTAINER_REFERENCE__RESOURCE_CONTAINER, false, true);
 	}
 
 	/**
@@ -100,12 +76,9 @@ public class SPDResourceContainerMeasuringPointImpl extends MeasuringPointImpl
 	 */
 	@Override
 	public void setResourceContainer(ResourceContainer newResourceContainer) {
-		ResourceContainer oldResourceContainer = resourceContainer;
-		resourceContainer = newResourceContainer;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET,
-					SpdmeasuringpointPackage.SPD_RESOURCE_CONTAINER_MEASURING_POINT__RESOURCE_CONTAINER,
-					oldResourceContainer, resourceContainer));
+		eDynamicSet(SpdmeasuringpointPackage.SPD_RESOURCE_CONTAINER_MEASURING_POINT__RESOURCE_CONTAINER,
+				PcmmeasuringpointPackage.Literals.RESOURCE_CONTAINER_REFERENCE__RESOURCE_CONTAINER,
+				newResourceContainer);
 	}
 
 	/**
@@ -163,7 +136,7 @@ public class SPDResourceContainerMeasuringPointImpl extends MeasuringPointImpl
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 		case SpdmeasuringpointPackage.SPD_RESOURCE_CONTAINER_MEASURING_POINT__RESOURCE_CONTAINER:
-			return resourceContainer != null;
+			return basicGetResourceContainer() != null;
 		}
 		return super.eIsSet(featureID);
 	}

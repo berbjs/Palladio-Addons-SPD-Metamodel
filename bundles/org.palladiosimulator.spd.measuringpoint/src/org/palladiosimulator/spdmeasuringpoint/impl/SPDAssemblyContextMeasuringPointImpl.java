@@ -2,21 +2,13 @@
  */
 package org.palladiosimulator.spdmeasuringpoint.impl;
 
-import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.InternalEObject;
-
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.palladiosimulator.commons.emfutils.EMFLoadHelper;
 import org.palladiosimulator.edp2.models.measuringpoint.impl.MeasuringPointImpl;
-
 import org.palladiosimulator.pcm.core.composition.AssemblyContext;
-
 import org.palladiosimulator.pcmmeasuringpoint.AssemblyReference;
 import org.palladiosimulator.pcmmeasuringpoint.PcmmeasuringpointPackage;
-
 import org.palladiosimulator.spdmeasuringpoint.SPDAssemblyContextMeasuringPoint;
 import org.palladiosimulator.spdmeasuringpoint.SpdmeasuringpointPackage;
 
@@ -35,16 +27,6 @@ import org.palladiosimulator.spdmeasuringpoint.SpdmeasuringpointPackage;
  */
 public class SPDAssemblyContextMeasuringPointImpl extends MeasuringPointImpl
 		implements SPDAssemblyContextMeasuringPoint {
-	/**
-	 * The cached value of the '{@link #getAssembly() <em>Assembly</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getAssembly()
-	 * @generated
-	 * @ordered
-	 */
-	protected AssemblyContext assembly;
-
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -71,17 +53,8 @@ public class SPDAssemblyContextMeasuringPointImpl extends MeasuringPointImpl
 	 */
 	@Override
 	public AssemblyContext getAssembly() {
-		if (assembly != null && assembly.eIsProxy()) {
-			InternalEObject oldAssembly = (InternalEObject) assembly;
-			assembly = (AssemblyContext) eResolveProxy(oldAssembly);
-			if (assembly != oldAssembly) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE,
-							SpdmeasuringpointPackage.SPD_ASSEMBLY_CONTEXT_MEASURING_POINT__ASSEMBLY, oldAssembly,
-							assembly));
-			}
-		}
-		return assembly;
+		return (AssemblyContext) eDynamicGet(SpdmeasuringpointPackage.SPD_ASSEMBLY_CONTEXT_MEASURING_POINT__ASSEMBLY,
+				PcmmeasuringpointPackage.Literals.ASSEMBLY_REFERENCE__ASSEMBLY, true, true);
 	}
 
 	/**
@@ -90,7 +63,8 @@ public class SPDAssemblyContextMeasuringPointImpl extends MeasuringPointImpl
 	 * @generated
 	 */
 	public AssemblyContext basicGetAssembly() {
-		return assembly;
+		return (AssemblyContext) eDynamicGet(SpdmeasuringpointPackage.SPD_ASSEMBLY_CONTEXT_MEASURING_POINT__ASSEMBLY,
+				PcmmeasuringpointPackage.Literals.ASSEMBLY_REFERENCE__ASSEMBLY, false, true);
 	}
 
 	/**
@@ -100,11 +74,8 @@ public class SPDAssemblyContextMeasuringPointImpl extends MeasuringPointImpl
 	 */
 	@Override
 	public void setAssembly(AssemblyContext newAssembly) {
-		AssemblyContext oldAssembly = assembly;
-		assembly = newAssembly;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET,
-					SpdmeasuringpointPackage.SPD_ASSEMBLY_CONTEXT_MEASURING_POINT__ASSEMBLY, oldAssembly, assembly));
+		eDynamicSet(SpdmeasuringpointPackage.SPD_ASSEMBLY_CONTEXT_MEASURING_POINT__ASSEMBLY,
+				PcmmeasuringpointPackage.Literals.ASSEMBLY_REFERENCE__ASSEMBLY, newAssembly);
 	}
 
 	/**
@@ -162,7 +133,7 @@ public class SPDAssemblyContextMeasuringPointImpl extends MeasuringPointImpl
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 		case SpdmeasuringpointPackage.SPD_ASSEMBLY_CONTEXT_MEASURING_POINT__ASSEMBLY:
-			return assembly != null;
+			return basicGetAssembly() != null;
 		}
 		return super.eIsSet(featureID);
 	}
