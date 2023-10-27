@@ -1,0 +1,248 @@
+/**
+ */
+package org.palladiosimulator.spdmeasuringpoint.impl;
+
+import org.eclipse.emf.common.notify.Notification;
+
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
+
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.palladiosimulator.commons.emfutils.EMFLoadHelper;
+import org.palladiosimulator.edp2.models.measuringpoint.impl.MeasuringPointImpl;
+
+import org.palladiosimulator.pcm.core.composition.AssemblyContext;
+
+import org.palladiosimulator.pcmmeasuringpoint.AssemblyReference;
+import org.palladiosimulator.pcmmeasuringpoint.PcmmeasuringpointPackage;
+
+import org.palladiosimulator.spdmeasuringpoint.SPDAssemblyContextMeasuringPoint;
+import org.palladiosimulator.spdmeasuringpoint.SpdmeasuringpointPackage;
+
+/**
+ * <!-- begin-user-doc -->
+ * An implementation of the model object '<em><b>SPD Assembly Context Measuring Point</b></em>'.
+ * <!-- end-user-doc -->
+ * <p>
+ * The following features are implemented:
+ * </p>
+ * <ul>
+ *   <li>{@link org.palladiosimulator.spdmeasuringpoint.impl.SPDAssemblyContextMeasuringPointImpl#getAssembly <em>Assembly</em>}</li>
+ * </ul>
+ *
+ * @generated
+ */
+public class SPDAssemblyContextMeasuringPointImpl extends MeasuringPointImpl
+		implements SPDAssemblyContextMeasuringPoint {
+	/**
+	 * The cached value of the '{@link #getAssembly() <em>Assembly</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getAssembly()
+	 * @generated
+	 * @ordered
+	 */
+	protected AssemblyContext assembly;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected SPDAssemblyContextMeasuringPointImpl() {
+		super();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	protected EClass eStaticClass() {
+		return SpdmeasuringpointPackage.Literals.SPD_ASSEMBLY_CONTEXT_MEASURING_POINT;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public AssemblyContext getAssembly() {
+		if (assembly != null && assembly.eIsProxy()) {
+			InternalEObject oldAssembly = (InternalEObject) assembly;
+			assembly = (AssemblyContext) eResolveProxy(oldAssembly);
+			if (assembly != oldAssembly) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE,
+							SpdmeasuringpointPackage.SPD_ASSEMBLY_CONTEXT_MEASURING_POINT__ASSEMBLY, oldAssembly,
+							assembly));
+			}
+		}
+		return assembly;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public AssemblyContext basicGetAssembly() {
+		return assembly;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setAssembly(AssemblyContext newAssembly) {
+		AssemblyContext oldAssembly = assembly;
+		assembly = newAssembly;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET,
+					SpdmeasuringpointPackage.SPD_ASSEMBLY_CONTEXT_MEASURING_POINT__ASSEMBLY, oldAssembly, assembly));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object eGet(int featureID, boolean resolve, boolean coreType) {
+		switch (featureID) {
+		case SpdmeasuringpointPackage.SPD_ASSEMBLY_CONTEXT_MEASURING_POINT__ASSEMBLY:
+			if (resolve)
+				return getAssembly();
+			return basicGetAssembly();
+		}
+		return super.eGet(featureID, resolve, coreType);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void eSet(int featureID, Object newValue) {
+		switch (featureID) {
+		case SpdmeasuringpointPackage.SPD_ASSEMBLY_CONTEXT_MEASURING_POINT__ASSEMBLY:
+			setAssembly((AssemblyContext) newValue);
+			return;
+		}
+		super.eSet(featureID, newValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void eUnset(int featureID) {
+		switch (featureID) {
+		case SpdmeasuringpointPackage.SPD_ASSEMBLY_CONTEXT_MEASURING_POINT__ASSEMBLY:
+			setAssembly((AssemblyContext) null);
+			return;
+		}
+		super.eUnset(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public boolean eIsSet(int featureID) {
+		switch (featureID) {
+		case SpdmeasuringpointPackage.SPD_ASSEMBLY_CONTEXT_MEASURING_POINT__ASSEMBLY:
+			return assembly != null;
+		}
+		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
+		if (baseClass == AssemblyReference.class) {
+			switch (derivedFeatureID) {
+			case SpdmeasuringpointPackage.SPD_ASSEMBLY_CONTEXT_MEASURING_POINT__ASSEMBLY:
+				return PcmmeasuringpointPackage.ASSEMBLY_REFERENCE__ASSEMBLY;
+			default:
+				return -1;
+			}
+		}
+		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
+		if (baseClass == AssemblyReference.class) {
+			switch (baseFeatureID) {
+			case PcmmeasuringpointPackage.ASSEMBLY_REFERENCE__ASSEMBLY:
+				return SpdmeasuringpointPackage.SPD_ASSEMBLY_CONTEXT_MEASURING_POINT__ASSEMBLY;
+			default:
+				return -1;
+			}
+		}
+		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 *
+	 * @generated NOT
+	 */
+	@Override
+	public String getStringRepresentation() {
+		if (this.getAssembly() == null) {
+			return "";
+		}
+
+		if (this.getAssembly().getEntityName() == null) {
+			return super.getStringRepresentation();
+		}
+
+		EcoreUtil.resolveAll(this);
+
+		final StringBuilder result = new StringBuilder();
+
+		result.append("Resource Container ");
+		result.append(this.getAssembly().getEntityName());
+		result.append(" [");
+		result.append(this.getAssembly().getId());
+		result.append("]");
+
+		return result.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 *
+	 * @generated NOT
+	 */
+	@Override
+	public String getResourceURIRepresentation() {
+		if (this.getAssembly() == null) {
+			return "";
+		}
+		EcoreUtil.resolveAll(this);
+		return EMFLoadHelper.getResourceURI(this.getAssembly());
+	}
+
+} //SPDAssemblyContextMeasuringPointImpl
