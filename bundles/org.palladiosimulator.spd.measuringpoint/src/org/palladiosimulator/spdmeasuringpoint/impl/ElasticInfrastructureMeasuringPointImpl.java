@@ -6,7 +6,9 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.palladiosimulator.commons.emfutils.EMFLoadHelper;
 import org.palladiosimulator.edp2.models.measuringpoint.impl.MeasuringPointImpl;
+import org.palladiosimulator.semanticspd.ElasticInfrastructureCfg;
 import org.palladiosimulator.spd.targets.ElasticInfrastructure;
+import org.palladiosimulator.spdmeasuringpoint.ElasticInfrastructureCfgReference;
 import org.palladiosimulator.spdmeasuringpoint.ElasticInfrastructureMeasuringPoint;
 import org.palladiosimulator.spdmeasuringpoint.ElasticInfrastructureReference;
 import org.palladiosimulator.spdmeasuringpoint.SpdmeasuringpointPackage;
@@ -19,6 +21,7 @@ import org.palladiosimulator.spdmeasuringpoint.SpdmeasuringpointPackage;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link org.palladiosimulator.spdmeasuringpoint.impl.ElasticInfrastructureMeasuringPointImpl#getElasticInfrastructureCfg <em>Elastic Infrastructure Cfg</em>}</li>
  *   <li>{@link org.palladiosimulator.spdmeasuringpoint.impl.ElasticInfrastructureMeasuringPointImpl#getElasticInfrastructure <em>Elastic Infrastructure</em>}</li>
  * </ul>
  *
@@ -51,6 +54,43 @@ public class ElasticInfrastructureMeasuringPointImpl extends MeasuringPointImpl
 	 * @generated
 	 */
 	@Override
+	public ElasticInfrastructureCfg getElasticInfrastructureCfg() {
+		return (ElasticInfrastructureCfg) eDynamicGet(
+				SpdmeasuringpointPackage.ELASTIC_INFRASTRUCTURE_MEASURING_POINT__ELASTIC_INFRASTRUCTURE_CFG,
+				SpdmeasuringpointPackage.Literals.ELASTIC_INFRASTRUCTURE_CFG_REFERENCE__ELASTIC_INFRASTRUCTURE_CFG,
+				true, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ElasticInfrastructureCfg basicGetElasticInfrastructureCfg() {
+		return (ElasticInfrastructureCfg) eDynamicGet(
+				SpdmeasuringpointPackage.ELASTIC_INFRASTRUCTURE_MEASURING_POINT__ELASTIC_INFRASTRUCTURE_CFG,
+				SpdmeasuringpointPackage.Literals.ELASTIC_INFRASTRUCTURE_CFG_REFERENCE__ELASTIC_INFRASTRUCTURE_CFG,
+				false, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setElasticInfrastructureCfg(final ElasticInfrastructureCfg newElasticInfrastructureCfg) {
+		eDynamicSet(SpdmeasuringpointPackage.ELASTIC_INFRASTRUCTURE_MEASURING_POINT__ELASTIC_INFRASTRUCTURE_CFG,
+				SpdmeasuringpointPackage.Literals.ELASTIC_INFRASTRUCTURE_CFG_REFERENCE__ELASTIC_INFRASTRUCTURE_CFG,
+				newElasticInfrastructureCfg);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public ElasticInfrastructure getElasticInfrastructure() {
 		return (ElasticInfrastructure) eDynamicGet(
 				SpdmeasuringpointPackage.ELASTIC_INFRASTRUCTURE_MEASURING_POINT__ELASTIC_INFRASTRUCTURE,
@@ -75,7 +115,7 @@ public class ElasticInfrastructureMeasuringPointImpl extends MeasuringPointImpl
 	 * @generated
 	 */
 	@Override
-	public void setElasticInfrastructure(ElasticInfrastructure newElasticInfrastructure) {
+	public void setElasticInfrastructure(final ElasticInfrastructure newElasticInfrastructure) {
 		eDynamicSet(SpdmeasuringpointPackage.ELASTIC_INFRASTRUCTURE_MEASURING_POINT__ELASTIC_INFRASTRUCTURE,
 				SpdmeasuringpointPackage.Literals.ELASTIC_INFRASTRUCTURE_REFERENCE__ELASTIC_INFRASTRUCTURE,
 				newElasticInfrastructure);
@@ -87,8 +127,12 @@ public class ElasticInfrastructureMeasuringPointImpl extends MeasuringPointImpl
 	 * @generated
 	 */
 	@Override
-	public Object eGet(int featureID, boolean resolve, boolean coreType) {
+	public Object eGet(final int featureID, final boolean resolve, final boolean coreType) {
 		switch (featureID) {
+		case SpdmeasuringpointPackage.ELASTIC_INFRASTRUCTURE_MEASURING_POINT__ELASTIC_INFRASTRUCTURE_CFG:
+			if (resolve)
+				return getElasticInfrastructureCfg();
+			return basicGetElasticInfrastructureCfg();
 		case SpdmeasuringpointPackage.ELASTIC_INFRASTRUCTURE_MEASURING_POINT__ELASTIC_INFRASTRUCTURE:
 			if (resolve)
 				return getElasticInfrastructure();
@@ -102,9 +146,13 @@ public class ElasticInfrastructureMeasuringPointImpl extends MeasuringPointImpl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
-	public void eSet(int featureID, Object newValue) {
+	public void eSet(final int featureID, final Object newValue) {
 		switch (featureID) {
+		case SpdmeasuringpointPackage.ELASTIC_INFRASTRUCTURE_MEASURING_POINT__ELASTIC_INFRASTRUCTURE_CFG:
+			setElasticInfrastructureCfg((ElasticInfrastructureCfg) newValue);
+			return;
 		case SpdmeasuringpointPackage.ELASTIC_INFRASTRUCTURE_MEASURING_POINT__ELASTIC_INFRASTRUCTURE:
 			setElasticInfrastructure((ElasticInfrastructure) newValue);
 			return;
@@ -118,8 +166,11 @@ public class ElasticInfrastructureMeasuringPointImpl extends MeasuringPointImpl
 	 * @generated
 	 */
 	@Override
-	public void eUnset(int featureID) {
+	public void eUnset(final int featureID) {
 		switch (featureID) {
+		case SpdmeasuringpointPackage.ELASTIC_INFRASTRUCTURE_MEASURING_POINT__ELASTIC_INFRASTRUCTURE_CFG:
+			setElasticInfrastructureCfg((ElasticInfrastructureCfg) null);
+			return;
 		case SpdmeasuringpointPackage.ELASTIC_INFRASTRUCTURE_MEASURING_POINT__ELASTIC_INFRASTRUCTURE:
 			setElasticInfrastructure((ElasticInfrastructure) null);
 			return;
@@ -133,8 +184,10 @@ public class ElasticInfrastructureMeasuringPointImpl extends MeasuringPointImpl
 	 * @generated
 	 */
 	@Override
-	public boolean eIsSet(int featureID) {
+	public boolean eIsSet(final int featureID) {
 		switch (featureID) {
+		case SpdmeasuringpointPackage.ELASTIC_INFRASTRUCTURE_MEASURING_POINT__ELASTIC_INFRASTRUCTURE_CFG:
+			return basicGetElasticInfrastructureCfg() != null;
 		case SpdmeasuringpointPackage.ELASTIC_INFRASTRUCTURE_MEASURING_POINT__ELASTIC_INFRASTRUCTURE:
 			return basicGetElasticInfrastructure() != null;
 		}
@@ -147,7 +200,15 @@ public class ElasticInfrastructureMeasuringPointImpl extends MeasuringPointImpl
 	 * @generated
 	 */
 	@Override
-	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
+	public int eBaseStructuralFeatureID(final int derivedFeatureID, final Class<?> baseClass) {
+		if (baseClass == ElasticInfrastructureCfgReference.class) {
+			switch (derivedFeatureID) {
+			case SpdmeasuringpointPackage.ELASTIC_INFRASTRUCTURE_MEASURING_POINT__ELASTIC_INFRASTRUCTURE_CFG:
+				return SpdmeasuringpointPackage.ELASTIC_INFRASTRUCTURE_CFG_REFERENCE__ELASTIC_INFRASTRUCTURE_CFG;
+			default:
+				return -1;
+			}
+		}
 		if (baseClass == ElasticInfrastructureReference.class) {
 			switch (derivedFeatureID) {
 			case SpdmeasuringpointPackage.ELASTIC_INFRASTRUCTURE_MEASURING_POINT__ELASTIC_INFRASTRUCTURE:
@@ -165,7 +226,15 @@ public class ElasticInfrastructureMeasuringPointImpl extends MeasuringPointImpl
 	 * @generated
 	 */
 	@Override
-	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
+	public int eDerivedStructuralFeatureID(final int baseFeatureID, final Class<?> baseClass) {
+		if (baseClass == ElasticInfrastructureCfgReference.class) {
+			switch (baseFeatureID) {
+			case SpdmeasuringpointPackage.ELASTIC_INFRASTRUCTURE_CFG_REFERENCE__ELASTIC_INFRASTRUCTURE_CFG:
+				return SpdmeasuringpointPackage.ELASTIC_INFRASTRUCTURE_MEASURING_POINT__ELASTIC_INFRASTRUCTURE_CFG;
+			default:
+				return -1;
+			}
+		}
 		if (baseClass == ElasticInfrastructureReference.class) {
 			switch (baseFeatureID) {
 			case SpdmeasuringpointPackage.ELASTIC_INFRASTRUCTURE_REFERENCE__ELASTIC_INFRASTRUCTURE:

@@ -3,7 +3,7 @@
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="spdmeasuringpoint" nsURI="http://palladiosimulator.org/PCM/SPDMeasuringPoint/1.0"
     nsPrefix="spdmeasuringpoint">
   <eClassifiers xsi:type="ecore:EClass" name="ElasticInfrastructureMeasuringPoint"
-      eSuperTypes="../../org.palladiosimulator.edp2/model/EDP2.ecore#//measuringpoint/MeasuringPoint #//ElasticInfrastructureReference"/>
+      eSuperTypes="../../org.palladiosimulator.edp2/model/EDP2.ecore#//measuringpoint/MeasuringPoint #//ElasticInfrastructureCfgReference #//ElasticInfrastructureReference"/>
   <eClassifiers xsi:type="ecore:EClass" name="ServiceGroupMeasuringPoint" eSuperTypes="../../org.palladiosimulator.edp2/model/EDP2.ecore#//measuringpoint/MeasuringPoint #//ServiceGroupReference"/>
   <eClassifiers xsi:type="ecore:EClass" name="CompetingConsumerGroupMeasuringPoint"
       eSuperTypes="../../org.palladiosimulator.edp2/model/EDP2.ecore#//measuringpoint/MeasuringPoint #//CompetingConsumerGroupReference"/>
@@ -18,5 +18,9 @@
   <eClassifiers xsi:type="ecore:EClass" name="CompetingConsumerGroupReference" abstract="true">
     <eStructuralFeatures xsi:type="ecore:EReference" name="competingConsumerGroup"
         lowerBound="1" eType="ecore:EClass ../../org.palladiosimulator.spd/model/SPD.ecore#//targets/CompetingConsumersGroup"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ElasticInfrastructureCfgReference" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="elasticInfrastructureCfg"
+        lowerBound="1" eType="ecore:EClass ../../org.palladiosimulator.spd.semantic/model/semantic.ecore#//ElasticInfrastructureCfg"/>
   </eClassifiers>
 </ecore:EPackage>

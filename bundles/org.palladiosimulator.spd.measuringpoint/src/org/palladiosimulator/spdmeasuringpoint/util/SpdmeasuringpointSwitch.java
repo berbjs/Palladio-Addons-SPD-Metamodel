@@ -8,6 +8,7 @@ import org.eclipse.emf.ecore.util.Switch;
 import org.palladiosimulator.edp2.models.measuringpoint.MeasuringPoint;
 import org.palladiosimulator.spdmeasuringpoint.CompetingConsumerGroupMeasuringPoint;
 import org.palladiosimulator.spdmeasuringpoint.CompetingConsumerGroupReference;
+import org.palladiosimulator.spdmeasuringpoint.ElasticInfrastructureCfgReference;
 import org.palladiosimulator.spdmeasuringpoint.ElasticInfrastructureMeasuringPoint;
 import org.palladiosimulator.spdmeasuringpoint.ElasticInfrastructureReference;
 import org.palladiosimulator.spdmeasuringpoint.ServiceGroupMeasuringPoint;
@@ -77,6 +78,8 @@ public class SpdmeasuringpointSwitch<T> extends Switch<T> {
 			if (result == null)
 				result = caseMeasuringPoint(elasticInfrastructureMeasuringPoint);
 			if (result == null)
+				result = caseElasticInfrastructureCfgReference(elasticInfrastructureMeasuringPoint);
+			if (result == null)
 				result = caseElasticInfrastructureReference(elasticInfrastructureMeasuringPoint);
 			if (result == null)
 				result = defaultCase(theEObject);
@@ -121,6 +124,13 @@ public class SpdmeasuringpointSwitch<T> extends Switch<T> {
 		case SpdmeasuringpointPackage.COMPETING_CONSUMER_GROUP_REFERENCE: {
 			CompetingConsumerGroupReference competingConsumerGroupReference = (CompetingConsumerGroupReference) theEObject;
 			T result = caseCompetingConsumerGroupReference(competingConsumerGroupReference);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case SpdmeasuringpointPackage.ELASTIC_INFRASTRUCTURE_CFG_REFERENCE: {
+			ElasticInfrastructureCfgReference elasticInfrastructureCfgReference = (ElasticInfrastructureCfgReference) theEObject;
+			T result = caseElasticInfrastructureCfgReference(elasticInfrastructureCfgReference);
 			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
@@ -217,6 +227,21 @@ public class SpdmeasuringpointSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseCompetingConsumerGroupReference(CompetingConsumerGroupReference object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Elastic Infrastructure Cfg Reference</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Elastic Infrastructure Cfg Reference</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseElasticInfrastructureCfgReference(ElasticInfrastructureCfgReference object) {
 		return null;
 	}
 

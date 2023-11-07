@@ -22,4 +22,6 @@
   <semanticResources>platform:/resource/org.palladiosimulator.spd/model/SPD.ecore</semanticResources>
   <semanticResources>platform:/resource/org.palladiosimulator.spd/model/SPD.genmodel</semanticResources>
   <semanticResources>spdmeasuringpoint.genmodel</semanticResources>
+  <semanticResources>platform:/resource/org.palladiosimulator.spd.semantic/model/semantic.ecore</semanticResources>
+  <semanticResources>platform:/resource/org.palladiosimulator.spd.semantic/model/semantic.genmodel</semanticResources>
 </viewpoint:DAnalysis>

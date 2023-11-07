@@ -9,25 +9,31 @@ import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.ResourceLocator;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
+import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
+import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
-import org.palladiosimulator.edp2.models.measuringpoint.provider.MeasuringPointItemProvider;
-import org.palladiosimulator.spdmeasuringpoint.ElasticInfrastructureMeasuringPoint;
+import org.eclipse.emf.edit.provider.IItemPropertySource;
+import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
+import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
+import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.palladiosimulator.spdmeasuringpoint.SpdmeasuringpointPackage;
 
 /**
- * This is the item provider adapter for a {@link org.palladiosimulator.spdmeasuringpoint.ElasticInfrastructureMeasuringPoint} object.
+ * This is the item provider adapter for a {@link org.palladiosimulator.spdmeasuringpoint.ElasticInfrastructureCfgReference} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class ElasticInfrastructureMeasuringPointItemProvider extends MeasuringPointItemProvider {
+public class ElasticInfrastructureCfgReferenceItemProvider extends ItemProviderAdapter
+		implements IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider,
+		IItemLabelProvider, IItemPropertySource {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ElasticInfrastructureMeasuringPointItemProvider(AdapterFactory adapterFactory) {
+	public ElasticInfrastructureCfgReferenceItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -43,7 +49,6 @@ public class ElasticInfrastructureMeasuringPointItemProvider extends MeasuringPo
 			super.getPropertyDescriptors(object);
 
 			addElasticInfrastructureCfgPropertyDescriptor(object);
-			addElasticInfrastructurePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -66,34 +71,6 @@ public class ElasticInfrastructureMeasuringPointItemProvider extends MeasuringPo
 	}
 
 	/**
-	 * This adds a property descriptor for the Elastic Infrastructure feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addElasticInfrastructurePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-				getString("_UI_ElasticInfrastructureReference_elasticInfrastructure_feature"),
-				getString("_UI_PropertyDescriptor_description",
-						"_UI_ElasticInfrastructureReference_elasticInfrastructure_feature",
-						"_UI_ElasticInfrastructureReference_type"),
-				SpdmeasuringpointPackage.Literals.ELASTIC_INFRASTRUCTURE_REFERENCE__ELASTIC_INFRASTRUCTURE, true, false,
-				true, null, null, null));
-	}
-
-	/**
-	 * This returns ElasticInfrastructureMeasuringPoint.gif.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/ElasticInfrastructureMeasuringPoint"));
-	}
-
-	/**
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -101,9 +78,7 @@ public class ElasticInfrastructureMeasuringPointItemProvider extends MeasuringPo
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((ElasticInfrastructureMeasuringPoint) object).getStringRepresentation();
-		return label == null || label.length() == 0 ? getString("_UI_ElasticInfrastructureMeasuringPoint_type")
-				: getString("_UI_ElasticInfrastructureMeasuringPoint_type") + " " + label;
+		return getString("_UI_ElasticInfrastructureCfgReference_type");
 	}
 
 	/**

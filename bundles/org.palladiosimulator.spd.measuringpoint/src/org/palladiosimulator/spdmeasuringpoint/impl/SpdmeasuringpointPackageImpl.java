@@ -12,10 +12,12 @@ import org.palladiosimulator.edp2.models.Repository.RepositoryPackage;
 import org.palladiosimulator.edp2.models.measuringpoint.MeasuringpointPackage;
 import org.palladiosimulator.metricspec.MetricSpecPackage;
 import org.palladiosimulator.pcm.PcmPackage;
+import org.palladiosimulator.semanticspd.SemanticspdPackage;
 import org.palladiosimulator.spd.SpdPackage;
 import org.palladiosimulator.spd.targets.TargetsPackage;
 import org.palladiosimulator.spdmeasuringpoint.CompetingConsumerGroupMeasuringPoint;
 import org.palladiosimulator.spdmeasuringpoint.CompetingConsumerGroupReference;
+import org.palladiosimulator.spdmeasuringpoint.ElasticInfrastructureCfgReference;
 import org.palladiosimulator.spdmeasuringpoint.ElasticInfrastructureMeasuringPoint;
 import org.palladiosimulator.spdmeasuringpoint.ElasticInfrastructureReference;
 import org.palladiosimulator.spdmeasuringpoint.ServiceGroupMeasuringPoint;
@@ -78,6 +80,13 @@ public class SpdmeasuringpointPackageImpl extends EPackageImpl implements Spdmea
 	private EClass competingConsumerGroupReferenceEClass = null;
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass elasticInfrastructureCfgReferenceEClass = null;
+
+	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
 	 * {@link org.eclipse.emf.ecore.EPackage.Registry EPackage.Registry} by the package
 	 * package URI value.
@@ -137,6 +146,7 @@ public class SpdmeasuringpointPackageImpl extends EPackageImpl implements Spdmea
 		PcmPackage.eINSTANCE.eClass();
 		ProbfunctionPackage.eINSTANCE.eClass();
 		SpdPackage.eINSTANCE.eClass();
+		SemanticspdPackage.eINSTANCE.eClass();
 		StoexPackage.eINSTANCE.eClass();
 		UnitsPackage.eINSTANCE.eClass();
 
@@ -250,6 +260,26 @@ public class SpdmeasuringpointPackageImpl extends EPackageImpl implements Spdmea
 	 * @generated
 	 */
 	@Override
+	public EClass getElasticInfrastructureCfgReference() {
+		return elasticInfrastructureCfgReferenceEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getElasticInfrastructureCfgReference_ElasticInfrastructureCfg() {
+		return (EReference) elasticInfrastructureCfgReferenceEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public SpdmeasuringpointFactory getSpdmeasuringpointFactory() {
 		return (SpdmeasuringpointFactory) getEFactoryInstance();
 	}
@@ -290,6 +320,10 @@ public class SpdmeasuringpointPackageImpl extends EPackageImpl implements Spdmea
 		competingConsumerGroupReferenceEClass = createEClass(COMPETING_CONSUMER_GROUP_REFERENCE);
 		createEReference(competingConsumerGroupReferenceEClass,
 				COMPETING_CONSUMER_GROUP_REFERENCE__COMPETING_CONSUMER_GROUP);
+
+		elasticInfrastructureCfgReferenceEClass = createEClass(ELASTIC_INFRASTRUCTURE_CFG_REFERENCE);
+		createEReference(elasticInfrastructureCfgReferenceEClass,
+				ELASTIC_INFRASTRUCTURE_CFG_REFERENCE__ELASTIC_INFRASTRUCTURE_CFG);
 	}
 
 	/**
@@ -321,6 +355,8 @@ public class SpdmeasuringpointPackageImpl extends EPackageImpl implements Spdmea
 				.getEPackage(MeasuringpointPackage.eNS_URI);
 		TargetsPackage theTargetsPackage = (TargetsPackage) EPackage.Registry.INSTANCE
 				.getEPackage(TargetsPackage.eNS_URI);
+		SemanticspdPackage theSemanticspdPackage = (SemanticspdPackage) EPackage.Registry.INSTANCE
+				.getEPackage(SemanticspdPackage.eNS_URI);
 
 		// Create type parameters
 
@@ -328,6 +364,7 @@ public class SpdmeasuringpointPackageImpl extends EPackageImpl implements Spdmea
 
 		// Add supertypes to classes
 		elasticInfrastructureMeasuringPointEClass.getESuperTypes().add(theMeasuringpointPackage.getMeasuringPoint());
+		elasticInfrastructureMeasuringPointEClass.getESuperTypes().add(this.getElasticInfrastructureCfgReference());
 		elasticInfrastructureMeasuringPointEClass.getESuperTypes().add(this.getElasticInfrastructureReference());
 		serviceGroupMeasuringPointEClass.getESuperTypes().add(theMeasuringpointPackage.getMeasuringPoint());
 		serviceGroupMeasuringPointEClass.getESuperTypes().add(this.getServiceGroupReference());
@@ -362,6 +399,13 @@ public class SpdmeasuringpointPackageImpl extends EPackageImpl implements Spdmea
 		initEReference(getCompetingConsumerGroupReference_CompetingConsumerGroup(),
 				theTargetsPackage.getCompetingConsumersGroup(), null, "competingConsumerGroup", null, 1, 1,
 				CompetingConsumerGroupReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
+				IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(elasticInfrastructureCfgReferenceEClass, ElasticInfrastructureCfgReference.class,
+				"ElasticInfrastructureCfgReference", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getElasticInfrastructureCfgReference_ElasticInfrastructureCfg(),
+				theSemanticspdPackage.getElasticInfrastructureCfg(), null, "elasticInfrastructureCfg", null, 1, 1,
+				ElasticInfrastructureCfgReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
 				IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource

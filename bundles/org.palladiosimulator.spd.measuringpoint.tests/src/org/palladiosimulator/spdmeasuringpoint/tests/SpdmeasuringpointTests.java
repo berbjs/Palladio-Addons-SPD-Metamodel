@@ -30,6 +30,7 @@ public class SpdmeasuringpointTests extends TestSuite {
 	 */
 	public static Test suite() {
 		TestSuite suite = new SpdmeasuringpointTests("spdmeasuringpoint Tests");
+		suite.addTestSuite(ElasticInfrastructureMeasuringPointTest.class);
 		return suite;
 	}
 
