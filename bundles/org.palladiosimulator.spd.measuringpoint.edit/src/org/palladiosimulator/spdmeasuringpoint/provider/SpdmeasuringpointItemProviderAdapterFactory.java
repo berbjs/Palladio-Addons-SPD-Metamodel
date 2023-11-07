@@ -4,12 +4,11 @@ package org.palladiosimulator.spdmeasuringpoint.provider;
 
 import java.util.ArrayList;
 import java.util.Collection;
-
 import java.util.List;
+
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.Notifier;
-
 import org.eclipse.emf.common.util.ResourceLocator;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.edit.command.CommandParameter;
@@ -26,7 +25,6 @@ import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.INotifyChangedListener;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
-
 import org.palladiosimulator.edp2.models.measuringpoint.MeasuringPointRepository;
 import org.palladiosimulator.edp2.models.measuringpoint.MeasuringpointPackage;
 import org.palladiosimulator.edp2.models.measuringpoint.util.MeasuringpointSwitch;
@@ -66,7 +64,7 @@ public class SpdmeasuringpointItemProviderAdapterFactory extends Spdmeasuringpoi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected Collection<Object> supportedTypes = new ArrayList<Object>();
+	protected Collection<Object> supportedTypes = new ArrayList<>();
 
 	/**
 	 * This constructs an instance.
@@ -83,49 +81,73 @@ public class SpdmeasuringpointItemProviderAdapterFactory extends Spdmeasuringpoi
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link org.palladiosimulator.spdmeasuringpoint.SPDResourceContainerMeasuringPoint} instances.
+	 * This keeps track of the one adapter used for all {@link org.palladiosimulator.spdmeasuringpoint.ElasticInfrastructureMeasuringPoint} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected SPDResourceContainerMeasuringPointItemProvider spdResourceContainerMeasuringPointItemProvider;
+	protected ElasticInfrastructureMeasuringPointItemProvider elasticInfrastructureMeasuringPointItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link org.palladiosimulator.spdmeasuringpoint.SPDResourceContainerMeasuringPoint}.
+	 * This creates an adapter for a {@link org.palladiosimulator.spdmeasuringpoint.ElasticInfrastructureMeasuringPoint}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createSPDResourceContainerMeasuringPointAdapter() {
-		if (spdResourceContainerMeasuringPointItemProvider == null) {
-			spdResourceContainerMeasuringPointItemProvider = new SPDResourceContainerMeasuringPointItemProvider(this);
+	public Adapter createElasticInfrastructureMeasuringPointAdapter() {
+		if (elasticInfrastructureMeasuringPointItemProvider == null) {
+			elasticInfrastructureMeasuringPointItemProvider = new ElasticInfrastructureMeasuringPointItemProvider(this);
 		}
 
-		return spdResourceContainerMeasuringPointItemProvider;
+		return elasticInfrastructureMeasuringPointItemProvider;
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link org.palladiosimulator.spdmeasuringpoint.SPDAssemblyContextMeasuringPoint} instances.
+	 * This keeps track of the one adapter used for all {@link org.palladiosimulator.spdmeasuringpoint.ServiceGroupMeasuringPoint} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected SPDAssemblyContextMeasuringPointItemProvider spdAssemblyContextMeasuringPointItemProvider;
+	protected ServiceGroupMeasuringPointItemProvider serviceGroupMeasuringPointItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link org.palladiosimulator.spdmeasuringpoint.SPDAssemblyContextMeasuringPoint}.
+	 * This creates an adapter for a {@link org.palladiosimulator.spdmeasuringpoint.ServiceGroupMeasuringPoint}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createSPDAssemblyContextMeasuringPointAdapter() {
-		if (spdAssemblyContextMeasuringPointItemProvider == null) {
-			spdAssemblyContextMeasuringPointItemProvider = new SPDAssemblyContextMeasuringPointItemProvider(this);
+	public Adapter createServiceGroupMeasuringPointAdapter() {
+		if (serviceGroupMeasuringPointItemProvider == null) {
+			serviceGroupMeasuringPointItemProvider = new ServiceGroupMeasuringPointItemProvider(this);
 		}
 
-		return spdAssemblyContextMeasuringPointItemProvider;
+		return serviceGroupMeasuringPointItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.palladiosimulator.spdmeasuringpoint.CompetingConsumerGroupMeasuringPoint} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected CompetingConsumerGroupMeasuringPointItemProvider competingConsumerGroupMeasuringPointItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.palladiosimulator.spdmeasuringpoint.CompetingConsumerGroupMeasuringPoint}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createCompetingConsumerGroupMeasuringPointAdapter() {
+		if (competingConsumerGroupMeasuringPointItemProvider == null) {
+			competingConsumerGroupMeasuringPointItemProvider = new CompetingConsumerGroupMeasuringPointItemProvider(
+					this);
+		}
+
+		return competingConsumerGroupMeasuringPointItemProvider;
 	}
 
 	/**
@@ -134,6 +156,7 @@ public class SpdmeasuringpointItemProviderAdapterFactory extends Spdmeasuringpoi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public ComposeableAdapterFactory getRootAdapterFactory() {
 		return parentAdapterFactory == null ? this : parentAdapterFactory.getRootAdapterFactory();
 	}
@@ -144,6 +167,7 @@ public class SpdmeasuringpointItemProviderAdapterFactory extends Spdmeasuringpoi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setParentAdapterFactory(ComposedAdapterFactory parentAdapterFactory) {
 		this.parentAdapterFactory = parentAdapterFactory;
 	}
@@ -192,6 +216,7 @@ public class SpdmeasuringpointItemProviderAdapterFactory extends Spdmeasuringpoi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void addListener(INotifyChangedListener notifyChangedListener) {
 		changeNotifier.addListener(notifyChangedListener);
 	}
@@ -202,6 +227,7 @@ public class SpdmeasuringpointItemProviderAdapterFactory extends Spdmeasuringpoi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void removeListener(INotifyChangedListener notifyChangedListener) {
 		changeNotifier.removeListener(notifyChangedListener);
 	}
@@ -212,6 +238,7 @@ public class SpdmeasuringpointItemProviderAdapterFactory extends Spdmeasuringpoi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void fireNotifyChanged(Notification notification) {
 		changeNotifier.fireNotifyChanged(notification);
 
@@ -221,16 +248,19 @@ public class SpdmeasuringpointItemProviderAdapterFactory extends Spdmeasuringpoi
 	}
 
 	/**
-	 * This disposes all of the item providers created by this factory. 
+	 * This disposes all of the item providers created by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void dispose() {
-		if (spdResourceContainerMeasuringPointItemProvider != null)
-			spdResourceContainerMeasuringPointItemProvider.dispose();
-		if (spdAssemblyContextMeasuringPointItemProvider != null)
-			spdAssemblyContextMeasuringPointItemProvider.dispose();
+		if (elasticInfrastructureMeasuringPointItemProvider != null)
+			elasticInfrastructureMeasuringPointItemProvider.dispose();
+		if (serviceGroupMeasuringPointItemProvider != null)
+			serviceGroupMeasuringPointItemProvider.dispose();
+		if (competingConsumerGroupMeasuringPointItemProvider != null)
+			competingConsumerGroupMeasuringPointItemProvider.dispose();
 	}
 
 	/**
@@ -283,11 +313,15 @@ public class SpdmeasuringpointItemProviderAdapterFactory extends Spdmeasuringpoi
 			public Object caseMeasuringPointRepository(MeasuringPointRepository object) {
 				newChildDescriptors.add(createChildParameter(
 						MeasuringpointPackage.Literals.MEASURING_POINT_REPOSITORY__MEASURING_POINTS,
-						SpdmeasuringpointFactory.eINSTANCE.createSPDResourceContainerMeasuringPoint()));
+						SpdmeasuringpointFactory.eINSTANCE.createElasticInfrastructureMeasuringPoint()));
 
 				newChildDescriptors.add(createChildParameter(
 						MeasuringpointPackage.Literals.MEASURING_POINT_REPOSITORY__MEASURING_POINTS,
-						SpdmeasuringpointFactory.eINSTANCE.createSPDAssemblyContextMeasuringPoint()));
+						SpdmeasuringpointFactory.eINSTANCE.createServiceGroupMeasuringPoint()));
+
+				newChildDescriptors.add(createChildParameter(
+						MeasuringpointPackage.Literals.MEASURING_POINT_REPOSITORY__MEASURING_POINTS,
+						SpdmeasuringpointFactory.eINSTANCE.createCompetingConsumerGroupMeasuringPoint()));
 
 				return null;
 			}
@@ -308,8 +342,9 @@ public class SpdmeasuringpointItemProviderAdapterFactory extends Spdmeasuringpoi
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
+		@Override
 		public Collection<Object> getNewChildDescriptors(Object object, EditingDomain editingDomain) {
-			ArrayList<Object> result = new ArrayList<Object>();
+			ArrayList<Object> result = new ArrayList<>();
 			new CreationSwitch(result, editingDomain).doSwitch((EObject) object);
 			return result;
 		}
@@ -319,6 +354,7 @@ public class SpdmeasuringpointItemProviderAdapterFactory extends Spdmeasuringpoi
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
+		@Override
 		public ResourceLocator getResourceLocator() {
 			return SpdmeasuringpointEditPlugin.INSTANCE;
 		}

@@ -7,32 +7,27 @@ import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.common.util.ResourceLocator;
-
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
-
 import org.palladiosimulator.edp2.models.measuringpoint.provider.MeasuringPointItemProvider;
-
-import org.palladiosimulator.pcmmeasuringpoint.PcmmeasuringpointPackage;
-
-import org.palladiosimulator.spdmeasuringpoint.SPDAssemblyContextMeasuringPoint;
+import org.palladiosimulator.spdmeasuringpoint.CompetingConsumerGroupMeasuringPoint;
+import org.palladiosimulator.spdmeasuringpoint.SpdmeasuringpointPackage;
 
 /**
- * This is the item provider adapter for a {@link org.palladiosimulator.spdmeasuringpoint.SPDAssemblyContextMeasuringPoint} object.
+ * This is the item provider adapter for a {@link org.palladiosimulator.spdmeasuringpoint.CompetingConsumerGroupMeasuringPoint} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class SPDAssemblyContextMeasuringPointItemProvider extends MeasuringPointItemProvider {
+public class CompetingConsumerGroupMeasuringPointItemProvider extends MeasuringPointItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public SPDAssemblyContextMeasuringPointItemProvider(AdapterFactory adapterFactory) {
+	public CompetingConsumerGroupMeasuringPointItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -47,35 +42,37 @@ public class SPDAssemblyContextMeasuringPointItemProvider extends MeasuringPoint
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addAssemblyPropertyDescriptor(object);
+			addCompetingConsumerGroupPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Assembly feature.
+	 * This adds a property descriptor for the Competing Consumer Group feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addAssemblyPropertyDescriptor(Object object) {
+	protected void addCompetingConsumerGroupPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
 				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-				getString("_UI_AssemblyReference_assembly_feature"),
-				getString("_UI_PropertyDescriptor_description", "_UI_AssemblyReference_assembly_feature",
-						"_UI_AssemblyReference_type"),
-				PcmmeasuringpointPackage.Literals.ASSEMBLY_REFERENCE__ASSEMBLY, true, false, true, null, null, null));
+				getString("_UI_CompetingConsumerGroupReference_competingConsumerGroup_feature"),
+				getString("_UI_PropertyDescriptor_description",
+						"_UI_CompetingConsumerGroupReference_competingConsumerGroup_feature",
+						"_UI_CompetingConsumerGroupReference_type"),
+				SpdmeasuringpointPackage.Literals.COMPETING_CONSUMER_GROUP_REFERENCE__COMPETING_CONSUMER_GROUP, true,
+				false, true, null, null, null));
 	}
 
 	/**
-	 * This returns SPDAssemblyContextMeasuringPoint.gif.
+	 * This returns CompetingConsumerGroupMeasuringPoint.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/SPDAssemblyContextMeasuringPoint"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/CompetingConsumerGroupMeasuringPoint"));
 	}
 
 	/**
@@ -86,9 +83,9 @@ public class SPDAssemblyContextMeasuringPointItemProvider extends MeasuringPoint
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((SPDAssemblyContextMeasuringPoint) object).getStringRepresentation();
-		return label == null || label.length() == 0 ? getString("_UI_SPDAssemblyContextMeasuringPoint_type")
-				: getString("_UI_SPDAssemblyContextMeasuringPoint_type") + " " + label;
+		String label = ((CompetingConsumerGroupMeasuringPoint) object).getStringRepresentation();
+		return label == null || label.length() == 0 ? getString("_UI_CompetingConsumerGroupMeasuringPoint_type")
+				: getString("_UI_CompetingConsumerGroupMeasuringPoint_type") + " " + label;
 	}
 
 	/**

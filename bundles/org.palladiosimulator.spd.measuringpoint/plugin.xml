@@ -19,5 +19,4 @@
             type="spdmeasuringpoint"
             class="org.palladiosimulator.spdmeasuringpoint.util.SpdmeasuringpointResourceFactoryImpl"/>
    </extension>
-
 </plugin>

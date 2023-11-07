@@ -4,15 +4,15 @@ package org.palladiosimulator.spdmeasuringpoint.util;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
-
 import org.eclipse.emf.ecore.util.Switch;
-
 import org.palladiosimulator.edp2.models.measuringpoint.MeasuringPoint;
-
-import org.palladiosimulator.pcmmeasuringpoint.AssemblyReference;
-import org.palladiosimulator.pcmmeasuringpoint.ResourceContainerReference;
-
-import org.palladiosimulator.spdmeasuringpoint.*;
+import org.palladiosimulator.spdmeasuringpoint.CompetingConsumerGroupMeasuringPoint;
+import org.palladiosimulator.spdmeasuringpoint.CompetingConsumerGroupReference;
+import org.palladiosimulator.spdmeasuringpoint.ElasticInfrastructureMeasuringPoint;
+import org.palladiosimulator.spdmeasuringpoint.ElasticInfrastructureReference;
+import org.palladiosimulator.spdmeasuringpoint.ServiceGroupMeasuringPoint;
+import org.palladiosimulator.spdmeasuringpoint.ServiceGroupReference;
+import org.palladiosimulator.spdmeasuringpoint.SpdmeasuringpointPackage;
 
 /**
  * <!-- begin-user-doc -->
@@ -71,24 +71,56 @@ public class SpdmeasuringpointSwitch<T> extends Switch<T> {
 	@Override
 	protected T doSwitch(int classifierID, EObject theEObject) {
 		switch (classifierID) {
-		case SpdmeasuringpointPackage.SPD_RESOURCE_CONTAINER_MEASURING_POINT: {
-			SPDResourceContainerMeasuringPoint spdResourceContainerMeasuringPoint = (SPDResourceContainerMeasuringPoint) theEObject;
-			T result = caseSPDResourceContainerMeasuringPoint(spdResourceContainerMeasuringPoint);
+		case SpdmeasuringpointPackage.ELASTIC_INFRASTRUCTURE_MEASURING_POINT: {
+			ElasticInfrastructureMeasuringPoint elasticInfrastructureMeasuringPoint = (ElasticInfrastructureMeasuringPoint) theEObject;
+			T result = caseElasticInfrastructureMeasuringPoint(elasticInfrastructureMeasuringPoint);
 			if (result == null)
-				result = caseMeasuringPoint(spdResourceContainerMeasuringPoint);
+				result = caseMeasuringPoint(elasticInfrastructureMeasuringPoint);
 			if (result == null)
-				result = caseResourceContainerReference(spdResourceContainerMeasuringPoint);
+				result = caseElasticInfrastructureReference(elasticInfrastructureMeasuringPoint);
 			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
 		}
-		case SpdmeasuringpointPackage.SPD_ASSEMBLY_CONTEXT_MEASURING_POINT: {
-			SPDAssemblyContextMeasuringPoint spdAssemblyContextMeasuringPoint = (SPDAssemblyContextMeasuringPoint) theEObject;
-			T result = caseSPDAssemblyContextMeasuringPoint(spdAssemblyContextMeasuringPoint);
+		case SpdmeasuringpointPackage.SERVICE_GROUP_MEASURING_POINT: {
+			ServiceGroupMeasuringPoint serviceGroupMeasuringPoint = (ServiceGroupMeasuringPoint) theEObject;
+			T result = caseServiceGroupMeasuringPoint(serviceGroupMeasuringPoint);
 			if (result == null)
-				result = caseMeasuringPoint(spdAssemblyContextMeasuringPoint);
+				result = caseMeasuringPoint(serviceGroupMeasuringPoint);
 			if (result == null)
-				result = caseAssemblyReference(spdAssemblyContextMeasuringPoint);
+				result = caseServiceGroupReference(serviceGroupMeasuringPoint);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case SpdmeasuringpointPackage.COMPETING_CONSUMER_GROUP_MEASURING_POINT: {
+			CompetingConsumerGroupMeasuringPoint competingConsumerGroupMeasuringPoint = (CompetingConsumerGroupMeasuringPoint) theEObject;
+			T result = caseCompetingConsumerGroupMeasuringPoint(competingConsumerGroupMeasuringPoint);
+			if (result == null)
+				result = caseMeasuringPoint(competingConsumerGroupMeasuringPoint);
+			if (result == null)
+				result = caseCompetingConsumerGroupReference(competingConsumerGroupMeasuringPoint);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case SpdmeasuringpointPackage.SERVICE_GROUP_REFERENCE: {
+			ServiceGroupReference serviceGroupReference = (ServiceGroupReference) theEObject;
+			T result = caseServiceGroupReference(serviceGroupReference);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case SpdmeasuringpointPackage.ELASTIC_INFRASTRUCTURE_REFERENCE: {
+			ElasticInfrastructureReference elasticInfrastructureReference = (ElasticInfrastructureReference) theEObject;
+			T result = caseElasticInfrastructureReference(elasticInfrastructureReference);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case SpdmeasuringpointPackage.COMPETING_CONSUMER_GROUP_REFERENCE: {
+			CompetingConsumerGroupReference competingConsumerGroupReference = (CompetingConsumerGroupReference) theEObject;
+			T result = caseCompetingConsumerGroupReference(competingConsumerGroupReference);
 			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
@@ -99,32 +131,92 @@ public class SpdmeasuringpointSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>SPD Resource Container Measuring Point</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Elastic Infrastructure Measuring Point</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>SPD Resource Container Measuring Point</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Elastic Infrastructure Measuring Point</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseSPDResourceContainerMeasuringPoint(SPDResourceContainerMeasuringPoint object) {
+	public T caseElasticInfrastructureMeasuringPoint(ElasticInfrastructureMeasuringPoint object) {
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>SPD Assembly Context Measuring Point</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Service Group Measuring Point</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>SPD Assembly Context Measuring Point</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Service Group Measuring Point</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseSPDAssemblyContextMeasuringPoint(SPDAssemblyContextMeasuringPoint object) {
+	public T caseServiceGroupMeasuringPoint(ServiceGroupMeasuringPoint object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Competing Consumer Group Measuring Point</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Competing Consumer Group Measuring Point</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseCompetingConsumerGroupMeasuringPoint(CompetingConsumerGroupMeasuringPoint object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Service Group Reference</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Service Group Reference</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseServiceGroupReference(ServiceGroupReference object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Elastic Infrastructure Reference</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Elastic Infrastructure Reference</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseElasticInfrastructureReference(ElasticInfrastructureReference object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Competing Consumer Group Reference</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Competing Consumer Group Reference</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseCompetingConsumerGroupReference(CompetingConsumerGroupReference object) {
 		return null;
 	}
 
@@ -140,36 +232,6 @@ public class SpdmeasuringpointSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseMeasuringPoint(MeasuringPoint object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Resource Container Reference</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Resource Container Reference</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseResourceContainerReference(ResourceContainerReference object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Assembly Reference</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Assembly Reference</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseAssemblyReference(AssemblyReference object) {
 		return null;
 	}
 

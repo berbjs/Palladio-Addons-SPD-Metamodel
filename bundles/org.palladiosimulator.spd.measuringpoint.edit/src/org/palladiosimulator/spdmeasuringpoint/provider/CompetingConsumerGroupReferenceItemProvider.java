@@ -7,32 +7,33 @@ import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.common.util.ResourceLocator;
-
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
+import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
+import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
-
-import org.palladiosimulator.edp2.models.measuringpoint.provider.MeasuringPointItemProvider;
-
-import org.palladiosimulator.pcmmeasuringpoint.PcmmeasuringpointPackage;
-
-import org.palladiosimulator.spdmeasuringpoint.SPDResourceContainerMeasuringPoint;
+import org.eclipse.emf.edit.provider.IItemPropertySource;
+import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
+import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
+import org.eclipse.emf.edit.provider.ItemProviderAdapter;
+import org.palladiosimulator.spdmeasuringpoint.SpdmeasuringpointPackage;
 
 /**
- * This is the item provider adapter for a {@link org.palladiosimulator.spdmeasuringpoint.SPDResourceContainerMeasuringPoint} object.
+ * This is the item provider adapter for a {@link org.palladiosimulator.spdmeasuringpoint.CompetingConsumerGroupReference} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class SPDResourceContainerMeasuringPointItemProvider extends MeasuringPointItemProvider {
+public class CompetingConsumerGroupReferenceItemProvider extends ItemProviderAdapter
+		implements IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider,
+		IItemLabelProvider, IItemPropertySource {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public SPDResourceContainerMeasuringPointItemProvider(AdapterFactory adapterFactory) {
+	public CompetingConsumerGroupReferenceItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -47,37 +48,26 @@ public class SPDResourceContainerMeasuringPointItemProvider extends MeasuringPoi
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addResourceContainerPropertyDescriptor(object);
+			addCompetingConsumerGroupPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Resource Container feature.
+	 * This adds a property descriptor for the Competing Consumer Group feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addResourceContainerPropertyDescriptor(Object object) {
-		itemPropertyDescriptors
-				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-						getResourceLocator(), getString("_UI_ResourceContainerReference_resourceContainer_feature"),
-						getString("_UI_PropertyDescriptor_description",
-								"_UI_ResourceContainerReference_resourceContainer_feature",
-								"_UI_ResourceContainerReference_type"),
-						PcmmeasuringpointPackage.Literals.RESOURCE_CONTAINER_REFERENCE__RESOURCE_CONTAINER, true, false,
-						true, null, null, null));
-	}
-
-	/**
-	 * This returns SPDResourceContainerMeasuringPoint.gif.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/SPDResourceContainerMeasuringPoint"));
+	protected void addCompetingConsumerGroupPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(
+				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+				getString("_UI_CompetingConsumerGroupReference_competingConsumerGroup_feature"),
+				getString("_UI_PropertyDescriptor_description",
+						"_UI_CompetingConsumerGroupReference_competingConsumerGroup_feature",
+						"_UI_CompetingConsumerGroupReference_type"),
+				SpdmeasuringpointPackage.Literals.COMPETING_CONSUMER_GROUP_REFERENCE__COMPETING_CONSUMER_GROUP, true,
+				false, true, null, null, null));
 	}
 
 	/**
@@ -88,9 +78,7 @@ public class SPDResourceContainerMeasuringPointItemProvider extends MeasuringPoi
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((SPDResourceContainerMeasuringPoint) object).getStringRepresentation();
-		return label == null || label.length() == 0 ? getString("_UI_SPDResourceContainerMeasuringPoint_type")
-				: getString("_UI_SPDResourceContainerMeasuringPoint_type") + " " + label;
+		return getString("_UI_CompetingConsumerGroupReference_type");
 	}
 
 	/**

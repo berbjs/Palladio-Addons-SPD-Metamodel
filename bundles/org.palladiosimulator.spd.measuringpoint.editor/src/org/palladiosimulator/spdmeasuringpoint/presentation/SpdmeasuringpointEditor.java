@@ -4,7 +4,6 @@ package org.palladiosimulator.spdmeasuringpoint.presentation;
 
 import java.io.IOException;
 import java.io.InputStream;
-
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
@@ -23,24 +22,55 @@ import org.eclipse.core.resources.IResourceChangeListener;
 import org.eclipse.core.resources.IResourceDelta;
 import org.eclipse.core.resources.IResourceDeltaVisitor;
 import org.eclipse.core.resources.ResourcesPlugin;
-
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IPath;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.NullProgressMonitor;
-
+import org.eclipse.emf.common.command.BasicCommandStack;
+import org.eclipse.emf.common.command.Command;
+import org.eclipse.emf.common.command.CommandStack;
+import org.eclipse.emf.common.command.CommandStackListener;
+import org.eclipse.emf.common.notify.AdapterFactory;
+import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.ui.MarkerHelper;
+import org.eclipse.emf.common.ui.ViewerPane;
+import org.eclipse.emf.common.ui.editor.ProblemEditorPart;
+import org.eclipse.emf.common.ui.viewer.IViewerProvider;
+import org.eclipse.emf.common.util.BasicDiagnostic;
+import org.eclipse.emf.common.util.Diagnostic;
+import org.eclipse.emf.common.util.URI;
+import org.eclipse.emf.ecore.provider.EcoreItemProviderAdapterFactory;
+import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.emf.ecore.resource.ResourceSet;
+import org.eclipse.emf.ecore.util.EContentAdapter;
+import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.emf.edit.domain.AdapterFactoryEditingDomain;
+import org.eclipse.emf.edit.domain.EditingDomain;
+import org.eclipse.emf.edit.domain.IEditingDomainProvider;
+import org.eclipse.emf.edit.provider.AdapterFactoryItemDelegator;
+import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
+import org.eclipse.emf.edit.provider.ReflectiveItemProviderAdapterFactory;
+import org.eclipse.emf.edit.provider.resource.ResourceItemProviderAdapterFactory;
+import org.eclipse.emf.edit.ui.action.EditingDomainActionBarContributor;
+import org.eclipse.emf.edit.ui.celleditor.AdapterFactoryTreeEditor;
+import org.eclipse.emf.edit.ui.dnd.EditingDomainViewerDropAdapter;
+import org.eclipse.emf.edit.ui.dnd.LocalTransfer;
+import org.eclipse.emf.edit.ui.dnd.ViewerDragAdapter;
+import org.eclipse.emf.edit.ui.provider.AdapterFactoryContentProvider;
+import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider;
+import org.eclipse.emf.edit.ui.provider.UnwrappingSelectionProvider;
+import org.eclipse.emf.edit.ui.util.EditUIMarkerHelper;
+import org.eclipse.emf.edit.ui.util.EditUIUtil;
+import org.eclipse.emf.edit.ui.view.ExtendedPropertySheetPage;
 import org.eclipse.jface.action.IMenuListener;
 import org.eclipse.jface.action.IMenuManager;
 import org.eclipse.jface.action.IStatusLineManager;
 import org.eclipse.jface.action.IToolBarManager;
 import org.eclipse.jface.action.MenuManager;
 import org.eclipse.jface.action.Separator;
-
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.dialogs.ProgressMonitorDialog;
-
 import org.eclipse.jface.util.LocalSelectionTransfer;
-
 import org.eclipse.jface.viewers.ColumnWeightData;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.ISelectionChangedListener;
@@ -54,30 +84,22 @@ import org.eclipse.jface.viewers.TableLayout;
 import org.eclipse.jface.viewers.TableViewer;
 import org.eclipse.jface.viewers.TreeViewer;
 import org.eclipse.jface.viewers.Viewer;
-
 import org.eclipse.swt.SWT;
-
 import org.eclipse.swt.custom.CTabFolder;
-
 import org.eclipse.swt.dnd.DND;
 import org.eclipse.swt.dnd.FileTransfer;
 import org.eclipse.swt.dnd.Transfer;
-
 import org.eclipse.swt.events.ControlAdapter;
 import org.eclipse.swt.events.ControlEvent;
-
 import org.eclipse.swt.graphics.Point;
 import org.eclipse.swt.graphics.Rectangle;
-
 import org.eclipse.swt.layout.FillLayout;
-
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Menu;
 import org.eclipse.swt.widgets.Table;
 import org.eclipse.swt.widgets.TableColumn;
 import org.eclipse.swt.widgets.Tree;
 import org.eclipse.swt.widgets.TreeColumn;
-
 import org.eclipse.ui.IActionBars;
 import org.eclipse.ui.IEditorInput;
 import org.eclipse.ui.IEditorPart;
@@ -85,135 +107,55 @@ import org.eclipse.ui.IEditorSite;
 import org.eclipse.ui.IPartListener;
 import org.eclipse.ui.IWorkbenchPart;
 import org.eclipse.ui.PartInitException;
-
+import org.eclipse.ui.actions.WorkspaceModifyOperation;
 import org.eclipse.ui.dialogs.SaveAsDialog;
-
 import org.eclipse.ui.ide.IGotoMarker;
-
 import org.eclipse.ui.part.FileEditorInput;
 import org.eclipse.ui.part.MultiPageEditorPart;
-
 import org.eclipse.ui.views.contentoutline.ContentOutline;
 import org.eclipse.ui.views.contentoutline.ContentOutlinePage;
 import org.eclipse.ui.views.contentoutline.IContentOutlinePage;
-
 import org.eclipse.ui.views.properties.IPropertySheetPage;
 import org.eclipse.ui.views.properties.PropertySheet;
 import org.eclipse.ui.views.properties.PropertySheetPage;
-
-import org.eclipse.emf.common.command.BasicCommandStack;
-import org.eclipse.emf.common.command.Command;
-import org.eclipse.emf.common.command.CommandStack;
-import org.eclipse.emf.common.command.CommandStackListener;
-
-import org.eclipse.emf.common.notify.AdapterFactory;
-import org.eclipse.emf.common.notify.Notification;
-
-import org.eclipse.emf.common.ui.MarkerHelper;
-import org.eclipse.emf.common.ui.ViewerPane;
-
-import org.eclipse.emf.common.ui.editor.ProblemEditorPart;
-
-import org.eclipse.emf.common.ui.viewer.IViewerProvider;
-
-import org.eclipse.emf.common.util.BasicDiagnostic;
-import org.eclipse.emf.common.util.Diagnostic;
-import org.eclipse.emf.common.util.URI;
-
-import org.eclipse.emf.ecore.resource.Resource;
-import org.eclipse.emf.ecore.resource.ResourceSet;
-
-import org.eclipse.emf.ecore.util.EContentAdapter;
-import org.eclipse.emf.ecore.util.EcoreUtil;
-
-import org.eclipse.emf.edit.domain.AdapterFactoryEditingDomain;
-import org.eclipse.emf.edit.domain.EditingDomain;
-import org.eclipse.emf.edit.domain.IEditingDomainProvider;
-
-import org.eclipse.emf.edit.provider.AdapterFactoryItemDelegator;
-import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
-import org.eclipse.emf.edit.provider.ReflectiveItemProviderAdapterFactory;
-
-import org.eclipse.emf.edit.provider.resource.ResourceItemProviderAdapterFactory;
-
-import org.eclipse.emf.edit.ui.action.EditingDomainActionBarContributor;
-
-import org.eclipse.emf.edit.ui.celleditor.AdapterFactoryTreeEditor;
-
-import org.eclipse.emf.edit.ui.dnd.EditingDomainViewerDropAdapter;
-import org.eclipse.emf.edit.ui.dnd.LocalTransfer;
-import org.eclipse.emf.edit.ui.dnd.ViewerDragAdapter;
-
-import org.eclipse.emf.edit.ui.provider.AdapterFactoryContentProvider;
-import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider;
-import org.eclipse.emf.edit.ui.provider.UnwrappingSelectionProvider;
-
-import org.eclipse.emf.edit.ui.util.EditUIMarkerHelper;
-import org.eclipse.emf.edit.ui.util.EditUIUtil;
-
-import org.eclipse.emf.edit.ui.view.ExtendedPropertySheetPage;
-
+import org.palladiosimulator.edp2.models.ExperimentData.provider.ExperimentDataItemProviderAdapterFactory;
+import org.palladiosimulator.edp2.models.Repository.provider.RepositoryItemProviderAdapterFactory;
+import org.palladiosimulator.edp2.models.measuringpoint.provider.MeasuringpointItemProviderAdapterFactory;
+import org.palladiosimulator.metricspec.provider.MetricSpecItemProviderAdapterFactory;
+import org.palladiosimulator.pcm.allocation.provider.AllocationItemProviderAdapterFactory;
+import org.palladiosimulator.pcm.core.composition.provider.CompositionItemProviderAdapterFactory;
+import org.palladiosimulator.pcm.core.entity.provider.EntityItemProviderAdapterFactory;
+import org.palladiosimulator.pcm.core.provider.CoreItemProviderAdapterFactory;
+import org.palladiosimulator.pcm.parameter.provider.ParameterItemProviderAdapterFactory;
+import org.palladiosimulator.pcm.protocol.provider.ProtocolItemProviderAdapterFactory;
+import org.palladiosimulator.pcm.provider.PcmItemProviderAdapterFactory;
+import org.palladiosimulator.pcm.qosannotations.provider.QosannotationsItemProviderAdapterFactory;
+import org.palladiosimulator.pcm.qosannotations.qos_performance.provider.QosPerformanceItemProviderAdapterFactory;
+import org.palladiosimulator.pcm.qosannotations.qos_reliability.provider.QosReliabilityItemProviderAdapterFactory;
+import org.palladiosimulator.pcm.reliability.provider.ReliabilityItemProviderAdapterFactory;
+import org.palladiosimulator.pcm.resourceenvironment.provider.ResourceenvironmentItemProviderAdapterFactory;
+import org.palladiosimulator.pcm.resourcetype.provider.ResourcetypeItemProviderAdapterFactory;
+import org.palladiosimulator.pcm.seff.provider.SeffItemProviderAdapterFactory;
+import org.palladiosimulator.pcm.seff.seff_performance.provider.SeffPerformanceItemProviderAdapterFactory;
+import org.palladiosimulator.pcm.seff.seff_reliability.provider.SeffReliabilityItemProviderAdapterFactory;
+import org.palladiosimulator.pcm.subsystem.provider.SubsystemItemProviderAdapterFactory;
+import org.palladiosimulator.pcm.system.provider.SystemItemProviderAdapterFactory;
+import org.palladiosimulator.pcm.usagemodel.provider.UsagemodelItemProviderAdapterFactory;
+import org.palladiosimulator.spd.adjustments.provider.AdjustmentsItemProviderAdapterFactory;
+import org.palladiosimulator.spd.constraints.policy.provider.PolicyItemProviderAdapterFactory;
+import org.palladiosimulator.spd.constraints.provider.ConstraintsItemProviderAdapterFactory;
+import org.palladiosimulator.spd.constraints.target.provider.TargetItemProviderAdapterFactory;
+import org.palladiosimulator.spd.provider.SpdItemProviderAdapterFactory;
+import org.palladiosimulator.spd.targets.provider.TargetsItemProviderAdapterFactory;
+import org.palladiosimulator.spd.triggers.expectations.provider.ExpectationsItemProviderAdapterFactory;
+import org.palladiosimulator.spd.triggers.provider.TriggersItemProviderAdapterFactory;
+import org.palladiosimulator.spd.triggers.stimuli.provider.StimuliItemProviderAdapterFactory;
 import org.palladiosimulator.spdmeasuringpoint.provider.SpdmeasuringpointItemProviderAdapterFactory;
 
 import de.uka.ipd.sdq.identifier.provider.IdentifierItemProviderAdapterFactory;
-
 import de.uka.ipd.sdq.probfunction.provider.ProbfunctionItemProviderAdapterFactory;
-
 import de.uka.ipd.sdq.stoex.provider.StoexItemProviderAdapterFactory;
-
 import de.uka.ipd.sdq.units.provider.UnitsItemProviderAdapterFactory;
-
-import org.eclipse.emf.ecore.provider.EcoreItemProviderAdapterFactory;
-
-import org.eclipse.ui.actions.WorkspaceModifyOperation;
-
-import org.palladiosimulator.edp2.models.ExperimentData.provider.ExperimentDataItemProviderAdapterFactory;
-
-import org.palladiosimulator.edp2.models.Repository.provider.RepositoryItemProviderAdapterFactory;
-
-import org.palladiosimulator.edp2.models.measuringpoint.provider.MeasuringpointItemProviderAdapterFactory;
-
-import org.palladiosimulator.metricspec.provider.MetricSpecItemProviderAdapterFactory;
-
-import org.palladiosimulator.pcm.allocation.provider.AllocationItemProviderAdapterFactory;
-
-import org.palladiosimulator.pcm.core.composition.provider.CompositionItemProviderAdapterFactory;
-
-import org.palladiosimulator.pcm.core.entity.provider.EntityItemProviderAdapterFactory;
-
-import org.palladiosimulator.pcm.core.provider.CoreItemProviderAdapterFactory;
-
-import org.palladiosimulator.pcm.parameter.provider.ParameterItemProviderAdapterFactory;
-
-import org.palladiosimulator.pcm.protocol.provider.ProtocolItemProviderAdapterFactory;
-
-import org.palladiosimulator.pcm.provider.PcmItemProviderAdapterFactory;
-
-import org.palladiosimulator.pcm.qosannotations.provider.QosannotationsItemProviderAdapterFactory;
-
-import org.palladiosimulator.pcm.qosannotations.qos_performance.provider.QosPerformanceItemProviderAdapterFactory;
-
-import org.palladiosimulator.pcm.qosannotations.qos_reliability.provider.QosReliabilityItemProviderAdapterFactory;
-
-import org.palladiosimulator.pcm.reliability.provider.ReliabilityItemProviderAdapterFactory;
-
-import org.palladiosimulator.pcm.resourceenvironment.provider.ResourceenvironmentItemProviderAdapterFactory;
-
-import org.palladiosimulator.pcm.resourcetype.provider.ResourcetypeItemProviderAdapterFactory;
-
-import org.palladiosimulator.pcm.seff.provider.SeffItemProviderAdapterFactory;
-
-import org.palladiosimulator.pcm.seff.seff_performance.provider.SeffPerformanceItemProviderAdapterFactory;
-
-import org.palladiosimulator.pcm.seff.seff_reliability.provider.SeffReliabilityItemProviderAdapterFactory;
-
-import org.palladiosimulator.pcm.subsystem.provider.SubsystemItemProviderAdapterFactory;
-
-import org.palladiosimulator.pcm.system.provider.SystemItemProviderAdapterFactory;
-
-import org.palladiosimulator.pcm.usagemodel.provider.UsagemodelItemProviderAdapterFactory;
-
-import org.palladiosimulator.pcmmeasuringpoint.provider.PcmmeasuringpointItemProviderAdapterFactory;
 
 /**
  * This is an example of a Spdmeasuringpoint model editor.
@@ -269,7 +211,7 @@ public class SpdmeasuringpointEditor extends MultiPageEditorPart
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected List<PropertySheetPage> propertySheetPages = new ArrayList<PropertySheetPage>();
+	protected List<PropertySheetPage> propertySheetPages = new ArrayList<>();
 
 	/**
 	 * This is the viewer that shadows the selection in the content outline.
@@ -352,7 +294,7 @@ public class SpdmeasuringpointEditor extends MultiPageEditorPart
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected Collection<ISelectionChangedListener> selectionChangedListeners = new ArrayList<ISelectionChangedListener>();
+	protected Collection<ISelectionChangedListener> selectionChangedListeners = new ArrayList<>();
 
 	/**
 	 * This keeps track of the selection of the editor as a whole.
@@ -378,6 +320,7 @@ public class SpdmeasuringpointEditor extends MultiPageEditorPart
 	 * @generated
 	 */
 	protected IPartListener partListener = new IPartListener() {
+		@Override
 		public void partActivated(IWorkbenchPart p) {
 			if (p instanceof ContentOutline) {
 				if (((ContentOutline) p).getCurrentPage() == contentOutlinePage) {
@@ -395,18 +338,22 @@ public class SpdmeasuringpointEditor extends MultiPageEditorPart
 			}
 		}
 
+		@Override
 		public void partBroughtToTop(IWorkbenchPart p) {
 			// Ignore.
 		}
 
+		@Override
 		public void partClosed(IWorkbenchPart p) {
 			// Ignore.
 		}
 
+		@Override
 		public void partDeactivated(IWorkbenchPart p) {
 			// Ignore.
 		}
 
+		@Override
 		public void partOpened(IWorkbenchPart p) {
 			// Ignore.
 		}
@@ -418,7 +365,7 @@ public class SpdmeasuringpointEditor extends MultiPageEditorPart
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected Collection<Resource> removedResources = new ArrayList<Resource>();
+	protected Collection<Resource> removedResources = new ArrayList<>();
 
 	/**
 	 * Resources that have been changed since last activation.
@@ -426,7 +373,7 @@ public class SpdmeasuringpointEditor extends MultiPageEditorPart
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected Collection<Resource> changedResources = new ArrayList<Resource>();
+	protected Collection<Resource> changedResources = new ArrayList<>();
 
 	/**
 	 * Resources that have been saved.
@@ -434,7 +381,7 @@ public class SpdmeasuringpointEditor extends MultiPageEditorPart
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected Collection<Resource> savedResources = new ArrayList<Resource>();
+	protected Collection<Resource> savedResources = new ArrayList<>();
 
 	/**
 	 * Map to store the diagnostic associated with a resource.
@@ -442,7 +389,7 @@ public class SpdmeasuringpointEditor extends MultiPageEditorPart
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected Map<Resource, Diagnostic> resourceToDiagnosticMap = new LinkedHashMap<Resource, Diagnostic>();
+	protected Map<Resource, Diagnostic> resourceToDiagnosticMap = new LinkedHashMap<>();
 
 	/**
 	 * Controls whether the problem indication should be updated.
@@ -488,6 +435,7 @@ public class SpdmeasuringpointEditor extends MultiPageEditorPart
 			if (updateProblemIndication && !dispatching) {
 				dispatching = true;
 				getSite().getShell().getDisplay().asyncExec(new Runnable() {
+					@Override
 					public void run() {
 						dispatching = false;
 						updateProblemIndication();
@@ -516,14 +464,16 @@ public class SpdmeasuringpointEditor extends MultiPageEditorPart
 	 * @generated
 	 */
 	protected IResourceChangeListener resourceChangeListener = new IResourceChangeListener() {
+		@Override
 		public void resourceChanged(IResourceChangeEvent event) {
 			IResourceDelta delta = event.getDelta();
 			try {
 				class ResourceDeltaVisitor implements IResourceDeltaVisitor {
 					protected ResourceSet resourceSet = editingDomain.getResourceSet();
-					protected Collection<Resource> changedResources = new ArrayList<Resource>();
-					protected Collection<Resource> removedResources = new ArrayList<Resource>();
+					protected Collection<Resource> changedResources = new ArrayList<>();
+					protected Collection<Resource> removedResources = new ArrayList<>();
 
+					@Override
 					public boolean visit(IResourceDelta delta) {
 						if (delta.getResource().getType() == IResource.FILE) {
 							if (delta.getKind() == IResourceDelta.REMOVED || delta.getKind() == IResourceDelta.CHANGED
@@ -558,6 +508,7 @@ public class SpdmeasuringpointEditor extends MultiPageEditorPart
 
 				if (!visitor.getRemovedResources().isEmpty()) {
 					getSite().getShell().getDisplay().asyncExec(new Runnable() {
+						@Override
 						public void run() {
 							removedResources.addAll(visitor.getRemovedResources());
 							if (!isDirty()) {
@@ -569,6 +520,7 @@ public class SpdmeasuringpointEditor extends MultiPageEditorPart
 
 				if (!visitor.getChangedResources().isEmpty()) {
 					getSite().getShell().getDisplay().asyncExec(new Runnable() {
+						@Override
 						public void run() {
 							changedResources.addAll(visitor.getChangedResources());
 							if (getSite().getPage().getActiveEditor() == SpdmeasuringpointEditor.this) {
@@ -762,8 +714,16 @@ public class SpdmeasuringpointEditor extends MultiPageEditorPart
 		adapterFactory.addAdapterFactory(new ResourceenvironmentItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new AllocationItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new SubsystemItemProviderAdapterFactory());
-		adapterFactory.addAdapterFactory(new PcmmeasuringpointItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new ProbfunctionItemProviderAdapterFactory());
+		adapterFactory.addAdapterFactory(new SpdItemProviderAdapterFactory());
+		adapterFactory.addAdapterFactory(new TargetsItemProviderAdapterFactory());
+		adapterFactory.addAdapterFactory(new AdjustmentsItemProviderAdapterFactory());
+		adapterFactory.addAdapterFactory(new ConstraintsItemProviderAdapterFactory());
+		adapterFactory.addAdapterFactory(new PolicyItemProviderAdapterFactory());
+		adapterFactory.addAdapterFactory(new TargetItemProviderAdapterFactory());
+		adapterFactory.addAdapterFactory(new TriggersItemProviderAdapterFactory());
+		adapterFactory.addAdapterFactory(new StimuliItemProviderAdapterFactory());
+		adapterFactory.addAdapterFactory(new ExpectationsItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new StoexItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new UnitsItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new ReflectiveItemProviderAdapterFactory());
@@ -775,8 +735,10 @@ public class SpdmeasuringpointEditor extends MultiPageEditorPart
 		// Add a listener to set the most recent command's affected objects to be the selection of the viewer with focus.
 		//
 		commandStack.addCommandStackListener(new CommandStackListener() {
+			@Override
 			public void commandStackChanged(final EventObject event) {
 				getContainer().getDisplay().asyncExec(new Runnable() {
+					@Override
 					public void run() {
 						firePropertyChange(IEditorPart.PROP_DIRTY);
 
@@ -827,6 +789,7 @@ public class SpdmeasuringpointEditor extends MultiPageEditorPart
 		//
 		if (theSelection != null && !theSelection.isEmpty()) {
 			Runnable runnable = new Runnable() {
+				@Override
 				public void run() {
 					// Try to select the items in the current content viewer of the editor.
 					//
@@ -847,6 +810,7 @@ public class SpdmeasuringpointEditor extends MultiPageEditorPart
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EditingDomain getEditingDomain() {
 		return editingDomain;
 	}
@@ -942,6 +906,7 @@ public class SpdmeasuringpointEditor extends MultiPageEditorPart
 				selectionChangedListener = new ISelectionChangedListener() {
 					// This just notifies those things that are affected by the section.
 					//
+					@Override
 					public void selectionChanged(SelectionChangedEvent selectionChangedEvent) {
 						setSelection(selectionChangedEvent.getSelection());
 					}
@@ -976,6 +941,7 @@ public class SpdmeasuringpointEditor extends MultiPageEditorPart
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Viewer getViewer() {
 		return currentViewer;
 	}
@@ -1271,6 +1237,7 @@ public class SpdmeasuringpointEditor extends MultiPageEditorPart
 			}
 
 			getSite().getShell().getDisplay().asyncExec(new Runnable() {
+				@Override
 				public void run() {
 					if (!getContainer().isDisposed()) {
 						setActivePage(0);
@@ -1296,6 +1263,7 @@ public class SpdmeasuringpointEditor extends MultiPageEditorPart
 		});
 
 		getSite().getShell().getDisplay().asyncExec(new Runnable() {
+			@Override
 			public void run() {
 				updateProblemIndication();
 			}
@@ -1429,6 +1397,7 @@ public class SpdmeasuringpointEditor extends MultiPageEditorPart
 			contentOutlinePage.addSelectionChangedListener(new ISelectionChangedListener() {
 				// This ensures that we handle selections correctly.
 				//
+				@Override
 				public void selectionChanged(SelectionChangedEvent event) {
 					handleContentOutlineSelection(event.getSelection());
 				}
@@ -1482,7 +1451,7 @@ public class SpdmeasuringpointEditor extends MultiPageEditorPart
 				// If it's the selection viewer, then we want it to select the same selection as this selection.
 				//
 				if (currentViewerPane.getViewer() == selectionViewer) {
-					ArrayList<Object> selectionList = new ArrayList<Object>();
+					ArrayList<Object> selectionList = new ArrayList<>();
 					selectionList.add(selectedElement);
 					while (selectedElements.hasNext()) {
 						selectionList.add(selectedElements.next());
@@ -1524,7 +1493,7 @@ public class SpdmeasuringpointEditor extends MultiPageEditorPart
 	public void doSave(IProgressMonitor progressMonitor) {
 		// Save only resources that have actually changed.
 		//
-		final Map<Object, Object> saveOptions = new HashMap<Object, Object>();
+		final Map<Object, Object> saveOptions = new HashMap<>();
 		saveOptions.put(Resource.OPTION_SAVE_ONLY_IF_CHANGED, Resource.OPTION_SAVE_ONLY_IF_CHANGED_MEMORY_BUFFER);
 		saveOptions.put(Resource.OPTION_LINE_DELIMITER, Resource.OPTION_LINE_DELIMITER_UNSPECIFIED);
 
@@ -1539,8 +1508,7 @@ public class SpdmeasuringpointEditor extends MultiPageEditorPart
 				//
 				boolean first = true;
 				List<Resource> resources = editingDomain.getResourceSet().getResources();
-				for (int i = 0; i < resources.size(); ++i) {
-					Resource resource = resources.get(i);
+				for (Resource resource : resources) {
 					if ((first || !resource.getContents().isEmpty() || isPersisted(resource))
 							&& !editingDomain.isReadOnly(resource)) {
 						try {
@@ -1648,6 +1616,7 @@ public class SpdmeasuringpointEditor extends MultiPageEditorPart
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void gotoMarker(IMarker marker) {
 		List<?> targetObjects = markerHelper.getTargetObjects(editingDomain, marker);
 		if (!targetObjects.isEmpty()) {
@@ -1692,6 +1661,7 @@ public class SpdmeasuringpointEditor extends MultiPageEditorPart
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void addSelectionChangedListener(ISelectionChangedListener listener) {
 		selectionChangedListeners.add(listener);
 	}
@@ -1702,6 +1672,7 @@ public class SpdmeasuringpointEditor extends MultiPageEditorPart
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void removeSelectionChangedListener(ISelectionChangedListener listener) {
 		selectionChangedListeners.remove(listener);
 	}
@@ -1712,6 +1683,7 @@ public class SpdmeasuringpointEditor extends MultiPageEditorPart
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public ISelection getSelection() {
 		return editorSelection;
 	}
@@ -1723,6 +1695,7 @@ public class SpdmeasuringpointEditor extends MultiPageEditorPart
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setSelection(ISelection selection) {
 		editorSelection = selection;
 
@@ -1793,6 +1766,7 @@ public class SpdmeasuringpointEditor extends MultiPageEditorPart
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void menuAboutToShow(IMenuManager menuManager) {
 		((IMenuListener) getEditorSite().getActionBarContributor()).menuAboutToShow(menuManager);
 	}

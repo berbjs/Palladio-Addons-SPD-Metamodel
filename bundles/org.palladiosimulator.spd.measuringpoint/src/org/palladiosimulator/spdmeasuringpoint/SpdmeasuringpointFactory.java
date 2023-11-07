@@ -23,22 +23,31 @@ public interface SpdmeasuringpointFactory extends EFactory {
 			.init();
 
 	/**
-	 * Returns a new object of class '<em>SPD Resource Container Measuring Point</em>'.
+	 * Returns a new object of class '<em>Elastic Infrastructure Measuring Point</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>SPD Resource Container Measuring Point</em>'.
+	 * @return a new object of class '<em>Elastic Infrastructure Measuring Point</em>'.
 	 * @generated
 	 */
-	SPDResourceContainerMeasuringPoint createSPDResourceContainerMeasuringPoint();
+	ElasticInfrastructureMeasuringPoint createElasticInfrastructureMeasuringPoint();
 
 	/**
-	 * Returns a new object of class '<em>SPD Assembly Context Measuring Point</em>'.
+	 * Returns a new object of class '<em>Service Group Measuring Point</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>SPD Assembly Context Measuring Point</em>'.
+	 * @return a new object of class '<em>Service Group Measuring Point</em>'.
 	 * @generated
 	 */
-	SPDAssemblyContextMeasuringPoint createSPDAssemblyContextMeasuringPoint();
+	ServiceGroupMeasuringPoint createServiceGroupMeasuringPoint();
+
+	/**
+	 * Returns a new object of class '<em>Competing Consumer Group Measuring Point</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Competing Consumer Group Measuring Point</em>'.
+	 * @generated
+	 */
+	CompetingConsumerGroupMeasuringPoint createCompetingConsumerGroupMeasuringPoint();
 
 	/**
 	 * Returns the package supported by this factory.

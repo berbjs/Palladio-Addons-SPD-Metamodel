@@ -4,17 +4,16 @@ package org.palladiosimulator.spdmeasuringpoint.util;
 
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
-
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
-
 import org.eclipse.emf.ecore.EObject;
-
 import org.palladiosimulator.edp2.models.measuringpoint.MeasuringPoint;
-
-import org.palladiosimulator.pcmmeasuringpoint.AssemblyReference;
-import org.palladiosimulator.pcmmeasuringpoint.ResourceContainerReference;
-
-import org.palladiosimulator.spdmeasuringpoint.*;
+import org.palladiosimulator.spdmeasuringpoint.CompetingConsumerGroupMeasuringPoint;
+import org.palladiosimulator.spdmeasuringpoint.CompetingConsumerGroupReference;
+import org.palladiosimulator.spdmeasuringpoint.ElasticInfrastructureMeasuringPoint;
+import org.palladiosimulator.spdmeasuringpoint.ElasticInfrastructureReference;
+import org.palladiosimulator.spdmeasuringpoint.ServiceGroupMeasuringPoint;
+import org.palladiosimulator.spdmeasuringpoint.ServiceGroupReference;
+import org.palladiosimulator.spdmeasuringpoint.SpdmeasuringpointPackage;
 
 /**
  * <!-- begin-user-doc -->
@@ -70,30 +69,40 @@ public class SpdmeasuringpointAdapterFactory extends AdapterFactoryImpl {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected SpdmeasuringpointSwitch<Adapter> modelSwitch = new SpdmeasuringpointSwitch<Adapter>() {
+	protected SpdmeasuringpointSwitch<Adapter> modelSwitch = new SpdmeasuringpointSwitch<>() {
 		@Override
-		public Adapter caseSPDResourceContainerMeasuringPoint(SPDResourceContainerMeasuringPoint object) {
-			return createSPDResourceContainerMeasuringPointAdapter();
+		public Adapter caseElasticInfrastructureMeasuringPoint(ElasticInfrastructureMeasuringPoint object) {
+			return createElasticInfrastructureMeasuringPointAdapter();
 		}
 
 		@Override
-		public Adapter caseSPDAssemblyContextMeasuringPoint(SPDAssemblyContextMeasuringPoint object) {
-			return createSPDAssemblyContextMeasuringPointAdapter();
+		public Adapter caseServiceGroupMeasuringPoint(ServiceGroupMeasuringPoint object) {
+			return createServiceGroupMeasuringPointAdapter();
+		}
+
+		@Override
+		public Adapter caseCompetingConsumerGroupMeasuringPoint(CompetingConsumerGroupMeasuringPoint object) {
+			return createCompetingConsumerGroupMeasuringPointAdapter();
+		}
+
+		@Override
+		public Adapter caseServiceGroupReference(ServiceGroupReference object) {
+			return createServiceGroupReferenceAdapter();
+		}
+
+		@Override
+		public Adapter caseElasticInfrastructureReference(ElasticInfrastructureReference object) {
+			return createElasticInfrastructureReferenceAdapter();
+		}
+
+		@Override
+		public Adapter caseCompetingConsumerGroupReference(CompetingConsumerGroupReference object) {
+			return createCompetingConsumerGroupReferenceAdapter();
 		}
 
 		@Override
 		public Adapter caseMeasuringPoint(MeasuringPoint object) {
 			return createMeasuringPointAdapter();
-		}
-
-		@Override
-		public Adapter caseResourceContainerReference(ResourceContainerReference object) {
-			return createResourceContainerReferenceAdapter();
-		}
-
-		@Override
-		public Adapter caseAssemblyReference(AssemblyReference object) {
-			return createAssemblyReferenceAdapter();
 		}
 
 		@Override
@@ -116,30 +125,86 @@ public class SpdmeasuringpointAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.palladiosimulator.spdmeasuringpoint.SPDResourceContainerMeasuringPoint <em>SPD Resource Container Measuring Point</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.palladiosimulator.spdmeasuringpoint.ElasticInfrastructureMeasuringPoint <em>Elastic Infrastructure Measuring Point</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.palladiosimulator.spdmeasuringpoint.SPDResourceContainerMeasuringPoint
+	 * @see org.palladiosimulator.spdmeasuringpoint.ElasticInfrastructureMeasuringPoint
 	 * @generated
 	 */
-	public Adapter createSPDResourceContainerMeasuringPointAdapter() {
+	public Adapter createElasticInfrastructureMeasuringPointAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.palladiosimulator.spdmeasuringpoint.SPDAssemblyContextMeasuringPoint <em>SPD Assembly Context Measuring Point</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.palladiosimulator.spdmeasuringpoint.ServiceGroupMeasuringPoint <em>Service Group Measuring Point</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.palladiosimulator.spdmeasuringpoint.SPDAssemblyContextMeasuringPoint
+	 * @see org.palladiosimulator.spdmeasuringpoint.ServiceGroupMeasuringPoint
 	 * @generated
 	 */
-	public Adapter createSPDAssemblyContextMeasuringPointAdapter() {
+	public Adapter createServiceGroupMeasuringPointAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.palladiosimulator.spdmeasuringpoint.CompetingConsumerGroupMeasuringPoint <em>Competing Consumer Group Measuring Point</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.palladiosimulator.spdmeasuringpoint.CompetingConsumerGroupMeasuringPoint
+	 * @generated
+	 */
+	public Adapter createCompetingConsumerGroupMeasuringPointAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.palladiosimulator.spdmeasuringpoint.ServiceGroupReference <em>Service Group Reference</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.palladiosimulator.spdmeasuringpoint.ServiceGroupReference
+	 * @generated
+	 */
+	public Adapter createServiceGroupReferenceAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.palladiosimulator.spdmeasuringpoint.ElasticInfrastructureReference <em>Elastic Infrastructure Reference</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.palladiosimulator.spdmeasuringpoint.ElasticInfrastructureReference
+	 * @generated
+	 */
+	public Adapter createElasticInfrastructureReferenceAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.palladiosimulator.spdmeasuringpoint.CompetingConsumerGroupReference <em>Competing Consumer Group Reference</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.palladiosimulator.spdmeasuringpoint.CompetingConsumerGroupReference
+	 * @generated
+	 */
+	public Adapter createCompetingConsumerGroupReferenceAdapter() {
 		return null;
 	}
 
@@ -154,34 +219,6 @@ public class SpdmeasuringpointAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createMeasuringPointAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.palladiosimulator.pcmmeasuringpoint.ResourceContainerReference <em>Resource Container Reference</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.palladiosimulator.pcmmeasuringpoint.ResourceContainerReference
-	 * @generated
-	 */
-	public Adapter createResourceContainerReferenceAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.palladiosimulator.pcmmeasuringpoint.AssemblyReference <em>Assembly Reference</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.palladiosimulator.pcmmeasuringpoint.AssemblyReference
-	 * @generated
-	 */
-	public Adapter createAssemblyReferenceAdapter() {
 		return null;
 	}
 

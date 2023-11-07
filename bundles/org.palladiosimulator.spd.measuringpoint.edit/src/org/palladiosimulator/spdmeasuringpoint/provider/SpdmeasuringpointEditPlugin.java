@@ -2,27 +2,18 @@
  */
 package org.palladiosimulator.spdmeasuringpoint.provider;
 
-import de.uka.ipd.sdq.identifier.provider.IdentifierEditPlugin;
-
-import de.uka.ipd.sdq.probfunction.provider.ProbabilityFunctionEditPlugin;
-
-import de.uka.ipd.sdq.stoex.provider.StoexEditPlugin;
-
-import de.uka.ipd.sdq.units.provider.UnitsEditPlugin;
-
 import org.eclipse.emf.common.EMFPlugin;
-
 import org.eclipse.emf.common.util.ResourceLocator;
-
 import org.eclipse.emf.ecore.provider.EcoreEditPlugin;
-
 import org.palladiosimulator.edp2.models.ExperimentData.provider.EDP2EditPlugin;
-
 import org.palladiosimulator.metricspec.provider.MetricSpecEditPlugin;
-
 import org.palladiosimulator.pcm.core.provider.PalladioComponentModelEditPlugin;
+import org.palladiosimulator.spd.provider.ScalingPolicyDefinitionEditPlugin;
 
-import org.palladiosimulator.pcmmeasuringpoint.provider.PcmmeasuringpointEditPlugin;
+import de.uka.ipd.sdq.identifier.provider.IdentifierEditPlugin;
+import de.uka.ipd.sdq.probfunction.provider.ProbabilityFunctionEditPlugin;
+import de.uka.ipd.sdq.stoex.provider.StoexEditPlugin;
+import de.uka.ipd.sdq.units.provider.UnitsEditPlugin;
 
 /**
  * This is the central singleton for the Spdmeasuringpoint edit plugin.
@@ -56,8 +47,8 @@ public final class SpdmeasuringpointEditPlugin extends EMFPlugin {
 	public SpdmeasuringpointEditPlugin() {
 		super(new ResourceLocator[] { EcoreEditPlugin.INSTANCE, EDP2EditPlugin.INSTANCE, IdentifierEditPlugin.INSTANCE,
 				MetricSpecEditPlugin.INSTANCE, PalladioComponentModelEditPlugin.INSTANCE,
-				PcmmeasuringpointEditPlugin.INSTANCE, ProbabilityFunctionEditPlugin.INSTANCE, StoexEditPlugin.INSTANCE,
-				UnitsEditPlugin.INSTANCE, });
+				ProbabilityFunctionEditPlugin.INSTANCE, ScalingPolicyDefinitionEditPlugin.INSTANCE,
+				StoexEditPlugin.INSTANCE, UnitsEditPlugin.INSTANCE, });
 	}
 
 	/**

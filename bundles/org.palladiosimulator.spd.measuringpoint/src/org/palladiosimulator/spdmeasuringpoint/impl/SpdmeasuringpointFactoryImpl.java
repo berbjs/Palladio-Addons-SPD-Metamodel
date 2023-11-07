@@ -5,12 +5,13 @@ package org.palladiosimulator.spdmeasuringpoint.impl;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
-
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
-
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
-
-import org.palladiosimulator.spdmeasuringpoint.*;
+import org.palladiosimulator.spdmeasuringpoint.CompetingConsumerGroupMeasuringPoint;
+import org.palladiosimulator.spdmeasuringpoint.ElasticInfrastructureMeasuringPoint;
+import org.palladiosimulator.spdmeasuringpoint.ServiceGroupMeasuringPoint;
+import org.palladiosimulator.spdmeasuringpoint.SpdmeasuringpointFactory;
+import org.palladiosimulator.spdmeasuringpoint.SpdmeasuringpointPackage;
 
 /**
  * <!-- begin-user-doc -->
@@ -56,10 +57,12 @@ public class SpdmeasuringpointFactoryImpl extends EFactoryImpl implements Spdmea
 	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
-		case SpdmeasuringpointPackage.SPD_RESOURCE_CONTAINER_MEASURING_POINT:
-			return createSPDResourceContainerMeasuringPoint();
-		case SpdmeasuringpointPackage.SPD_ASSEMBLY_CONTEXT_MEASURING_POINT:
-			return createSPDAssemblyContextMeasuringPoint();
+		case SpdmeasuringpointPackage.ELASTIC_INFRASTRUCTURE_MEASURING_POINT:
+			return createElasticInfrastructureMeasuringPoint();
+		case SpdmeasuringpointPackage.SERVICE_GROUP_MEASURING_POINT:
+			return createServiceGroupMeasuringPoint();
+		case SpdmeasuringpointPackage.COMPETING_CONSUMER_GROUP_MEASURING_POINT:
+			return createCompetingConsumerGroupMeasuringPoint();
 		default:
 			throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -70,9 +73,10 @@ public class SpdmeasuringpointFactoryImpl extends EFactoryImpl implements Spdmea
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public SPDResourceContainerMeasuringPoint createSPDResourceContainerMeasuringPoint() {
-		SPDResourceContainerMeasuringPointImpl spdResourceContainerMeasuringPoint = new SPDResourceContainerMeasuringPointImpl();
-		return spdResourceContainerMeasuringPoint;
+	@Override
+	public ElasticInfrastructureMeasuringPoint createElasticInfrastructureMeasuringPoint() {
+		ElasticInfrastructureMeasuringPointImpl elasticInfrastructureMeasuringPoint = new ElasticInfrastructureMeasuringPointImpl();
+		return elasticInfrastructureMeasuringPoint;
 	}
 
 	/**
@@ -80,9 +84,10 @@ public class SpdmeasuringpointFactoryImpl extends EFactoryImpl implements Spdmea
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public SPDAssemblyContextMeasuringPoint createSPDAssemblyContextMeasuringPoint() {
-		SPDAssemblyContextMeasuringPointImpl spdAssemblyContextMeasuringPoint = new SPDAssemblyContextMeasuringPointImpl();
-		return spdAssemblyContextMeasuringPoint;
+	@Override
+	public ServiceGroupMeasuringPoint createServiceGroupMeasuringPoint() {
+		ServiceGroupMeasuringPointImpl serviceGroupMeasuringPoint = new ServiceGroupMeasuringPointImpl();
+		return serviceGroupMeasuringPoint;
 	}
 
 	/**
@@ -90,6 +95,18 @@ public class SpdmeasuringpointFactoryImpl extends EFactoryImpl implements Spdmea
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
+	public CompetingConsumerGroupMeasuringPoint createCompetingConsumerGroupMeasuringPoint() {
+		CompetingConsumerGroupMeasuringPointImpl competingConsumerGroupMeasuringPoint = new CompetingConsumerGroupMeasuringPointImpl();
+		return competingConsumerGroupMeasuringPoint;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public SpdmeasuringpointPackage getSpdmeasuringpointPackage() {
 		return (SpdmeasuringpointPackage) getEPackage();
 	}
