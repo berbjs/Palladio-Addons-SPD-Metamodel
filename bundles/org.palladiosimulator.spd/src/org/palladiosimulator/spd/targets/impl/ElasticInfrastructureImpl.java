@@ -4,6 +4,8 @@
 package org.palladiosimulator.spd.targets.impl;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
+import org.palladiosimulator.pcm.resourceenvironment.ResourceContainer;
 import org.palladiosimulator.pcm.resourceenvironment.ResourceEnvironment;
 import org.palladiosimulator.spd.targets.ElasticInfrastructure;
 import org.palladiosimulator.spd.targets.TargetsPackage;
@@ -17,6 +19,7 @@ import org.palladiosimulator.spd.targets.TargetsPackage;
  * </p>
  * <ul>
  *   <li>{@link org.palladiosimulator.spd.targets.impl.ElasticInfrastructureImpl#getPCM_ResourceEnvironment <em>PCM Resource Environment</em>}</li>
+ *   <li>{@link org.palladiosimulator.spd.targets.impl.ElasticInfrastructureImpl#getUnit <em>Unit</em>}</li>
  * </ul>
  *
  * @generated
@@ -48,18 +51,23 @@ public class ElasticInfrastructureImpl extends TargetGroupImpl implements Elasti
 	 */
 	@Override
 	public ResourceEnvironment getPCM_ResourceEnvironment() {
-		return (ResourceEnvironment) eDynamicGet(TargetsPackage.ELASTIC_INFRASTRUCTURE__PCM_RESOURCE_ENVIRONMENT,
-				TargetsPackage.Literals.ELASTIC_INFRASTRUCTURE__PCM_RESOURCE_ENVIRONMENT, true, true);
+		ResourceEnvironment pcM_ResourceEnvironment = basicGetPCM_ResourceEnvironment();
+		return pcM_ResourceEnvironment != null && pcM_ResourceEnvironment.eIsProxy()
+				? (ResourceEnvironment) eResolveProxy((InternalEObject) pcM_ResourceEnvironment)
+				: pcM_ResourceEnvironment;
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public ResourceEnvironment basicGetPCM_ResourceEnvironment() {
-		return (ResourceEnvironment) eDynamicGet(TargetsPackage.ELASTIC_INFRASTRUCTURE__PCM_RESOURCE_ENVIRONMENT,
-				TargetsPackage.Literals.ELASTIC_INFRASTRUCTURE__PCM_RESOURCE_ENVIRONMENT, false, true);
+		// TODO: implement this method to return the 'PCM Resource Environment' reference
+		// -> do not perform proxy resolution
+		// Ensure that you remove @generated or mark it @generated NOT
+		return this.getUnit().getResourceEnvironment_ResourceContainer();
+//		throw new UnsupportedOperationException();
 	}
 
 	/**
@@ -69,8 +77,65 @@ public class ElasticInfrastructureImpl extends TargetGroupImpl implements Elasti
 	 */
 	@Override
 	public void setPCM_ResourceEnvironment(ResourceEnvironment newPCM_ResourceEnvironment) {
-		eDynamicSet(TargetsPackage.ELASTIC_INFRASTRUCTURE__PCM_RESOURCE_ENVIRONMENT,
-				TargetsPackage.Literals.ELASTIC_INFRASTRUCTURE__PCM_RESOURCE_ENVIRONMENT, newPCM_ResourceEnvironment);
+		// TODO: implement this method to set the 'PCM Resource Environment' reference
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void unsetPCM_ResourceEnvironment() {
+		// TODO: implement this method to unset the 'PCM Resource Environment' reference
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public boolean isSetPCM_ResourceEnvironment() {
+		// TODO: implement this method to return whether the 'PCM Resource Environment' reference is set
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public ResourceContainer getUnit() {
+		return (ResourceContainer) eDynamicGet(TargetsPackage.ELASTIC_INFRASTRUCTURE__UNIT,
+				TargetsPackage.Literals.ELASTIC_INFRASTRUCTURE__UNIT, true, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ResourceContainer basicGetUnit() {
+		return (ResourceContainer) eDynamicGet(TargetsPackage.ELASTIC_INFRASTRUCTURE__UNIT,
+				TargetsPackage.Literals.ELASTIC_INFRASTRUCTURE__UNIT, false, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setUnit(ResourceContainer newUnit) {
+		eDynamicSet(TargetsPackage.ELASTIC_INFRASTRUCTURE__UNIT, TargetsPackage.Literals.ELASTIC_INFRASTRUCTURE__UNIT,
+				newUnit);
 	}
 
 	/**
@@ -85,6 +150,10 @@ public class ElasticInfrastructureImpl extends TargetGroupImpl implements Elasti
 			if (resolve)
 				return getPCM_ResourceEnvironment();
 			return basicGetPCM_ResourceEnvironment();
+		case TargetsPackage.ELASTIC_INFRASTRUCTURE__UNIT:
+			if (resolve)
+				return getUnit();
+			return basicGetUnit();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -100,6 +169,9 @@ public class ElasticInfrastructureImpl extends TargetGroupImpl implements Elasti
 		case TargetsPackage.ELASTIC_INFRASTRUCTURE__PCM_RESOURCE_ENVIRONMENT:
 			setPCM_ResourceEnvironment((ResourceEnvironment) newValue);
 			return;
+		case TargetsPackage.ELASTIC_INFRASTRUCTURE__UNIT:
+			setUnit((ResourceContainer) newValue);
+			return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -113,7 +185,10 @@ public class ElasticInfrastructureImpl extends TargetGroupImpl implements Elasti
 	public void eUnset(int featureID) {
 		switch (featureID) {
 		case TargetsPackage.ELASTIC_INFRASTRUCTURE__PCM_RESOURCE_ENVIRONMENT:
-			setPCM_ResourceEnvironment((ResourceEnvironment) null);
+			unsetPCM_ResourceEnvironment();
+			return;
+		case TargetsPackage.ELASTIC_INFRASTRUCTURE__UNIT:
+			setUnit((ResourceContainer) null);
 			return;
 		}
 		super.eUnset(featureID);
@@ -128,7 +203,9 @@ public class ElasticInfrastructureImpl extends TargetGroupImpl implements Elasti
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 		case TargetsPackage.ELASTIC_INFRASTRUCTURE__PCM_RESOURCE_ENVIRONMENT:
-			return basicGetPCM_ResourceEnvironment() != null;
+			return isSetPCM_ResourceEnvironment();
+		case TargetsPackage.ELASTIC_INFRASTRUCTURE__UNIT:
+			return basicGetUnit() != null;
 		}
 		return super.eIsSet(featureID);
 	}

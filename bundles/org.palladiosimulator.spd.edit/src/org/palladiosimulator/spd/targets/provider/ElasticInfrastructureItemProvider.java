@@ -42,6 +42,7 @@ public class ElasticInfrastructureItemProvider extends TargetGroupItemProvider {
 			super.getPropertyDescriptors(object);
 
 			addPCM_ResourceEnvironmentPropertyDescriptor(object);
+			addUnitPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -60,6 +61,21 @@ public class ElasticInfrastructureItemProvider extends TargetGroupItemProvider {
 						"_UI_ElasticInfrastructure_PCM_ResourceEnvironment_feature", "_UI_ElasticInfrastructure_type"),
 				TargetsPackage.Literals.ELASTIC_INFRASTRUCTURE__PCM_RESOURCE_ENVIRONMENT, true, false, true, null, null,
 				null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Unit feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addUnitPropertyDescriptor(Object object) {
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(), getString("_UI_ElasticInfrastructure_unit_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_ElasticInfrastructure_unit_feature",
+								"_UI_ElasticInfrastructure_type"),
+						TargetsPackage.Literals.ELASTIC_INFRASTRUCTURE__UNIT, true, false, true, null, null, null));
 	}
 
 	/*

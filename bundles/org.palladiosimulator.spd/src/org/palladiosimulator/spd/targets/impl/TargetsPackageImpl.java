@@ -242,6 +242,16 @@ public class TargetsPackageImpl extends EPackageImpl implements TargetsPackage {
 	 * @generated
 	 */
 	@Override
+	public EReference getElasticInfrastructure_Unit() {
+		return (EReference) elasticInfrastructureEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getServiceGroup() {
 		return serviceGroupEClass;
 	}
@@ -311,6 +321,7 @@ public class TargetsPackageImpl extends EPackageImpl implements TargetsPackage {
 
 		elasticInfrastructureEClass = createEClass(ELASTIC_INFRASTRUCTURE);
 		createEReference(elasticInfrastructureEClass, ELASTIC_INFRASTRUCTURE__PCM_RESOURCE_ENVIRONMENT);
+		createEReference(elasticInfrastructureEClass, ELASTIC_INFRASTRUCTURE__UNIT);
 
 		serviceGroupEClass = createEClass(SERVICE_GROUP);
 		createEReference(serviceGroupEClass, SERVICE_GROUP__UNIT_ASSEMBLY);
@@ -372,8 +383,11 @@ public class TargetsPackageImpl extends EPackageImpl implements TargetsPackage {
 				!IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getElasticInfrastructure_PCM_ResourceEnvironment(),
 				theResourceenvironmentPackage.getResourceEnvironment(), null, "PCM_ResourceEnvironment", null, 0, 1,
-				ElasticInfrastructure.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
-				IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+				ElasticInfrastructure.class, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
+				IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEReference(getElasticInfrastructure_Unit(), theResourceenvironmentPackage.getResourceContainer(), null,
+				"unit", null, 0, 1, ElasticInfrastructure.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
+				!IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(serviceGroupEClass, ServiceGroup.class, "ServiceGroup", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
