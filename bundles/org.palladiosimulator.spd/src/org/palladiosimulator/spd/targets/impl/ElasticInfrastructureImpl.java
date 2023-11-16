@@ -67,43 +67,19 @@ public class ElasticInfrastructureImpl extends TargetGroupImpl implements Elasti
 		// -> do not perform proxy resolution
 		// Ensure that you remove @generated or mark it @generated NOT
 		return this.getUnit().getResourceEnvironment_ResourceContainer();
-//		throw new UnsupportedOperationException();
+		//		throw new UnsupportedOperationException();
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void setPCM_ResourceEnvironment(ResourceEnvironment newPCM_ResourceEnvironment) {
-		// TODO: implement this method to set the 'PCM Resource Environment' reference
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void unsetPCM_ResourceEnvironment() {
-		// TODO: implement this method to unset the 'PCM Resource Environment' reference
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public boolean isSetPCM_ResourceEnvironment() {
 		// TODO: implement this method to return whether the 'PCM Resource Environment' reference is set
 		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		return basicGetUnit().getResourceEnvironment_ResourceContainer() != null;
 	}
 
 	/**
@@ -166,9 +142,6 @@ public class ElasticInfrastructureImpl extends TargetGroupImpl implements Elasti
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-		case TargetsPackage.ELASTIC_INFRASTRUCTURE__PCM_RESOURCE_ENVIRONMENT:
-			setPCM_ResourceEnvironment((ResourceEnvironment) newValue);
-			return;
 		case TargetsPackage.ELASTIC_INFRASTRUCTURE__UNIT:
 			setUnit((ResourceContainer) newValue);
 			return;
@@ -184,9 +157,6 @@ public class ElasticInfrastructureImpl extends TargetGroupImpl implements Elasti
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-		case TargetsPackage.ELASTIC_INFRASTRUCTURE__PCM_RESOURCE_ENVIRONMENT:
-			unsetPCM_ResourceEnvironment();
-			return;
 		case TargetsPackage.ELASTIC_INFRASTRUCTURE__UNIT:
 			setUnit((ResourceContainer) null);
 			return;

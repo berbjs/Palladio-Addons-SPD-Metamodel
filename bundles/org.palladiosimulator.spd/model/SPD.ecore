@@ -50,7 +50,7 @@
       </eAnnotations>
       <eStructuralFeatures xsi:type="ecore:EReference" name="PCM_ResourceEnvironment"
           eType="ecore:EClass platform:/plugin/org.palladiosimulator.pcm/model/pcm.ecore#//resourceenvironment/ResourceEnvironment"
-          volatile="true" transient="true" unsettable="true" derived="true"/>
+          changeable="false" volatile="true" transient="true" unsettable="true" derived="true"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="unit" eType="ecore:EClass platform:/plugin/org.palladiosimulator.pcm/model/pcm.ecore#//resourceenvironment/ResourceContainer"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ServiceGroup" eSuperTypes="#//targets/TargetGroup">

@@ -34,45 +34,18 @@ public interface ElasticInfrastructure extends TargetGroup {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>PCM Resource Environment</em>' reference.
 	 * @see #isSetPCM_ResourceEnvironment()
-	 * @see #unsetPCM_ResourceEnvironment()
-	 * @see #setPCM_ResourceEnvironment(ResourceEnvironment)
 	 * @see org.palladiosimulator.spd.targets.TargetsPackage#getElasticInfrastructure_PCM_ResourceEnvironment()
-	 * @model unsettable="true" transient="true" volatile="true" derived="true"
+	 * @model unsettable="true" transient="true" changeable="false" volatile="true" derived="true"
 	 * @generated
 	 */
 	ResourceEnvironment getPCM_ResourceEnvironment();
-
-	/**
-	 * Sets the value of the '{@link org.palladiosimulator.spd.targets.ElasticInfrastructure#getPCM_ResourceEnvironment <em>PCM Resource Environment</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>PCM Resource Environment</em>' reference.
-	 * @see #isSetPCM_ResourceEnvironment()
-	 * @see #unsetPCM_ResourceEnvironment()
-	 * @see #getPCM_ResourceEnvironment()
-	 * @generated
-	 */
-	void setPCM_ResourceEnvironment(ResourceEnvironment value);
-
-	/**
-	 * Unsets the value of the '{@link org.palladiosimulator.spd.targets.ElasticInfrastructure#getPCM_ResourceEnvironment <em>PCM Resource Environment</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #isSetPCM_ResourceEnvironment()
-	 * @see #getPCM_ResourceEnvironment()
-	 * @see #setPCM_ResourceEnvironment(ResourceEnvironment)
-	 * @generated
-	 */
-	void unsetPCM_ResourceEnvironment();
 
 	/**
 	 * Returns whether the value of the '{@link org.palladiosimulator.spd.targets.ElasticInfrastructure#getPCM_ResourceEnvironment <em>PCM Resource Environment</em>}' reference is set.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return whether the value of the '<em>PCM Resource Environment</em>' reference is set.
-	 * @see #unsetPCM_ResourceEnvironment()
 	 * @see #getPCM_ResourceEnvironment()
-	 * @see #setPCM_ResourceEnvironment(ResourceEnvironment)
 	 * @generated
 	 */
 	boolean isSetPCM_ResourceEnvironment();

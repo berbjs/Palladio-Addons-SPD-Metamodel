@@ -88,32 +88,6 @@ public class ElasticInfrastructureTest extends TargetGroupTest {
 	}
 
 	/**
-	 * Tests the '{@link org.palladiosimulator.spd.targets.ElasticInfrastructure#setPCM_ResourceEnvironment(org.palladiosimulator.pcm.resourceenvironment.ResourceEnvironment) <em>PCM Resource Environment</em>}' feature setter.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.palladiosimulator.spd.targets.ElasticInfrastructure#setPCM_ResourceEnvironment(org.palladiosimulator.pcm.resourceenvironment.ResourceEnvironment)
-	 * @generated
-	 */
-	public void testSetPCM_ResourceEnvironment() {
-		// TODO: implement this feature setter test method
-		// Ensure that you remove @generated or mark it @generated NOT
-		fail();
-	}
-
-	/**
-	 * Tests the '{@link org.palladiosimulator.spd.targets.ElasticInfrastructure#unsetPCM_ResourceEnvironment() <em>unsetPCM_ResourceEnvironment()</em>}' method.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.palladiosimulator.spd.targets.ElasticInfrastructure#unsetPCM_ResourceEnvironment()
-	 * @generated
-	 */
-	public void testUnsetPCM_ResourceEnvironment() {
-		// TODO: implement this test method
-		// Ensure that you remove @generated or mark it @generated NOT
-		fail();
-	}
-
-	/**
 	 * Tests the '{@link org.palladiosimulator.spd.targets.ElasticInfrastructure#isSetPCM_ResourceEnvironment() <em>isSetPCM_ResourceEnvironment()</em>}' method.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

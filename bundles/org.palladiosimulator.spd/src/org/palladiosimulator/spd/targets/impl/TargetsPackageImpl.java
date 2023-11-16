@@ -383,7 +383,7 @@ public class TargetsPackageImpl extends EPackageImpl implements TargetsPackage {
 				!IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getElasticInfrastructure_PCM_ResourceEnvironment(),
 				theResourceenvironmentPackage.getResourceEnvironment(), null, "PCM_ResourceEnvironment", null, 0, 1,
-				ElasticInfrastructure.class, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
+				ElasticInfrastructure.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE,
 				IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEReference(getElasticInfrastructure_Unit(), theResourceenvironmentPackage.getResourceContainer(), null,
 				"unit", null, 0, 1, ElasticInfrastructure.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
