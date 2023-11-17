@@ -3,6 +3,7 @@
  */
 package org.palladiosimulator.spd.targets;
 
+import org.palladiosimulator.pcm.resourceenvironment.ResourceContainer;
 import org.palladiosimulator.pcm.resourceenvironment.ResourceEnvironment;
 
 /**
@@ -19,6 +20,7 @@ import org.palladiosimulator.pcm.resourceenvironment.ResourceEnvironment;
  * </p>
  * <ul>
  *   <li>{@link org.palladiosimulator.spd.targets.ElasticInfrastructure#getPCM_ResourceEnvironment <em>PCM Resource Environment</em>}</li>
+ *   <li>{@link org.palladiosimulator.spd.targets.ElasticInfrastructure#getUnit <em>Unit</em>}</li>
  * </ul>
  *
  * @see org.palladiosimulator.spd.targets.TargetsPackage#getElasticInfrastructure()
@@ -31,21 +33,43 @@ public interface ElasticInfrastructure extends TargetGroup {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>PCM Resource Environment</em>' reference.
-	 * @see #setPCM_ResourceEnvironment(ResourceEnvironment)
+	 * @see #isSetPCM_ResourceEnvironment()
 	 * @see org.palladiosimulator.spd.targets.TargetsPackage#getElasticInfrastructure_PCM_ResourceEnvironment()
-	 * @model
+	 * @model unsettable="true" transient="true" changeable="false" volatile="true" derived="true"
 	 * @generated
 	 */
 	ResourceEnvironment getPCM_ResourceEnvironment();
 
 	/**
-	 * Sets the value of the '{@link org.palladiosimulator.spd.targets.ElasticInfrastructure#getPCM_ResourceEnvironment <em>PCM Resource Environment</em>}' reference.
+	 * Returns whether the value of the '{@link org.palladiosimulator.spd.targets.ElasticInfrastructure#getPCM_ResourceEnvironment <em>PCM Resource Environment</em>}' reference is set.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>PCM Resource Environment</em>' reference.
+	 * @return whether the value of the '<em>PCM Resource Environment</em>' reference is set.
 	 * @see #getPCM_ResourceEnvironment()
 	 * @generated
 	 */
-	void setPCM_ResourceEnvironment(ResourceEnvironment value);
+	boolean isSetPCM_ResourceEnvironment();
+
+	/**
+	 * Returns the value of the '<em><b>Unit</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Unit</em>' reference.
+	 * @see #setUnit(ResourceContainer)
+	 * @see org.palladiosimulator.spd.targets.TargetsPackage#getElasticInfrastructure_Unit()
+	 * @model
+	 * @generated
+	 */
+	ResourceContainer getUnit();
+
+	/**
+	 * Sets the value of the '{@link org.palladiosimulator.spd.targets.ElasticInfrastructure#getUnit <em>Unit</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Unit</em>' reference.
+	 * @see #getUnit()
+	 * @generated
+	 */
+	void setUnit(ResourceContainer value);
 
 } // ElasticInfrastructure

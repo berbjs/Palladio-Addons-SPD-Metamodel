@@ -149,13 +149,22 @@ public interface TargetsPackage extends EPackage {
 	int ELASTIC_INFRASTRUCTURE__PCM_RESOURCE_ENVIRONMENT = TARGET_GROUP_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Unit</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ELASTIC_INFRASTRUCTURE__UNIT = TARGET_GROUP_FEATURE_COUNT + 1;
+
+	/**
 	 * The number of structural features of the '<em>Elastic Infrastructure</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ELASTIC_INFRASTRUCTURE_FEATURE_COUNT = TARGET_GROUP_FEATURE_COUNT + 1;
+	int ELASTIC_INFRASTRUCTURE_FEATURE_COUNT = TARGET_GROUP_FEATURE_COUNT + 2;
 
 	/**
 	 * The meta object id for the '{@link org.palladiosimulator.spd.targets.impl.ServiceGroupImpl <em>Service Group</em>}' class.
@@ -310,6 +319,17 @@ public interface TargetsPackage extends EPackage {
 	EReference getElasticInfrastructure_PCM_ResourceEnvironment();
 
 	/**
+	 * Returns the meta object for the reference '{@link org.palladiosimulator.spd.targets.ElasticInfrastructure#getUnit <em>Unit</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Unit</em>'.
+	 * @see org.palladiosimulator.spd.targets.ElasticInfrastructure#getUnit()
+	 * @see #getElasticInfrastructure()
+	 * @generated
+	 */
+	EReference getElasticInfrastructure_Unit();
+
+	/**
 	 * Returns the meta object for class '{@link org.palladiosimulator.spd.targets.ServiceGroup <em>Service Group</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -409,6 +429,14 @@ public interface TargetsPackage extends EPackage {
 		 */
 		EReference ELASTIC_INFRASTRUCTURE__PCM_RESOURCE_ENVIRONMENT = eINSTANCE
 				.getElasticInfrastructure_PCM_ResourceEnvironment();
+
+		/**
+		 * The meta object literal for the '<em><b>Unit</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ELASTIC_INFRASTRUCTURE__UNIT = eINSTANCE.getElasticInfrastructure_Unit();
 
 		/**
 		 * The meta object literal for the '{@link org.palladiosimulator.spd.targets.impl.ServiceGroupImpl <em>Service Group</em>}' class.
