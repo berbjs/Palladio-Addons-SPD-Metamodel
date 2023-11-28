@@ -14,6 +14,5 @@ import org.palladiosimulator.edp2.models.measuringpoint.MeasuringPoint;
  * @model
  * @generated
  */
-public interface ElasticInfrastructureMeasuringPoint
-		extends MeasuringPoint, ElasticInfrastructureCfgReference, ElasticInfrastructureReference {
+public interface ElasticInfrastructureMeasuringPoint extends MeasuringPoint, ElasticInfrastructureReference {
 } // ElasticInfrastructureMeasuringPoint

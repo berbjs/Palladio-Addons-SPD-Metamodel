@@ -8,7 +8,6 @@ import org.eclipse.emf.ecore.provider.EcoreEditPlugin;
 import org.palladiosimulator.edp2.models.ExperimentData.provider.EDP2EditPlugin;
 import org.palladiosimulator.metricspec.provider.MetricSpecEditPlugin;
 import org.palladiosimulator.pcm.core.provider.PalladioComponentModelEditPlugin;
-import org.palladiosimulator.semanticspd.provider.SemanticEditPlugin;
 import org.palladiosimulator.spd.provider.ScalingPolicyDefinitionEditPlugin;
 
 import de.uka.ipd.sdq.identifier.provider.IdentifierEditPlugin;
@@ -49,7 +48,7 @@ public final class SpdmeasuringpointEditPlugin extends EMFPlugin {
 		super(new ResourceLocator[] { EcoreEditPlugin.INSTANCE, EDP2EditPlugin.INSTANCE, IdentifierEditPlugin.INSTANCE,
 				MetricSpecEditPlugin.INSTANCE, PalladioComponentModelEditPlugin.INSTANCE,
 				ProbabilityFunctionEditPlugin.INSTANCE, ScalingPolicyDefinitionEditPlugin.INSTANCE,
-				SemanticEditPlugin.INSTANCE, StoexEditPlugin.INSTANCE, UnitsEditPlugin.INSTANCE, });
+				StoexEditPlugin.INSTANCE, UnitsEditPlugin.INSTANCE, });
 	}
 
 	/**

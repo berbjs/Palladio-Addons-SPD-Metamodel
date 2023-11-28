@@ -42,27 +42,9 @@ public class ElasticInfrastructureMeasuringPointItemProvider extends MeasuringPo
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addElasticInfrastructureCfgPropertyDescriptor(object);
 			addElasticInfrastructurePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
-	}
-
-	/**
-	 * This adds a property descriptor for the Elastic Infrastructure Cfg feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addElasticInfrastructureCfgPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-				getString("_UI_ElasticInfrastructureCfgReference_elasticInfrastructureCfg_feature"),
-				getString("_UI_PropertyDescriptor_description",
-						"_UI_ElasticInfrastructureCfgReference_elasticInfrastructureCfg_feature",
-						"_UI_ElasticInfrastructureCfgReference_type"),
-				SpdmeasuringpointPackage.Literals.ELASTIC_INFRASTRUCTURE_CFG_REFERENCE__ELASTIC_INFRASTRUCTURE_CFG,
-				true, false, true, null, null, null));
 	}
 
 	/**

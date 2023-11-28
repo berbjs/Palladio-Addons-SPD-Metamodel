@@ -94,16 +94,6 @@ public interface SpdmeasuringpointPackage extends EPackage {
 	int ELASTIC_INFRASTRUCTURE_MEASURING_POINT__RESOURCE_URI_REPRESENTATION = MeasuringpointPackage.MEASURING_POINT__RESOURCE_URI_REPRESENTATION;
 
 	/**
-	 * The feature id for the '<em><b>Elastic Infrastructure Cfg</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ELASTIC_INFRASTRUCTURE_MEASURING_POINT__ELASTIC_INFRASTRUCTURE_CFG = MeasuringpointPackage.MEASURING_POINT_FEATURE_COUNT
-			+ 0;
-
-	/**
 	 * The feature id for the '<em><b>Elastic Infrastructure</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -111,7 +101,7 @@ public interface SpdmeasuringpointPackage extends EPackage {
 	 * @ordered
 	 */
 	int ELASTIC_INFRASTRUCTURE_MEASURING_POINT__ELASTIC_INFRASTRUCTURE = MeasuringpointPackage.MEASURING_POINT_FEATURE_COUNT
-			+ 1;
+			+ 0;
 
 	/**
 	 * The number of structural features of the '<em>Elastic Infrastructure Measuring Point</em>' class.
@@ -120,7 +110,7 @@ public interface SpdmeasuringpointPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ELASTIC_INFRASTRUCTURE_MEASURING_POINT_FEATURE_COUNT = MeasuringpointPackage.MEASURING_POINT_FEATURE_COUNT + 2;
+	int ELASTIC_INFRASTRUCTURE_MEASURING_POINT_FEATURE_COUNT = MeasuringpointPackage.MEASURING_POINT_FEATURE_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link org.palladiosimulator.spdmeasuringpoint.impl.ServiceGroupMeasuringPointImpl <em>Service Group Measuring Point</em>}' class.
@@ -319,34 +309,6 @@ public interface SpdmeasuringpointPackage extends EPackage {
 	int COMPETING_CONSUMER_GROUP_REFERENCE_FEATURE_COUNT = 1;
 
 	/**
-	 * The meta object id for the '{@link org.palladiosimulator.spdmeasuringpoint.impl.ElasticInfrastructureCfgReferenceImpl <em>Elastic Infrastructure Cfg Reference</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.palladiosimulator.spdmeasuringpoint.impl.ElasticInfrastructureCfgReferenceImpl
-	 * @see org.palladiosimulator.spdmeasuringpoint.impl.SpdmeasuringpointPackageImpl#getElasticInfrastructureCfgReference()
-	 * @generated
-	 */
-	int ELASTIC_INFRASTRUCTURE_CFG_REFERENCE = 6;
-
-	/**
-	 * The feature id for the '<em><b>Elastic Infrastructure Cfg</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ELASTIC_INFRASTRUCTURE_CFG_REFERENCE__ELASTIC_INFRASTRUCTURE_CFG = 0;
-
-	/**
-	 * The number of structural features of the '<em>Elastic Infrastructure Cfg Reference</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ELASTIC_INFRASTRUCTURE_CFG_REFERENCE_FEATURE_COUNT = 1;
-
-	/**
 	 * Returns the meta object for class '{@link org.palladiosimulator.spdmeasuringpoint.ElasticInfrastructureMeasuringPoint <em>Elastic Infrastructure Measuring Point</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -438,27 +400,6 @@ public interface SpdmeasuringpointPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getCompetingConsumerGroupReference_CompetingConsumerGroup();
-
-	/**
-	 * Returns the meta object for class '{@link org.palladiosimulator.spdmeasuringpoint.ElasticInfrastructureCfgReference <em>Elastic Infrastructure Cfg Reference</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Elastic Infrastructure Cfg Reference</em>'.
-	 * @see org.palladiosimulator.spdmeasuringpoint.ElasticInfrastructureCfgReference
-	 * @generated
-	 */
-	EClass getElasticInfrastructureCfgReference();
-
-	/**
-	 * Returns the meta object for the reference '{@link org.palladiosimulator.spdmeasuringpoint.ElasticInfrastructureCfgReference#getElasticInfrastructureCfg <em>Elastic Infrastructure Cfg</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Elastic Infrastructure Cfg</em>'.
-	 * @see org.palladiosimulator.spdmeasuringpoint.ElasticInfrastructureCfgReference#getElasticInfrastructureCfg()
-	 * @see #getElasticInfrastructureCfgReference()
-	 * @generated
-	 */
-	EReference getElasticInfrastructureCfgReference_ElasticInfrastructureCfg();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -567,25 +508,6 @@ public interface SpdmeasuringpointPackage extends EPackage {
 		 */
 		EReference COMPETING_CONSUMER_GROUP_REFERENCE__COMPETING_CONSUMER_GROUP = eINSTANCE
 				.getCompetingConsumerGroupReference_CompetingConsumerGroup();
-
-		/**
-		 * The meta object literal for the '{@link org.palladiosimulator.spdmeasuringpoint.impl.ElasticInfrastructureCfgReferenceImpl <em>Elastic Infrastructure Cfg Reference</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see org.palladiosimulator.spdmeasuringpoint.impl.ElasticInfrastructureCfgReferenceImpl
-		 * @see org.palladiosimulator.spdmeasuringpoint.impl.SpdmeasuringpointPackageImpl#getElasticInfrastructureCfgReference()
-		 * @generated
-		 */
-		EClass ELASTIC_INFRASTRUCTURE_CFG_REFERENCE = eINSTANCE.getElasticInfrastructureCfgReference();
-
-		/**
-		 * The meta object literal for the '<em><b>Elastic Infrastructure Cfg</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference ELASTIC_INFRASTRUCTURE_CFG_REFERENCE__ELASTIC_INFRASTRUCTURE_CFG = eINSTANCE
-				.getElasticInfrastructureCfgReference_ElasticInfrastructureCfg();
 
 	}
 
