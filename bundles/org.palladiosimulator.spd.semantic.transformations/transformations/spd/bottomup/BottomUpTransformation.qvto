@@ -54,7 +54,12 @@ main() {
 		// Modify infrastructure
 		// *********************
 		var invariantResourceContainers:Set(ResourceContainer) := Set{};		
-		var elasticInfrastructureCfg : ElasticInfrastructureCfg := cfg.targetCfgs[ElasticInfrastructureCfg]->any(true);
+	
+	
+		var elasticInfrastructureCfg : ElasticInfrastructureCfg := cfg.targetCfgs[ElasticInfrastructureCfg]->any(target | target.unit.id = cfg.enactedPolicy.targetGroup.oclAsType(ElasticInfrastructure).unit.id);
+		assert fatal(elasticInfrastructureCfg!=null) with log('No ElasticInfrastructureCfg exist with the same unit on which the policy applies. Please configure the elastic environment appropriatly.');
+			
+	
 		resourceEnvironment.resourceContainer_ResourceEnvironment->forEach(rc){
 			if(elasticInfrastructureCfg.elements->excludes(rc)){
 				invariantResourceContainers += rc;		
@@ -67,12 +72,18 @@ main() {
 		// *******************************
 		// Modify simulated service groups
 		// *******************************
-		cfg.targetCfgs[ServiceGroupCfg]->map transformServiceGroup(cfg.enactedPolicy, elasticInfrastructureCfg, system, allocation);
 		
-		cfg.targetCfgs[CompetingConsumersGroupCfg]->map transformCompetingConsumersGroup(cfg.enactedPolicy, elasticInfrastructureCfg, system, allocation);
+		//** Filter Service Groups and Competing Consumer Groups only for those contained in the unit of the homegenous elastic infrastructure **
+		var allocations : Set(AllocationContext) = allocation.allocationContexts_Allocation->select(alloc | alloc.resourceContainer_AllocationContext.id = elasticInfrastructureCfg.unit.id);
+		var assembliesInUnit : Bag(AssemblyContext) = allocations.assemblyContext_AllocationContext;
+		
+		cfg.targetCfgs[ServiceGroupCfg]->select(cfgs | assembliesInUnit->includes(cfgs.unit))->map transformServiceGroup(cfg.enactedPolicy, elasticInfrastructureCfg, system, allocation);
+		cfg.targetCfgs[CompetingConsumersGroupCfg]->select(cfgs | assembliesInUnit->includes(cfgs.unit))->map transformCompetingConsumersGroup(cfg.enactedPolicy, elasticInfrastructureCfg, system, allocation);
 }
 
 helper homogeneous_environment_assertion(){
+
+	//TODO:: Check that each element of the elastic infra are homegenous, that is: they host replicated services and competing queue consumers
 	
 }
 
