@@ -34,7 +34,7 @@ property loadbalancerAssemblyContextStereotype : String = "LoadbalancerAssemblyC
 property duplicateAssemblyContextStereotype : String = "DuplicateAssemblyContext";
 
 
-property numberOfReplicas : Integer;
+property numberOfReplicas : Integer = 1;
 
 main() {
 	var allocation : Allocation := pcmAllocation.rootObjects()![Allocation];

@@ -91,8 +91,9 @@ mapping inout BranchAction::modifyBranchAction(serviceGroupCfg:ServiceGroupCfg, 
 	init {
 		var newProbabilisticBranches:Set(ProbabilisticBranchTransition) := Set{};
 		newRoles->forEach(role){
+			var existingExtCall : ExternalCallAction := self.branches_Branch.branchBehaviour_BranchTransition.steps_Behaviour[ExternalCallAction]->any(true);
 			var operationSignature:OperationSignature := self.branches_Branch.branchBehaviour_BranchTransition.steps_Behaviour[ExternalCallAction]->any(true).calledService_ExternalService;
-			newProbabilisticBranches += new ProbabilisticBranchTransition(operationSignature,role);
+			newProbabilisticBranches += new ProbabilisticBranchTransition(operationSignature,role,existingExtCall);
 		}	
 	}
 	branches_Branch += newProbabilisticBranches;
