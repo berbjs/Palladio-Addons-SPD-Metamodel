@@ -52,10 +52,10 @@ query OrderedSet(TargetGroupCfg)::retrieveServiceTargetCfgOfPolicy(policy:Scalin
 query TargetGroup::retrieveUnit():AssemblyContext {
 	switch { 
 		case (self.oclIsKindOf(ServiceGroup)) {
-			return self.oclAsType(ServiceGroup).unitAssembly;		
+			return self.oclAsType(ServiceGroup).unitAssembly.oclAsType(AssemblyContext);		
 		} 
 		case (self.oclIsKindOf(CompetingConsumersGroup)) {
-			return self.oclAsType(CompetingConsumersGroup).unitAssembly;
+			return self.oclAsType(CompetingConsumersGroup).unitAssembly.oclAsType(AssemblyContext);
 		} 
 	};
 	return assert fatal (false) with log('cannot retrieve unit assembly for non-services');	
