@@ -53,9 +53,11 @@ main(){
 		
 		var currentNumberOfElements : Integer := serviceTargetCfg.numberOfElements();
 		
+		
 		switch {
 			case (serviceTargetCfg.oclIsKindOf(ServiceGroupCfg)) {
 				serviceTargetCfg.oclAsType(ServiceGroupCfg).map transformServiceGroup(cfg.enactedPolicy, system);
+				
 			};
 			case (serviceTargetCfg.oclIsKindOf(CompetingConsumersGroupCfg)) {
 				serviceTargetCfg.oclAsType(CompetingConsumersGroupCfg).map transformCompetingConsumersGroup(cfg.enactedPolicy, system);
@@ -65,15 +67,44 @@ main(){
 		// *************
 		// Transform Elastic Infrastructure Accordingly 
 		// *************	
+		
+		
+		
+		
+		//** Pick the elastic infrastructure in which the unit of the service is allocated on the unit of the infrastructure.		
+		var unitAssembly : AssemblyContext = serviceTargetCfg.retrieveUnit();
+		var unitResourceContainer : ResourceContainer = allocation.allocationContexts_Allocation->any(alloc | alloc.assemblyContext_AllocationContext.id = unitAssembly.id).resourceContainer_AllocationContext;
+		
+		
+		var elasticInfrastructureCfg : ElasticInfrastructureCfg := cfg.targetCfgs[ElasticInfrastructureCfg]->any(target | target.unit.id = unitResourceContainer.id);
+		assert fatal(elasticInfrastructureCfg!=null) with log('No ElasticInfrastructureCfg exist which its unit hosts the unit of the service group.');
+				
+		
+		// *************
+		// Placement Heuristic
+		// *************
+		
+		// The number of allocations initially hosted on the unit container without load balancing allocations and others not part of service groups.
+		var unitAssemblies : Sequence(AssemblyContext) := cfg.targetCfgs[ServiceGroupCfg].unit->union(cfg.targetCfgs[CompetingConsumersGroupCfg].unit);
+		var serviceAssemblies : Sequence(AssemblyContext) := cfg.targetCfgs[ServiceGroupCfg].elements->union(cfg.targetCfgs[CompetingConsumersGroupCfg].elements);
+		
+		// count only unit assemblies of services allocated on the unit resource container to determine the initial size of service replicas
+		var max_assemblies_per_host : Integer = allocation.allocationContexts_Allocation
+												->select(allocs | allocs.resourceContainer_AllocationContext.id = elasticInfrastructureCfg.unit.id)
+												->select(alloc | unitAssemblies->includes(alloc.assemblyContext_AllocationContext))->size();
+		
+		
+		log("Placement Constraints: Max Assemblies Per Host "+max_assemblies_per_host.toString());
+												
+		
 		var invariantResourceContainers:Set(ResourceContainer) := Set{};		
-		var elasticInfrastructureCfg : ElasticInfrastructureCfg := cfg.targetCfgs[ElasticInfrastructureCfg]->any(true);
 		resourceEnvironment.resourceContainer_ResourceEnvironment->forEach(rc){
 			if(elasticInfrastructureCfg.elements->excludes(rc)){
 				invariantResourceContainers += rc;		
 			};
 		};
 		
-		elasticInfrastructureCfg.map transformElasticInfrastructure(cfg.enactedPolicy, serviceTargetCfg, allocation);
+		elasticInfrastructureCfg.map transformElasticInfrastructure(cfg.enactedPolicy, serviceTargetCfg, allocation, max_assemblies_per_host, serviceAssemblies);
 		allocation.map modifyAllocation(serviceTargetCfg, elasticInfrastructureCfg, serviceTargetCfg.numberOfElements()-currentNumberOfElements);
 		resourceEnvironment.map modifyResourceEnvironment(elasticInfrastructureCfg, invariantResourceContainers);
 }

@@ -34,7 +34,7 @@ property max_assemblies_per_host : Integer = 3;
 * The ElasticInfrastructureCfg is modified by transforming the elements and adding the policy to the enactedPolicies.
 *
 */
-mapping inout ElasticInfrastructureCfg::transformElasticInfrastructure(enactedPolicy:ScalingPolicy, serviceGroupCfg:TargetGroupCfg, allocation:Allocation){
+mapping inout ElasticInfrastructureCfg::transformElasticInfrastructure(enactedPolicy:ScalingPolicy, serviceGroupCfg:TargetGroupCfg, allocation:Allocation, maxAssembliesPerHost:Integer, allServiceAssemblies:Sequence(AssemblyContext)){
 	init{
 		var resourceContainersToAdd:Set(ResourceContainer) := Set{};
 		var resourceContainersToRemove:Set(ResourceContainer) := Set{};
@@ -45,6 +45,11 @@ mapping inout ElasticInfrastructureCfg::transformElasticInfrastructure(enactedPo
 		
 		var allocationsTotal:Set(AllocationContext) := allocation.allocationContexts_Allocation->select(alloc | self.elements->includes(alloc.resourceContainer_AllocationContext));
 		var allocationsOfService:Set(AllocationContext) := allocation.allocationContexts_Allocation->select(alloc | serviceGroupAssemblies->includes(alloc.assemblyContext_AllocationContext));
+		
+		var allocationsInUnit:Set(AllocationContext) := allocation.allocationContexts_Allocation->select(alloc | self.unit.id = alloc.resourceContainer_AllocationContext.id);
+		
+		this.max_assemblies_per_host := maxAssembliesPerHost;
+		
 		
 		/* 
 		* in case allocations match elements then no scale out has happened, 
@@ -61,10 +66,15 @@ mapping inout ElasticInfrastructureCfg::transformElasticInfrastructure(enactedPo
 			// scale out infrastructure if needed
 			// create new if the diff cannot be accomodated considering the constraint which currently is fixed in the script to 3. See max_assemblies_per_host.
 			
-			var currentAllocations:Integer := allocation.allocationContexts_Allocation->select(alloc | self.elements->includes(alloc.resourceContainer_AllocationContext))->size();
+			// Note: current service allocations is the number of allocations of configured elastic services, assemblies that reside in the infrastructure that do not co-scale are not taken into account.
+			var currentServiceAllocations:Integer := allocation.allocationContexts_Allocation
+												->select(alloc | self.elements->includes(alloc.resourceContainer_AllocationContext))
+												->select(alloc | allServiceAssemblies->includes(alloc.assemblyContext_AllocationContext))
+												->size();
+												
 			var newElements:Integer := serviceGroupCfg.numberOfElements() - allocationsOfService->size();
 			
-			var totalAllocationsAfterAdjustment:Integer := currentAllocations+newElements;
+			var totalAllocationsAfterAdjustment:Integer := currentServiceAllocations+newElements;
 			
 			//placement constraints
 			var numberOfContainers:Integer := totalAllocationsAfterAdjustment.div(max_assemblies_per_host);
