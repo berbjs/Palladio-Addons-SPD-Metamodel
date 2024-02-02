@@ -177,6 +177,37 @@ constructor BasicComponent :: BasicComponent (loadBalancedComponent : Repository
 	}
 }
 
+
+/*
+* Constructor of PBT that also copies the children of the ExternalCallAction i.e., variable characterizations.
+*/
+constructor ProbabilisticBranchTransition :: ProbabilisticBranchTransition (operationSignature:OperationSignature, reqRole:OperationRequiredRole, originalExtCallAction : ExternalCallAction) {
+	entityName := "Branch for "+ reqRole.entityName;
+	branchProbability := 1.0;
+	log('size of inputvar '+ originalExtCallAction.inputVariableUsages__CallAction->size().toString());
+    branchBehaviour_BranchTransition := object ResourceDemandingBehaviour{
+    	var innerStartAction : StartAction := object StartAction{};
+    	var delegatingExternalCallAction : ExternalCallAction := object ExternalCallAction{
+    		predecessor_AbstractAction := innerStartAction;
+    		entityName := "Call "+ operationSignature.entityName;
+    		role_ExternalService := reqRole;
+    		calledService_ExternalService := operationSignature;
+    		inputVariableUsages__CallAction := originalExtCallAction.inputVariableUsages__CallAction.deepclone();
+    		
+    	};
+    	var innerStopAction : StopAction := object StopAction{
+			predecessor_AbstractAction := delegatingExternalCallAction;
+		};
+		
+		
+		steps_Behaviour += innerStartAction;
+		steps_Behaviour += delegatingExternalCallAction;
+		steps_Behaviour += innerStopAction;
+    };
+}
+
+
+
 constructor ProbabilisticBranchTransition :: ProbabilisticBranchTransition (operationSignature:OperationSignature, reqRole:OperationRequiredRole) {
 	entityName := "Branch for "+ reqRole.entityName;
 	branchProbability := 1.0;
@@ -197,6 +228,9 @@ constructor ProbabilisticBranchTransition :: ProbabilisticBranchTransition (oper
 		steps_Behaviour += innerStopAction;
     };
 }
+
+
+
 
 constructor BranchTransition :: BranchTransition (operationSignature:OperationSignature, providedRole:OperationProvidedRole) {
 	branchProbability := 1.0;
