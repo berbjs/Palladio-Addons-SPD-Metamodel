@@ -11,9 +11,16 @@
 	<packaging>pom</packaging>
 	
 	<modules>
-			<module>org.palladiosimulator.spd</module>
-			<module>org.palladiosimulator.spd.edit</module>
-			<module>org.palladiosimulator.spd.editor</module>
+		<module>org.palladiosimulator.spd</module>
+		<module>org.palladiosimulator.spd.edit</module>
+		<module>org.palladiosimulator.spd.editor</module>
+		<module>org.palladiosimulator.spd.measuringpoint</module>
+		<module>org.palladiosimulator.spd.measuringpoint.edit</module>
+		<module>org.palladiosimulator.spd.measuringpoint.editor</module>
+		<module>org.palladiosimulator.spd.semantic</module>
+		<module>org.palladiosimulator.spd.semantic.edit</module>
+		<module>org.palladiosimulator.spd.semantic.editor</module>
+		<module>org.palladiosimulator.spd.semantic.transformations</module>
 	</modules>
 	
 </project>
