@@ -1,2 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<site> </site>
+<site>
+   <feature url="features/org.palladiosimulator.spd.feature_1.0.0.qualifier.jar" id="org.palladiosimulator.spd.feature" version="1.0.0.qualifier">
+      <category name="org.palladiosimulator.addons.category"/>
+   </feature>
+   <category-def name="org.palladiosimulator.addons.category" label="Palladio Bench Addons">
+      <description>
+         Palladio Bench Addons
+      </description>
+   </category-def>
+</site>
