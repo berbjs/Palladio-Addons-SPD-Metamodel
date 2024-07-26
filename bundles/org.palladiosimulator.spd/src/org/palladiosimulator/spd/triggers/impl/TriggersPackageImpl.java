@@ -28,6 +28,7 @@ import org.palladiosimulator.spd.triggers.ComposedTrigger;
 import org.palladiosimulator.spd.triggers.LogicalOperator;
 import org.palladiosimulator.spd.triggers.RelationalOperator;
 import org.palladiosimulator.spd.triggers.ScalingTrigger;
+import org.palladiosimulator.spd.triggers.SimpleFireOnOutput;
 import org.palladiosimulator.spd.triggers.SimpleFireOnTrend;
 import org.palladiosimulator.spd.triggers.SimpleFireOnValue;
 import org.palladiosimulator.spd.triggers.TrendPattern;
@@ -84,6 +85,13 @@ public class TriggersPackageImpl extends EPackageImpl implements TriggersPackage
 	 * @generated
 	 */
 	private EClass simpleFireOnTrendEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass simpleFireOnOutputEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -354,6 +362,16 @@ public class TriggersPackageImpl extends EPackageImpl implements TriggersPackage
 	 * @generated
 	 */
 	@Override
+	public EClass getSimpleFireOnOutput() {
+		return simpleFireOnOutputEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EEnum getAGGREGATIONMETHOD() {
 		return aggregationmethodEEnum;
 	}
@@ -453,6 +471,8 @@ public class TriggersPackageImpl extends EPackageImpl implements TriggersPackage
 
 		simpleFireOnTrendEClass = createEClass(SIMPLE_FIRE_ON_TREND);
 
+		simpleFireOnOutputEClass = createEClass(SIMPLE_FIRE_ON_OUTPUT);
+
 		// Create enums
 		aggregationmethodEEnum = createEEnum(AGGREGATIONMETHOD);
 		hddusagetypeEEnum = createEEnum(HDDUSAGETYPE);
@@ -508,6 +528,7 @@ public class TriggersPackageImpl extends EPackageImpl implements TriggersPackage
 		composedTriggerEClass.getESuperTypes().add(this.getScalingTrigger());
 		simpleFireOnValueEClass.getESuperTypes().add(this.getBaseTrigger());
 		simpleFireOnTrendEClass.getESuperTypes().add(this.getBaseTrigger());
+		simpleFireOnOutputEClass.getESuperTypes().add(this.getBaseTrigger());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(scalingTriggerEClass, ScalingTrigger.class, "ScalingTrigger", IS_ABSTRACT, !IS_INTERFACE,
@@ -539,6 +560,9 @@ public class TriggersPackageImpl extends EPackageImpl implements TriggersPackage
 
 		initEClass(simpleFireOnTrendEClass, SimpleFireOnTrend.class, "SimpleFireOnTrend", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(simpleFireOnOutputEClass, SimpleFireOnOutput.class, "SimpleFireOnOutput", !IS_ABSTRACT,
+				!IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		// Initialize enums and add enum literals
 		initEEnum(aggregationmethodEEnum, org.palladiosimulator.spd.triggers.AGGREGATIONMETHOD.class,

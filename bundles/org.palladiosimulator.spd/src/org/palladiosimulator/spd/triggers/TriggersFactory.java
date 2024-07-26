@@ -50,6 +50,15 @@ public interface TriggersFactory extends EFactory {
 	SimpleFireOnTrend createSimpleFireOnTrend();
 
 	/**
+	 * Returns a new object of class '<em>Simple Fire On Output</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Simple Fire On Output</em>'.
+	 * @generated
+	 */
+	SimpleFireOnOutput createSimpleFireOnOutput();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

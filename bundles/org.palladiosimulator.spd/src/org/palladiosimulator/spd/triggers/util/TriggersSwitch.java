@@ -9,6 +9,7 @@ import org.eclipse.emf.ecore.util.Switch;
 import org.palladiosimulator.spd.triggers.BaseTrigger;
 import org.palladiosimulator.spd.triggers.ComposedTrigger;
 import org.palladiosimulator.spd.triggers.ScalingTrigger;
+import org.palladiosimulator.spd.triggers.SimpleFireOnOutput;
 import org.palladiosimulator.spd.triggers.SimpleFireOnTrend;
 import org.palladiosimulator.spd.triggers.SimpleFireOnValue;
 import org.palladiosimulator.spd.triggers.TriggersPackage;
@@ -129,6 +130,19 @@ public class TriggersSwitch<T> extends Switch<T> {
 				result = defaultCase(theEObject);
 			return result;
 		}
+		case TriggersPackage.SIMPLE_FIRE_ON_OUTPUT: {
+			SimpleFireOnOutput simpleFireOnOutput = (SimpleFireOnOutput) theEObject;
+			T result = caseSimpleFireOnOutput(simpleFireOnOutput);
+			if (result == null)
+				result = caseBaseTrigger(simpleFireOnOutput);
+			if (result == null)
+				result = caseScalingTrigger(simpleFireOnOutput);
+			if (result == null)
+				result = caseIdentifier(simpleFireOnOutput);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
 		default:
 			return defaultCase(theEObject);
 		}
@@ -206,6 +220,21 @@ public class TriggersSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseSimpleFireOnTrend(SimpleFireOnTrend object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Simple Fire On Output</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Simple Fire On Output</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseSimpleFireOnOutput(SimpleFireOnOutput object) {
 		return null;
 	}
 

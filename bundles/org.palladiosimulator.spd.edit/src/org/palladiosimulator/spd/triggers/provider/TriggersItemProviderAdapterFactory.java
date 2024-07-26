@@ -141,6 +141,29 @@ public class TriggersItemProviderAdapterFactory extends TriggersAdapterFactory
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link org.palladiosimulator.spd.triggers.SimpleFireOnOutput} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected SimpleFireOnOutputItemProvider simpleFireOnOutputItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.palladiosimulator.spd.triggers.SimpleFireOnOutput}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createSimpleFireOnOutputAdapter() {
+		if (simpleFireOnOutputItemProvider == null) {
+			simpleFireOnOutputItemProvider = new SimpleFireOnOutputItemProvider(this);
+		}
+
+		return simpleFireOnOutputItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -251,6 +274,8 @@ public class TriggersItemProviderAdapterFactory extends TriggersAdapterFactory
 			simpleFireOnValueItemProvider.dispose();
 		if (simpleFireOnTrendItemProvider != null)
 			simpleFireOnTrendItemProvider.dispose();
+		if (simpleFireOnOutputItemProvider != null)
+			simpleFireOnOutputItemProvider.dispose();
 	}
 
 }

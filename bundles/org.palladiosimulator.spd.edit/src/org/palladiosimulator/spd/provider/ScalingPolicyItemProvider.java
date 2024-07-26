@@ -200,6 +200,9 @@ public class ScalingPolicyItemProvider extends EntityItemProvider {
 
 		newChildDescriptors.add(createChildParameter(SpdPackage.Literals.SCALING_POLICY__SCALING_TRIGGER,
 				TriggersFactory.eINSTANCE.createSimpleFireOnTrend()));
+
+		newChildDescriptors.add(createChildParameter(SpdPackage.Literals.SCALING_POLICY__SCALING_TRIGGER,
+				TriggersFactory.eINSTANCE.createSimpleFireOnOutput()));
 	}
 
 	/**

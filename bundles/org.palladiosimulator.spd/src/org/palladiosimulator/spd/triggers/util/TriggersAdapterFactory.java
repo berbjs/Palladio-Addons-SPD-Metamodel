@@ -10,6 +10,7 @@ import org.eclipse.emf.ecore.EObject;
 import org.palladiosimulator.spd.triggers.BaseTrigger;
 import org.palladiosimulator.spd.triggers.ComposedTrigger;
 import org.palladiosimulator.spd.triggers.ScalingTrigger;
+import org.palladiosimulator.spd.triggers.SimpleFireOnOutput;
 import org.palladiosimulator.spd.triggers.SimpleFireOnTrend;
 import org.palladiosimulator.spd.triggers.SimpleFireOnValue;
 import org.palladiosimulator.spd.triggers.TriggersPackage;
@@ -94,6 +95,11 @@ public class TriggersAdapterFactory extends AdapterFactoryImpl {
 		@Override
 		public Adapter caseSimpleFireOnTrend(SimpleFireOnTrend object) {
 			return createSimpleFireOnTrendAdapter();
+		}
+
+		@Override
+		public Adapter caseSimpleFireOnOutput(SimpleFireOnOutput object) {
+			return createSimpleFireOnOutputAdapter();
 		}
 
 		@Override
@@ -187,6 +193,20 @@ public class TriggersAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createSimpleFireOnTrendAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.palladiosimulator.spd.triggers.SimpleFireOnOutput <em>Simple Fire On Output</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.palladiosimulator.spd.triggers.SimpleFireOnOutput
+	 * @generated
+	 */
+	public Adapter createSimpleFireOnOutputAdapter() {
 		return null;
 	}
 

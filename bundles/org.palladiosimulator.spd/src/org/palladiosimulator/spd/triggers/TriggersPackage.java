@@ -281,6 +281,52 @@ public interface TriggersPackage extends EPackage {
 	int SIMPLE_FIRE_ON_TREND_FEATURE_COUNT = BASE_TRIGGER_FEATURE_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link org.palladiosimulator.spd.triggers.impl.SimpleFireOnOutputImpl <em>Simple Fire On Output</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.palladiosimulator.spd.triggers.impl.SimpleFireOnOutputImpl
+	 * @see org.palladiosimulator.spd.triggers.impl.TriggersPackageImpl#getSimpleFireOnOutput()
+	 * @generated
+	 */
+	int SIMPLE_FIRE_ON_OUTPUT = 5;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SIMPLE_FIRE_ON_OUTPUT__ID = BASE_TRIGGER__ID;
+
+	/**
+	 * The feature id for the '<em><b>Stimulus</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SIMPLE_FIRE_ON_OUTPUT__STIMULUS = BASE_TRIGGER__STIMULUS;
+
+	/**
+	 * The feature id for the '<em><b>Expected Value</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SIMPLE_FIRE_ON_OUTPUT__EXPECTED_VALUE = BASE_TRIGGER__EXPECTED_VALUE;
+
+	/**
+	 * The number of structural features of the '<em>Simple Fire On Output</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SIMPLE_FIRE_ON_OUTPUT_FEATURE_COUNT = BASE_TRIGGER_FEATURE_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link org.palladiosimulator.spd.triggers.AGGREGATIONMETHOD <em>AGGREGATIONMETHOD</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -288,7 +334,7 @@ public interface TriggersPackage extends EPackage {
 	 * @see org.palladiosimulator.spd.triggers.impl.TriggersPackageImpl#getAGGREGATIONMETHOD()
 	 * @generated
 	 */
-	int AGGREGATIONMETHOD = 5;
+	int AGGREGATIONMETHOD = 6;
 
 	/**
 	 * The meta object id for the '{@link org.palladiosimulator.spd.triggers.HDDUSAGETYPE <em>HDDUSAGETYPE</em>}' enum.
@@ -298,7 +344,7 @@ public interface TriggersPackage extends EPackage {
 	 * @see org.palladiosimulator.spd.triggers.impl.TriggersPackageImpl#getHDDUSAGETYPE()
 	 * @generated
 	 */
-	int HDDUSAGETYPE = 6;
+	int HDDUSAGETYPE = 7;
 
 	/**
 	 * The meta object id for the '{@link org.palladiosimulator.spd.triggers.NETWORKUSAGETYPE <em>NETWORKUSAGETYPE</em>}' enum.
@@ -308,7 +354,7 @@ public interface TriggersPackage extends EPackage {
 	 * @see org.palladiosimulator.spd.triggers.impl.TriggersPackageImpl#getNETWORKUSAGETYPE()
 	 * @generated
 	 */
-	int NETWORKUSAGETYPE = 7;
+	int NETWORKUSAGETYPE = 8;
 
 	/**
 	 * The meta object id for the '{@link org.palladiosimulator.spd.triggers.LogicalOperator <em>Logical Operator</em>}' enum.
@@ -318,7 +364,7 @@ public interface TriggersPackage extends EPackage {
 	 * @see org.palladiosimulator.spd.triggers.impl.TriggersPackageImpl#getLogicalOperator()
 	 * @generated
 	 */
-	int LOGICAL_OPERATOR = 8;
+	int LOGICAL_OPERATOR = 9;
 
 	/**
 	 * The meta object id for the '{@link org.palladiosimulator.spd.triggers.RelationalOperator <em>Relational Operator</em>}' enum.
@@ -328,7 +374,7 @@ public interface TriggersPackage extends EPackage {
 	 * @see org.palladiosimulator.spd.triggers.impl.TriggersPackageImpl#getRelationalOperator()
 	 * @generated
 	 */
-	int RELATIONAL_OPERATOR = 9;
+	int RELATIONAL_OPERATOR = 10;
 
 	/**
 	 * The meta object id for the '{@link org.palladiosimulator.spd.triggers.TrendPattern <em>Trend Pattern</em>}' enum.
@@ -338,7 +384,7 @@ public interface TriggersPackage extends EPackage {
 	 * @see org.palladiosimulator.spd.triggers.impl.TriggersPackageImpl#getTrendPattern()
 	 * @generated
 	 */
-	int TREND_PATTERN = 10;
+	int TREND_PATTERN = 11;
 
 	/**
 	 * Returns the meta object for class '{@link org.palladiosimulator.spd.triggers.ScalingTrigger <em>Scaling Trigger</em>}'.
@@ -444,6 +490,16 @@ public interface TriggersPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getSimpleFireOnTrend();
+
+	/**
+	 * Returns the meta object for class '{@link org.palladiosimulator.spd.triggers.SimpleFireOnOutput <em>Simple Fire On Output</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Simple Fire On Output</em>'.
+	 * @see org.palladiosimulator.spd.triggers.SimpleFireOnOutput
+	 * @generated
+	 */
+	EClass getSimpleFireOnOutput();
 
 	/**
 	 * Returns the meta object for enum '{@link org.palladiosimulator.spd.triggers.AGGREGATIONMETHOD <em>AGGREGATIONMETHOD</em>}'.
@@ -616,6 +672,16 @@ public interface TriggersPackage extends EPackage {
 		 * @generated
 		 */
 		EClass SIMPLE_FIRE_ON_TREND = eINSTANCE.getSimpleFireOnTrend();
+
+		/**
+		 * The meta object literal for the '{@link org.palladiosimulator.spd.triggers.impl.SimpleFireOnOutputImpl <em>Simple Fire On Output</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.palladiosimulator.spd.triggers.impl.SimpleFireOnOutputImpl
+		 * @see org.palladiosimulator.spd.triggers.impl.TriggersPackageImpl#getSimpleFireOnOutput()
+		 * @generated
+		 */
+		EClass SIMPLE_FIRE_ON_OUTPUT = eINSTANCE.getSimpleFireOnOutput();
 
 		/**
 		 * The meta object literal for the '{@link org.palladiosimulator.spd.triggers.AGGREGATIONMETHOD <em>AGGREGATIONMETHOD</em>}' enum.

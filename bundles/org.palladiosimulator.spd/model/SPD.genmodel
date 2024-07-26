@@ -134,6 +134,7 @@
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SPD.ecore#//triggers/SimpleFireOnValue/relationalOperator"/>
       </genClasses>
       <genClasses ecoreClass="SPD.ecore#//triggers/SimpleFireOnTrend"/>
+      <genClasses ecoreClass="SPD.ecore#//triggers/SimpleFireOnOutput"/>
       <nestedGenPackages prefix="Stimuli" basePackage="org.palladiosimulator.spd.triggers"
           disposableProviderFactory="true" ecorePackage="SPD.ecore#//triggers/stimuli">
         <genClasses image="false" ecoreClass="SPD.ecore#//triggers/stimuli/Stimulus"/>

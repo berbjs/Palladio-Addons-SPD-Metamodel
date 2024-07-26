@@ -15,6 +15,7 @@ import org.palladiosimulator.spd.triggers.HDDUSAGETYPE;
 import org.palladiosimulator.spd.triggers.LogicalOperator;
 import org.palladiosimulator.spd.triggers.NETWORKUSAGETYPE;
 import org.palladiosimulator.spd.triggers.RelationalOperator;
+import org.palladiosimulator.spd.triggers.SimpleFireOnOutput;
 import org.palladiosimulator.spd.triggers.SimpleFireOnTrend;
 import org.palladiosimulator.spd.triggers.SimpleFireOnValue;
 import org.palladiosimulator.spd.triggers.TrendPattern;
@@ -71,6 +72,8 @@ public class TriggersFactoryImpl extends EFactoryImpl implements TriggersFactory
 			return createSimpleFireOnValue();
 		case TriggersPackage.SIMPLE_FIRE_ON_TREND:
 			return createSimpleFireOnTrend();
+		case TriggersPackage.SIMPLE_FIRE_ON_OUTPUT:
+			return createSimpleFireOnOutput();
 		default:
 			throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -157,6 +160,17 @@ public class TriggersFactoryImpl extends EFactoryImpl implements TriggersFactory
 	public SimpleFireOnTrend createSimpleFireOnTrend() {
 		SimpleFireOnTrendImpl simpleFireOnTrend = new SimpleFireOnTrendImpl();
 		return simpleFireOnTrend;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public SimpleFireOnOutput createSimpleFireOnOutput() {
+		SimpleFireOnOutputImpl simpleFireOnOutput = new SimpleFireOnOutputImpl();
+		return simpleFireOnOutput;
 	}
 
 	/**

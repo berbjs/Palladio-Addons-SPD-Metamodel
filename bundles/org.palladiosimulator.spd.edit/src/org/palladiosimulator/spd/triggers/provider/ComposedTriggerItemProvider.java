@@ -161,6 +161,9 @@ public class ComposedTriggerItemProvider extends ScalingTriggerItemProvider {
 
 		newChildDescriptors.add(createChildParameter(TriggersPackage.Literals.COMPOSED_TRIGGER__SCALINGTRIGGER,
 				TriggersFactory.eINSTANCE.createSimpleFireOnTrend()));
+
+		newChildDescriptors.add(createChildParameter(TriggersPackage.Literals.COMPOSED_TRIGGER__SCALINGTRIGGER,
+				TriggersFactory.eINSTANCE.createSimpleFireOnOutput()));
 	}
 
 }
