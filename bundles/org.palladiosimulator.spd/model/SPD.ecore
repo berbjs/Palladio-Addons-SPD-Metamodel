@@ -125,12 +125,22 @@
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="The ModelBasedAdjustment denotes that the group will be adjusted based on a model"/>
       </eAnnotations>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="usedModel" eType="#//adjustments/models/BaseModel"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="usedModel" lowerBound="1"
+          eType="#//adjustments/models/BaseModel" containment="true"/>
     </eClassifiers>
     <eSubpackages name="models" nsURI="http://palladiosimulator.org/ScalingPolicyDefinition/Adjustments/Models/1.0"
         nsPrefix="models">
-      <eClassifiers xsi:type="ecore:EClass" name="BaseModel" abstract="true" eSuperTypes="platform:/plugin/de.uka.ipd.sdq.identifier/model/identifier.ecore#//Identifier"/>
+      <eClassifiers xsi:type="ecore:EClass" name="BaseModel" abstract="true" eSuperTypes="platform:/plugin/de.uka.ipd.sdq.identifier/model/identifier.ecore#//Identifier">
+        <eStructuralFeatures xsi:type="ecore:EAttribute" name="interval" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"
+            defaultValueLiteral="1.0"/>
+        <eStructuralFeatures xsi:type="ecore:EAttribute" name="initalIntervalDelay"
+            eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EDouble"
+            defaultValueLiteral="0"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" name="inputs" ordered="false"
+            upperBound="-1" eType="#//triggers/stimuli/Stimulus"/>
+      </eClassifiers>
       <eClassifiers xsi:type="ecore:EClass" name="QThresholdsModel" eSuperTypes="#//adjustments/models/BaseModel"/>
+      <eClassifiers xsi:type="ecore:EClass" name="RandomModel" eSuperTypes="#//adjustments/models/BaseModel"/>
     </eSubpackages>
   </eSubpackages>
   <eSubpackages name="constraints" nsURI="http://palladiosimulator.org/ScalingPolicyDefinition/Constraints/1.0"
@@ -275,10 +285,18 @@
         <details key="documentation" value="The SimpleFireOnTrend trigger is a more advanced trigger that aggregates values and determines a trend and fires whenever this trend is as an expectedTrend value. "/>
       </eAnnotations>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="SimpleFireOnOutput" eSuperTypes="#//triggers/BaseTrigger">
+    <eClassifiers xsi:type="ecore:EClass" name="SimpleFireOnOutput" eSuperTypes="#//triggers/ScalingTrigger">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="New Trigger that uses RL agent or NN"/>
       </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="stimulus" lowerBound="1"
+          upperBound="-1" eType="#//triggers/stimuli/Stimulus" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="expectedValue" lowerBound="1"
+          eType="#//triggers/expectations/ExpectedValue" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EEnum" name="StimulusTimeAggregationMethod">
+      <eLiterals name="LastPeriodAverage"/>
+      <eLiterals name="RateOfChange" value="1"/>
     </eClassifiers>
     <eSubpackages name="stimuli" nsURI="http://palladiosimulator.org/ScalingPolicyDefinition/Triggers/Stimuli/1.0"
         nsPrefix="stimuli">
@@ -376,6 +394,18 @@
             <details key="documentation" value="The type of network usage."/>
           </eAnnotations>
         </eStructuralFeatures>
+      </eClassifiers>
+      <eClassifiers xsi:type="ecore:EClass" name="AggregatedStimulus" eSuperTypes="#//triggers/stimuli/Stimulus">
+        <eStructuralFeatures xsi:type="ecore:EAttribute" name="aggregationOverTime"
+            lowerBound="1" eType="#//triggers/StimulusTimeAggregationMethod"/>
+        <eStructuralFeatures xsi:type="ecore:EAttribute" name="aggregationPeriod"
+            eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EInt">
+          <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+            <details key="documentation" value="Not necessarily present - if it is not present, than the interval given to the model / trigger should be used"/>
+          </eAnnotations>
+        </eStructuralFeatures>
+        <eStructuralFeatures xsi:type="ecore:EReference" name="aggregatedStimulus"
+            lowerBound="1" eType="#//triggers/stimuli/Stimulus" containment="true"/>
       </eClassifiers>
     </eSubpackages>
     <eSubpackages name="expectations" nsURI="http://palladiosimulator.org/ScalingPolicyDefinition/Triggers/Expectations/1.0"
