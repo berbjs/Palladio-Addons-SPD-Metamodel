@@ -62,11 +62,18 @@
         <genClasses image="false" ecoreClass="SPD.ecore#//adjustments/models/BaseModel">
           <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SPD.ecore#//adjustments/models/BaseModel/interval"/>
           <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SPD.ecore#//adjustments/models/BaseModel/initalIntervalDelay"/>
-          <genFeatures notify="false" createChild="false" propertySortChoices="true"
-              ecoreFeature="ecore:EReference SPD.ecore#//adjustments/models/BaseModel/inputs"/>
+          <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SPD.ecore#//adjustments/models/BaseModel/reward"/>
         </genClasses>
         <genClasses ecoreClass="SPD.ecore#//adjustments/models/QThresholdsModel"/>
         <genClasses ecoreClass="SPD.ecore#//adjustments/models/RandomModel"/>
+        <nestedGenPackages prefix="Rewards" disposableProviderFactory="true" ecorePackage="SPD.ecore#//adjustments/models/rewards">
+          <genClasses ecoreClass="SPD.ecore#//adjustments/models/rewards/BaseReward"/>
+          <genClasses ecoreClass="SPD.ecore#//adjustments/models/rewards/AggregatedReward">
+            <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SPD.ecore#//adjustments/models/rewards/AggregatedReward/reward"/>
+            <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SPD.ecore#//adjustments/models/rewards/AggregatedReward/factor"/>
+          </genClasses>
+          <genClasses ecoreClass="SPD.ecore#//adjustments/models/rewards/SLOReward"/>
+        </nestedGenPackages>
       </nestedGenPackages>
     </nestedGenPackages>
     <nestedGenPackages prefix="Constraints" basePackage="org.palladiosimulator.spd"
@@ -209,5 +216,351 @@
         </genClasses>
       </nestedGenPackages>
     </nestedGenPackages>
+  </genPackages>
+  <genPackages prefix="Servicelevelobjective" ecorePackage="platform:/plugin/org.palladiosimulator.servicelevelobjective/model/servicelevelobjective.ecore#/">
+    <genClasses ecoreClass="platform:/plugin/org.palladiosimulator.servicelevelobjective/model/servicelevelobjective.ecore#//ServiceLevelObjectiveRepository">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference platform:/plugin/org.palladiosimulator.servicelevelobjective/model/servicelevelobjective.ecore#//ServiceLevelObjectiveRepository/servicelevelobjectives"/>
+    </genClasses>
+    <genClasses ecoreClass="platform:/plugin/org.palladiosimulator.servicelevelobjective/model/servicelevelobjective.ecore#//ServiceLevelObjective">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/plugin/org.palladiosimulator.servicelevelobjective/model/servicelevelobjective.ecore#//ServiceLevelObjective/description"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference platform:/plugin/org.palladiosimulator.servicelevelobjective/model/servicelevelobjective.ecore#//ServiceLevelObjective/lowerThreshold"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference platform:/plugin/org.palladiosimulator.servicelevelobjective/model/servicelevelobjective.ecore#//ServiceLevelObjective/upperThreshold"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference platform:/plugin/org.palladiosimulator.servicelevelobjective/model/servicelevelobjective.ecore#//ServiceLevelObjective/measurementSpecification"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="platform:/plugin/org.palladiosimulator.servicelevelobjective/model/servicelevelobjective.ecore#//Threshold">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/plugin/org.palladiosimulator.servicelevelobjective/model/servicelevelobjective.ecore#//Threshold/thresholdLimit"/>
+    </genClasses>
+    <genClasses ecoreClass="platform:/plugin/org.palladiosimulator.servicelevelobjective/model/servicelevelobjective.ecore#//HardThreshold"/>
+    <genClasses ecoreClass="platform:/plugin/org.palladiosimulator.servicelevelobjective/model/servicelevelobjective.ecore#//LinearFuzzyThreshold"/>
+    <genClasses ecoreClass="platform:/plugin/org.palladiosimulator.servicelevelobjective/model/servicelevelobjective.ecore#//NamedElement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/plugin/org.palladiosimulator.servicelevelobjective/model/servicelevelobjective.ecore#//NamedElement/name"/>
+    </genClasses>
+    <genClasses ecoreClass="platform:/plugin/org.palladiosimulator.servicelevelobjective/model/servicelevelobjective.ecore#//SoftThreshold">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/plugin/org.palladiosimulator.servicelevelobjective/model/servicelevelobjective.ecore#//SoftThreshold/softLimit"/>
+    </genClasses>
+    <genClasses ecoreClass="platform:/plugin/org.palladiosimulator.servicelevelobjective/model/servicelevelobjective.ecore#//QuadraticFuzzyThreshold"/>
+    <genClasses ecoreClass="platform:/plugin/org.palladiosimulator.servicelevelobjective/model/servicelevelobjective.ecore#//NegativeQuadraticFuzzyThreshold"/>
+  </genPackages>
+  <genPackages prefix="Monitorrepository" ecorePackage="platform:/plugin/org.palladiosimulator.monitorrepository/model/monitorrepository.ecore#/">
+    <genClasses ecoreClass="platform:/plugin/org.palladiosimulator.monitorrepository/model/monitorrepository.ecore#//MonitorRepository">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference platform:/plugin/org.palladiosimulator.monitorrepository/model/monitorrepository.ecore#//MonitorRepository/monitors"/>
+    </genClasses>
+    <genClasses ecoreClass="platform:/plugin/org.palladiosimulator.monitorrepository/model/monitorrepository.ecore#//Monitor">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference platform:/plugin/org.palladiosimulator.monitorrepository/model/monitorrepository.ecore#//Monitor/measurementSpecifications"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference platform:/plugin/org.palladiosimulator.monitorrepository/model/monitorrepository.ecore#//Monitor/measuringPoint"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference platform:/plugin/org.palladiosimulator.monitorrepository/model/monitorrepository.ecore#//Monitor/monitorRepository"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/plugin/org.palladiosimulator.monitorrepository/model/monitorrepository.ecore#//Monitor/activated"/>
+    </genClasses>
+    <genClasses ecoreClass="platform:/plugin/org.palladiosimulator.monitorrepository/model/monitorrepository.ecore#//MeasurementSpecification">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference platform:/plugin/org.palladiosimulator.monitorrepository/model/monitorrepository.ecore#//MeasurementSpecification/metricDescription"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference platform:/plugin/org.palladiosimulator.monitorrepository/model/monitorrepository.ecore#//MeasurementSpecification/monitor"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/plugin/org.palladiosimulator.monitorrepository/model/monitorrepository.ecore#//MeasurementSpecification/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference platform:/plugin/org.palladiosimulator.monitorrepository/model/monitorrepository.ecore#//MeasurementSpecification/processingType"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/plugin/org.palladiosimulator.monitorrepository/model/monitorrepository.ecore#//MeasurementSpecification/triggersSelfAdaptations"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="platform:/plugin/org.palladiosimulator.monitorrepository/model/monitorrepository.ecore#//StatisticalCharacterization">
+      <genOperations ecoreOperation="platform:/plugin/org.palladiosimulator.monitorrepository/model/monitorrepository.ecore#//StatisticalCharacterization/getAggregator">
+        <genParameters ecoreParameter="platform:/plugin/org.palladiosimulator.monitorrepository/model/monitorrepository.ecore#//StatisticalCharacterization/getAggregator/expectedDataMetric"/>
+      </genOperations>
+    </genClasses>
+    <genClasses ecoreClass="platform:/plugin/org.palladiosimulator.monitorrepository/model/monitorrepository.ecore#//ArithmeticMean">
+      <genOperations ecoreOperation="platform:/plugin/org.palladiosimulator.monitorrepository/model/monitorrepository.ecore#//ArithmeticMean/getAggregator"
+          body="return new org.palladiosimulator.monitorrepository.statisticalcharacterization.ArithmeticMeanAggregator(expectedDataMetric);">
+        <genParameters ecoreParameter="platform:/plugin/org.palladiosimulator.monitorrepository/model/monitorrepository.ecore#//ArithmeticMean/getAggregator/expectedDataMetric"/>
+      </genOperations>
+    </genClasses>
+    <genClasses ecoreClass="platform:/plugin/org.palladiosimulator.monitorrepository/model/monitorrepository.ecore#//HarmonicMean">
+      <genOperations ecoreOperation="platform:/plugin/org.palladiosimulator.monitorrepository/model/monitorrepository.ecore#//HarmonicMean/getAggregator"
+          body="return new org.palladiosimulator.monitorrepository.statisticalcharacterization.HarmonicMeanAggregator(expectedDataMetric);">
+        <genParameters ecoreParameter="platform:/plugin/org.palladiosimulator.monitorrepository/model/monitorrepository.ecore#//HarmonicMean/getAggregator/expectedDataMetric"/>
+      </genOperations>
+    </genClasses>
+    <genClasses ecoreClass="platform:/plugin/org.palladiosimulator.monitorrepository/model/monitorrepository.ecore#//GeometricMean">
+      <genOperations ecoreOperation="platform:/plugin/org.palladiosimulator.monitorrepository/model/monitorrepository.ecore#//GeometricMean/getAggregator"
+          body="return new org.palladiosimulator.monitorrepository.statisticalcharacterization.GeometricMeanAggregator(expectedDataMetric);">
+        <genParameters ecoreParameter="platform:/plugin/org.palladiosimulator.monitorrepository/model/monitorrepository.ecore#//GeometricMean/getAggregator/expectedDataMetric"/>
+      </genOperations>
+    </genClasses>
+    <genClasses ecoreClass="platform:/plugin/org.palladiosimulator.monitorrepository/model/monitorrepository.ecore#//Median">
+      <genOperations ecoreOperation="platform:/plugin/org.palladiosimulator.monitorrepository/model/monitorrepository.ecore#//Median/getAggregator"
+          body="return new org.palladiosimulator.monitorrepository.statisticalcharacterization.MedianAggregator(expectedDataMetric);">
+        <genParameters ecoreParameter="platform:/plugin/org.palladiosimulator.monitorrepository/model/monitorrepository.ecore#//Median/getAggregator/expectedDataMetric"/>
+      </genOperations>
+    </genClasses>
+    <genClasses image="false" ecoreClass="platform:/plugin/org.palladiosimulator.monitorrepository/model/monitorrepository.ecore#//ProcessingType">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference platform:/plugin/org.palladiosimulator.monitorrepository/model/monitorrepository.ecore#//ProcessingType/measurementSpecification"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="platform:/plugin/org.palladiosimulator.monitorrepository/model/monitorrepository.ecore#//Aggregation">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference platform:/plugin/org.palladiosimulator.monitorrepository/model/monitorrepository.ecore#//Aggregation/statisticalCharacterization"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="platform:/plugin/org.palladiosimulator.monitorrepository/model/monitorrepository.ecore#//MeasurementDrivenAggregation">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/plugin/org.palladiosimulator.monitorrepository/model/monitorrepository.ecore#//MeasurementDrivenAggregation/frequency"/>
+    </genClasses>
+    <genClasses ecoreClass="platform:/plugin/org.palladiosimulator.monitorrepository/model/monitorrepository.ecore#//FixedSizeAggregation">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/plugin/org.palladiosimulator.monitorrepository/model/monitorrepository.ecore#//FixedSizeAggregation/numberOfMeasurements"/>
+    </genClasses>
+    <genClasses ecoreClass="platform:/plugin/org.palladiosimulator.monitorrepository/model/monitorrepository.ecore#//TimeDrivenAggregation"/>
+    <genClasses ecoreClass="platform:/plugin/org.palladiosimulator.monitorrepository/model/monitorrepository.ecore#//TimeDriven">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/plugin/org.palladiosimulator.monitorrepository/model/monitorrepository.ecore#//TimeDriven/windowLength"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/plugin/org.palladiosimulator.monitorrepository/model/monitorrepository.ecore#//TimeDriven/windowIncrement"/>
+      <genOperations ecoreOperation="platform:/plugin/org.palladiosimulator.monitorrepository/model/monitorrepository.ecore#//TimeDriven/getWindowLengthAsMeasure"
+          body=" return Measure .valueOf(getWindowLength(),  javax.measure.unit.SI.SECOND);"/>
+      <genOperations ecoreOperation="platform:/plugin/org.palladiosimulator.monitorrepository/model/monitorrepository.ecore#//TimeDriven/getWindowIncrementAsMeasure"
+          body=" return Measure .valueOf(getWindowIncrement(),  javax.measure.unit.SI.SECOND);"/>
+    </genClasses>
+    <genClasses ecoreClass="platform:/plugin/org.palladiosimulator.monitorrepository/model/monitorrepository.ecore#//VariableSizeAggregation">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/plugin/org.palladiosimulator.monitorrepository/model/monitorrepository.ecore#//VariableSizeAggregation/retrospectionLength"/>
+      <genOperations ecoreOperation="platform:/plugin/org.palladiosimulator.monitorrepository/model/monitorrepository.ecore#//VariableSizeAggregation/getRetrospectionLengthAsMeasure"
+          body=" return Measure .valueOf(getRetrospectionLength(),  javax.measure.unit.SI.SECOND);"/>
+    </genClasses>
+    <genClasses ecoreClass="platform:/plugin/org.palladiosimulator.monitorrepository/model/monitorrepository.ecore#//FeedThrough"/>
+    <nestedGenPackages prefix="Util" disposableProviderFactory="true" ecorePackage="platform:/plugin/org.palladiosimulator.monitorrepository/model/monitorrepository.ecore#//util">
+      <genDataTypes ecoreDataType="platform:/plugin/org.palladiosimulator.monitorrepository/model/monitorrepository.ecore#//util/Duration"/>
+      <genDataTypes ecoreDataType="platform:/plugin/org.palladiosimulator.monitorrepository/model/monitorrepository.ecore#//util/StatisticalCharacterizationAggregator"/>
+    </nestedGenPackages>
+  </genPackages>
+  <genPackages prefix="ExperimentData" ecorePackage="platform:/plugin/org.palladiosimulator.edp2/model/EDP2.ecore#//ExperimentData">
+    <genDataTypes ecoreDataType="platform:/plugin/org.palladiosimulator.edp2/model/EDP2.ecore#//ExperimentData/EJSMeasure">
+      <genTypeParameters ecoreTypeParameter="platform:/plugin/org.palladiosimulator.edp2/model/EDP2.ecore#//ExperimentData/EJSMeasure/V"/>
+      <genTypeParameters ecoreTypeParameter="platform:/plugin/org.palladiosimulator.edp2/model/EDP2.ecore#//ExperimentData/EJSMeasure/Q"/>
+    </genDataTypes>
+    <genDataTypes ecoreDataType="platform:/plugin/org.palladiosimulator.edp2/model/EDP2.ecore#//ExperimentData/EJSDurationMeasure"/>
+    <genClasses image="false" ecoreClass="platform:/plugin/org.palladiosimulator.edp2/model/EDP2.ecore#//ExperimentData/AggregatedMeasurements">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference platform:/plugin/org.palladiosimulator.edp2/model/EDP2.ecore#//ExperimentData/AggregatedMeasurements/measurementRange"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/plugin/org.palladiosimulator.edp2/model/EDP2.ecore#//ExperimentData/AggregatedMeasurements/valid"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference platform:/plugin/org.palladiosimulator.edp2/model/EDP2.ecore#//ExperimentData/AggregatedMeasurements/function"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference platform:/plugin/org.palladiosimulator.edp2/model/EDP2.ecore#//ExperimentData/AggregatedMeasurements/aggregationStatistics"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference platform:/plugin/org.palladiosimulator.edp2/model/EDP2.ecore#//ExperimentData/AggregatedMeasurements/aggregationOn"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference platform:/plugin/org.palladiosimulator.edp2/model/EDP2.ecore#//ExperimentData/AggregatedMeasurements/metric"/>
+    </genClasses>
+    <genClasses ecoreClass="platform:/plugin/org.palladiosimulator.edp2/model/EDP2.ecore#//ExperimentData/MeasurementRange">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference platform:/plugin/org.palladiosimulator.edp2/model/EDP2.ecore#//ExperimentData/MeasurementRange/rawMeasurements"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference platform:/plugin/org.palladiosimulator.edp2/model/EDP2.ecore#//ExperimentData/MeasurementRange/measurement"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/plugin/org.palladiosimulator.edp2/model/EDP2.ecore#//ExperimentData/MeasurementRange/endTime"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/plugin/org.palladiosimulator.edp2/model/EDP2.ecore#//ExperimentData/MeasurementRange/startTime"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference platform:/plugin/org.palladiosimulator.edp2/model/EDP2.ecore#//ExperimentData/MeasurementRange/aggregatedMeasurements"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="platform:/plugin/org.palladiosimulator.edp2/model/EDP2.ecore#//ExperimentData/Propertyable">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference platform:/plugin/org.palladiosimulator.edp2/model/EDP2.ecore#//ExperimentData/Propertyable/additionalInformation"/>
+    </genClasses>
+    <genClasses ecoreClass="platform:/plugin/org.palladiosimulator.edp2/model/EDP2.ecore#//ExperimentData/EStringtoEObjectMapEntry">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/plugin/org.palladiosimulator.edp2/model/EDP2.ecore#//ExperimentData/EStringtoEObjectMapEntry/key"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/plugin/org.palladiosimulator.edp2/model/EDP2.ecore#//ExperimentData/EStringtoEObjectMapEntry/value"/>
+    </genClasses>
+    <genClasses ecoreClass="platform:/plugin/org.palladiosimulator.edp2/model/EDP2.ecore#//ExperimentData/RawMeasurements">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference platform:/plugin/org.palladiosimulator.edp2/model/EDP2.ecore#//ExperimentData/RawMeasurements/dataSeries"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference platform:/plugin/org.palladiosimulator.edp2/model/EDP2.ecore#//ExperimentData/RawMeasurements/measurementRange"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="platform:/plugin/org.palladiosimulator.edp2/model/EDP2.ecore#//ExperimentData/DataSeries">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference platform:/plugin/org.palladiosimulator.edp2/model/EDP2.ecore#//ExperimentData/DataSeries/numericalStatistics"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference platform:/plugin/org.palladiosimulator.edp2/model/EDP2.ecore#//ExperimentData/DataSeries/aggregatedMeasurements"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/plugin/org.palladiosimulator.edp2/model/EDP2.ecore#//ExperimentData/DataSeries/valuesUuid"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference platform:/plugin/org.palladiosimulator.edp2/model/EDP2.ecore#//ExperimentData/DataSeries/textualStatistics"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference platform:/plugin/org.palladiosimulator.edp2/model/EDP2.ecore#//ExperimentData/DataSeries/rawMeasurements"/>
+    </genClasses>
+    <genClasses ecoreClass="platform:/plugin/org.palladiosimulator.edp2/model/EDP2.ecore#//ExperimentData/NumericalNominalStatistics">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/plugin/org.palladiosimulator.edp2/model/EDP2.ecore#//ExperimentData/NumericalNominalStatistics/numberMeasurements"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference platform:/plugin/org.palladiosimulator.edp2/model/EDP2.ecore#//ExperimentData/NumericalNominalStatistics/numericalMassDistribution"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference platform:/plugin/org.palladiosimulator.edp2/model/EDP2.ecore#//ExperimentData/NumericalNominalStatistics/dataSeries"/>
+    </genClasses>
+    <genClasses ecoreClass="platform:/plugin/org.palladiosimulator.edp2/model/EDP2.ecore#//ExperimentData/NumericalMassDistribution">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/plugin/org.palladiosimulator.edp2/model/EDP2.ecore#//ExperimentData/NumericalMassDistribution/frequency"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/plugin/org.palladiosimulator.edp2/model/EDP2.ecore#//ExperimentData/NumericalMassDistribution/value"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference platform:/plugin/org.palladiosimulator.edp2/model/EDP2.ecore#//ExperimentData/NumericalMassDistribution/numericalNominalStatistics"/>
+    </genClasses>
+    <genClasses ecoreClass="platform:/plugin/org.palladiosimulator.edp2/model/EDP2.ecore#//ExperimentData/FixedWidthAggregatedMeasurements">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference platform:/plugin/org.palladiosimulator.edp2/model/EDP2.ecore#//ExperimentData/FixedWidthAggregatedMeasurements/intervals"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference platform:/plugin/org.palladiosimulator.edp2/model/EDP2.ecore#//ExperimentData/FixedWidthAggregatedMeasurements/dataSeries"/>
+    </genClasses>
+    <genClasses ecoreClass="platform:/plugin/org.palladiosimulator.edp2/model/EDP2.ecore#//ExperimentData/FixedIntervals">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/plugin/org.palladiosimulator.edp2/model/EDP2.ecore#//ExperimentData/FixedIntervals/lowerBound"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/plugin/org.palladiosimulator.edp2/model/EDP2.ecore#//ExperimentData/FixedIntervals/width"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/plugin/org.palladiosimulator.edp2/model/EDP2.ecore#//ExperimentData/FixedIntervals/numberOfIntervals"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference platform:/plugin/org.palladiosimulator.edp2/model/EDP2.ecore#//ExperimentData/FixedIntervals/aggregatedMeasurements"/>
+    </genClasses>
+    <genClasses ecoreClass="platform:/plugin/org.palladiosimulator.edp2/model/EDP2.ecore#//ExperimentData/TextualNominalStatistics">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/plugin/org.palladiosimulator.edp2/model/EDP2.ecore#//ExperimentData/TextualNominalStatistics/numberMeasurements"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference platform:/plugin/org.palladiosimulator.edp2/model/EDP2.ecore#//ExperimentData/TextualNominalStatistics/massDistribution"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference platform:/plugin/org.palladiosimulator.edp2/model/EDP2.ecore#//ExperimentData/TextualNominalStatistics/dataSeries"/>
+    </genClasses>
+    <genClasses ecoreClass="platform:/plugin/org.palladiosimulator.edp2/model/EDP2.ecore#//ExperimentData/TextualMassDistribution">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/plugin/org.palladiosimulator.edp2/model/EDP2.ecore#//ExperimentData/TextualMassDistribution/frequency"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference platform:/plugin/org.palladiosimulator.edp2/model/EDP2.ecore#//ExperimentData/TextualMassDistribution/identifier"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference platform:/plugin/org.palladiosimulator.edp2/model/EDP2.ecore#//ExperimentData/TextualMassDistribution/textualNominalStatistics"/>
+    </genClasses>
+    <genClasses ecoreClass="platform:/plugin/org.palladiosimulator.edp2/model/EDP2.ecore#//ExperimentData/ExperimentGroup">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference platform:/plugin/org.palladiosimulator.edp2/model/EDP2.ecore#//ExperimentData/ExperimentGroup/experimentSettings"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference platform:/plugin/org.palladiosimulator.edp2/model/EDP2.ecore#//ExperimentData/ExperimentGroup/measuringTypes"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/plugin/org.palladiosimulator.edp2/model/EDP2.ecore#//ExperimentData/ExperimentGroup/purpose"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference platform:/plugin/org.palladiosimulator.edp2/model/EDP2.ecore#//ExperimentData/ExperimentGroup/repository"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference platform:/plugin/org.palladiosimulator.edp2/model/EDP2.ecore#//ExperimentData/ExperimentGroup/reports"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference platform:/plugin/org.palladiosimulator.edp2/model/EDP2.ecore#//ExperimentData/ExperimentGroup/measuringPointRepositories"/>
+    </genClasses>
+    <genClasses ecoreClass="platform:/plugin/org.palladiosimulator.edp2/model/EDP2.ecore#//ExperimentData/ExperimentSetting">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/plugin/org.palladiosimulator.edp2/model/EDP2.ecore#//ExperimentData/ExperimentSetting/description"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference platform:/plugin/org.palladiosimulator.edp2/model/EDP2.ecore#//ExperimentData/ExperimentSetting/experimentRuns"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference platform:/plugin/org.palladiosimulator.edp2/model/EDP2.ecore#//ExperimentData/ExperimentSetting/measuringTypes"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference platform:/plugin/org.palladiosimulator.edp2/model/EDP2.ecore#//ExperimentData/ExperimentSetting/experimentGroup"/>
+    </genClasses>
+    <genClasses ecoreClass="platform:/plugin/org.palladiosimulator.edp2/model/EDP2.ecore#//ExperimentData/ExperimentRun">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference platform:/plugin/org.palladiosimulator.edp2/model/EDP2.ecore#//ExperimentData/ExperimentRun/experimentSetting"/>
+    </genClasses>
+    <genClasses ecoreClass="platform:/plugin/org.palladiosimulator.edp2/model/EDP2.ecore#//ExperimentData/Measurement">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference platform:/plugin/org.palladiosimulator.edp2/model/EDP2.ecore#//ExperimentData/Measurement/measuringType"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference platform:/plugin/org.palladiosimulator.edp2/model/EDP2.ecore#//ExperimentData/Measurement/measurementRanges"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference platform:/plugin/org.palladiosimulator.edp2/model/EDP2.ecore#//ExperimentData/Measurement/run"/>
+    </genClasses>
+    <genClasses ecoreClass="platform:/plugin/org.palladiosimulator.edp2/model/EDP2.ecore#//ExperimentData/MeasuringType">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference platform:/plugin/org.palladiosimulator.edp2/model/EDP2.ecore#//ExperimentData/MeasuringType/experimentGroup"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference platform:/plugin/org.palladiosimulator.edp2/model/EDP2.ecore#//ExperimentData/MeasuringType/experimentSettings"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference platform:/plugin/org.palladiosimulator.edp2/model/EDP2.ecore#//ExperimentData/MeasuringType/metric"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference platform:/plugin/org.palladiosimulator.edp2/model/EDP2.ecore#//ExperimentData/MeasuringType/measuringPoint"/>
+    </genClasses>
+    <genClasses ecoreClass="platform:/plugin/org.palladiosimulator.edp2/model/EDP2.ecore#//ExperimentData/AggregationStatistics">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/plugin/org.palladiosimulator.edp2/model/EDP2.ecore#//ExperimentData/AggregationStatistics/distinctValuesBeforeAggregation"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/plugin/org.palladiosimulator.edp2/model/EDP2.ecore#//ExperimentData/AggregationStatistics/distinctValuesAfterAggregation"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference platform:/plugin/org.palladiosimulator.edp2/model/EDP2.ecore#//ExperimentData/AggregationStatistics/aggregatedMeasurements"/>
+    </genClasses>
+    <genClasses ecoreClass="platform:/plugin/org.palladiosimulator.edp2/model/EDP2.ecore#//ExperimentData/DoubleBinaryMeasurements">
+      <genTypeParameters ecoreTypeParameter="platform:/plugin/org.palladiosimulator.edp2/model/EDP2.ecore#//ExperimentData/DoubleBinaryMeasurements/Q"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/plugin/org.palladiosimulator.edp2/model/EDP2.ecore#//ExperimentData/DoubleBinaryMeasurements/storageUnit"/>
+    </genClasses>
+    <genClasses ecoreClass="platform:/plugin/org.palladiosimulator.edp2/model/EDP2.ecore#//ExperimentData/NumericalIntervalStatistics">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/plugin/org.palladiosimulator.edp2/model/EDP2.ecore#//ExperimentData/NumericalIntervalStatistics/arithmethicMean"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/plugin/org.palladiosimulator.edp2/model/EDP2.ecore#//ExperimentData/NumericalIntervalStatistics/variance"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/plugin/org.palladiosimulator.edp2/model/EDP2.ecore#//ExperimentData/NumericalIntervalStatistics/standardDeviation"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/plugin/org.palladiosimulator.edp2/model/EDP2.ecore#//ExperimentData/NumericalIntervalStatistics/sum"/>
+    </genClasses>
+    <genClasses ecoreClass="platform:/plugin/org.palladiosimulator.edp2/model/EDP2.ecore#//ExperimentData/NumericalOrdinalStatistics">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/plugin/org.palladiosimulator.edp2/model/EDP2.ecore#//ExperimentData/NumericalOrdinalStatistics/minimum"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/plugin/org.palladiosimulator.edp2/model/EDP2.ecore#//ExperimentData/NumericalOrdinalStatistics/maximum"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/plugin/org.palladiosimulator.edp2/model/EDP2.ecore#//ExperimentData/NumericalOrdinalStatistics/median"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference platform:/plugin/org.palladiosimulator.edp2/model/EDP2.ecore#//ExperimentData/NumericalOrdinalStatistics/percentiles"/>
+    </genClasses>
+    <genClasses ecoreClass="platform:/plugin/org.palladiosimulator.edp2/model/EDP2.ecore#//ExperimentData/NumericalPercentile">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/plugin/org.palladiosimulator.edp2/model/EDP2.ecore#//ExperimentData/NumericalPercentile/percentile"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/plugin/org.palladiosimulator.edp2/model/EDP2.ecore#//ExperimentData/NumericalPercentile/value"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference platform:/plugin/org.palladiosimulator.edp2/model/EDP2.ecore#//ExperimentData/NumericalPercentile/ordinalStatistics"/>
+    </genClasses>
+    <genClasses ecoreClass="platform:/plugin/org.palladiosimulator.edp2/model/EDP2.ecore#//ExperimentData/JSXmlMeasurements"/>
+    <genClasses ecoreClass="platform:/plugin/org.palladiosimulator.edp2/model/EDP2.ecore#//ExperimentData/LongBinaryMeasurements">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/plugin/org.palladiosimulator.edp2/model/EDP2.ecore#//ExperimentData/LongBinaryMeasurements/storageUnit"/>
+    </genClasses>
+    <genClasses ecoreClass="platform:/plugin/org.palladiosimulator.edp2/model/EDP2.ecore#//ExperimentData/IdentifierBasedMeasurements"/>
+    <genClasses ecoreClass="platform:/plugin/org.palladiosimulator.edp2/model/EDP2.ecore#//ExperimentData/NumericalRatioStatistics">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/plugin/org.palladiosimulator.edp2/model/EDP2.ecore#//ExperimentData/NumericalRatioStatistics/coefficientOfVariation"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/plugin/org.palladiosimulator.edp2/model/EDP2.ecore#//ExperimentData/NumericalRatioStatistics/geometricMean"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/plugin/org.palladiosimulator.edp2/model/EDP2.ecore#//ExperimentData/NumericalRatioStatistics/harmonicMean"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="platform:/plugin/org.palladiosimulator.edp2/model/EDP2.ecore#//ExperimentData/IJSDuration"/>
+    <genClasses image="false" ecoreClass="platform:/plugin/org.palladiosimulator.edp2/model/EDP2.ecore#//ExperimentData/EComparable"/>
+    <genClasses ecoreClass="platform:/plugin/org.palladiosimulator.edp2/model/EDP2.ecore#//ExperimentData/TextualOrdinalStatistics">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference platform:/plugin/org.palladiosimulator.edp2/model/EDP2.ecore#//ExperimentData/TextualOrdinalStatistics/minimum"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference platform:/plugin/org.palladiosimulator.edp2/model/EDP2.ecore#//ExperimentData/TextualOrdinalStatistics/maximum"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference platform:/plugin/org.palladiosimulator.edp2/model/EDP2.ecore#//ExperimentData/TextualOrdinalStatistics/median"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="platform:/plugin/org.palladiosimulator.edp2/model/EDP2.ecore#//ExperimentData/Run">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/plugin/org.palladiosimulator.edp2/model/EDP2.ecore#//ExperimentData/Run/duration"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/plugin/org.palladiosimulator.edp2/model/EDP2.ecore#//ExperimentData/Run/startTime"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference platform:/plugin/org.palladiosimulator.edp2/model/EDP2.ecore#//ExperimentData/Run/measurement"/>
+    </genClasses>
+    <genClasses ecoreClass="platform:/plugin/org.palladiosimulator.edp2/model/EDP2.ecore#//ExperimentData/ExperimentGroupRun">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference platform:/plugin/org.palladiosimulator.edp2/model/EDP2.ecore#//ExperimentData/ExperimentGroupRun/experimentgroup"/>
+    </genClasses>
+  </genPackages>
+  <genPackages prefix="Measuringpoint" ecorePackage="platform:/plugin/org.palladiosimulator.edp2/model/EDP2.ecore#//measuringpoint">
+    <genClasses image="false" ecoreClass="platform:/plugin/org.palladiosimulator.edp2/model/EDP2.ecore#//measuringpoint/MeasuringPoint">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference platform:/plugin/org.palladiosimulator.edp2/model/EDP2.ecore#//measuringpoint/MeasuringPoint/measuringPointRepository"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/plugin/org.palladiosimulator.edp2/model/EDP2.ecore#//measuringpoint/MeasuringPoint/stringRepresentation"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/plugin/org.palladiosimulator.edp2/model/EDP2.ecore#//measuringpoint/MeasuringPoint/resourceURIRepresentation"/>
+    </genClasses>
+    <genClasses ecoreClass="platform:/plugin/org.palladiosimulator.edp2/model/EDP2.ecore#//measuringpoint/StringMeasuringPoint">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/plugin/org.palladiosimulator.edp2/model/EDP2.ecore#//measuringpoint/StringMeasuringPoint/measuringPoint"/>
+    </genClasses>
+    <genClasses ecoreClass="platform:/plugin/org.palladiosimulator.edp2/model/EDP2.ecore#//measuringpoint/ResourceURIMeasuringPoint">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/plugin/org.palladiosimulator.edp2/model/EDP2.ecore#//measuringpoint/ResourceURIMeasuringPoint/resourceURI"/>
+    </genClasses>
+    <genClasses ecoreClass="platform:/plugin/org.palladiosimulator.edp2/model/EDP2.ecore#//measuringpoint/MeasuringPointRepository">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference platform:/plugin/org.palladiosimulator.edp2/model/EDP2.ecore#//measuringpoint/MeasuringPointRepository/measuringPoints"/>
+    </genClasses>
+  </genPackages>
+  <genPackages prefix="Metricspec" ecorePackage="platform:/plugin/org.palladiosimulator.metricspec/model/metricspec.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="platform:/plugin/org.palladiosimulator.metricspec/model/metricspec.ecore#//CaptureType">
+      <genEnumLiterals ecoreEnumLiteral="platform:/plugin/org.palladiosimulator.metricspec/model/metricspec.ecore#//CaptureType/Identifier"/>
+      <genEnumLiterals ecoreEnumLiteral="platform:/plugin/org.palladiosimulator.metricspec/model/metricspec.ecore#//CaptureType/IntegerNumber"/>
+      <genEnumLiterals ecoreEnumLiteral="platform:/plugin/org.palladiosimulator.metricspec/model/metricspec.ecore#//CaptureType/RealNumber"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="platform:/plugin/org.palladiosimulator.metricspec/model/metricspec.ecore#//Scale">
+      <genEnumLiterals ecoreEnumLiteral="platform:/plugin/org.palladiosimulator.metricspec/model/metricspec.ecore#//Scale/Nominal"/>
+      <genEnumLiterals ecoreEnumLiteral="platform:/plugin/org.palladiosimulator.metricspec/model/metricspec.ecore#//Scale/Ordinal"/>
+      <genEnumLiterals ecoreEnumLiteral="platform:/plugin/org.palladiosimulator.metricspec/model/metricspec.ecore#//Scale/Interval"/>
+      <genEnumLiterals ecoreEnumLiteral="platform:/plugin/org.palladiosimulator.metricspec/model/metricspec.ecore#//Scale/Ratio"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="platform:/plugin/org.palladiosimulator.metricspec/model/metricspec.ecore#//PersistenceKindOptions">
+      <genEnumLiterals ecoreEnumLiteral="platform:/plugin/org.palladiosimulator.metricspec/model/metricspec.ecore#//PersistenceKindOptions/BinaryPreferred"/>
+      <genEnumLiterals ecoreEnumLiteral="platform:/plugin/org.palladiosimulator.metricspec/model/metricspec.ecore#//PersistenceKindOptions/JSXmlPreferred"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="platform:/plugin/org.palladiosimulator.metricspec/model/metricspec.ecore#//DataType">
+      <genEnumLiterals ecoreEnumLiteral="platform:/plugin/org.palladiosimulator.metricspec/model/metricspec.ecore#//DataType/Quantitative"/>
+      <genEnumLiterals ecoreEnumLiteral="platform:/plugin/org.palladiosimulator.metricspec/model/metricspec.ecore#//DataType/Qualitative"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="platform:/plugin/org.palladiosimulator.metricspec/model/metricspec.ecore#//ScopeOfValidity">
+      <genEnumLiterals ecoreEnumLiteral="platform:/plugin/org.palladiosimulator.metricspec/model/metricspec.ecore#//ScopeOfValidity/Discrete"/>
+      <genEnumLiterals ecoreEnumLiteral="platform:/plugin/org.palladiosimulator.metricspec/model/metricspec.ecore#//ScopeOfValidity/Continuous"/>
+    </genEnums>
+    <genDataTypes ecoreDataType="platform:/plugin/org.palladiosimulator.metricspec/model/metricspec.ecore#//EJSUnit">
+      <genTypeParameters ecoreTypeParameter="platform:/plugin/org.palladiosimulator.metricspec/model/metricspec.ecore#//EJSUnit/Q"/>
+    </genDataTypes>
+    <genClasses ecoreClass="platform:/plugin/org.palladiosimulator.metricspec/model/metricspec.ecore#//Identifier">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/plugin/org.palladiosimulator.metricspec/model/metricspec.ecore#//Identifier/literal"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference platform:/plugin/org.palladiosimulator.metricspec/model/metricspec.ecore#//Identifier/textualBaseMetricDescription"/>
+    </genClasses>
+    <genClasses ecoreClass="platform:/plugin/org.palladiosimulator.metricspec/model/metricspec.ecore#//TextualBaseMetricDescription">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference platform:/plugin/org.palladiosimulator.metricspec/model/metricspec.ecore#//TextualBaseMetricDescription/identifiers"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="platform:/plugin/org.palladiosimulator.metricspec/model/metricspec.ecore#//BaseMetricDescription">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/plugin/org.palladiosimulator.metricspec/model/metricspec.ecore#//BaseMetricDescription/captureType"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/plugin/org.palladiosimulator.metricspec/model/metricspec.ecore#//BaseMetricDescription/dataType"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/plugin/org.palladiosimulator.metricspec/model/metricspec.ecore#//BaseMetricDescription/scale"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/plugin/org.palladiosimulator.metricspec/model/metricspec.ecore#//BaseMetricDescription/scopeOfValidity"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="platform:/plugin/org.palladiosimulator.metricspec/model/metricspec.ecore#//MetricDescription">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference platform:/plugin/org.palladiosimulator.metricspec/model/metricspec.ecore#//MetricDescription/repository"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="platform:/plugin/org.palladiosimulator.metricspec/model/metricspec.ecore#//Description">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/plugin/org.palladiosimulator.metricspec/model/metricspec.ecore#//Description/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/plugin/org.palladiosimulator.metricspec/model/metricspec.ecore#//Description/textualDescription"/>
+    </genClasses>
+    <genClasses ecoreClass="platform:/plugin/org.palladiosimulator.metricspec/model/metricspec.ecore#//AggregationFunctionDescription"/>
+    <genClasses ecoreClass="platform:/plugin/org.palladiosimulator.metricspec/model/metricspec.ecore#//MetricSetDescription">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference platform:/plugin/org.palladiosimulator.metricspec/model/metricspec.ecore#//MetricSetDescription/subsumedMetrics"/>
+    </genClasses>
+    <genClasses ecoreClass="platform:/plugin/org.palladiosimulator.metricspec/model/metricspec.ecore#//NumericalBaseMetricDescription">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/plugin/org.palladiosimulator.metricspec/model/metricspec.ecore#//NumericalBaseMetricDescription/defaultUnit"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/plugin/org.palladiosimulator.metricspec/model/metricspec.ecore#//NumericalBaseMetricDescription/persistenceKind"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="platform:/plugin/org.palladiosimulator.metricspec/model/metricspec.ecore#//IJSQuantity"/>
+    <genClasses ecoreClass="platform:/plugin/org.palladiosimulator.metricspec/model/metricspec.ecore#//MetricDescriptionRepository">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference platform:/plugin/org.palladiosimulator.metricspec/model/metricspec.ecore#//MetricDescriptionRepository/metricDescriptions"/>
+    </genClasses>
+  </genPackages>
+  <genPackages prefix="Repository" ecorePackage="platform:/plugin/org.palladiosimulator.edp2/model/EDP2.ecore#//Repository">
+    <genClasses ecoreClass="platform:/plugin/org.palladiosimulator.edp2/model/EDP2.ecore#//Repository/LocalMemoryRepository">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/plugin/org.palladiosimulator.edp2/model/EDP2.ecore#//Repository/LocalMemoryRepository/domain"/>
+    </genClasses>
+    <genClasses ecoreClass="platform:/plugin/org.palladiosimulator.edp2/model/EDP2.ecore#//Repository/Repositories">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference platform:/plugin/org.palladiosimulator.edp2/model/EDP2.ecore#//Repository/Repositories/availableRepositories"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference platform:/plugin/org.palladiosimulator.edp2/model/EDP2.ecore#//Repository/Repositories/commonResourceSet"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="platform:/plugin/org.palladiosimulator.edp2/model/EDP2.ecore#//Repository/IResourceSet"/>
+    <genClasses image="false" ecoreClass="platform:/plugin/org.palladiosimulator.edp2/model/EDP2.ecore#//Repository/MeasurementsDaoFactory"/>
+    <genClasses image="false" ecoreClass="platform:/plugin/org.palladiosimulator.edp2/model/EDP2.ecore#//Repository/MetaDao"/>
+    <genClasses image="false" ecoreClass="platform:/plugin/org.palladiosimulator.edp2/model/EDP2.ecore#//Repository/Repository">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference platform:/plugin/org.palladiosimulator.edp2/model/EDP2.ecore#//Repository/Repository/repositories"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference platform:/plugin/org.palladiosimulator.edp2/model/EDP2.ecore#//Repository/Repository/experimentGroups"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/plugin/org.palladiosimulator.edp2/model/EDP2.ecore#//Repository/Repository/readOnly"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference platform:/plugin/org.palladiosimulator.edp2/model/EDP2.ecore#//Repository/Repository/descriptions"/>
+      <genOperations ecoreOperation="platform:/plugin/org.palladiosimulator.edp2/model/EDP2.ecore#//Repository/Repository/resetExperimentGroups"/>
+    </genClasses>
   </genPackages>
 </genmodel:GenModel>

@@ -130,17 +130,27 @@
     </eClassifiers>
     <eSubpackages name="models" nsURI="http://palladiosimulator.org/ScalingPolicyDefinition/Adjustments/Models/1.0"
         nsPrefix="models">
-      <eClassifiers xsi:type="ecore:EClass" name="BaseModel" abstract="true" eSuperTypes="platform:/plugin/de.uka.ipd.sdq.identifier/model/identifier.ecore#//Identifier">
+      <eClassifiers xsi:type="ecore:EClass" name="BaseModel" abstract="true">
         <eStructuralFeatures xsi:type="ecore:EAttribute" name="interval" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"
             defaultValueLiteral="1.0"/>
         <eStructuralFeatures xsi:type="ecore:EAttribute" name="initalIntervalDelay"
             eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EDouble"
             defaultValueLiteral="0"/>
-        <eStructuralFeatures xsi:type="ecore:EReference" name="inputs" ordered="false"
-            upperBound="-1" eType="#//triggers/stimuli/Stimulus"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" name="reward" eType="#//adjustments/models/rewards/BaseReward"
+            containment="true"/>
       </eClassifiers>
       <eClassifiers xsi:type="ecore:EClass" name="QThresholdsModel" eSuperTypes="#//adjustments/models/BaseModel"/>
       <eClassifiers xsi:type="ecore:EClass" name="RandomModel" eSuperTypes="#//adjustments/models/BaseModel"/>
+      <eSubpackages name="rewards" nsURI="http://palladiosimulator.org/ScalingPolicyDefinition/Adjustments/Models/Rewards/1.0"
+          nsPrefix="rewards">
+        <eClassifiers xsi:type="ecore:EClass" name="BaseReward"/>
+        <eClassifiers xsi:type="ecore:EClass" name="AggregatedReward" eSuperTypes="#//adjustments/models/rewards/BaseReward">
+          <eStructuralFeatures xsi:type="ecore:EReference" name="reward" eType="#//adjustments/models/rewards/BaseReward"
+              containment="true"/>
+          <eStructuralFeatures xsi:type="ecore:EAttribute" name="factor" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+        </eClassifiers>
+        <eClassifiers xsi:type="ecore:EClass" name="SLOReward" eSuperTypes="#//adjustments/models/rewards/BaseReward"/>
+      </eSubpackages>
     </eSubpackages>
   </eSubpackages>
   <eSubpackages name="constraints" nsURI="http://palladiosimulator.org/ScalingPolicyDefinition/Constraints/1.0"
