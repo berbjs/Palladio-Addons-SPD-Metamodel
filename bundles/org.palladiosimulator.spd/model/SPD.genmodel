@@ -55,6 +55,26 @@
       <genClasses ecoreClass="SPD.ecore#//adjustments/StepAdjustment">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SPD.ecore#//adjustments/StepAdjustment/stepValue"/>
       </genClasses>
+      <genClasses ecoreClass="SPD.ecore#//adjustments/ModelBasedAdjustment">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SPD.ecore#//adjustments/ModelBasedAdjustment/usedModel"/>
+      </genClasses>
+      <nestedGenPackages prefix="Models" disposableProviderFactory="true" ecorePackage="SPD.ecore#//adjustments/models">
+        <genClasses image="false" ecoreClass="SPD.ecore#//adjustments/models/BaseModel">
+          <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SPD.ecore#//adjustments/models/BaseModel/interval"/>
+          <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SPD.ecore#//adjustments/models/BaseModel/initalIntervalDelay"/>
+          <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SPD.ecore#//adjustments/models/BaseModel/reward"/>
+        </genClasses>
+        <genClasses ecoreClass="SPD.ecore#//adjustments/models/QThresholdsModel"/>
+        <genClasses ecoreClass="SPD.ecore#//adjustments/models/RandomModel"/>
+        <nestedGenPackages prefix="Rewards" disposableProviderFactory="true" ecorePackage="SPD.ecore#//adjustments/models/rewards">
+          <genClasses ecoreClass="SPD.ecore#//adjustments/models/rewards/BaseReward"/>
+          <genClasses ecoreClass="SPD.ecore#//adjustments/models/rewards/AggregatedReward">
+            <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SPD.ecore#//adjustments/models/rewards/AggregatedReward/reward"/>
+            <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SPD.ecore#//adjustments/models/rewards/AggregatedReward/factor"/>
+          </genClasses>
+          <genClasses ecoreClass="SPD.ecore#//adjustments/models/rewards/SLOReward"/>
+        </nestedGenPackages>
+      </nestedGenPackages>
     </nestedGenPackages>
     <nestedGenPackages prefix="Constraints" basePackage="org.palladiosimulator.spd"
         disposableProviderFactory="true" ecorePackage="SPD.ecore#//constraints">
@@ -121,6 +141,10 @@
         <genEnumLiterals ecoreEnumLiteral="SPD.ecore#//triggers/TrendPattern/NonIncreasing"/>
         <genEnumLiterals ecoreEnumLiteral="SPD.ecore#//triggers/TrendPattern/NonDecreasing"/>
       </genEnums>
+      <genEnums typeSafeEnumCompatible="false" ecoreEnum="SPD.ecore#//triggers/StimulusTimeAggregationMethod">
+        <genEnumLiterals ecoreEnumLiteral="SPD.ecore#//triggers/StimulusTimeAggregationMethod/LastPeriodAverage"/>
+        <genEnumLiterals ecoreEnumLiteral="SPD.ecore#//triggers/StimulusTimeAggregationMethod/RateOfChange"/>
+      </genEnums>
       <genClasses image="false" ecoreClass="SPD.ecore#//triggers/ScalingTrigger"/>
       <genClasses image="false" ecoreClass="SPD.ecore#//triggers/BaseTrigger">
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SPD.ecore#//triggers/BaseTrigger/stimulus"/>
@@ -134,6 +158,10 @@
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SPD.ecore#//triggers/SimpleFireOnValue/relationalOperator"/>
       </genClasses>
       <genClasses ecoreClass="SPD.ecore#//triggers/SimpleFireOnTrend"/>
+      <genClasses ecoreClass="SPD.ecore#//triggers/SimpleFireOnOutput">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SPD.ecore#//triggers/SimpleFireOnOutput/stimulus"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SPD.ecore#//triggers/SimpleFireOnOutput/expectedValue"/>
+      </genClasses>
       <nestedGenPackages prefix="Stimuli" basePackage="org.palladiosimulator.spd.triggers"
           disposableProviderFactory="true" ecorePackage="SPD.ecore#//triggers/stimuli">
         <genClasses image="false" ecoreClass="SPD.ecore#//triggers/stimuli/Stimulus"/>
@@ -162,6 +190,11 @@
         </genClasses>
         <genClasses ecoreClass="SPD.ecore#//triggers/stimuli/NetworkUtilization">
           <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SPD.ecore#//triggers/stimuli/NetworkUtilization/usageType"/>
+        </genClasses>
+        <genClasses ecoreClass="SPD.ecore#//triggers/stimuli/AggregatedStimulus">
+          <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SPD.ecore#//triggers/stimuli/AggregatedStimulus/aggregationOverTime"/>
+          <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SPD.ecore#//triggers/stimuli/AggregatedStimulus/aggregationPeriod"/>
+          <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SPD.ecore#//triggers/stimuli/AggregatedStimulus/aggregatedStimulus"/>
         </genClasses>
       </nestedGenPackages>
       <nestedGenPackages prefix="Expectations" basePackage="org.palladiosimulator.spd.triggers"
