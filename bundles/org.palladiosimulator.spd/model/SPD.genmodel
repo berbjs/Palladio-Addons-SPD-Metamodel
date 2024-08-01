@@ -5,7 +5,7 @@
     modelPluginID="org.palladiosimulator.spd" modelName="ScalingPolicyDefinition"
     rootExtendsInterface="org.eclipse.emf.cdo.CDOObject" rootExtendsClass="org.eclipse.emf.internal.cdo.CDOObjectImpl"
     codeFormatting="true" importerID="org.eclipse.emf.importer.ecore" featureDelegation="Dynamic"
-    complianceLevel="11.0" copyrightFields="false" editPluginID="org.palladiosimulator.spd.edit"
+    complianceLevel="17.0" copyrightFields="false" editPluginID="org.palladiosimulator.spd.edit"
     editorPluginID="org.palladiosimulator.spd.editor" language="en" usedGenPackages="platform:/plugin/org.eclipse.emf.ecore/model/Ecore.genmodel#//ecore platform:/plugin/de.uka.ipd.sdq.identifier/model/identifier.genmodel#//identifier platform:/plugin/org.palladiosimulator.pcm/model/pcm.genmodel#//pcm platform:/plugin/de.uka.ipd.sdq.probfunction/model/ProbabilityFunction.genmodel#//probfunction platform:/plugin/de.uka.ipd.sdq.stoex/model/stoex.genmodel#//stoex platform:/plugin/de.uka.ipd.sdq.units/model/Units.genmodel#//units"
     importOrganizing="true" cleanup="true">
   <foreignModel>SPD.ecore</foreignModel>
@@ -66,13 +66,21 @@
         </genClasses>
         <genClasses ecoreClass="SPD.ecore#//adjustments/models/QThresholdsModel"/>
         <genClasses ecoreClass="SPD.ecore#//adjustments/models/RandomModel"/>
+        <genClasses ecoreClass="SPD.ecore#//adjustments/models/ImprovedQLearningModel"/>
+        <genClasses ecoreClass="SPD.ecore#//adjustments/models/LearningBasedModel"/>
         <nestedGenPackages prefix="Rewards" disposableProviderFactory="true" ecorePackage="SPD.ecore#//adjustments/models/rewards">
           <genClasses ecoreClass="SPD.ecore#//adjustments/models/rewards/BaseReward"/>
           <genClasses ecoreClass="SPD.ecore#//adjustments/models/rewards/AggregatedReward">
             <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SPD.ecore#//adjustments/models/rewards/AggregatedReward/reward"/>
             <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SPD.ecore#//adjustments/models/rewards/AggregatedReward/factor"/>
           </genClasses>
-          <genClasses ecoreClass="SPD.ecore#//adjustments/models/rewards/SLOReward"/>
+          <genClasses ecoreClass="SPD.ecore#//adjustments/models/rewards/SLOReward">
+            <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SPD.ecore#//adjustments/models/rewards/SLOReward/logicalOperator"/>
+            <genFeatures notify="false" createChild="false" propertySortChoices="true"
+                ecoreFeature="ecore:EReference SPD.ecore#//adjustments/models/rewards/SLOReward/targetValue"/>
+            <genFeatures notify="false" createChild="false" propertySortChoices="true"
+                ecoreFeature="ecore:EReference SPD.ecore#//adjustments/models/rewards/SLOReward/stimulus"/>
+          </genClasses>
         </nestedGenPackages>
       </nestedGenPackages>
     </nestedGenPackages>
@@ -114,6 +122,7 @@
         <genEnumLiterals ecoreEnumLiteral="SPD.ecore#//triggers/AGGREGATIONMETHOD/MIN"/>
         <genEnumLiterals ecoreEnumLiteral="SPD.ecore#//triggers/AGGREGATIONMETHOD/MEDIAN"/>
         <genEnumLiterals ecoreEnumLiteral="SPD.ecore#//triggers/AGGREGATIONMETHOD/SUM"/>
+        <genEnumLiterals ecoreEnumLiteral="SPD.ecore#//triggers/AGGREGATIONMETHOD/RATEOFCHANGE"/>
       </genEnums>
       <genEnums typeSafeEnumCompatible="false" ecoreEnum="SPD.ecore#//triggers/HDDUSAGETYPE">
         <genEnumLiterals ecoreEnumLiteral="SPD.ecore#//triggers/HDDUSAGETYPE/READ"/>
@@ -140,10 +149,6 @@
         <genEnumLiterals ecoreEnumLiteral="SPD.ecore#//triggers/TrendPattern/Decreasing"/>
         <genEnumLiterals ecoreEnumLiteral="SPD.ecore#//triggers/TrendPattern/NonIncreasing"/>
         <genEnumLiterals ecoreEnumLiteral="SPD.ecore#//triggers/TrendPattern/NonDecreasing"/>
-      </genEnums>
-      <genEnums typeSafeEnumCompatible="false" ecoreEnum="SPD.ecore#//triggers/StimulusTimeAggregationMethod">
-        <genEnumLiterals ecoreEnumLiteral="SPD.ecore#//triggers/StimulusTimeAggregationMethod/LastPeriodAverage"/>
-        <genEnumLiterals ecoreEnumLiteral="SPD.ecore#//triggers/StimulusTimeAggregationMethod/RateOfChange"/>
       </genEnums>
       <genClasses image="false" ecoreClass="SPD.ecore#//triggers/ScalingTrigger"/>
       <genClasses image="false" ecoreClass="SPD.ecore#//triggers/BaseTrigger">
@@ -192,7 +197,7 @@
           <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SPD.ecore#//triggers/stimuli/NetworkUtilization/usageType"/>
         </genClasses>
         <genClasses ecoreClass="SPD.ecore#//triggers/stimuli/AggregatedStimulus">
-          <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SPD.ecore#//triggers/stimuli/AggregatedStimulus/aggregationOverTime"/>
+          <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SPD.ecore#//triggers/stimuli/AggregatedStimulus/aggregationMethod"/>
           <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SPD.ecore#//triggers/stimuli/AggregatedStimulus/aggregationPeriod"/>
           <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SPD.ecore#//triggers/stimuli/AggregatedStimulus/aggregatedStimulus"/>
         </genClasses>

@@ -139,8 +139,10 @@
         <eStructuralFeatures xsi:type="ecore:EReference" name="reward" eType="#//adjustments/models/rewards/BaseReward"
             containment="true"/>
       </eClassifiers>
-      <eClassifiers xsi:type="ecore:EClass" name="QThresholdsModel" eSuperTypes="#//adjustments/models/BaseModel"/>
+      <eClassifiers xsi:type="ecore:EClass" name="QThresholdsModel" eSuperTypes="#//adjustments/models/LearningBasedModel"/>
       <eClassifiers xsi:type="ecore:EClass" name="RandomModel" eSuperTypes="#//adjustments/models/BaseModel"/>
+      <eClassifiers xsi:type="ecore:EClass" name="ImprovedQLearningModel" eSuperTypes="#//adjustments/models/LearningBasedModel"/>
+      <eClassifiers xsi:type="ecore:EClass" name="LearningBasedModel" eSuperTypes="#//adjustments/models/BaseModel"/>
       <eSubpackages name="rewards" nsURI="http://palladiosimulator.org/ScalingPolicyDefinition/Adjustments/Models/Rewards/1.0"
           nsPrefix="rewards">
         <eClassifiers xsi:type="ecore:EClass" name="BaseReward"/>
@@ -149,7 +151,12 @@
               containment="true"/>
           <eStructuralFeatures xsi:type="ecore:EAttribute" name="factor" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
         </eClassifiers>
-        <eClassifiers xsi:type="ecore:EClass" name="SLOReward" eSuperTypes="#//adjustments/models/rewards/BaseReward"/>
+        <eClassifiers xsi:type="ecore:EClass" name="SLOReward" eSuperTypes="#//adjustments/models/rewards/BaseReward">
+          <eStructuralFeatures xsi:type="ecore:EAttribute" name="logicalOperator"
+              eType="#//triggers/LogicalOperator"/>
+          <eStructuralFeatures xsi:type="ecore:EReference" name="targetValue" eType="#//triggers/expectations/ExpectedValue"/>
+          <eStructuralFeatures xsi:type="ecore:EReference" name="stimulus" eType="#//triggers/stimuli/Stimulus"/>
+        </eClassifiers>
       </eSubpackages>
     </eSubpackages>
   </eSubpackages>
@@ -229,6 +236,7 @@
       <eLiterals name="MIN" value="2"/>
       <eLiterals name="MEDIAN" value="3"/>
       <eLiterals name="SUM" value="4"/>
+      <eLiterals name="RATEOFCHANGE" value="5"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EEnum" name="HDDUSAGETYPE">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -303,10 +311,6 @@
           upperBound="-1" eType="#//triggers/stimuli/Stimulus" containment="true"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="expectedValue" lowerBound="1"
           eType="#//triggers/expectations/ExpectedValue" containment="true"/>
-    </eClassifiers>
-    <eClassifiers xsi:type="ecore:EEnum" name="StimulusTimeAggregationMethod">
-      <eLiterals name="LastPeriodAverage"/>
-      <eLiterals name="RateOfChange" value="1"/>
     </eClassifiers>
     <eSubpackages name="stimuli" nsURI="http://palladiosimulator.org/ScalingPolicyDefinition/Triggers/Stimuli/1.0"
         nsPrefix="stimuli">
@@ -406,8 +410,8 @@
         </eStructuralFeatures>
       </eClassifiers>
       <eClassifiers xsi:type="ecore:EClass" name="AggregatedStimulus" eSuperTypes="#//triggers/stimuli/Stimulus">
-        <eStructuralFeatures xsi:type="ecore:EAttribute" name="aggregationOverTime"
-            lowerBound="1" eType="#//triggers/StimulusTimeAggregationMethod"/>
+        <eStructuralFeatures xsi:type="ecore:EAttribute" name="aggregationMethod"
+            lowerBound="1" eType="#//triggers/AGGREGATIONMETHOD"/>
         <eStructuralFeatures xsi:type="ecore:EAttribute" name="aggregationPeriod"
             eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EInt">
           <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
