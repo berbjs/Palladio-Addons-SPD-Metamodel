@@ -69,13 +69,17 @@
         <genClasses ecoreClass="SPD.ecore#//adjustments/models/ImprovedQLearningModel"/>
         <genClasses ecoreClass="SPD.ecore#//adjustments/models/LearningBasedModel">
           <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SPD.ecore#//adjustments/models/LearningBasedModel/reward"/>
+          <genFeatures notify="false" createChild="false" propertySortChoices="true"
+              ecoreFeature="ecore:EReference SPD.ecore#//adjustments/models/LearningBasedModel/inputs"/>
         </genClasses>
         <nestedGenPackages prefix="Rewards" basePackage="org.palladiosimulator.spd.adjustments.models"
             disposableProviderFactory="true" ecorePackage="SPD.ecore#//adjustments/models/rewards">
           <genEnums typeSafeEnumCompatible="false" ecoreEnum="SPD.ecore#//adjustments/models/rewards/RewardAggregationMethod">
             <genEnumLiterals ecoreEnumLiteral="SPD.ecore#//adjustments/models/rewards/RewardAggregationMethod/ADDITION"/>
             <genEnumLiterals ecoreEnumLiteral="SPD.ecore#//adjustments/models/rewards/RewardAggregationMethod/SUBTRACTION"/>
-            <genEnumLiterals ecoreEnumLiteral="SPD.ecore#//adjustments/models/rewards/RewardAggregationMethod/Exponential"/>
+            <genEnumLiterals ecoreEnumLiteral="SPD.ecore#//adjustments/models/rewards/RewardAggregationMethod/EXPONENTIAL"/>
+            <genEnumLiterals ecoreEnumLiteral="SPD.ecore#//adjustments/models/rewards/RewardAggregationMethod/DIVISION"/>
+            <genEnumLiterals ecoreEnumLiteral="SPD.ecore#//adjustments/models/rewards/RewardAggregationMethod/MULTIPLICATION"/>
           </genEnums>
           <genClasses ecoreClass="SPD.ecore#//adjustments/models/rewards/BaseReward"/>
           <genClasses ecoreClass="SPD.ecore#//adjustments/models/rewards/StaticReward">
@@ -90,6 +94,10 @@
           <genClasses ecoreClass="SPD.ecore#//adjustments/models/rewards/FunctionReward">
             <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SPD.ecore#//adjustments/models/rewards/FunctionReward/rewards"/>
             <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SPD.ecore#//adjustments/models/rewards/FunctionReward/aggregationMethod"/>
+          </genClasses>
+          <genClasses ecoreClass="SPD.ecore#//adjustments/models/rewards/UtilizationReward">
+            <genFeatures notify="false" createChild="false" propertySortChoices="true"
+                ecoreFeature="ecore:EReference SPD.ecore#//adjustments/models/rewards/UtilizationReward/stimulus"/>
           </genClasses>
         </nestedGenPackages>
       </nestedGenPackages>

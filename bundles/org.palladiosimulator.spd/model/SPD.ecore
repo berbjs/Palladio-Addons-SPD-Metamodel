@@ -143,6 +143,8 @@
       <eClassifiers xsi:type="ecore:EClass" name="LearningBasedModel" eSuperTypes="#//adjustments/models/BaseModel">
         <eStructuralFeatures xsi:type="ecore:EReference" name="reward" lowerBound="1"
             eType="#//adjustments/models/rewards/BaseReward" containment="true"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" name="inputs" lowerBound="1"
+            upperBound="-1" eType="#//triggers/stimuli/Stimulus"/>
       </eClassifiers>
       <eSubpackages name="rewards" nsURI="http://palladiosimulator.org/ScalingPolicyDefinition/Adjustments/Models/Rewards/1.0"
           nsPrefix="rewards">
@@ -168,7 +170,13 @@
         <eClassifiers xsi:type="ecore:EEnum" name="RewardAggregationMethod">
           <eLiterals name="ADDITION"/>
           <eLiterals name="SUBTRACTION" value="1"/>
-          <eLiterals name="Exponential" value="2"/>
+          <eLiterals name="EXPONENTIAL" value="2" literal="EXPONENTIAL"/>
+          <eLiterals name="DIVISION" value="3" literal="DIVISION"/>
+          <eLiterals name="MULTIPLICATION" value="4"/>
+        </eClassifiers>
+        <eClassifiers xsi:type="ecore:EClass" name="UtilizationReward" eSuperTypes="#//adjustments/models/rewards/BaseReward">
+          <eStructuralFeatures xsi:type="ecore:EReference" name="stimulus" lowerBound="1"
+              eType="#//triggers/stimuli/Stimulus"/>
         </eClassifiers>
       </eSubpackages>
     </eSubpackages>
