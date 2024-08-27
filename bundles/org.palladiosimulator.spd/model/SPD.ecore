@@ -2,20 +2,12 @@
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="spd" nsURI="http://palladiosimulator.org/ScalingPolicyDefinition/1.0"
     nsPrefix="spd">
-  <eClassifiers xsi:type="ecore:EClass" name="ScalingPolicy" eSuperTypes="platform:/plugin/org.palladiosimulator.pcm/model/pcm.ecore#//core/entity/Entity">
-    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
-      <details key="constraints" value="policyNameInvariant"/>
-    </eAnnotations>
+  <eClassifiers xsi:type="ecore:EClass" name="ReactiveScalingPolicy" eSuperTypes="#//ScalingPolicy">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-      <details key="documentation" value="A scaling policy determines the complete information for scaling a parituclar target. Each ScalingPolicy is an Entity (PCM), it has a unique identifier and it has a name.  "/>
+      <details key="documentation" value="A reactive scaling policy contains a scaling trigger that determines whether an adjustment should be made and an adjustment that defines the performed adjustment."/>
     </eAnnotations>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="active" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="adjustmentType" lowerBound="1"
         eType="#//adjustments/AdjustmentType" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="targetGroup" lowerBound="1"
-        eType="#//targets/TargetGroup"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="policyConstraints" upperBound="-1"
-        eType="#//constraints/policy/PolicyConstraint" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="scalingTrigger" lowerBound="1"
         eType="#//triggers/ScalingTrigger" containment="true"/>
   </eClassifiers>
@@ -34,6 +26,27 @@
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="targetGroups" lowerBound="1"
         upperBound="-1" eType="#//targets/TargetGroup" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ScalingPolicy" abstract="true" eSuperTypes="platform:/plugin/org.palladiosimulator.pcm/model/pcm.ecore#//core/entity/Entity">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+      <details key="constraints" value="policyNameInvariant"/>
+    </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="A scaling policy determines the complete information for scaling a parituclar target. Each ScalingPolicy is an Entity (PCM), it has a unique identifier and it has a name.  "/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="active" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="policyConstraints" upperBound="-1"
+        eType="#//constraints/policy/PolicyConstraint" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="targetGroup" lowerBound="1"
+        eType="#//targets/TargetGroup"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ModelBasedScalingPolicy" eSuperTypes="#//ScalingPolicy">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="A model-based scaling policy contains a model that determines both whether any scaling should occur and the type of adjustment by itself."/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="model" lowerBound="1" eType="#//models/BaseModel"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="adjustment" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EInt"/>
   </eClassifiers>
   <eSubpackages name="targets" nsURI="http://palladiosimulator.org/ScalingPolicyDefinition/Targets/1.0"
       nsPrefix="targets">
@@ -121,65 +134,6 @@
         </eAnnotations>
       </eStructuralFeatures>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="ModelBasedAdjustment" eSuperTypes="#//adjustments/AdjustmentType">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="The ModelBasedAdjustment denotes that the group will be adjusted based on a model"/>
-      </eAnnotations>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="usedModel" lowerBound="1"
-          eType="#//adjustments/models/BaseModel" containment="true"/>
-    </eClassifiers>
-    <eSubpackages name="models" nsURI="http://palladiosimulator.org/ScalingPolicyDefinition/Adjustments/Models/1.0"
-        nsPrefix="models">
-      <eClassifiers xsi:type="ecore:EClass" name="BaseModel" abstract="true">
-        <eStructuralFeatures xsi:type="ecore:EAttribute" name="interval" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"
-            defaultValueLiteral="1.0"/>
-        <eStructuralFeatures xsi:type="ecore:EAttribute" name="initalIntervalDelay"
-            eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EDouble"
-            defaultValueLiteral="0"/>
-      </eClassifiers>
-      <eClassifiers xsi:type="ecore:EClass" name="QThresholdsModel" eSuperTypes="#//adjustments/models/LearningBasedModel"/>
-      <eClassifiers xsi:type="ecore:EClass" name="RandomModel" eSuperTypes="#//adjustments/models/BaseModel"/>
-      <eClassifiers xsi:type="ecore:EClass" name="ImprovedQLearningModel" eSuperTypes="#//adjustments/models/LearningBasedModel"/>
-      <eClassifiers xsi:type="ecore:EClass" name="LearningBasedModel" eSuperTypes="#//adjustments/models/BaseModel">
-        <eStructuralFeatures xsi:type="ecore:EReference" name="reward" lowerBound="1"
-            eType="#//adjustments/models/rewards/BaseReward" containment="true"/>
-        <eStructuralFeatures xsi:type="ecore:EReference" name="inputs" lowerBound="1"
-            upperBound="-1" eType="#//triggers/stimuli/Stimulus"/>
-      </eClassifiers>
-      <eSubpackages name="rewards" nsURI="http://palladiosimulator.org/ScalingPolicyDefinition/Adjustments/Models/Rewards/1.0"
-          nsPrefix="rewards">
-        <eClassifiers xsi:type="ecore:EClass" name="BaseReward" abstract="true"/>
-        <eClassifiers xsi:type="ecore:EClass" name="StaticReward" eSuperTypes="#//adjustments/models/rewards/BaseReward">
-          <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EDouble"
-              defaultValueLiteral="1.0"/>
-        </eClassifiers>
-        <eClassifiers xsi:type="ecore:EClass" name="SLOReward" eSuperTypes="#//adjustments/models/rewards/BaseReward">
-          <eStructuralFeatures xsi:type="ecore:EReference" name="servicelevelobjective"
-              eType="ecore:EClass ../../org.palladiosimulator.servicelevelobjective/model/servicelevelobjective.ecore#//ServiceLevelObjective"/>
-          <eStructuralFeatures xsi:type="ecore:EAttribute" name="factor" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EDouble"
-              defaultValueLiteral="1"/>
-        </eClassifiers>
-        <eClassifiers xsi:type="ecore:EClass" name="AggregatedReward" abstract="true"
-            eSuperTypes="#//adjustments/models/rewards/BaseReward"/>
-        <eClassifiers xsi:type="ecore:EClass" name="FunctionReward" eSuperTypes="#//adjustments/models/rewards/AggregatedReward">
-          <eStructuralFeatures xsi:type="ecore:EReference" name="rewards" lowerBound="1"
-              upperBound="-1" eType="#//adjustments/models/rewards/BaseReward" containment="true"/>
-          <eStructuralFeatures xsi:type="ecore:EAttribute" name="aggregationMethod"
-              eType="#//adjustments/models/rewards/RewardAggregationMethod"/>
-        </eClassifiers>
-        <eClassifiers xsi:type="ecore:EEnum" name="RewardAggregationMethod">
-          <eLiterals name="ADDITION"/>
-          <eLiterals name="SUBTRACTION" value="1"/>
-          <eLiterals name="EXPONENTIAL" value="2" literal="EXPONENTIAL"/>
-          <eLiterals name="DIVISION" value="3" literal="DIVISION"/>
-          <eLiterals name="MULTIPLICATION" value="4"/>
-        </eClassifiers>
-        <eClassifiers xsi:type="ecore:EClass" name="UtilizationReward" eSuperTypes="#//adjustments/models/rewards/BaseReward">
-          <eStructuralFeatures xsi:type="ecore:EReference" name="stimulus" lowerBound="1"
-              eType="#//triggers/stimuli/Stimulus"/>
-        </eClassifiers>
-      </eSubpackages>
-    </eSubpackages>
   </eSubpackages>
   <eSubpackages name="constraints" nsURI="http://palladiosimulator.org/ScalingPolicyDefinition/Constraints/1.0"
       nsPrefix="constraints">
@@ -324,15 +278,6 @@
         <details key="documentation" value="The SimpleFireOnTrend trigger is a more advanced trigger that aggregates values and determines a trend and fires whenever this trend is as an expectedTrend value. "/>
       </eAnnotations>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="SimpleFireOnOutput" eSuperTypes="#//triggers/ScalingTrigger">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="New Trigger that uses RL agent or NN"/>
-      </eAnnotations>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="stimulus" lowerBound="1"
-          upperBound="-1" eType="#//triggers/stimuli/Stimulus" containment="true"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="expectedValue" lowerBound="1"
-          eType="#//triggers/expectations/ExpectedValue" containment="true"/>
-    </eClassifiers>
     <eSubpackages name="stimuli" nsURI="http://palladiosimulator.org/ScalingPolicyDefinition/Triggers/Stimuli/1.0"
         nsPrefix="stimuli">
       <eClassifiers xsi:type="ecore:EClass" name="Stimulus" abstract="true">
@@ -464,6 +409,61 @@
       </eClassifiers>
       <eClassifiers xsi:type="ecore:EClass" name="ExpectedTrend" eSuperTypes="#//triggers/expectations/ExpectedValue">
         <eStructuralFeatures xsi:type="ecore:EAttribute" name="trend" eType="#//triggers/TrendPattern"/>
+      </eClassifiers>
+    </eSubpackages>
+  </eSubpackages>
+  <eSubpackages name="models" nsURI="http://palladiosimulator.org/ScalingPolicyDefinition/Adjustments/Models/1.0"
+      nsPrefix="models">
+    <eClassifiers xsi:type="ecore:EClass" name="BaseModel" abstract="true">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="interval" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"
+          defaultValueLiteral="1.0"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="initalIntervalDelay"
+          eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EDouble"
+          defaultValueLiteral="0"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="QThresholdsModel" eSuperTypes="#//models/LearningBasedModel"/>
+    <eClassifiers xsi:type="ecore:EClass" name="RandomModel" eSuperTypes="#//models/BaseModel"/>
+    <eClassifiers xsi:type="ecore:EClass" name="ImprovedQLearningModel" eSuperTypes="#//models/LearningBasedModel"/>
+    <eClassifiers xsi:type="ecore:EClass" name="LearningBasedModel" eSuperTypes="#//models/BaseModel">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Learning-based models have at least one stimulus as input and some reward that is used for the learning process."/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="reward" lowerBound="1"
+          eType="#//models/rewards/BaseReward" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="inputs" lowerBound="1"
+          upperBound="-1" eType="#//triggers/stimuli/Stimulus" containment="true"/>
+    </eClassifiers>
+    <eSubpackages name="rewards" nsURI="http://palladiosimulator.org/ScalingPolicyDefinition/Adjustments/Models/Rewards/1.0"
+        nsPrefix="rewards">
+      <eClassifiers xsi:type="ecore:EClass" name="BaseReward" abstract="true"/>
+      <eClassifiers xsi:type="ecore:EClass" name="StaticReward" eSuperTypes="#//models/rewards/BaseReward">
+        <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EDouble"
+            defaultValueLiteral="1.0"/>
+      </eClassifiers>
+      <eClassifiers xsi:type="ecore:EClass" name="SLOReward" eSuperTypes="#//models/rewards/BaseReward">
+        <eStructuralFeatures xsi:type="ecore:EReference" name="servicelevelobjective"
+            eType="ecore:EClass ../../org.palladiosimulator.servicelevelobjective/model/servicelevelobjective.ecore#//ServiceLevelObjective"/>
+        <eStructuralFeatures xsi:type="ecore:EAttribute" name="factor" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EDouble"
+            defaultValueLiteral="1"/>
+      </eClassifiers>
+      <eClassifiers xsi:type="ecore:EClass" name="AggregatedReward" abstract="true"
+          eSuperTypes="#//models/rewards/BaseReward"/>
+      <eClassifiers xsi:type="ecore:EClass" name="FunctionReward" eSuperTypes="#//models/rewards/AggregatedReward">
+        <eStructuralFeatures xsi:type="ecore:EReference" name="rewards" lowerBound="1"
+            upperBound="-1" eType="#//models/rewards/BaseReward" containment="true"/>
+        <eStructuralFeatures xsi:type="ecore:EAttribute" name="aggregationMethod"
+            eType="#//models/rewards/RewardAggregationMethod"/>
+      </eClassifiers>
+      <eClassifiers xsi:type="ecore:EEnum" name="RewardAggregationMethod">
+        <eLiterals name="ADDITION"/>
+        <eLiterals name="SUBTRACTION" value="1"/>
+        <eLiterals name="EXPONENTIAL" value="2" literal="EXPONENTIAL"/>
+        <eLiterals name="DIVISION" value="3" literal="DIVISION"/>
+        <eLiterals name="MULTIPLICATION" value="4"/>
+      </eClassifiers>
+      <eClassifiers xsi:type="ecore:EClass" name="UtilizationReward" eSuperTypes="#//models/rewards/BaseReward">
+        <eStructuralFeatures xsi:type="ecore:EReference" name="stimulus" lowerBound="1"
+            eType="#//triggers/stimuli/Stimulus" containment="true"/>
       </eClassifiers>
     </eSubpackages>
   </eSubpackages>

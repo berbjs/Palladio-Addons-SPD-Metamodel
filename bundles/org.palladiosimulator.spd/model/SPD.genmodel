@@ -10,34 +10,40 @@
     importOrganizing="true" cleanup="true">
   <foreignModel>SPD.ecore</foreignModel>
   <modelPluginVariables>CDO=org.eclipse.emf.cdo</modelPluginVariables>
-  <genPackages prefix="Spd" basePackage="org.palladiosimulator" ecorePackage="SPD.ecore#/">
-    <genClasses ecoreClass="SPD.ecore#//ScalingPolicy" labelFeature="platform:/plugin/org.palladiosimulator.pcm/model/pcm.genmodel#//pcm/core/entity/NamedElement/entityName">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SPD.ecore#//ScalingPolicy/active"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SPD.ecore#//ScalingPolicy/adjustmentType"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference SPD.ecore#//ScalingPolicy/targetGroup"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SPD.ecore#//ScalingPolicy/policyConstraints"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SPD.ecore#//ScalingPolicy/scalingTrigger"/>
+  <genPackages prefix="Spd" basePackage="org.palladiosimulator" disposableProviderFactory="true"
+      ecorePackage="SPD.ecore#/">
+    <genClasses ecoreClass="SPD.ecore#//ReactiveScalingPolicy">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SPD.ecore#//ReactiveScalingPolicy/adjustmentType"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SPD.ecore#//ReactiveScalingPolicy/scalingTrigger"/>
     </genClasses>
-    <genClasses ecoreClass="SPD.ecore#//SPD" labelFeature="platform:/plugin/org.palladiosimulator.pcm/model/pcm.genmodel#//pcm/core/entity/NamedElement/entityName">
+    <genClasses ecoreClass="SPD.ecore#//SPD">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SPD.ecore#//SPD/scalingPolicies"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SPD.ecore#//SPD/targetGroups"/>
     </genClasses>
+    <genClasses image="false" ecoreClass="SPD.ecore#//ScalingPolicy">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SPD.ecore#//ScalingPolicy/active"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SPD.ecore#//ScalingPolicy/policyConstraints"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference SPD.ecore#//ScalingPolicy/targetGroup"/>
+    </genClasses>
+    <genClasses ecoreClass="SPD.ecore#//ModelBasedScalingPolicy">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SPD.ecore#//ModelBasedScalingPolicy/model"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SPD.ecore#//ModelBasedScalingPolicy/adjustment"/>
+    </genClasses>
     <nestedGenPackages prefix="Targets" basePackage="org.palladiosimulator.spd" disposableProviderFactory="true"
         ecorePackage="SPD.ecore#//targets">
-      <genClasses image="false" ecoreClass="SPD.ecore#//targets/TargetGroup" labelFeature="platform:/plugin/org.palladiosimulator.pcm/model/pcm.genmodel#//pcm/core/entity/NamedElement/entityName">
+      <genClasses image="false" ecoreClass="SPD.ecore#//targets/TargetGroup">
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SPD.ecore#//targets/TargetGroup/targetConstraints"/>
       </genClasses>
-      <genClasses ecoreClass="SPD.ecore#//targets/ElasticInfrastructure" labelFeature="platform:/plugin/org.palladiosimulator.pcm/model/pcm.genmodel#//pcm/core/entity/NamedElement/entityName">
-        <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference SPD.ecore#//targets/ElasticInfrastructure/PCM_ResourceEnvironment"/>
+      <genClasses ecoreClass="SPD.ecore#//targets/ElasticInfrastructure">
+        <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference SPD.ecore#//targets/ElasticInfrastructure/PCM_ResourceEnvironment"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference SPD.ecore#//targets/ElasticInfrastructure/unit"/>
       </genClasses>
-      <genClasses ecoreClass="SPD.ecore#//targets/ServiceGroup" labelFeature="platform:/plugin/org.palladiosimulator.pcm/model/pcm.genmodel#//pcm/core/entity/NamedElement/entityName">
+      <genClasses ecoreClass="SPD.ecore#//targets/ServiceGroup">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference SPD.ecore#//targets/ServiceGroup/unitAssembly"/>
       </genClasses>
-      <genClasses ecoreClass="SPD.ecore#//targets/CompetingConsumersGroup" labelFeature="platform:/plugin/org.palladiosimulator.pcm/model/pcm.genmodel#//pcm/core/entity/NamedElement/entityName">
+      <genClasses ecoreClass="SPD.ecore#//targets/CompetingConsumersGroup">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference SPD.ecore#//targets/CompetingConsumersGroup/unitAssembly"/>
       </genClasses>
@@ -55,52 +61,6 @@
       <genClasses ecoreClass="SPD.ecore#//adjustments/StepAdjustment">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SPD.ecore#//adjustments/StepAdjustment/stepValue"/>
       </genClasses>
-      <genClasses ecoreClass="SPD.ecore#//adjustments/ModelBasedAdjustment">
-        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SPD.ecore#//adjustments/ModelBasedAdjustment/usedModel"/>
-      </genClasses>
-      <nestedGenPackages prefix="Models" basePackage="org.palladiosimulator.spd.adjustments"
-          disposableProviderFactory="true" ecorePackage="SPD.ecore#//adjustments/models">
-        <genClasses image="false" ecoreClass="SPD.ecore#//adjustments/models/BaseModel">
-          <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SPD.ecore#//adjustments/models/BaseModel/interval"/>
-          <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SPD.ecore#//adjustments/models/BaseModel/initalIntervalDelay"/>
-        </genClasses>
-        <genClasses ecoreClass="SPD.ecore#//adjustments/models/QThresholdsModel"/>
-        <genClasses ecoreClass="SPD.ecore#//adjustments/models/RandomModel"/>
-        <genClasses ecoreClass="SPD.ecore#//adjustments/models/ImprovedQLearningModel"/>
-        <genClasses ecoreClass="SPD.ecore#//adjustments/models/LearningBasedModel">
-          <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SPD.ecore#//adjustments/models/LearningBasedModel/reward"/>
-          <genFeatures notify="false" createChild="false" propertySortChoices="true"
-              ecoreFeature="ecore:EReference SPD.ecore#//adjustments/models/LearningBasedModel/inputs"/>
-        </genClasses>
-        <nestedGenPackages prefix="Rewards" basePackage="org.palladiosimulator.spd.adjustments.models"
-            disposableProviderFactory="true" ecorePackage="SPD.ecore#//adjustments/models/rewards">
-          <genEnums typeSafeEnumCompatible="false" ecoreEnum="SPD.ecore#//adjustments/models/rewards/RewardAggregationMethod">
-            <genEnumLiterals ecoreEnumLiteral="SPD.ecore#//adjustments/models/rewards/RewardAggregationMethod/ADDITION"/>
-            <genEnumLiterals ecoreEnumLiteral="SPD.ecore#//adjustments/models/rewards/RewardAggregationMethod/SUBTRACTION"/>
-            <genEnumLiterals ecoreEnumLiteral="SPD.ecore#//adjustments/models/rewards/RewardAggregationMethod/EXPONENTIAL"/>
-            <genEnumLiterals ecoreEnumLiteral="SPD.ecore#//adjustments/models/rewards/RewardAggregationMethod/DIVISION"/>
-            <genEnumLiterals ecoreEnumLiteral="SPD.ecore#//adjustments/models/rewards/RewardAggregationMethod/MULTIPLICATION"/>
-          </genEnums>
-          <genClasses ecoreClass="SPD.ecore#//adjustments/models/rewards/BaseReward"/>
-          <genClasses ecoreClass="SPD.ecore#//adjustments/models/rewards/StaticReward">
-            <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SPD.ecore#//adjustments/models/rewards/StaticReward/value"/>
-          </genClasses>
-          <genClasses ecoreClass="SPD.ecore#//adjustments/models/rewards/SLOReward">
-            <genFeatures notify="false" createChild="false" propertySortChoices="true"
-                ecoreFeature="ecore:EReference SPD.ecore#//adjustments/models/rewards/SLOReward/servicelevelobjective"/>
-            <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SPD.ecore#//adjustments/models/rewards/SLOReward/factor"/>
-          </genClasses>
-          <genClasses ecoreClass="SPD.ecore#//adjustments/models/rewards/AggregatedReward"/>
-          <genClasses ecoreClass="SPD.ecore#//adjustments/models/rewards/FunctionReward">
-            <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SPD.ecore#//adjustments/models/rewards/FunctionReward/rewards"/>
-            <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SPD.ecore#//adjustments/models/rewards/FunctionReward/aggregationMethod"/>
-          </genClasses>
-          <genClasses ecoreClass="SPD.ecore#//adjustments/models/rewards/UtilizationReward">
-            <genFeatures notify="false" createChild="false" propertySortChoices="true"
-                ecoreFeature="ecore:EReference SPD.ecore#//adjustments/models/rewards/UtilizationReward/stimulus"/>
-          </genClasses>
-        </nestedGenPackages>
-      </nestedGenPackages>
     </nestedGenPackages>
     <nestedGenPackages prefix="Constraints" basePackage="org.palladiosimulator.spd"
         disposableProviderFactory="true" ecorePackage="SPD.ecore#//constraints">
@@ -181,10 +141,6 @@
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SPD.ecore#//triggers/SimpleFireOnValue/relationalOperator"/>
       </genClasses>
       <genClasses ecoreClass="SPD.ecore#//triggers/SimpleFireOnTrend"/>
-      <genClasses ecoreClass="SPD.ecore#//triggers/SimpleFireOnOutput">
-        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SPD.ecore#//triggers/SimpleFireOnOutput/stimulus"/>
-        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SPD.ecore#//triggers/SimpleFireOnOutput/expectedValue"/>
-      </genClasses>
       <nestedGenPackages prefix="Stimuli" basePackage="org.palladiosimulator.spd.triggers"
           disposableProviderFactory="true" ecorePackage="SPD.ecore#//triggers/stimuli">
         <genClasses image="false" ecoreClass="SPD.ecore#//triggers/stimuli/Stimulus"/>
@@ -236,6 +192,47 @@
         </genClasses>
         <genClasses ecoreClass="SPD.ecore#//triggers/expectations/ExpectedTrend">
           <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SPD.ecore#//triggers/expectations/ExpectedTrend/trend"/>
+        </genClasses>
+      </nestedGenPackages>
+    </nestedGenPackages>
+    <nestedGenPackages prefix="Models" basePackage="org.palladiosimulator.spd" disposableProviderFactory="true"
+        ecorePackage="SPD.ecore#//models">
+      <genClasses image="false" ecoreClass="SPD.ecore#//models/BaseModel">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SPD.ecore#//models/BaseModel/interval"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SPD.ecore#//models/BaseModel/initalIntervalDelay"/>
+      </genClasses>
+      <genClasses ecoreClass="SPD.ecore#//models/QThresholdsModel"/>
+      <genClasses ecoreClass="SPD.ecore#//models/RandomModel"/>
+      <genClasses ecoreClass="SPD.ecore#//models/ImprovedQLearningModel"/>
+      <genClasses ecoreClass="SPD.ecore#//models/LearningBasedModel">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SPD.ecore#//models/LearningBasedModel/reward"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SPD.ecore#//models/LearningBasedModel/inputs"/>
+      </genClasses>
+      <nestedGenPackages prefix="Rewards" basePackage="org.palladiosimulator.spd.models"
+          disposableProviderFactory="true" ecorePackage="SPD.ecore#//models/rewards">
+        <genEnums typeSafeEnumCompatible="false" ecoreEnum="SPD.ecore#//models/rewards/RewardAggregationMethod">
+          <genEnumLiterals ecoreEnumLiteral="SPD.ecore#//models/rewards/RewardAggregationMethod/ADDITION"/>
+          <genEnumLiterals ecoreEnumLiteral="SPD.ecore#//models/rewards/RewardAggregationMethod/SUBTRACTION"/>
+          <genEnumLiterals ecoreEnumLiteral="SPD.ecore#//models/rewards/RewardAggregationMethod/EXPONENTIAL"/>
+          <genEnumLiterals ecoreEnumLiteral="SPD.ecore#//models/rewards/RewardAggregationMethod/DIVISION"/>
+          <genEnumLiterals ecoreEnumLiteral="SPD.ecore#//models/rewards/RewardAggregationMethod/MULTIPLICATION"/>
+        </genEnums>
+        <genClasses image="false" ecoreClass="SPD.ecore#//models/rewards/BaseReward"/>
+        <genClasses ecoreClass="SPD.ecore#//models/rewards/StaticReward">
+          <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SPD.ecore#//models/rewards/StaticReward/value"/>
+        </genClasses>
+        <genClasses ecoreClass="SPD.ecore#//models/rewards/SLOReward">
+          <genFeatures notify="false" createChild="false" propertySortChoices="true"
+              ecoreFeature="ecore:EReference SPD.ecore#//models/rewards/SLOReward/servicelevelobjective"/>
+          <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SPD.ecore#//models/rewards/SLOReward/factor"/>
+        </genClasses>
+        <genClasses image="false" ecoreClass="SPD.ecore#//models/rewards/AggregatedReward"/>
+        <genClasses ecoreClass="SPD.ecore#//models/rewards/FunctionReward">
+          <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SPD.ecore#//models/rewards/FunctionReward/rewards"/>
+          <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SPD.ecore#//models/rewards/FunctionReward/aggregationMethod"/>
+        </genClasses>
+        <genClasses ecoreClass="SPD.ecore#//models/rewards/UtilizationReward">
+          <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SPD.ecore#//models/rewards/UtilizationReward/stimulus"/>
         </genClasses>
       </nestedGenPackages>
     </nestedGenPackages>
