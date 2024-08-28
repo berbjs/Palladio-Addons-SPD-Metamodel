@@ -97,11 +97,11 @@ helper ComputeDiffBasedOnAdjustmentType(unitAssembly:AssemblyContext, policy: Sc
 	var numberOfElements:Integer := targetGroupCfg.numberOfElements();	
 
 	var assembliesDiff : OrderedSet(AssemblyContext) := OrderedSet{};
-	var desiredChange : Real;
+	var desiredChange : Real = 0;
 	
 	if (policy.oclIsTypeOf(ReactiveScalingPolicy)){	
 		var adjustment: AdjustmentType := policy.oclAsType(ReactiveScalingPolicy).adjustmentType;
-		desiredChange := Interprete_adjustmentType(adjustment, currentSize);
+		desiredChange := Interprete_adjustmentType(adjustment, numberOfElements);
 	} else {
 		desiredChange := policy.oclAsType(ModelBasedScalingPolicy).adjustment;
 	};
