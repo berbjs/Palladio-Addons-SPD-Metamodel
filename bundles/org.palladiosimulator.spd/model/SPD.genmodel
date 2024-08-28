@@ -202,7 +202,11 @@
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SPD.ecore#//models/BaseModel/initalIntervalDelay"/>
       </genClasses>
       <genClasses ecoreClass="SPD.ecore#//models/QThresholdsModel"/>
-      <genClasses ecoreClass="SPD.ecore#//models/RandomModel"/>
+      <genClasses ecoreClass="SPD.ecore#//models/RandomModel">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SPD.ecore#//models/RandomModel/minAdjustment"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SPD.ecore#//models/RandomModel/maxAdjustment"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SPD.ecore#//models/RandomModel/probability"/>
+      </genClasses>
       <genClasses ecoreClass="SPD.ecore#//models/ImprovedQLearningModel"/>
       <genClasses ecoreClass="SPD.ecore#//models/LearningBasedModel">
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SPD.ecore#//models/LearningBasedModel/reward"/>
