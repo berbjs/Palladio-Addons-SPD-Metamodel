@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="spdmodelreward" nsURI="http://palladiosimulator.org/PCM/SPDModelReward/1.0"
+    nsPrefix="spdmodelreward">
+  <eClassifiers xsi:type="ecore:EClass" name="BaseReward" abstract="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="StaticReward" eSuperTypes="#//BaseReward">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SLOReward" eSuperTypes="#//BaseReward">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="factor" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="serviceLevelObjective"
+        eType="ecore:EClass ../../org.palladiosimulator.servicelevelobjective/model/servicelevelobjective.ecore#//ServiceLevelObjective"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="UtilizationReward" eSuperTypes="#//BaseReward">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="stimulus" lowerBound="1"
+        eType="ecore:EClass ../../org.palladiosimulator.spd/model/SPD.ecore#//triggers/stimuli/Stimulus"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="FunctionReward" eSuperTypes="#//BaseReward">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="rewards" lowerBound="1"
+        upperBound="-1" eType="#//BaseReward" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="function" eType="#//RewardAggregationMethod"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="RewardAggregationMethod">
+    <eLiterals name="ADDITION"/>
+    <eLiterals name="SUBTRACTION" value="1"/>
+    <eLiterals name="MULTIPLICATION" value="2"/>
+    <eLiterals name="DIVISION" value="3"/>
+    <eLiterals name="EXPONENTIAL" value="4"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SPDModelRewardRepository">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="modelReward" upperBound="-1"
+        eType="#//ModelReward" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ModelReward">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="reward" lowerBound="1"
+        eType="#//BaseReward" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+  </eClassifiers>
+</ecore:EPackage>

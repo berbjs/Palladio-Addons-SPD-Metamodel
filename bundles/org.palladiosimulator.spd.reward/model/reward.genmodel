@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel"
+    modelDirectory="/org.palladiosimulator.spd.reward/src" editDirectory="/org.palladiosimulator.spd.reward.edit/src"
+    editorDirectory="/org.palladiosimulator.spd.reward.editor/src" modelPluginID="org.palladiosimulator.spd.reward"
+    modelName="SPDModelReward" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    codeFormatting="true" importerID="org.eclipse.emf.importer.ecore" featureDelegation="Dynamic"
+    complianceLevel="17.0" copyrightFields="false" testsPluginID="org.palladiosimulator.spd.reward.tests"
+    usedGenPackages="../../org.eclipse.emf.ecore/model/Ecore.genmodel#//ecore ../../org.palladiosimulator.edp2/model/EDP2.genmodel#//models ../../de.uka.ipd.sdq.identifier/model/identifier.genmodel#//identifier ../../org.palladiosimulator.metricspec/model/metricspec.genmodel#//metricspec ../../org.palladiosimulator.monitorrepository/model/monitorrepository.genmodel#//monitorrepository ../../org.palladiosimulator.pcm/model/pcm.genmodel#//pcm ../../de.uka.ipd.sdq.probfunction/model/ProbabilityFunction.genmodel#//probfunction ../../org.palladiosimulator.spd/model/SPD.genmodel#//spd ../../org.palladiosimulator.servicelevelobjective/model/servicelevelobjective.genmodel#//servicelevelobjective ../../de.uka.ipd.sdq.stoex/model/stoex.genmodel#//stoex ../../de.uka.ipd.sdq.units/model/Units.genmodel#//units"
+    operationReflection="true" importOrganizing="true" cleanup="true">
+  <foreignModel>reward.ecore</foreignModel>
+  <testsDirectory xsi:nil="true"/>
+  <genPackages prefix="Spdmodelreward" basePackage="org.palladiosimulator" ecorePackage="reward.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="reward.ecore#//RewardAggregationMethod">
+      <genEnumLiterals ecoreEnumLiteral="reward.ecore#//RewardAggregationMethod/ADDITION"/>
+      <genEnumLiterals ecoreEnumLiteral="reward.ecore#//RewardAggregationMethod/SUBTRACTION"/>
+      <genEnumLiterals ecoreEnumLiteral="reward.ecore#//RewardAggregationMethod/MULTIPLICATION"/>
+      <genEnumLiterals ecoreEnumLiteral="reward.ecore#//RewardAggregationMethod/DIVISION"/>
+      <genEnumLiterals ecoreEnumLiteral="reward.ecore#//RewardAggregationMethod/EXPONENTIAL"/>
+    </genEnums>
+    <genClasses ecoreClass="reward.ecore#//BaseReward"/>
+    <genClasses ecoreClass="reward.ecore#//StaticReward">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute reward.ecore#//StaticReward/value"/>
+    </genClasses>
+    <genClasses ecoreClass="reward.ecore#//SLOReward">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute reward.ecore#//SLOReward/factor"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference reward.ecore#//SLOReward/serviceLevelObjective"/>
+    </genClasses>
+    <genClasses ecoreClass="reward.ecore#//UtilizationReward">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference reward.ecore#//UtilizationReward/stimulus"/>
+    </genClasses>
+    <genClasses ecoreClass="reward.ecore#//FunctionReward">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference reward.ecore#//FunctionReward/rewards"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute reward.ecore#//FunctionReward/function"/>
+    </genClasses>
+    <genClasses ecoreClass="reward.ecore#//SPDModelRewardRepository">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference reward.ecore#//SPDModelRewardRepository/modelReward"/>
+    </genClasses>
+    <genClasses ecoreClass="reward.ecore#//ModelReward">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference reward.ecore#//ModelReward/reward"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute reward.ecore#//ModelReward/name"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

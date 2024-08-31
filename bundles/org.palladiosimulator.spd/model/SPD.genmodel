@@ -6,7 +6,7 @@
     rootExtendsInterface="org.eclipse.emf.cdo.CDOObject" rootExtendsClass="org.eclipse.emf.internal.cdo.CDOObjectImpl"
     codeFormatting="true" importerID="org.eclipse.emf.importer.ecore" featureDelegation="Dynamic"
     complianceLevel="17.0" copyrightFields="false" editPluginID="org.palladiosimulator.spd.edit"
-    editorPluginID="org.palladiosimulator.spd.editor" language="en" usedGenPackages="platform:/plugin/org.eclipse.emf.ecore/model/Ecore.genmodel#//ecore ../../org.palladiosimulator.edp2/model/EDP2.genmodel#//models platform:/plugin/de.uka.ipd.sdq.identifier/model/identifier.genmodel#//identifier ../../org.palladiosimulator.metricspec/model/metricspec.genmodel#//metricspec ../../org.palladiosimulator.monitorrepository/model/monitorrepository.genmodel#//monitorrepository platform:/plugin/org.palladiosimulator.pcm/model/pcm.genmodel#//pcm platform:/plugin/de.uka.ipd.sdq.probfunction/model/ProbabilityFunction.genmodel#//probfunction ../../org.palladiosimulator.servicelevelobjective/model/servicelevelobjective.genmodel#//servicelevelobjective platform:/plugin/de.uka.ipd.sdq.stoex/model/stoex.genmodel#//stoex platform:/plugin/de.uka.ipd.sdq.units/model/Units.genmodel#//units"
+    editorPluginID="org.palladiosimulator.spd.editor" language="en" usedGenPackages="platform:/plugin/org.eclipse.emf.ecore/model/Ecore.genmodel#//ecore ../../org.palladiosimulator.edp2/model/EDP2.genmodel#//models platform:/plugin/de.uka.ipd.sdq.identifier/model/identifier.genmodel#//identifier ../../org.palladiosimulator.metricspec/model/metricspec.genmodel#//metricspec ../../org.palladiosimulator.monitorrepository/model/monitorrepository.genmodel#//monitorrepository platform:/plugin/org.palladiosimulator.pcm/model/pcm.genmodel#//pcm platform:/plugin/de.uka.ipd.sdq.probfunction/model/ProbabilityFunction.genmodel#//probfunction ../../org.palladiosimulator.spd.reward/model/reward.genmodel#//spdmodelreward ../../org.palladiosimulator.servicelevelobjective/model/servicelevelobjective.genmodel#//servicelevelobjective platform:/plugin/de.uka.ipd.sdq.stoex/model/stoex.genmodel#//stoex platform:/plugin/de.uka.ipd.sdq.units/model/Units.genmodel#//units"
     importOrganizing="true" cleanup="true">
   <foreignModel>SPD.ecore</foreignModel>
   <modelPluginVariables>CDO=org.eclipse.emf.cdo</modelPluginVariables>
@@ -209,36 +209,10 @@
       </genClasses>
       <genClasses ecoreClass="SPD.ecore#//models/ImprovedQLearningModel"/>
       <genClasses ecoreClass="SPD.ecore#//models/LearningBasedModel">
-        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SPD.ecore#//models/LearningBasedModel/reward"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference SPD.ecore#//models/LearningBasedModel/reward"/>
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SPD.ecore#//models/LearningBasedModel/inputs"/>
       </genClasses>
-      <nestedGenPackages prefix="Rewards" basePackage="org.palladiosimulator.spd.models"
-          disposableProviderFactory="true" ecorePackage="SPD.ecore#//models/rewards">
-        <genEnums typeSafeEnumCompatible="false" ecoreEnum="SPD.ecore#//models/rewards/RewardAggregationMethod">
-          <genEnumLiterals ecoreEnumLiteral="SPD.ecore#//models/rewards/RewardAggregationMethod/ADDITION"/>
-          <genEnumLiterals ecoreEnumLiteral="SPD.ecore#//models/rewards/RewardAggregationMethod/SUBTRACTION"/>
-          <genEnumLiterals ecoreEnumLiteral="SPD.ecore#//models/rewards/RewardAggregationMethod/EXPONENTIAL"/>
-          <genEnumLiterals ecoreEnumLiteral="SPD.ecore#//models/rewards/RewardAggregationMethod/DIVISION"/>
-          <genEnumLiterals ecoreEnumLiteral="SPD.ecore#//models/rewards/RewardAggregationMethod/MULTIPLICATION"/>
-        </genEnums>
-        <genClasses image="false" ecoreClass="SPD.ecore#//models/rewards/BaseReward"/>
-        <genClasses ecoreClass="SPD.ecore#//models/rewards/StaticReward">
-          <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SPD.ecore#//models/rewards/StaticReward/value"/>
-        </genClasses>
-        <genClasses ecoreClass="SPD.ecore#//models/rewards/SLOReward">
-          <genFeatures notify="false" createChild="false" propertySortChoices="true"
-              ecoreFeature="ecore:EReference SPD.ecore#//models/rewards/SLOReward/servicelevelobjective"/>
-          <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SPD.ecore#//models/rewards/SLOReward/factor"/>
-        </genClasses>
-        <genClasses image="false" ecoreClass="SPD.ecore#//models/rewards/AggregatedReward"/>
-        <genClasses ecoreClass="SPD.ecore#//models/rewards/FunctionReward">
-          <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SPD.ecore#//models/rewards/FunctionReward/rewards"/>
-          <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SPD.ecore#//models/rewards/FunctionReward/aggregationMethod"/>
-        </genClasses>
-        <genClasses ecoreClass="SPD.ecore#//models/rewards/UtilizationReward">
-          <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SPD.ecore#//models/rewards/UtilizationReward/stimulus"/>
-        </genClasses>
-      </nestedGenPackages>
     </nestedGenPackages>
   </genPackages>
 </genmodel:GenModel>
