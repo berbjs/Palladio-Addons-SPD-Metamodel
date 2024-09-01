@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="stimulus" nsURI="http://palladiosimulator.org/ScalingPolicyDefinition/Stimuli/1.0"
+    nsPrefix="stimulus">
+  <eClassifiers xsi:type="ecore:EEnum" name="AGGREGATIONMETHOD">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Enum for the following aggregation methods: MIN, MAX, AVERAGE, SUM that are relevant for different triggers."/>
+    </eAnnotations>
+    <eLiterals name="AVERAGE"/>
+    <eLiterals name="MAX" value="1"/>
+    <eLiterals name="MIN" value="2"/>
+    <eLiterals name="MEDIAN" value="3"/>
+    <eLiterals name="SUM" value="4"/>
+    <eLiterals name="RATEOFCHANGE" value="5"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="HDDUSAGETYPE">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Enum for the type of HDD usage: READ, WRITE"/>
+    </eAnnotations>
+    <eLiterals name="READ"/>
+    <eLiterals name="WRITE" value="1"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="NETWORKUSAGETYPE">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Enum for the following Network Usage types: SEND, RECEIVE which are relevant to distinuish the type of use for a network resource."/>
+    </eAnnotations>
+    <eLiterals name="SEND"/>
+    <eLiterals name="RECEIVE" value="1"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Stimulus" abstract="true">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="The Stimulus defines observable information during the simulation of an architectural model upon which a trigger can fire. Each Stimulus "/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TargetGroupStateStimulus" abstract="true"
+      eSuperTypes="#//Stimulus">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="The TargetGroupStateStimulus classifies all stimuli that has the source from the elements that are being adjusted by the policy. "/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SimulationStateStimulus" abstract="true"
+      eSuperTypes="#//Stimulus">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="The SimulationStateStimulus classifies all stimuli that has the source from the simulation state. A direct subclass is for example the SimulationTime stimulus. "/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SourceInterfaceStimulus" abstract="true"
+      eSuperTypes="#//Stimulus">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="The SourceInterfaceStimulus encapsulates all stimuli that is comming from the source of the target group. For example, in case of a load balanced service then the operation response time is a stimulus that"/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="OperationResponseTime" eSuperTypes="#//SourceInterfaceStimulus">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="A stimulus based on the response time of a given operation. It requires specifying the operationSignature."/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="operationSignature" eType="ecore:EClass platform:/plugin/org.palladiosimulator.pcm/model/pcm.ecore#//repository/OperationSignature">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The operation from which the response time is used. "/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="NumberOfElements" eSuperTypes="#//TargetGroupStateStimulus">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="The NumberOfElements is a concrete stimulus that represents the number of elements in the target group. "/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ManagedElementsStateStimulus" abstract="true"
+      eSuperTypes="#//TargetGroupStateStimulus">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="The ManagedElementsStateStiumlus classifies the stimuli that has the source in the managed elements. A ManagedElementsStateStimulus has to specify how the aggregation across elements is performed."/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="aggregationOverElements"
+        eType="#//AGGREGATIONMETHOD">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The aggregation accross different resource containers in the Target Group. For example if two containers C1 and C2 have a resource utilizaiton of 0.6, respectively 0.8, then choosing AVERAGE as an aggreagtion method then it determines that the value of 0.7 should be compared against the threshold value. "/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="CPUUtilization" eSuperTypes="#//ResourceUtilizationStimulus">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="A resource utilization based stimulus based on the CPU resource."/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="MemoryUtilization" eSuperTypes="#//ResourceUtilizationStimulus">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="A resource utilization based stimulus based on the memory resource."/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SimulationTime" eSuperTypes="#//SimulationStateStimulus">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="A stimulus based on the simulation time."/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="HDDUtilization" eSuperTypes="#//ResourceUtilizationStimulus">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="A resource utilization based stimulus based on the HDD resource."/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="usageType" eType="#//HDDUSAGETYPE"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ResourceUtilizationStimulus" abstract="true"
+      eSuperTypes="#//ManagedElementsStateStimulus"/>
+  <eClassifiers xsi:type="ecore:EClass" name="TaskCount" eSuperTypes="#//ManagedElementsStateStimulus">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="The TaskCount stimulus is a concrete stimulus that represents the number of tasks that are currently being processed by the managed elements."/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="QueueLength" eSuperTypes="#//SourceInterfaceStimulus">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="A queue length based stimulus from the source of the target group. A precondition is that the target group is of type CompetingConsumers. "/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="passiveResource" eType="ecore:EClass platform:/plugin/org.palladiosimulator.pcm/model/pcm.ecore#//repository/PassiveResource"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="NetworkUtilization" eSuperTypes="#//ResourceUtilizationStimulus">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="If the link has been modelled with a certain capacity, then the NetworkUtilization of a certain type determines the fraction of that capacity that is being used by the elements of the target group. "/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="usageType" eType="#//NETWORKUSAGETYPE">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The type of network usage."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AggregatedStimulus" eSuperTypes="#//Stimulus">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="aggregationMethod" lowerBound="1"
+        eType="#//AGGREGATIONMETHOD"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="aggregationPeriod" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EDouble">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Not necessarily present - if it is not present, than the interval given to the model / trigger should be used"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="aggregatedStimulus" lowerBound="1"
+        eType="#//Stimulus" containment="true"/>
+  </eClassifiers>
+</ecore:EPackage>

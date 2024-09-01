@@ -1,31 +1,25 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: %pluginName
-Bundle-SymbolicName: org.palladiosimulator.spd.reward.editor;singleton:=true
-Automatic-Module-Name: org.palladiosimulator.spd.reward.editor
+Bundle-SymbolicName: org.palladiosimulator.spd.stimulus.editor;singleton:=true
+Automatic-Module-Name: org.palladiosimulator.spd.stimulus.editor
 Bundle-Version: 1.0.0.qualifier
 Bundle-ClassPath: .
-Bundle-Activator: org.palladiosimulator.spdmodelreward.presentation.SPDModelRewardEditorPlugin$Implementation
+Bundle-Activator: org.palladiosimulator.spd.stimulus.presentation.StimulusEditorPlugin$Implementation
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-17
-Export-Package: org.palladiosimulator.spdmodelreward.presentation
+Export-Package: org.palladiosimulator.spd.stimulus.presentation
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.core.resources;visibility:=reexport,
- org.palladiosimulator.spd.reward.edit;visibility:=reexport,
+ org.palladiosimulator.spd.stimulus.edit;visibility:=reexport,
  org.eclipse.emf.ecore.xmi;visibility:=reexport,
  org.eclipse.emf.edit.ui;visibility:=reexport,
  org.eclipse.ui.ide;visibility:=reexport,
  org.eclipse.emf.ecore.edit;visibility:=reexport,
- org.palladiosimulator.spd.stimulus.edit;visibility:=reexport,
- org.palladiosimulator.edp2.edit;visibility:=reexport,
  de.uka.ipd.sdq.identifier.edit;visibility:=reexport,
- org.palladiosimulator.metricspec.edit;visibility:=reexport,
- org.palladiosimulator.monitorrepository.edit;visibility:=reexport,
  org.palladiosimulator.pcm.edit;visibility:=reexport,
  de.uka.ipd.sdq.probfunction.edit;visibility:=reexport,
- org.palladiosimulator.spd.edit;visibility:=reexport,
- org.palladiosimulator.servicelevelobjective.edit;visibility:=reexport,
  de.uka.ipd.sdq.stoex.edit;visibility:=reexport,
  de.uka.ipd.sdq.units.edit;visibility:=reexport
 Bundle-ActivationPolicy: lazy

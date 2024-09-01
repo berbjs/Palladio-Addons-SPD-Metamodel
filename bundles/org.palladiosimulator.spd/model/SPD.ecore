@@ -237,7 +237,8 @@
         <details key="documentation" value="A BaseTrigger is a class of ScalingTrigger that works on a Stimulus (that entails the information gathered from the environment) and an ExpectedValue. Once the Stimulus 'matches' the ExpectedValue the trigger fires and an adjustment to the model is made. The matching of Stimulus with an ExpectedValue is determined by the subclasses. This can entail simple analysis through relational operators or more advanced transformation/aggregation of the Stimulus and the ExpectedValue. "/>
       </eAnnotations>
       <eStructuralFeatures xsi:type="ecore:EReference" name="stimulus" lowerBound="1"
-          eType="#//triggers/stimuli/Stimulus" containment="true"/>
+          eType="ecore:EClass ../../org.palladiosimulator.spd.stimulus/model/stimulus.ecore#//Stimulus"
+          containment="true"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="expectedValue" lowerBound="1"
           eType="#//triggers/expectations/ExpectedValue" containment="true"/>
     </eClassifiers>
@@ -278,116 +279,6 @@
         <details key="documentation" value="The SimpleFireOnTrend trigger is a more advanced trigger that aggregates values and determines a trend and fires whenever this trend is as an expectedTrend value. "/>
       </eAnnotations>
     </eClassifiers>
-    <eSubpackages name="stimuli" nsURI="http://palladiosimulator.org/ScalingPolicyDefinition/Triggers/Stimuli/1.0"
-        nsPrefix="stimuli">
-      <eClassifiers xsi:type="ecore:EClass" name="Stimulus" abstract="true">
-        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-          <details key="documentation" value="The Stimulus defines observable information during the simulation of an architectural model upon which a trigger can fire. Each Stimulus "/>
-        </eAnnotations>
-      </eClassifiers>
-      <eClassifiers xsi:type="ecore:EClass" name="TargetGroupStateStimulus" abstract="true"
-          eSuperTypes="#//triggers/stimuli/Stimulus">
-        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-          <details key="documentation" value="The TargetGroupStateStimulus classifies all stimuli that has the source from the elements that are being adjusted by the policy. "/>
-        </eAnnotations>
-      </eClassifiers>
-      <eClassifiers xsi:type="ecore:EClass" name="SimulationStateStimulus" abstract="true"
-          eSuperTypes="#//triggers/stimuli/Stimulus">
-        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-          <details key="documentation" value="The SimulationStateStimulus classifies all stimuli that has the source from the simulation state. A direct subclass is for example the SimulationTime stimulus. "/>
-        </eAnnotations>
-      </eClassifiers>
-      <eClassifiers xsi:type="ecore:EClass" name="SourceInterfaceStimulus" abstract="true"
-          eSuperTypes="#//triggers/stimuli/Stimulus">
-        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-          <details key="documentation" value="The SourceInterfaceStimulus encapsulates all stimuli that is comming from the source of the target group. For example, in case of a load balanced service then the operation response time is a stimulus that"/>
-        </eAnnotations>
-      </eClassifiers>
-      <eClassifiers xsi:type="ecore:EClass" name="OperationResponseTime" eSuperTypes="#//triggers/stimuli/SourceInterfaceStimulus">
-        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-          <details key="documentation" value="A stimulus based on the response time of a given operation. It requires specifying the operationSignature."/>
-        </eAnnotations>
-        <eStructuralFeatures xsi:type="ecore:EReference" name="operationSignature"
-            eType="ecore:EClass platform:/plugin/org.palladiosimulator.pcm/model/pcm.ecore#//repository/OperationSignature">
-          <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-            <details key="documentation" value="The operation from which the response time is used. "/>
-          </eAnnotations>
-        </eStructuralFeatures>
-      </eClassifiers>
-      <eClassifiers xsi:type="ecore:EClass" name="NumberOfElements" eSuperTypes="#//triggers/stimuli/TargetGroupStateStimulus">
-        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-          <details key="documentation" value="The NumberOfElements is a concrete stimulus that represents the number of elements in the target group. "/>
-        </eAnnotations>
-      </eClassifiers>
-      <eClassifiers xsi:type="ecore:EClass" name="ManagedElementsStateStimulus" abstract="true"
-          eSuperTypes="#//triggers/stimuli/TargetGroupStateStimulus">
-        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-          <details key="documentation" value="The ManagedElementsStateStiumlus classifies the stimuli that has the source in the managed elements. A ManagedElementsStateStimulus has to specify how the aggregation across elements is performed."/>
-        </eAnnotations>
-        <eStructuralFeatures xsi:type="ecore:EAttribute" name="aggregationOverElements"
-            eType="#//triggers/AGGREGATIONMETHOD">
-          <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-            <details key="documentation" value="The aggregation accross different resource containers in the Target Group. For example if two containers C1 and C2 have a resource utilizaiton of 0.6, respectively 0.8, then choosing AVERAGE as an aggreagtion method then it determines that the value of 0.7 should be compared against the threshold value. "/>
-          </eAnnotations>
-        </eStructuralFeatures>
-      </eClassifiers>
-      <eClassifiers xsi:type="ecore:EClass" name="CPUUtilization" eSuperTypes="#//triggers/stimuli/ResourceUtilizationStimulus">
-        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-          <details key="documentation" value="A resource utilization based stimulus based on the CPU resource."/>
-        </eAnnotations>
-      </eClassifiers>
-      <eClassifiers xsi:type="ecore:EClass" name="MemoryUtilization" eSuperTypes="#//triggers/stimuli/ResourceUtilizationStimulus">
-        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-          <details key="documentation" value="A resource utilization based stimulus based on the memory resource."/>
-        </eAnnotations>
-      </eClassifiers>
-      <eClassifiers xsi:type="ecore:EClass" name="SimulationTime" eSuperTypes="#//triggers/stimuli/SimulationStateStimulus">
-        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-          <details key="documentation" value="A stimulus based on the simulation time."/>
-        </eAnnotations>
-      </eClassifiers>
-      <eClassifiers xsi:type="ecore:EClass" name="HDDUtilization" eSuperTypes="#//triggers/stimuli/ResourceUtilizationStimulus">
-        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-          <details key="documentation" value="A resource utilization based stimulus based on the HDD resource."/>
-        </eAnnotations>
-        <eStructuralFeatures xsi:type="ecore:EAttribute" name="usageType" eType="#//triggers/HDDUSAGETYPE"/>
-      </eClassifiers>
-      <eClassifiers xsi:type="ecore:EClass" name="ResourceUtilizationStimulus" abstract="true"
-          eSuperTypes="#//triggers/stimuli/ManagedElementsStateStimulus"/>
-      <eClassifiers xsi:type="ecore:EClass" name="TaskCount" eSuperTypes="#//triggers/stimuli/ManagedElementsStateStimulus">
-        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-          <details key="documentation" value="The TaskCount stimulus is a concrete stimulus that represents the number of tasks that are currently being processed by the managed elements."/>
-        </eAnnotations>
-      </eClassifiers>
-      <eClassifiers xsi:type="ecore:EClass" name="QueueLength" eSuperTypes="#//triggers/stimuli/SourceInterfaceStimulus">
-        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-          <details key="documentation" value="A queue length based stimulus from the source of the target group. A precondition is that the target group is of type CompetingConsumers. "/>
-        </eAnnotations>
-        <eStructuralFeatures xsi:type="ecore:EReference" name="passiveResource" eType="ecore:EClass platform:/plugin/org.palladiosimulator.pcm/model/pcm.ecore#//repository/PassiveResource"/>
-      </eClassifiers>
-      <eClassifiers xsi:type="ecore:EClass" name="NetworkUtilization" eSuperTypes="#//triggers/stimuli/ResourceUtilizationStimulus">
-        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-          <details key="documentation" value="If the link has been modelled with a certain capacity, then the NetworkUtilization of a certain type determines the fraction of that capacity that is being used by the elements of the target group. "/>
-        </eAnnotations>
-        <eStructuralFeatures xsi:type="ecore:EAttribute" name="usageType" eType="#//triggers/NETWORKUSAGETYPE">
-          <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-            <details key="documentation" value="The type of network usage."/>
-          </eAnnotations>
-        </eStructuralFeatures>
-      </eClassifiers>
-      <eClassifiers xsi:type="ecore:EClass" name="AggregatedStimulus" eSuperTypes="#//triggers/stimuli/Stimulus">
-        <eStructuralFeatures xsi:type="ecore:EAttribute" name="aggregationMethod"
-            lowerBound="1" eType="#//triggers/AGGREGATIONMETHOD"/>
-        <eStructuralFeatures xsi:type="ecore:EAttribute" name="aggregationPeriod"
-            eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EDouble">
-          <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-            <details key="documentation" value="Not necessarily present - if it is not present, than the interval given to the model / trigger should be used"/>
-          </eAnnotations>
-        </eStructuralFeatures>
-        <eStructuralFeatures xsi:type="ecore:EReference" name="aggregatedStimulus"
-            lowerBound="1" eType="#//triggers/stimuli/Stimulus" containment="true"/>
-      </eClassifiers>
-    </eSubpackages>
     <eSubpackages name="expectations" nsURI="http://palladiosimulator.org/ScalingPolicyDefinition/Triggers/Expectations/1.0"
         nsPrefix="expectations">
       <eClassifiers xsi:type="ecore:EClass" name="ExpectedValue" abstract="true"/>
@@ -439,7 +330,8 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="reward" lowerBound="1"
           eType="ecore:EClass ../../org.palladiosimulator.spd.reward/model/reward.ecore#//ModelReward"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="inputs" lowerBound="1"
-          upperBound="-1" eType="#//triggers/stimuli/Stimulus" containment="true"/>
+          upperBound="-1" eType="ecore:EClass ../../org.palladiosimulator.spd.stimulus/model/stimulus.ecore#//Stimulus"
+          containment="true"/>
     </eClassifiers>
   </eSubpackages>
 </ecore:EPackage>

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel"
+    modelDirectory="/org.palladiosimulator.spd.stimulus/src" creationIcons="false"
+    editDirectory="/org.palladiosimulator.spd.stimulus.edit/src" editorDirectory="/org.palladiosimulator.spd.stimulus.editor/src"
+    modelPluginID="org.palladiosimulator.spd.stimulus" modelName="Stimulus" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    codeFormatting="true" importerID="org.eclipse.emf.importer.ecore" complianceLevel="17.0"
+    copyrightFields="false" usedGenPackages="../../org.eclipse.emf.ecore/model/Ecore.genmodel#//ecore ../../de.uka.ipd.sdq.identifier/model/identifier.genmodel#//identifier ../../org.palladiosimulator.pcm/model/pcm.genmodel#//pcm ../../de.uka.ipd.sdq.probfunction/model/ProbabilityFunction.genmodel#//probfunction ../../de.uka.ipd.sdq.stoex/model/stoex.genmodel#//stoex ../../de.uka.ipd.sdq.units/model/Units.genmodel#//units"
+    operationReflection="true" importOrganizing="true">
+  <foreignModel>stimulus.ecore</foreignModel>
+  <testsDirectory xsi:nil="true"/>
+  <genPackages prefix="Stimulus" basePackage="org.palladiosimulator.spd" disposableProviderFactory="true"
+      ecorePackage="stimulus.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="stimulus.ecore#//AGGREGATIONMETHOD">
+      <genEnumLiterals ecoreEnumLiteral="stimulus.ecore#//AGGREGATIONMETHOD/AVERAGE"/>
+      <genEnumLiterals ecoreEnumLiteral="stimulus.ecore#//AGGREGATIONMETHOD/MAX"/>
+      <genEnumLiterals ecoreEnumLiteral="stimulus.ecore#//AGGREGATIONMETHOD/MIN"/>
+      <genEnumLiterals ecoreEnumLiteral="stimulus.ecore#//AGGREGATIONMETHOD/MEDIAN"/>
+      <genEnumLiterals ecoreEnumLiteral="stimulus.ecore#//AGGREGATIONMETHOD/SUM"/>
+      <genEnumLiterals ecoreEnumLiteral="stimulus.ecore#//AGGREGATIONMETHOD/RATEOFCHANGE"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="stimulus.ecore#//HDDUSAGETYPE">
+      <genEnumLiterals ecoreEnumLiteral="stimulus.ecore#//HDDUSAGETYPE/READ"/>
+      <genEnumLiterals ecoreEnumLiteral="stimulus.ecore#//HDDUSAGETYPE/WRITE"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="stimulus.ecore#//NETWORKUSAGETYPE">
+      <genEnumLiterals ecoreEnumLiteral="stimulus.ecore#//NETWORKUSAGETYPE/SEND"/>
+      <genEnumLiterals ecoreEnumLiteral="stimulus.ecore#//NETWORKUSAGETYPE/RECEIVE"/>
+    </genEnums>
+    <genClasses image="false" ecoreClass="stimulus.ecore#//Stimulus"/>
+    <genClasses image="false" ecoreClass="stimulus.ecore#//TargetGroupStateStimulus"/>
+    <genClasses image="false" ecoreClass="stimulus.ecore#//SimulationStateStimulus"/>
+    <genClasses image="false" ecoreClass="stimulus.ecore#//SourceInterfaceStimulus"/>
+    <genClasses ecoreClass="stimulus.ecore#//OperationResponseTime">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference stimulus.ecore#//OperationResponseTime/operationSignature"/>
+    </genClasses>
+    <genClasses ecoreClass="stimulus.ecore#//NumberOfElements"/>
+    <genClasses image="false" ecoreClass="stimulus.ecore#//ManagedElementsStateStimulus">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute stimulus.ecore#//ManagedElementsStateStimulus/aggregationOverElements"/>
+    </genClasses>
+    <genClasses ecoreClass="stimulus.ecore#//CPUUtilization"/>
+    <genClasses ecoreClass="stimulus.ecore#//MemoryUtilization"/>
+    <genClasses ecoreClass="stimulus.ecore#//SimulationTime"/>
+    <genClasses ecoreClass="stimulus.ecore#//HDDUtilization">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute stimulus.ecore#//HDDUtilization/usageType"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="stimulus.ecore#//ResourceUtilizationStimulus"/>
+    <genClasses ecoreClass="stimulus.ecore#//TaskCount"/>
+    <genClasses ecoreClass="stimulus.ecore#//QueueLength">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference stimulus.ecore#//QueueLength/passiveResource"/>
+    </genClasses>
+    <genClasses ecoreClass="stimulus.ecore#//NetworkUtilization">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute stimulus.ecore#//NetworkUtilization/usageType"/>
+    </genClasses>
+    <genClasses ecoreClass="stimulus.ecore#//AggregatedStimulus">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute stimulus.ecore#//AggregatedStimulus/aggregationMethod"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute stimulus.ecore#//AggregatedStimulus/aggregationPeriod"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference stimulus.ecore#//AggregatedStimulus/aggregatedStimulus"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

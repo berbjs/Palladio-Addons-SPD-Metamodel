@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated stimulus -->
+      <package
+            uri="http://palladiosimulator.org/ScalingPolicyDefinition/Stimuli/1.0"
+            class="org.palladiosimulator.spd.stimulus.StimulusPackage"
+            genModel="model/stimulus.genmodel"/>
+   </extension>
+
+</plugin>

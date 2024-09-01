@@ -34,5 +34,6 @@ Require-Bundle: org.eclipse.core.runtime,
  org.palladiosimulator.spd.reward.edit;visibility:=reexport,
  org.palladiosimulator.servicelevelobjective.edit;visibility:=reexport,
  de.uka.ipd.sdq.stoex.edit;visibility:=reexport,
- de.uka.ipd.sdq.units.edit;visibility:=reexport
+ de.uka.ipd.sdq.units.edit;visibility:=reexport,
+ org.palladiosimulator.spd.stimulus.edit;visibility:=reexport
 Bundle-ActivationPolicy: lazy

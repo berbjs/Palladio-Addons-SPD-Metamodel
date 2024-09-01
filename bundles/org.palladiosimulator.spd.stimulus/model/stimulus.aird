@@ -1,54 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:diagram="http://www.eclipse.org/sirius/diagram/1.1.0" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.3/notation" xmlns:viewpoint="http://www.eclipse.org/sirius/1.1.0" xsi:schemaLocation="http://www.eclipse.org/sirius/description/1.1.0 http://www.eclipse.org/sirius/1.1.0#//description http://www.eclipse.org/sirius/diagram/description/1.1.0 http://www.eclipse.org/sirius/diagram/1.1.0#//description">
-  <viewpoint:DAnalysis uid="_TL0lgGYXEe-I3uwoL8afUw" selectedViews="_TMvykGYXEe-I3uwoL8afUw" version="15.0.0.202209061200">
-    <semanticResources>reward.ecore</semanticResources>
-    <semanticResources>reward.genmodel</semanticResources>
-    <semanticResources>platform:/resource/org.palladiosimulator.spd/model/SPD.ecore</semanticResources>
+  <viewpoint:DAnalysis uid="_swj-UGh4Ee-6nd2qRNKOcg" selectedViews="_sx9sgGh4Ee-6nd2qRNKOcg" version="15.0.0.202209061200">
+    <semanticResources>stimulus.ecore</semanticResources>
+    <semanticResources>stimulus.genmodel</semanticResources>
     <semanticResources>platform:/plugin/org.palladiosimulator.pcm/model/pcm.ecore</semanticResources>
     <semanticResources>platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore</semanticResources>
     <semanticResources>platform:/plugin/de.uka.ipd.sdq.stoex/model/stoex.ecore</semanticResources>
     <semanticResources>platform:/plugin/de.uka.ipd.sdq.probfunction/model/ProbabilityFunction.ecore</semanticResources>
     <semanticResources>platform:/plugin/de.uka.ipd.sdq.units/model/Units.ecore</semanticResources>
     <semanticResources>platform:/plugin/de.uka.ipd.sdq.identifier/model/identifier.ecore</semanticResources>
-    <semanticResources>platform:/resource/org.palladiosimulator.servicelevelobjective/model/servicelevelobjective.ecore</semanticResources>
-    <semanticResources>platform:/resource/org.palladiosimulator.monitorrepository/model/monitorrepository.ecore</semanticResources>
-    <semanticResources>platform:/plugin/org.palladiosimulator.edp2/model/EDP2.ecore</semanticResources>
-    <semanticResources>platform:/plugin/org.palladiosimulator.metricspec/model/metricspec.ecore</semanticResources>
-    <semanticResources>platform:/resource/de.uka.ipd.sdq.units/model/Units.genmodel</semanticResources>
     <semanticResources>platform:/resource/org.eclipse.emf.ecore/model/Ecore.genmodel</semanticResources>
-    <semanticResources>platform:/resource/de.uka.ipd.sdq.stoex/model/stoex.genmodel</semanticResources>
-    <semanticResources>platform:/resource/de.uka.ipd.sdq.probfunction/model/ProbabilityFunction.genmodel</semanticResources>
-    <semanticResources>platform:/resource/org.palladiosimulator.servicelevelobjective/model/servicelevelobjective.genmodel</semanticResources>
-    <semanticResources>platform:/resource/org.palladiosimulator.edp2/model/EDP2.genmodel</semanticResources>
     <semanticResources>platform:/resource/de.uka.ipd.sdq.identifier/model/identifier.genmodel</semanticResources>
-    <semanticResources>platform:/resource/org.palladiosimulator.metricspec/model/metricspec.genmodel</semanticResources>
-    <semanticResources>platform:/resource/org.palladiosimulator.monitorrepository/model/monitorrepository.genmodel</semanticResources>
     <semanticResources>platform:/resource/org.palladiosimulator.pcm/model/pcm.genmodel</semanticResources>
-    <semanticResources>platform:/resource/org.palladiosimulator.spd/model/SPD.genmodel</semanticResources>
-    <semanticResources>platform:/resource/org.palladiosimulator.spd.stimulus/model/stimulus.ecore</semanticResources>
-    <semanticResources>platform:/resource/org.palladiosimulator.spd.stimulus/model/stimulus.genmodel</semanticResources>
-    <ownedViews xmi:type="viewpoint:DView" uid="_TMvykGYXEe-I3uwoL8afUw">
+    <semanticResources>platform:/resource/de.uka.ipd.sdq.probfunction/model/ProbabilityFunction.genmodel</semanticResources>
+    <semanticResources>platform:/resource/de.uka.ipd.sdq.units/model/Units.genmodel</semanticResources>
+    <semanticResources>platform:/resource/de.uka.ipd.sdq.stoex/model/stoex.genmodel</semanticResources>
+    <ownedViews xmi:type="viewpoint:DView" uid="_sx9sgGh4Ee-6nd2qRNKOcg">
       <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']"/>
-      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_TNs00GYXEe-I3uwoL8afUw" name="reward" repPath="#_TNLQYGYXEe-I3uwoL8afUw" changeId="74dad6cf-9980-4e4f-bd17-3a9d5bc37264">
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_s1Q4IGh4Ee-6nd2qRNKOcg" name="stimulus" repPath="#_syyy8Gh4Ee-6nd2qRNKOcg" changeId="4b3b48c6-5467-4c46-b66c-640f9b68ec6c">
         <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']"/>
-        <target xmi:type="ecore:EPackage" href="reward.ecore#/"/>
+        <target xmi:type="ecore:EPackage" href="stimulus.ecore#/"/>
       </ownedRepresentationDescriptors>
     </ownedViews>
   </viewpoint:DAnalysis>
-  <diagram:DSemanticDiagram uid="_TNLQYGYXEe-I3uwoL8afUw">
-    <ownedAnnotationEntries xmi:type="description:AnnotationEntry" uid="_TOQ1gGYXEe-I3uwoL8afUw" source="GMF_DIAGRAMS">
-      <data xmi:type="notation:Diagram" xmi:id="_TOQ1gWYXEe-I3uwoL8afUw" type="Sirius" element="_TNLQYGYXEe-I3uwoL8afUw" measurementUnit="Pixel">
-        <styles xmi:type="notation:DiagramStyle" xmi:id="_TOQ1gmYXEe-I3uwoL8afUw"/>
+  <diagram:DSemanticDiagram uid="_syyy8Gh4Ee-6nd2qRNKOcg">
+    <ownedAnnotationEntries xmi:type="description:AnnotationEntry" uid="_s14jMGh4Ee-6nd2qRNKOcg" source="GMF_DIAGRAMS">
+      <data xmi:type="notation:Diagram" xmi:id="_s14jMWh4Ee-6nd2qRNKOcg" type="Sirius" element="_syyy8Gh4Ee-6nd2qRNKOcg" measurementUnit="Pixel">
+        <styles xmi:type="notation:DiagramStyle" xmi:id="_s14jMmh4Ee-6nd2qRNKOcg"/>
       </data>
     </ownedAnnotationEntries>
-    <ownedAnnotationEntries xmi:type="description:AnnotationEntry" uid="_TPkdEGYXEe-I3uwoL8afUw" source="DANNOTATION_CUSTOMIZATION_KEY">
-      <data xmi:type="diagram:ComputedStyleDescriptionRegistry" uid="_TPkdEWYXEe-I3uwoL8afUw"/>
+    <ownedAnnotationEntries xmi:type="description:AnnotationEntry" uid="_s3JugGh4Ee-6nd2qRNKOcg" source="DANNOTATION_CUSTOMIZATION_KEY">
+      <data xmi:type="diagram:ComputedStyleDescriptionRegistry" uid="_s3JugWh4Ee-6nd2qRNKOcg"/>
     </ownedAnnotationEntries>
     <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']"/>
-    <filterVariableHistory xmi:type="diagram:FilterVariableHistory" uid="_TNlgEGYXEe-I3uwoL8afUw"/>
+    <filterVariableHistory xmi:type="diagram:FilterVariableHistory" uid="_s0YuYGh4Ee-6nd2qRNKOcg"/>
     <activatedLayers xmi:type="description_1:Layer" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer"/>
     <activatedLayers xmi:type="description_1:AdditionalLayer" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@additionalLayers[name='Package']"/>
     <activatedLayers xmi:type="description_1:AdditionalLayer" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@additionalLayers[name='Validation']"/>
-    <target xmi:type="ecore:EPackage" href="reward.ecore#/"/>
+    <target xmi:type="ecore:EPackage" href="stimulus.ecore#/"/>
   </diagram:DSemanticDiagram>
 </xmi:XMI>

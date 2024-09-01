@@ -65,14 +65,6 @@
    <extension point="org.eclipse.emf.ecore.generated_package">
       <!-- @generated SPD -->
       <package
-            uri="http://palladiosimulator.org/ScalingPolicyDefinition/Triggers/Stimuli/1.0"
-            class="org.palladiosimulator.spd.triggers.stimuli.StimuliPackage"
-            genModel="model/SPD.genmodel"/>
-   </extension>
-
-   <extension point="org.eclipse.emf.ecore.generated_package">
-      <!-- @generated SPD -->
-      <package
             uri="http://palladiosimulator.org/ScalingPolicyDefinition/Triggers/Expectations/1.0"
             class="org.palladiosimulator.spd.triggers.expectations.ExpectationsPackage"
             genModel="model/SPD.genmodel"/>

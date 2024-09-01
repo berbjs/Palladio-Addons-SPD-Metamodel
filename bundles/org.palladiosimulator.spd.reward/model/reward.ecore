@@ -13,7 +13,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="UtilizationReward" eSuperTypes="#//BaseReward">
     <eStructuralFeatures xsi:type="ecore:EReference" name="stimulus" lowerBound="1"
-        eType="ecore:EClass ../../org.palladiosimulator.spd/model/SPD.ecore#//triggers/stimuli/Stimulus"
+        eType="ecore:EClass ../../org.palladiosimulator.spd.stimulus/model/stimulus.ecore#//Stimulus"
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="FunctionReward" eSuperTypes="#//BaseReward">
@@ -35,6 +35,6 @@
   <eClassifiers xsi:type="ecore:EClass" name="ModelReward">
     <eStructuralFeatures xsi:type="ecore:EReference" name="reward" lowerBound="1"
         eType="#//BaseReward" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
   </eClassifiers>
 </ecore:EPackage>
