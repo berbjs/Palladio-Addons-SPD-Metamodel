@@ -202,31 +202,6 @@
   </eSubpackages>
   <eSubpackages name="triggers" nsURI="http://palladiosimulator.org/ScalingPolicyDefinition/Triggers/1.0"
       nsPrefix="triggers">
-    <eClassifiers xsi:type="ecore:EEnum" name="AGGREGATIONMETHOD">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="Enum for the following aggregation methods: MIN, MAX, AVERAGE, SUM that are relevant for different triggers."/>
-      </eAnnotations>
-      <eLiterals name="AVERAGE"/>
-      <eLiterals name="MAX" value="1"/>
-      <eLiterals name="MIN" value="2"/>
-      <eLiterals name="MEDIAN" value="3"/>
-      <eLiterals name="SUM" value="4"/>
-      <eLiterals name="RATEOFCHANGE" value="5"/>
-    </eClassifiers>
-    <eClassifiers xsi:type="ecore:EEnum" name="HDDUSAGETYPE">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="Enum for the type of HDD usage: READ, WRITE"/>
-      </eAnnotations>
-      <eLiterals name="READ"/>
-      <eLiterals name="WRITE" value="1"/>
-    </eClassifiers>
-    <eClassifiers xsi:type="ecore:EEnum" name="NETWORKUSAGETYPE">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="Enum for the following Network Usage types: SEND, RECEIVE which are relevant to distinuish the type of use for a network resource."/>
-      </eAnnotations>
-      <eLiterals name="SEND"/>
-      <eLiterals name="RECEIVE" value="1"/>
-    </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ScalingTrigger" abstract="true" eSuperTypes="platform:/plugin/de.uka.ipd.sdq.identifier/model/identifier.ecore#//Identifier">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="The ScalingTrigger is a core concept in SPD. It entails both the information that is fetched from the simulation and models as well as the type of analysis that is performed on that information. It is uniquely identified as it extends from Idenfier (PCM)."/>

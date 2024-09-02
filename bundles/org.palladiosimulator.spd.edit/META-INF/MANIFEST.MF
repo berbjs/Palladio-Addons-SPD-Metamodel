@@ -17,8 +17,7 @@ Export-Package: org.palladiosimulator.spd.adjustments.provider,
  org.palladiosimulator.spd.provider,
  org.palladiosimulator.spd.targets.provider,
  org.palladiosimulator.spd.triggers.expectations.provider,
- org.palladiosimulator.spd.triggers.provider,
- org.palladiosimulator.spd.triggers.stimuli.provider
+ org.palladiosimulator.spd.triggers.provider
 Require-Bundle: org.eclipse.core.runtime,
  org.palladiosimulator.spd;visibility:=reexport,
  org.eclipse.emf.edit;visibility:=reexport,

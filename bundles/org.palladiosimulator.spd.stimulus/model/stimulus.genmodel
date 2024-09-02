@@ -10,7 +10,7 @@
   <foreignModel>stimulus.ecore</foreignModel>
   <testsDirectory xsi:nil="true"/>
   <genPackages prefix="Stimulus" basePackage="org.palladiosimulator.spd" disposableProviderFactory="true"
-      ecorePackage="stimulus.ecore#/">
+      generateModelWizard="false" ecorePackage="stimulus.ecore#/">
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="stimulus.ecore#//AGGREGATIONMETHOD">
       <genEnumLiterals ecoreEnumLiteral="stimulus.ecore#//AGGREGATIONMETHOD/AVERAGE"/>
       <genEnumLiterals ecoreEnumLiteral="stimulus.ecore#//AGGREGATIONMETHOD/MAX"/>

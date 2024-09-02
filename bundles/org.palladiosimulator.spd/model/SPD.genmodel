@@ -94,22 +94,6 @@
     </nestedGenPackages>
     <nestedGenPackages prefix="Triggers" basePackage="org.palladiosimulator.spd" disposableProviderFactory="true"
         ecorePackage="SPD.ecore#//triggers">
-      <genEnums typeSafeEnumCompatible="false" ecoreEnum="SPD.ecore#//triggers/AGGREGATIONMETHOD">
-        <genEnumLiterals ecoreEnumLiteral="SPD.ecore#//triggers/AGGREGATIONMETHOD/AVERAGE"/>
-        <genEnumLiterals ecoreEnumLiteral="SPD.ecore#//triggers/AGGREGATIONMETHOD/MAX"/>
-        <genEnumLiterals ecoreEnumLiteral="SPD.ecore#//triggers/AGGREGATIONMETHOD/MIN"/>
-        <genEnumLiterals ecoreEnumLiteral="SPD.ecore#//triggers/AGGREGATIONMETHOD/MEDIAN"/>
-        <genEnumLiterals ecoreEnumLiteral="SPD.ecore#//triggers/AGGREGATIONMETHOD/SUM"/>
-        <genEnumLiterals ecoreEnumLiteral="SPD.ecore#//triggers/AGGREGATIONMETHOD/RATEOFCHANGE"/>
-      </genEnums>
-      <genEnums typeSafeEnumCompatible="false" ecoreEnum="SPD.ecore#//triggers/HDDUSAGETYPE">
-        <genEnumLiterals ecoreEnumLiteral="SPD.ecore#//triggers/HDDUSAGETYPE/READ"/>
-        <genEnumLiterals ecoreEnumLiteral="SPD.ecore#//triggers/HDDUSAGETYPE/WRITE"/>
-      </genEnums>
-      <genEnums typeSafeEnumCompatible="false" ecoreEnum="SPD.ecore#//triggers/NETWORKUSAGETYPE">
-        <genEnumLiterals ecoreEnumLiteral="SPD.ecore#//triggers/NETWORKUSAGETYPE/SEND"/>
-        <genEnumLiterals ecoreEnumLiteral="SPD.ecore#//triggers/NETWORKUSAGETYPE/RECEIVE"/>
-      </genEnums>
       <genEnums typeSafeEnumCompatible="false" ecoreEnum="SPD.ecore#//triggers/LogicalOperator">
         <genEnumLiterals ecoreEnumLiteral="SPD.ecore#//triggers/LogicalOperator/AND"/>
         <genEnumLiterals ecoreEnumLiteral="SPD.ecore#//triggers/LogicalOperator/OR"/>

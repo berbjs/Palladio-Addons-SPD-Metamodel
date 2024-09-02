@@ -6,22 +6,6 @@
 
 <plugin>
 
-   <extension point="org.eclipse.ui.newWizards">
-      <!-- @generated stimulus -->
-      <category
-            id="org.eclipse.emf.ecore.Wizard.category.ID"
-            name="%_UI_Wizard_category"/>
-      <wizard
-            id="org.palladiosimulator.spd.stimulus.presentation.StimulusModelWizardID"
-            name="%_UI_StimulusModelWizard_label"
-            class="org.palladiosimulator.spd.stimulus.presentation.StimulusModelWizard"
-            category="org.eclipse.emf.ecore.Wizard.category.ID"
-            icon="icons/full/obj16/StimulusModelFile.gif">
-         <description>%_UI_StimulusModelWizard_description</description>
-         <selection class="org.eclipse.core.resources.IResource"/>
-      </wizard>
-   </extension>
-
    <extension point="org.eclipse.ui.editors">
       <!-- @generated stimulus -->
       <editor

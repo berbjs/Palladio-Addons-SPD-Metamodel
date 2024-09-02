@@ -8,7 +8,7 @@ Bundle-ClassPath: .
 Bundle-Activator: org.palladiosimulator.spdmeasuringpoint.presentation.SpdmeasuringpointEditorPlugin$Implementation
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
-Bundle-RequiredExecutionEnvironment: JavaSE-17
+Bundle-RequiredExecutionEnvironment: J2SE-1.5
 Export-Package: org.palladiosimulator.spdmeasuringpoint.presentation
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.core.resources;visibility:=reexport,
@@ -20,10 +20,14 @@ Require-Bundle: org.eclipse.core.runtime,
  org.palladiosimulator.edp2.edit;visibility:=reexport,
  de.uka.ipd.sdq.identifier.edit;visibility:=reexport,
  org.palladiosimulator.metricspec.edit;visibility:=reexport,
+ org.palladiosimulator.monitorrepository.edit;visibility:=reexport,
  org.palladiosimulator.pcm.edit;visibility:=reexport,
  de.uka.ipd.sdq.probfunction.edit;visibility:=reexport,
+ org.palladiosimulator.spd.reward.edit;visibility:=reexport,
  org.palladiosimulator.spd.edit;visibility:=reexport,
+ org.palladiosimulator.servicelevelobjective.edit;visibility:=reexport,
  org.palladiosimulator.spd.semantic.edit;visibility:=reexport,
  de.uka.ipd.sdq.stoex.edit;visibility:=reexport,
- de.uka.ipd.sdq.units.edit;visibility:=reexport
+ de.uka.ipd.sdq.units.edit;visibility:=reexport,
+ org.palladiosimulator.spd.stimulus.edit;visibility:=reexport
 Bundle-ActivationPolicy: lazy
