@@ -97,62 +97,6 @@
             id="org.eclipse.emf.ecore.Wizard.category.ID"
             name="%_UI_Wizard_category"/>
       <wizard
-            id="org.palladiosimulator.spd.adjustments.models.presentation.ModelsModelWizardID"
-            name="%_UI_ModelsModelWizard_label"
-            class="org.palladiosimulator.spd.adjustments.models.presentation.ModelsModelWizard"
-            category="org.eclipse.emf.ecore.Wizard.category.ID"
-            icon="icons/full/obj16/ModelsModelFile.gif">
-         <description>%_UI_ModelsModelWizard_description</description>
-         <selection class="org.eclipse.core.resources.IResource"/>
-      </wizard>
-   </extension>
-
-   <extension point="org.eclipse.ui.editors">
-      <!-- @generated SPD -->
-      <editor
-            id="org.palladiosimulator.spd.adjustments.models.presentation.ModelsEditorID"
-            name="%_UI_ModelsEditor_label"
-            icon="icons/full/obj16/ModelsModelFile.gif"
-            extensions="models"
-            class="org.palladiosimulator.spd.adjustments.models.presentation.ModelsEditor"
-            contributorClass="org.palladiosimulator.spd.adjustments.models.presentation.ModelsActionBarContributor">
-      </editor>
-   </extension>
-
-   <extension point="org.eclipse.ui.newWizards">
-      <!-- @generated SPD -->
-      <category
-            id="org.eclipse.emf.ecore.Wizard.category.ID"
-            name="%_UI_Wizard_category"/>
-      <wizard
-            id="org.palladiosimulator.spd.adjustments.models.rewards.presentation.RewardsModelWizardID"
-            name="%_UI_RewardsModelWizard_label"
-            class="org.palladiosimulator.spd.adjustments.models.rewards.presentation.RewardsModelWizard"
-            category="org.eclipse.emf.ecore.Wizard.category.ID"
-            icon="icons/full/obj16/RewardsModelFile.gif">
-         <description>%_UI_RewardsModelWizard_description</description>
-         <selection class="org.eclipse.core.resources.IResource"/>
-      </wizard>
-   </extension>
-
-   <extension point="org.eclipse.ui.editors">
-      <!-- @generated SPD -->
-      <editor
-            id="org.palladiosimulator.spd.adjustments.models.rewards.presentation.RewardsEditorID"
-            name="%_UI_RewardsEditor_label"
-            icon="icons/full/obj16/RewardsModelFile.gif"
-            extensions="rewards"
-            class="org.palladiosimulator.spd.adjustments.models.rewards.presentation.RewardsEditor"
-            contributorClass="org.palladiosimulator.spd.adjustments.models.rewards.presentation.RewardsActionBarContributor">
-      </editor>
-   </extension>
-
-   <extension point="org.eclipse.ui.newWizards">
-      <!-- @generated SPD -->
-      <category
-            id="org.eclipse.emf.ecore.Wizard.category.ID"
-            name="%_UI_Wizard_category"/>
-      <wizard
             id="org.palladiosimulator.spd.constraints.policy.presentation.PolicyModelWizardID"
             name="%_UI_PolicyModelWizard_label"
             class="org.palladiosimulator.spd.constraints.policy.presentation.PolicyModelWizard"
@@ -284,6 +228,34 @@
             extensions="expectations"
             class="org.palladiosimulator.spd.triggers.expectations.presentation.ExpectationsEditor"
             contributorClass="org.palladiosimulator.spd.triggers.expectations.presentation.ExpectationsActionBarContributor">
+      </editor>
+   </extension>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated SPD -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="org.palladiosimulator.spd.models.presentation.ModelsModelWizardID"
+            name="%_UI_ModelsModelWizard_label"
+            class="org.palladiosimulator.spd.models.presentation.ModelsModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/ModelsModelFile.gif">
+         <description>%_UI_ModelsModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated SPD -->
+      <editor
+            id="org.palladiosimulator.spd.models.presentation.ModelsEditorID"
+            name="%_UI_ModelsEditor_label"
+            icon="icons/full/obj16/ModelsModelFile.gif"
+            extensions="models"
+            class="org.palladiosimulator.spd.models.presentation.ModelsEditor"
+            contributorClass="org.palladiosimulator.spd.models.presentation.ModelsActionBarContributor">
       </editor>
    </extension>
 
