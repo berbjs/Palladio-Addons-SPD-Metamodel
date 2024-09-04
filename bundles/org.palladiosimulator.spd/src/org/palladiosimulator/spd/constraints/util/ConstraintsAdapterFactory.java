@@ -68,7 +68,7 @@ public class ConstraintsAdapterFactory extends AdapterFactoryImpl {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected ConstraintsSwitch<Adapter> modelSwitch = new ConstraintsSwitch<>() {
+	protected ConstraintsSwitch<Adapter> modelSwitch = new ConstraintsSwitch<Adapter>() {
 		@Override
 		public Adapter caseAbstractConstraint(AbstractConstraint object) {
 			return createAbstractConstraintAdapter();

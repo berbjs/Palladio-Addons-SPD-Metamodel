@@ -245,12 +245,15 @@ public class TargetsItemProviderAdapterFactory extends TargetsAdapterFactory
 	 */
 	@Override
 	public void dispose() {
-		if (elasticInfrastructureItemProvider != null)
+		if (elasticInfrastructureItemProvider != null) {
 			elasticInfrastructureItemProvider.dispose();
-		if (serviceGroupItemProvider != null)
+		}
+		if (serviceGroupItemProvider != null) {
 			serviceGroupItemProvider.dispose();
-		if (competingConsumersGroupItemProvider != null)
+		}
+		if (competingConsumersGroupItemProvider != null) {
 			competingConsumersGroupItemProvider.dispose();
+		}
 	}
 
 }

@@ -17,9 +17,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
 import org.palladiosimulator.pcm.core.entity.provider.EntityItemProvider;
 import org.palladiosimulator.spd.ScalingPolicy;
 import org.palladiosimulator.spd.SpdPackage;
-import org.palladiosimulator.spd.adjustments.AdjustmentsFactory;
 import org.palladiosimulator.spd.constraints.policy.PolicyFactory;
-import org.palladiosimulator.spd.triggers.TriggersFactory;
 
 /**
  * This is the item provider adapter for a {@link org.palladiosimulator.spd.ScalingPolicy} object.
@@ -98,9 +96,7 @@ public class ScalingPolicyItemProvider extends EntityItemProvider {
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(SpdPackage.Literals.SCALING_POLICY__ADJUSTMENT_TYPE);
 			childrenFeatures.add(SpdPackage.Literals.SCALING_POLICY__POLICY_CONSTRAINTS);
-			childrenFeatures.add(SpdPackage.Literals.SCALING_POLICY__SCALING_TRIGGER);
 		}
 		return childrenFeatures;
 	}
@@ -137,7 +133,7 @@ public class ScalingPolicyItemProvider extends EntityItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((ScalingPolicy) object).getEntityName();
+		String label = ((ScalingPolicy) object).getId();
 		return label == null || label.length() == 0 ? getString("_UI_ScalingPolicy_type")
 				: getString("_UI_ScalingPolicy_type") + " " + label;
 	}
@@ -157,9 +153,7 @@ public class ScalingPolicyItemProvider extends EntityItemProvider {
 		case SpdPackage.SCALING_POLICY__ACTIVE:
 			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 			return;
-		case SpdPackage.SCALING_POLICY__ADJUSTMENT_TYPE:
 		case SpdPackage.SCALING_POLICY__POLICY_CONSTRAINTS:
-		case SpdPackage.SCALING_POLICY__SCALING_TRIGGER:
 			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 			return;
 		}
@@ -177,29 +171,11 @@ public class ScalingPolicyItemProvider extends EntityItemProvider {
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 
-		newChildDescriptors.add(createChildParameter(SpdPackage.Literals.SCALING_POLICY__ADJUSTMENT_TYPE,
-				AdjustmentsFactory.eINSTANCE.createRelativeAdjustment()));
-
-		newChildDescriptors.add(createChildParameter(SpdPackage.Literals.SCALING_POLICY__ADJUSTMENT_TYPE,
-				AdjustmentsFactory.eINSTANCE.createAbsoluteAdjustment()));
-
-		newChildDescriptors.add(createChildParameter(SpdPackage.Literals.SCALING_POLICY__ADJUSTMENT_TYPE,
-				AdjustmentsFactory.eINSTANCE.createStepAdjustment()));
-
 		newChildDescriptors.add(createChildParameter(SpdPackage.Literals.SCALING_POLICY__POLICY_CONSTRAINTS,
 				PolicyFactory.eINSTANCE.createIntervalConstraint()));
 
 		newChildDescriptors.add(createChildParameter(SpdPackage.Literals.SCALING_POLICY__POLICY_CONSTRAINTS,
 				PolicyFactory.eINSTANCE.createCooldownConstraint()));
-
-		newChildDescriptors.add(createChildParameter(SpdPackage.Literals.SCALING_POLICY__SCALING_TRIGGER,
-				TriggersFactory.eINSTANCE.createComposedTrigger()));
-
-		newChildDescriptors.add(createChildParameter(SpdPackage.Literals.SCALING_POLICY__SCALING_TRIGGER,
-				TriggersFactory.eINSTANCE.createSimpleFireOnValue()));
-
-		newChildDescriptors.add(createChildParameter(SpdPackage.Literals.SCALING_POLICY__SCALING_TRIGGER,
-				TriggersFactory.eINSTANCE.createSimpleFireOnTrend()));
 	}
 
 	/**

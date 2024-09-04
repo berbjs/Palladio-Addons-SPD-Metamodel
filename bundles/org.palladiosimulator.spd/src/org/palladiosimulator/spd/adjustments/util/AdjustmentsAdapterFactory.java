@@ -67,7 +67,7 @@ public class AdjustmentsAdapterFactory extends AdapterFactoryImpl {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected AdjustmentsSwitch<Adapter> modelSwitch = new AdjustmentsSwitch<>() {
+	protected AdjustmentsSwitch<Adapter> modelSwitch = new AdjustmentsSwitch<Adapter>() {
 		@Override
 		public Adapter caseAdjustmentType(AdjustmentType object) {
 			return createAdjustmentTypeAdapter();

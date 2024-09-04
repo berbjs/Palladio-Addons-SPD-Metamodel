@@ -8,7 +8,13 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EcorePackage;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
+import org.palladiosimulator.edp2.models.ExperimentData.ExperimentDataPackage;
+import org.palladiosimulator.edp2.models.Repository.RepositoryPackage;
+import org.palladiosimulator.edp2.models.measuringpoint.MeasuringpointPackage;
+import org.palladiosimulator.metricspec.MetricSpecPackage;
+import org.palladiosimulator.monitorrepository.MonitorRepositoryPackage;
 import org.palladiosimulator.pcm.PcmPackage;
+import org.palladiosimulator.servicelevelobjective.ServicelevelObjectivePackage;
 import org.palladiosimulator.spd.SpdPackage;
 import org.palladiosimulator.spd.adjustments.AbsoluteAdjustment;
 import org.palladiosimulator.spd.adjustments.AdjustmentType;
@@ -23,14 +29,14 @@ import org.palladiosimulator.spd.constraints.policy.impl.PolicyPackageImpl;
 import org.palladiosimulator.spd.constraints.target.TargetPackage;
 import org.palladiosimulator.spd.constraints.target.impl.TargetPackageImpl;
 import org.palladiosimulator.spd.impl.SpdPackageImpl;
+import org.palladiosimulator.spd.models.ModelsPackage;
+import org.palladiosimulator.spd.models.impl.ModelsPackageImpl;
 import org.palladiosimulator.spd.targets.TargetsPackage;
 import org.palladiosimulator.spd.targets.impl.TargetsPackageImpl;
 import org.palladiosimulator.spd.triggers.TriggersPackage;
 import org.palladiosimulator.spd.triggers.expectations.ExpectationsPackage;
 import org.palladiosimulator.spd.triggers.expectations.impl.ExpectationsPackageImpl;
 import org.palladiosimulator.spd.triggers.impl.TriggersPackageImpl;
-import org.palladiosimulator.spd.triggers.stimuli.StimuliPackage;
-import org.palladiosimulator.spd.triggers.stimuli.impl.StimuliPackageImpl;
 
 import de.uka.ipd.sdq.identifier.IdentifierPackage;
 import de.uka.ipd.sdq.probfunction.ProbfunctionPackage;
@@ -111,8 +117,9 @@ public class AdjustmentsPackageImpl extends EPackageImpl implements AdjustmentsP
 	 * @generated
 	 */
 	public static AdjustmentsPackage init() {
-		if (isInited)
+		if (isInited) {
 			return (AdjustmentsPackage) EPackage.Registry.INSTANCE.getEPackage(AdjustmentsPackage.eNS_URI);
+		}
 
 		// Obtain or create and register package
 		Object registeredAdjustmentsPackage = EPackage.Registry.INSTANCE.get(eNS_URI);
@@ -124,9 +131,17 @@ public class AdjustmentsPackageImpl extends EPackageImpl implements AdjustmentsP
 
 		// Initialize simple dependencies
 		EcorePackage.eINSTANCE.eClass();
+		ExperimentDataPackage.eINSTANCE.eClass();
+		RepositoryPackage.eINSTANCE.eClass();
+		MeasuringpointPackage.eINSTANCE.eClass();
 		IdentifierPackage.eINSTANCE.eClass();
+		MetricSpecPackage.eINSTANCE.eClass();
+		MonitorRepositoryPackage.eINSTANCE.eClass();
 		PcmPackage.eINSTANCE.eClass();
 		ProbfunctionPackage.eINSTANCE.eClass();
+		ServicelevelObjectivePackage.eINSTANCE.eClass();
+		org.palladiosimulator.spdmodelreward.SpdmodelrewardPackage.eINSTANCE.eClass();
+		org.palladiosimulator.spd.stimulus.StimulusPackage.eINSTANCE.eClass();
 		StoexPackage.eINSTANCE.eClass();
 		UnitsPackage.eINSTANCE.eClass();
 
@@ -154,14 +169,14 @@ public class AdjustmentsPackageImpl extends EPackageImpl implements AdjustmentsP
 		TriggersPackageImpl theTriggersPackage = (TriggersPackageImpl) (registeredPackage instanceof TriggersPackageImpl
 				? registeredPackage
 				: TriggersPackage.eINSTANCE);
-		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(StimuliPackage.eNS_URI);
-		StimuliPackageImpl theStimuliPackage = (StimuliPackageImpl) (registeredPackage instanceof StimuliPackageImpl
-				? registeredPackage
-				: StimuliPackage.eINSTANCE);
 		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(ExpectationsPackage.eNS_URI);
 		ExpectationsPackageImpl theExpectationsPackage = (ExpectationsPackageImpl) (registeredPackage instanceof ExpectationsPackageImpl
 				? registeredPackage
 				: ExpectationsPackage.eINSTANCE);
+		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(ModelsPackage.eNS_URI);
+		ModelsPackageImpl theModelsPackage = (ModelsPackageImpl) (registeredPackage instanceof ModelsPackageImpl
+				? registeredPackage
+				: ModelsPackage.eINSTANCE);
 
 		// Create package meta-data objects
 		theAdjustmentsPackage.createPackageContents();
@@ -171,8 +186,8 @@ public class AdjustmentsPackageImpl extends EPackageImpl implements AdjustmentsP
 		thePolicyPackage.createPackageContents();
 		theTargetPackage.createPackageContents();
 		theTriggersPackage.createPackageContents();
-		theStimuliPackage.createPackageContents();
 		theExpectationsPackage.createPackageContents();
+		theModelsPackage.createPackageContents();
 
 		// Initialize created meta-data
 		theAdjustmentsPackage.initializePackageContents();
@@ -182,8 +197,8 @@ public class AdjustmentsPackageImpl extends EPackageImpl implements AdjustmentsP
 		thePolicyPackage.initializePackageContents();
 		theTargetPackage.initializePackageContents();
 		theTriggersPackage.initializePackageContents();
-		theStimuliPackage.initializePackageContents();
 		theExpectationsPackage.initializePackageContents();
+		theModelsPackage.initializePackageContents();
 
 		// Mark meta-data to indicate it can't be changed
 		theAdjustmentsPackage.freeze();
@@ -298,8 +313,9 @@ public class AdjustmentsPackageImpl extends EPackageImpl implements AdjustmentsP
 	 * @generated
 	 */
 	public void createPackageContents() {
-		if (isCreated)
+		if (isCreated) {
 			return;
+		}
 		isCreated = true;
 
 		// Create classes and their features
@@ -331,8 +347,9 @@ public class AdjustmentsPackageImpl extends EPackageImpl implements AdjustmentsP
 	 * @generated
 	 */
 	public void initializePackageContents() {
-		if (isInitialized)
+		if (isInitialized) {
 			return;
+		}
 		isInitialized = true;
 
 		// Initialize package

@@ -11,10 +11,10 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
+import org.palladiosimulator.spd.stimulus.StimulusFactory;
 import org.palladiosimulator.spd.triggers.BaseTrigger;
 import org.palladiosimulator.spd.triggers.TriggersPackage;
 import org.palladiosimulator.spd.triggers.expectations.ExpectationsFactory;
-import org.palladiosimulator.spd.triggers.stimuli.StimuliFactory;
 
 /**
  * This is the item provider adapter for a {@link org.palladiosimulator.spd.triggers.BaseTrigger} object.
@@ -124,31 +124,34 @@ public class BaseTriggerItemProvider extends ScalingTriggerItemProvider {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 
 		newChildDescriptors.add(createChildParameter(TriggersPackage.Literals.BASE_TRIGGER__STIMULUS,
-				StimuliFactory.eINSTANCE.createOperationResponseTime()));
+				StimulusFactory.eINSTANCE.createOperationResponseTime()));
 
 		newChildDescriptors.add(createChildParameter(TriggersPackage.Literals.BASE_TRIGGER__STIMULUS,
-				StimuliFactory.eINSTANCE.createNumberOfElements()));
+				StimulusFactory.eINSTANCE.createNumberOfElements()));
 
 		newChildDescriptors.add(createChildParameter(TriggersPackage.Literals.BASE_TRIGGER__STIMULUS,
-				StimuliFactory.eINSTANCE.createCPUUtilization()));
+				StimulusFactory.eINSTANCE.createCPUUtilization()));
 
 		newChildDescriptors.add(createChildParameter(TriggersPackage.Literals.BASE_TRIGGER__STIMULUS,
-				StimuliFactory.eINSTANCE.createMemoryUtilization()));
+				StimulusFactory.eINSTANCE.createMemoryUtilization()));
 
 		newChildDescriptors.add(createChildParameter(TriggersPackage.Literals.BASE_TRIGGER__STIMULUS,
-				StimuliFactory.eINSTANCE.createSimulationTime()));
+				StimulusFactory.eINSTANCE.createSimulationTime()));
 
 		newChildDescriptors.add(createChildParameter(TriggersPackage.Literals.BASE_TRIGGER__STIMULUS,
-				StimuliFactory.eINSTANCE.createHDDUtilization()));
+				StimulusFactory.eINSTANCE.createHDDUtilization()));
 
 		newChildDescriptors.add(createChildParameter(TriggersPackage.Literals.BASE_TRIGGER__STIMULUS,
-				StimuliFactory.eINSTANCE.createTaskCount()));
+				StimulusFactory.eINSTANCE.createTaskCount()));
 
 		newChildDescriptors.add(createChildParameter(TriggersPackage.Literals.BASE_TRIGGER__STIMULUS,
-				StimuliFactory.eINSTANCE.createQueueLength()));
+				StimulusFactory.eINSTANCE.createQueueLength()));
 
 		newChildDescriptors.add(createChildParameter(TriggersPackage.Literals.BASE_TRIGGER__STIMULUS,
-				StimuliFactory.eINSTANCE.createNetworkUtilization()));
+				StimulusFactory.eINSTANCE.createNetworkUtilization()));
+
+		newChildDescriptors.add(createChildParameter(TriggersPackage.Literals.BASE_TRIGGER__STIMULUS,
+				StimulusFactory.eINSTANCE.createAggregatedStimulus()));
 
 		newChildDescriptors.add(createChildParameter(TriggersPackage.Literals.BASE_TRIGGER__EXPECTED_VALUE,
 				ExpectationsFactory.eINSTANCE.createNoExpectation()));

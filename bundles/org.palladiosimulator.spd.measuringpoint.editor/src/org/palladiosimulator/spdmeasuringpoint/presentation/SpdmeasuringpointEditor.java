@@ -149,7 +149,7 @@ import org.palladiosimulator.spd.provider.SpdItemProviderAdapterFactory;
 import org.palladiosimulator.spd.targets.provider.TargetsItemProviderAdapterFactory;
 import org.palladiosimulator.spd.triggers.expectations.provider.ExpectationsItemProviderAdapterFactory;
 import org.palladiosimulator.spd.triggers.provider.TriggersItemProviderAdapterFactory;
-import org.palladiosimulator.spd.triggers.stimuli.provider.StimuliItemProviderAdapterFactory;
+import org.palladiosimulator.spd.stimulus.provider.StimulusItemProviderAdapterFactory;
 import org.palladiosimulator.spdmeasuringpoint.provider.SpdmeasuringpointItemProviderAdapterFactory;
 
 import de.uka.ipd.sdq.identifier.provider.IdentifierItemProviderAdapterFactory;
@@ -722,7 +722,7 @@ public class SpdmeasuringpointEditor extends MultiPageEditorPart
 		adapterFactory.addAdapterFactory(new PolicyItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new TargetItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new TriggersItemProviderAdapterFactory());
-		adapterFactory.addAdapterFactory(new StimuliItemProviderAdapterFactory());
+		adapterFactory.addAdapterFactory(new StimulusItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new ExpectationsItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new StoexItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new UnitsItemProviderAdapterFactory());

@@ -4,7 +4,6 @@
 package org.palladiosimulator.spd.triggers;
 
 import org.palladiosimulator.spd.triggers.expectations.ExpectedValue;
-import org.palladiosimulator.spd.triggers.stimuli.Stimulus;
 
 /**
  * <!-- begin-user-doc -->
@@ -33,12 +32,12 @@ public interface BaseTrigger extends ScalingTrigger {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Stimulus</em>' containment reference.
-	 * @see #setStimulus(Stimulus)
+	 * @see #setStimulus(org.palladiosimulator.spd.stimulus.Stimulus)
 	 * @see org.palladiosimulator.spd.triggers.TriggersPackage#getBaseTrigger_Stimulus()
 	 * @model containment="true" required="true"
 	 * @generated
 	 */
-	Stimulus getStimulus();
+	org.palladiosimulator.spd.stimulus.Stimulus getStimulus();
 
 	/**
 	 * Sets the value of the '{@link org.palladiosimulator.spd.triggers.BaseTrigger#getStimulus <em>Stimulus</em>}' containment reference.
@@ -48,7 +47,7 @@ public interface BaseTrigger extends ScalingTrigger {
 	 * @see #getStimulus()
 	 * @generated
 	 */
-	void setStimulus(Stimulus value);
+	void setStimulus(org.palladiosimulator.spd.stimulus.Stimulus value);
 
 	/**
 	 * Returns the value of the '<em><b>Expected Value</b></em>' containment reference.

@@ -13,7 +13,7 @@ import org.palladiosimulator.spd.targets.TargetGroup;
  * <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
- * The root elements that consists of all scaling policies under analysis for a given cloud application. The SPD is an Entity (PCM), it has a unique identifier and it has a name.
+ * The root elements that consists of all scaling policies under analysis for a given cloud application. The SPD is an Entity (PCM), it has a unique identifier and it has a name.  
  * <!-- end-model-doc -->
  *
  * <p>

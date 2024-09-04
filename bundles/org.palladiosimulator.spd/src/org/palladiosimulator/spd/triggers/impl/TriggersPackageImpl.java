@@ -10,7 +10,13 @@ import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.EcorePackage;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
+import org.palladiosimulator.edp2.models.ExperimentData.ExperimentDataPackage;
+import org.palladiosimulator.edp2.models.Repository.RepositoryPackage;
+import org.palladiosimulator.edp2.models.measuringpoint.MeasuringpointPackage;
+import org.palladiosimulator.metricspec.MetricSpecPackage;
+import org.palladiosimulator.monitorrepository.MonitorRepositoryPackage;
 import org.palladiosimulator.pcm.PcmPackage;
+import org.palladiosimulator.servicelevelobjective.ServicelevelObjectivePackage;
 import org.palladiosimulator.spd.SpdPackage;
 import org.palladiosimulator.spd.adjustments.AdjustmentsPackage;
 import org.palladiosimulator.spd.adjustments.impl.AdjustmentsPackageImpl;
@@ -21,6 +27,8 @@ import org.palladiosimulator.spd.constraints.policy.impl.PolicyPackageImpl;
 import org.palladiosimulator.spd.constraints.target.TargetPackage;
 import org.palladiosimulator.spd.constraints.target.impl.TargetPackageImpl;
 import org.palladiosimulator.spd.impl.SpdPackageImpl;
+import org.palladiosimulator.spd.models.ModelsPackage;
+import org.palladiosimulator.spd.models.impl.ModelsPackageImpl;
 import org.palladiosimulator.spd.targets.TargetsPackage;
 import org.palladiosimulator.spd.targets.impl.TargetsPackageImpl;
 import org.palladiosimulator.spd.triggers.BaseTrigger;
@@ -35,8 +43,6 @@ import org.palladiosimulator.spd.triggers.TriggersFactory;
 import org.palladiosimulator.spd.triggers.TriggersPackage;
 import org.palladiosimulator.spd.triggers.expectations.ExpectationsPackage;
 import org.palladiosimulator.spd.triggers.expectations.impl.ExpectationsPackageImpl;
-import org.palladiosimulator.spd.triggers.stimuli.StimuliPackage;
-import org.palladiosimulator.spd.triggers.stimuli.impl.StimuliPackageImpl;
 
 import de.uka.ipd.sdq.identifier.IdentifierPackage;
 import de.uka.ipd.sdq.probfunction.ProbfunctionPackage;
@@ -84,27 +90,6 @@ public class TriggersPackageImpl extends EPackageImpl implements TriggersPackage
 	 * @generated
 	 */
 	private EClass simpleFireOnTrendEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EEnum aggregationmethodEEnum = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EEnum hddusagetypeEEnum = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EEnum networkusagetypeEEnum = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -166,8 +151,9 @@ public class TriggersPackageImpl extends EPackageImpl implements TriggersPackage
 	 * @generated
 	 */
 	public static TriggersPackage init() {
-		if (isInited)
+		if (isInited) {
 			return (TriggersPackage) EPackage.Registry.INSTANCE.getEPackage(TriggersPackage.eNS_URI);
+		}
 
 		// Obtain or create and register package
 		Object registeredTriggersPackage = EPackage.Registry.INSTANCE.get(eNS_URI);
@@ -179,9 +165,17 @@ public class TriggersPackageImpl extends EPackageImpl implements TriggersPackage
 
 		// Initialize simple dependencies
 		EcorePackage.eINSTANCE.eClass();
+		ExperimentDataPackage.eINSTANCE.eClass();
+		RepositoryPackage.eINSTANCE.eClass();
+		MeasuringpointPackage.eINSTANCE.eClass();
 		IdentifierPackage.eINSTANCE.eClass();
+		MetricSpecPackage.eINSTANCE.eClass();
+		MonitorRepositoryPackage.eINSTANCE.eClass();
 		PcmPackage.eINSTANCE.eClass();
 		ProbfunctionPackage.eINSTANCE.eClass();
+		ServicelevelObjectivePackage.eINSTANCE.eClass();
+		org.palladiosimulator.spdmodelreward.SpdmodelrewardPackage.eINSTANCE.eClass();
+		org.palladiosimulator.spd.stimulus.StimulusPackage.eINSTANCE.eClass();
 		StoexPackage.eINSTANCE.eClass();
 		UnitsPackage.eINSTANCE.eClass();
 
@@ -209,14 +203,14 @@ public class TriggersPackageImpl extends EPackageImpl implements TriggersPackage
 		TargetPackageImpl theTargetPackage = (TargetPackageImpl) (registeredPackage instanceof TargetPackageImpl
 				? registeredPackage
 				: TargetPackage.eINSTANCE);
-		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(StimuliPackage.eNS_URI);
-		StimuliPackageImpl theStimuliPackage = (StimuliPackageImpl) (registeredPackage instanceof StimuliPackageImpl
-				? registeredPackage
-				: StimuliPackage.eINSTANCE);
 		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(ExpectationsPackage.eNS_URI);
 		ExpectationsPackageImpl theExpectationsPackage = (ExpectationsPackageImpl) (registeredPackage instanceof ExpectationsPackageImpl
 				? registeredPackage
 				: ExpectationsPackage.eINSTANCE);
+		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(ModelsPackage.eNS_URI);
+		ModelsPackageImpl theModelsPackage = (ModelsPackageImpl) (registeredPackage instanceof ModelsPackageImpl
+				? registeredPackage
+				: ModelsPackage.eINSTANCE);
 
 		// Create package meta-data objects
 		theTriggersPackage.createPackageContents();
@@ -226,8 +220,8 @@ public class TriggersPackageImpl extends EPackageImpl implements TriggersPackage
 		theConstraintsPackage.createPackageContents();
 		thePolicyPackage.createPackageContents();
 		theTargetPackage.createPackageContents();
-		theStimuliPackage.createPackageContents();
 		theExpectationsPackage.createPackageContents();
+		theModelsPackage.createPackageContents();
 
 		// Initialize created meta-data
 		theTriggersPackage.initializePackageContents();
@@ -237,8 +231,8 @@ public class TriggersPackageImpl extends EPackageImpl implements TriggersPackage
 		theConstraintsPackage.initializePackageContents();
 		thePolicyPackage.initializePackageContents();
 		theTargetPackage.initializePackageContents();
-		theStimuliPackage.initializePackageContents();
 		theExpectationsPackage.initializePackageContents();
+		theModelsPackage.initializePackageContents();
 
 		// Mark meta-data to indicate it can't be changed
 		theTriggersPackage.freeze();
@@ -354,36 +348,6 @@ public class TriggersPackageImpl extends EPackageImpl implements TriggersPackage
 	 * @generated
 	 */
 	@Override
-	public EEnum getAGGREGATIONMETHOD() {
-		return aggregationmethodEEnum;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EEnum getHDDUSAGETYPE() {
-		return hddusagetypeEEnum;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EEnum getNETWORKUSAGETYPE() {
-		return networkusagetypeEEnum;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public EEnum getLogicalOperator() {
 		return logicalOperatorEEnum;
 	}
@@ -433,8 +397,9 @@ public class TriggersPackageImpl extends EPackageImpl implements TriggersPackage
 	 * @generated
 	 */
 	public void createPackageContents() {
-		if (isCreated)
+		if (isCreated) {
 			return;
+		}
 		isCreated = true;
 
 		// Create classes and their features
@@ -454,9 +419,6 @@ public class TriggersPackageImpl extends EPackageImpl implements TriggersPackage
 		simpleFireOnTrendEClass = createEClass(SIMPLE_FIRE_ON_TREND);
 
 		// Create enums
-		aggregationmethodEEnum = createEEnum(AGGREGATIONMETHOD);
-		hddusagetypeEEnum = createEEnum(HDDUSAGETYPE);
-		networkusagetypeEEnum = createEEnum(NETWORKUSAGETYPE);
 		logicalOperatorEEnum = createEEnum(LOGICAL_OPERATOR);
 		relationalOperatorEEnum = createEEnum(RELATIONAL_OPERATOR);
 		trendPatternEEnum = createEEnum(TREND_PATTERN);
@@ -477,8 +439,9 @@ public class TriggersPackageImpl extends EPackageImpl implements TriggersPackage
 	 * @generated
 	 */
 	public void initializePackageContents() {
-		if (isInitialized)
+		if (isInitialized) {
 			return;
+		}
 		isInitialized = true;
 
 		// Initialize package
@@ -487,15 +450,14 @@ public class TriggersPackageImpl extends EPackageImpl implements TriggersPackage
 		setNsURI(eNS_URI);
 
 		// Obtain other dependent packages
-		StimuliPackage theStimuliPackage = (StimuliPackage) EPackage.Registry.INSTANCE
-				.getEPackage(StimuliPackage.eNS_URI);
 		ExpectationsPackage theExpectationsPackage = (ExpectationsPackage) EPackage.Registry.INSTANCE
 				.getEPackage(ExpectationsPackage.eNS_URI);
 		IdentifierPackage theIdentifierPackage = (IdentifierPackage) EPackage.Registry.INSTANCE
 				.getEPackage(IdentifierPackage.eNS_URI);
+		org.palladiosimulator.spd.stimulus.StimulusPackage theStimulusPackage = (org.palladiosimulator.spd.stimulus.StimulusPackage) EPackage.Registry.INSTANCE
+				.getEPackage(org.palladiosimulator.spd.stimulus.StimulusPackage.eNS_URI);
 
 		// Add subpackages
-		getESubpackages().add(theStimuliPackage);
 		getESubpackages().add(theExpectationsPackage);
 
 		// Create type parameters
@@ -515,7 +477,7 @@ public class TriggersPackageImpl extends EPackageImpl implements TriggersPackage
 
 		initEClass(baseTriggerEClass, BaseTrigger.class, "BaseTrigger", IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getBaseTrigger_Stimulus(), theStimuliPackage.getStimulus(), null, "stimulus", null, 1, 1,
+		initEReference(getBaseTrigger_Stimulus(), theStimulusPackage.getStimulus(), null, "stimulus", null, 1, 1,
 				BaseTrigger.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
 				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getBaseTrigger_ExpectedValue(), theExpectationsPackage.getExpectedValue(), null, "expectedValue",
@@ -541,22 +503,6 @@ public class TriggersPackageImpl extends EPackageImpl implements TriggersPackage
 				IS_GENERATED_INSTANCE_CLASS);
 
 		// Initialize enums and add enum literals
-		initEEnum(aggregationmethodEEnum, org.palladiosimulator.spd.triggers.AGGREGATIONMETHOD.class,
-				"AGGREGATIONMETHOD");
-		addEEnumLiteral(aggregationmethodEEnum, org.palladiosimulator.spd.triggers.AGGREGATIONMETHOD.AVERAGE);
-		addEEnumLiteral(aggregationmethodEEnum, org.palladiosimulator.spd.triggers.AGGREGATIONMETHOD.MAX);
-		addEEnumLiteral(aggregationmethodEEnum, org.palladiosimulator.spd.triggers.AGGREGATIONMETHOD.MIN);
-		addEEnumLiteral(aggregationmethodEEnum, org.palladiosimulator.spd.triggers.AGGREGATIONMETHOD.MEDIAN);
-		addEEnumLiteral(aggregationmethodEEnum, org.palladiosimulator.spd.triggers.AGGREGATIONMETHOD.SUM);
-
-		initEEnum(hddusagetypeEEnum, org.palladiosimulator.spd.triggers.HDDUSAGETYPE.class, "HDDUSAGETYPE");
-		addEEnumLiteral(hddusagetypeEEnum, org.palladiosimulator.spd.triggers.HDDUSAGETYPE.READ);
-		addEEnumLiteral(hddusagetypeEEnum, org.palladiosimulator.spd.triggers.HDDUSAGETYPE.WRITE);
-
-		initEEnum(networkusagetypeEEnum, org.palladiosimulator.spd.triggers.NETWORKUSAGETYPE.class, "NETWORKUSAGETYPE");
-		addEEnumLiteral(networkusagetypeEEnum, org.palladiosimulator.spd.triggers.NETWORKUSAGETYPE.SEND);
-		addEEnumLiteral(networkusagetypeEEnum, org.palladiosimulator.spd.triggers.NETWORKUSAGETYPE.RECEIVE);
-
 		initEEnum(logicalOperatorEEnum, LogicalOperator.class, "LogicalOperator");
 		addEEnumLiteral(logicalOperatorEEnum, LogicalOperator.AND);
 		addEEnumLiteral(logicalOperatorEEnum, LogicalOperator.OR);

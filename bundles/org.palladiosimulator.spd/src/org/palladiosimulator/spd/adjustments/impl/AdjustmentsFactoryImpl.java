@@ -59,11 +59,11 @@ public class AdjustmentsFactoryImpl extends EFactoryImpl implements AdjustmentsF
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
 		case AdjustmentsPackage.RELATIVE_ADJUSTMENT:
-			return createRelativeAdjustment();
+			return (EObject) createRelativeAdjustment();
 		case AdjustmentsPackage.ABSOLUTE_ADJUSTMENT:
-			return createAbsoluteAdjustment();
+			return (EObject) createAbsoluteAdjustment();
 		case AdjustmentsPackage.STEP_ADJUSTMENT:
-			return createStepAdjustment();
+			return (EObject) createStepAdjustment();
 		default:
 			throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}

@@ -222,10 +222,12 @@ public class PolicyItemProviderAdapterFactory extends PolicyAdapterFactory
 	 */
 	@Override
 	public void dispose() {
-		if (intervalConstraintItemProvider != null)
+		if (intervalConstraintItemProvider != null) {
 			intervalConstraintItemProvider.dispose();
-		if (cooldownConstraintItemProvider != null)
+		}
+		if (cooldownConstraintItemProvider != null) {
 			cooldownConstraintItemProvider.dispose();
+		}
 	}
 
 }

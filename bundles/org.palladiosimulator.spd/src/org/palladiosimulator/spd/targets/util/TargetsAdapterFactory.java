@@ -73,7 +73,7 @@ public class TargetsAdapterFactory extends AdapterFactoryImpl {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected TargetsSwitch<Adapter> modelSwitch = new TargetsSwitch<>() {
+	protected TargetsSwitch<Adapter> modelSwitch = new TargetsSwitch<Adapter>() {
 		@Override
 		public Adapter caseTargetGroup(TargetGroup object) {
 			return createTargetGroupAdapter();

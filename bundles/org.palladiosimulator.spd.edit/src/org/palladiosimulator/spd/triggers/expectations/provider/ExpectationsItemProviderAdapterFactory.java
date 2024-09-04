@@ -291,16 +291,21 @@ public class ExpectationsItemProviderAdapterFactory extends ExpectationsAdapterF
 	 */
 	@Override
 	public void dispose() {
-		if (noExpectationItemProvider != null)
+		if (noExpectationItemProvider != null) {
 			noExpectationItemProvider.dispose();
-		if (expectedPercentageItemProvider != null)
+		}
+		if (expectedPercentageItemProvider != null) {
 			expectedPercentageItemProvider.dispose();
-		if (expectedCountItemProvider != null)
+		}
+		if (expectedCountItemProvider != null) {
 			expectedCountItemProvider.dispose();
-		if (expectedTimeItemProvider != null)
+		}
+		if (expectedTimeItemProvider != null) {
 			expectedTimeItemProvider.dispose();
-		if (expectedTrendItemProvider != null)
+		}
+		if (expectedTrendItemProvider != null) {
 			expectedTrendItemProvider.dispose();
+		}
 	}
 
 }

@@ -70,7 +70,7 @@ public class TriggersAdapterFactory extends AdapterFactoryImpl {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected TriggersSwitch<Adapter> modelSwitch = new TriggersSwitch<>() {
+	protected TriggersSwitch<Adapter> modelSwitch = new TriggersSwitch<Adapter>() {
 		@Override
 		public Adapter caseScalingTrigger(ScalingTrigger object) {
 			return createScalingTriggerAdapter();

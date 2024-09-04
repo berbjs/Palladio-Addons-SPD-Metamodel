@@ -119,6 +119,10 @@ import org.eclipse.ui.views.contentoutline.IContentOutlinePage;
 import org.eclipse.ui.views.properties.IPropertySheetPage;
 import org.eclipse.ui.views.properties.PropertySheet;
 import org.eclipse.ui.views.properties.PropertySheetPage;
+import org.palladiosimulator.edp2.models.ExperimentData.provider.ExperimentDataItemProviderAdapterFactory;
+import org.palladiosimulator.edp2.models.measuringpoint.provider.MeasuringpointItemProviderAdapterFactory;
+import org.palladiosimulator.metricspec.provider.MetricSpecItemProviderAdapterFactory;
+import org.palladiosimulator.monitorrepository.provider.MonitorRepositoryItemProviderAdapterFactory;
 import org.palladiosimulator.pcm.allocation.provider.AllocationItemProviderAdapterFactory;
 import org.palladiosimulator.pcm.core.composition.provider.CompositionItemProviderAdapterFactory;
 import org.palladiosimulator.pcm.core.entity.provider.EntityItemProviderAdapterFactory;
@@ -139,16 +143,19 @@ import org.palladiosimulator.pcm.seff.seff_reliability.provider.SeffReliabilityI
 import org.palladiosimulator.pcm.subsystem.provider.SubsystemItemProviderAdapterFactory;
 import org.palladiosimulator.pcm.system.provider.SystemItemProviderAdapterFactory;
 import org.palladiosimulator.pcm.usagemodel.provider.UsagemodelItemProviderAdapterFactory;
+import org.palladiosimulator.servicelevelobjective.provider.ServicelevelObjectiveItemProviderAdapterFactory;
 import org.palladiosimulator.spd.adjustments.provider.AdjustmentsItemProviderAdapterFactory;
 import org.palladiosimulator.spd.constraints.policy.provider.PolicyItemProviderAdapterFactory;
 import org.palladiosimulator.spd.constraints.provider.ConstraintsItemProviderAdapterFactory;
 import org.palladiosimulator.spd.constraints.target.provider.TargetItemProviderAdapterFactory;
+import org.palladiosimulator.spd.models.provider.ModelsItemProviderAdapterFactory;
 import org.palladiosimulator.spd.presentation.ScalingPolicyDefinitionEditorPlugin;
 import org.palladiosimulator.spd.provider.SpdItemProviderAdapterFactory;
+import org.palladiosimulator.spd.stimulus.provider.StimulusItemProviderAdapterFactory;
 import org.palladiosimulator.spd.targets.provider.TargetsItemProviderAdapterFactory;
 import org.palladiosimulator.spd.triggers.expectations.provider.ExpectationsItemProviderAdapterFactory;
 import org.palladiosimulator.spd.triggers.provider.TriggersItemProviderAdapterFactory;
-import org.palladiosimulator.spd.triggers.stimuli.provider.StimuliItemProviderAdapterFactory;
+import org.palladiosimulator.spdmodelreward.provider.SpdmodelrewardItemProviderAdapterFactory;
 
 import de.uka.ipd.sdq.identifier.provider.IdentifierItemProviderAdapterFactory;
 import de.uka.ipd.sdq.probfunction.provider.ProbfunctionItemProviderAdapterFactory;
@@ -690,10 +697,16 @@ public class TargetsEditor extends MultiPageEditorPart
 		adapterFactory.addAdapterFactory(new PolicyItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new TargetItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new TriggersItemProviderAdapterFactory());
-		adapterFactory.addAdapterFactory(new StimuliItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new ExpectationsItemProviderAdapterFactory());
+		adapterFactory.addAdapterFactory(new ModelsItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new EcoreItemProviderAdapterFactory());
+		adapterFactory.addAdapterFactory(new ExperimentDataItemProviderAdapterFactory());
+		adapterFactory.addAdapterFactory(
+				new org.palladiosimulator.edp2.models.Repository.provider.RepositoryItemProviderAdapterFactory());
+		adapterFactory.addAdapterFactory(new MeasuringpointItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new IdentifierItemProviderAdapterFactory());
+		adapterFactory.addAdapterFactory(new MetricSpecItemProviderAdapterFactory());
+		adapterFactory.addAdapterFactory(new MonitorRepositoryItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new PcmItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new CoreItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new EntityItemProviderAdapterFactory());
@@ -715,6 +728,9 @@ public class TargetsEditor extends MultiPageEditorPart
 		adapterFactory.addAdapterFactory(new AllocationItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new SubsystemItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new ProbfunctionItemProviderAdapterFactory());
+		adapterFactory.addAdapterFactory(new ServicelevelObjectiveItemProviderAdapterFactory());
+		adapterFactory.addAdapterFactory(new SpdmodelrewardItemProviderAdapterFactory());
+		adapterFactory.addAdapterFactory(new StimulusItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new StoexItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new UnitsItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new ReflectiveItemProviderAdapterFactory());
@@ -754,7 +770,7 @@ public class TargetsEditor extends MultiPageEditorPart
 
 		// Create the editing domain with a special command stack.
 		//
-		editingDomain = new AdapterFactoryEditingDomain(adapterFactory, commandStack, new HashMap<Resource, Boolean>());
+		editingDomain = new AdapterFactoryEditingDomain(adapterFactory, commandStack, new HashMap<>());
 	}
 
 	/**

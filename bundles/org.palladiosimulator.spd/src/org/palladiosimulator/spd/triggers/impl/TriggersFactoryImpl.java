@@ -9,11 +9,8 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
-import org.palladiosimulator.spd.triggers.AGGREGATIONMETHOD;
 import org.palladiosimulator.spd.triggers.ComposedTrigger;
-import org.palladiosimulator.spd.triggers.HDDUSAGETYPE;
 import org.palladiosimulator.spd.triggers.LogicalOperator;
-import org.palladiosimulator.spd.triggers.NETWORKUSAGETYPE;
 import org.palladiosimulator.spd.triggers.RelationalOperator;
 import org.palladiosimulator.spd.triggers.SimpleFireOnTrend;
 import org.palladiosimulator.spd.triggers.SimpleFireOnValue;
@@ -66,11 +63,11 @@ public class TriggersFactoryImpl extends EFactoryImpl implements TriggersFactory
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
 		case TriggersPackage.COMPOSED_TRIGGER:
-			return createComposedTrigger();
+			return (EObject) createComposedTrigger();
 		case TriggersPackage.SIMPLE_FIRE_ON_VALUE:
-			return createSimpleFireOnValue();
+			return (EObject) createSimpleFireOnValue();
 		case TriggersPackage.SIMPLE_FIRE_ON_TREND:
-			return createSimpleFireOnTrend();
+			return (EObject) createSimpleFireOnTrend();
 		default:
 			throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -84,12 +81,6 @@ public class TriggersFactoryImpl extends EFactoryImpl implements TriggersFactory
 	@Override
 	public Object createFromString(EDataType eDataType, String initialValue) {
 		switch (eDataType.getClassifierID()) {
-		case TriggersPackage.AGGREGATIONMETHOD:
-			return createAGGREGATIONMETHODFromString(eDataType, initialValue);
-		case TriggersPackage.HDDUSAGETYPE:
-			return createHDDUSAGETYPEFromString(eDataType, initialValue);
-		case TriggersPackage.NETWORKUSAGETYPE:
-			return createNETWORKUSAGETYPEFromString(eDataType, initialValue);
 		case TriggersPackage.LOGICAL_OPERATOR:
 			return createLogicalOperatorFromString(eDataType, initialValue);
 		case TriggersPackage.RELATIONAL_OPERATOR:
@@ -109,12 +100,6 @@ public class TriggersFactoryImpl extends EFactoryImpl implements TriggersFactory
 	@Override
 	public String convertToString(EDataType eDataType, Object instanceValue) {
 		switch (eDataType.getClassifierID()) {
-		case TriggersPackage.AGGREGATIONMETHOD:
-			return convertAGGREGATIONMETHODToString(eDataType, instanceValue);
-		case TriggersPackage.HDDUSAGETYPE:
-			return convertHDDUSAGETYPEToString(eDataType, instanceValue);
-		case TriggersPackage.NETWORKUSAGETYPE:
-			return convertNETWORKUSAGETYPEToString(eDataType, instanceValue);
 		case TriggersPackage.LOGICAL_OPERATOR:
 			return convertLogicalOperatorToString(eDataType, instanceValue);
 		case TriggersPackage.RELATIONAL_OPERATOR:
@@ -157,72 +142,6 @@ public class TriggersFactoryImpl extends EFactoryImpl implements TriggersFactory
 	public SimpleFireOnTrend createSimpleFireOnTrend() {
 		SimpleFireOnTrendImpl simpleFireOnTrend = new SimpleFireOnTrendImpl();
 		return simpleFireOnTrend;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public AGGREGATIONMETHOD createAGGREGATIONMETHODFromString(EDataType eDataType, String initialValue) {
-		AGGREGATIONMETHOD result = AGGREGATIONMETHOD.get(initialValue);
-		if (result == null)
-			throw new IllegalArgumentException(
-					"The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-		return result;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String convertAGGREGATIONMETHODToString(EDataType eDataType, Object instanceValue) {
-		return instanceValue == null ? null : instanceValue.toString();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public HDDUSAGETYPE createHDDUSAGETYPEFromString(EDataType eDataType, String initialValue) {
-		HDDUSAGETYPE result = HDDUSAGETYPE.get(initialValue);
-		if (result == null)
-			throw new IllegalArgumentException(
-					"The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-		return result;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String convertHDDUSAGETYPEToString(EDataType eDataType, Object instanceValue) {
-		return instanceValue == null ? null : instanceValue.toString();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NETWORKUSAGETYPE createNETWORKUSAGETYPEFromString(EDataType eDataType, String initialValue) {
-		NETWORKUSAGETYPE result = NETWORKUSAGETYPE.get(initialValue);
-		if (result == null)
-			throw new IllegalArgumentException(
-					"The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-		return result;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String convertNETWORKUSAGETYPEToString(EDataType eDataType, Object instanceValue) {
-		return instanceValue == null ? null : instanceValue.toString();
 	}
 
 	/**

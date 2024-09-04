@@ -225,7 +225,7 @@ import org.palladiosimulator.spd.triggers.expectations.provider.ExpectationsItem
 
 import org.palladiosimulator.spd.triggers.provider.TriggersItemProviderAdapterFactory;
 
-import org.palladiosimulator.spd.triggers.stimuli.provider.StimuliItemProviderAdapterFactory;
+import org.palladiosimulator.spd.stimulus.provider.StimulusItemProviderAdapterFactory;
 
 
 /**
@@ -799,7 +799,7 @@ public class SemanticspdEditor
 		adapterFactory.addAdapterFactory(new PolicyItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new TargetItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new TriggersItemProviderAdapterFactory());
-		adapterFactory.addAdapterFactory(new StimuliItemProviderAdapterFactory());
+		adapterFactory.addAdapterFactory(new StimulusItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new ExpectationsItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new StoexItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new UnitsItemProviderAdapterFactory());

@@ -100,7 +100,7 @@ public class SPDItemProvider extends EntityItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((SPD) object).getEntityName();
+		String label = ((SPD) object).getId();
 		return label == null || label.length() == 0 ? getString("_UI_SPD_type")
 				: getString("_UI_SPD_type") + " " + label;
 	}
@@ -137,7 +137,10 @@ public class SPDItemProvider extends EntityItemProvider {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 
 		newChildDescriptors.add(createChildParameter(SpdPackage.Literals.SPD__SCALING_POLICIES,
-				SpdFactory.eINSTANCE.createScalingPolicy()));
+				SpdFactory.eINSTANCE.createReactiveScalingPolicy()));
+
+		newChildDescriptors.add(createChildParameter(SpdPackage.Literals.SPD__SCALING_POLICIES,
+				SpdFactory.eINSTANCE.createModelBasedScalingPolicy()));
 
 		newChildDescriptors.add(createChildParameter(SpdPackage.Literals.SPD__TARGET_GROUPS,
 				TargetsFactory.eINSTANCE.createElasticInfrastructure()));

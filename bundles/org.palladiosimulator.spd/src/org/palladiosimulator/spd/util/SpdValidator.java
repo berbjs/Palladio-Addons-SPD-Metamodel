@@ -10,6 +10,7 @@ import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.common.util.ResourceLocator;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.util.EObjectValidator;
+import org.palladiosimulator.spd.*;
 import org.palladiosimulator.spd.SPD;
 import org.palladiosimulator.spd.ScalingPolicy;
 import org.palladiosimulator.spd.SpdPackage;
@@ -98,13 +99,49 @@ public class SpdValidator extends EObjectValidator {
 	protected boolean validate(int classifierID, Object value, DiagnosticChain diagnostics,
 			Map<Object, Object> context) {
 		switch (classifierID) {
-		case SpdPackage.SCALING_POLICY:
-			return validateScalingPolicy((ScalingPolicy) value, diagnostics, context);
+		case SpdPackage.REACTIVE_SCALING_POLICY:
+			return validateReactiveScalingPolicy((ReactiveScalingPolicy) value, diagnostics, context);
 		case SpdPackage.SPD:
 			return validateSPD((SPD) value, diagnostics, context);
+		case SpdPackage.SCALING_POLICY:
+			return validateScalingPolicy((ScalingPolicy) value, diagnostics, context);
+		case SpdPackage.MODEL_BASED_SCALING_POLICY:
+			return validateModelBasedScalingPolicy((ModelBasedScalingPolicy) value, diagnostics, context);
 		default:
 			return true;
 		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateReactiveScalingPolicy(ReactiveScalingPolicy reactiveScalingPolicy,
+			DiagnosticChain diagnostics, Map<Object, Object> context) {
+		if (!validate_NoCircularContainment(reactiveScalingPolicy, diagnostics, context))
+			return false;
+		boolean result = validate_EveryMultiplicityConforms(reactiveScalingPolicy, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validate_EveryDataValueConforms(reactiveScalingPolicy, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validate_EveryReferenceIsContained(reactiveScalingPolicy, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validate_EveryBidirectionalReferenceIsPaired(reactiveScalingPolicy, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validate_EveryProxyResolves(reactiveScalingPolicy, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validate_UniqueID(reactiveScalingPolicy, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validate_EveryKeyUnique(reactiveScalingPolicy, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validate_EveryMapEntryUnique(reactiveScalingPolicy, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= identifierValidator.validateIdentifier_identifierIsUnique(reactiveScalingPolicy, diagnostics,
+					context);
+		if (result || diagnostics != null)
+			result &= validateScalingPolicy_policyNameInvariant(reactiveScalingPolicy, diagnostics, context);
+		return result;
 	}
 
 	/**
@@ -160,6 +197,38 @@ public class SpdValidator extends EObjectValidator {
 			return false;
 		}
 		return true;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateModelBasedScalingPolicy(ModelBasedScalingPolicy modelBasedScalingPolicy,
+			DiagnosticChain diagnostics, Map<Object, Object> context) {
+		if (!validate_NoCircularContainment(modelBasedScalingPolicy, diagnostics, context))
+			return false;
+		boolean result = validate_EveryMultiplicityConforms(modelBasedScalingPolicy, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validate_EveryDataValueConforms(modelBasedScalingPolicy, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validate_EveryReferenceIsContained(modelBasedScalingPolicy, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validate_EveryBidirectionalReferenceIsPaired(modelBasedScalingPolicy, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validate_EveryProxyResolves(modelBasedScalingPolicy, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validate_UniqueID(modelBasedScalingPolicy, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validate_EveryKeyUnique(modelBasedScalingPolicy, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validate_EveryMapEntryUnique(modelBasedScalingPolicy, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= identifierValidator.validateIdentifier_identifierIsUnique(modelBasedScalingPolicy, diagnostics,
+					context);
+		if (result || diagnostics != null)
+			result &= validateScalingPolicy_policyNameInvariant(modelBasedScalingPolicy, diagnostics, context);
+		return result;
 	}
 
 	/**

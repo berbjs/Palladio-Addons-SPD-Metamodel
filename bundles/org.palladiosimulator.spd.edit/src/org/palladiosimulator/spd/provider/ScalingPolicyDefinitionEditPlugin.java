@@ -6,7 +6,13 @@ package org.palladiosimulator.spd.provider;
 import org.eclipse.emf.common.EMFPlugin;
 import org.eclipse.emf.common.util.ResourceLocator;
 import org.eclipse.emf.ecore.provider.EcoreEditPlugin;
+import org.palladiosimulator.edp2.models.ExperimentData.provider.EDP2EditPlugin;
+import org.palladiosimulator.metricspec.provider.MetricSpecEditPlugin;
+import org.palladiosimulator.monitorrepository.provider.MonitorrepositoryEditPlugin;
 import org.palladiosimulator.pcm.core.provider.PalladioComponentModelEditPlugin;
+import org.palladiosimulator.servicelevelobjective.provider.ServiceLevelObjectiveEditPlugin;
+import org.palladiosimulator.spd.stimulus.provider.StimulusEditPlugin;
+import org.palladiosimulator.spdmodelreward.provider.SPDModelRewardEditPlugin;
 
 import de.uka.ipd.sdq.identifier.provider.IdentifierEditPlugin;
 import de.uka.ipd.sdq.probfunction.provider.ProbabilityFunctionEditPlugin;
@@ -43,9 +49,11 @@ public final class ScalingPolicyDefinitionEditPlugin extends EMFPlugin {
 	 * @generated
 	 */
 	public ScalingPolicyDefinitionEditPlugin() {
-		super(new ResourceLocator[] { EcoreEditPlugin.INSTANCE, IdentifierEditPlugin.INSTANCE,
+		super(new ResourceLocator[] { EcoreEditPlugin.INSTANCE, EDP2EditPlugin.INSTANCE, IdentifierEditPlugin.INSTANCE,
+				MetricSpecEditPlugin.INSTANCE, MonitorrepositoryEditPlugin.INSTANCE,
 				PalladioComponentModelEditPlugin.INSTANCE, ProbabilityFunctionEditPlugin.INSTANCE,
-				StoexEditPlugin.INSTANCE, UnitsEditPlugin.INSTANCE, });
+				ServiceLevelObjectiveEditPlugin.INSTANCE, SPDModelRewardEditPlugin.INSTANCE,
+				StimulusEditPlugin.INSTANCE, StoexEditPlugin.INSTANCE, UnitsEditPlugin.INSTANCE, });
 	}
 
 	/**

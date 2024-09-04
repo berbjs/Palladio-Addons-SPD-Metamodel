@@ -222,10 +222,12 @@ public class TargetItemProviderAdapterFactory extends TargetAdapterFactory
 	 */
 	@Override
 	public void dispose() {
-		if (targetGroupSizeConstraintItemProvider != null)
+		if (targetGroupSizeConstraintItemProvider != null) {
 			targetGroupSizeConstraintItemProvider.dispose();
-		if (thrashingConstraintItemProvider != null)
+		}
+		if (thrashingConstraintItemProvider != null) {
 			thrashingConstraintItemProvider.dispose();
+		}
 	}
 
 }

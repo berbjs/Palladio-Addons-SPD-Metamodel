@@ -9,7 +9,6 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.palladiosimulator.spd.triggers.BaseTrigger;
 import org.palladiosimulator.spd.triggers.TriggersPackage;
 import org.palladiosimulator.spd.triggers.expectations.ExpectedValue;
-import org.palladiosimulator.spd.triggers.stimuli.Stimulus;
 
 /**
  * <!-- begin-user-doc -->
@@ -51,8 +50,8 @@ public abstract class BaseTriggerImpl extends ScalingTriggerImpl implements Base
 	 * @generated
 	 */
 	@Override
-	public Stimulus getStimulus() {
-		return (Stimulus) eDynamicGet(TriggersPackage.BASE_TRIGGER__STIMULUS,
+	public org.palladiosimulator.spd.stimulus.Stimulus getStimulus() {
+		return (org.palladiosimulator.spd.stimulus.Stimulus) eDynamicGet(TriggersPackage.BASE_TRIGGER__STIMULUS,
 				TriggersPackage.Literals.BASE_TRIGGER__STIMULUS, true, true);
 	}
 
@@ -61,7 +60,8 @@ public abstract class BaseTriggerImpl extends ScalingTriggerImpl implements Base
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetStimulus(Stimulus newStimulus, NotificationChain msgs) {
+	public NotificationChain basicSetStimulus(org.palladiosimulator.spd.stimulus.Stimulus newStimulus,
+			NotificationChain msgs) {
 		msgs = eDynamicInverseAdd((InternalEObject) newStimulus, TriggersPackage.BASE_TRIGGER__STIMULUS, msgs);
 		return msgs;
 	}
@@ -72,7 +72,7 @@ public abstract class BaseTriggerImpl extends ScalingTriggerImpl implements Base
 	 * @generated
 	 */
 	@Override
-	public void setStimulus(Stimulus newStimulus) {
+	public void setStimulus(org.palladiosimulator.spd.stimulus.Stimulus newStimulus) {
 		eDynamicSet(TriggersPackage.BASE_TRIGGER__STIMULUS, TriggersPackage.Literals.BASE_TRIGGER__STIMULUS,
 				newStimulus);
 	}
@@ -151,7 +151,7 @@ public abstract class BaseTriggerImpl extends ScalingTriggerImpl implements Base
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 		case TriggersPackage.BASE_TRIGGER__STIMULUS:
-			setStimulus((Stimulus) newValue);
+			setStimulus((org.palladiosimulator.spd.stimulus.Stimulus) newValue);
 			return;
 		case TriggersPackage.BASE_TRIGGER__EXPECTED_VALUE:
 			setExpectedValue((ExpectedValue) newValue);
@@ -169,7 +169,7 @@ public abstract class BaseTriggerImpl extends ScalingTriggerImpl implements Base
 	public void eUnset(int featureID) {
 		switch (featureID) {
 		case TriggersPackage.BASE_TRIGGER__STIMULUS:
-			setStimulus((Stimulus) null);
+			setStimulus((org.palladiosimulator.spd.stimulus.Stimulus) null);
 			return;
 		case TriggersPackage.BASE_TRIGGER__EXPECTED_VALUE:
 			setExpectedValue((ExpectedValue) null);

@@ -245,12 +245,15 @@ public class AdjustmentsItemProviderAdapterFactory extends AdjustmentsAdapterFac
 	 */
 	@Override
 	public void dispose() {
-		if (relativeAdjustmentItemProvider != null)
+		if (relativeAdjustmentItemProvider != null) {
 			relativeAdjustmentItemProvider.dispose();
-		if (absoluteAdjustmentItemProvider != null)
+		}
+		if (absoluteAdjustmentItemProvider != null) {
 			absoluteAdjustmentItemProvider.dispose();
-		if (stepAdjustmentItemProvider != null)
+		}
+		if (stepAdjustmentItemProvider != null) {
 			stepAdjustmentItemProvider.dispose();
+		}
 	}
 
 }
