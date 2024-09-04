@@ -7,6 +7,7 @@ import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
 import org.eclipse.emf.ecore.EObject;
+import org.palladiosimulator.spd.triggers.stimuli.AggregatedStimulus;
 import org.palladiosimulator.spd.triggers.stimuli.CPUUtilization;
 import org.palladiosimulator.spd.triggers.stimuli.HDDUtilization;
 import org.palladiosimulator.spd.triggers.stimuli.ManagedElementsStateStimulus;
@@ -152,6 +153,11 @@ public class StimuliAdapterFactory extends AdapterFactoryImpl {
 		@Override
 		public Adapter caseNetworkUtilization(NetworkUtilization object) {
 			return createNetworkUtilizationAdapter();
+		}
+
+		@Override
+		public Adapter caseAggregatedStimulus(AggregatedStimulus object) {
+			return createAggregatedStimulusAdapter();
 		}
 
 		@Override
@@ -380,6 +386,20 @@ public class StimuliAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createNetworkUtilizationAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.palladiosimulator.spd.triggers.stimuli.AggregatedStimulus <em>Aggregated Stimulus</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.palladiosimulator.spd.triggers.stimuli.AggregatedStimulus
+	 * @generated
+	 */
+	public Adapter createAggregatedStimulusAdapter() {
 		return null;
 	}
 

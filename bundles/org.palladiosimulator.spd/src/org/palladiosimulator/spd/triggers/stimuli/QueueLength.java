@@ -26,7 +26,6 @@ import org.palladiosimulator.pcm.repository.PassiveResource;
  * @generated
  */
 public interface QueueLength extends SourceInterfaceStimulus {
-
 	/**
 	 * Returns the value of the '<em><b>Passive Resource</b></em>' reference.
 	 * <!-- begin-user-doc -->
@@ -48,4 +47,5 @@ public interface QueueLength extends SourceInterfaceStimulus {
 	 * @generated
 	 */
 	void setPassiveResource(PassiveResource value);
+
 } // QueueLength

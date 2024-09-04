@@ -82,8 +82,9 @@ public class QueueLengthImpl extends SourceInterfaceStimulusImpl implements Queu
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 		case StimuliPackage.QUEUE_LENGTH__PASSIVE_RESOURCE:
-			if (resolve)
+			if (resolve) {
 				return getPassiveResource();
+			}
 			return basicGetPassiveResource();
 		}
 		return super.eGet(featureID, resolve, coreType);

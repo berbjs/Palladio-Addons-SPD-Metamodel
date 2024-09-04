@@ -22,6 +22,8 @@ import org.palladiosimulator.spd.constraints.policy.PolicyPackage;
 import org.palladiosimulator.spd.constraints.target.TargetPackage;
 import org.palladiosimulator.spd.constraints.target.impl.TargetPackageImpl;
 import org.palladiosimulator.spd.impl.SpdPackageImpl;
+import org.palladiosimulator.spd.models.ModelsPackage;
+import org.palladiosimulator.spd.models.impl.ModelsPackageImpl;
 import org.palladiosimulator.spd.targets.TargetsPackage;
 import org.palladiosimulator.spd.targets.impl.TargetsPackageImpl;
 import org.palladiosimulator.spd.triggers.TriggersPackage;
@@ -103,8 +105,9 @@ public class PolicyPackageImpl extends EPackageImpl implements PolicyPackage {
 	 * @generated
 	 */
 	public static PolicyPackage init() {
-		if (isInited)
+		if (isInited) {
 			return (PolicyPackage) EPackage.Registry.INSTANCE.getEPackage(PolicyPackage.eNS_URI);
+		}
 
 		// Obtain or create and register package
 		Object registeredPolicyPackage = EPackage.Registry.INSTANCE.get(eNS_URI);
@@ -154,6 +157,10 @@ public class PolicyPackageImpl extends EPackageImpl implements PolicyPackage {
 		ExpectationsPackageImpl theExpectationsPackage = (ExpectationsPackageImpl) (registeredPackage instanceof ExpectationsPackageImpl
 				? registeredPackage
 				: ExpectationsPackage.eINSTANCE);
+		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(ModelsPackage.eNS_URI);
+		ModelsPackageImpl theModelsPackage = (ModelsPackageImpl) (registeredPackage instanceof ModelsPackageImpl
+				? registeredPackage
+				: ModelsPackage.eINSTANCE);
 
 		// Create package meta-data objects
 		thePolicyPackage.createPackageContents();
@@ -165,6 +172,7 @@ public class PolicyPackageImpl extends EPackageImpl implements PolicyPackage {
 		theTriggersPackage.createPackageContents();
 		theStimuliPackage.createPackageContents();
 		theExpectationsPackage.createPackageContents();
+		theModelsPackage.createPackageContents();
 
 		// Initialize created meta-data
 		thePolicyPackage.initializePackageContents();
@@ -176,6 +184,7 @@ public class PolicyPackageImpl extends EPackageImpl implements PolicyPackage {
 		theTriggersPackage.initializePackageContents();
 		theStimuliPackage.initializePackageContents();
 		theExpectationsPackage.initializePackageContents();
+		theModelsPackage.initializePackageContents();
 
 		// Mark meta-data to indicate it can't be changed
 		thePolicyPackage.freeze();
@@ -290,8 +299,9 @@ public class PolicyPackageImpl extends EPackageImpl implements PolicyPackage {
 	 * @generated
 	 */
 	public void createPackageContents() {
-		if (isCreated)
+		if (isCreated) {
 			return;
+		}
 		isCreated = true;
 
 		// Create classes and their features
@@ -322,8 +332,9 @@ public class PolicyPackageImpl extends EPackageImpl implements PolicyPackage {
 	 * @generated
 	 */
 	public void initializePackageContents() {
-		if (isInitialized)
+		if (isInitialized) {
 			return;
+		}
 		isInitialized = true;
 
 		// Initialize package

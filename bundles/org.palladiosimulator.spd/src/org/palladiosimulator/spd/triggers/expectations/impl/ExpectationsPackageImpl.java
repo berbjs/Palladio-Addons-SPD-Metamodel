@@ -19,6 +19,8 @@ import org.palladiosimulator.spd.constraints.policy.impl.PolicyPackageImpl;
 import org.palladiosimulator.spd.constraints.target.TargetPackage;
 import org.palladiosimulator.spd.constraints.target.impl.TargetPackageImpl;
 import org.palladiosimulator.spd.impl.SpdPackageImpl;
+import org.palladiosimulator.spd.models.ModelsPackage;
+import org.palladiosimulator.spd.models.impl.ModelsPackageImpl;
 import org.palladiosimulator.spd.targets.TargetsPackage;
 import org.palladiosimulator.spd.targets.impl.TargetsPackageImpl;
 import org.palladiosimulator.spd.triggers.TriggersPackage;
@@ -135,8 +137,9 @@ public class ExpectationsPackageImpl extends EPackageImpl implements Expectation
 	 * @generated
 	 */
 	public static ExpectationsPackage init() {
-		if (isInited)
+		if (isInited) {
 			return (ExpectationsPackage) EPackage.Registry.INSTANCE.getEPackage(ExpectationsPackage.eNS_URI);
+		}
 
 		// Obtain or create and register package
 		Object registeredExpectationsPackage = EPackage.Registry.INSTANCE.get(eNS_URI);
@@ -186,6 +189,10 @@ public class ExpectationsPackageImpl extends EPackageImpl implements Expectation
 		StimuliPackageImpl theStimuliPackage = (StimuliPackageImpl) (registeredPackage instanceof StimuliPackageImpl
 				? registeredPackage
 				: StimuliPackage.eINSTANCE);
+		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(ModelsPackage.eNS_URI);
+		ModelsPackageImpl theModelsPackage = (ModelsPackageImpl) (registeredPackage instanceof ModelsPackageImpl
+				? registeredPackage
+				: ModelsPackage.eINSTANCE);
 
 		// Create package meta-data objects
 		theExpectationsPackage.createPackageContents();
@@ -197,6 +204,7 @@ public class ExpectationsPackageImpl extends EPackageImpl implements Expectation
 		theTargetPackage.createPackageContents();
 		theTriggersPackage.createPackageContents();
 		theStimuliPackage.createPackageContents();
+		theModelsPackage.createPackageContents();
 
 		// Initialize created meta-data
 		theExpectationsPackage.initializePackageContents();
@@ -208,6 +216,7 @@ public class ExpectationsPackageImpl extends EPackageImpl implements Expectation
 		theTargetPackage.initializePackageContents();
 		theTriggersPackage.initializePackageContents();
 		theStimuliPackage.initializePackageContents();
+		theModelsPackage.initializePackageContents();
 
 		// Mark meta-data to indicate it can't be changed
 		theExpectationsPackage.freeze();
@@ -352,8 +361,9 @@ public class ExpectationsPackageImpl extends EPackageImpl implements Expectation
 	 * @generated
 	 */
 	public void createPackageContents() {
-		if (isCreated)
+		if (isCreated) {
 			return;
+		}
 		isCreated = true;
 
 		// Create classes and their features
@@ -391,8 +401,9 @@ public class ExpectationsPackageImpl extends EPackageImpl implements Expectation
 	 * @generated
 	 */
 	public void initializePackageContents() {
-		if (isInitialized)
+		if (isInitialized) {
 			return;
+		}
 		isInitialized = true;
 
 		// Initialize package

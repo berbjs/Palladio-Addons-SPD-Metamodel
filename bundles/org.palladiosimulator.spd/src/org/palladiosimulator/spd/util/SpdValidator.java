@@ -10,6 +10,8 @@ import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.common.util.ResourceLocator;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.util.EObjectValidator;
+import org.palladiosimulator.spd.ModelBasedScalingPolicy;
+import org.palladiosimulator.spd.ReactiveScalingPolicy;
 import org.palladiosimulator.spd.SPD;
 import org.palladiosimulator.spd.ScalingPolicy;
 import org.palladiosimulator.spd.SpdPackage;
@@ -98,10 +100,14 @@ public class SpdValidator extends EObjectValidator {
 	protected boolean validate(int classifierID, Object value, DiagnosticChain diagnostics,
 			Map<Object, Object> context) {
 		switch (classifierID) {
-		case SpdPackage.SCALING_POLICY:
-			return validateScalingPolicy((ScalingPolicy) value, diagnostics, context);
+		case SpdPackage.REACTIVE_SCALING_POLICY:
+			return validateReactiveScalingPolicy((ReactiveScalingPolicy) value, diagnostics, context);
 		case SpdPackage.SPD:
 			return validateSPD((SPD) value, diagnostics, context);
+		case SpdPackage.SCALING_POLICY:
+			return validateScalingPolicy((ScalingPolicy) value, diagnostics, context);
+		case SpdPackage.MODEL_BASED_SCALING_POLICY:
+			return validateModelBasedScalingPolicy((ModelBasedScalingPolicy) value, diagnostics, context);
 		default:
 			return true;
 		}
@@ -112,29 +118,81 @@ public class SpdValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public boolean validateReactiveScalingPolicy(ReactiveScalingPolicy reactiveScalingPolicy,
+			DiagnosticChain diagnostics, Map<Object, Object> context) {
+		if (!validate_NoCircularContainment(reactiveScalingPolicy, diagnostics, context)) {
+			return false;
+		}
+		boolean result = validate_EveryMultiplicityConforms(reactiveScalingPolicy, diagnostics, context);
+		if (result || diagnostics != null) {
+			result &= validate_EveryDataValueConforms(reactiveScalingPolicy, diagnostics, context);
+		}
+		if (result || diagnostics != null) {
+			result &= validate_EveryReferenceIsContained(reactiveScalingPolicy, diagnostics, context);
+		}
+		if (result || diagnostics != null) {
+			result &= validate_EveryBidirectionalReferenceIsPaired(reactiveScalingPolicy, diagnostics, context);
+		}
+		if (result || diagnostics != null) {
+			result &= validate_EveryProxyResolves(reactiveScalingPolicy, diagnostics, context);
+		}
+		if (result || diagnostics != null) {
+			result &= validate_UniqueID(reactiveScalingPolicy, diagnostics, context);
+		}
+		if (result || diagnostics != null) {
+			result &= validate_EveryKeyUnique(reactiveScalingPolicy, diagnostics, context);
+		}
+		if (result || diagnostics != null) {
+			result &= validate_EveryMapEntryUnique(reactiveScalingPolicy, diagnostics, context);
+		}
+		if (result || diagnostics != null) {
+			result &= identifierValidator.validateIdentifier_identifierIsUnique(reactiveScalingPolicy, diagnostics,
+					context);
+		}
+		if (result || diagnostics != null) {
+			result &= validateScalingPolicy_policyNameInvariant(reactiveScalingPolicy, diagnostics, context);
+		}
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public boolean validateScalingPolicy(ScalingPolicy scalingPolicy, DiagnosticChain diagnostics,
 			Map<Object, Object> context) {
-		if (!validate_NoCircularContainment(scalingPolicy, diagnostics, context))
+		if (!validate_NoCircularContainment(scalingPolicy, diagnostics, context)) {
 			return false;
+		}
 		boolean result = validate_EveryMultiplicityConforms(scalingPolicy, diagnostics, context);
-		if (result || diagnostics != null)
+		if (result || diagnostics != null) {
 			result &= validate_EveryDataValueConforms(scalingPolicy, diagnostics, context);
-		if (result || diagnostics != null)
+		}
+		if (result || diagnostics != null) {
 			result &= validate_EveryReferenceIsContained(scalingPolicy, diagnostics, context);
-		if (result || diagnostics != null)
+		}
+		if (result || diagnostics != null) {
 			result &= validate_EveryBidirectionalReferenceIsPaired(scalingPolicy, diagnostics, context);
-		if (result || diagnostics != null)
+		}
+		if (result || diagnostics != null) {
 			result &= validate_EveryProxyResolves(scalingPolicy, diagnostics, context);
-		if (result || diagnostics != null)
+		}
+		if (result || diagnostics != null) {
 			result &= validate_UniqueID(scalingPolicy, diagnostics, context);
-		if (result || diagnostics != null)
+		}
+		if (result || diagnostics != null) {
 			result &= validate_EveryKeyUnique(scalingPolicy, diagnostics, context);
-		if (result || diagnostics != null)
+		}
+		if (result || diagnostics != null) {
 			result &= validate_EveryMapEntryUnique(scalingPolicy, diagnostics, context);
-		if (result || diagnostics != null)
+		}
+		if (result || diagnostics != null) {
 			result &= identifierValidator.validateIdentifier_identifierIsUnique(scalingPolicy, diagnostics, context);
-		if (result || diagnostics != null)
+		}
+		if (result || diagnostics != null) {
 			result &= validateScalingPolicy_policyNameInvariant(scalingPolicy, diagnostics, context);
+		}
 		return result;
 	}
 
@@ -167,30 +225,83 @@ public class SpdValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validateSPD(SPD spd, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		if (!validate_NoCircularContainment(spd, diagnostics, context))
+	public boolean validateModelBasedScalingPolicy(ModelBasedScalingPolicy modelBasedScalingPolicy,
+			DiagnosticChain diagnostics, Map<Object, Object> context) {
+		if (!validate_NoCircularContainment(modelBasedScalingPolicy, diagnostics, context)) {
 			return false;
+		}
+		boolean result = validate_EveryMultiplicityConforms(modelBasedScalingPolicy, diagnostics, context);
+		if (result || diagnostics != null) {
+			result &= validate_EveryDataValueConforms(modelBasedScalingPolicy, diagnostics, context);
+		}
+		if (result || diagnostics != null) {
+			result &= validate_EveryReferenceIsContained(modelBasedScalingPolicy, diagnostics, context);
+		}
+		if (result || diagnostics != null) {
+			result &= validate_EveryBidirectionalReferenceIsPaired(modelBasedScalingPolicy, diagnostics, context);
+		}
+		if (result || diagnostics != null) {
+			result &= validate_EveryProxyResolves(modelBasedScalingPolicy, diagnostics, context);
+		}
+		if (result || diagnostics != null) {
+			result &= validate_UniqueID(modelBasedScalingPolicy, diagnostics, context);
+		}
+		if (result || diagnostics != null) {
+			result &= validate_EveryKeyUnique(modelBasedScalingPolicy, diagnostics, context);
+		}
+		if (result || diagnostics != null) {
+			result &= validate_EveryMapEntryUnique(modelBasedScalingPolicy, diagnostics, context);
+		}
+		if (result || diagnostics != null) {
+			result &= identifierValidator.validateIdentifier_identifierIsUnique(modelBasedScalingPolicy, diagnostics,
+					context);
+		}
+		if (result || diagnostics != null) {
+			result &= validateScalingPolicy_policyNameInvariant(modelBasedScalingPolicy, diagnostics, context);
+		}
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateSPD(SPD spd, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		if (!validate_NoCircularContainment(spd, diagnostics, context)) {
+			return false;
+		}
 		boolean result = validate_EveryMultiplicityConforms(spd, diagnostics, context);
-		if (result || diagnostics != null)
+		if (result || diagnostics != null) {
 			result &= validate_EveryDataValueConforms(spd, diagnostics, context);
-		if (result || diagnostics != null)
+		}
+		if (result || diagnostics != null) {
 			result &= validate_EveryReferenceIsContained(spd, diagnostics, context);
-		if (result || diagnostics != null)
+		}
+		if (result || diagnostics != null) {
 			result &= validate_EveryBidirectionalReferenceIsPaired(spd, diagnostics, context);
-		if (result || diagnostics != null)
+		}
+		if (result || diagnostics != null) {
 			result &= validate_EveryProxyResolves(spd, diagnostics, context);
-		if (result || diagnostics != null)
+		}
+		if (result || diagnostics != null) {
 			result &= validate_UniqueID(spd, diagnostics, context);
-		if (result || diagnostics != null)
+		}
+		if (result || diagnostics != null) {
 			result &= validate_EveryKeyUnique(spd, diagnostics, context);
-		if (result || diagnostics != null)
+		}
+		if (result || diagnostics != null) {
 			result &= validate_EveryMapEntryUnique(spd, diagnostics, context);
-		if (result || diagnostics != null)
+		}
+		if (result || diagnostics != null) {
 			result &= identifierValidator.validateIdentifier_identifierIsUnique(spd, diagnostics, context);
-		if (result || diagnostics != null)
+		}
+		if (result || diagnostics != null) {
 			result &= validateSPD_nameInvariant(spd, diagnostics, context);
-		if (result || diagnostics != null)
+		}
+		if (result || diagnostics != null) {
 			result &= validateSPD_noSameTargetGroup(spd, diagnostics, context);
+		}
 		return result;
 	}
 

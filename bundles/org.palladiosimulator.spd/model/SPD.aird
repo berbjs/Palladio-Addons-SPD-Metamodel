@@ -42,7 +42,7 @@
         <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']"/>
         <target xmi:type="ecore:EPackage" href="SPD.ecore#/"/>
       </ownedRepresentationDescriptors>
-      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_XHzRgGq6Ee-Ubuz3Iw1Kvw" name="models class diagram" repPath="#_XHquoGq6Ee-Ubuz3Iw1Kvw" changeId="bbd15716-b471-4df1-bd43-cd4c1288ca04">
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_XHzRgGq6Ee-Ubuz3Iw1Kvw" name="models class diagram" repPath="#_XHquoGq6Ee-Ubuz3Iw1Kvw" changeId="2d00c2a7-e7fe-4617-ae30-d1adf9848e80">
         <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']"/>
         <target xmi:type="ecore:EPackage" href="SPD.ecore#//models"/>
       </ownedRepresentationDescriptors>
@@ -2783,11 +2783,27 @@
         <children xmi:type="notation:Node" xmi:id="_X3RmoGq6Ee-Ubuz3Iw1Kvw" type="2003" element="_X2lDEGq6Ee-Ubuz3Iw1Kvw">
           <children xmi:type="notation:Node" xmi:id="_X3SNsGq6Ee-Ubuz3Iw1Kvw" type="5007"/>
           <children xmi:type="notation:Node" xmi:id="_X3SNsWq6Ee-Ubuz3Iw1Kvw" type="7004">
+            <children xmi:type="notation:Node" xmi:id="_D62okGrHEe-KX8JPUdrpMA" type="3010" element="_D6LTIGrHEe-KX8JPUdrpMA">
+              <styles xmi:type="notation:FontStyle" xmi:id="_D62okWrHEe-KX8JPUdrpMA" fontName="IBM Plex Sans" fontHeight="8"/>
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_D62okmrHEe-KX8JPUdrpMA"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_D64dwGrHEe-KX8JPUdrpMA" type="3010" element="_D6OWcGrHEe-KX8JPUdrpMA">
+              <styles xmi:type="notation:FontStyle" xmi:id="_D65E0GrHEe-KX8JPUdrpMA" fontName="IBM Plex Sans" fontHeight="8"/>
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_D65E0WrHEe-KX8JPUdrpMA"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_D65E0mrHEe-KX8JPUdrpMA" type="3010" element="_D6QLoGrHEe-KX8JPUdrpMA">
+              <styles xmi:type="notation:FontStyle" xmi:id="_D65E02rHEe-KX8JPUdrpMA" fontName="IBM Plex Sans" fontHeight="8" bold="true"/>
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_D65E1GrHEe-KX8JPUdrpMA"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_D65r4GrHEe-KX8JPUdrpMA" type="3010" element="_D6TO8GrHEe-KX8JPUdrpMA">
+              <styles xmi:type="notation:FontStyle" xmi:id="_D65r4WrHEe-KX8JPUdrpMA" fontName="IBM Plex Sans" fontHeight="8" bold="true"/>
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_D65r4mrHEe-KX8JPUdrpMA"/>
+            </children>
             <styles xmi:type="notation:SortingStyle" xmi:id="_X3SNsmq6Ee-Ubuz3Iw1Kvw"/>
             <styles xmi:type="notation:FilteringStyle" xmi:id="_X3SNs2q6Ee-Ubuz3Iw1Kvw"/>
           </children>
           <styles xmi:type="notation:ShapeStyle" xmi:id="_X3RmoWq6Ee-Ubuz3Iw1Kvw" fontName="IBM Plex Sans" fontHeight="8"/>
-          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_X3Rmomq6Ee-Ubuz3Iw1Kvw" y="320"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_X3Rmomq6Ee-Ubuz3Iw1Kvw" x="-100" y="320"/>
         </children>
         <children xmi:type="notation:Node" xmi:id="_X3S0wGq6Ee-Ubuz3Iw1Kvw" type="2003" element="_X2nfUGq6Ee-Ubuz3Iw1Kvw">
           <children xmi:type="notation:Node" xmi:id="_X3S0w2q6Ee-Ubuz3Iw1Kvw" type="5007"/>
@@ -2813,6 +2829,22 @@
         <children xmi:type="notation:Node" xmi:id="_X3Tb02q6Ee-Ubuz3Iw1Kvw" type="2003" element="_X2p7kGq6Ee-Ubuz3Iw1Kvw">
           <children xmi:type="notation:Node" xmi:id="_X3UC4Gq6Ee-Ubuz3Iw1Kvw" type="5007"/>
           <children xmi:type="notation:Node" xmi:id="_X3Up8Gq6Ee-Ubuz3Iw1Kvw" type="7004">
+            <children xmi:type="notation:Node" xmi:id="_D68vMGrHEe-KX8JPUdrpMA" type="3010" element="_D6W5UWrHEe-KX8JPUdrpMA">
+              <styles xmi:type="notation:FontStyle" xmi:id="_D68vMWrHEe-KX8JPUdrpMA" fontName="IBM Plex Sans" fontHeight="8"/>
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_D68vMmrHEe-KX8JPUdrpMA"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_D69WQGrHEe-KX8JPUdrpMA" type="3010" element="_D6YHcGrHEe-KX8JPUdrpMA">
+              <styles xmi:type="notation:FontStyle" xmi:id="_D69WQWrHEe-KX8JPUdrpMA" fontName="IBM Plex Sans" fontHeight="8"/>
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_D69WQmrHEe-KX8JPUdrpMA"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_D699UGrHEe-KX8JPUdrpMA" type="3010" element="_D6ZVkGrHEe-KX8JPUdrpMA">
+              <styles xmi:type="notation:FontStyle" xmi:id="_D699UWrHEe-KX8JPUdrpMA" fontName="IBM Plex Sans" fontHeight="8" bold="true"/>
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_D699UmrHEe-KX8JPUdrpMA"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_D6-kYGrHEe-KX8JPUdrpMA" type="3010" element="_D6Z8oWrHEe-KX8JPUdrpMA">
+              <styles xmi:type="notation:FontStyle" xmi:id="_D6-kYWrHEe-KX8JPUdrpMA" fontName="IBM Plex Sans" fontHeight="8" bold="true"/>
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_D6-kYmrHEe-KX8JPUdrpMA"/>
+            </children>
             <styles xmi:type="notation:SortingStyle" xmi:id="_X3Up8Wq6Ee-Ubuz3Iw1Kvw"/>
             <styles xmi:type="notation:FilteringStyle" xmi:id="_X3Up8mq6Ee-Ubuz3Iw1Kvw"/>
           </children>
@@ -2822,10 +2854,6 @@
         <children xmi:type="notation:Node" xmi:id="_X3Up82q6Ee-Ubuz3Iw1Kvw" type="2003" element="_X2sX0Gq6Ee-Ubuz3Iw1Kvw">
           <children xmi:type="notation:Node" xmi:id="_X3VRAGq6Ee-Ubuz3Iw1Kvw" type="5007"/>
           <children xmi:type="notation:Node" xmi:id="_X3VRAWq6Ee-Ubuz3Iw1Kvw" type="7004">
-            <children xmi:type="notation:Node" xmi:id="_X3ZicGq6Ee-Ubuz3Iw1Kvw" type="3010" element="_X3C9IGq6Ee-Ubuz3Iw1Kvw">
-              <styles xmi:type="notation:FontStyle" xmi:id="_X3ZicWq6Ee-Ubuz3Iw1Kvw" fontName="IBM Plex Sans" fontHeight="8" bold="true"/>
-              <layoutConstraint xmi:type="notation:Location" xmi:id="_X3Zicmq6Ee-Ubuz3Iw1Kvw"/>
-            </children>
             <children xmi:type="notation:Node" xmi:id="_X3aJgGq6Ee-Ubuz3Iw1Kvw" type="3010" element="_X3ELQGq6Ee-Ubuz3Iw1Kvw">
               <styles xmi:type="notation:FontStyle" xmi:id="_X3aJgWq6Ee-Ubuz3Iw1Kvw" fontName="IBM Plex Sans" fontHeight="8" bold="true"/>
               <layoutConstraint xmi:type="notation:Location" xmi:id="_X3aJgmq6Ee-Ubuz3Iw1Kvw"/>
@@ -2947,10 +2975,45 @@
     <ownedDiagramElements xmi:type="diagram:DNodeList" uid="_X2lDEGq6Ee-Ubuz3Iw1Kvw" name="QThresholdsModel" tooltipText="" outgoingEdges="_X3HOkGq6Ee-Ubuz3Iw1Kvw" width="12" height="10">
       <target xmi:type="ecore:EClass" href="SPD.ecore#//models/QThresholdsModel"/>
       <semanticElements xmi:type="ecore:EClass" href="SPD.ecore#//models/QThresholdsModel"/>
+      <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+      <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+      <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
       <ownedStyle xmi:type="diagram:FlatContainerStyle" uid="_X2mRMGq6Ee-Ubuz3Iw1Kvw" borderSize="1" borderSizeComputationExpression="1" backgroundStyle="Liquid" foregroundColor="255,252,216">
         <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@style"/>
       </ownedStyle>
       <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']"/>
+      <ownedElements xmi:type="diagram:DNodeListElement" uid="_D6LTIGrHEe-KX8JPUdrpMA" name="targetResponseTime : EDouble = 0.0" tooltipText="">
+        <target xmi:type="ecore:EAttribute" href="SPD.ecore#//models/QThresholdsModel/targetResponseTime"/>
+        <semanticElements xmi:type="ecore:EAttribute" href="SPD.ecore#//models/QThresholdsModel/targetResponseTime"/>
+        <ownedStyle xmi:type="diagram:BundledImage" uid="_D6NIUGrHEe-KX8JPUdrpMA" labelAlignment="LEFT">
+          <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']/@style"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
+      </ownedElements>
+      <ownedElements xmi:type="diagram:DNodeListElement" uid="_D6OWcGrHEe-KX8JPUdrpMA" name="exponentialSteepness : EDouble = 0.0" tooltipText="">
+        <target xmi:type="ecore:EAttribute" href="SPD.ecore#//models/QThresholdsModel/exponentialSteepness"/>
+        <semanticElements xmi:type="ecore:EAttribute" href="SPD.ecore#//models/QThresholdsModel/exponentialSteepness"/>
+        <ownedStyle xmi:type="diagram:BundledImage" uid="_D6O9gGrHEe-KX8JPUdrpMA" labelAlignment="LEFT">
+          <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']/@style"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
+      </ownedElements>
+      <ownedElements xmi:type="diagram:DNodeListElement" uid="_D6QLoGrHEe-KX8JPUdrpMA" name=" responseTimeStimulus : OperationResponseTime" tooltipText="">
+        <target xmi:type="ecore:EReference" href="SPD.ecore#//models/QThresholdsModel/responseTimeStimulus"/>
+        <semanticElements xmi:type="ecore:EReference" href="SPD.ecore#//models/QThresholdsModel/responseTimeStimulus"/>
+        <ownedStyle xmi:type="diagram:BundledImage" uid="_D6Sn4GrHEe-KX8JPUdrpMA" labelAlignment="LEFT" description="_X3DkMGq6Ee-Ubuz3Iw1Kvw" color="114,159,207">
+          <labelFormat>bold</labelFormat>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EReferenceNode']"/>
+      </ownedElements>
+      <ownedElements xmi:type="diagram:DNodeListElement" uid="_D6TO8GrHEe-KX8JPUdrpMA" name=" utilizationStimulus : Stimulus" tooltipText="">
+        <target xmi:type="ecore:EReference" href="SPD.ecore#//models/QThresholdsModel/utilizationStimulus"/>
+        <semanticElements xmi:type="ecore:EReference" href="SPD.ecore#//models/QThresholdsModel/utilizationStimulus"/>
+        <ownedStyle xmi:type="diagram:BundledImage" uid="_D6T2AGrHEe-KX8JPUdrpMA" labelAlignment="LEFT" description="_X3DkMGq6Ee-Ubuz3Iw1Kvw" color="114,159,207">
+          <labelFormat>bold</labelFormat>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EReferenceNode']"/>
+      </ownedElements>
     </ownedDiagramElements>
     <ownedDiagramElements xmi:type="diagram:DNodeList" uid="_X2nfUGq6Ee-Ubuz3Iw1Kvw" name="RandomModel" tooltipText="" outgoingEdges="_X3JDwGq6Ee-Ubuz3Iw1Kvw" width="12" height="10">
       <target xmi:type="ecore:EClass" href="SPD.ecore#//models/RandomModel"/>
@@ -2991,6 +3054,38 @@
         <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@style"/>
       </ownedStyle>
       <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']"/>
+      <ownedElements xmi:type="diagram:DNodeListElement" uid="_D6W5UWrHEe-KX8JPUdrpMA" name="targetResponseTime : EDouble = 0.0" tooltipText="">
+        <target xmi:type="ecore:EAttribute" href="SPD.ecore#//models/ImprovedQLearningModel/targetResponseTime"/>
+        <semanticElements xmi:type="ecore:EAttribute" href="SPD.ecore#//models/ImprovedQLearningModel/targetResponseTime"/>
+        <ownedStyle xmi:type="diagram:BundledImage" uid="_D6XgYGrHEe-KX8JPUdrpMA" labelAlignment="LEFT">
+          <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']/@style"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
+      </ownedElements>
+      <ownedElements xmi:type="diagram:DNodeListElement" uid="_D6YHcGrHEe-KX8JPUdrpMA" name="exponentialSteepness : EDouble = 0.0" tooltipText="">
+        <target xmi:type="ecore:EAttribute" href="SPD.ecore#//models/ImprovedQLearningModel/exponentialSteepness"/>
+        <semanticElements xmi:type="ecore:EAttribute" href="SPD.ecore#//models/ImprovedQLearningModel/exponentialSteepness"/>
+        <ownedStyle xmi:type="diagram:BundledImage" uid="_D6YugGrHEe-KX8JPUdrpMA" labelAlignment="LEFT">
+          <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']/@style"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
+      </ownedElements>
+      <ownedElements xmi:type="diagram:DNodeListElement" uid="_D6ZVkGrHEe-KX8JPUdrpMA" name=" responseTimeStimulus : OperationResponseTime" tooltipText="">
+        <target xmi:type="ecore:EReference" href="SPD.ecore#//models/ImprovedQLearningModel/responseTimeStimulus"/>
+        <semanticElements xmi:type="ecore:EReference" href="SPD.ecore#//models/ImprovedQLearningModel/responseTimeStimulus"/>
+        <ownedStyle xmi:type="diagram:BundledImage" uid="_D6Z8oGrHEe-KX8JPUdrpMA" labelAlignment="LEFT" description="_X3DkMGq6Ee-Ubuz3Iw1Kvw" color="114,159,207">
+          <labelFormat>bold</labelFormat>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EReferenceNode']"/>
+      </ownedElements>
+      <ownedElements xmi:type="diagram:DNodeListElement" uid="_D6Z8oWrHEe-KX8JPUdrpMA" name=" utilizationStimulus : Stimulus" tooltipText="">
+        <target xmi:type="ecore:EReference" href="SPD.ecore#//models/ImprovedQLearningModel/utilizationStimulus"/>
+        <semanticElements xmi:type="ecore:EReference" href="SPD.ecore#//models/ImprovedQLearningModel/utilizationStimulus"/>
+        <ownedStyle xmi:type="diagram:BundledImage" uid="_D6ajsGrHEe-KX8JPUdrpMA" labelAlignment="LEFT" description="_X3DkMGq6Ee-Ubuz3Iw1Kvw" color="114,159,207">
+          <labelFormat>bold</labelFormat>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EReferenceNode']"/>
+      </ownedElements>
     </ownedDiagramElements>
     <ownedDiagramElements xmi:type="diagram:DNodeList" uid="_X2sX0Gq6Ee-Ubuz3Iw1Kvw" name="LearningBasedModel" tooltipText="" outgoingEdges="_X3MHEGq6Ee-Ubuz3Iw1Kvw" incomingEdges="_X3HOkGq6Ee-Ubuz3Iw1Kvw _X3KR42q6Ee-Ubuz3Iw1Kvw" width="12" height="10">
       <target xmi:type="ecore:EClass" href="SPD.ecore#//models/LearningBasedModel"/>
@@ -2999,14 +3094,6 @@
         <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@style"/>
       </ownedStyle>
       <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']"/>
-      <ownedElements xmi:type="diagram:DNodeListElement" uid="_X3C9IGq6Ee-Ubuz3Iw1Kvw" name=" reward : BaseReward" tooltipText="">
-        <target xmi:type="ecore:EReference" href="SPD.ecore#//models/LearningBasedModel/reward"/>
-        <semanticElements xmi:type="ecore:EReference" href="SPD.ecore#//models/LearningBasedModel/reward"/>
-        <ownedStyle xmi:type="diagram:BundledImage" uid="_X3DkMWq6Ee-Ubuz3Iw1Kvw" labelAlignment="LEFT" description="_X3DkMGq6Ee-Ubuz3Iw1Kvw" color="114,159,207">
-          <labelFormat>bold</labelFormat>
-        </ownedStyle>
-        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EReferenceNode']"/>
-      </ownedElements>
       <ownedElements xmi:type="diagram:DNodeListElement" uid="_X3ELQGq6Ee-Ubuz3Iw1Kvw" name=" inputs : Stimulus" tooltipText="">
         <target xmi:type="ecore:EReference" href="SPD.ecore#//models/LearningBasedModel/inputs"/>
         <semanticElements xmi:type="ecore:EReference" href="SPD.ecore#//models/LearningBasedModel/inputs"/>

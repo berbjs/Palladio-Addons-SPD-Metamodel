@@ -22,6 +22,8 @@ import org.palladiosimulator.spd.constraints.policy.impl.PolicyPackageImpl;
 import org.palladiosimulator.spd.constraints.target.TargetPackage;
 import org.palladiosimulator.spd.constraints.target.impl.TargetPackageImpl;
 import org.palladiosimulator.spd.impl.SpdPackageImpl;
+import org.palladiosimulator.spd.models.ModelsPackage;
+import org.palladiosimulator.spd.models.impl.ModelsPackageImpl;
 import org.palladiosimulator.spd.targets.CompetingConsumersGroup;
 import org.palladiosimulator.spd.targets.ElasticInfrastructure;
 import org.palladiosimulator.spd.targets.ServiceGroup;
@@ -114,8 +116,9 @@ public class TargetsPackageImpl extends EPackageImpl implements TargetsPackage {
 	 * @generated
 	 */
 	public static TargetsPackage init() {
-		if (isInited)
+		if (isInited) {
 			return (TargetsPackage) EPackage.Registry.INSTANCE.getEPackage(TargetsPackage.eNS_URI);
+		}
 
 		// Obtain or create and register package
 		Object registeredTargetsPackage = EPackage.Registry.INSTANCE.get(eNS_URI);
@@ -165,6 +168,10 @@ public class TargetsPackageImpl extends EPackageImpl implements TargetsPackage {
 		ExpectationsPackageImpl theExpectationsPackage = (ExpectationsPackageImpl) (registeredPackage instanceof ExpectationsPackageImpl
 				? registeredPackage
 				: ExpectationsPackage.eINSTANCE);
+		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(ModelsPackage.eNS_URI);
+		ModelsPackageImpl theModelsPackage = (ModelsPackageImpl) (registeredPackage instanceof ModelsPackageImpl
+				? registeredPackage
+				: ModelsPackage.eINSTANCE);
 
 		// Create package meta-data objects
 		theTargetsPackage.createPackageContents();
@@ -176,6 +183,7 @@ public class TargetsPackageImpl extends EPackageImpl implements TargetsPackage {
 		theTriggersPackage.createPackageContents();
 		theStimuliPackage.createPackageContents();
 		theExpectationsPackage.createPackageContents();
+		theModelsPackage.createPackageContents();
 
 		// Initialize created meta-data
 		theTargetsPackage.initializePackageContents();
@@ -187,6 +195,7 @@ public class TargetsPackageImpl extends EPackageImpl implements TargetsPackage {
 		theTriggersPackage.initializePackageContents();
 		theStimuliPackage.initializePackageContents();
 		theExpectationsPackage.initializePackageContents();
+		theModelsPackage.initializePackageContents();
 
 		// Mark meta-data to indicate it can't be changed
 		theTargetsPackage.freeze();
@@ -311,8 +320,9 @@ public class TargetsPackageImpl extends EPackageImpl implements TargetsPackage {
 	 * @generated
 	 */
 	public void createPackageContents() {
-		if (isCreated)
+		if (isCreated) {
 			return;
+		}
 		isCreated = true;
 
 		// Create classes and their features
@@ -345,8 +355,9 @@ public class TargetsPackageImpl extends EPackageImpl implements TargetsPackage {
 	 * @generated
 	 */
 	public void initializePackageContents() {
-		if (isInitialized)
+		if (isInitialized) {
 			return;
+		}
 		isInitialized = true;
 
 		// Initialize package
