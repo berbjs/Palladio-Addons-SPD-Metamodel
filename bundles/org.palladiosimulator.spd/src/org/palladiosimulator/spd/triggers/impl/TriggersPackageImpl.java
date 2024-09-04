@@ -21,6 +21,10 @@ import org.palladiosimulator.spd.constraints.policy.impl.PolicyPackageImpl;
 import org.palladiosimulator.spd.constraints.target.TargetPackage;
 import org.palladiosimulator.spd.constraints.target.impl.TargetPackageImpl;
 import org.palladiosimulator.spd.impl.SpdPackageImpl;
+import org.palladiosimulator.spd.models.ModelsPackage;
+import org.palladiosimulator.spd.models.impl.ModelsPackageImpl;
+import org.palladiosimulator.spd.models.rewards.RewardsPackage;
+import org.palladiosimulator.spd.models.rewards.impl.RewardsPackageImpl;
 import org.palladiosimulator.spd.targets.TargetsPackage;
 import org.palladiosimulator.spd.targets.impl.TargetsPackageImpl;
 import org.palladiosimulator.spd.triggers.BaseTrigger;
@@ -166,8 +170,9 @@ public class TriggersPackageImpl extends EPackageImpl implements TriggersPackage
 	 * @generated
 	 */
 	public static TriggersPackage init() {
-		if (isInited)
+		if (isInited) {
 			return (TriggersPackage) EPackage.Registry.INSTANCE.getEPackage(TriggersPackage.eNS_URI);
+		}
 
 		// Obtain or create and register package
 		Object registeredTriggersPackage = EPackage.Registry.INSTANCE.get(eNS_URI);
@@ -217,6 +222,14 @@ public class TriggersPackageImpl extends EPackageImpl implements TriggersPackage
 		ExpectationsPackageImpl theExpectationsPackage = (ExpectationsPackageImpl) (registeredPackage instanceof ExpectationsPackageImpl
 				? registeredPackage
 				: ExpectationsPackage.eINSTANCE);
+		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(ModelsPackage.eNS_URI);
+		ModelsPackageImpl theModelsPackage = (ModelsPackageImpl) (registeredPackage instanceof ModelsPackageImpl
+				? registeredPackage
+				: ModelsPackage.eINSTANCE);
+		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(RewardsPackage.eNS_URI);
+		RewardsPackageImpl theRewardsPackage = (RewardsPackageImpl) (registeredPackage instanceof RewardsPackageImpl
+				? registeredPackage
+				: RewardsPackage.eINSTANCE);
 
 		// Create package meta-data objects
 		theTriggersPackage.createPackageContents();
@@ -228,6 +241,8 @@ public class TriggersPackageImpl extends EPackageImpl implements TriggersPackage
 		theTargetPackage.createPackageContents();
 		theStimuliPackage.createPackageContents();
 		theExpectationsPackage.createPackageContents();
+		theModelsPackage.createPackageContents();
+		theRewardsPackage.createPackageContents();
 
 		// Initialize created meta-data
 		theTriggersPackage.initializePackageContents();
@@ -239,6 +254,8 @@ public class TriggersPackageImpl extends EPackageImpl implements TriggersPackage
 		theTargetPackage.initializePackageContents();
 		theStimuliPackage.initializePackageContents();
 		theExpectationsPackage.initializePackageContents();
+		theModelsPackage.initializePackageContents();
+		theRewardsPackage.initializePackageContents();
 
 		// Mark meta-data to indicate it can't be changed
 		theTriggersPackage.freeze();
@@ -433,8 +450,9 @@ public class TriggersPackageImpl extends EPackageImpl implements TriggersPackage
 	 * @generated
 	 */
 	public void createPackageContents() {
-		if (isCreated)
+		if (isCreated) {
 			return;
+		}
 		isCreated = true;
 
 		// Create classes and their features
@@ -477,8 +495,9 @@ public class TriggersPackageImpl extends EPackageImpl implements TriggersPackage
 	 * @generated
 	 */
 	public void initializePackageContents() {
-		if (isInitialized)
+		if (isInitialized) {
 			return;
+		}
 		isInitialized = true;
 
 		// Initialize package
@@ -548,6 +567,7 @@ public class TriggersPackageImpl extends EPackageImpl implements TriggersPackage
 		addEEnumLiteral(aggregationmethodEEnum, org.palladiosimulator.spd.triggers.AGGREGATIONMETHOD.MIN);
 		addEEnumLiteral(aggregationmethodEEnum, org.palladiosimulator.spd.triggers.AGGREGATIONMETHOD.MEDIAN);
 		addEEnumLiteral(aggregationmethodEEnum, org.palladiosimulator.spd.triggers.AGGREGATIONMETHOD.SUM);
+		addEEnumLiteral(aggregationmethodEEnum, org.palladiosimulator.spd.triggers.AGGREGATIONMETHOD.RATEOFCHANGE);
 
 		initEEnum(hddusagetypeEEnum, org.palladiosimulator.spd.triggers.HDDUSAGETYPE.class, "HDDUSAGETYPE");
 		addEEnumLiteral(hddusagetypeEEnum, org.palladiosimulator.spd.triggers.HDDUSAGETYPE.READ);

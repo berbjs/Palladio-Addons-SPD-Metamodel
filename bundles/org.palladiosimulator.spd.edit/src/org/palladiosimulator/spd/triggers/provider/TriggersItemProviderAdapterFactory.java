@@ -245,12 +245,15 @@ public class TriggersItemProviderAdapterFactory extends TriggersAdapterFactory
 	 */
 	@Override
 	public void dispose() {
-		if (composedTriggerItemProvider != null)
+		if (composedTriggerItemProvider != null) {
 			composedTriggerItemProvider.dispose();
-		if (simpleFireOnValueItemProvider != null)
+		}
+		if (simpleFireOnValueItemProvider != null) {
 			simpleFireOnValueItemProvider.dispose();
-		if (simpleFireOnTrendItemProvider != null)
+		}
+		if (simpleFireOnTrendItemProvider != null) {
 			simpleFireOnTrendItemProvider.dispose();
+		}
 	}
 
 }

@@ -21,12 +21,17 @@ import org.palladiosimulator.spd.constraints.policy.impl.PolicyPackageImpl;
 import org.palladiosimulator.spd.constraints.target.TargetPackage;
 import org.palladiosimulator.spd.constraints.target.impl.TargetPackageImpl;
 import org.palladiosimulator.spd.impl.SpdPackageImpl;
+import org.palladiosimulator.spd.models.ModelsPackage;
+import org.palladiosimulator.spd.models.impl.ModelsPackageImpl;
+import org.palladiosimulator.spd.models.rewards.RewardsPackage;
+import org.palladiosimulator.spd.models.rewards.impl.RewardsPackageImpl;
 import org.palladiosimulator.spd.targets.TargetsPackage;
 import org.palladiosimulator.spd.targets.impl.TargetsPackageImpl;
 import org.palladiosimulator.spd.triggers.TriggersPackage;
 import org.palladiosimulator.spd.triggers.expectations.ExpectationsPackage;
 import org.palladiosimulator.spd.triggers.expectations.impl.ExpectationsPackageImpl;
 import org.palladiosimulator.spd.triggers.impl.TriggersPackageImpl;
+import org.palladiosimulator.spd.triggers.stimuli.AggregatedStimulus;
 import org.palladiosimulator.spd.triggers.stimuli.CPUUtilization;
 import org.palladiosimulator.spd.triggers.stimuli.HDDUtilization;
 import org.palladiosimulator.spd.triggers.stimuli.ManagedElementsStateStimulus;
@@ -163,6 +168,13 @@ public class StimuliPackageImpl extends EPackageImpl implements StimuliPackage {
 	private EClass networkUtilizationEClass = null;
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass aggregatedStimulusEClass = null;
+
+	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
 	 * {@link org.eclipse.emf.ecore.EPackage.Registry EPackage.Registry} by the package
 	 * package URI value.
@@ -201,8 +213,9 @@ public class StimuliPackageImpl extends EPackageImpl implements StimuliPackage {
 	 * @generated
 	 */
 	public static StimuliPackage init() {
-		if (isInited)
+		if (isInited) {
 			return (StimuliPackage) EPackage.Registry.INSTANCE.getEPackage(StimuliPackage.eNS_URI);
+		}
 
 		// Obtain or create and register package
 		Object registeredStimuliPackage = EPackage.Registry.INSTANCE.get(eNS_URI);
@@ -252,6 +265,14 @@ public class StimuliPackageImpl extends EPackageImpl implements StimuliPackage {
 		ExpectationsPackageImpl theExpectationsPackage = (ExpectationsPackageImpl) (registeredPackage instanceof ExpectationsPackageImpl
 				? registeredPackage
 				: ExpectationsPackage.eINSTANCE);
+		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(ModelsPackage.eNS_URI);
+		ModelsPackageImpl theModelsPackage = (ModelsPackageImpl) (registeredPackage instanceof ModelsPackageImpl
+				? registeredPackage
+				: ModelsPackage.eINSTANCE);
+		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(RewardsPackage.eNS_URI);
+		RewardsPackageImpl theRewardsPackage = (RewardsPackageImpl) (registeredPackage instanceof RewardsPackageImpl
+				? registeredPackage
+				: RewardsPackage.eINSTANCE);
 
 		// Create package meta-data objects
 		theStimuliPackage.createPackageContents();
@@ -263,6 +284,8 @@ public class StimuliPackageImpl extends EPackageImpl implements StimuliPackage {
 		theTargetPackage.createPackageContents();
 		theTriggersPackage.createPackageContents();
 		theExpectationsPackage.createPackageContents();
+		theModelsPackage.createPackageContents();
+		theRewardsPackage.createPackageContents();
 
 		// Initialize created meta-data
 		theStimuliPackage.initializePackageContents();
@@ -274,6 +297,8 @@ public class StimuliPackageImpl extends EPackageImpl implements StimuliPackage {
 		theTargetPackage.initializePackageContents();
 		theTriggersPackage.initializePackageContents();
 		theExpectationsPackage.initializePackageContents();
+		theModelsPackage.initializePackageContents();
+		theRewardsPackage.initializePackageContents();
 
 		// Mark meta-data to indicate it can't be changed
 		theStimuliPackage.freeze();
@@ -489,6 +514,46 @@ public class StimuliPackageImpl extends EPackageImpl implements StimuliPackage {
 	 * @generated
 	 */
 	@Override
+	public EClass getAggregatedStimulus() {
+		return aggregatedStimulusEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getAggregatedStimulus_AggregationMethod() {
+		return (EAttribute) aggregatedStimulusEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getAggregatedStimulus_AggregationPeriod() {
+		return (EAttribute) aggregatedStimulusEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getAggregatedStimulus_AggregatedStimulus() {
+		return (EReference) aggregatedStimulusEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public StimuliFactory getStimuliFactory() {
 		return (StimuliFactory) getEFactoryInstance();
 	}
@@ -508,8 +573,9 @@ public class StimuliPackageImpl extends EPackageImpl implements StimuliPackage {
 	 * @generated
 	 */
 	public void createPackageContents() {
-		if (isCreated)
+		if (isCreated) {
 			return;
+		}
 		isCreated = true;
 
 		// Create classes and their features
@@ -548,6 +614,11 @@ public class StimuliPackageImpl extends EPackageImpl implements StimuliPackage {
 
 		networkUtilizationEClass = createEClass(NETWORK_UTILIZATION);
 		createEAttribute(networkUtilizationEClass, NETWORK_UTILIZATION__USAGE_TYPE);
+
+		aggregatedStimulusEClass = createEClass(AGGREGATED_STIMULUS);
+		createEAttribute(aggregatedStimulusEClass, AGGREGATED_STIMULUS__AGGREGATION_METHOD);
+		createEAttribute(aggregatedStimulusEClass, AGGREGATED_STIMULUS__AGGREGATION_PERIOD);
+		createEReference(aggregatedStimulusEClass, AGGREGATED_STIMULUS__AGGREGATED_STIMULUS);
 	}
 
 	/**
@@ -565,8 +636,9 @@ public class StimuliPackageImpl extends EPackageImpl implements StimuliPackage {
 	 * @generated
 	 */
 	public void initializePackageContents() {
-		if (isInitialized)
+		if (isInitialized) {
 			return;
+		}
 		isInitialized = true;
 
 		// Initialize package
@@ -579,6 +651,7 @@ public class StimuliPackageImpl extends EPackageImpl implements StimuliPackage {
 				.getEPackage(RepositoryPackage.eNS_URI);
 		TriggersPackage theTriggersPackage = (TriggersPackage) EPackage.Registry.INSTANCE
 				.getEPackage(TriggersPackage.eNS_URI);
+		EcorePackage theEcorePackage = (EcorePackage) EPackage.Registry.INSTANCE.getEPackage(EcorePackage.eNS_URI);
 
 		// Create type parameters
 
@@ -599,6 +672,7 @@ public class StimuliPackageImpl extends EPackageImpl implements StimuliPackage {
 		taskCountEClass.getESuperTypes().add(this.getManagedElementsStateStimulus());
 		queueLengthEClass.getESuperTypes().add(this.getSourceInterfaceStimulus());
 		networkUtilizationEClass.getESuperTypes().add(this.getResourceUtilizationStimulus());
+		aggregatedStimulusEClass.getESuperTypes().add(this.getStimulus());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(stimulusEClass, Stimulus.class, "Stimulus", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -660,6 +734,18 @@ public class StimuliPackageImpl extends EPackageImpl implements StimuliPackage {
 		initEAttribute(getNetworkUtilization_UsageType(), theTriggersPackage.getNETWORKUSAGETYPE(), "usageType", null,
 				0, 1, NetworkUtilization.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
 				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(aggregatedStimulusEClass, AggregatedStimulus.class, "AggregatedStimulus", !IS_ABSTRACT,
+				!IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getAggregatedStimulus_AggregationMethod(), theTriggersPackage.getAGGREGATIONMETHOD(),
+				"aggregationMethod", null, 1, 1, AggregatedStimulus.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
+				!IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getAggregatedStimulus_AggregationPeriod(), theEcorePackage.getEDouble(), "aggregationPeriod",
+				null, 0, 1, AggregatedStimulus.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE,
+				!IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getAggregatedStimulus_AggregatedStimulus(), this.getStimulus(), null, "aggregatedStimulus", null,
+				1, 1, AggregatedStimulus.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
+				!IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 	}
 
 } //StimuliPackageImpl

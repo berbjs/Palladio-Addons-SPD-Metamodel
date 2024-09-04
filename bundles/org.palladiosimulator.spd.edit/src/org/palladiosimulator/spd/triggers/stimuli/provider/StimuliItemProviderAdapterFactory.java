@@ -279,6 +279,29 @@ public class StimuliItemProviderAdapterFactory extends StimuliAdapterFactory
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link org.palladiosimulator.spd.triggers.stimuli.AggregatedStimulus} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected AggregatedStimulusItemProvider aggregatedStimulusItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.palladiosimulator.spd.triggers.stimuli.AggregatedStimulus}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createAggregatedStimulusAdapter() {
+		if (aggregatedStimulusItemProvider == null) {
+			aggregatedStimulusItemProvider = new AggregatedStimulusItemProvider(this);
+		}
+
+		return aggregatedStimulusItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -383,24 +406,36 @@ public class StimuliItemProviderAdapterFactory extends StimuliAdapterFactory
 	 */
 	@Override
 	public void dispose() {
-		if (operationResponseTimeItemProvider != null)
+		if (operationResponseTimeItemProvider != null) {
 			operationResponseTimeItemProvider.dispose();
-		if (numberOfElementsItemProvider != null)
+		}
+		if (numberOfElementsItemProvider != null) {
 			numberOfElementsItemProvider.dispose();
-		if (cpuUtilizationItemProvider != null)
+		}
+		if (cpuUtilizationItemProvider != null) {
 			cpuUtilizationItemProvider.dispose();
-		if (memoryUtilizationItemProvider != null)
+		}
+		if (memoryUtilizationItemProvider != null) {
 			memoryUtilizationItemProvider.dispose();
-		if (simulationTimeItemProvider != null)
+		}
+		if (simulationTimeItemProvider != null) {
 			simulationTimeItemProvider.dispose();
-		if (hddUtilizationItemProvider != null)
+		}
+		if (hddUtilizationItemProvider != null) {
 			hddUtilizationItemProvider.dispose();
-		if (taskCountItemProvider != null)
+		}
+		if (taskCountItemProvider != null) {
 			taskCountItemProvider.dispose();
-		if (queueLengthItemProvider != null)
+		}
+		if (queueLengthItemProvider != null) {
 			queueLengthItemProvider.dispose();
-		if (networkUtilizationItemProvider != null)
+		}
+		if (networkUtilizationItemProvider != null) {
 			networkUtilizationItemProvider.dispose();
+		}
+		if (aggregatedStimulusItemProvider != null) {
+			aggregatedStimulusItemProvider.dispose();
+		}
 	}
 
 }

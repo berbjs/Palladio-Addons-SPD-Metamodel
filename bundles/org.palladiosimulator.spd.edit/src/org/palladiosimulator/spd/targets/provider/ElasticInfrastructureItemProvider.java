@@ -59,8 +59,8 @@ public class ElasticInfrastructureItemProvider extends TargetGroupItemProvider {
 				getString("_UI_ElasticInfrastructure_PCM_ResourceEnvironment_feature"),
 				getString("_UI_PropertyDescriptor_description",
 						"_UI_ElasticInfrastructure_PCM_ResourceEnvironment_feature", "_UI_ElasticInfrastructure_type"),
-				TargetsPackage.Literals.ELASTIC_INFRASTRUCTURE__PCM_RESOURCE_ENVIRONMENT, true, false, true, null, null,
-				null));
+				TargetsPackage.Literals.ELASTIC_INFRASTRUCTURE__PCM_RESOURCE_ENVIRONMENT, false, false, false, null,
+				null, null));
 	}
 
 	/**
@@ -97,7 +97,7 @@ public class ElasticInfrastructureItemProvider extends TargetGroupItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((ElasticInfrastructure) object).getEntityName();
+		String label = ((ElasticInfrastructure) object).getId();
 		return label == null || label.length() == 0 ? getString("_UI_ElasticInfrastructure_type")
 				: getString("_UI_ElasticInfrastructure_type") + " " + label;
 	}

@@ -82,8 +82,9 @@ public class OperationResponseTimeImpl extends SourceInterfaceStimulusImpl imple
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 		case StimuliPackage.OPERATION_RESPONSE_TIME__OPERATION_SIGNATURE:
-			if (resolve)
+			if (resolve) {
 				return getOperationSignature();
+			}
 			return basicGetOperationSignature();
 		}
 		return super.eGet(featureID, resolve, coreType);

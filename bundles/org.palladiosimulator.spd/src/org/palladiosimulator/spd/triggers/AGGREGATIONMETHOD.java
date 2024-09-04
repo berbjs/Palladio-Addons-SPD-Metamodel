@@ -70,7 +70,16 @@ public enum AGGREGATIONMETHOD implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	SUM(4, "SUM", "SUM");
+	SUM(4, "SUM", "SUM"),
+	/**
+	 * The '<em><b>RATEOFCHANGE</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	* <!-- end-user-doc -->
+	 * @see #RATEOFCHANGE_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	RATEOFCHANGE(5, "RATEOFCHANGE", "RATEOFCHANGE");
 
 	/**
 	 * The '<em><b>AVERAGE</b></em>' literal value.
@@ -128,12 +137,24 @@ public enum AGGREGATIONMETHOD implements Enumerator {
 	public static final int SUM_VALUE = 4;
 
 	/**
+	 * The '<em><b>RATEOFCHANGE</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #RATEOFCHANGE
+	 * @model
+	 * @generated
+	 * @ordered
+	 */
+	public static final int RATEOFCHANGE_VALUE = 5;
+
+	/**
 	 * An array of all the '<em><b>AGGREGATIONMETHOD</b></em>' enumerators.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private static final AGGREGATIONMETHOD[] VALUES_ARRAY = new AGGREGATIONMETHOD[] { AVERAGE, MAX, MIN, MEDIAN, SUM, };
+	private static final AGGREGATIONMETHOD[] VALUES_ARRAY = new AGGREGATIONMETHOD[] { AVERAGE, MAX, MIN, MEDIAN, SUM,
+			RATEOFCHANGE, };
 
 	/**
 	 * A public read-only list of all the '<em><b>AGGREGATIONMETHOD</b></em>' enumerators.
@@ -197,6 +218,8 @@ public enum AGGREGATIONMETHOD implements Enumerator {
 			return MEDIAN;
 		case SUM_VALUE:
 			return SUM;
+		case RATEOFCHANGE_VALUE:
+			return RATEOFCHANGE;
 		}
 		return null;
 	}

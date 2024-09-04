@@ -166,9 +166,10 @@ public class TriggersFactoryImpl extends EFactoryImpl implements TriggersFactory
 	 */
 	public AGGREGATIONMETHOD createAGGREGATIONMETHODFromString(EDataType eDataType, String initialValue) {
 		AGGREGATIONMETHOD result = AGGREGATIONMETHOD.get(initialValue);
-		if (result == null)
+		if (result == null) {
 			throw new IllegalArgumentException(
 					"The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		}
 		return result;
 	}
 
@@ -188,9 +189,10 @@ public class TriggersFactoryImpl extends EFactoryImpl implements TriggersFactory
 	 */
 	public HDDUSAGETYPE createHDDUSAGETYPEFromString(EDataType eDataType, String initialValue) {
 		HDDUSAGETYPE result = HDDUSAGETYPE.get(initialValue);
-		if (result == null)
+		if (result == null) {
 			throw new IllegalArgumentException(
 					"The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		}
 		return result;
 	}
 
@@ -210,9 +212,10 @@ public class TriggersFactoryImpl extends EFactoryImpl implements TriggersFactory
 	 */
 	public NETWORKUSAGETYPE createNETWORKUSAGETYPEFromString(EDataType eDataType, String initialValue) {
 		NETWORKUSAGETYPE result = NETWORKUSAGETYPE.get(initialValue);
-		if (result == null)
+		if (result == null) {
 			throw new IllegalArgumentException(
 					"The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		}
 		return result;
 	}
 
@@ -232,9 +235,10 @@ public class TriggersFactoryImpl extends EFactoryImpl implements TriggersFactory
 	 */
 	public LogicalOperator createLogicalOperatorFromString(EDataType eDataType, String initialValue) {
 		LogicalOperator result = LogicalOperator.get(initialValue);
-		if (result == null)
+		if (result == null) {
 			throw new IllegalArgumentException(
 					"The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		}
 		return result;
 	}
 
@@ -254,9 +258,10 @@ public class TriggersFactoryImpl extends EFactoryImpl implements TriggersFactory
 	 */
 	public RelationalOperator createRelationalOperatorFromString(EDataType eDataType, String initialValue) {
 		RelationalOperator result = RelationalOperator.get(initialValue);
-		if (result == null)
+		if (result == null) {
 			throw new IllegalArgumentException(
 					"The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		}
 		return result;
 	}
 
@@ -276,9 +281,10 @@ public class TriggersFactoryImpl extends EFactoryImpl implements TriggersFactory
 	 */
 	public TrendPattern createTrendPatternFromString(EDataType eDataType, String initialValue) {
 		TrendPattern result = TrendPattern.get(initialValue);
-		if (result == null)
+		if (result == null) {
 			throw new IllegalArgumentException(
 					"The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		}
 		return result;
 	}
 

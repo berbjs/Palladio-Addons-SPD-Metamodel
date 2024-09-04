@@ -31,8 +31,9 @@ public class SpdTests extends TestSuite {
 	 */
 	public static Test suite() {
 		TestSuite suite = new SpdTests("spd Tests");
-		suite.addTestSuite(ScalingPolicyTest.class);
+		suite.addTestSuite(ReactiveScalingPolicyTest.class);
 		suite.addTestSuite(SPDTest.class);
+		suite.addTestSuite(ModelBasedScalingPolicyTest.class);
 		return suite;
 	}
 

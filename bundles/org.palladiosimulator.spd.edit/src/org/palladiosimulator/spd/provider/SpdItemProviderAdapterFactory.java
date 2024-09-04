@@ -13,6 +13,7 @@ import org.eclipse.emf.edit.provider.ChangeNotifier;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
 import org.eclipse.emf.edit.provider.IChangeNotifier;
+import org.eclipse.emf.edit.provider.IDisposable;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
@@ -31,7 +32,7 @@ import org.palladiosimulator.spd.util.SpdAdapterFactory;
  * @generated
  */
 public class SpdItemProviderAdapterFactory extends SpdAdapterFactory
-		implements ComposeableAdapterFactory, IChangeNotifier {
+		implements ComposeableAdapterFactory, IChangeNotifier, IDisposable {
 	/**
 	 * This keeps track of the root adapter factory that delegates to this adapter factory.
 	 * <!-- begin-user-doc -->
@@ -71,26 +72,26 @@ public class SpdItemProviderAdapterFactory extends SpdAdapterFactory
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link org.palladiosimulator.spd.ScalingPolicy} instances.
+	 * This keeps track of the one adapter used for all {@link org.palladiosimulator.spd.ReactiveScalingPolicy} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected ScalingPolicyItemProvider scalingPolicyItemProvider;
+	protected ReactiveScalingPolicyItemProvider reactiveScalingPolicyItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link org.palladiosimulator.spd.ScalingPolicy}.
+	 * This creates an adapter for a {@link org.palladiosimulator.spd.ReactiveScalingPolicy}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createScalingPolicyAdapter() {
-		if (scalingPolicyItemProvider == null) {
-			scalingPolicyItemProvider = new ScalingPolicyItemProvider(this);
+	public Adapter createReactiveScalingPolicyAdapter() {
+		if (reactiveScalingPolicyItemProvider == null) {
+			reactiveScalingPolicyItemProvider = new ReactiveScalingPolicyItemProvider(this);
 		}
 
-		return scalingPolicyItemProvider;
+		return reactiveScalingPolicyItemProvider;
 	}
 
 	/**
@@ -114,6 +115,29 @@ public class SpdItemProviderAdapterFactory extends SpdAdapterFactory
 		}
 
 		return spdItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.palladiosimulator.spd.ModelBasedScalingPolicy} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ModelBasedScalingPolicyItemProvider modelBasedScalingPolicyItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.palladiosimulator.spd.ModelBasedScalingPolicy}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createModelBasedScalingPolicyAdapter() {
+		if (modelBasedScalingPolicyItemProvider == null) {
+			modelBasedScalingPolicyItemProvider = new ModelBasedScalingPolicyItemProvider(this);
+		}
+
+		return modelBasedScalingPolicyItemProvider;
 	}
 
 	/**
@@ -210,6 +234,25 @@ public class SpdItemProviderAdapterFactory extends SpdAdapterFactory
 
 		if (parentAdapterFactory != null) {
 			parentAdapterFactory.fireNotifyChanged(notification);
+		}
+	}
+
+	/**
+	 * This disposes all of the item providers created by this factory.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void dispose() {
+		if (reactiveScalingPolicyItemProvider != null) {
+			reactiveScalingPolicyItemProvider.dispose();
+		}
+		if (spdItemProvider != null) {
+			spdItemProvider.dispose();
+		}
+		if (modelBasedScalingPolicyItemProvider != null) {
+			modelBasedScalingPolicyItemProvider.dispose();
 		}
 	}
 

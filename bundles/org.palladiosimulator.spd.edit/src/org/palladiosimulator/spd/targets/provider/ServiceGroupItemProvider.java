@@ -80,7 +80,7 @@ public class ServiceGroupItemProvider extends TargetGroupItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((ServiceGroup) object).getEntityName();
+		String label = ((ServiceGroup) object).getId();
 		return label == null || label.length() == 0 ? getString("_UI_ServiceGroup_type")
 				: getString("_UI_ServiceGroup_type") + " " + label;
 	}

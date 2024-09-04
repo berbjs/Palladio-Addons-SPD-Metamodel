@@ -88,7 +88,7 @@ public class TargetGroupItemProvider extends EntityItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((TargetGroup) object).getEntityName();
+		String label = ((TargetGroup) object).getId();
 		return label == null || label.length() == 0 ? getString("_UI_TargetGroup_type")
 				: getString("_UI_TargetGroup_type") + " " + label;
 	}

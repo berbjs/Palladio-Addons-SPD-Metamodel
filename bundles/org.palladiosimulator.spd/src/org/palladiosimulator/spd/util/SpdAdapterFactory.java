@@ -11,6 +11,8 @@ import org.palladiosimulator.pcm.PCMBaseClass;
 import org.palladiosimulator.pcm.PCMClass;
 import org.palladiosimulator.pcm.core.entity.Entity;
 import org.palladiosimulator.pcm.core.entity.NamedElement;
+import org.palladiosimulator.spd.ModelBasedScalingPolicy;
+import org.palladiosimulator.spd.ReactiveScalingPolicy;
 import org.palladiosimulator.spd.SPD;
 import org.palladiosimulator.spd.ScalingPolicy;
 import org.palladiosimulator.spd.SpdPackage;
@@ -73,13 +75,23 @@ public class SpdAdapterFactory extends AdapterFactoryImpl {
 	 */
 	protected SpdSwitch<Adapter> modelSwitch = new SpdSwitch<>() {
 		@Override
-		public Adapter caseScalingPolicy(ScalingPolicy object) {
-			return createScalingPolicyAdapter();
+		public Adapter caseReactiveScalingPolicy(ReactiveScalingPolicy object) {
+			return createReactiveScalingPolicyAdapter();
 		}
 
 		@Override
 		public Adapter caseSPD(SPD object) {
 			return createSPDAdapter();
+		}
+
+		@Override
+		public Adapter caseScalingPolicy(ScalingPolicy object) {
+			return createScalingPolicyAdapter();
+		}
+
+		@Override
+		public Adapter caseModelBasedScalingPolicy(ModelBasedScalingPolicy object) {
+			return createModelBasedScalingPolicyAdapter();
 		}
 
 		@Override
@@ -127,6 +139,20 @@ public class SpdAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link org.palladiosimulator.spd.ReactiveScalingPolicy <em>Reactive Scaling Policy</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.palladiosimulator.spd.ReactiveScalingPolicy
+	 * @generated
+	 */
+	public Adapter createReactiveScalingPolicyAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link org.palladiosimulator.spd.ScalingPolicy <em>Scaling Policy</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -137,6 +163,20 @@ public class SpdAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createScalingPolicyAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.palladiosimulator.spd.ModelBasedScalingPolicy <em>Model Based Scaling Policy</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.palladiosimulator.spd.ModelBasedScalingPolicy
+	 * @generated
+	 */
+	public Adapter createModelBasedScalingPolicyAdapter() {
 		return null;
 	}
 

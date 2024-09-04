@@ -10,6 +10,8 @@ import org.palladiosimulator.pcm.PCMBaseClass;
 import org.palladiosimulator.pcm.PCMClass;
 import org.palladiosimulator.pcm.core.entity.Entity;
 import org.palladiosimulator.pcm.core.entity.NamedElement;
+import org.palladiosimulator.spd.ModelBasedScalingPolicy;
+import org.palladiosimulator.spd.ReactiveScalingPolicy;
 import org.palladiosimulator.spd.SPD;
 import org.palladiosimulator.spd.ScalingPolicy;
 import org.palladiosimulator.spd.SpdPackage;
@@ -73,43 +75,122 @@ public class SpdSwitch<T> extends Switch<T> {
 	@Override
 	protected T doSwitch(int classifierID, EObject theEObject) {
 		switch (classifierID) {
-		case SpdPackage.SCALING_POLICY: {
-			ScalingPolicy scalingPolicy = (ScalingPolicy) theEObject;
-			T result = caseScalingPolicy(scalingPolicy);
-			if (result == null)
-				result = caseEntity(scalingPolicy);
-			if (result == null)
-				result = caseIdentifier(scalingPolicy);
-			if (result == null)
-				result = caseNamedElement(scalingPolicy);
-			if (result == null)
-				result = casePCMBaseClass(scalingPolicy);
-			if (result == null)
-				result = casePCMClass(scalingPolicy);
-			if (result == null)
+		case SpdPackage.REACTIVE_SCALING_POLICY: {
+			ReactiveScalingPolicy reactiveScalingPolicy = (ReactiveScalingPolicy) theEObject;
+			T result = caseReactiveScalingPolicy(reactiveScalingPolicy);
+			if (result == null) {
+				result = caseScalingPolicy(reactiveScalingPolicy);
+			}
+			if (result == null) {
+				result = caseEntity(reactiveScalingPolicy);
+			}
+			if (result == null) {
+				result = caseIdentifier(reactiveScalingPolicy);
+			}
+			if (result == null) {
+				result = caseNamedElement(reactiveScalingPolicy);
+			}
+			if (result == null) {
+				result = casePCMBaseClass(reactiveScalingPolicy);
+			}
+			if (result == null) {
+				result = casePCMClass(reactiveScalingPolicy);
+			}
+			if (result == null) {
 				result = defaultCase(theEObject);
+			}
 			return result;
 		}
 		case SpdPackage.SPD: {
 			SPD spd = (SPD) theEObject;
 			T result = caseSPD(spd);
-			if (result == null)
+			if (result == null) {
 				result = caseEntity(spd);
-			if (result == null)
+			}
+			if (result == null) {
 				result = caseIdentifier(spd);
-			if (result == null)
+			}
+			if (result == null) {
 				result = caseNamedElement(spd);
-			if (result == null)
+			}
+			if (result == null) {
 				result = casePCMBaseClass(spd);
-			if (result == null)
+			}
+			if (result == null) {
 				result = casePCMClass(spd);
-			if (result == null)
+			}
+			if (result == null) {
 				result = defaultCase(theEObject);
+			}
+			return result;
+		}
+		case SpdPackage.SCALING_POLICY: {
+			ScalingPolicy scalingPolicy = (ScalingPolicy) theEObject;
+			T result = caseScalingPolicy(scalingPolicy);
+			if (result == null) {
+				result = caseEntity(scalingPolicy);
+			}
+			if (result == null) {
+				result = caseIdentifier(scalingPolicy);
+			}
+			if (result == null) {
+				result = caseNamedElement(scalingPolicy);
+			}
+			if (result == null) {
+				result = casePCMBaseClass(scalingPolicy);
+			}
+			if (result == null) {
+				result = casePCMClass(scalingPolicy);
+			}
+			if (result == null) {
+				result = defaultCase(theEObject);
+			}
+			return result;
+		}
+		case SpdPackage.MODEL_BASED_SCALING_POLICY: {
+			ModelBasedScalingPolicy modelBasedScalingPolicy = (ModelBasedScalingPolicy) theEObject;
+			T result = caseModelBasedScalingPolicy(modelBasedScalingPolicy);
+			if (result == null) {
+				result = caseScalingPolicy(modelBasedScalingPolicy);
+			}
+			if (result == null) {
+				result = caseEntity(modelBasedScalingPolicy);
+			}
+			if (result == null) {
+				result = caseIdentifier(modelBasedScalingPolicy);
+			}
+			if (result == null) {
+				result = caseNamedElement(modelBasedScalingPolicy);
+			}
+			if (result == null) {
+				result = casePCMBaseClass(modelBasedScalingPolicy);
+			}
+			if (result == null) {
+				result = casePCMClass(modelBasedScalingPolicy);
+			}
+			if (result == null) {
+				result = defaultCase(theEObject);
+			}
 			return result;
 		}
 		default:
 			return defaultCase(theEObject);
 		}
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Reactive Scaling Policy</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Reactive Scaling Policy</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseReactiveScalingPolicy(ReactiveScalingPolicy object) {
+		return null;
 	}
 
 	/**
@@ -124,6 +205,21 @@ public class SpdSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseScalingPolicy(ScalingPolicy object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Model Based Scaling Policy</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Model Based Scaling Policy</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseModelBasedScalingPolicy(ModelBasedScalingPolicy object) {
 		return null;
 	}
 
