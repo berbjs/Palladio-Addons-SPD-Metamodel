@@ -11,7 +11,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="scalingTrigger" lowerBound="1"
         eType="#//triggers/ScalingTrigger" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="SPD" eSuperTypes="platform:/plugin/org.palladiosimulator.pcm/model/pcm.ecore#//core/entity/Entity">
+  <eClassifiers xsi:type="ecore:EClass" name="SPD" eSuperTypes="../../org.palladiosimulator.pcm/model/pcm.ecore#//core/entity/Entity">
     <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
       <details key="constraints" value="nameInvariant noSameTargetGroup"/>
     </eAnnotations>
@@ -27,7 +27,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="targetGroups" lowerBound="1"
         upperBound="-1" eType="#//targets/TargetGroup" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ScalingPolicy" abstract="true" eSuperTypes="platform:/plugin/org.palladiosimulator.pcm/model/pcm.ecore#//core/entity/Entity">
+  <eClassifiers xsi:type="ecore:EClass" name="ScalingPolicy" abstract="true" eSuperTypes="../../org.palladiosimulator.pcm/model/pcm.ecore#//core/entity/Entity">
     <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
       <details key="constraints" value="policyNameInvariant"/>
     </eAnnotations>
@@ -50,7 +50,7 @@
   </eClassifiers>
   <eSubpackages name="targets" nsURI="http://palladiosimulator.org/ScalingPolicyDefinition/Targets/1.0"
       nsPrefix="targets">
-    <eClassifiers xsi:type="ecore:EClass" name="TargetGroup" abstract="true" eSuperTypes="platform:/plugin/org.palladiosimulator.pcm/model/pcm.ecore#//core/entity/Entity">
+    <eClassifiers xsi:type="ecore:EClass" name="TargetGroup" abstract="true" eSuperTypes="../../org.palladiosimulator.pcm/model/pcm.ecore#//core/entity/Entity">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="A TargetGroup defines a management group in SPD. It is both uniqely identified as well as it has a name, thus it extends from the Entity class of the PCM. "/>
       </eAnnotations>
@@ -62,15 +62,15 @@
         <details key="documentation" value="The ElasticInfrastructure target groups resource containers on which components are allocated. The ElasticInfrastructure allows the definition of scaling policies for the whole infrastructure which is a common use case covered by the prominent cloud providers. For example, AWS allows the definition of an Autoscaling Group where EC2 instances are automatically provisioned."/>
       </eAnnotations>
       <eStructuralFeatures xsi:type="ecore:EReference" name="PCM_ResourceEnvironment"
-          eType="ecore:EClass platform:/plugin/org.palladiosimulator.pcm/model/pcm.ecore#//resourceenvironment/ResourceEnvironment"
+          eType="ecore:EClass ../../org.palladiosimulator.pcm/model/pcm.ecore#//resourceenvironment/ResourceEnvironment"
           changeable="false" volatile="true" transient="true" unsettable="true" derived="true"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="unit" eType="ecore:EClass platform:/plugin/org.palladiosimulator.pcm/model/pcm.ecore#//resourceenvironment/ResourceContainer"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="unit" eType="ecore:EClass ../../org.palladiosimulator.pcm/model/pcm.ecore#//resourceenvironment/ResourceContainer"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ServiceGroup" eSuperTypes="#//targets/TargetGroup">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="The ServiceGroup groups a set of components that are load balanced and can be horizontally replicated. Upon replication the load balancer distributes the load to the new replicas according to the predefined load balancing strategy."/>
       </eAnnotations>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="unitAssembly" eType="ecore:EClass platform:/plugin/org.palladiosimulator.pcm/model/pcm.ecore#//core/composition/AssemblyContext">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="unitAssembly" eType="ecore:EClass ../../org.palladiosimulator.pcm/model/pcm.ecore#//core/composition/AssemblyContext">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
           <details key="documentation" value="The unitAssembly is used to point to the ServiceGroup in PCM. It is used also for disinguishing between different service groups. A prerequisite is that the unit assembly is already connected in a Service Group structure in PCM. "/>
         </eAnnotations>
@@ -80,7 +80,7 @@
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="The CompetingConsumersGroup represents a set of elements that consume messages from a channel/queue asynchronously. In SPD and Palladio it is represented as a set of assembly context that deplete a queue modelled through a PassiveResource. The intention of use behind CompetingConsumersGroup is to represent services that asynchronously process workload by fetching messages from a queue. For understanding the pattern itself one can read https://www.enterpriseintegrationpatterns.com/patterns/messaging/CompetingConsumers.html.  "/>
       </eAnnotations>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="unitAssembly" eType="ecore:EClass platform:/plugin/org.palladiosimulator.pcm/model/pcm.ecore#//core/composition/AssemblyContext">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="unitAssembly" eType="ecore:EClass ../../org.palladiosimulator.pcm/model/pcm.ecore#//core/composition/AssemblyContext">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
           <details key="documentation" value="The unitAssembly of the CompetingConsumersGroup identifies the AssemblyContext which exists in the System model and which shall be replicated upon scaling out. Furthermore, the unit assembly is the one which will exist throughout the simulation independent of the adaptations. "/>
         </eAnnotations>
@@ -308,7 +308,7 @@
           <details key="documentation" value="A stimulus based on the response time of a given operation. It requires specifying the operationSignature."/>
         </eAnnotations>
         <eStructuralFeatures xsi:type="ecore:EReference" name="operationSignature"
-            eType="ecore:EClass platform:/plugin/org.palladiosimulator.pcm/model/pcm.ecore#//repository/OperationSignature">
+            eType="ecore:EClass ../../org.palladiosimulator.pcm/model/pcm.ecore#//repository/OperationSignature">
           <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
             <details key="documentation" value="The operation from which the response time is used. "/>
           </eAnnotations>
@@ -363,7 +363,7 @@
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
           <details key="documentation" value="A queue length based stimulus from the source of the target group. A precondition is that the target group is of type CompetingConsumers. "/>
         </eAnnotations>
-        <eStructuralFeatures xsi:type="ecore:EReference" name="passiveResource" eType="ecore:EClass platform:/plugin/org.palladiosimulator.pcm/model/pcm.ecore#//repository/PassiveResource"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" name="passiveResource" eType="ecore:EClass ../../org.palladiosimulator.pcm/model/pcm.ecore#//repository/PassiveResource"/>
       </eClassifiers>
       <eClassifiers xsi:type="ecore:EClass" name="NetworkUtilization" eSuperTypes="#//triggers/stimuli/ResourceUtilizationStimulus">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -444,34 +444,18 @@
     <eSubpackages name="rewards" nsURI="http://palladiosimulator.org/ScalingPolicyDefinition/Adjustments/Models/Rewards/1.0"
         nsPrefix="rewards">
       <eClassifiers xsi:type="ecore:EClass" name="BaseReward" abstract="true"/>
-      <eClassifiers xsi:type="ecore:EClass" name="StaticReward" eSuperTypes="#//models/rewards/BaseReward">
-        <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EDouble"
-            defaultValueLiteral="1.0"/>
-      </eClassifiers>
-      <eClassifiers xsi:type="ecore:EClass" name="SLOReward" eSuperTypes="#//models/rewards/BaseReward">
-        <eStructuralFeatures xsi:type="ecore:EReference" name="servicelevelobjective"
-            eType="ecore:EClass ../../org.palladiosimulator.servicelevelobjective/model/servicelevelobjective.ecore#//ServiceLevelObjective"/>
-        <eStructuralFeatures xsi:type="ecore:EAttribute" name="factor" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EDouble"
-            defaultValueLiteral="1"/>
-      </eClassifiers>
-      <eClassifiers xsi:type="ecore:EClass" name="AggregatedReward" abstract="true"
-          eSuperTypes="#//models/rewards/BaseReward"/>
-      <eClassifiers xsi:type="ecore:EClass" name="FunctionReward" eSuperTypes="#//models/rewards/AggregatedReward">
-        <eStructuralFeatures xsi:type="ecore:EReference" name="rewards" lowerBound="1"
-            upperBound="-1" eType="#//models/rewards/BaseReward" containment="true"/>
-        <eStructuralFeatures xsi:type="ecore:EAttribute" name="aggregationMethod"
-            eType="#//models/rewards/RewardAggregationMethod"/>
-      </eClassifiers>
-      <eClassifiers xsi:type="ecore:EEnum" name="RewardAggregationMethod">
-        <eLiterals name="ADDITION"/>
-        <eLiterals name="SUBTRACTION" value="1"/>
-        <eLiterals name="EXPONENTIAL" value="2" literal="EXPONENTIAL"/>
-        <eLiterals name="DIVISION" value="3" literal="DIVISION"/>
-        <eLiterals name="MULTIPLICATION" value="4"/>
-      </eClassifiers>
-      <eClassifiers xsi:type="ecore:EClass" name="UtilizationReward" eSuperTypes="#//models/rewards/BaseReward">
-        <eStructuralFeatures xsi:type="ecore:EReference" name="stimulus" lowerBound="1"
-            eType="#//triggers/stimuli/Stimulus" containment="true"/>
+      <eClassifiers xsi:type="ecore:EClass" name="exponentialSloReward" eSuperTypes="#//models/rewards/BaseReward">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="This Reward should be based on the reward discussed by Horovitz, Arian in &quot;Efficient Cloud Auto-Scaling with SLA objective  using Q-Learning&quot; (2018)."/>
+        </eAnnotations>
+        <eStructuralFeatures xsi:type="ecore:EAttribute" name="targetResponseTime"
+            eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EDouble"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" name="responseTimeStimulus"
+            eType="#//triggers/stimuli/OperationResponseTime" containment="true"/>
+        <eStructuralFeatures xsi:type="ecore:EAttribute" name="exponentialSteepness"
+            eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EDouble"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" name="utilizationStimulus"
+            eType="#//triggers/stimuli/Stimulus"/>
       </eClassifiers>
     </eSubpackages>
   </eSubpackages>

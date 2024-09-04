@@ -33,22 +33,6 @@
    <extension point="org.eclipse.emf.ecore.generated_package">
       <!-- @generated SPD -->
       <package
-            uri="http://palladiosimulator.org/ScalingPolicyDefinition/Adjustments/Models/1.0"
-            class="org.palladiosimulator.spd.adjustments.models.ModelsPackage"
-            genModel="model/SPD.genmodel"/>
-   </extension>
-
-   <extension point="org.eclipse.emf.ecore.generated_package">
-      <!-- @generated SPD -->
-      <package
-            uri="http://palladiosimulator.org/ScalingPolicyDefinition/Adjustments/Models/Rewards/1.0"
-            class="org.palladiosimulator.spd.adjustments.models.rewards.RewardsPackage"
-            genModel="model/SPD.genmodel"/>
-   </extension>
-
-   <extension point="org.eclipse.emf.ecore.generated_package">
-      <!-- @generated SPD -->
-      <package
             uri="http://palladiosimulator.org/ScalingPolicyDefinition/Constraints/1.0"
             class="org.palladiosimulator.spd.constraints.ConstraintsPackage"
             genModel="model/SPD.genmodel"/>
@@ -91,6 +75,22 @@
       <package
             uri="http://palladiosimulator.org/ScalingPolicyDefinition/Triggers/Expectations/1.0"
             class="org.palladiosimulator.spd.triggers.expectations.ExpectationsPackage"
+            genModel="model/SPD.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated SPD -->
+      <package
+            uri="http://palladiosimulator.org/ScalingPolicyDefinition/Adjustments/Models/1.0"
+            class="org.palladiosimulator.spd.models.ModelsPackage"
+            genModel="model/SPD.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated SPD -->
+      <package
+            uri="http://palladiosimulator.org/ScalingPolicyDefinition/Adjustments/Models/Rewards/1.0"
+            class="org.palladiosimulator.spd.models.rewards.RewardsPackage"
             genModel="model/SPD.genmodel"/>
    </extension>
 </plugin>
