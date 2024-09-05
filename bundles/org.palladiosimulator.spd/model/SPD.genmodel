@@ -146,21 +146,32 @@
     </nestedGenPackages>
     <nestedGenPackages prefix="Models" basePackage="org.palladiosimulator.spd" disposableProviderFactory="true"
         ecorePackage="SPD.ecore#//models">
+      <genDataTypes ecoreDataType="SPD.ecore#//models/PercentDouble"/>
+      <genDataTypes ecoreDataType="SPD.ecore#//models/PositiveInteger"/>
       <genClasses image="false" ecoreClass="SPD.ecore#//models/BaseModel">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SPD.ecore#//models/BaseModel/interval"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SPD.ecore#//models/BaseModel/initalIntervalDelay"/>
       </genClasses>
-      <genClasses ecoreClass="SPD.ecore#//models/QThresholdsModel"/>
+      <genClasses ecoreClass="SPD.ecore#//models/QThresholdsModel">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SPD.ecore#//models/QThresholdsModel/input"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SPD.ecore#//models/QThresholdsModel/utilizationStimulus"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SPD.ecore#//models/QThresholdsModel/learningRate"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SPD.ecore#//models/QThresholdsModel/epsilon"/>
+      </genClasses>
       <genClasses ecoreClass="SPD.ecore#//models/RandomModel">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SPD.ecore#//models/RandomModel/minAdjustment"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SPD.ecore#//models/RandomModel/maxAdjustment"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SPD.ecore#//models/RandomModel/probability"/>
       </genClasses>
-      <genClasses ecoreClass="SPD.ecore#//models/ImprovedQLearningModel"/>
+      <genClasses ecoreClass="SPD.ecore#//models/ImprovedQLearningModel">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SPD.ecore#//models/ImprovedQLearningModel/input"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SPD.ecore#//models/ImprovedQLearningModel/epsilon"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SPD.ecore#//models/ImprovedQLearningModel/learningRate"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SPD.ecore#//models/ImprovedQLearningModel/actionCount"/>
+      </genClasses>
       <genClasses ecoreClass="SPD.ecore#//models/LearningBasedModel">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference SPD.ecore#//models/LearningBasedModel/reward"/>
-        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SPD.ecore#//models/LearningBasedModel/inputs"/>
       </genClasses>
     </nestedGenPackages>
   </genPackages>
