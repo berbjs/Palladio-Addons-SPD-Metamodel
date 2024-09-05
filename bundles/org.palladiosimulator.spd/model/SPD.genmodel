@@ -197,15 +197,20 @@
     </nestedGenPackages>
     <nestedGenPackages prefix="Models" basePackage="org.palladiosimulator.spd" disposableProviderFactory="true"
         ecorePackage="SPD.ecore#//models">
+      <genDataTypes ecoreDataType="SPD.ecore#//models/PercentDouble"/>
+      <genDataTypes ecoreDataType="SPD.ecore#//models/PositiveInteger"/>
       <genClasses image="false" ecoreClass="SPD.ecore#//models/BaseModel">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SPD.ecore#//models/BaseModel/interval"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SPD.ecore#//models/BaseModel/initalIntervalDelay"/>
       </genClasses>
       <genClasses ecoreClass="SPD.ecore#//models/QThresholdsModel">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SPD.ecore#//models/QThresholdsModel/input"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SPD.ecore#//models/QThresholdsModel/targetResponseTime"/>
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SPD.ecore#//models/QThresholdsModel/responseTimeStimulus"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SPD.ecore#//models/QThresholdsModel/exponentialSteepness"/>
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SPD.ecore#//models/QThresholdsModel/utilizationStimulus"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SPD.ecore#//models/QThresholdsModel/learningRate"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SPD.ecore#//models/QThresholdsModel/epsilon"/>
       </genClasses>
       <genClasses ecoreClass="SPD.ecore#//models/RandomModel">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SPD.ecore#//models/RandomModel/minAdjustment"/>
@@ -213,14 +218,16 @@
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SPD.ecore#//models/RandomModel/probability"/>
       </genClasses>
       <genClasses ecoreClass="SPD.ecore#//models/ImprovedQLearningModel">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SPD.ecore#//models/ImprovedQLearningModel/input"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SPD.ecore#//models/ImprovedQLearningModel/epsilon"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SPD.ecore#//models/ImprovedQLearningModel/learningRate"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SPD.ecore#//models/ImprovedQLearningModel/actionCount"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SPD.ecore#//models/ImprovedQLearningModel/targetResponseTime"/>
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SPD.ecore#//models/ImprovedQLearningModel/responseTimeStimulus"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SPD.ecore#//models/ImprovedQLearningModel/exponentialSteepness"/>
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SPD.ecore#//models/ImprovedQLearningModel/utilizationStimulus"/>
       </genClasses>
-      <genClasses ecoreClass="SPD.ecore#//models/LearningBasedModel">
-        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SPD.ecore#//models/LearningBasedModel/inputs"/>
-      </genClasses>
+      <genClasses ecoreClass="SPD.ecore#//models/LearningBasedModel"/>
     </nestedGenPackages>
   </genPackages>
 </genmodel:GenModel>
