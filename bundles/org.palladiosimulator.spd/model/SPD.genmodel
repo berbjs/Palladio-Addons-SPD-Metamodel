@@ -209,7 +209,6 @@
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SPD.ecore#//models/QThresholdsModel/responseTimeStimulus"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SPD.ecore#//models/QThresholdsModel/exponentialSteepness"/>
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SPD.ecore#//models/QThresholdsModel/utilizationStimulus"/>
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SPD.ecore#//models/QThresholdsModel/learningRate"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SPD.ecore#//models/QThresholdsModel/epsilon"/>
       </genClasses>
       <genClasses ecoreClass="SPD.ecore#//models/RandomModel">
@@ -220,14 +219,15 @@
       <genClasses ecoreClass="SPD.ecore#//models/ImprovedQLearningModel">
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SPD.ecore#//models/ImprovedQLearningModel/input"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SPD.ecore#//models/ImprovedQLearningModel/epsilon"/>
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SPD.ecore#//models/ImprovedQLearningModel/learningRate"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SPD.ecore#//models/ImprovedQLearningModel/actionCount"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SPD.ecore#//models/ImprovedQLearningModel/targetResponseTime"/>
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SPD.ecore#//models/ImprovedQLearningModel/responseTimeStimulus"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SPD.ecore#//models/ImprovedQLearningModel/exponentialSteepness"/>
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SPD.ecore#//models/ImprovedQLearningModel/utilizationStimulus"/>
       </genClasses>
-      <genClasses ecoreClass="SPD.ecore#//models/LearningBasedModel"/>
+      <genClasses ecoreClass="SPD.ecore#//models/LearningBasedModel">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SPD.ecore#//models/LearningBasedModel/learningRate"/>
+      </genClasses>
     </nestedGenPackages>
   </genPackages>
 </genmodel:GenModel>
