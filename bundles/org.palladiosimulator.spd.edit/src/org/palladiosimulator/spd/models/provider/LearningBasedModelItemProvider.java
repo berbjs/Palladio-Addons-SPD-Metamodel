@@ -8,8 +8,12 @@ import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
+import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
+import org.eclipse.emf.edit.provider.ViewerNotification;
 import org.palladiosimulator.spd.models.LearningBasedModel;
+import org.palladiosimulator.spd.models.ModelsPackage;
 
 /**
  * This is the item provider adapter for a
@@ -40,8 +44,25 @@ public class LearningBasedModelItemProvider extends BaseModelItemProvider {
         if (this.itemPropertyDescriptors == null) {
             super.getPropertyDescriptors(object);
 
+            this.addLearningRatePropertyDescriptor(object);
         }
         return this.itemPropertyDescriptors;
+    }
+
+    /**
+     * This adds a property descriptor for the Learning Rate feature. <!-- begin-user-doc --> <!--
+     * end-user-doc -->
+     *
+     * @generated
+     */
+    protected void addLearningRatePropertyDescriptor(final Object object) {
+        this.itemPropertyDescriptors.add(this.createItemPropertyDescriptor(
+                ((ComposeableAdapterFactory) this.adapterFactory).getRootAdapterFactory(), this.getResourceLocator(),
+                this.getString("_UI_LearningBasedModel_learningRate_feature"),
+                this.getString("_UI_PropertyDescriptor_description", "_UI_LearningBasedModel_learningRate_feature",
+                        "_UI_LearningBasedModel_type"),
+                ModelsPackage.Literals.LEARNING_BASED_MODEL__LEARNING_RATE, true, false, false,
+                ItemPropertyDescriptor.REAL_VALUE_IMAGE, null, null));
     }
 
     /**
@@ -77,6 +98,12 @@ public class LearningBasedModelItemProvider extends BaseModelItemProvider {
     @Override
     public void notifyChanged(final Notification notification) {
         this.updateChildren(notification);
+
+        switch (notification.getFeatureID(LearningBasedModel.class)) {
+        case ModelsPackage.LEARNING_BASED_MODEL__LEARNING_RATE:
+            this.fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+            return;
+        }
         super.notifyChanged(notification);
     }
 

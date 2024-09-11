@@ -23,13 +23,12 @@ import org.palladiosimulator.spd.triggers.stimuli.Stimulus;
  * <em>Exponential Steepness</em>}</li>
  * <li>{@link org.palladiosimulator.spd.models.QThresholdsModel#getUtilizationStimulus
  * <em>Utilization Stimulus</em>}</li>
- * <li>{@link org.palladiosimulator.spd.models.QThresholdsModel#getLearningRate <em>Learning
- * Rate</em>}</li>
  * <li>{@link org.palladiosimulator.spd.models.QThresholdsModel#getEpsilon <em>Epsilon</em>}</li>
  * </ul>
  *
  * @see org.palladiosimulator.spd.models.ModelsPackage#getQThresholdsModel()
- * @model
+ * @model annotation="http://www.eclipse.org/emf/2002/Ecore
+ *        constraints='positiveExponentialSteepness'"
  * @generated
  */
 public interface QThresholdsModel extends LearningBasedModel {
@@ -154,31 +153,6 @@ public interface QThresholdsModel extends LearningBasedModel {
      * @generated
      */
     void setUtilizationStimulus(Stimulus value);
-
-    /**
-     * Returns the value of the '<em><b>Learning Rate</b></em>' attribute. The default value is
-     * <code>"0.1"</code>. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @return the value of the '<em>Learning Rate</em>' attribute.
-     * @see #setLearningRate(double)
-     * @see org.palladiosimulator.spd.models.ModelsPackage#getQThresholdsModel_LearningRate()
-     * @model default="0.1" dataType="org.palladiosimulator.spd.models.PercentDouble"
-     *        required="true"
-     * @generated
-     */
-    double getLearningRate();
-
-    /**
-     * Sets the value of the
-     * '{@link org.palladiosimulator.spd.models.QThresholdsModel#getLearningRate <em>Learning
-     * Rate</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @param value
-     *            the new value of the '<em>Learning Rate</em>' attribute.
-     * @see #getLearningRate()
-     * @generated
-     */
-    void setLearningRate(double value);
 
     /**
      * Returns the value of the '<em><b>Epsilon</b></em>' attribute. The default value is

@@ -5,6 +5,7 @@ package org.palladiosimulator.spd.models.util;
 
 import java.util.Map;
 
+import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.common.util.ResourceLocator;
 import org.eclipse.emf.ecore.EPackage;
@@ -122,7 +123,60 @@ public class ModelsValidator extends EObjectValidator {
      */
     public boolean validateQThresholdsModel(final QThresholdsModel qThresholdsModel, final DiagnosticChain diagnostics,
             final Map<Object, Object> context) {
-        return this.validate_EveryDefaultConstraint(qThresholdsModel, diagnostics, context);
+        if (!this.validate_NoCircularContainment(qThresholdsModel, diagnostics, context)) {
+            return false;
+        }
+        boolean result = this.validate_EveryMultiplicityConforms(qThresholdsModel, diagnostics, context);
+        if (result || diagnostics != null) {
+            result &= this.validate_EveryDataValueConforms(qThresholdsModel, diagnostics, context);
+        }
+        if (result || diagnostics != null) {
+            result &= this.validate_EveryReferenceIsContained(qThresholdsModel, diagnostics, context);
+        }
+        if (result || diagnostics != null) {
+            result &= this.validate_EveryBidirectionalReferenceIsPaired(qThresholdsModel, diagnostics, context);
+        }
+        if (result || diagnostics != null) {
+            result &= this.validate_EveryProxyResolves(qThresholdsModel, diagnostics, context);
+        }
+        if (result || diagnostics != null) {
+            result &= this.validate_UniqueID(qThresholdsModel, diagnostics, context);
+        }
+        if (result || diagnostics != null) {
+            result &= this.validate_EveryKeyUnique(qThresholdsModel, diagnostics, context);
+        }
+        if (result || diagnostics != null) {
+            result &= this.validate_EveryMapEntryUnique(qThresholdsModel, diagnostics, context);
+        }
+        if (result || diagnostics != null) {
+            result &= this.validateQThresholdsModel_positiveExponentialSteepness(qThresholdsModel, diagnostics,
+                    context);
+        }
+        return result;
+    }
+
+    /**
+     * Validates the positiveExponentialSteepness constraint of '<em>QThresholds Model</em>'. <!--
+     * begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    public boolean validateQThresholdsModel_positiveExponentialSteepness(final QThresholdsModel qThresholdsModel,
+            final DiagnosticChain diagnostics, final Map<Object, Object> context) {
+        // TODO implement the constraint
+        // -> specify the condition that violates the constraint
+        // -> verify the diagnostic details, including severity, code, and message
+        // Ensure that you remove @generated or mark it @generated NOT
+        if (false) {
+            if (diagnostics != null) {
+                diagnostics.add(this.createDiagnostic(Diagnostic.ERROR, DIAGNOSTIC_SOURCE, 0,
+                        "_UI_GenericConstraint_diagnostic",
+                        new Object[] { "positiveExponentialSteepness", getObjectLabel(qThresholdsModel, context) },
+                        new Object[] { qThresholdsModel }, context));
+            }
+            return false;
+        }
+        return true;
     }
 
     /**

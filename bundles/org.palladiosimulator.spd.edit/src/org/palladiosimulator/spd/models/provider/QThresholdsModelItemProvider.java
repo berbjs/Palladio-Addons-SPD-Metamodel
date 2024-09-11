@@ -47,7 +47,6 @@ public class QThresholdsModelItemProvider extends LearningBasedModelItemProvider
 
             this.addTargetResponseTimePropertyDescriptor(object);
             this.addExponentialSteepnessPropertyDescriptor(object);
-            this.addLearningRatePropertyDescriptor(object);
             this.addEpsilonPropertyDescriptor(object);
         }
         return this.itemPropertyDescriptors;
@@ -82,22 +81,6 @@ public class QThresholdsModelItemProvider extends LearningBasedModelItemProvider
                 this.getString("_UI_PropertyDescriptor_description",
                         "_UI_QThresholdsModel_exponentialSteepness_feature", "_UI_QThresholdsModel_type"),
                 ModelsPackage.Literals.QTHRESHOLDS_MODEL__EXPONENTIAL_STEEPNESS, true, false, false,
-                ItemPropertyDescriptor.REAL_VALUE_IMAGE, null, null));
-    }
-
-    /**
-     * This adds a property descriptor for the Learning Rate feature. <!-- begin-user-doc --> <!--
-     * end-user-doc -->
-     *
-     * @generated
-     */
-    protected void addLearningRatePropertyDescriptor(final Object object) {
-        this.itemPropertyDescriptors.add(this.createItemPropertyDescriptor(
-                ((ComposeableAdapterFactory) this.adapterFactory).getRootAdapterFactory(), this.getResourceLocator(),
-                this.getString("_UI_QThresholdsModel_learningRate_feature"),
-                this.getString("_UI_PropertyDescriptor_description", "_UI_QThresholdsModel_learningRate_feature",
-                        "_UI_QThresholdsModel_type"),
-                ModelsPackage.Literals.QTHRESHOLDS_MODEL__LEARNING_RATE, true, false, false,
                 ItemPropertyDescriptor.REAL_VALUE_IMAGE, null, null));
     }
 
@@ -187,7 +170,6 @@ public class QThresholdsModelItemProvider extends LearningBasedModelItemProvider
         switch (notification.getFeatureID(QThresholdsModel.class)) {
         case ModelsPackage.QTHRESHOLDS_MODEL__TARGET_RESPONSE_TIME:
         case ModelsPackage.QTHRESHOLDS_MODEL__EXPONENTIAL_STEEPNESS:
-        case ModelsPackage.QTHRESHOLDS_MODEL__LEARNING_RATE:
         case ModelsPackage.QTHRESHOLDS_MODEL__EPSILON:
             this.fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
             return;

@@ -22,8 +22,6 @@ import org.palladiosimulator.spd.triggers.stimuli.Stimulus;
  * <em>Input</em>}</li>
  * <li>{@link org.palladiosimulator.spd.models.impl.ImprovedQLearningModelImpl#getEpsilon
  * <em>Epsilon</em>}</li>
- * <li>{@link org.palladiosimulator.spd.models.impl.ImprovedQLearningModelImpl#getLearningRate
- * <em>Learning Rate</em>}</li>
  * <li>{@link org.palladiosimulator.spd.models.impl.ImprovedQLearningModelImpl#getActionCount
  * <em>Action Count</em>}</li>
  * <li>{@link org.palladiosimulator.spd.models.impl.ImprovedQLearningModelImpl#getTargetResponseTime
@@ -48,15 +46,6 @@ public class ImprovedQLearningModelImpl extends LearningBasedModelImpl implement
      * @ordered
      */
     protected static final double EPSILON_EDEFAULT = 0.05;
-    /**
-     * The default value of the '{@link #getLearningRate() <em>Learning Rate</em>}' attribute. <!--
-     * begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @see #getLearningRate()
-     * @generated
-     * @ordered
-     */
-    protected static final double LEARNING_RATE_EDEFAULT = 0.1;
     /**
      * The default value of the '{@link #getActionCount() <em>Action Count</em>}' attribute. <!--
      * begin-user-doc --> <!-- end-user-doc -->
@@ -156,28 +145,6 @@ public class ImprovedQLearningModelImpl extends LearningBasedModelImpl implement
     public void setEpsilon(final double newEpsilon) {
         this.eDynamicSet(ModelsPackage.IMPROVED_QLEARNING_MODEL__EPSILON,
                 ModelsPackage.Literals.IMPROVED_QLEARNING_MODEL__EPSILON, newEpsilon);
-    }
-
-    /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @generated
-     */
-    @Override
-    public double getLearningRate() {
-        return (Double) this.eDynamicGet(ModelsPackage.IMPROVED_QLEARNING_MODEL__LEARNING_RATE,
-                ModelsPackage.Literals.IMPROVED_QLEARNING_MODEL__LEARNING_RATE, true, true);
-    }
-
-    /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @generated
-     */
-    @Override
-    public void setLearningRate(final double newLearningRate) {
-        this.eDynamicSet(ModelsPackage.IMPROVED_QLEARNING_MODEL__LEARNING_RATE,
-                ModelsPackage.Literals.IMPROVED_QLEARNING_MODEL__LEARNING_RATE, newLearningRate);
     }
 
     /**
@@ -345,8 +312,6 @@ public class ImprovedQLearningModelImpl extends LearningBasedModelImpl implement
             return this.getInput();
         case ModelsPackage.IMPROVED_QLEARNING_MODEL__EPSILON:
             return this.getEpsilon();
-        case ModelsPackage.IMPROVED_QLEARNING_MODEL__LEARNING_RATE:
-            return this.getLearningRate();
         case ModelsPackage.IMPROVED_QLEARNING_MODEL__ACTION_COUNT:
             return this.getActionCount();
         case ModelsPackage.IMPROVED_QLEARNING_MODEL__TARGET_RESPONSE_TIME:
@@ -374,9 +339,6 @@ public class ImprovedQLearningModelImpl extends LearningBasedModelImpl implement
             return;
         case ModelsPackage.IMPROVED_QLEARNING_MODEL__EPSILON:
             this.setEpsilon((Double) newValue);
-            return;
-        case ModelsPackage.IMPROVED_QLEARNING_MODEL__LEARNING_RATE:
-            this.setLearningRate((Double) newValue);
             return;
         case ModelsPackage.IMPROVED_QLEARNING_MODEL__ACTION_COUNT:
             this.setActionCount((Integer) newValue);
@@ -411,9 +373,6 @@ public class ImprovedQLearningModelImpl extends LearningBasedModelImpl implement
         case ModelsPackage.IMPROVED_QLEARNING_MODEL__EPSILON:
             this.setEpsilon(EPSILON_EDEFAULT);
             return;
-        case ModelsPackage.IMPROVED_QLEARNING_MODEL__LEARNING_RATE:
-            this.setLearningRate(LEARNING_RATE_EDEFAULT);
-            return;
         case ModelsPackage.IMPROVED_QLEARNING_MODEL__ACTION_COUNT:
             this.setActionCount(ACTION_COUNT_EDEFAULT);
             return;
@@ -445,8 +404,6 @@ public class ImprovedQLearningModelImpl extends LearningBasedModelImpl implement
             return this.getInput() != null;
         case ModelsPackage.IMPROVED_QLEARNING_MODEL__EPSILON:
             return this.getEpsilon() != EPSILON_EDEFAULT;
-        case ModelsPackage.IMPROVED_QLEARNING_MODEL__LEARNING_RATE:
-            return this.getLearningRate() != LEARNING_RATE_EDEFAULT;
         case ModelsPackage.IMPROVED_QLEARNING_MODEL__ACTION_COUNT:
             return this.getActionCount() != ACTION_COUNT_EDEFAULT;
         case ModelsPackage.IMPROVED_QLEARNING_MODEL__TARGET_RESPONSE_TIME:

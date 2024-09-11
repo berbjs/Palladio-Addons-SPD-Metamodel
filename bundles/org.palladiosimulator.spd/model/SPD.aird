@@ -8,6 +8,13 @@
     <semanticResources>platform:/plugin/de.uka.ipd.sdq.probfunction/model/ProbabilityFunction.ecore</semanticResources>
     <semanticResources>platform:/plugin/de.uka.ipd.sdq.units/model/Units.ecore</semanticResources>
     <semanticResources>platform:/plugin/de.uka.ipd.sdq.identifier/model/identifier.ecore</semanticResources>
+    <semanticResources>SPD.genmodel</semanticResources>
+    <semanticResources>platform:/plugin/org.eclipse.emf.ecore/model/Ecore.genmodel</semanticResources>
+    <semanticResources>platform:/plugin/de.uka.ipd.sdq.identifier/model/identifier.genmodel</semanticResources>
+    <semanticResources>platform:/plugin/org.palladiosimulator.pcm/model/pcm.genmodel</semanticResources>
+    <semanticResources>platform:/plugin/de.uka.ipd.sdq.probfunction/model/ProbabilityFunction.genmodel</semanticResources>
+    <semanticResources>platform:/plugin/de.uka.ipd.sdq.units/model/Units.genmodel</semanticResources>
+    <semanticResources>platform:/plugin/de.uka.ipd.sdq.stoex/model/stoex.genmodel</semanticResources>
     <ownedViews xmi:type="viewpoint:DView" uid="_WqZNcNXDEey7uvnzUH7ZNg">
       <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']"/>
       <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_gDw3YDlqEe2stoOmSwELEA" name="constraints target class diagram" repPath="#_gDwQUDlqEe2stoOmSwELEA" changeId="9fa86c12-39ff-48a0-bfe2-2abcd722b887">

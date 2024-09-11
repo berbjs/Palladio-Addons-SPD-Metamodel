@@ -120,13 +120,22 @@ public interface ModelsPackage extends EPackage {
     int LEARNING_BASED_MODEL__INITAL_INTERVAL_DELAY = BASE_MODEL__INITAL_INTERVAL_DELAY;
 
     /**
+     * The feature id for the '<em><b>Learning Rate</b></em>' attribute. <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     *
+     * @generated
+     * @ordered
+     */
+    int LEARNING_BASED_MODEL__LEARNING_RATE = BASE_MODEL_FEATURE_COUNT + 0;
+
+    /**
      * The number of structural features of the '<em>Learning Based Model</em>' class. <!--
      * begin-user-doc --> <!-- end-user-doc -->
      *
      * @generated
      * @ordered
      */
-    int LEARNING_BASED_MODEL_FEATURE_COUNT = BASE_MODEL_FEATURE_COUNT + 0;
+    int LEARNING_BASED_MODEL_FEATURE_COUNT = BASE_MODEL_FEATURE_COUNT + 1;
 
     /**
      * The meta object id for the '{@link org.palladiosimulator.spd.models.impl.QThresholdsModelImpl
@@ -155,6 +164,15 @@ public interface ModelsPackage extends EPackage {
      * @ordered
      */
     int QTHRESHOLDS_MODEL__INITAL_INTERVAL_DELAY = LEARNING_BASED_MODEL__INITAL_INTERVAL_DELAY;
+
+    /**
+     * The feature id for the '<em><b>Learning Rate</b></em>' attribute. <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     *
+     * @generated
+     * @ordered
+     */
+    int QTHRESHOLDS_MODEL__LEARNING_RATE = LEARNING_BASED_MODEL__LEARNING_RATE;
 
     /**
      * The feature id for the '<em><b>Input</b></em>' containment reference. <!-- begin-user-doc -->
@@ -202,22 +220,13 @@ public interface ModelsPackage extends EPackage {
     int QTHRESHOLDS_MODEL__UTILIZATION_STIMULUS = LEARNING_BASED_MODEL_FEATURE_COUNT + 4;
 
     /**
-     * The feature id for the '<em><b>Learning Rate</b></em>' attribute. <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     *
-     * @generated
-     * @ordered
-     */
-    int QTHRESHOLDS_MODEL__LEARNING_RATE = LEARNING_BASED_MODEL_FEATURE_COUNT + 5;
-
-    /**
      * The feature id for the '<em><b>Epsilon</b></em>' attribute. <!-- begin-user-doc --> <!--
      * end-user-doc -->
      *
      * @generated
      * @ordered
      */
-    int QTHRESHOLDS_MODEL__EPSILON = LEARNING_BASED_MODEL_FEATURE_COUNT + 6;
+    int QTHRESHOLDS_MODEL__EPSILON = LEARNING_BASED_MODEL_FEATURE_COUNT + 5;
 
     /**
      * The number of structural features of the '<em>QThresholds Model</em>' class. <!--
@@ -226,7 +235,7 @@ public interface ModelsPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int QTHRESHOLDS_MODEL_FEATURE_COUNT = LEARNING_BASED_MODEL_FEATURE_COUNT + 7;
+    int QTHRESHOLDS_MODEL_FEATURE_COUNT = LEARNING_BASED_MODEL_FEATURE_COUNT + 6;
 
     /**
      * The meta object id for the '{@link org.palladiosimulator.spd.models.impl.RandomModelImpl
@@ -322,6 +331,15 @@ public interface ModelsPackage extends EPackage {
     int IMPROVED_QLEARNING_MODEL__INITAL_INTERVAL_DELAY = LEARNING_BASED_MODEL__INITAL_INTERVAL_DELAY;
 
     /**
+     * The feature id for the '<em><b>Learning Rate</b></em>' attribute. <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     *
+     * @generated
+     * @ordered
+     */
+    int IMPROVED_QLEARNING_MODEL__LEARNING_RATE = LEARNING_BASED_MODEL__LEARNING_RATE;
+
+    /**
      * The feature id for the '<em><b>Input</b></em>' containment reference. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      *
@@ -340,22 +358,13 @@ public interface ModelsPackage extends EPackage {
     int IMPROVED_QLEARNING_MODEL__EPSILON = LEARNING_BASED_MODEL_FEATURE_COUNT + 1;
 
     /**
-     * The feature id for the '<em><b>Learning Rate</b></em>' attribute. <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     *
-     * @generated
-     * @ordered
-     */
-    int IMPROVED_QLEARNING_MODEL__LEARNING_RATE = LEARNING_BASED_MODEL_FEATURE_COUNT + 2;
-
-    /**
      * The feature id for the '<em><b>Action Count</b></em>' attribute. <!-- begin-user-doc --> <!--
      * end-user-doc -->
      *
      * @generated
      * @ordered
      */
-    int IMPROVED_QLEARNING_MODEL__ACTION_COUNT = LEARNING_BASED_MODEL_FEATURE_COUNT + 3;
+    int IMPROVED_QLEARNING_MODEL__ACTION_COUNT = LEARNING_BASED_MODEL_FEATURE_COUNT + 2;
 
     /**
      * The feature id for the '<em><b>Target Response Time</b></em>' attribute. <!-- begin-user-doc
@@ -364,7 +373,7 @@ public interface ModelsPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int IMPROVED_QLEARNING_MODEL__TARGET_RESPONSE_TIME = LEARNING_BASED_MODEL_FEATURE_COUNT + 4;
+    int IMPROVED_QLEARNING_MODEL__TARGET_RESPONSE_TIME = LEARNING_BASED_MODEL_FEATURE_COUNT + 3;
 
     /**
      * The feature id for the '<em><b>Response Time Stimulus</b></em>' containment reference. <!--
@@ -373,7 +382,7 @@ public interface ModelsPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int IMPROVED_QLEARNING_MODEL__RESPONSE_TIME_STIMULUS = LEARNING_BASED_MODEL_FEATURE_COUNT + 5;
+    int IMPROVED_QLEARNING_MODEL__RESPONSE_TIME_STIMULUS = LEARNING_BASED_MODEL_FEATURE_COUNT + 4;
 
     /**
      * The feature id for the '<em><b>Exponential Steepness</b></em>' attribute. <!-- begin-user-doc
@@ -382,7 +391,7 @@ public interface ModelsPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int IMPROVED_QLEARNING_MODEL__EXPONENTIAL_STEEPNESS = LEARNING_BASED_MODEL_FEATURE_COUNT + 6;
+    int IMPROVED_QLEARNING_MODEL__EXPONENTIAL_STEEPNESS = LEARNING_BASED_MODEL_FEATURE_COUNT + 5;
 
     /**
      * The feature id for the '<em><b>Utilization Stimulus</b></em>' containment reference. <!--
@@ -391,7 +400,7 @@ public interface ModelsPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int IMPROVED_QLEARNING_MODEL__UTILIZATION_STIMULUS = LEARNING_BASED_MODEL_FEATURE_COUNT + 7;
+    int IMPROVED_QLEARNING_MODEL__UTILIZATION_STIMULUS = LEARNING_BASED_MODEL_FEATURE_COUNT + 6;
 
     /**
      * The number of structural features of the '<em>Improved QLearning Model</em>' class. <!--
@@ -400,7 +409,7 @@ public interface ModelsPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int IMPROVED_QLEARNING_MODEL_FEATURE_COUNT = LEARNING_BASED_MODEL_FEATURE_COUNT + 8;
+    int IMPROVED_QLEARNING_MODEL_FEATURE_COUNT = LEARNING_BASED_MODEL_FEATURE_COUNT + 7;
 
     /**
      * The meta object id for the '<em>Percent Double</em>' data type. <!-- begin-user-doc --> <!--
@@ -526,18 +535,6 @@ public interface ModelsPackage extends EPackage {
 
     /**
      * Returns the meta object for the attribute
-     * '{@link org.palladiosimulator.spd.models.QThresholdsModel#getLearningRate <em>Learning
-     * Rate</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @return the meta object for the attribute '<em>Learning Rate</em>'.
-     * @see org.palladiosimulator.spd.models.QThresholdsModel#getLearningRate()
-     * @see #getQThresholdsModel()
-     * @generated
-     */
-    EAttribute getQThresholdsModel_LearningRate();
-
-    /**
-     * Returns the meta object for the attribute
      * '{@link org.palladiosimulator.spd.models.QThresholdsModel#getEpsilon <em>Epsilon</em>}'. <!--
      * begin-user-doc --> <!-- end-user-doc -->
      *
@@ -631,18 +628,6 @@ public interface ModelsPackage extends EPackage {
 
     /**
      * Returns the meta object for the attribute
-     * '{@link org.palladiosimulator.spd.models.ImprovedQLearningModel#getLearningRate <em>Learning
-     * Rate</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @return the meta object for the attribute '<em>Learning Rate</em>'.
-     * @see org.palladiosimulator.spd.models.ImprovedQLearningModel#getLearningRate()
-     * @see #getImprovedQLearningModel()
-     * @generated
-     */
-    EAttribute getImprovedQLearningModel_LearningRate();
-
-    /**
-     * Returns the meta object for the attribute
      * '{@link org.palladiosimulator.spd.models.ImprovedQLearningModel#getActionCount <em>Action
      * Count</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
@@ -710,6 +695,18 @@ public interface ModelsPackage extends EPackage {
      * @generated
      */
     EClass getLearningBasedModel();
+
+    /**
+     * Returns the meta object for the attribute
+     * '{@link org.palladiosimulator.spd.models.LearningBasedModel#getLearningRate <em>Learning
+     * Rate</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @return the meta object for the attribute '<em>Learning Rate</em>'.
+     * @see org.palladiosimulator.spd.models.LearningBasedModel#getLearningRate()
+     * @see #getLearningBasedModel()
+     * @generated
+     */
+    EAttribute getLearningBasedModel_LearningRate();
 
     /**
      * Returns the meta object for data type '<em>Percent Double</em>'. <!-- begin-user-doc --> <!--
@@ -832,14 +829,6 @@ public interface ModelsPackage extends EPackage {
         EReference QTHRESHOLDS_MODEL__UTILIZATION_STIMULUS = eINSTANCE.getQThresholdsModel_UtilizationStimulus();
 
         /**
-         * The meta object literal for the '<em><b>Learning Rate</b></em>' attribute feature. <!--
-         * begin-user-doc --> <!-- end-user-doc -->
-         *
-         * @generated
-         */
-        EAttribute QTHRESHOLDS_MODEL__LEARNING_RATE = eINSTANCE.getQThresholdsModel_LearningRate();
-
-        /**
          * The meta object literal for the '<em><b>Epsilon</b></em>' attribute feature. <!--
          * begin-user-doc --> <!-- end-user-doc -->
          *
@@ -910,14 +899,6 @@ public interface ModelsPackage extends EPackage {
         EAttribute IMPROVED_QLEARNING_MODEL__EPSILON = eINSTANCE.getImprovedQLearningModel_Epsilon();
 
         /**
-         * The meta object literal for the '<em><b>Learning Rate</b></em>' attribute feature. <!--
-         * begin-user-doc --> <!-- end-user-doc -->
-         *
-         * @generated
-         */
-        EAttribute IMPROVED_QLEARNING_MODEL__LEARNING_RATE = eINSTANCE.getImprovedQLearningModel_LearningRate();
-
-        /**
          * The meta object literal for the '<em><b>Action Count</b></em>' attribute feature. <!--
          * begin-user-doc --> <!-- end-user-doc -->
          *
@@ -971,6 +952,14 @@ public interface ModelsPackage extends EPackage {
          * @generated
          */
         EClass LEARNING_BASED_MODEL = eINSTANCE.getLearningBasedModel();
+
+        /**
+         * The meta object literal for the '<em><b>Learning Rate</b></em>' attribute feature. <!--
+         * begin-user-doc --> <!-- end-user-doc -->
+         *
+         * @generated
+         */
+        EAttribute LEARNING_BASED_MODEL__LEARNING_RATE = eINSTANCE.getLearningBasedModel_LearningRate();
 
         /**
          * The meta object literal for the '<em>Percent Double</em>' data type. <!-- begin-user-doc

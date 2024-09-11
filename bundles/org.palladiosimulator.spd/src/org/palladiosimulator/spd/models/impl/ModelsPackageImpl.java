@@ -340,20 +340,9 @@ public class ModelsPackageImpl extends EPackageImpl implements ModelsPackage {
      * @generated
      */
     @Override
-    public EAttribute getQThresholdsModel_LearningRate() {
-        return (EAttribute) this.qThresholdsModelEClass.getEStructuralFeatures()
-            .get(5);
-    }
-
-    /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @generated
-     */
-    @Override
     public EAttribute getQThresholdsModel_Epsilon() {
         return (EAttribute) this.qThresholdsModelEClass.getEStructuralFeatures()
-            .get(6);
+            .get(5);
     }
 
     /**
@@ -437,7 +426,7 @@ public class ModelsPackageImpl extends EPackageImpl implements ModelsPackage {
      * @generated
      */
     @Override
-    public EAttribute getImprovedQLearningModel_LearningRate() {
+    public EAttribute getImprovedQLearningModel_ActionCount() {
         return (EAttribute) this.improvedQLearningModelEClass.getEStructuralFeatures()
             .get(2);
     }
@@ -448,7 +437,7 @@ public class ModelsPackageImpl extends EPackageImpl implements ModelsPackage {
      * @generated
      */
     @Override
-    public EAttribute getImprovedQLearningModel_ActionCount() {
+    public EAttribute getImprovedQLearningModel_TargetResponseTime() {
         return (EAttribute) this.improvedQLearningModelEClass.getEStructuralFeatures()
             .get(3);
     }
@@ -459,20 +448,9 @@ public class ModelsPackageImpl extends EPackageImpl implements ModelsPackage {
      * @generated
      */
     @Override
-    public EAttribute getImprovedQLearningModel_TargetResponseTime() {
-        return (EAttribute) this.improvedQLearningModelEClass.getEStructuralFeatures()
-            .get(4);
-    }
-
-    /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @generated
-     */
-    @Override
     public EReference getImprovedQLearningModel_ResponseTimeStimulus() {
         return (EReference) this.improvedQLearningModelEClass.getEStructuralFeatures()
-            .get(5);
+            .get(4);
     }
 
     /**
@@ -483,7 +461,7 @@ public class ModelsPackageImpl extends EPackageImpl implements ModelsPackage {
     @Override
     public EAttribute getImprovedQLearningModel_ExponentialSteepness() {
         return (EAttribute) this.improvedQLearningModelEClass.getEStructuralFeatures()
-            .get(6);
+            .get(5);
     }
 
     /**
@@ -494,7 +472,7 @@ public class ModelsPackageImpl extends EPackageImpl implements ModelsPackage {
     @Override
     public EReference getImprovedQLearningModel_UtilizationStimulus() {
         return (EReference) this.improvedQLearningModelEClass.getEStructuralFeatures()
-            .get(7);
+            .get(6);
     }
 
     /**
@@ -505,6 +483,17 @@ public class ModelsPackageImpl extends EPackageImpl implements ModelsPackage {
     @Override
     public EClass getLearningBasedModel() {
         return this.learningBasedModelEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
+    public EAttribute getLearningBasedModel_LearningRate() {
+        return (EAttribute) this.learningBasedModelEClass.getEStructuralFeatures()
+            .get(0);
     }
 
     /**
@@ -567,7 +556,6 @@ public class ModelsPackageImpl extends EPackageImpl implements ModelsPackage {
         this.createEReference(this.qThresholdsModelEClass, QTHRESHOLDS_MODEL__RESPONSE_TIME_STIMULUS);
         this.createEAttribute(this.qThresholdsModelEClass, QTHRESHOLDS_MODEL__EXPONENTIAL_STEEPNESS);
         this.createEReference(this.qThresholdsModelEClass, QTHRESHOLDS_MODEL__UTILIZATION_STIMULUS);
-        this.createEAttribute(this.qThresholdsModelEClass, QTHRESHOLDS_MODEL__LEARNING_RATE);
         this.createEAttribute(this.qThresholdsModelEClass, QTHRESHOLDS_MODEL__EPSILON);
 
         this.randomModelEClass = this.createEClass(RANDOM_MODEL);
@@ -578,7 +566,6 @@ public class ModelsPackageImpl extends EPackageImpl implements ModelsPackage {
         this.improvedQLearningModelEClass = this.createEClass(IMPROVED_QLEARNING_MODEL);
         this.createEReference(this.improvedQLearningModelEClass, IMPROVED_QLEARNING_MODEL__INPUT);
         this.createEAttribute(this.improvedQLearningModelEClass, IMPROVED_QLEARNING_MODEL__EPSILON);
-        this.createEAttribute(this.improvedQLearningModelEClass, IMPROVED_QLEARNING_MODEL__LEARNING_RATE);
         this.createEAttribute(this.improvedQLearningModelEClass, IMPROVED_QLEARNING_MODEL__ACTION_COUNT);
         this.createEAttribute(this.improvedQLearningModelEClass, IMPROVED_QLEARNING_MODEL__TARGET_RESPONSE_TIME);
         this.createEReference(this.improvedQLearningModelEClass, IMPROVED_QLEARNING_MODEL__RESPONSE_TIME_STIMULUS);
@@ -586,6 +573,7 @@ public class ModelsPackageImpl extends EPackageImpl implements ModelsPackage {
         this.createEReference(this.improvedQLearningModelEClass, IMPROVED_QLEARNING_MODEL__UTILIZATION_STIMULUS);
 
         this.learningBasedModelEClass = this.createEClass(LEARNING_BASED_MODEL);
+        this.createEAttribute(this.learningBasedModelEClass, LEARNING_BASED_MODEL__LEARNING_RATE);
 
         // Create data types
         this.percentDoubleEDataType = this.createEDataType(PERCENT_DOUBLE);
@@ -659,14 +647,11 @@ public class ModelsPackageImpl extends EPackageImpl implements ModelsPackage {
                 QThresholdsModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
                 !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         this.initEAttribute(this.getQThresholdsModel_ExponentialSteepness(), theEcorePackage.getEDouble(),
-                "exponentialSteepness", null, 0, 1, QThresholdsModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
+                "exponentialSteepness", "1.0", 1, 1, QThresholdsModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
                 !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         this.initEReference(this.getQThresholdsModel_UtilizationStimulus(), theStimuliPackage.getStimulus(), null,
                 "utilizationStimulus", null, 1, 1, QThresholdsModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
                 IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-        this.initEAttribute(this.getQThresholdsModel_LearningRate(), this.getPercentDouble(), "learningRate", "0.1", 1,
-                1, QThresholdsModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
-                IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         this.initEAttribute(this.getQThresholdsModel_Epsilon(), this.getPercentDouble(), "epsilon", "0.05", 1, 1,
                 QThresholdsModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
                 !IS_DERIVED, IS_ORDERED);
@@ -691,9 +676,6 @@ public class ModelsPackageImpl extends EPackageImpl implements ModelsPackage {
         this.initEAttribute(this.getImprovedQLearningModel_Epsilon(), this.getPercentDouble(), "epsilon", "0.05", 1, 1,
                 ImprovedQLearningModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
                 IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-        this.initEAttribute(this.getImprovedQLearningModel_LearningRate(), this.getPercentDouble(), "learningRate",
-                "0.1", 1, 1, ImprovedQLearningModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE,
-                !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         this.initEAttribute(this.getImprovedQLearningModel_ActionCount(), this.getPositiveInteger(), "actionCount", "5",
                 1, 1, ImprovedQLearningModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
                 IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -713,6 +695,9 @@ public class ModelsPackageImpl extends EPackageImpl implements ModelsPackage {
 
         this.initEClass(this.learningBasedModelEClass, LearningBasedModel.class, "LearningBasedModel", !IS_ABSTRACT,
                 !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+        this.initEAttribute(this.getLearningBasedModel_LearningRate(), this.getPercentDouble(), "learningRate", "0.1",
+                1, 1, LearningBasedModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
+                IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
         // Initialize data types
         this.initEDataType(this.percentDoubleEDataType, double.class, "PercentDouble", IS_SERIALIZABLE,
@@ -721,8 +706,22 @@ public class ModelsPackageImpl extends EPackageImpl implements ModelsPackage {
                 !IS_GENERATED_INSTANCE_CLASS);
 
         // Create annotations
+        // http://www.eclipse.org/emf/2002/Ecore
+        this.createEcoreAnnotations();
         // http:///org/eclipse/emf/ecore/util/ExtendedMetaData
         this.createExtendedMetaDataAnnotations();
+    }
+
+    /**
+     * Initializes the annotations for <b>http://www.eclipse.org/emf/2002/Ecore</b>. <!--
+     * begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    protected void createEcoreAnnotations() {
+        final String source = "http://www.eclipse.org/emf/2002/Ecore";
+        this.addAnnotation(this.qThresholdsModelEClass, source,
+                new String[] { "constraints", "positiveExponentialSteepness" });
     }
 
     /**

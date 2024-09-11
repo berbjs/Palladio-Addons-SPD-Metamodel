@@ -28,8 +28,6 @@ import org.palladiosimulator.spd.triggers.stimuli.Stimulus;
  * <em>Exponential Steepness</em>}</li>
  * <li>{@link org.palladiosimulator.spd.models.impl.QThresholdsModelImpl#getUtilizationStimulus
  * <em>Utilization Stimulus</em>}</li>
- * <li>{@link org.palladiosimulator.spd.models.impl.QThresholdsModelImpl#getLearningRate
- * <em>Learning Rate</em>}</li>
  * <li>{@link org.palladiosimulator.spd.models.impl.QThresholdsModelImpl#getEpsilon
  * <em>Epsilon</em>}</li>
  * </ul>
@@ -54,17 +52,8 @@ public class QThresholdsModelImpl extends LearningBasedModelImpl implements QThr
      * @generated
      * @ordered
      */
-    protected static final double EXPONENTIAL_STEEPNESS_EDEFAULT = 0.0;
+    protected static final double EXPONENTIAL_STEEPNESS_EDEFAULT = 1.0;
 
-    /**
-     * The default value of the '{@link #getLearningRate() <em>Learning Rate</em>}' attribute. <!--
-     * begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @see #getLearningRate()
-     * @generated
-     * @ordered
-     */
-    protected static final double LEARNING_RATE_EDEFAULT = 0.1;
     /**
      * The default value of the '{@link #getEpsilon() <em>Epsilon</em>}' attribute. <!--
      * begin-user-doc --> <!-- end-user-doc -->
@@ -244,28 +233,6 @@ public class QThresholdsModelImpl extends LearningBasedModelImpl implements QThr
      * @generated
      */
     @Override
-    public double getLearningRate() {
-        return (Double) this.eDynamicGet(ModelsPackage.QTHRESHOLDS_MODEL__LEARNING_RATE,
-                ModelsPackage.Literals.QTHRESHOLDS_MODEL__LEARNING_RATE, true, true);
-    }
-
-    /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @generated
-     */
-    @Override
-    public void setLearningRate(final double newLearningRate) {
-        this.eDynamicSet(ModelsPackage.QTHRESHOLDS_MODEL__LEARNING_RATE,
-                ModelsPackage.Literals.QTHRESHOLDS_MODEL__LEARNING_RATE, newLearningRate);
-    }
-
-    /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @generated
-     */
-    @Override
     public double getEpsilon() {
         return (Double) this.eDynamicGet(ModelsPackage.QTHRESHOLDS_MODEL__EPSILON,
                 ModelsPackage.Literals.QTHRESHOLDS_MODEL__EPSILON, true, true);
@@ -319,8 +286,6 @@ public class QThresholdsModelImpl extends LearningBasedModelImpl implements QThr
             return this.getExponentialSteepness();
         case ModelsPackage.QTHRESHOLDS_MODEL__UTILIZATION_STIMULUS:
             return this.getUtilizationStimulus();
-        case ModelsPackage.QTHRESHOLDS_MODEL__LEARNING_RATE:
-            return this.getLearningRate();
         case ModelsPackage.QTHRESHOLDS_MODEL__EPSILON:
             return this.getEpsilon();
         }
@@ -349,9 +314,6 @@ public class QThresholdsModelImpl extends LearningBasedModelImpl implements QThr
             return;
         case ModelsPackage.QTHRESHOLDS_MODEL__UTILIZATION_STIMULUS:
             this.setUtilizationStimulus((Stimulus) newValue);
-            return;
-        case ModelsPackage.QTHRESHOLDS_MODEL__LEARNING_RATE:
-            this.setLearningRate((Double) newValue);
             return;
         case ModelsPackage.QTHRESHOLDS_MODEL__EPSILON:
             this.setEpsilon((Double) newValue);
@@ -383,9 +345,6 @@ public class QThresholdsModelImpl extends LearningBasedModelImpl implements QThr
         case ModelsPackage.QTHRESHOLDS_MODEL__UTILIZATION_STIMULUS:
             this.setUtilizationStimulus((Stimulus) null);
             return;
-        case ModelsPackage.QTHRESHOLDS_MODEL__LEARNING_RATE:
-            this.setLearningRate(LEARNING_RATE_EDEFAULT);
-            return;
         case ModelsPackage.QTHRESHOLDS_MODEL__EPSILON:
             this.setEpsilon(EPSILON_EDEFAULT);
             return;
@@ -411,8 +370,6 @@ public class QThresholdsModelImpl extends LearningBasedModelImpl implements QThr
             return this.getExponentialSteepness() != EXPONENTIAL_STEEPNESS_EDEFAULT;
         case ModelsPackage.QTHRESHOLDS_MODEL__UTILIZATION_STIMULUS:
             return this.getUtilizationStimulus() != null;
-        case ModelsPackage.QTHRESHOLDS_MODEL__LEARNING_RATE:
-            return this.getLearningRate() != LEARNING_RATE_EDEFAULT;
         case ModelsPackage.QTHRESHOLDS_MODEL__EPSILON:
             return this.getEpsilon() != EPSILON_EDEFAULT;
         }

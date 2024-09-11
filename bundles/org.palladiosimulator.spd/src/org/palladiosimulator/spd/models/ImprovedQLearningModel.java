@@ -17,8 +17,6 @@ import org.palladiosimulator.spd.triggers.stimuli.Stimulus;
  * <li>{@link org.palladiosimulator.spd.models.ImprovedQLearningModel#getInput <em>Input</em>}</li>
  * <li>{@link org.palladiosimulator.spd.models.ImprovedQLearningModel#getEpsilon
  * <em>Epsilon</em>}</li>
- * <li>{@link org.palladiosimulator.spd.models.ImprovedQLearningModel#getLearningRate <em>Learning
- * Rate</em>}</li>
  * <li>{@link org.palladiosimulator.spd.models.ImprovedQLearningModel#getActionCount <em>Action
  * Count</em>}</li>
  * <li>{@link org.palladiosimulator.spd.models.ImprovedQLearningModel#getTargetResponseTime
@@ -85,31 +83,6 @@ public interface ImprovedQLearningModel extends LearningBasedModel {
      * @generated
      */
     void setEpsilon(double value);
-
-    /**
-     * Returns the value of the '<em><b>Learning Rate</b></em>' attribute. The default value is
-     * <code>"0.1"</code>. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @return the value of the '<em>Learning Rate</em>' attribute.
-     * @see #setLearningRate(double)
-     * @see org.palladiosimulator.spd.models.ModelsPackage#getImprovedQLearningModel_LearningRate()
-     * @model default="0.1" dataType="org.palladiosimulator.spd.models.PercentDouble"
-     *        required="true"
-     * @generated
-     */
-    double getLearningRate();
-
-    /**
-     * Sets the value of the
-     * '{@link org.palladiosimulator.spd.models.ImprovedQLearningModel#getLearningRate <em>Learning
-     * Rate</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @param value
-     *            the new value of the '<em>Learning Rate</em>' attribute.
-     * @see #getLearningRate()
-     * @generated
-     */
-    void setLearningRate(double value);
 
     /**
      * Returns the value of the '<em><b>Action Count</b></em>' attribute. The default value is

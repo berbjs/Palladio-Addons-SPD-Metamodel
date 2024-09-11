@@ -47,7 +47,6 @@ public class ImprovedQLearningModelItemProvider extends LearningBasedModelItemPr
             super.getPropertyDescriptors(object);
 
             this.addEpsilonPropertyDescriptor(object);
-            this.addLearningRatePropertyDescriptor(object);
             this.addActionCountPropertyDescriptor(object);
             this.addTargetResponseTimePropertyDescriptor(object);
             this.addExponentialSteepnessPropertyDescriptor(object);
@@ -68,22 +67,6 @@ public class ImprovedQLearningModelItemProvider extends LearningBasedModelItemPr
                 this.getString("_UI_PropertyDescriptor_description", "_UI_ImprovedQLearningModel_epsilon_feature",
                         "_UI_ImprovedQLearningModel_type"),
                 ModelsPackage.Literals.IMPROVED_QLEARNING_MODEL__EPSILON, true, false, false,
-                ItemPropertyDescriptor.REAL_VALUE_IMAGE, null, null));
-    }
-
-    /**
-     * This adds a property descriptor for the Learning Rate feature. <!-- begin-user-doc --> <!--
-     * end-user-doc -->
-     *
-     * @generated
-     */
-    protected void addLearningRatePropertyDescriptor(final Object object) {
-        this.itemPropertyDescriptors.add(this.createItemPropertyDescriptor(
-                ((ComposeableAdapterFactory) this.adapterFactory).getRootAdapterFactory(), this.getResourceLocator(),
-                this.getString("_UI_ImprovedQLearningModel_learningRate_feature"),
-                this.getString("_UI_PropertyDescriptor_description", "_UI_ImprovedQLearningModel_learningRate_feature",
-                        "_UI_ImprovedQLearningModel_type"),
-                ModelsPackage.Literals.IMPROVED_QLEARNING_MODEL__LEARNING_RATE, true, false, false,
                 ItemPropertyDescriptor.REAL_VALUE_IMAGE, null, null));
     }
 
@@ -204,7 +187,6 @@ public class ImprovedQLearningModelItemProvider extends LearningBasedModelItemPr
 
         switch (notification.getFeatureID(ImprovedQLearningModel.class)) {
         case ModelsPackage.IMPROVED_QLEARNING_MODEL__EPSILON:
-        case ModelsPackage.IMPROVED_QLEARNING_MODEL__LEARNING_RATE:
         case ModelsPackage.IMPROVED_QLEARNING_MODEL__ACTION_COUNT:
         case ModelsPackage.IMPROVED_QLEARNING_MODEL__TARGET_RESPONSE_TIME:
         case ModelsPackage.IMPROVED_QLEARNING_MODEL__EXPONENTIAL_STEEPNESS:
