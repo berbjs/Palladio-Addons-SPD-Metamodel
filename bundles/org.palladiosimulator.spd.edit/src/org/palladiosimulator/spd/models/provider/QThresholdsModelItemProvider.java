@@ -148,12 +148,11 @@ public class QThresholdsModelItemProvider extends LearningBasedModelItemProvider
      * This returns the label text for the adapted class. <!-- begin-user-doc --> <!-- end-user-doc
      * -->
      *
-     * @generated
+     * @generated NOT
      */
     @Override
     public String getText(final Object object) {
-        final QThresholdsModel qThresholdsModel = (QThresholdsModel) object;
-        return this.getString("_UI_QThresholdsModel_type") + " " + qThresholdsModel.getInterval();
+        return this.getString("_UI_QThresholdsModel_type");
     }
 
     /**

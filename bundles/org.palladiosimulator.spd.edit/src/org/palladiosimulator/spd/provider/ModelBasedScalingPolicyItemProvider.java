@@ -112,11 +112,11 @@ public class ModelBasedScalingPolicyItemProvider extends ScalingPolicyItemProvid
      * This returns the label text for the adapted class. <!-- begin-user-doc --> <!-- end-user-doc
      * -->
      *
-     * @generated
+     * @generated NOT
      */
     @Override
     public String getText(final Object object) {
-        final String label = ((ModelBasedScalingPolicy) object).getId();
+        final String label = ((ModelBasedScalingPolicy) object).getEntityName();
         return label == null || label.length() == 0 ? this.getString("_UI_ModelBasedScalingPolicy_type")
                 : this.getString("_UI_ModelBasedScalingPolicy_type") + " " + label;
     }

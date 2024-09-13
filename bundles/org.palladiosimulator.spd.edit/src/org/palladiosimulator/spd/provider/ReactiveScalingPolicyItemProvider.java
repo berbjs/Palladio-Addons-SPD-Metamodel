@@ -83,23 +83,23 @@ public class ReactiveScalingPolicyItemProvider extends ScalingPolicyItemProvider
     /**
      * This returns ReactiveScalingPolicy.gif. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
-     * @generated
+     * @generated NOT
      */
     @Override
     public Object getImage(final Object object) {
         return this.overlayImage(object, this.getResourceLocator()
-            .getImage("full/obj16/ReactiveScalingPolicy"));
+            .getImage("full/spdicons16/reactive-policy-icon.png"));
     }
 
     /**
      * This returns the label text for the adapted class. <!-- begin-user-doc --> <!-- end-user-doc
      * -->
      *
-     * @generated
+     * @generated NOT
      */
     @Override
     public String getText(final Object object) {
-        final String label = ((ReactiveScalingPolicy) object).getId();
+        final String label = ((ReactiveScalingPolicy) object).getEntityName();
         return label == null || label.length() == 0 ? this.getString("_UI_ReactiveScalingPolicy_type")
                 : this.getString("_UI_ReactiveScalingPolicy_type") + " " + label;
     }
