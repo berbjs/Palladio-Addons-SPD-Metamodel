@@ -5,7 +5,6 @@ package org.palladiosimulator.spd.models;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
@@ -412,24 +411,6 @@ public interface ModelsPackage extends EPackage {
     int IMPROVED_QLEARNING_MODEL_FEATURE_COUNT = LEARNING_BASED_MODEL_FEATURE_COUNT + 7;
 
     /**
-     * The meta object id for the '<em>Percent Double</em>' data type. <!-- begin-user-doc --> <!--
-     * end-user-doc -->
-     *
-     * @see org.palladiosimulator.spd.models.impl.ModelsPackageImpl#getPercentDouble()
-     * @generated
-     */
-    int PERCENT_DOUBLE = 5;
-
-    /**
-     * The meta object id for the '<em>Positive Integer</em>' data type. <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     *
-     * @see org.palladiosimulator.spd.models.impl.ModelsPackageImpl#getPositiveInteger()
-     * @generated
-     */
-    int POSITIVE_INTEGER = 6;
-
-    /**
      * Returns the meta object for class '{@link org.palladiosimulator.spd.models.BaseModel <em>Base
      * Model</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
@@ -709,26 +690,6 @@ public interface ModelsPackage extends EPackage {
     EAttribute getLearningBasedModel_LearningRate();
 
     /**
-     * Returns the meta object for data type '<em>Percent Double</em>'. <!-- begin-user-doc --> <!--
-     * end-user-doc -->
-     *
-     * @return the meta object for data type '<em>Percent Double</em>'.
-     * @model instanceClass="double" extendedMetaData="maxInclusive='1.0' minInclusive='0.0'"
-     * @generated
-     */
-    EDataType getPercentDouble();
-
-    /**
-     * Returns the meta object for data type '<em>Positive Integer</em>'. <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     *
-     * @return the meta object for data type '<em>Positive Integer</em>'.
-     * @model instanceClass="int" extendedMetaData="minInclusive='0'"
-     * @generated
-     */
-    EDataType getPositiveInteger();
-
-    /**
      * Returns the factory that creates the instances of the model. <!-- begin-user-doc --> <!--
      * end-user-doc -->
      *
@@ -960,24 +921,6 @@ public interface ModelsPackage extends EPackage {
          * @generated
          */
         EAttribute LEARNING_BASED_MODEL__LEARNING_RATE = eINSTANCE.getLearningBasedModel_LearningRate();
-
-        /**
-         * The meta object literal for the '<em>Percent Double</em>' data type. <!-- begin-user-doc
-         * --> <!-- end-user-doc -->
-         *
-         * @see org.palladiosimulator.spd.models.impl.ModelsPackageImpl#getPercentDouble()
-         * @generated
-         */
-        EDataType PERCENT_DOUBLE = eINSTANCE.getPercentDouble();
-
-        /**
-         * The meta object literal for the '<em>Positive Integer</em>' data type. <!--
-         * begin-user-doc --> <!-- end-user-doc -->
-         *
-         * @see org.palladiosimulator.spd.models.impl.ModelsPackageImpl#getPositiveInteger()
-         * @generated
-         */
-        EDataType POSITIVE_INTEGER = eINSTANCE.getPositiveInteger();
 
     }
 

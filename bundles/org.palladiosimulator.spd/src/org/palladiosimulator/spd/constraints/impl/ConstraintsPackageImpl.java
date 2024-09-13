@@ -20,6 +20,8 @@ import org.palladiosimulator.spd.constraints.policy.PolicyPackage;
 import org.palladiosimulator.spd.constraints.policy.impl.PolicyPackageImpl;
 import org.palladiosimulator.spd.constraints.target.TargetPackage;
 import org.palladiosimulator.spd.constraints.target.impl.TargetPackageImpl;
+import org.palladiosimulator.spd.datatypes.DatatypesPackage;
+import org.palladiosimulator.spd.datatypes.impl.DatatypesPackageImpl;
 import org.palladiosimulator.spd.impl.SpdPackageImpl;
 import org.palladiosimulator.spd.models.ModelsPackage;
 import org.palladiosimulator.spd.models.impl.ModelsPackageImpl;
@@ -161,6 +163,10 @@ public class ConstraintsPackageImpl extends EPackageImpl implements ConstraintsP
         final ModelsPackageImpl theModelsPackage = (ModelsPackageImpl) (registeredPackage instanceof ModelsPackageImpl
                 ? registeredPackage
                 : ModelsPackage.eINSTANCE);
+        registeredPackage = EPackage.Registry.INSTANCE.getEPackage(DatatypesPackage.eNS_URI);
+        final DatatypesPackageImpl theDatatypesPackage = (DatatypesPackageImpl) (registeredPackage instanceof DatatypesPackageImpl
+                ? registeredPackage
+                : DatatypesPackage.eINSTANCE);
 
         // Create package meta-data objects
         theConstraintsPackage.createPackageContents();
@@ -173,6 +179,7 @@ public class ConstraintsPackageImpl extends EPackageImpl implements ConstraintsP
         theStimuliPackage.createPackageContents();
         theExpectationsPackage.createPackageContents();
         theModelsPackage.createPackageContents();
+        theDatatypesPackage.createPackageContents();
 
         // Initialize created meta-data
         theConstraintsPackage.initializePackageContents();
@@ -185,6 +192,7 @@ public class ConstraintsPackageImpl extends EPackageImpl implements ConstraintsP
         theStimuliPackage.initializePackageContents();
         theExpectationsPackage.initializePackageContents();
         theModelsPackage.initializePackageContents();
+        theDatatypesPackage.initializePackageContents();
 
         // Mark meta-data to indicate it can't be changed
         theConstraintsPackage.freeze();

@@ -1,11 +1,11 @@
 /**
  * Copyright 2022 by palladiosimulator.org
  */
-package org.palladiosimulator.spd.constraints.policy.impl;
+package org.palladiosimulator.spd.datatypes.impl;
 
-import org.eclipse.emf.ecore.EAttribute;
-import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EPackage;
+import org.eclipse.emf.ecore.EValidator;
 import org.eclipse.emf.ecore.EcorePackage;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 import org.palladiosimulator.pcm.PcmPackage;
@@ -14,15 +14,13 @@ import org.palladiosimulator.spd.adjustments.AdjustmentsPackage;
 import org.palladiosimulator.spd.adjustments.impl.AdjustmentsPackageImpl;
 import org.palladiosimulator.spd.constraints.ConstraintsPackage;
 import org.palladiosimulator.spd.constraints.impl.ConstraintsPackageImpl;
-import org.palladiosimulator.spd.constraints.policy.CooldownConstraint;
-import org.palladiosimulator.spd.constraints.policy.IntervalConstraint;
-import org.palladiosimulator.spd.constraints.policy.PolicyConstraint;
-import org.palladiosimulator.spd.constraints.policy.PolicyFactory;
 import org.palladiosimulator.spd.constraints.policy.PolicyPackage;
+import org.palladiosimulator.spd.constraints.policy.impl.PolicyPackageImpl;
 import org.palladiosimulator.spd.constraints.target.TargetPackage;
 import org.palladiosimulator.spd.constraints.target.impl.TargetPackageImpl;
+import org.palladiosimulator.spd.datatypes.DatatypesFactory;
 import org.palladiosimulator.spd.datatypes.DatatypesPackage;
-import org.palladiosimulator.spd.datatypes.impl.DatatypesPackageImpl;
+import org.palladiosimulator.spd.datatypes.util.DatatypesValidator;
 import org.palladiosimulator.spd.impl.SpdPackageImpl;
 import org.palladiosimulator.spd.models.ModelsPackage;
 import org.palladiosimulator.spd.models.impl.ModelsPackageImpl;
@@ -45,27 +43,20 @@ import de.uka.ipd.sdq.units.UnitsPackage;
  *
  * @generated
  */
-public class PolicyPackageImpl extends EPackageImpl implements PolicyPackage {
+public class DatatypesPackageImpl extends EPackageImpl implements DatatypesPackage {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @generated
      */
-    private EClass policyConstraintEClass = null;
+    private EDataType percentDoubleEDataType = null;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @generated
      */
-    private EClass intervalConstraintEClass = null;
-
-    /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @generated
-     */
-    private EClass cooldownConstraintEClass = null;
+    private EDataType positiveIntegerEDataType = null;
 
     /**
      * Creates an instance of the model <b>Package</b>, registered with
@@ -77,12 +68,12 @@ public class PolicyPackageImpl extends EPackageImpl implements PolicyPackage {
      * package, if one already exists. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @see org.eclipse.emf.ecore.EPackage.Registry
-     * @see org.palladiosimulator.spd.constraints.policy.PolicyPackage#eNS_URI
+     * @see org.palladiosimulator.spd.datatypes.DatatypesPackage#eNS_URI
      * @see #init()
      * @generated
      */
-    private PolicyPackageImpl() {
-        super(eNS_URI, PolicyFactory.eINSTANCE);
+    private DatatypesPackageImpl() {
+        super(eNS_URI, DatatypesFactory.eINSTANCE);
     }
 
     /**
@@ -97,7 +88,7 @@ public class PolicyPackageImpl extends EPackageImpl implements PolicyPackage {
      * upon which it depends.
      *
      * <p>
-     * This method is used to initialize {@link PolicyPackage#eINSTANCE} when that field is
+     * This method is used to initialize {@link DatatypesPackage#eINSTANCE} when that field is
      * accessed. Clients should not invoke it directly. Instead, they should simply access that
      * field to obtain the package. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
@@ -106,16 +97,16 @@ public class PolicyPackageImpl extends EPackageImpl implements PolicyPackage {
      * @see #initializePackageContents()
      * @generated
      */
-    public static PolicyPackage init() {
+    public static DatatypesPackage init() {
         if (isInited) {
-            return (PolicyPackage) EPackage.Registry.INSTANCE.getEPackage(PolicyPackage.eNS_URI);
+            return (DatatypesPackage) EPackage.Registry.INSTANCE.getEPackage(DatatypesPackage.eNS_URI);
         }
 
         // Obtain or create and register package
-        final Object registeredPolicyPackage = EPackage.Registry.INSTANCE.get(eNS_URI);
-        final PolicyPackageImpl thePolicyPackage = registeredPolicyPackage instanceof PolicyPackageImpl
-                ? (PolicyPackageImpl) registeredPolicyPackage
-                : new PolicyPackageImpl();
+        final Object registeredDatatypesPackage = EPackage.Registry.INSTANCE.get(eNS_URI);
+        final DatatypesPackageImpl theDatatypesPackage = registeredDatatypesPackage instanceof DatatypesPackageImpl
+                ? (DatatypesPackageImpl) registeredDatatypesPackage
+                : new DatatypesPackageImpl();
 
         isInited = true;
 
@@ -144,6 +135,10 @@ public class PolicyPackageImpl extends EPackageImpl implements PolicyPackage {
         final ConstraintsPackageImpl theConstraintsPackage = (ConstraintsPackageImpl) (registeredPackage instanceof ConstraintsPackageImpl
                 ? registeredPackage
                 : ConstraintsPackage.eINSTANCE);
+        registeredPackage = EPackage.Registry.INSTANCE.getEPackage(PolicyPackage.eNS_URI);
+        final PolicyPackageImpl thePolicyPackage = (PolicyPackageImpl) (registeredPackage instanceof PolicyPackageImpl
+                ? registeredPackage
+                : PolicyPackage.eINSTANCE);
         registeredPackage = EPackage.Registry.INSTANCE.getEPackage(TargetPackage.eNS_URI);
         final TargetPackageImpl theTargetPackage = (TargetPackageImpl) (registeredPackage instanceof TargetPackageImpl
                 ? registeredPackage
@@ -164,43 +159,47 @@ public class PolicyPackageImpl extends EPackageImpl implements PolicyPackage {
         final ModelsPackageImpl theModelsPackage = (ModelsPackageImpl) (registeredPackage instanceof ModelsPackageImpl
                 ? registeredPackage
                 : ModelsPackage.eINSTANCE);
-        registeredPackage = EPackage.Registry.INSTANCE.getEPackage(DatatypesPackage.eNS_URI);
-        final DatatypesPackageImpl theDatatypesPackage = (DatatypesPackageImpl) (registeredPackage instanceof DatatypesPackageImpl
-                ? registeredPackage
-                : DatatypesPackage.eINSTANCE);
 
         // Create package meta-data objects
-        thePolicyPackage.createPackageContents();
+        theDatatypesPackage.createPackageContents();
         theSpdPackage.createPackageContents();
         theTargetsPackage.createPackageContents();
         theAdjustmentsPackage.createPackageContents();
         theConstraintsPackage.createPackageContents();
+        thePolicyPackage.createPackageContents();
         theTargetPackage.createPackageContents();
         theTriggersPackage.createPackageContents();
         theStimuliPackage.createPackageContents();
         theExpectationsPackage.createPackageContents();
         theModelsPackage.createPackageContents();
-        theDatatypesPackage.createPackageContents();
 
         // Initialize created meta-data
-        thePolicyPackage.initializePackageContents();
+        theDatatypesPackage.initializePackageContents();
         theSpdPackage.initializePackageContents();
         theTargetsPackage.initializePackageContents();
         theAdjustmentsPackage.initializePackageContents();
         theConstraintsPackage.initializePackageContents();
+        thePolicyPackage.initializePackageContents();
         theTargetPackage.initializePackageContents();
         theTriggersPackage.initializePackageContents();
         theStimuliPackage.initializePackageContents();
         theExpectationsPackage.initializePackageContents();
         theModelsPackage.initializePackageContents();
-        theDatatypesPackage.initializePackageContents();
+
+        // Register package validator
+        EValidator.Registry.INSTANCE.put(theDatatypesPackage, new EValidator.Descriptor() {
+            @Override
+            public EValidator getEValidator() {
+                return DatatypesValidator.INSTANCE;
+            }
+        });
 
         // Mark meta-data to indicate it can't be changed
-        thePolicyPackage.freeze();
+        theDatatypesPackage.freeze();
 
         // Update the registry and return the package
-        EPackage.Registry.INSTANCE.put(PolicyPackage.eNS_URI, thePolicyPackage);
-        return thePolicyPackage;
+        EPackage.Registry.INSTANCE.put(DatatypesPackage.eNS_URI, theDatatypesPackage);
+        return theDatatypesPackage;
     }
 
     /**
@@ -209,8 +208,8 @@ public class PolicyPackageImpl extends EPackageImpl implements PolicyPackage {
      * @generated
      */
     @Override
-    public EClass getPolicyConstraint() {
-        return this.policyConstraintEClass;
+    public EDataType getPercentDouble() {
+        return this.percentDoubleEDataType;
     }
 
     /**
@@ -219,8 +218,8 @@ public class PolicyPackageImpl extends EPackageImpl implements PolicyPackage {
      * @generated
      */
     @Override
-    public EClass getIntervalConstraint() {
-        return this.intervalConstraintEClass;
+    public EDataType getPositiveInteger() {
+        return this.positiveIntegerEDataType;
     }
 
     /**
@@ -229,73 +228,8 @@ public class PolicyPackageImpl extends EPackageImpl implements PolicyPackage {
      * @generated
      */
     @Override
-    public EAttribute getIntervalConstraint_Offset() {
-        return (EAttribute) this.intervalConstraintEClass.getEStructuralFeatures()
-            .get(0);
-    }
-
-    /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @generated
-     */
-    @Override
-    public EAttribute getIntervalConstraint_IntervalDuration() {
-        return (EAttribute) this.intervalConstraintEClass.getEStructuralFeatures()
-            .get(1);
-    }
-
-    /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @generated
-     */
-    @Override
-    public EAttribute getIntervalConstraint_Repeat() {
-        return (EAttribute) this.intervalConstraintEClass.getEStructuralFeatures()
-            .get(2);
-    }
-
-    /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @generated
-     */
-    @Override
-    public EClass getCooldownConstraint() {
-        return this.cooldownConstraintEClass;
-    }
-
-    /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @generated
-     */
-    @Override
-    public EAttribute getCooldownConstraint_CooldownTime() {
-        return (EAttribute) this.cooldownConstraintEClass.getEStructuralFeatures()
-            .get(0);
-    }
-
-    /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @generated
-     */
-    @Override
-    public EAttribute getCooldownConstraint_MaxScalingOperations() {
-        return (EAttribute) this.cooldownConstraintEClass.getEStructuralFeatures()
-            .get(1);
-    }
-
-    /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @generated
-     */
-    @Override
-    public PolicyFactory getPolicyFactory() {
-        return (PolicyFactory) this.getEFactoryInstance();
+    public DatatypesFactory getDatatypesFactory() {
+        return (DatatypesFactory) this.getEFactoryInstance();
     }
 
     /**
@@ -317,17 +251,9 @@ public class PolicyPackageImpl extends EPackageImpl implements PolicyPackage {
         }
         this.isCreated = true;
 
-        // Create classes and their features
-        this.policyConstraintEClass = this.createEClass(POLICY_CONSTRAINT);
-
-        this.intervalConstraintEClass = this.createEClass(INTERVAL_CONSTRAINT);
-        this.createEAttribute(this.intervalConstraintEClass, INTERVAL_CONSTRAINT__OFFSET);
-        this.createEAttribute(this.intervalConstraintEClass, INTERVAL_CONSTRAINT__INTERVAL_DURATION);
-        this.createEAttribute(this.intervalConstraintEClass, INTERVAL_CONSTRAINT__REPEAT);
-
-        this.cooldownConstraintEClass = this.createEClass(COOLDOWN_CONSTRAINT);
-        this.createEAttribute(this.cooldownConstraintEClass, COOLDOWN_CONSTRAINT__COOLDOWN_TIME);
-        this.createEAttribute(this.cooldownConstraintEClass, COOLDOWN_CONSTRAINT__MAX_SCALING_OPERATIONS);
+        // Create data types
+        this.percentDoubleEDataType = this.createEDataType(PERCENT_DOUBLE);
+        this.positiveIntegerEDataType = this.createEDataType(POSITIVE_INTEGER);
     }
 
     /**
@@ -354,50 +280,28 @@ public class PolicyPackageImpl extends EPackageImpl implements PolicyPackage {
         this.setNsPrefix(eNS_PREFIX);
         this.setNsURI(eNS_URI);
 
-        // Obtain other dependent packages
-        final ConstraintsPackage theConstraintsPackage = (ConstraintsPackage) EPackage.Registry.INSTANCE
-            .getEPackage(ConstraintsPackage.eNS_URI);
+        // Initialize data types
+        this.initEDataType(this.percentDoubleEDataType, double.class, "PercentDouble", IS_SERIALIZABLE,
+                !IS_GENERATED_INSTANCE_CLASS);
+        this.initEDataType(this.positiveIntegerEDataType, int.class, "PositiveInteger", IS_SERIALIZABLE,
+                !IS_GENERATED_INSTANCE_CLASS);
 
-        // Create type parameters
-
-        // Set bounds for type parameters
-
-        // Add supertypes to classes
-        this.policyConstraintEClass.getESuperTypes()
-            .add(theConstraintsPackage.getAbstractConstraint());
-        this.intervalConstraintEClass.getESuperTypes()
-            .add(theConstraintsPackage.getTemporalConstraint());
-        this.intervalConstraintEClass.getESuperTypes()
-            .add(this.getPolicyConstraint());
-        this.cooldownConstraintEClass.getESuperTypes()
-            .add(theConstraintsPackage.getTemporalConstraint());
-        this.cooldownConstraintEClass.getESuperTypes()
-            .add(this.getPolicyConstraint());
-
-        // Initialize classes and features; add operations and parameters
-        this.initEClass(this.policyConstraintEClass, PolicyConstraint.class, "PolicyConstraint", IS_ABSTRACT,
-                !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-        this.initEClass(this.intervalConstraintEClass, IntervalConstraint.class, "IntervalConstraint", !IS_ABSTRACT,
-                !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-        this.initEAttribute(this.getIntervalConstraint_Offset(), this.ecorePackage.getEDouble(), "offset", null, 1, 1,
-                IntervalConstraint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
-                !IS_DERIVED, IS_ORDERED);
-        this.initEAttribute(this.getIntervalConstraint_IntervalDuration(), this.ecorePackage.getEDouble(),
-                "intervalDuration", null, 1, 1, IntervalConstraint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
-                !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-        this.initEAttribute(this.getIntervalConstraint_Repeat(), this.ecorePackage.getEBoolean(), "repeat", "false", 0,
-                1, IntervalConstraint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
-                IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-        this.initEClass(this.cooldownConstraintEClass, CooldownConstraint.class, "CooldownConstraint", !IS_ABSTRACT,
-                !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-        this.initEAttribute(this.getCooldownConstraint_CooldownTime(), this.ecorePackage.getEDouble(), "cooldownTime",
-                null, 1, 1, CooldownConstraint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE,
-                !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-        this.initEAttribute(this.getCooldownConstraint_MaxScalingOperations(), this.ecorePackage.getEInt(),
-                "maxScalingOperations", "0", 1, 1, CooldownConstraint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
-                !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        // Create annotations
+        // http:///org/eclipse/emf/ecore/util/ExtendedMetaData
+        this.createExtendedMetaDataAnnotations();
     }
 
-} // PolicyPackageImpl
+    /**
+     * Initializes the annotations for <b>http:///org/eclipse/emf/ecore/util/ExtendedMetaData</b>.
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    protected void createExtendedMetaDataAnnotations() {
+        final String source = "http:///org/eclipse/emf/ecore/util/ExtendedMetaData";
+        this.addAnnotation(this.percentDoubleEDataType, source,
+                new String[] { "maxInclusive", "1.0", "minInclusive", "0.0" });
+        this.addAnnotation(this.positiveIntegerEDataType, source, new String[] { "minInclusive", "0" });
+    }
+
+} // DatatypesPackageImpl

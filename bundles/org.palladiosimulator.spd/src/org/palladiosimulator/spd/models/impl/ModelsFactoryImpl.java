@@ -4,7 +4,6 @@
 package org.palladiosimulator.spd.models.impl;
 
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
@@ -76,40 +75,6 @@ public class ModelsFactoryImpl extends EFactoryImpl implements ModelsFactory {
      * @generated
      */
     @Override
-    public Object createFromString(final EDataType eDataType, final String initialValue) {
-        switch (eDataType.getClassifierID()) {
-        case ModelsPackage.PERCENT_DOUBLE:
-            return this.createPercentDoubleFromString(eDataType, initialValue);
-        case ModelsPackage.POSITIVE_INTEGER:
-            return this.createPositiveIntegerFromString(eDataType, initialValue);
-        default:
-            throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
-        }
-    }
-
-    /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @generated
-     */
-    @Override
-    public String convertToString(final EDataType eDataType, final Object instanceValue) {
-        switch (eDataType.getClassifierID()) {
-        case ModelsPackage.PERCENT_DOUBLE:
-            return this.convertPercentDoubleToString(eDataType, instanceValue);
-        case ModelsPackage.POSITIVE_INTEGER:
-            return this.convertPositiveIntegerToString(eDataType, instanceValue);
-        default:
-            throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
-        }
-    }
-
-    /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @generated
-     */
-    @Override
     public QThresholdsModel createQThresholdsModel() {
         final QThresholdsModelImpl qThresholdsModel = new QThresholdsModelImpl();
         return qThresholdsModel;
@@ -146,42 +111,6 @@ public class ModelsFactoryImpl extends EFactoryImpl implements ModelsFactory {
     public LearningBasedModel createLearningBasedModel() {
         final LearningBasedModelImpl learningBasedModel = new LearningBasedModelImpl();
         return learningBasedModel;
-    }
-
-    /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @generated
-     */
-    public Double createPercentDoubleFromString(final EDataType eDataType, final String initialValue) {
-        return (Double) super.createFromString(eDataType, initialValue);
-    }
-
-    /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @generated
-     */
-    public String convertPercentDoubleToString(final EDataType eDataType, final Object instanceValue) {
-        return super.convertToString(eDataType, instanceValue);
-    }
-
-    /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @generated
-     */
-    public Integer createPositiveIntegerFromString(final EDataType eDataType, final String initialValue) {
-        return (Integer) super.createFromString(eDataType, initialValue);
-    }
-
-    /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @generated
-     */
-    public String convertPositiveIntegerToString(final EDataType eDataType, final Object instanceValue) {
-        return super.convertToString(eDataType, instanceValue);
     }
 
     /**

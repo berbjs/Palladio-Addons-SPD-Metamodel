@@ -43,7 +43,7 @@ public class QThresholdsModelImpl extends LearningBasedModelImpl implements QThr
      * @generated
      * @ordered
      */
-    protected static final double TARGET_RESPONSE_TIME_EDEFAULT = 0.0;
+    protected static final double TARGET_RESPONSE_TIME_EDEFAULT = 1.0;
     /**
      * The default value of the '{@link #getExponentialSteepness() <em>Exponential Steepness</em>}'
      * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->

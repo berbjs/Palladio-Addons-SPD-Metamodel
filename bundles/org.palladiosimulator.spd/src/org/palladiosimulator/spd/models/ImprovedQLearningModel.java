@@ -66,7 +66,7 @@ public interface ImprovedQLearningModel extends LearningBasedModel {
      * @return the value of the '<em>Epsilon</em>' attribute.
      * @see #setEpsilon(double)
      * @see org.palladiosimulator.spd.models.ModelsPackage#getImprovedQLearningModel_Epsilon()
-     * @model default="0.05" dataType="org.palladiosimulator.spd.models.PercentDouble"
+     * @model default="0.05" dataType="org.palladiosimulator.spd.datatypes.PercentDouble"
      *        required="true"
      * @generated
      */
@@ -91,7 +91,7 @@ public interface ImprovedQLearningModel extends LearningBasedModel {
      * @return the value of the '<em>Action Count</em>' attribute.
      * @see #setActionCount(int)
      * @see org.palladiosimulator.spd.models.ModelsPackage#getImprovedQLearningModel_ActionCount()
-     * @model default="5" dataType="org.palladiosimulator.spd.models.PositiveInteger"
+     * @model default="5" dataType="org.palladiosimulator.spd.datatypes.PositiveInteger"
      *        required="true"
      * @generated
      */

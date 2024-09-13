@@ -5,10 +5,8 @@ package org.palladiosimulator.spd.models.impl;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
-import org.eclipse.emf.ecore.EValidator;
 import org.eclipse.emf.ecore.EcorePackage;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 import org.palladiosimulator.pcm.PcmPackage;
@@ -21,6 +19,8 @@ import org.palladiosimulator.spd.constraints.policy.PolicyPackage;
 import org.palladiosimulator.spd.constraints.policy.impl.PolicyPackageImpl;
 import org.palladiosimulator.spd.constraints.target.TargetPackage;
 import org.palladiosimulator.spd.constraints.target.impl.TargetPackageImpl;
+import org.palladiosimulator.spd.datatypes.DatatypesPackage;
+import org.palladiosimulator.spd.datatypes.impl.DatatypesPackageImpl;
 import org.palladiosimulator.spd.impl.SpdPackageImpl;
 import org.palladiosimulator.spd.models.BaseModel;
 import org.palladiosimulator.spd.models.ImprovedQLearningModel;
@@ -29,7 +29,6 @@ import org.palladiosimulator.spd.models.ModelsFactory;
 import org.palladiosimulator.spd.models.ModelsPackage;
 import org.palladiosimulator.spd.models.QThresholdsModel;
 import org.palladiosimulator.spd.models.RandomModel;
-import org.palladiosimulator.spd.models.util.ModelsValidator;
 import org.palladiosimulator.spd.targets.TargetsPackage;
 import org.palladiosimulator.spd.targets.impl.TargetsPackageImpl;
 import org.palladiosimulator.spd.triggers.TriggersPackage;
@@ -84,20 +83,6 @@ public class ModelsPackageImpl extends EPackageImpl implements ModelsPackage {
      * @generated
      */
     private EClass learningBasedModelEClass = null;
-
-    /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @generated
-     */
-    private EDataType percentDoubleEDataType = null;
-
-    /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @generated
-     */
-    private EDataType positiveIntegerEDataType = null;
 
     /**
      * Creates an instance of the model <b>Package</b>, registered with
@@ -196,6 +181,10 @@ public class ModelsPackageImpl extends EPackageImpl implements ModelsPackage {
         final ExpectationsPackageImpl theExpectationsPackage = (ExpectationsPackageImpl) (registeredPackage instanceof ExpectationsPackageImpl
                 ? registeredPackage
                 : ExpectationsPackage.eINSTANCE);
+        registeredPackage = EPackage.Registry.INSTANCE.getEPackage(DatatypesPackage.eNS_URI);
+        final DatatypesPackageImpl theDatatypesPackage = (DatatypesPackageImpl) (registeredPackage instanceof DatatypesPackageImpl
+                ? registeredPackage
+                : DatatypesPackage.eINSTANCE);
 
         // Create package meta-data objects
         theModelsPackage.createPackageContents();
@@ -208,6 +197,7 @@ public class ModelsPackageImpl extends EPackageImpl implements ModelsPackage {
         theTriggersPackage.createPackageContents();
         theStimuliPackage.createPackageContents();
         theExpectationsPackage.createPackageContents();
+        theDatatypesPackage.createPackageContents();
 
         // Initialize created meta-data
         theModelsPackage.initializePackageContents();
@@ -220,14 +210,7 @@ public class ModelsPackageImpl extends EPackageImpl implements ModelsPackage {
         theTriggersPackage.initializePackageContents();
         theStimuliPackage.initializePackageContents();
         theExpectationsPackage.initializePackageContents();
-
-        // Register package validator
-        EValidator.Registry.INSTANCE.put(theModelsPackage, new EValidator.Descriptor() {
-            @Override
-            public EValidator getEValidator() {
-                return ModelsValidator.INSTANCE;
-            }
-        });
+        theDatatypesPackage.initializePackageContents();
 
         // Mark meta-data to indicate it can't be changed
         theModelsPackage.freeze();
@@ -502,26 +485,6 @@ public class ModelsPackageImpl extends EPackageImpl implements ModelsPackage {
      * @generated
      */
     @Override
-    public EDataType getPercentDouble() {
-        return this.percentDoubleEDataType;
-    }
-
-    /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @generated
-     */
-    @Override
-    public EDataType getPositiveInteger() {
-        return this.positiveIntegerEDataType;
-    }
-
-    /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @generated
-     */
-    @Override
     public ModelsFactory getModelsFactory() {
         return (ModelsFactory) this.getEFactoryInstance();
     }
@@ -574,10 +537,6 @@ public class ModelsPackageImpl extends EPackageImpl implements ModelsPackage {
 
         this.learningBasedModelEClass = this.createEClass(LEARNING_BASED_MODEL);
         this.createEAttribute(this.learningBasedModelEClass, LEARNING_BASED_MODEL__LEARNING_RATE);
-
-        // Create data types
-        this.percentDoubleEDataType = this.createEDataType(PERCENT_DOUBLE);
-        this.positiveIntegerEDataType = this.createEDataType(POSITIVE_INTEGER);
     }
 
     /**
@@ -609,6 +568,8 @@ public class ModelsPackageImpl extends EPackageImpl implements ModelsPackage {
             .getEPackage(EcorePackage.eNS_URI);
         final StimuliPackage theStimuliPackage = (StimuliPackage) EPackage.Registry.INSTANCE
             .getEPackage(StimuliPackage.eNS_URI);
+        final DatatypesPackage theDatatypesPackage = (DatatypesPackage) EPackage.Registry.INSTANCE
+            .getEPackage(DatatypesPackage.eNS_URI);
 
         // Create type parameters
 
@@ -636,11 +597,11 @@ public class ModelsPackageImpl extends EPackageImpl implements ModelsPackage {
 
         this.initEClass(this.qThresholdsModelEClass, QThresholdsModel.class, "QThresholdsModel", !IS_ABSTRACT,
                 !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-        this.initEReference(this.getQThresholdsModel_Input(), theStimuliPackage.getStimulus(), null, "input", null, 0,
+        this.initEReference(this.getQThresholdsModel_Input(), theStimuliPackage.getStimulus(), null, "input", null, 1,
                 1, QThresholdsModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
                 !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         this.initEAttribute(this.getQThresholdsModel_TargetResponseTime(), theEcorePackage.getEDouble(),
-                "targetResponseTime", null, 0, 1, QThresholdsModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
+                "targetResponseTime", "1.0", 1, 1, QThresholdsModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
                 !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         this.initEReference(this.getQThresholdsModel_ResponseTimeStimulus(),
                 theStimuliPackage.getOperationResponseTime(), null, "responseTimeStimulus", null, 1, 1,
@@ -652,9 +613,9 @@ public class ModelsPackageImpl extends EPackageImpl implements ModelsPackage {
         this.initEReference(this.getQThresholdsModel_UtilizationStimulus(), theStimuliPackage.getStimulus(), null,
                 "utilizationStimulus", null, 1, 1, QThresholdsModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
                 IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-        this.initEAttribute(this.getQThresholdsModel_Epsilon(), this.getPercentDouble(), "epsilon", "0.05", 1, 1,
-                QThresholdsModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
-                !IS_DERIVED, IS_ORDERED);
+        this.initEAttribute(this.getQThresholdsModel_Epsilon(), theDatatypesPackage.getPercentDouble(), "epsilon",
+                "0.05", 1, 1, QThresholdsModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE,
+                !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
         this.initEClass(this.randomModelEClass, RandomModel.class, "RandomModel", !IS_ABSTRACT, !IS_INTERFACE,
                 IS_GENERATED_INSTANCE_CLASS);
@@ -673,21 +634,21 @@ public class ModelsPackageImpl extends EPackageImpl implements ModelsPackage {
         this.initEReference(this.getImprovedQLearningModel_Input(), theStimuliPackage.getStimulus(), null, "input",
                 null, 1, 1, ImprovedQLearningModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
                 !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-        this.initEAttribute(this.getImprovedQLearningModel_Epsilon(), this.getPercentDouble(), "epsilon", "0.05", 1, 1,
-                ImprovedQLearningModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
-                IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-        this.initEAttribute(this.getImprovedQLearningModel_ActionCount(), this.getPositiveInteger(), "actionCount", "5",
-                1, 1, ImprovedQLearningModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
-                IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        this.initEAttribute(this.getImprovedQLearningModel_Epsilon(), theDatatypesPackage.getPercentDouble(), "epsilon",
+                "0.05", 1, 1, ImprovedQLearningModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE,
+                !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        this.initEAttribute(this.getImprovedQLearningModel_ActionCount(), theDatatypesPackage.getPositiveInteger(),
+                "actionCount", "5", 1, 1, ImprovedQLearningModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
+                !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         this.initEAttribute(this.getImprovedQLearningModel_TargetResponseTime(), theEcorePackage.getEDouble(),
-                "targetResponseTime", null, 0, 1, ImprovedQLearningModel.class, !IS_TRANSIENT, !IS_VOLATILE,
+                "targetResponseTime", "1.0", 1, 1, ImprovedQLearningModel.class, !IS_TRANSIENT, !IS_VOLATILE,
                 IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         this.initEReference(this.getImprovedQLearningModel_ResponseTimeStimulus(),
                 theStimuliPackage.getOperationResponseTime(), null, "responseTimeStimulus", null, 1, 1,
                 ImprovedQLearningModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
                 !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         this.initEAttribute(this.getImprovedQLearningModel_ExponentialSteepness(), theEcorePackage.getEDouble(),
-                "exponentialSteepness", null, 0, 1, ImprovedQLearningModel.class, !IS_TRANSIENT, !IS_VOLATILE,
+                "exponentialSteepness", "1.0", 1, 1, ImprovedQLearningModel.class, !IS_TRANSIENT, !IS_VOLATILE,
                 IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         this.initEReference(this.getImprovedQLearningModel_UtilizationStimulus(), theStimuliPackage.getStimulus(), null,
                 "utilizationStimulus", null, 1, 1, ImprovedQLearningModel.class, !IS_TRANSIENT, !IS_VOLATILE,
@@ -695,46 +656,9 @@ public class ModelsPackageImpl extends EPackageImpl implements ModelsPackage {
 
         this.initEClass(this.learningBasedModelEClass, LearningBasedModel.class, "LearningBasedModel", !IS_ABSTRACT,
                 !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-        this.initEAttribute(this.getLearningBasedModel_LearningRate(), this.getPercentDouble(), "learningRate", "0.1",
-                1, 1, LearningBasedModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
-                IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-        // Initialize data types
-        this.initEDataType(this.percentDoubleEDataType, double.class, "PercentDouble", IS_SERIALIZABLE,
-                !IS_GENERATED_INSTANCE_CLASS);
-        this.initEDataType(this.positiveIntegerEDataType, int.class, "PositiveInteger", IS_SERIALIZABLE,
-                !IS_GENERATED_INSTANCE_CLASS);
-
-        // Create annotations
-        // http://www.eclipse.org/emf/2002/Ecore
-        this.createEcoreAnnotations();
-        // http:///org/eclipse/emf/ecore/util/ExtendedMetaData
-        this.createExtendedMetaDataAnnotations();
-    }
-
-    /**
-     * Initializes the annotations for <b>http://www.eclipse.org/emf/2002/Ecore</b>. <!--
-     * begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @generated
-     */
-    protected void createEcoreAnnotations() {
-        final String source = "http://www.eclipse.org/emf/2002/Ecore";
-        this.addAnnotation(this.qThresholdsModelEClass, source,
-                new String[] { "constraints", "positiveExponentialSteepness" });
-    }
-
-    /**
-     * Initializes the annotations for <b>http:///org/eclipse/emf/ecore/util/ExtendedMetaData</b>.
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @generated
-     */
-    protected void createExtendedMetaDataAnnotations() {
-        final String source = "http:///org/eclipse/emf/ecore/util/ExtendedMetaData";
-        this.addAnnotation(this.percentDoubleEDataType, source,
-                new String[] { "maxInclusive", "1.0", "minInclusive", "0.0" });
-        this.addAnnotation(this.positiveIntegerEDataType, source, new String[] { "minInclusive", "0" });
+        this.initEAttribute(this.getLearningBasedModel_LearningRate(), theDatatypesPackage.getPercentDouble(),
+                "learningRate", "0.1", 1, 1, LearningBasedModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
+                !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     }
 
 } // ModelsPackageImpl

@@ -63,7 +63,7 @@ public class ImprovedQLearningModelImpl extends LearningBasedModelImpl implement
      * @generated
      * @ordered
      */
-    protected static final double TARGET_RESPONSE_TIME_EDEFAULT = 0.0;
+    protected static final double TARGET_RESPONSE_TIME_EDEFAULT = 1.0;
     /**
      * The default value of the '{@link #getExponentialSteepness() <em>Exponential Steepness</em>}'
      * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -72,7 +72,7 @@ public class ImprovedQLearningModelImpl extends LearningBasedModelImpl implement
      * @generated
      * @ordered
      */
-    protected static final double EXPONENTIAL_STEEPNESS_EDEFAULT = 0.0;
+    protected static final double EXPONENTIAL_STEEPNESS_EDEFAULT = 1.0;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->

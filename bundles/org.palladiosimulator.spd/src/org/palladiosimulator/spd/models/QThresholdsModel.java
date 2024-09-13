@@ -27,8 +27,7 @@ import org.palladiosimulator.spd.triggers.stimuli.Stimulus;
  * </ul>
  *
  * @see org.palladiosimulator.spd.models.ModelsPackage#getQThresholdsModel()
- * @model annotation="http://www.eclipse.org/emf/2002/Ecore
- *        constraints='positiveExponentialSteepness'"
+ * @model
  * @generated
  */
 public interface QThresholdsModel extends LearningBasedModel {
@@ -40,7 +39,7 @@ public interface QThresholdsModel extends LearningBasedModel {
      * @return the value of the '<em>Input</em>' containment reference.
      * @see #setInput(Stimulus)
      * @see org.palladiosimulator.spd.models.ModelsPackage#getQThresholdsModel_Input()
-     * @model containment="true"
+     * @model containment="true" required="true"
      * @generated
      */
     Stimulus getInput();
@@ -161,7 +160,7 @@ public interface QThresholdsModel extends LearningBasedModel {
      * @return the value of the '<em>Epsilon</em>' attribute.
      * @see #setEpsilon(double)
      * @see org.palladiosimulator.spd.models.ModelsPackage#getQThresholdsModel_Epsilon()
-     * @model default="0.05" dataType="org.palladiosimulator.spd.models.PercentDouble"
+     * @model default="0.05" dataType="org.palladiosimulator.spd.datatypes.PercentDouble"
      *        required="true"
      * @generated
      */

@@ -25,6 +25,8 @@ import org.palladiosimulator.spd.constraints.policy.PolicyPackage;
 import org.palladiosimulator.spd.constraints.policy.impl.PolicyPackageImpl;
 import org.palladiosimulator.spd.constraints.target.TargetPackage;
 import org.palladiosimulator.spd.constraints.target.impl.TargetPackageImpl;
+import org.palladiosimulator.spd.datatypes.DatatypesPackage;
+import org.palladiosimulator.spd.datatypes.impl.DatatypesPackageImpl;
 import org.palladiosimulator.spd.models.ModelsPackage;
 import org.palladiosimulator.spd.models.impl.ModelsPackageImpl;
 import org.palladiosimulator.spd.targets.TargetsPackage;
@@ -173,6 +175,10 @@ public class SpdPackageImpl extends EPackageImpl implements SpdPackage {
         final ModelsPackageImpl theModelsPackage = (ModelsPackageImpl) (registeredPackage instanceof ModelsPackageImpl
                 ? registeredPackage
                 : ModelsPackage.eINSTANCE);
+        registeredPackage = EPackage.Registry.INSTANCE.getEPackage(DatatypesPackage.eNS_URI);
+        final DatatypesPackageImpl theDatatypesPackage = (DatatypesPackageImpl) (registeredPackage instanceof DatatypesPackageImpl
+                ? registeredPackage
+                : DatatypesPackage.eINSTANCE);
 
         // Create package meta-data objects
         theSpdPackage.createPackageContents();
@@ -185,6 +191,7 @@ public class SpdPackageImpl extends EPackageImpl implements SpdPackage {
         theStimuliPackage.createPackageContents();
         theExpectationsPackage.createPackageContents();
         theModelsPackage.createPackageContents();
+        theDatatypesPackage.createPackageContents();
 
         // Initialize created meta-data
         theSpdPackage.initializePackageContents();
@@ -197,6 +204,7 @@ public class SpdPackageImpl extends EPackageImpl implements SpdPackage {
         theStimuliPackage.initializePackageContents();
         theExpectationsPackage.initializePackageContents();
         theModelsPackage.initializePackageContents();
+        theDatatypesPackage.initializePackageContents();
 
         // Register package validator
         EValidator.Registry.INSTANCE.put(theSpdPackage, new EValidator.Descriptor() {
@@ -436,6 +444,8 @@ public class SpdPackageImpl extends EPackageImpl implements SpdPackage {
             .getEPackage(TriggersPackage.eNS_URI);
         final ModelsPackage theModelsPackage = (ModelsPackage) EPackage.Registry.INSTANCE
             .getEPackage(ModelsPackage.eNS_URI);
+        final DatatypesPackage theDatatypesPackage = (DatatypesPackage) EPackage.Registry.INSTANCE
+            .getEPackage(DatatypesPackage.eNS_URI);
         final EntityPackage theEntityPackage = (EntityPackage) EPackage.Registry.INSTANCE
             .getEPackage(EntityPackage.eNS_URI);
         final PolicyPackage thePolicyPackage = (PolicyPackage) EPackage.Registry.INSTANCE
@@ -454,6 +464,8 @@ public class SpdPackageImpl extends EPackageImpl implements SpdPackage {
             .add(theTriggersPackage);
         this.getESubpackages()
             .add(theModelsPackage);
+        this.getESubpackages()
+            .add(theDatatypesPackage);
 
         // Create type parameters
 
