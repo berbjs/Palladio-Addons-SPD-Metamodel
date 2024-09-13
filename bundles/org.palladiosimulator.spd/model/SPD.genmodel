@@ -197,8 +197,6 @@
     </nestedGenPackages>
     <nestedGenPackages prefix="Models" basePackage="org.palladiosimulator.spd" disposableProviderFactory="true"
         ecorePackage="SPD.ecore#//models">
-      <genDataTypes ecoreDataType="SPD.ecore#//models/PercentDouble"/>
-      <genDataTypes ecoreDataType="SPD.ecore#//models/PositiveInteger"/>
       <genClasses image="false" ecoreClass="SPD.ecore#//models/BaseModel">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SPD.ecore#//models/BaseModel/interval"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SPD.ecore#//models/BaseModel/initalIntervalDelay"/>
@@ -228,6 +226,11 @@
       <genClasses ecoreClass="SPD.ecore#//models/LearningBasedModel">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SPD.ecore#//models/LearningBasedModel/learningRate"/>
       </genClasses>
+    </nestedGenPackages>
+    <nestedGenPackages prefix="Datatypes" basePackage="org.palladiosimulator.spd"
+        disposableProviderFactory="true" ecorePackage="SPD.ecore#//datatypes">
+      <genDataTypes ecoreDataType="SPD.ecore#//datatypes/PercentDouble"/>
+      <genDataTypes ecoreDataType="SPD.ecore#//datatypes/PositiveInteger"/>
     </nestedGenPackages>
   </genPackages>
 </genmodel:GenModel>

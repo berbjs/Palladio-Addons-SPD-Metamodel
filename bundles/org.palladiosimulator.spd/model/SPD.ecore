@@ -435,7 +435,7 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="utilizationStimulus"
           lowerBound="1" eType="#//triggers/stimuli/Stimulus" containment="true"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="epsilon" lowerBound="1"
-          eType="#//models/PercentDouble" defaultValueLiteral="0.05"/>
+          eType="#//datatypes/PercentDouble" defaultValueLiteral="0.05"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="RandomModel" eSuperTypes="#//models/BaseModel">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="minAdjustment" lowerBound="1"
@@ -450,9 +450,9 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="input" lowerBound="1"
           eType="#//triggers/stimuli/Stimulus" containment="true"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="epsilon" lowerBound="1"
-          eType="#//models/PercentDouble" defaultValueLiteral="0.05"/>
+          eType="#//datatypes/PercentDouble" defaultValueLiteral="0.05"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="actionCount" lowerBound="1"
-          eType="#//models/PositiveInteger" defaultValueLiteral="5"/>
+          eType="#//datatypes/PositiveInteger" defaultValueLiteral="5"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="targetResponseTime" lowerBound="1"
           eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EDouble"
           defaultValueLiteral="1.0"/>
@@ -469,8 +469,11 @@
         <details key="documentation" value="Learning-based models have at least one stimulus as input and some reward that is used for the learning process."/>
       </eAnnotations>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="learningRate" lowerBound="1"
-          eType="#//models/PercentDouble" defaultValueLiteral="0.1"/>
+          eType="#//datatypes/PercentDouble" defaultValueLiteral="0.1"/>
     </eClassifiers>
+  </eSubpackages>
+  <eSubpackages name="datatypes" nsURI="http://palladiosimulator.org/ScalingPolicyDefinition/Datatypes/1.0"
+      nsPrefix="datatypes">
     <eClassifiers xsi:type="ecore:EDataType" name="PercentDouble" instanceClassName="double">
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="maxInclusive" value="1.0"/>
