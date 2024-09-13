@@ -116,17 +116,6 @@ public class ScalingPolicyItemProvider extends EntityItemProvider {
     }
 
     /**
-     * This returns the icon for the ScalingPolicy. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @generated NOT
-     */
-    @Override
-    public Object getImage(final Object object) {
-        return this.overlayImage(object, this.getResourceLocator()
-            .getImage("full/spdicons16/policy-icon.png"));
-    }
-
-    /**
      * This returns the label text for the adapted class. <!-- begin-user-doc --> <!-- end-user-doc
      * -->
      *
