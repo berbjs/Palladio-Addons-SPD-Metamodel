@@ -71,14 +71,19 @@ public class ManagedElementsStateStimulusItemProvider extends TargetGroupStateSt
      * This returns the label text for the adapted class. <!-- begin-user-doc --> <!-- end-user-doc
      * -->
      *
-     * @generated
+     * @generated NOT
      */
     @Override
     public String getText(final Object object) {
+        final StringBuilder stringBuilder = new StringBuilder(this.getString("_UI_CPUUtilization_type"));
         final AGGREGATIONMETHOD labelValue = ((ManagedElementsStateStimulus) object).getAggregationOverElements();
-        final String label = labelValue == null ? null : labelValue.toString();
-        return label == null || label.length() == 0 ? this.getString("_UI_ManagedElementsStateStimulus_type")
-                : this.getString("_UI_ManagedElementsStateStimulus_type") + " " + label;
+        if (labelValue != null && labelValue.toString()
+            .length() != 0) {
+            stringBuilder.append(" ")
+                .append(labelValue.toString());
+        }
+        stringBuilder.append(this.getRoleText(object));
+        return stringBuilder.toString();
     }
 
     /**

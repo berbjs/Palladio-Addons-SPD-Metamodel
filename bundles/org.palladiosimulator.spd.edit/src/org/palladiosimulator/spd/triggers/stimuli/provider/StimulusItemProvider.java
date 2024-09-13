@@ -17,6 +17,7 @@ import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.palladiosimulator.spd.provider.ScalingPolicyDefinitionEditPlugin;
+import org.palladiosimulator.spd.triggers.stimuli.Stimulus;
 
 /**
  * This is the item provider adapter for a
@@ -38,6 +39,26 @@ public class StimulusItemProvider extends ItemProviderAdapter implements IEditin
     }
 
     /**
+     * Helper method that provides a string containing " AS {ROLE}" if the stimulus is contained
+     * inside a feature
+     */
+    protected String getRoleText(final Object object) {
+        final Stimulus stimulus = (Stimulus) object;
+        if (stimulus.eContainingFeature() != null && stimulus.eContainer()
+            .eContents()
+            .stream()
+            .filter(Stimulus.class::isInstance)
+            .count() > 1 && stimulus.eContainingFeature()
+                .getName() != null && stimulus.eContainingFeature()
+                    .getName()
+                    .length() != 0) {
+            return " AS " + stimulus.eContainingFeature()
+                .getName();
+        }
+        return "";
+    }
+
+    /**
      * This returns the property descriptors for the adapted class. <!-- begin-user-doc --> <!--
      * end-user-doc -->
      *
@@ -56,11 +77,11 @@ public class StimulusItemProvider extends ItemProviderAdapter implements IEditin
      * This returns the label text for the adapted class. <!-- begin-user-doc --> <!-- end-user-doc
      * -->
      *
-     * @generated
+     * @generated NOT
      */
     @Override
     public String getText(final Object object) {
-        return this.getString("_UI_Stimulus_type");
+        return this.getString("_UI_Stimulus_type") + this.getRoleText(object);
     }
 
     /**

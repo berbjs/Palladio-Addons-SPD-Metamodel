@@ -77,11 +77,11 @@ public class QueueLengthItemProvider extends SourceInterfaceStimulusItemProvider
      * This returns the label text for the adapted class. <!-- begin-user-doc --> <!-- end-user-doc
      * -->
      *
-     * @generated
+     * @generated NOT
      */
     @Override
     public String getText(final Object object) {
-        return this.getString("_UI_QueueLength_type");
+        return super.getText(object);
     }
 
     /**

@@ -9,8 +9,6 @@ import java.util.List;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
-import org.palladiosimulator.spd.triggers.AGGREGATIONMETHOD;
-import org.palladiosimulator.spd.triggers.stimuli.MemoryUtilization;
 
 /**
  * This is the item provider adapter for a
@@ -60,14 +58,11 @@ public class MemoryUtilizationItemProvider extends ResourceUtilizationStimulusIt
      * This returns the label text for the adapted class. <!-- begin-user-doc --> <!-- end-user-doc
      * -->
      *
-     * @generated
+     * @generated NOT
      */
     @Override
     public String getText(final Object object) {
-        final AGGREGATIONMETHOD labelValue = ((MemoryUtilization) object).getAggregationOverElements();
-        final String label = labelValue == null ? null : labelValue.toString();
-        return label == null || label.length() == 0 ? this.getString("_UI_MemoryUtilization_type")
-                : this.getString("_UI_MemoryUtilization_type") + " " + label;
+        return super.getText(object);
     }
 
     /**

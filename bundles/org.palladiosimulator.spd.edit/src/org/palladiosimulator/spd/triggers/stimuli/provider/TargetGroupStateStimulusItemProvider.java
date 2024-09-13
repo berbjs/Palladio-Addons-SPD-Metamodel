@@ -47,11 +47,11 @@ public class TargetGroupStateStimulusItemProvider extends StimulusItemProvider {
      * This returns the label text for the adapted class. <!-- begin-user-doc --> <!-- end-user-doc
      * -->
      *
-     * @generated
+     * @generated NOT
      */
     @Override
     public String getText(final Object object) {
-        return this.getString("_UI_TargetGroupStateStimulus_type");
+        return super.getText(object);
     }
 
     /**

@@ -131,14 +131,14 @@ public class AggregatedStimulusItemProvider extends StimulusItemProvider {
      * This returns the label text for the adapted class. <!-- begin-user-doc --> <!-- end-user-doc
      * -->
      *
-     * @generated
+     * @generated NOT
      */
     @Override
     public String getText(final Object object) {
         final AGGREGATIONMETHOD labelValue = ((AggregatedStimulus) object).getAggregationMethod();
         final String label = labelValue == null ? null : labelValue.toString();
         return label == null || label.length() == 0 ? this.getString("_UI_AggregatedStimulus_type")
-                : this.getString("_UI_AggregatedStimulus_type") + " " + label;
+                : this.getString("_UI_AggregatedStimulus_type") + " " + label + this.getRoleText(object);
     }
 
     /**

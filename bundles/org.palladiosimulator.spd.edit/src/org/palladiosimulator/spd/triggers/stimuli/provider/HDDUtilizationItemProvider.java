@@ -12,7 +12,6 @@ import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
-import org.palladiosimulator.spd.triggers.AGGREGATIONMETHOD;
 import org.palladiosimulator.spd.triggers.stimuli.HDDUtilization;
 import org.palladiosimulator.spd.triggers.stimuli.StimuliPackage;
 
@@ -81,14 +80,11 @@ public class HDDUtilizationItemProvider extends ResourceUtilizationStimulusItemP
      * This returns the label text for the adapted class. <!-- begin-user-doc --> <!-- end-user-doc
      * -->
      *
-     * @generated
+     * @generated NOT
      */
     @Override
     public String getText(final Object object) {
-        final AGGREGATIONMETHOD labelValue = ((HDDUtilization) object).getAggregationOverElements();
-        final String label = labelValue == null ? null : labelValue.toString();
-        return label == null || label.length() == 0 ? this.getString("_UI_HDDUtilization_type")
-                : this.getString("_UI_HDDUtilization_type") + " " + label;
+        return super.getText(object);
     }
 
     /**
