@@ -19,7 +19,7 @@ package org.palladiosimulator.spd.models;
  * </ul>
  *
  * @see org.palladiosimulator.spd.models.ModelsPackage#getLearningBasedModel()
- * @model
+ * @model abstract="true"
  * @generated
  */
 public interface LearningBasedModel extends BaseModel {

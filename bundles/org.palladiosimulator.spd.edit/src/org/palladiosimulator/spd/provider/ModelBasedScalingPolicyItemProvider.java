@@ -154,9 +154,6 @@ public class ModelBasedScalingPolicyItemProvider extends ScalingPolicyItemProvid
         super.collectNewChildDescriptors(newChildDescriptors, object);
 
         newChildDescriptors.add(this.createChildParameter(SpdPackage.Literals.MODEL_BASED_SCALING_POLICY__MODEL,
-                ModelsFactory.eINSTANCE.createLearningBasedModel()));
-
-        newChildDescriptors.add(this.createChildParameter(SpdPackage.Literals.MODEL_BASED_SCALING_POLICY__MODEL,
                 ModelsFactory.eINSTANCE.createQThresholdsModel()));
 
         newChildDescriptors.add(this.createChildParameter(SpdPackage.Literals.MODEL_BASED_SCALING_POLICY__MODEL,

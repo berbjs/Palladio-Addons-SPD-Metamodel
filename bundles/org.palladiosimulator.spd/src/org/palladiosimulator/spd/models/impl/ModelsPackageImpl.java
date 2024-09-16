@@ -654,7 +654,7 @@ public class ModelsPackageImpl extends EPackageImpl implements ModelsPackage {
                 "utilizationStimulus", null, 1, 1, ImprovedQLearningModel.class, !IS_TRANSIENT, !IS_VOLATILE,
                 IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-        this.initEClass(this.learningBasedModelEClass, LearningBasedModel.class, "LearningBasedModel", !IS_ABSTRACT,
+        this.initEClass(this.learningBasedModelEClass, LearningBasedModel.class, "LearningBasedModel", IS_ABSTRACT,
                 !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
         this.initEAttribute(this.getLearningBasedModel_LearningRate(), theDatatypesPackage.getPercentDouble(),
                 "learningRate", "0.1", 1, 1, LearningBasedModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,

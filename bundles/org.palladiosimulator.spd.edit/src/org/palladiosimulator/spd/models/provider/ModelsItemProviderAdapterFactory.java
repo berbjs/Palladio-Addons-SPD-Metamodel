@@ -144,30 +144,6 @@ public class ModelsItemProviderAdapterFactory extends ModelsAdapterFactory
     }
 
     /**
-     * This keeps track of the one adapter used for all
-     * {@link org.palladiosimulator.spd.models.LearningBasedModel} instances. <!-- begin-user-doc
-     * --> <!-- end-user-doc -->
-     *
-     * @generated
-     */
-    protected LearningBasedModelItemProvider learningBasedModelItemProvider;
-
-    /**
-     * This creates an adapter for a {@link org.palladiosimulator.spd.models.LearningBasedModel}.
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @generated
-     */
-    @Override
-    public Adapter createLearningBasedModelAdapter() {
-        if (this.learningBasedModelItemProvider == null) {
-            this.learningBasedModelItemProvider = new LearningBasedModelItemProvider(this);
-        }
-
-        return this.learningBasedModelItemProvider;
-    }
-
-    /**
      * This returns the root adapter factory that contains this factory. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      *
@@ -278,9 +254,6 @@ public class ModelsItemProviderAdapterFactory extends ModelsAdapterFactory
         }
         if (this.improvedQLearningModelItemProvider != null) {
             this.improvedQLearningModelItemProvider.dispose();
-        }
-        if (this.learningBasedModelItemProvider != null) {
-            this.learningBasedModelItemProvider.dispose();
         }
     }
 

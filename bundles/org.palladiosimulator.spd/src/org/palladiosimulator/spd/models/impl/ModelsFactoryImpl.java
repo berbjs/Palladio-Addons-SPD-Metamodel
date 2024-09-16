@@ -9,7 +9,6 @@ import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
 import org.palladiosimulator.spd.models.ImprovedQLearningModel;
-import org.palladiosimulator.spd.models.LearningBasedModel;
 import org.palladiosimulator.spd.models.ModelsFactory;
 import org.palladiosimulator.spd.models.ModelsPackage;
 import org.palladiosimulator.spd.models.QThresholdsModel;
@@ -62,8 +61,6 @@ public class ModelsFactoryImpl extends EFactoryImpl implements ModelsFactory {
             return this.createRandomModel();
         case ModelsPackage.IMPROVED_QLEARNING_MODEL:
             return this.createImprovedQLearningModel();
-        case ModelsPackage.LEARNING_BASED_MODEL:
-            return this.createLearningBasedModel();
         default:
             throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
         }
@@ -100,17 +97,6 @@ public class ModelsFactoryImpl extends EFactoryImpl implements ModelsFactory {
     public ImprovedQLearningModel createImprovedQLearningModel() {
         final ImprovedQLearningModelImpl improvedQLearningModel = new ImprovedQLearningModelImpl();
         return improvedQLearningModel;
-    }
-
-    /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @generated
-     */
-    @Override
-    public LearningBasedModel createLearningBasedModel() {
-        final LearningBasedModelImpl learningBasedModel = new LearningBasedModelImpl();
-        return learningBasedModel;
     }
 
     /**

@@ -20,7 +20,7 @@ import org.palladiosimulator.spd.models.ModelsPackage;
  *
  * @generated
  */
-public class LearningBasedModelImpl extends BaseModelImpl implements LearningBasedModel {
+public abstract class LearningBasedModelImpl extends BaseModelImpl implements LearningBasedModel {
     /**
      * The default value of the '{@link #getLearningRate() <em>Learning Rate</em>}' attribute. <!--
      * begin-user-doc --> <!-- end-user-doc -->
