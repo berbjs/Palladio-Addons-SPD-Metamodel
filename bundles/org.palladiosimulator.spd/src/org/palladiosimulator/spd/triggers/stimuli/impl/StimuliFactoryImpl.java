@@ -8,7 +8,6 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
-import org.palladiosimulator.spd.triggers.stimuli.AggregatedStimulus;
 import org.palladiosimulator.spd.triggers.stimuli.CPUUtilization;
 import org.palladiosimulator.spd.triggers.stimuli.HDDUtilization;
 import org.palladiosimulator.spd.triggers.stimuli.MemoryUtilization;
@@ -80,8 +79,6 @@ public class StimuliFactoryImpl extends EFactoryImpl implements StimuliFactory {
             return this.createQueueLength();
         case StimuliPackage.NETWORK_UTILIZATION:
             return this.createNetworkUtilization();
-        case StimuliPackage.AGGREGATED_STIMULUS:
-            return this.createAggregatedStimulus();
         default:
             throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
         }
@@ -184,17 +181,6 @@ public class StimuliFactoryImpl extends EFactoryImpl implements StimuliFactory {
     public NetworkUtilization createNetworkUtilization() {
         final NetworkUtilizationImpl networkUtilization = new NetworkUtilizationImpl();
         return networkUtilization;
-    }
-
-    /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @generated
-     */
-    @Override
-    public AggregatedStimulus createAggregatedStimulus() {
-        final AggregatedStimulusImpl aggregatedStimulus = new AggregatedStimulusImpl();
-        return aggregatedStimulus;
     }
 
     /**

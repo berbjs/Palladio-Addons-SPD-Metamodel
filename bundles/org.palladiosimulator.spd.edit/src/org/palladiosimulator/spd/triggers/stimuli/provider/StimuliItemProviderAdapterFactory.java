@@ -294,31 +294,6 @@ public class StimuliItemProviderAdapterFactory extends StimuliAdapterFactory
     }
 
     /**
-     * This keeps track of the one adapter used for all
-     * {@link org.palladiosimulator.spd.triggers.stimuli.AggregatedStimulus} instances. <!--
-     * begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @generated
-     */
-    protected AggregatedStimulusItemProvider aggregatedStimulusItemProvider;
-
-    /**
-     * This creates an adapter for a
-     * {@link org.palladiosimulator.spd.triggers.stimuli.AggregatedStimulus}. <!-- begin-user-doc
-     * --> <!-- end-user-doc -->
-     *
-     * @generated
-     */
-    @Override
-    public Adapter createAggregatedStimulusAdapter() {
-        if (this.aggregatedStimulusItemProvider == null) {
-            this.aggregatedStimulusItemProvider = new AggregatedStimulusItemProvider(this);
-        }
-
-        return this.aggregatedStimulusItemProvider;
-    }
-
-    /**
      * This returns the root adapter factory that contains this factory. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      *
@@ -447,9 +422,6 @@ public class StimuliItemProviderAdapterFactory extends StimuliAdapterFactory
         }
         if (this.networkUtilizationItemProvider != null) {
             this.networkUtilizationItemProvider.dispose();
-        }
-        if (this.aggregatedStimulusItemProvider != null) {
-            this.aggregatedStimulusItemProvider.dispose();
         }
     }
 

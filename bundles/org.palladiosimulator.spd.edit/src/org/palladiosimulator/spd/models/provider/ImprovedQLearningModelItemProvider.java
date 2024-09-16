@@ -237,9 +237,6 @@ public class ImprovedQLearningModelItemProvider extends LearningBasedModelItemPr
         newChildDescriptors.add(this.createChildParameter(ModelsPackage.Literals.IMPROVED_QLEARNING_MODEL__INPUT,
                 StimuliFactory.eINSTANCE.createNetworkUtilization()));
 
-        newChildDescriptors.add(this.createChildParameter(ModelsPackage.Literals.IMPROVED_QLEARNING_MODEL__INPUT,
-                StimuliFactory.eINSTANCE.createAggregatedStimulus()));
-
         newChildDescriptors
             .add(this.createChildParameter(ModelsPackage.Literals.IMPROVED_QLEARNING_MODEL__RESPONSE_TIME_STIMULUS,
                     StimuliFactory.eINSTANCE.createOperationResponseTime()));
@@ -279,10 +276,6 @@ public class ImprovedQLearningModelItemProvider extends LearningBasedModelItemPr
         newChildDescriptors
             .add(this.createChildParameter(ModelsPackage.Literals.IMPROVED_QLEARNING_MODEL__UTILIZATION_STIMULUS,
                     StimuliFactory.eINSTANCE.createNetworkUtilization()));
-
-        newChildDescriptors
-            .add(this.createChildParameter(ModelsPackage.Literals.IMPROVED_QLEARNING_MODEL__UTILIZATION_STIMULUS,
-                    StimuliFactory.eINSTANCE.createAggregatedStimulus()));
     }
 
     /**

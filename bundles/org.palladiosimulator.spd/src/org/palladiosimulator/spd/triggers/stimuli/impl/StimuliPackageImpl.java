@@ -31,7 +31,6 @@ import org.palladiosimulator.spd.triggers.TriggersPackage;
 import org.palladiosimulator.spd.triggers.expectations.ExpectationsPackage;
 import org.palladiosimulator.spd.triggers.expectations.impl.ExpectationsPackageImpl;
 import org.palladiosimulator.spd.triggers.impl.TriggersPackageImpl;
-import org.palladiosimulator.spd.triggers.stimuli.AggregatedStimulus;
 import org.palladiosimulator.spd.triggers.stimuli.CPUUtilization;
 import org.palladiosimulator.spd.triggers.stimuli.HDDUtilization;
 import org.palladiosimulator.spd.triggers.stimuli.ManagedElementsStateStimulus;
@@ -165,13 +164,6 @@ public class StimuliPackageImpl extends EPackageImpl implements StimuliPackage {
      * @generated
      */
     private EClass networkUtilizationEClass = null;
-
-    /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @generated
-     */
-    private EClass aggregatedStimulusEClass = null;
 
     /**
      * Creates an instance of the model <b>Package</b>, registered with
@@ -520,49 +512,6 @@ public class StimuliPackageImpl extends EPackageImpl implements StimuliPackage {
      * @generated
      */
     @Override
-    public EClass getAggregatedStimulus() {
-        return this.aggregatedStimulusEClass;
-    }
-
-    /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @generated
-     */
-    @Override
-    public EAttribute getAggregatedStimulus_AggregationMethod() {
-        return (EAttribute) this.aggregatedStimulusEClass.getEStructuralFeatures()
-            .get(0);
-    }
-
-    /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @generated
-     */
-    @Override
-    public EAttribute getAggregatedStimulus_AggregationPeriod() {
-        return (EAttribute) this.aggregatedStimulusEClass.getEStructuralFeatures()
-            .get(1);
-    }
-
-    /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @generated
-     */
-    @Override
-    public EReference getAggregatedStimulus_AggregatedStimulus() {
-        return (EReference) this.aggregatedStimulusEClass.getEStructuralFeatures()
-            .get(2);
-    }
-
-    /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @generated
-     */
-    @Override
     public StimuliFactory getStimuliFactory() {
         return (StimuliFactory) this.getEFactoryInstance();
     }
@@ -622,11 +571,6 @@ public class StimuliPackageImpl extends EPackageImpl implements StimuliPackage {
 
         this.networkUtilizationEClass = this.createEClass(NETWORK_UTILIZATION);
         this.createEAttribute(this.networkUtilizationEClass, NETWORK_UTILIZATION__USAGE_TYPE);
-
-        this.aggregatedStimulusEClass = this.createEClass(AGGREGATED_STIMULUS);
-        this.createEAttribute(this.aggregatedStimulusEClass, AGGREGATED_STIMULUS__AGGREGATION_METHOD);
-        this.createEAttribute(this.aggregatedStimulusEClass, AGGREGATED_STIMULUS__AGGREGATION_PERIOD);
-        this.createEReference(this.aggregatedStimulusEClass, AGGREGATED_STIMULUS__AGGREGATED_STIMULUS);
     }
 
     /**
@@ -658,8 +602,6 @@ public class StimuliPackageImpl extends EPackageImpl implements StimuliPackage {
             .getEPackage(RepositoryPackage.eNS_URI);
         final TriggersPackage theTriggersPackage = (TriggersPackage) EPackage.Registry.INSTANCE
             .getEPackage(TriggersPackage.eNS_URI);
-        final EcorePackage theEcorePackage = (EcorePackage) EPackage.Registry.INSTANCE
-            .getEPackage(EcorePackage.eNS_URI);
 
         // Create type parameters
 
@@ -694,8 +636,6 @@ public class StimuliPackageImpl extends EPackageImpl implements StimuliPackage {
             .add(this.getSourceInterfaceStimulus());
         this.networkUtilizationEClass.getESuperTypes()
             .add(this.getResourceUtilizationStimulus());
-        this.aggregatedStimulusEClass.getESuperTypes()
-            .add(this.getStimulus());
 
         // Initialize classes and features; add operations and parameters
         this.initEClass(this.stimulusEClass, Stimulus.class, "Stimulus", IS_ABSTRACT, !IS_INTERFACE,
@@ -759,18 +699,6 @@ public class StimuliPackageImpl extends EPackageImpl implements StimuliPackage {
         this.initEAttribute(this.getNetworkUtilization_UsageType(), theTriggersPackage.getNETWORKUSAGETYPE(),
                 "usageType", null, 0, 1, NetworkUtilization.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
                 !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-        this.initEClass(this.aggregatedStimulusEClass, AggregatedStimulus.class, "AggregatedStimulus", !IS_ABSTRACT,
-                !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-        this.initEAttribute(this.getAggregatedStimulus_AggregationMethod(), theTriggersPackage.getAGGREGATIONMETHOD(),
-                "aggregationMethod", null, 1, 1, AggregatedStimulus.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
-                !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-        this.initEAttribute(this.getAggregatedStimulus_AggregationPeriod(), theEcorePackage.getEDouble(),
-                "aggregationPeriod", null, 0, 1, AggregatedStimulus.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
-                !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-        this.initEReference(this.getAggregatedStimulus_AggregatedStimulus(), this.getStimulus(), null,
-                "aggregatedStimulus", null, 1, 1, AggregatedStimulus.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
-                IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     }
 
 } // StimuliPackageImpl

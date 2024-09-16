@@ -170,11 +170,6 @@
         <genClasses ecoreClass="SPD.ecore#//triggers/stimuli/NetworkUtilization">
           <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SPD.ecore#//triggers/stimuli/NetworkUtilization/usageType"/>
         </genClasses>
-        <genClasses ecoreClass="SPD.ecore#//triggers/stimuli/AggregatedStimulus">
-          <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SPD.ecore#//triggers/stimuli/AggregatedStimulus/aggregationMethod"/>
-          <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SPD.ecore#//triggers/stimuli/AggregatedStimulus/aggregationPeriod"/>
-          <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SPD.ecore#//triggers/stimuli/AggregatedStimulus/aggregatedStimulus"/>
-        </genClasses>
       </nestedGenPackages>
       <nestedGenPackages prefix="Expectations" basePackage="org.palladiosimulator.spd.triggers"
           disposableProviderFactory="true" ecorePackage="SPD.ecore#//triggers/expectations">

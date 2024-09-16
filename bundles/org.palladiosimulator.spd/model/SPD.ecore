@@ -375,18 +375,6 @@
           </eAnnotations>
         </eStructuralFeatures>
       </eClassifiers>
-      <eClassifiers xsi:type="ecore:EClass" name="AggregatedStimulus" eSuperTypes="#//triggers/stimuli/Stimulus">
-        <eStructuralFeatures xsi:type="ecore:EAttribute" name="aggregationMethod"
-            lowerBound="1" eType="#//triggers/AGGREGATIONMETHOD"/>
-        <eStructuralFeatures xsi:type="ecore:EAttribute" name="aggregationPeriod"
-            eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EDouble">
-          <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-            <details key="documentation" value="Not necessarily present - if it is not present, than the interval given to the model / trigger should be used"/>
-          </eAnnotations>
-        </eStructuralFeatures>
-        <eStructuralFeatures xsi:type="ecore:EReference" name="aggregatedStimulus"
-            lowerBound="1" eType="#//triggers/stimuli/Stimulus" containment="true"/>
-      </eClassifiers>
     </eSubpackages>
     <eSubpackages name="expectations" nsURI="http://palladiosimulator.org/ScalingPolicyDefinition/Triggers/Expectations/1.0"
         nsPrefix="expectations">

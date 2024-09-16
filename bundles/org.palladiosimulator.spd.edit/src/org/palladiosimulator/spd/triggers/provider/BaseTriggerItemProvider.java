@@ -150,9 +150,6 @@ public class BaseTriggerItemProvider extends ScalingTriggerItemProvider {
         newChildDescriptors.add(this.createChildParameter(TriggersPackage.Literals.BASE_TRIGGER__STIMULUS,
                 StimuliFactory.eINSTANCE.createNetworkUtilization()));
 
-        newChildDescriptors.add(this.createChildParameter(TriggersPackage.Literals.BASE_TRIGGER__STIMULUS,
-                StimuliFactory.eINSTANCE.createAggregatedStimulus()));
-
         newChildDescriptors.add(this.createChildParameter(TriggersPackage.Literals.BASE_TRIGGER__EXPECTED_VALUE,
                 ExpectationsFactory.eINSTANCE.createNoExpectation()));
 

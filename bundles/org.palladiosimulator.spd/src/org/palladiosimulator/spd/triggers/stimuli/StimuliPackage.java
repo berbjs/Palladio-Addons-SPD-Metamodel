@@ -453,53 +453,6 @@ public interface StimuliPackage extends EPackage {
     int NETWORK_UTILIZATION_FEATURE_COUNT = RESOURCE_UTILIZATION_STIMULUS_FEATURE_COUNT + 1;
 
     /**
-     * The meta object id for the
-     * '{@link org.palladiosimulator.spd.triggers.stimuli.impl.AggregatedStimulusImpl <em>Aggregated
-     * Stimulus</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @see org.palladiosimulator.spd.triggers.stimuli.impl.AggregatedStimulusImpl
-     * @see org.palladiosimulator.spd.triggers.stimuli.impl.StimuliPackageImpl#getAggregatedStimulus()
-     * @generated
-     */
-    int AGGREGATED_STIMULUS = 15;
-
-    /**
-     * The feature id for the '<em><b>Aggregation Method</b></em>' attribute. <!-- begin-user-doc
-     * --> <!-- end-user-doc -->
-     *
-     * @generated
-     * @ordered
-     */
-    int AGGREGATED_STIMULUS__AGGREGATION_METHOD = STIMULUS_FEATURE_COUNT + 0;
-
-    /**
-     * The feature id for the '<em><b>Aggregation Period</b></em>' attribute. <!-- begin-user-doc
-     * --> <!-- end-user-doc -->
-     *
-     * @generated
-     * @ordered
-     */
-    int AGGREGATED_STIMULUS__AGGREGATION_PERIOD = STIMULUS_FEATURE_COUNT + 1;
-
-    /**
-     * The feature id for the '<em><b>Aggregated Stimulus</b></em>' containment reference. <!--
-     * begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @generated
-     * @ordered
-     */
-    int AGGREGATED_STIMULUS__AGGREGATED_STIMULUS = STIMULUS_FEATURE_COUNT + 2;
-
-    /**
-     * The number of structural features of the '<em>Aggregated Stimulus</em>' class. <!--
-     * begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @generated
-     * @ordered
-     */
-    int AGGREGATED_STIMULUS_FEATURE_COUNT = STIMULUS_FEATURE_COUNT + 3;
-
-    /**
      * Returns the meta object for class '{@link org.palladiosimulator.spd.triggers.stimuli.Stimulus
      * <em>Stimulus</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
@@ -722,53 +675,6 @@ public interface StimuliPackage extends EPackage {
      * @generated
      */
     EAttribute getNetworkUtilization_UsageType();
-
-    /**
-     * Returns the meta object for class
-     * '{@link org.palladiosimulator.spd.triggers.stimuli.AggregatedStimulus <em>Aggregated
-     * Stimulus</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @return the meta object for class '<em>Aggregated Stimulus</em>'.
-     * @see org.palladiosimulator.spd.triggers.stimuli.AggregatedStimulus
-     * @generated
-     */
-    EClass getAggregatedStimulus();
-
-    /**
-     * Returns the meta object for the attribute
-     * '{@link org.palladiosimulator.spd.triggers.stimuli.AggregatedStimulus#getAggregationMethod
-     * <em>Aggregation Method</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @return the meta object for the attribute '<em>Aggregation Method</em>'.
-     * @see org.palladiosimulator.spd.triggers.stimuli.AggregatedStimulus#getAggregationMethod()
-     * @see #getAggregatedStimulus()
-     * @generated
-     */
-    EAttribute getAggregatedStimulus_AggregationMethod();
-
-    /**
-     * Returns the meta object for the attribute
-     * '{@link org.palladiosimulator.spd.triggers.stimuli.AggregatedStimulus#getAggregationPeriod
-     * <em>Aggregation Period</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @return the meta object for the attribute '<em>Aggregation Period</em>'.
-     * @see org.palladiosimulator.spd.triggers.stimuli.AggregatedStimulus#getAggregationPeriod()
-     * @see #getAggregatedStimulus()
-     * @generated
-     */
-    EAttribute getAggregatedStimulus_AggregationPeriod();
-
-    /**
-     * Returns the meta object for the containment reference
-     * '{@link org.palladiosimulator.spd.triggers.stimuli.AggregatedStimulus#getAggregatedStimulus
-     * <em>Aggregated Stimulus</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @return the meta object for the containment reference '<em>Aggregated Stimulus</em>'.
-     * @see org.palladiosimulator.spd.triggers.stimuli.AggregatedStimulus#getAggregatedStimulus()
-     * @see #getAggregatedStimulus()
-     * @generated
-     */
-    EReference getAggregatedStimulus_AggregatedStimulus();
 
     /**
      * Returns the factory that creates the instances of the model. <!-- begin-user-doc --> <!--
@@ -1001,41 +907,6 @@ public interface StimuliPackage extends EPackage {
          * @generated
          */
         EAttribute NETWORK_UTILIZATION__USAGE_TYPE = eINSTANCE.getNetworkUtilization_UsageType();
-
-        /**
-         * The meta object literal for the
-         * '{@link org.palladiosimulator.spd.triggers.stimuli.impl.AggregatedStimulusImpl
-         * <em>Aggregated Stimulus</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
-         *
-         * @see org.palladiosimulator.spd.triggers.stimuli.impl.AggregatedStimulusImpl
-         * @see org.palladiosimulator.spd.triggers.stimuli.impl.StimuliPackageImpl#getAggregatedStimulus()
-         * @generated
-         */
-        EClass AGGREGATED_STIMULUS = eINSTANCE.getAggregatedStimulus();
-
-        /**
-         * The meta object literal for the '<em><b>Aggregation Method</b></em>' attribute feature.
-         * <!-- begin-user-doc --> <!-- end-user-doc -->
-         *
-         * @generated
-         */
-        EAttribute AGGREGATED_STIMULUS__AGGREGATION_METHOD = eINSTANCE.getAggregatedStimulus_AggregationMethod();
-
-        /**
-         * The meta object literal for the '<em><b>Aggregation Period</b></em>' attribute feature.
-         * <!-- begin-user-doc --> <!-- end-user-doc -->
-         *
-         * @generated
-         */
-        EAttribute AGGREGATED_STIMULUS__AGGREGATION_PERIOD = eINSTANCE.getAggregatedStimulus_AggregationPeriod();
-
-        /**
-         * The meta object literal for the '<em><b>Aggregated Stimulus</b></em>' containment
-         * reference feature. <!-- begin-user-doc --> <!-- end-user-doc -->
-         *
-         * @generated
-         */
-        EReference AGGREGATED_STIMULUS__AGGREGATED_STIMULUS = eINSTANCE.getAggregatedStimulus_AggregatedStimulus();
 
     }
 
