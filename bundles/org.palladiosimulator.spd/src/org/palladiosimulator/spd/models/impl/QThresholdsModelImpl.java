@@ -30,6 +30,8 @@ import org.palladiosimulator.spd.triggers.stimuli.Stimulus;
  * <em>Utilization Stimulus</em>}</li>
  * <li>{@link org.palladiosimulator.spd.models.impl.QThresholdsModelImpl#getEpsilon
  * <em>Epsilon</em>}</li>
+ * <li>{@link org.palladiosimulator.spd.models.impl.QThresholdsModelImpl#getDiscountFactor
+ * <em>Discount Factor</em>}</li>
  * </ul>
  *
  * @generated
@@ -63,6 +65,16 @@ public class QThresholdsModelImpl extends LearningBasedModelImpl implements QThr
      * @ordered
      */
     protected static final double EPSILON_EDEFAULT = 0.05;
+
+    /**
+     * The default value of the '{@link #getDiscountFactor() <em>Discount Factor</em>}' attribute.
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @see #getDiscountFactor()
+     * @generated
+     * @ordered
+     */
+    protected static final double DISCOUNT_FACTOR_EDEFAULT = 0.5;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -255,6 +267,28 @@ public class QThresholdsModelImpl extends LearningBasedModelImpl implements QThr
      * @generated
      */
     @Override
+    public double getDiscountFactor() {
+        return (Double) this.eDynamicGet(ModelsPackage.QTHRESHOLDS_MODEL__DISCOUNT_FACTOR,
+                ModelsPackage.Literals.QTHRESHOLDS_MODEL__DISCOUNT_FACTOR, true, true);
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
+    public void setDiscountFactor(final double newDiscountFactor) {
+        this.eDynamicSet(ModelsPackage.QTHRESHOLDS_MODEL__DISCOUNT_FACTOR,
+                ModelsPackage.Literals.QTHRESHOLDS_MODEL__DISCOUNT_FACTOR, newDiscountFactor);
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
     public NotificationChain eInverseRemove(final InternalEObject otherEnd, final int featureID,
             final NotificationChain msgs) {
         switch (featureID) {
@@ -288,6 +322,8 @@ public class QThresholdsModelImpl extends LearningBasedModelImpl implements QThr
             return this.getUtilizationStimulus();
         case ModelsPackage.QTHRESHOLDS_MODEL__EPSILON:
             return this.getEpsilon();
+        case ModelsPackage.QTHRESHOLDS_MODEL__DISCOUNT_FACTOR:
+            return this.getDiscountFactor();
         }
         return super.eGet(featureID, resolve, coreType);
     }
@@ -317,6 +353,9 @@ public class QThresholdsModelImpl extends LearningBasedModelImpl implements QThr
             return;
         case ModelsPackage.QTHRESHOLDS_MODEL__EPSILON:
             this.setEpsilon((Double) newValue);
+            return;
+        case ModelsPackage.QTHRESHOLDS_MODEL__DISCOUNT_FACTOR:
+            this.setDiscountFactor((Double) newValue);
             return;
         }
         super.eSet(featureID, newValue);
@@ -348,6 +387,9 @@ public class QThresholdsModelImpl extends LearningBasedModelImpl implements QThr
         case ModelsPackage.QTHRESHOLDS_MODEL__EPSILON:
             this.setEpsilon(EPSILON_EDEFAULT);
             return;
+        case ModelsPackage.QTHRESHOLDS_MODEL__DISCOUNT_FACTOR:
+            this.setDiscountFactor(DISCOUNT_FACTOR_EDEFAULT);
+            return;
         }
         super.eUnset(featureID);
     }
@@ -372,6 +414,8 @@ public class QThresholdsModelImpl extends LearningBasedModelImpl implements QThr
             return this.getUtilizationStimulus() != null;
         case ModelsPackage.QTHRESHOLDS_MODEL__EPSILON:
             return this.getEpsilon() != EPSILON_EDEFAULT;
+        case ModelsPackage.QTHRESHOLDS_MODEL__DISCOUNT_FACTOR:
+            return this.getDiscountFactor() != DISCOUNT_FACTOR_EDEFAULT;
         }
         return super.eIsSet(featureID);
     }

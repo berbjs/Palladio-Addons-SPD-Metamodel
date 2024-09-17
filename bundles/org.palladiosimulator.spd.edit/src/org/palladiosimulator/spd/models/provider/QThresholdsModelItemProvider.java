@@ -48,6 +48,7 @@ public class QThresholdsModelItemProvider extends LearningBasedModelItemProvider
             this.addTargetResponseTimePropertyDescriptor(object);
             this.addExponentialSteepnessPropertyDescriptor(object);
             this.addEpsilonPropertyDescriptor(object);
+            this.addDiscountFactorPropertyDescriptor(object);
         }
         return this.itemPropertyDescriptors;
     }
@@ -97,6 +98,22 @@ public class QThresholdsModelItemProvider extends LearningBasedModelItemProvider
                 this.getString("_UI_PropertyDescriptor_description", "_UI_QThresholdsModel_epsilon_feature",
                         "_UI_QThresholdsModel_type"),
                 ModelsPackage.Literals.QTHRESHOLDS_MODEL__EPSILON, true, false, false,
+                ItemPropertyDescriptor.REAL_VALUE_IMAGE, null, null));
+    }
+
+    /**
+     * This adds a property descriptor for the Discount Factor feature. <!-- begin-user-doc --> <!--
+     * end-user-doc -->
+     *
+     * @generated
+     */
+    protected void addDiscountFactorPropertyDescriptor(final Object object) {
+        this.itemPropertyDescriptors.add(this.createItemPropertyDescriptor(
+                ((ComposeableAdapterFactory) this.adapterFactory).getRootAdapterFactory(), this.getResourceLocator(),
+                this.getString("_UI_QThresholdsModel_discountFactor_feature"),
+                this.getString("_UI_PropertyDescriptor_description", "_UI_QThresholdsModel_discountFactor_feature",
+                        "_UI_QThresholdsModel_type"),
+                ModelsPackage.Literals.QTHRESHOLDS_MODEL__DISCOUNT_FACTOR, true, false, false,
                 ItemPropertyDescriptor.REAL_VALUE_IMAGE, null, null));
     }
 
@@ -170,6 +187,7 @@ public class QThresholdsModelItemProvider extends LearningBasedModelItemProvider
         case ModelsPackage.QTHRESHOLDS_MODEL__TARGET_RESPONSE_TIME:
         case ModelsPackage.QTHRESHOLDS_MODEL__EXPONENTIAL_STEEPNESS:
         case ModelsPackage.QTHRESHOLDS_MODEL__EPSILON:
+        case ModelsPackage.QTHRESHOLDS_MODEL__DISCOUNT_FACTOR:
             this.fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
             return;
         case ModelsPackage.QTHRESHOLDS_MODEL__INPUT:

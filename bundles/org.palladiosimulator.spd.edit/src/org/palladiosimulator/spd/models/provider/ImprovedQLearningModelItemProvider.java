@@ -50,6 +50,7 @@ public class ImprovedQLearningModelItemProvider extends LearningBasedModelItemPr
             this.addActionCountPropertyDescriptor(object);
             this.addTargetResponseTimePropertyDescriptor(object);
             this.addExponentialSteepnessPropertyDescriptor(object);
+            this.addDiscountFactorPropertyDescriptor(object);
         }
         return this.itemPropertyDescriptors;
     }
@@ -115,6 +116,22 @@ public class ImprovedQLearningModelItemProvider extends LearningBasedModelItemPr
                 this.getString("_UI_PropertyDescriptor_description",
                         "_UI_ImprovedQLearningModel_exponentialSteepness_feature", "_UI_ImprovedQLearningModel_type"),
                 ModelsPackage.Literals.IMPROVED_QLEARNING_MODEL__EXPONENTIAL_STEEPNESS, true, false, false,
+                ItemPropertyDescriptor.REAL_VALUE_IMAGE, null, null));
+    }
+
+    /**
+     * This adds a property descriptor for the Discount Factor feature. <!-- begin-user-doc --> <!--
+     * end-user-doc -->
+     *
+     * @generated
+     */
+    protected void addDiscountFactorPropertyDescriptor(final Object object) {
+        this.itemPropertyDescriptors.add(this.createItemPropertyDescriptor(
+                ((ComposeableAdapterFactory) this.adapterFactory).getRootAdapterFactory(), this.getResourceLocator(),
+                this.getString("_UI_ImprovedQLearningModel_discountFactor_feature"),
+                this.getString("_UI_PropertyDescriptor_description",
+                        "_UI_ImprovedQLearningModel_discountFactor_feature", "_UI_ImprovedQLearningModel_type"),
+                ModelsPackage.Literals.IMPROVED_QLEARNING_MODEL__DISCOUNT_FACTOR, true, false, false,
                 ItemPropertyDescriptor.REAL_VALUE_IMAGE, null, null));
     }
 
@@ -189,6 +206,7 @@ public class ImprovedQLearningModelItemProvider extends LearningBasedModelItemPr
         case ModelsPackage.IMPROVED_QLEARNING_MODEL__ACTION_COUNT:
         case ModelsPackage.IMPROVED_QLEARNING_MODEL__TARGET_RESPONSE_TIME:
         case ModelsPackage.IMPROVED_QLEARNING_MODEL__EXPONENTIAL_STEEPNESS:
+        case ModelsPackage.IMPROVED_QLEARNING_MODEL__DISCOUNT_FACTOR:
             this.fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
             return;
         case ModelsPackage.IMPROVED_QLEARNING_MODEL__INPUT:

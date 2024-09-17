@@ -27,6 +27,8 @@ import org.palladiosimulator.spd.triggers.stimuli.Stimulus;
  * <em>Exponential Steepness</em>}</li>
  * <li>{@link org.palladiosimulator.spd.models.ImprovedQLearningModel#getUtilizationStimulus
  * <em>Utilization Stimulus</em>}</li>
+ * <li>{@link org.palladiosimulator.spd.models.ImprovedQLearningModel#getDiscountFactor <em>Discount
+ * Factor</em>}</li>
  * </ul>
  *
  * @see org.palladiosimulator.spd.models.ModelsPackage#getImprovedQLearningModel()
@@ -206,4 +208,29 @@ public interface ImprovedQLearningModel extends LearningBasedModel {
      * @generated
      */
     void setUtilizationStimulus(Stimulus value);
+
+    /**
+     * Returns the value of the '<em><b>Discount Factor</b></em>' attribute. The default value is
+     * <code>"0.5"</code>. <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @return the value of the '<em>Discount Factor</em>' attribute.
+     * @see #setDiscountFactor(double)
+     * @see org.palladiosimulator.spd.models.ModelsPackage#getImprovedQLearningModel_DiscountFactor()
+     * @model default="0.5" dataType="org.palladiosimulator.spd.datatypes.PercentDouble"
+     *        required="true"
+     * @generated
+     */
+    double getDiscountFactor();
+
+    /**
+     * Sets the value of the
+     * '{@link org.palladiosimulator.spd.models.ImprovedQLearningModel#getDiscountFactor
+     * <em>Discount Factor</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @param value
+     *            the new value of the '<em>Discount Factor</em>' attribute.
+     * @see #getDiscountFactor()
+     * @generated
+     */
+    void setDiscountFactor(double value);
 } // ImprovedQLearningModel

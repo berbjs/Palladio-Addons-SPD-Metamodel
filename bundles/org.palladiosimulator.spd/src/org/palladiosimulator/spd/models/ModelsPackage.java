@@ -228,13 +228,22 @@ public interface ModelsPackage extends EPackage {
     int QTHRESHOLDS_MODEL__EPSILON = LEARNING_BASED_MODEL_FEATURE_COUNT + 5;
 
     /**
+     * The feature id for the '<em><b>Discount Factor</b></em>' attribute. <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     *
+     * @generated
+     * @ordered
+     */
+    int QTHRESHOLDS_MODEL__DISCOUNT_FACTOR = LEARNING_BASED_MODEL_FEATURE_COUNT + 6;
+
+    /**
      * The number of structural features of the '<em>QThresholds Model</em>' class. <!--
      * begin-user-doc --> <!-- end-user-doc -->
      *
      * @generated
      * @ordered
      */
-    int QTHRESHOLDS_MODEL_FEATURE_COUNT = LEARNING_BASED_MODEL_FEATURE_COUNT + 6;
+    int QTHRESHOLDS_MODEL_FEATURE_COUNT = LEARNING_BASED_MODEL_FEATURE_COUNT + 7;
 
     /**
      * The meta object id for the '{@link org.palladiosimulator.spd.models.impl.RandomModelImpl
@@ -402,13 +411,22 @@ public interface ModelsPackage extends EPackage {
     int IMPROVED_QLEARNING_MODEL__UTILIZATION_STIMULUS = LEARNING_BASED_MODEL_FEATURE_COUNT + 6;
 
     /**
+     * The feature id for the '<em><b>Discount Factor</b></em>' attribute. <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     *
+     * @generated
+     * @ordered
+     */
+    int IMPROVED_QLEARNING_MODEL__DISCOUNT_FACTOR = LEARNING_BASED_MODEL_FEATURE_COUNT + 7;
+
+    /**
      * The number of structural features of the '<em>Improved QLearning Model</em>' class. <!--
      * begin-user-doc --> <!-- end-user-doc -->
      *
      * @generated
      * @ordered
      */
-    int IMPROVED_QLEARNING_MODEL_FEATURE_COUNT = LEARNING_BASED_MODEL_FEATURE_COUNT + 7;
+    int IMPROVED_QLEARNING_MODEL_FEATURE_COUNT = LEARNING_BASED_MODEL_FEATURE_COUNT + 8;
 
     /**
      * Returns the meta object for class '{@link org.palladiosimulator.spd.models.BaseModel <em>Base
@@ -525,6 +543,18 @@ public interface ModelsPackage extends EPackage {
      * @generated
      */
     EAttribute getQThresholdsModel_Epsilon();
+
+    /**
+     * Returns the meta object for the attribute
+     * '{@link org.palladiosimulator.spd.models.QThresholdsModel#getDiscountFactor <em>Discount
+     * Factor</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @return the meta object for the attribute '<em>Discount Factor</em>'.
+     * @see org.palladiosimulator.spd.models.QThresholdsModel#getDiscountFactor()
+     * @see #getQThresholdsModel()
+     * @generated
+     */
+    EAttribute getQThresholdsModel_DiscountFactor();
 
     /**
      * Returns the meta object for class '{@link org.palladiosimulator.spd.models.RandomModel
@@ -668,6 +698,18 @@ public interface ModelsPackage extends EPackage {
     EReference getImprovedQLearningModel_UtilizationStimulus();
 
     /**
+     * Returns the meta object for the attribute
+     * '{@link org.palladiosimulator.spd.models.ImprovedQLearningModel#getDiscountFactor
+     * <em>Discount Factor</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @return the meta object for the attribute '<em>Discount Factor</em>'.
+     * @see org.palladiosimulator.spd.models.ImprovedQLearningModel#getDiscountFactor()
+     * @see #getImprovedQLearningModel()
+     * @generated
+     */
+    EAttribute getImprovedQLearningModel_DiscountFactor();
+
+    /**
      * Returns the meta object for class '{@link org.palladiosimulator.spd.models.LearningBasedModel
      * <em>Learning Based Model</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
@@ -798,6 +840,14 @@ public interface ModelsPackage extends EPackage {
         EAttribute QTHRESHOLDS_MODEL__EPSILON = eINSTANCE.getQThresholdsModel_Epsilon();
 
         /**
+         * The meta object literal for the '<em><b>Discount Factor</b></em>' attribute feature. <!--
+         * begin-user-doc --> <!-- end-user-doc -->
+         *
+         * @generated
+         */
+        EAttribute QTHRESHOLDS_MODEL__DISCOUNT_FACTOR = eINSTANCE.getQThresholdsModel_DiscountFactor();
+
+        /**
          * The meta object literal for the
          * '{@link org.palladiosimulator.spd.models.impl.RandomModelImpl <em>Random Model</em>}'
          * class. <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -902,6 +952,14 @@ public interface ModelsPackage extends EPackage {
          */
         EReference IMPROVED_QLEARNING_MODEL__UTILIZATION_STIMULUS = eINSTANCE
             .getImprovedQLearningModel_UtilizationStimulus();
+
+        /**
+         * The meta object literal for the '<em><b>Discount Factor</b></em>' attribute feature. <!--
+         * begin-user-doc --> <!-- end-user-doc -->
+         *
+         * @generated
+         */
+        EAttribute IMPROVED_QLEARNING_MODEL__DISCOUNT_FACTOR = eINSTANCE.getImprovedQLearningModel_DiscountFactor();
 
         /**
          * The meta object literal for the

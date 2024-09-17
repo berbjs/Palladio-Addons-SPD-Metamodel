@@ -24,6 +24,8 @@ import org.palladiosimulator.spd.triggers.stimuli.Stimulus;
  * <li>{@link org.palladiosimulator.spd.models.QThresholdsModel#getUtilizationStimulus
  * <em>Utilization Stimulus</em>}</li>
  * <li>{@link org.palladiosimulator.spd.models.QThresholdsModel#getEpsilon <em>Epsilon</em>}</li>
+ * <li>{@link org.palladiosimulator.spd.models.QThresholdsModel#getDiscountFactor <em>Discount
+ * Factor</em>}</li>
  * </ul>
  *
  * @see org.palladiosimulator.spd.models.ModelsPackage#getQThresholdsModel()
@@ -176,4 +178,29 @@ public interface QThresholdsModel extends LearningBasedModel {
      * @generated
      */
     void setEpsilon(double value);
+
+    /**
+     * Returns the value of the '<em><b>Discount Factor</b></em>' attribute. The default value is
+     * <code>"0.5"</code>. <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @return the value of the '<em>Discount Factor</em>' attribute.
+     * @see #setDiscountFactor(double)
+     * @see org.palladiosimulator.spd.models.ModelsPackage#getQThresholdsModel_DiscountFactor()
+     * @model default="0.5" dataType="org.palladiosimulator.spd.datatypes.PercentDouble"
+     *        required="true"
+     * @generated
+     */
+    double getDiscountFactor();
+
+    /**
+     * Sets the value of the
+     * '{@link org.palladiosimulator.spd.models.QThresholdsModel#getDiscountFactor <em>Discount
+     * Factor</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @param value
+     *            the new value of the '<em>Discount Factor</em>' attribute.
+     * @see #getDiscountFactor()
+     * @generated
+     */
+    void setDiscountFactor(double value);
 } // QThresholdsModel

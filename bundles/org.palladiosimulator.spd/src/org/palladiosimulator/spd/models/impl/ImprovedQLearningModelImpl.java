@@ -32,6 +32,8 @@ import org.palladiosimulator.spd.triggers.stimuli.Stimulus;
  * <em>Exponential Steepness</em>}</li>
  * <li>{@link org.palladiosimulator.spd.models.impl.ImprovedQLearningModelImpl#getUtilizationStimulus
  * <em>Utilization Stimulus</em>}</li>
+ * <li>{@link org.palladiosimulator.spd.models.impl.ImprovedQLearningModelImpl#getDiscountFactor
+ * <em>Discount Factor</em>}</li>
  * </ul>
  *
  * @generated
@@ -73,6 +75,16 @@ public class ImprovedQLearningModelImpl extends LearningBasedModelImpl implement
      * @ordered
      */
     protected static final double EXPONENTIAL_STEEPNESS_EDEFAULT = 1.0;
+
+    /**
+     * The default value of the '{@link #getDiscountFactor() <em>Discount Factor</em>}' attribute.
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @see #getDiscountFactor()
+     * @generated
+     * @ordered
+     */
+    protected static final double DISCOUNT_FACTOR_EDEFAULT = 0.5;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -287,6 +299,28 @@ public class ImprovedQLearningModelImpl extends LearningBasedModelImpl implement
      * @generated
      */
     @Override
+    public double getDiscountFactor() {
+        return (Double) this.eDynamicGet(ModelsPackage.IMPROVED_QLEARNING_MODEL__DISCOUNT_FACTOR,
+                ModelsPackage.Literals.IMPROVED_QLEARNING_MODEL__DISCOUNT_FACTOR, true, true);
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
+    public void setDiscountFactor(final double newDiscountFactor) {
+        this.eDynamicSet(ModelsPackage.IMPROVED_QLEARNING_MODEL__DISCOUNT_FACTOR,
+                ModelsPackage.Literals.IMPROVED_QLEARNING_MODEL__DISCOUNT_FACTOR, newDiscountFactor);
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
     public NotificationChain eInverseRemove(final InternalEObject otherEnd, final int featureID,
             final NotificationChain msgs) {
         switch (featureID) {
@@ -322,6 +356,8 @@ public class ImprovedQLearningModelImpl extends LearningBasedModelImpl implement
             return this.getExponentialSteepness();
         case ModelsPackage.IMPROVED_QLEARNING_MODEL__UTILIZATION_STIMULUS:
             return this.getUtilizationStimulus();
+        case ModelsPackage.IMPROVED_QLEARNING_MODEL__DISCOUNT_FACTOR:
+            return this.getDiscountFactor();
         }
         return super.eGet(featureID, resolve, coreType);
     }
@@ -354,6 +390,9 @@ public class ImprovedQLearningModelImpl extends LearningBasedModelImpl implement
             return;
         case ModelsPackage.IMPROVED_QLEARNING_MODEL__UTILIZATION_STIMULUS:
             this.setUtilizationStimulus((Stimulus) newValue);
+            return;
+        case ModelsPackage.IMPROVED_QLEARNING_MODEL__DISCOUNT_FACTOR:
+            this.setDiscountFactor((Double) newValue);
             return;
         }
         super.eSet(featureID, newValue);
@@ -388,6 +427,9 @@ public class ImprovedQLearningModelImpl extends LearningBasedModelImpl implement
         case ModelsPackage.IMPROVED_QLEARNING_MODEL__UTILIZATION_STIMULUS:
             this.setUtilizationStimulus((Stimulus) null);
             return;
+        case ModelsPackage.IMPROVED_QLEARNING_MODEL__DISCOUNT_FACTOR:
+            this.setDiscountFactor(DISCOUNT_FACTOR_EDEFAULT);
+            return;
         }
         super.eUnset(featureID);
     }
@@ -414,6 +456,8 @@ public class ImprovedQLearningModelImpl extends LearningBasedModelImpl implement
             return this.getExponentialSteepness() != EXPONENTIAL_STEEPNESS_EDEFAULT;
         case ModelsPackage.IMPROVED_QLEARNING_MODEL__UTILIZATION_STIMULUS:
             return this.getUtilizationStimulus() != null;
+        case ModelsPackage.IMPROVED_QLEARNING_MODEL__DISCOUNT_FACTOR:
+            return this.getDiscountFactor() != DISCOUNT_FACTOR_EDEFAULT;
         }
         return super.eIsSet(featureID);
     }

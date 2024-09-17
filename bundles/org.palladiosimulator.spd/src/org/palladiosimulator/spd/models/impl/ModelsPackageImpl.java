@@ -334,6 +334,17 @@ public class ModelsPackageImpl extends EPackageImpl implements ModelsPackage {
      * @generated
      */
     @Override
+    public EAttribute getQThresholdsModel_DiscountFactor() {
+        return (EAttribute) this.qThresholdsModelEClass.getEStructuralFeatures()
+            .get(6);
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
     public EClass getRandomModel() {
         return this.randomModelEClass;
     }
@@ -464,6 +475,17 @@ public class ModelsPackageImpl extends EPackageImpl implements ModelsPackage {
      * @generated
      */
     @Override
+    public EAttribute getImprovedQLearningModel_DiscountFactor() {
+        return (EAttribute) this.improvedQLearningModelEClass.getEStructuralFeatures()
+            .get(7);
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
     public EClass getLearningBasedModel() {
         return this.learningBasedModelEClass;
     }
@@ -520,6 +542,7 @@ public class ModelsPackageImpl extends EPackageImpl implements ModelsPackage {
         this.createEAttribute(this.qThresholdsModelEClass, QTHRESHOLDS_MODEL__EXPONENTIAL_STEEPNESS);
         this.createEReference(this.qThresholdsModelEClass, QTHRESHOLDS_MODEL__UTILIZATION_STIMULUS);
         this.createEAttribute(this.qThresholdsModelEClass, QTHRESHOLDS_MODEL__EPSILON);
+        this.createEAttribute(this.qThresholdsModelEClass, QTHRESHOLDS_MODEL__DISCOUNT_FACTOR);
 
         this.randomModelEClass = this.createEClass(RANDOM_MODEL);
         this.createEAttribute(this.randomModelEClass, RANDOM_MODEL__MIN_ADJUSTMENT);
@@ -534,6 +557,7 @@ public class ModelsPackageImpl extends EPackageImpl implements ModelsPackage {
         this.createEReference(this.improvedQLearningModelEClass, IMPROVED_QLEARNING_MODEL__RESPONSE_TIME_STIMULUS);
         this.createEAttribute(this.improvedQLearningModelEClass, IMPROVED_QLEARNING_MODEL__EXPONENTIAL_STEEPNESS);
         this.createEReference(this.improvedQLearningModelEClass, IMPROVED_QLEARNING_MODEL__UTILIZATION_STIMULUS);
+        this.createEAttribute(this.improvedQLearningModelEClass, IMPROVED_QLEARNING_MODEL__DISCOUNT_FACTOR);
 
         this.learningBasedModelEClass = this.createEClass(LEARNING_BASED_MODEL);
         this.createEAttribute(this.learningBasedModelEClass, LEARNING_BASED_MODEL__LEARNING_RATE);
@@ -616,6 +640,9 @@ public class ModelsPackageImpl extends EPackageImpl implements ModelsPackage {
         this.initEAttribute(this.getQThresholdsModel_Epsilon(), theDatatypesPackage.getPercentDouble(), "epsilon",
                 "0.05", 1, 1, QThresholdsModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE,
                 !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        this.initEAttribute(this.getQThresholdsModel_DiscountFactor(), theDatatypesPackage.getPercentDouble(),
+                "discountFactor", "0.5", 1, 1, QThresholdsModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
+                !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
         this.initEClass(this.randomModelEClass, RandomModel.class, "RandomModel", !IS_ABSTRACT, !IS_INTERFACE,
                 IS_GENERATED_INSTANCE_CLASS);
@@ -653,6 +680,9 @@ public class ModelsPackageImpl extends EPackageImpl implements ModelsPackage {
         this.initEReference(this.getImprovedQLearningModel_UtilizationStimulus(), theStimuliPackage.getStimulus(), null,
                 "utilizationStimulus", null, 1, 1, ImprovedQLearningModel.class, !IS_TRANSIENT, !IS_VOLATILE,
                 IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        this.initEAttribute(this.getImprovedQLearningModel_DiscountFactor(), theDatatypesPackage.getPercentDouble(),
+                "discountFactor", "0.5", 1, 1, ImprovedQLearningModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
+                !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
         this.initEClass(this.learningBasedModelEClass, LearningBasedModel.class, "LearningBasedModel", IS_ABSTRACT,
                 !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
