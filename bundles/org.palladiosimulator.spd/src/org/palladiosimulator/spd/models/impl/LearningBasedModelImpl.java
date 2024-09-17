@@ -29,7 +29,7 @@ public abstract class LearningBasedModelImpl extends BaseModelImpl implements Le
      * @generated
      * @ordered
      */
-    protected static final double LEARNING_RATE_EDEFAULT = 0.1;
+    protected static final double LEARNING_RATE_EDEFAULT = 0.7;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->

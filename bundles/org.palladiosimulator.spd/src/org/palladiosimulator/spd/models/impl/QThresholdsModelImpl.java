@@ -54,7 +54,7 @@ public class QThresholdsModelImpl extends LearningBasedModelImpl implements QThr
      * @generated
      * @ordered
      */
-    protected static final double EXPONENTIAL_STEEPNESS_EDEFAULT = 1.0;
+    protected static final double EXPONENTIAL_STEEPNESS_EDEFAULT = 2.0;
 
     /**
      * The default value of the '{@link #getEpsilon() <em>Epsilon</em>}' attribute. <!--

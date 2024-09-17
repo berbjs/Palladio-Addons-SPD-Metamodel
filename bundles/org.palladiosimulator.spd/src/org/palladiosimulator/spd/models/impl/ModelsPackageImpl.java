@@ -632,7 +632,7 @@ public class ModelsPackageImpl extends EPackageImpl implements ModelsPackage {
                 QThresholdsModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
                 !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         this.initEAttribute(this.getQThresholdsModel_ExponentialSteepness(), theEcorePackage.getEDouble(),
-                "exponentialSteepness", "1.0", 1, 1, QThresholdsModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
+                "exponentialSteepness", "2", 1, 1, QThresholdsModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
                 !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         this.initEReference(this.getQThresholdsModel_UtilizationStimulus(), theStimuliPackage.getStimulus(), null,
                 "utilizationStimulus", null, 1, 1, QThresholdsModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
@@ -675,7 +675,7 @@ public class ModelsPackageImpl extends EPackageImpl implements ModelsPackage {
                 ImprovedQLearningModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
                 !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         this.initEAttribute(this.getImprovedQLearningModel_ExponentialSteepness(), theEcorePackage.getEDouble(),
-                "exponentialSteepness", "1.0", 1, 1, ImprovedQLearningModel.class, !IS_TRANSIENT, !IS_VOLATILE,
+                "exponentialSteepness", "2.0", 1, 1, ImprovedQLearningModel.class, !IS_TRANSIENT, !IS_VOLATILE,
                 IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         this.initEReference(this.getImprovedQLearningModel_UtilizationStimulus(), theStimuliPackage.getStimulus(), null,
                 "utilizationStimulus", null, 1, 1, ImprovedQLearningModel.class, !IS_TRANSIENT, !IS_VOLATILE,
@@ -687,7 +687,7 @@ public class ModelsPackageImpl extends EPackageImpl implements ModelsPackage {
         this.initEClass(this.learningBasedModelEClass, LearningBasedModel.class, "LearningBasedModel", IS_ABSTRACT,
                 !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
         this.initEAttribute(this.getLearningBasedModel_LearningRate(), theDatatypesPackage.getPercentDouble(),
-                "learningRate", "0.1", 1, 1, LearningBasedModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
+                "learningRate", "0.7", 1, 1, LearningBasedModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
                 !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     }
 

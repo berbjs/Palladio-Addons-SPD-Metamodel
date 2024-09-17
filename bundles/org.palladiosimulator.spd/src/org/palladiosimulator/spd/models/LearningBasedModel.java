@@ -26,12 +26,12 @@ public interface LearningBasedModel extends BaseModel {
 
     /**
      * Returns the value of the '<em><b>Learning Rate</b></em>' attribute. The default value is
-     * <code>"0.1"</code>. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * <code>"0.7"</code>. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @return the value of the '<em>Learning Rate</em>' attribute.
      * @see #setLearningRate(double)
      * @see org.palladiosimulator.spd.models.ModelsPackage#getLearningBasedModel_LearningRate()
-     * @model default="0.1" dataType="org.palladiosimulator.spd.datatypes.PercentDouble"
+     * @model default="0.7" dataType="org.palladiosimulator.spd.datatypes.PercentDouble"
      *        required="true"
      * @generated
      */

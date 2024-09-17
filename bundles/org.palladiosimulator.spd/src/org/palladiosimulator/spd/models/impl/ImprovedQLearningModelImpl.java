@@ -74,7 +74,7 @@ public class ImprovedQLearningModelImpl extends LearningBasedModelImpl implement
      * @generated
      * @ordered
      */
-    protected static final double EXPONENTIAL_STEEPNESS_EDEFAULT = 1.0;
+    protected static final double EXPONENTIAL_STEEPNESS_EDEFAULT = 2.0;
 
     /**
      * The default value of the '{@link #getDiscountFactor() <em>Discount Factor</em>}' attribute.
