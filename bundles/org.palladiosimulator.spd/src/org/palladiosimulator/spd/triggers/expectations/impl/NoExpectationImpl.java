@@ -14,23 +14,21 @@ import org.palladiosimulator.spd.triggers.expectations.NoExpectation;
  * @generated
  */
 public class NoExpectationImpl extends ExpectedValueImpl implements NoExpectation {
-    /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @generated
-     */
-    protected NoExpectationImpl() {
-        super();
-    }
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected NoExpectationImpl() {
+		super();
+	}
 
-    /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @generated
-     */
-    @Override
-    protected EClass eStaticClass() {
-        return ExpectationsPackage.Literals.NO_EXPECTATION;
-    }
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	protected EClass eStaticClass() {
+		return ExpectationsPackage.Literals.NO_EXPECTATION;
+	}
 
 } // NoExpectationImpl

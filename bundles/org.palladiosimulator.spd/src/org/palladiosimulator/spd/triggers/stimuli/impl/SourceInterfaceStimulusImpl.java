@@ -14,23 +14,21 @@ import org.palladiosimulator.spd.triggers.stimuli.StimuliPackage;
  * @generated
  */
 public abstract class SourceInterfaceStimulusImpl extends StimulusImpl implements SourceInterfaceStimulus {
-    /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @generated
-     */
-    protected SourceInterfaceStimulusImpl() {
-        super();
-    }
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected SourceInterfaceStimulusImpl() {
+		super();
+	}
 
-    /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @generated
-     */
-    @Override
-    protected EClass eStaticClass() {
-        return StimuliPackage.Literals.SOURCE_INTERFACE_STIMULUS;
-    }
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	protected EClass eStaticClass() {
+		return StimuliPackage.Literals.SOURCE_INTERFACE_STIMULUS;
+	}
 
 } // SourceInterfaceStimulusImpl

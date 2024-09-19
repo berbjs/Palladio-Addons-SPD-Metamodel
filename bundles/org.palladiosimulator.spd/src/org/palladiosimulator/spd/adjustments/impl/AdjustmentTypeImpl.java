@@ -15,33 +15,30 @@ import org.palladiosimulator.spd.adjustments.AdjustmentsPackage;
  * @generated
  */
 public abstract class AdjustmentTypeImpl extends CDOObjectImpl implements AdjustmentType {
-    /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @generated
-     */
-    protected AdjustmentTypeImpl() {
-        super();
-    }
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected AdjustmentTypeImpl() {
+		super();
+	}
 
-    /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @generated
-     */
-    @Override
-    protected EClass eStaticClass() {
-        return AdjustmentsPackage.Literals.ADJUSTMENT_TYPE;
-    }
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	protected EClass eStaticClass() {
+		return AdjustmentsPackage.Literals.ADJUSTMENT_TYPE;
+	}
 
-    /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @generated
-     */
-    @Override
-    protected int eStaticFeatureCount() {
-        return 0;
-    }
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	protected int eStaticFeatureCount() {
+		return 0;
+	}
 
 } // AdjustmentTypeImpl
