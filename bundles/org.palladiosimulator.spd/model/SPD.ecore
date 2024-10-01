@@ -212,6 +212,7 @@
       <eLiterals name="MEDIAN" value="3"/>
       <eLiterals name="SUM" value="4"/>
       <eLiterals name="RATEOFCHANGE" value="5"/>
+      <eLiterals name="PERCENTILE95" value="6" literal="PERCENTILE95"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EEnum" name="HDDUSAGETYPE">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">

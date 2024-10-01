@@ -154,8 +154,9 @@ public class TriggersPackageImpl extends EPackageImpl implements TriggersPackage
 	 * @generated
 	 */
 	public static TriggersPackage init() {
-		if (isInited)
+		if (isInited) {
 			return (TriggersPackage) EPackage.Registry.INSTANCE.getEPackage(TriggersPackage.eNS_URI);
+		}
 
 		// Obtain or create and register package
 		Object registeredTriggersPackage = EPackage.Registry.INSTANCE.get(eNS_URI);
@@ -414,8 +415,9 @@ public class TriggersPackageImpl extends EPackageImpl implements TriggersPackage
 	 * @generated
 	 */
 	public void createPackageContents() {
-		if (isCreated)
+		if (isCreated) {
 			return;
+		}
 		isCreated = true;
 
 		// Create classes and their features
@@ -456,8 +458,9 @@ public class TriggersPackageImpl extends EPackageImpl implements TriggersPackage
 	 * @generated
 	 */
 	public void initializePackageContents() {
-		if (isInitialized)
+		if (isInitialized) {
 			return;
+		}
 		isInitialized = true;
 
 		// Initialize package
@@ -528,6 +531,7 @@ public class TriggersPackageImpl extends EPackageImpl implements TriggersPackage
 		addEEnumLiteral(aggregationmethodEEnum, org.palladiosimulator.spd.triggers.AGGREGATIONMETHOD.MEDIAN);
 		addEEnumLiteral(aggregationmethodEEnum, org.palladiosimulator.spd.triggers.AGGREGATIONMETHOD.SUM);
 		addEEnumLiteral(aggregationmethodEEnum, org.palladiosimulator.spd.triggers.AGGREGATIONMETHOD.RATEOFCHANGE);
+		addEEnumLiteral(aggregationmethodEEnum, org.palladiosimulator.spd.triggers.AGGREGATIONMETHOD.PERCENTILE95);
 
 		initEEnum(hddusagetypeEEnum, org.palladiosimulator.spd.triggers.HDDUSAGETYPE.class, "HDDUSAGETYPE");
 		addEEnumLiteral(hddusagetypeEEnum, org.palladiosimulator.spd.triggers.HDDUSAGETYPE.READ);

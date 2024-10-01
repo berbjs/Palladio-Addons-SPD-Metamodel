@@ -72,7 +72,16 @@ public enum AGGREGATIONMETHOD implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	RATEOFCHANGE(5, "RATEOFCHANGE", "RATEOFCHANGE");
+	RATEOFCHANGE(5, "RATEOFCHANGE", "RATEOFCHANGE"),
+	/**
+	* The '<em><b>PERCENTILE95</b></em>' literal object.
+	* <!-- begin-user-doc -->
+	* <!-- end-user-doc -->
+	* @see #PERCENTILE95_VALUE
+	* @generated
+	* @ordered
+	*/
+	PERCENTILE95(6, "PERCENTILE95", "PERCENTILE95");
 
 	/**
 	 * The '<em><b>AVERAGE</b></em>' literal value.
@@ -136,13 +145,24 @@ public enum AGGREGATIONMETHOD implements Enumerator {
 	public static final int RATEOFCHANGE_VALUE = 5;
 
 	/**
+	 * The '<em><b>PERCENTILE95</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #PERCENTILE95
+	 * @model
+	 * @generated
+	 * @ordered
+	 */
+	public static final int PERCENTILE95_VALUE = 6;
+
+	/**
 	 * An array of all the '<em><b>AGGREGATIONMETHOD</b></em>' enumerators.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	private static final AGGREGATIONMETHOD[] VALUES_ARRAY = new AGGREGATIONMETHOD[] { AVERAGE, MAX, MIN, MEDIAN, SUM,
-			RATEOFCHANGE, };
+			RATEOFCHANGE, PERCENTILE95, };
 
 	/**
 	 * A public read-only list of all the '<em><b>AGGREGATIONMETHOD</b></em>' enumerators. <!--
@@ -160,8 +180,7 @@ public enum AGGREGATIONMETHOD implements Enumerator {
 	 * @generated
 	 */
 	public static AGGREGATIONMETHOD get(String literal) {
-		for (int i = 0; i < VALUES_ARRAY.length; ++i) {
-			AGGREGATIONMETHOD result = VALUES_ARRAY[i];
+		for (AGGREGATIONMETHOD result : VALUES_ARRAY) {
 			if (result.toString().equals(literal)) {
 				return result;
 			}
@@ -179,8 +198,7 @@ public enum AGGREGATIONMETHOD implements Enumerator {
 	 * @generated
 	 */
 	public static AGGREGATIONMETHOD getByName(String name) {
-		for (int i = 0; i < VALUES_ARRAY.length; ++i) {
-			AGGREGATIONMETHOD result = VALUES_ARRAY[i];
+		for (AGGREGATIONMETHOD result : VALUES_ARRAY) {
 			if (result.getName().equals(name)) {
 				return result;
 			}
@@ -209,6 +227,8 @@ public enum AGGREGATIONMETHOD implements Enumerator {
 			return SUM;
 		case RATEOFCHANGE_VALUE:
 			return RATEOFCHANGE;
+		case PERCENTILE95_VALUE:
+			return PERCENTILE95;
 		}
 		return null;
 	}
