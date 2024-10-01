@@ -74,13 +74,13 @@ public enum AGGREGATIONMETHOD implements Enumerator {
 	 */
 	RATEOFCHANGE(5, "RATEOFCHANGE", "RATEOFCHANGE"),
 	/**
-	* The '<em><b>PERCENTILE95</b></em>' literal object.
-	* <!-- begin-user-doc -->
+	 * The '<em><b>PERCENTILE95</b></em>' literal object.
+	 * <!-- begin-user-doc -->
 	* <!-- end-user-doc -->
-	* @see #PERCENTILE95_VALUE
-	* @generated
-	* @ordered
-	*/
+	 * @see #PERCENTILE95_VALUE
+	 * @generated
+	 * @ordered
+	 */
 	PERCENTILE95(6, "PERCENTILE95", "PERCENTILE95");
 
 	/**

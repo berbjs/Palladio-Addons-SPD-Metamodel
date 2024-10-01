@@ -50,6 +50,7 @@ public class ImprovedQLearningModelItemProvider extends LearningBasedModelItemPr
 			addTargetResponseTimePropertyDescriptor(object);
 			addExponentialSteepnessPropertyDescriptor(object);
 			addDiscountFactorPropertyDescriptor(object);
+			addResponseTimeAggregationMethodPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -135,6 +136,23 @@ public class ImprovedQLearningModelItemProvider extends LearningBasedModelItemPr
 	}
 
 	/**
+	 * This adds a property descriptor for the Response Time Aggregation Method feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addResponseTimeAggregationMethodPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(
+				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+				getString("_UI_ImprovedQLearningModel_responseTimeAggregationMethod_feature"),
+				getString("_UI_PropertyDescriptor_description",
+						"_UI_ImprovedQLearningModel_responseTimeAggregationMethod_feature",
+						"_UI_ImprovedQLearningModel_type"),
+				ModelsPackage.Literals.IMPROVED_QLEARNING_MODEL__RESPONSE_TIME_AGGREGATION_METHOD, true, false, false,
+				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+	}
+
+	/**
 	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate
 	 * feature for an {@link org.eclipse.emf.edit.command.AddCommand},
 	 * {@link org.eclipse.emf.edit.command.RemoveCommand} or
@@ -203,6 +221,7 @@ public class ImprovedQLearningModelItemProvider extends LearningBasedModelItemPr
 		case ModelsPackage.IMPROVED_QLEARNING_MODEL__TARGET_RESPONSE_TIME:
 		case ModelsPackage.IMPROVED_QLEARNING_MODEL__EXPONENTIAL_STEEPNESS:
 		case ModelsPackage.IMPROVED_QLEARNING_MODEL__DISCOUNT_FACTOR:
+		case ModelsPackage.IMPROVED_QLEARNING_MODEL__RESPONSE_TIME_AGGREGATION_METHOD:
 			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 			return;
 		case ModelsPackage.IMPROVED_QLEARNING_MODEL__INPUT:

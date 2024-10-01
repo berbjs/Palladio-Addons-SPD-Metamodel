@@ -8,6 +8,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.palladiosimulator.spd.models.ImprovedQLearningModel;
 import org.palladiosimulator.spd.models.ModelsPackage;
+import org.palladiosimulator.spd.triggers.AGGREGATIONMETHOD;
 import org.palladiosimulator.spd.triggers.stimuli.OperationResponseTime;
 import org.palladiosimulator.spd.triggers.stimuli.Stimulus;
 
@@ -26,6 +27,7 @@ import org.palladiosimulator.spd.triggers.stimuli.Stimulus;
  *   <li>{@link org.palladiosimulator.spd.models.impl.ImprovedQLearningModelImpl#getExponentialSteepness <em>Exponential Steepness</em>}</li>
  *   <li>{@link org.palladiosimulator.spd.models.impl.ImprovedQLearningModelImpl#getUtilizationStimulus <em>Utilization Stimulus</em>}</li>
  *   <li>{@link org.palladiosimulator.spd.models.impl.ImprovedQLearningModelImpl#getDiscountFactor <em>Discount Factor</em>}</li>
+ *   <li>{@link org.palladiosimulator.spd.models.impl.ImprovedQLearningModelImpl#getResponseTimeAggregationMethod <em>Response Time Aggregation Method</em>}</li>
  * </ul>
  *
  * @generated
@@ -74,6 +76,16 @@ public class ImprovedQLearningModelImpl extends LearningBasedModelImpl implement
 	 * @ordered
 	 */
 	protected static final double DISCOUNT_FACTOR_EDEFAULT = 0.5;
+
+	/**
+	 * The default value of the '{@link #getResponseTimeAggregationMethod() <em>Response Time Aggregation Method</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getResponseTimeAggregationMethod()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final AGGREGATIONMETHOD RESPONSE_TIME_AGGREGATION_METHOD_EDEFAULT = AGGREGATIONMETHOD.PERCENTILE95;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -283,6 +295,29 @@ public class ImprovedQLearningModelImpl extends LearningBasedModelImpl implement
 	}
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public AGGREGATIONMETHOD getResponseTimeAggregationMethod() {
+		return (AGGREGATIONMETHOD) eDynamicGet(ModelsPackage.IMPROVED_QLEARNING_MODEL__RESPONSE_TIME_AGGREGATION_METHOD,
+				ModelsPackage.Literals.IMPROVED_QLEARNING_MODEL__RESPONSE_TIME_AGGREGATION_METHOD, true, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setResponseTimeAggregationMethod(AGGREGATIONMETHOD newResponseTimeAggregationMethod) {
+		eDynamicSet(ModelsPackage.IMPROVED_QLEARNING_MODEL__RESPONSE_TIME_AGGREGATION_METHOD,
+				ModelsPackage.Literals.IMPROVED_QLEARNING_MODEL__RESPONSE_TIME_AGGREGATION_METHOD,
+				newResponseTimeAggregationMethod);
+	}
+
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
@@ -322,6 +357,8 @@ public class ImprovedQLearningModelImpl extends LearningBasedModelImpl implement
 			return getUtilizationStimulus();
 		case ModelsPackage.IMPROVED_QLEARNING_MODEL__DISCOUNT_FACTOR:
 			return getDiscountFactor();
+		case ModelsPackage.IMPROVED_QLEARNING_MODEL__RESPONSE_TIME_AGGREGATION_METHOD:
+			return getResponseTimeAggregationMethod();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -356,6 +393,9 @@ public class ImprovedQLearningModelImpl extends LearningBasedModelImpl implement
 			return;
 		case ModelsPackage.IMPROVED_QLEARNING_MODEL__DISCOUNT_FACTOR:
 			setDiscountFactor((Double) newValue);
+			return;
+		case ModelsPackage.IMPROVED_QLEARNING_MODEL__RESPONSE_TIME_AGGREGATION_METHOD:
+			setResponseTimeAggregationMethod((AGGREGATIONMETHOD) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -392,6 +432,9 @@ public class ImprovedQLearningModelImpl extends LearningBasedModelImpl implement
 		case ModelsPackage.IMPROVED_QLEARNING_MODEL__DISCOUNT_FACTOR:
 			setDiscountFactor(DISCOUNT_FACTOR_EDEFAULT);
 			return;
+		case ModelsPackage.IMPROVED_QLEARNING_MODEL__RESPONSE_TIME_AGGREGATION_METHOD:
+			setResponseTimeAggregationMethod(RESPONSE_TIME_AGGREGATION_METHOD_EDEFAULT);
+			return;
 		}
 		super.eUnset(featureID);
 	}
@@ -419,6 +462,8 @@ public class ImprovedQLearningModelImpl extends LearningBasedModelImpl implement
 			return getUtilizationStimulus() != null;
 		case ModelsPackage.IMPROVED_QLEARNING_MODEL__DISCOUNT_FACTOR:
 			return getDiscountFactor() != DISCOUNT_FACTOR_EDEFAULT;
+		case ModelsPackage.IMPROVED_QLEARNING_MODEL__RESPONSE_TIME_AGGREGATION_METHOD:
+			return getResponseTimeAggregationMethod() != RESPONSE_TIME_AGGREGATION_METHOD_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}

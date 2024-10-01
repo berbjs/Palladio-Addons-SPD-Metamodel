@@ -3,6 +3,7 @@
  */
 package org.palladiosimulator.spd.models;
 
+import org.palladiosimulator.spd.triggers.AGGREGATIONMETHOD;
 import org.palladiosimulator.spd.triggers.stimuli.OperationResponseTime;
 import org.palladiosimulator.spd.triggers.stimuli.Stimulus;
 
@@ -22,6 +23,7 @@ import org.palladiosimulator.spd.triggers.stimuli.Stimulus;
  *   <li>{@link org.palladiosimulator.spd.models.ImprovedQLearningModel#getExponentialSteepness <em>Exponential Steepness</em>}</li>
  *   <li>{@link org.palladiosimulator.spd.models.ImprovedQLearningModel#getUtilizationStimulus <em>Utilization Stimulus</em>}</li>
  *   <li>{@link org.palladiosimulator.spd.models.ImprovedQLearningModel#getDiscountFactor <em>Discount Factor</em>}</li>
+ *   <li>{@link org.palladiosimulator.spd.models.ImprovedQLearningModel#getResponseTimeAggregationMethod <em>Response Time Aggregation Method</em>}</li>
  * </ul>
  *
  * @see org.palladiosimulator.spd.models.ModelsPackage#getImprovedQLearningModel()
@@ -199,4 +201,30 @@ public interface ImprovedQLearningModel extends LearningBasedModel {
 	 * @generated
 	 */
 	void setDiscountFactor(double value);
+
+	/**
+	 * Returns the value of the '<em><b>Response Time Aggregation Method</b></em>' attribute.
+	 * The default value is <code>"PERCENTILE95"</code>.
+	 * The literals are from the enumeration {@link org.palladiosimulator.spd.triggers.AGGREGATIONMETHOD}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Response Time Aggregation Method</em>' attribute.
+	 * @see org.palladiosimulator.spd.triggers.AGGREGATIONMETHOD
+	 * @see #setResponseTimeAggregationMethod(AGGREGATIONMETHOD)
+	 * @see org.palladiosimulator.spd.models.ModelsPackage#getImprovedQLearningModel_ResponseTimeAggregationMethod()
+	 * @model default="PERCENTILE95" required="true"
+	 * @generated
+	 */
+	AGGREGATIONMETHOD getResponseTimeAggregationMethod();
+
+	/**
+	 * Sets the value of the '{@link org.palladiosimulator.spd.models.ImprovedQLearningModel#getResponseTimeAggregationMethod <em>Response Time Aggregation Method</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Response Time Aggregation Method</em>' attribute.
+	 * @see org.palladiosimulator.spd.triggers.AGGREGATIONMETHOD
+	 * @see #getResponseTimeAggregationMethod()
+	 * @generated
+	 */
+	void setResponseTimeAggregationMethod(AGGREGATIONMETHOD value);
 } // ImprovedQLearningModel

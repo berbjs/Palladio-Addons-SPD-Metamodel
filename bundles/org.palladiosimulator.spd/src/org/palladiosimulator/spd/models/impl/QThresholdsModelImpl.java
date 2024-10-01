@@ -8,6 +8,8 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.palladiosimulator.spd.models.ModelsPackage;
 import org.palladiosimulator.spd.models.QThresholdsModel;
+import org.palladiosimulator.spd.triggers.AGGREGATIONMETHOD;
+import org.palladiosimulator.spd.triggers.stimuli.NumberOfElements;
 import org.palladiosimulator.spd.triggers.stimuli.OperationResponseTime;
 import org.palladiosimulator.spd.triggers.stimuli.Stimulus;
 
@@ -22,9 +24,11 @@ import org.palladiosimulator.spd.triggers.stimuli.Stimulus;
  *   <li>{@link org.palladiosimulator.spd.models.impl.QThresholdsModelImpl#getTargetResponseTime <em>Target Response Time</em>}</li>
  *   <li>{@link org.palladiosimulator.spd.models.impl.QThresholdsModelImpl#getResponseTimeStimulus <em>Response Time Stimulus</em>}</li>
  *   <li>{@link org.palladiosimulator.spd.models.impl.QThresholdsModelImpl#getExponentialSteepness <em>Exponential Steepness</em>}</li>
- *   <li>{@link org.palladiosimulator.spd.models.impl.QThresholdsModelImpl#getUtilizationStimulus <em>Utilization Stimulus</em>}</li>
  *   <li>{@link org.palladiosimulator.spd.models.impl.QThresholdsModelImpl#getEpsilon <em>Epsilon</em>}</li>
  *   <li>{@link org.palladiosimulator.spd.models.impl.QThresholdsModelImpl#getDiscountFactor <em>Discount Factor</em>}</li>
+ *   <li>{@link org.palladiosimulator.spd.models.impl.QThresholdsModelImpl#getAllocatedResourcesStimulus <em>Allocated Resources Stimulus</em>}</li>
+ *   <li>{@link org.palladiosimulator.spd.models.impl.QThresholdsModelImpl#getUtilizationStimulus <em>Utilization Stimulus</em>}</li>
+ *   <li>{@link org.palladiosimulator.spd.models.impl.QThresholdsModelImpl#getResponseTimeAggregationMethod <em>Response Time Aggregation Method</em>}</li>
  * </ul>
  *
  * @generated
@@ -65,6 +69,16 @@ public class QThresholdsModelImpl extends LearningBasedModelImpl implements QThr
 	 * @ordered
 	 */
 	protected static final double DISCOUNT_FACTOR_EDEFAULT = 0.5;
+
+	/**
+	 * The default value of the '{@link #getResponseTimeAggregationMethod() <em>Response Time Aggregation Method</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getResponseTimeAggregationMethod()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final AGGREGATIONMETHOD RESPONSE_TIME_AGGREGATION_METHOD_EDEFAULT = AGGREGATIONMETHOD.PERCENTILE95;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -213,6 +227,29 @@ public class QThresholdsModelImpl extends LearningBasedModelImpl implements QThr
 	}
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public AGGREGATIONMETHOD getResponseTimeAggregationMethod() {
+		return (AGGREGATIONMETHOD) eDynamicGet(ModelsPackage.QTHRESHOLDS_MODEL__RESPONSE_TIME_AGGREGATION_METHOD,
+				ModelsPackage.Literals.QTHRESHOLDS_MODEL__RESPONSE_TIME_AGGREGATION_METHOD, true, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setResponseTimeAggregationMethod(AGGREGATIONMETHOD newResponseTimeAggregationMethod) {
+		eDynamicSet(ModelsPackage.QTHRESHOLDS_MODEL__RESPONSE_TIME_AGGREGATION_METHOD,
+				ModelsPackage.Literals.QTHRESHOLDS_MODEL__RESPONSE_TIME_AGGREGATION_METHOD,
+				newResponseTimeAggregationMethod);
+	}
+
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
@@ -253,6 +290,40 @@ public class QThresholdsModelImpl extends LearningBasedModelImpl implements QThr
 	}
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NumberOfElements getAllocatedResourcesStimulus() {
+		return (NumberOfElements) eDynamicGet(ModelsPackage.QTHRESHOLDS_MODEL__ALLOCATED_RESOURCES_STIMULUS,
+				ModelsPackage.Literals.QTHRESHOLDS_MODEL__ALLOCATED_RESOURCES_STIMULUS, true, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetAllocatedResourcesStimulus(NumberOfElements newAllocatedResourcesStimulus,
+			NotificationChain msgs) {
+		msgs = eDynamicInverseAdd((InternalEObject) newAllocatedResourcesStimulus,
+				ModelsPackage.QTHRESHOLDS_MODEL__ALLOCATED_RESOURCES_STIMULUS, msgs);
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setAllocatedResourcesStimulus(NumberOfElements newAllocatedResourcesStimulus) {
+		eDynamicSet(ModelsPackage.QTHRESHOLDS_MODEL__ALLOCATED_RESOURCES_STIMULUS,
+				ModelsPackage.Literals.QTHRESHOLDS_MODEL__ALLOCATED_RESOURCES_STIMULUS, newAllocatedResourcesStimulus);
+	}
+
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
@@ -263,6 +334,8 @@ public class QThresholdsModelImpl extends LearningBasedModelImpl implements QThr
 			return basicSetInput(null, msgs);
 		case ModelsPackage.QTHRESHOLDS_MODEL__RESPONSE_TIME_STIMULUS:
 			return basicSetResponseTimeStimulus(null, msgs);
+		case ModelsPackage.QTHRESHOLDS_MODEL__ALLOCATED_RESOURCES_STIMULUS:
+			return basicSetAllocatedResourcesStimulus(null, msgs);
 		case ModelsPackage.QTHRESHOLDS_MODEL__UTILIZATION_STIMULUS:
 			return basicSetUtilizationStimulus(null, msgs);
 		}
@@ -284,12 +357,16 @@ public class QThresholdsModelImpl extends LearningBasedModelImpl implements QThr
 			return getResponseTimeStimulus();
 		case ModelsPackage.QTHRESHOLDS_MODEL__EXPONENTIAL_STEEPNESS:
 			return getExponentialSteepness();
-		case ModelsPackage.QTHRESHOLDS_MODEL__UTILIZATION_STIMULUS:
-			return getUtilizationStimulus();
 		case ModelsPackage.QTHRESHOLDS_MODEL__EPSILON:
 			return getEpsilon();
 		case ModelsPackage.QTHRESHOLDS_MODEL__DISCOUNT_FACTOR:
 			return getDiscountFactor();
+		case ModelsPackage.QTHRESHOLDS_MODEL__ALLOCATED_RESOURCES_STIMULUS:
+			return getAllocatedResourcesStimulus();
+		case ModelsPackage.QTHRESHOLDS_MODEL__UTILIZATION_STIMULUS:
+			return getUtilizationStimulus();
+		case ModelsPackage.QTHRESHOLDS_MODEL__RESPONSE_TIME_AGGREGATION_METHOD:
+			return getResponseTimeAggregationMethod();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -313,14 +390,20 @@ public class QThresholdsModelImpl extends LearningBasedModelImpl implements QThr
 		case ModelsPackage.QTHRESHOLDS_MODEL__EXPONENTIAL_STEEPNESS:
 			setExponentialSteepness((Double) newValue);
 			return;
-		case ModelsPackage.QTHRESHOLDS_MODEL__UTILIZATION_STIMULUS:
-			setUtilizationStimulus((Stimulus) newValue);
-			return;
 		case ModelsPackage.QTHRESHOLDS_MODEL__EPSILON:
 			setEpsilon((Double) newValue);
 			return;
 		case ModelsPackage.QTHRESHOLDS_MODEL__DISCOUNT_FACTOR:
 			setDiscountFactor((Double) newValue);
+			return;
+		case ModelsPackage.QTHRESHOLDS_MODEL__ALLOCATED_RESOURCES_STIMULUS:
+			setAllocatedResourcesStimulus((NumberOfElements) newValue);
+			return;
+		case ModelsPackage.QTHRESHOLDS_MODEL__UTILIZATION_STIMULUS:
+			setUtilizationStimulus((Stimulus) newValue);
+			return;
+		case ModelsPackage.QTHRESHOLDS_MODEL__RESPONSE_TIME_AGGREGATION_METHOD:
+			setResponseTimeAggregationMethod((AGGREGATIONMETHOD) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -345,14 +428,20 @@ public class QThresholdsModelImpl extends LearningBasedModelImpl implements QThr
 		case ModelsPackage.QTHRESHOLDS_MODEL__EXPONENTIAL_STEEPNESS:
 			setExponentialSteepness(EXPONENTIAL_STEEPNESS_EDEFAULT);
 			return;
-		case ModelsPackage.QTHRESHOLDS_MODEL__UTILIZATION_STIMULUS:
-			setUtilizationStimulus((Stimulus) null);
-			return;
 		case ModelsPackage.QTHRESHOLDS_MODEL__EPSILON:
 			setEpsilon(EPSILON_EDEFAULT);
 			return;
 		case ModelsPackage.QTHRESHOLDS_MODEL__DISCOUNT_FACTOR:
 			setDiscountFactor(DISCOUNT_FACTOR_EDEFAULT);
+			return;
+		case ModelsPackage.QTHRESHOLDS_MODEL__ALLOCATED_RESOURCES_STIMULUS:
+			setAllocatedResourcesStimulus((NumberOfElements) null);
+			return;
+		case ModelsPackage.QTHRESHOLDS_MODEL__UTILIZATION_STIMULUS:
+			setUtilizationStimulus((Stimulus) null);
+			return;
+		case ModelsPackage.QTHRESHOLDS_MODEL__RESPONSE_TIME_AGGREGATION_METHOD:
+			setResponseTimeAggregationMethod(RESPONSE_TIME_AGGREGATION_METHOD_EDEFAULT);
 			return;
 		}
 		super.eUnset(featureID);
@@ -373,12 +462,16 @@ public class QThresholdsModelImpl extends LearningBasedModelImpl implements QThr
 			return getResponseTimeStimulus() != null;
 		case ModelsPackage.QTHRESHOLDS_MODEL__EXPONENTIAL_STEEPNESS:
 			return getExponentialSteepness() != EXPONENTIAL_STEEPNESS_EDEFAULT;
-		case ModelsPackage.QTHRESHOLDS_MODEL__UTILIZATION_STIMULUS:
-			return getUtilizationStimulus() != null;
 		case ModelsPackage.QTHRESHOLDS_MODEL__EPSILON:
 			return getEpsilon() != EPSILON_EDEFAULT;
 		case ModelsPackage.QTHRESHOLDS_MODEL__DISCOUNT_FACTOR:
 			return getDiscountFactor() != DISCOUNT_FACTOR_EDEFAULT;
+		case ModelsPackage.QTHRESHOLDS_MODEL__ALLOCATED_RESOURCES_STIMULUS:
+			return getAllocatedResourcesStimulus() != null;
+		case ModelsPackage.QTHRESHOLDS_MODEL__UTILIZATION_STIMULUS:
+			return getUtilizationStimulus() != null;
+		case ModelsPackage.QTHRESHOLDS_MODEL__RESPONSE_TIME_AGGREGATION_METHOD:
+			return getResponseTimeAggregationMethod() != RESPONSE_TIME_AGGREGATION_METHOD_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}

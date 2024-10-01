@@ -421,12 +421,16 @@
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="exponentialSteepness"
           lowerBound="1" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EDouble"
           defaultValueLiteral="2"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="utilizationStimulus"
-          lowerBound="1" eType="#//triggers/stimuli/Stimulus" containment="true"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="epsilon" lowerBound="1"
           eType="#//datatypes/PercentDouble" defaultValueLiteral="0.05"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="discountFactor" lowerBound="1"
           eType="#//datatypes/PercentDouble" defaultValueLiteral="0.5"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="allocatedResourcesStimulus"
+          lowerBound="1" eType="#//triggers/stimuli/NumberOfElements" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="utilizationStimulus"
+          lowerBound="1" eType="#//triggers/stimuli/Stimulus" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="responseTimeAggregationMethod"
+          lowerBound="1" eType="#//triggers/AGGREGATIONMETHOD" defaultValueLiteral="PERCENTILE95"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="RandomModel" eSuperTypes="#//models/BaseModel">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="minAdjustment" lowerBound="1"
@@ -456,6 +460,8 @@
           lowerBound="1" eType="#//triggers/stimuli/Stimulus" containment="true"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="discountFactor" lowerBound="1"
           eType="#//datatypes/PercentDouble" defaultValueLiteral="0.5"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="responseTimeAggregationMethod"
+          lowerBound="1" eType="#//triggers/AGGREGATIONMETHOD" defaultValueLiteral="PERCENTILE95"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="LearningBasedModel" abstract="true"
         eSuperTypes="#//models/BaseModel">

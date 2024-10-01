@@ -205,22 +205,13 @@ public interface ModelsPackage extends EPackage {
 	int QTHRESHOLDS_MODEL__EXPONENTIAL_STEEPNESS = LEARNING_BASED_MODEL_FEATURE_COUNT + 3;
 
 	/**
-	 * The feature id for the '<em><b>Utilization Stimulus</b></em>' containment reference. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 *
-	 * @generated
-	 * @ordered
-	 */
-	int QTHRESHOLDS_MODEL__UTILIZATION_STIMULUS = LEARNING_BASED_MODEL_FEATURE_COUNT + 4;
-
-	/**
 	 * The feature id for the '<em><b>Epsilon</b></em>' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int QTHRESHOLDS_MODEL__EPSILON = LEARNING_BASED_MODEL_FEATURE_COUNT + 5;
+	int QTHRESHOLDS_MODEL__EPSILON = LEARNING_BASED_MODEL_FEATURE_COUNT + 4;
 
 	/**
 	 * The feature id for the '<em><b>Discount Factor</b></em>' attribute.
@@ -229,7 +220,34 @@ public interface ModelsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int QTHRESHOLDS_MODEL__DISCOUNT_FACTOR = LEARNING_BASED_MODEL_FEATURE_COUNT + 6;
+	int QTHRESHOLDS_MODEL__DISCOUNT_FACTOR = LEARNING_BASED_MODEL_FEATURE_COUNT + 5;
+
+	/**
+	 * The feature id for the '<em><b>Allocated Resources Stimulus</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int QTHRESHOLDS_MODEL__ALLOCATED_RESOURCES_STIMULUS = LEARNING_BASED_MODEL_FEATURE_COUNT + 6;
+
+	/**
+	 * The feature id for the '<em><b>Utilization Stimulus</b></em>' containment reference. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 *
+	 * @generated
+	 * @ordered
+	 */
+	int QTHRESHOLDS_MODEL__UTILIZATION_STIMULUS = LEARNING_BASED_MODEL_FEATURE_COUNT + 7;
+
+	/**
+	 * The feature id for the '<em><b>Response Time Aggregation Method</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int QTHRESHOLDS_MODEL__RESPONSE_TIME_AGGREGATION_METHOD = LEARNING_BASED_MODEL_FEATURE_COUNT + 8;
 
 	/**
 	 * The number of structural features of the '<em>QThresholds Model</em>' class. <!--
@@ -238,7 +256,7 @@ public interface ModelsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int QTHRESHOLDS_MODEL_FEATURE_COUNT = LEARNING_BASED_MODEL_FEATURE_COUNT + 7;
+	int QTHRESHOLDS_MODEL_FEATURE_COUNT = LEARNING_BASED_MODEL_FEATURE_COUNT + 9;
 
 	/**
 	 * The meta object id for the '{@link org.palladiosimulator.spd.models.impl.RandomModelImpl <em>Random Model</em>}' class.
@@ -412,13 +430,22 @@ public interface ModelsPackage extends EPackage {
 	int IMPROVED_QLEARNING_MODEL__DISCOUNT_FACTOR = LEARNING_BASED_MODEL_FEATURE_COUNT + 7;
 
 	/**
+	 * The feature id for the '<em><b>Response Time Aggregation Method</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IMPROVED_QLEARNING_MODEL__RESPONSE_TIME_AGGREGATION_METHOD = LEARNING_BASED_MODEL_FEATURE_COUNT + 8;
+
+	/**
 	 * The number of structural features of the '<em>Improved QLearning Model</em>' class. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
 	 *
 	 * @generated
 	 * @ordered
 	 */
-	int IMPROVED_QLEARNING_MODEL_FEATURE_COUNT = LEARNING_BASED_MODEL_FEATURE_COUNT + 8;
+	int IMPROVED_QLEARNING_MODEL_FEATURE_COUNT = LEARNING_BASED_MODEL_FEATURE_COUNT + 9;
 
 	/**
 	 * Returns the meta object for class '{@link org.palladiosimulator.spd.models.BaseModel <em>Base Model</em>}'.
@@ -513,6 +540,17 @@ public interface ModelsPackage extends EPackage {
 	EReference getQThresholdsModel_UtilizationStimulus();
 
 	/**
+	 * Returns the meta object for the attribute '{@link org.palladiosimulator.spd.models.QThresholdsModel#getResponseTimeAggregationMethod <em>Response Time Aggregation Method</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Response Time Aggregation Method</em>'.
+	 * @see org.palladiosimulator.spd.models.QThresholdsModel#getResponseTimeAggregationMethod()
+	 * @see #getQThresholdsModel()
+	 * @generated
+	 */
+	EAttribute getQThresholdsModel_ResponseTimeAggregationMethod();
+
+	/**
 	 * Returns the meta object for the attribute
 	 * '{@link org.palladiosimulator.spd.models.QThresholdsModel#getEpsilon <em>Epsilon</em>}'. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
@@ -533,6 +571,17 @@ public interface ModelsPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getQThresholdsModel_DiscountFactor();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link org.palladiosimulator.spd.models.QThresholdsModel#getAllocatedResourcesStimulus <em>Allocated Resources Stimulus</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Allocated Resources Stimulus</em>'.
+	 * @see org.palladiosimulator.spd.models.QThresholdsModel#getAllocatedResourcesStimulus()
+	 * @see #getQThresholdsModel()
+	 * @generated
+	 */
+	EReference getQThresholdsModel_AllocatedResourcesStimulus();
 
 	/**
 	 * Returns the meta object for class '{@link org.palladiosimulator.spd.models.RandomModel <em>Random Model</em>}'.
@@ -663,6 +712,17 @@ public interface ModelsPackage extends EPackage {
 	EAttribute getImprovedQLearningModel_DiscountFactor();
 
 	/**
+	 * Returns the meta object for the attribute '{@link org.palladiosimulator.spd.models.ImprovedQLearningModel#getResponseTimeAggregationMethod <em>Response Time Aggregation Method</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Response Time Aggregation Method</em>'.
+	 * @see org.palladiosimulator.spd.models.ImprovedQLearningModel#getResponseTimeAggregationMethod()
+	 * @see #getImprovedQLearningModel()
+	 * @generated
+	 */
+	EAttribute getImprovedQLearningModel_ResponseTimeAggregationMethod();
+
+	/**
 	 * Returns the meta object for class '{@link org.palladiosimulator.spd.models.LearningBasedModel <em>Learning Based Model</em>}'.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @return the meta object for class '<em>Learning Based Model</em>'.
@@ -771,6 +831,15 @@ public interface ModelsPackage extends EPackage {
 		EReference QTHRESHOLDS_MODEL__UTILIZATION_STIMULUS = eINSTANCE.getQThresholdsModel_UtilizationStimulus();
 
 		/**
+		 * The meta object literal for the '<em><b>Response Time Aggregation Method</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute QTHRESHOLDS_MODEL__RESPONSE_TIME_AGGREGATION_METHOD = eINSTANCE
+				.getQThresholdsModel_ResponseTimeAggregationMethod();
+
+		/**
 		 * The meta object literal for the '<em><b>Epsilon</b></em>' attribute feature. <!--
 		 * begin-user-doc --> <!-- end-user-doc -->
 		 *
@@ -785,6 +854,15 @@ public interface ModelsPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute QTHRESHOLDS_MODEL__DISCOUNT_FACTOR = eINSTANCE.getQThresholdsModel_DiscountFactor();
+
+		/**
+		 * The meta object literal for the '<em><b>Allocated Resources Stimulus</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference QTHRESHOLDS_MODEL__ALLOCATED_RESOURCES_STIMULUS = eINSTANCE
+				.getQThresholdsModel_AllocatedResourcesStimulus();
 
 		/**
 		 * The meta object literal for the '{@link org.palladiosimulator.spd.models.impl.RandomModelImpl <em>Random Model</em>}' class.
@@ -890,6 +968,15 @@ public interface ModelsPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute IMPROVED_QLEARNING_MODEL__DISCOUNT_FACTOR = eINSTANCE.getImprovedQLearningModel_DiscountFactor();
+
+		/**
+		 * The meta object literal for the '<em><b>Response Time Aggregation Method</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute IMPROVED_QLEARNING_MODEL__RESPONSE_TIME_AGGREGATION_METHOD = eINSTANCE
+				.getImprovedQLearningModel_ResponseTimeAggregationMethod();
 
 		/**
 		 * The meta object literal for the '{@link org.palladiosimulator.spd.models.impl.LearningBasedModelImpl <em>Learning Based Model</em>}' class.

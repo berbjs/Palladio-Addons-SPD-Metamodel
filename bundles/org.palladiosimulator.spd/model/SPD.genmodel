@@ -202,9 +202,11 @@
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SPD.ecore#//models/QThresholdsModel/targetResponseTime"/>
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SPD.ecore#//models/QThresholdsModel/responseTimeStimulus"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SPD.ecore#//models/QThresholdsModel/exponentialSteepness"/>
-        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SPD.ecore#//models/QThresholdsModel/utilizationStimulus"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SPD.ecore#//models/QThresholdsModel/epsilon"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SPD.ecore#//models/QThresholdsModel/discountFactor"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SPD.ecore#//models/QThresholdsModel/allocatedResourcesStimulus"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SPD.ecore#//models/QThresholdsModel/utilizationStimulus"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SPD.ecore#//models/QThresholdsModel/responseTimeAggregationMethod"/>
       </genClasses>
       <genClasses ecoreClass="SPD.ecore#//models/RandomModel">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SPD.ecore#//models/RandomModel/minAdjustment"/>
@@ -220,6 +222,7 @@
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SPD.ecore#//models/ImprovedQLearningModel/exponentialSteepness"/>
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SPD.ecore#//models/ImprovedQLearningModel/utilizationStimulus"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SPD.ecore#//models/ImprovedQLearningModel/discountFactor"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SPD.ecore#//models/ImprovedQLearningModel/responseTimeAggregationMethod"/>
       </genClasses>
       <genClasses ecoreClass="SPD.ecore#//models/LearningBasedModel">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SPD.ecore#//models/LearningBasedModel/learningRate"/>

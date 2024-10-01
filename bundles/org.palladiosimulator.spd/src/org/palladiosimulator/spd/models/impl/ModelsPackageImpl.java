@@ -114,8 +114,9 @@ public class ModelsPackageImpl extends EPackageImpl implements ModelsPackage {
 	 * @generated
 	 */
 	public static ModelsPackage init() {
-		if (isInited)
+		if (isInited) {
 			return (ModelsPackage) EPackage.Registry.INSTANCE.getEPackage(ModelsPackage.eNS_URI);
+		}
 
 		// Obtain or create and register package
 		Object registeredModelsPackage = EPackage.Registry.INSTANCE.get(eNS_URI);
@@ -286,7 +287,17 @@ public class ModelsPackageImpl extends EPackageImpl implements ModelsPackage {
 	 */
 	@Override
 	public EReference getQThresholdsModel_UtilizationStimulus() {
-		return (EReference) qThresholdsModelEClass.getEStructuralFeatures().get(4);
+		return (EReference) qThresholdsModelEClass.getEStructuralFeatures().get(7);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getQThresholdsModel_ResponseTimeAggregationMethod() {
+		return (EAttribute) qThresholdsModelEClass.getEStructuralFeatures().get(8);
 	}
 
 	/**
@@ -295,7 +306,7 @@ public class ModelsPackageImpl extends EPackageImpl implements ModelsPackage {
 	 */
 	@Override
 	public EAttribute getQThresholdsModel_Epsilon() {
-		return (EAttribute) qThresholdsModelEClass.getEStructuralFeatures().get(5);
+		return (EAttribute) qThresholdsModelEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -304,7 +315,17 @@ public class ModelsPackageImpl extends EPackageImpl implements ModelsPackage {
 	 */
 	@Override
 	public EAttribute getQThresholdsModel_DiscountFactor() {
-		return (EAttribute) qThresholdsModelEClass.getEStructuralFeatures().get(6);
+		return (EAttribute) qThresholdsModelEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getQThresholdsModel_AllocatedResourcesStimulus() {
+		return (EReference) qThresholdsModelEClass.getEStructuralFeatures().get(6);
 	}
 
 	/**
@@ -425,6 +446,16 @@ public class ModelsPackageImpl extends EPackageImpl implements ModelsPackage {
 	}
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getImprovedQLearningModel_ResponseTimeAggregationMethod() {
+		return (EAttribute) improvedQLearningModelEClass.getEStructuralFeatures().get(8);
+	}
+
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
@@ -464,8 +495,9 @@ public class ModelsPackageImpl extends EPackageImpl implements ModelsPackage {
 	 * @generated
 	 */
 	public void createPackageContents() {
-		if (isCreated)
+		if (isCreated) {
 			return;
+		}
 		isCreated = true;
 
 		// Create classes and their features
@@ -478,9 +510,11 @@ public class ModelsPackageImpl extends EPackageImpl implements ModelsPackage {
 		createEAttribute(qThresholdsModelEClass, QTHRESHOLDS_MODEL__TARGET_RESPONSE_TIME);
 		createEReference(qThresholdsModelEClass, QTHRESHOLDS_MODEL__RESPONSE_TIME_STIMULUS);
 		createEAttribute(qThresholdsModelEClass, QTHRESHOLDS_MODEL__EXPONENTIAL_STEEPNESS);
-		createEReference(qThresholdsModelEClass, QTHRESHOLDS_MODEL__UTILIZATION_STIMULUS);
 		createEAttribute(qThresholdsModelEClass, QTHRESHOLDS_MODEL__EPSILON);
 		createEAttribute(qThresholdsModelEClass, QTHRESHOLDS_MODEL__DISCOUNT_FACTOR);
+		createEReference(qThresholdsModelEClass, QTHRESHOLDS_MODEL__ALLOCATED_RESOURCES_STIMULUS);
+		createEReference(qThresholdsModelEClass, QTHRESHOLDS_MODEL__UTILIZATION_STIMULUS);
+		createEAttribute(qThresholdsModelEClass, QTHRESHOLDS_MODEL__RESPONSE_TIME_AGGREGATION_METHOD);
 
 		randomModelEClass = createEClass(RANDOM_MODEL);
 		createEAttribute(randomModelEClass, RANDOM_MODEL__MIN_ADJUSTMENT);
@@ -496,6 +530,7 @@ public class ModelsPackageImpl extends EPackageImpl implements ModelsPackage {
 		createEAttribute(improvedQLearningModelEClass, IMPROVED_QLEARNING_MODEL__EXPONENTIAL_STEEPNESS);
 		createEReference(improvedQLearningModelEClass, IMPROVED_QLEARNING_MODEL__UTILIZATION_STIMULUS);
 		createEAttribute(improvedQLearningModelEClass, IMPROVED_QLEARNING_MODEL__DISCOUNT_FACTOR);
+		createEAttribute(improvedQLearningModelEClass, IMPROVED_QLEARNING_MODEL__RESPONSE_TIME_AGGREGATION_METHOD);
 
 		learningBasedModelEClass = createEClass(LEARNING_BASED_MODEL);
 		createEAttribute(learningBasedModelEClass, LEARNING_BASED_MODEL__LEARNING_RATE);
@@ -514,8 +549,9 @@ public class ModelsPackageImpl extends EPackageImpl implements ModelsPackage {
 	 * @generated
 	 */
 	public void initializePackageContents() {
-		if (isInitialized)
+		if (isInitialized) {
 			return;
+		}
 		isInitialized = true;
 
 		// Initialize package
@@ -529,6 +565,8 @@ public class ModelsPackageImpl extends EPackageImpl implements ModelsPackage {
 				.getEPackage(StimuliPackage.eNS_URI);
 		DatatypesPackage theDatatypesPackage = (DatatypesPackage) EPackage.Registry.INSTANCE
 				.getEPackage(DatatypesPackage.eNS_URI);
+		TriggersPackage theTriggersPackage = (TriggersPackage) EPackage.Registry.INSTANCE
+				.getEPackage(TriggersPackage.eNS_URI);
 
 		// Create type parameters
 
@@ -563,15 +601,21 @@ public class ModelsPackageImpl extends EPackageImpl implements ModelsPackage {
 		initEAttribute(getQThresholdsModel_ExponentialSteepness(), theEcorePackage.getEDouble(), "exponentialSteepness",
 				"2", 1, 1, QThresholdsModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
 				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getQThresholdsModel_UtilizationStimulus(), theStimuliPackage.getStimulus(), null,
-				"utilizationStimulus", null, 1, 1, QThresholdsModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
-				IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getQThresholdsModel_Epsilon(), theDatatypesPackage.getPercentDouble(), "epsilon", "0.05", 1, 1,
 				QThresholdsModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
 				!IS_DERIVED, IS_ORDERED);
 		initEAttribute(getQThresholdsModel_DiscountFactor(), theDatatypesPackage.getPercentDouble(), "discountFactor",
 				"0.5", 1, 1, QThresholdsModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
 				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getQThresholdsModel_AllocatedResourcesStimulus(), theStimuliPackage.getNumberOfElements(), null,
+				"allocatedResourcesStimulus", null, 1, 1, QThresholdsModel.class, !IS_TRANSIENT, !IS_VOLATILE,
+				IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getQThresholdsModel_UtilizationStimulus(), theStimuliPackage.getStimulus(), null,
+				"utilizationStimulus", null, 1, 1, QThresholdsModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
+				IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getQThresholdsModel_ResponseTimeAggregationMethod(), theTriggersPackage.getAGGREGATIONMETHOD(),
+				"responseTimeAggregationMethod", "PERCENTILE95", 1, 1, QThresholdsModel.class, !IS_TRANSIENT,
+				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(randomModelEClass, RandomModel.class, "RandomModel", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
@@ -611,6 +655,10 @@ public class ModelsPackageImpl extends EPackageImpl implements ModelsPackage {
 		initEAttribute(getImprovedQLearningModel_DiscountFactor(), theDatatypesPackage.getPercentDouble(),
 				"discountFactor", "0.5", 1, 1, ImprovedQLearningModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
 				!IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getImprovedQLearningModel_ResponseTimeAggregationMethod(),
+				theTriggersPackage.getAGGREGATIONMETHOD(), "responseTimeAggregationMethod", "PERCENTILE95", 1, 1,
+				ImprovedQLearningModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
+				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(learningBasedModelEClass, LearningBasedModel.class, "LearningBasedModel", IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);

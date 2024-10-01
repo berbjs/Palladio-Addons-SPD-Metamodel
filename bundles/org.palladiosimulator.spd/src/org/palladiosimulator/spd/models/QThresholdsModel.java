@@ -3,6 +3,8 @@
  */
 package org.palladiosimulator.spd.models;
 
+import org.palladiosimulator.spd.triggers.AGGREGATIONMETHOD;
+import org.palladiosimulator.spd.triggers.stimuli.NumberOfElements;
 import org.palladiosimulator.spd.triggers.stimuli.OperationResponseTime;
 import org.palladiosimulator.spd.triggers.stimuli.Stimulus;
 
@@ -18,9 +20,11 @@ import org.palladiosimulator.spd.triggers.stimuli.Stimulus;
  *   <li>{@link org.palladiosimulator.spd.models.QThresholdsModel#getTargetResponseTime <em>Target Response Time</em>}</li>
  *   <li>{@link org.palladiosimulator.spd.models.QThresholdsModel#getResponseTimeStimulus <em>Response Time Stimulus</em>}</li>
  *   <li>{@link org.palladiosimulator.spd.models.QThresholdsModel#getExponentialSteepness <em>Exponential Steepness</em>}</li>
- *   <li>{@link org.palladiosimulator.spd.models.QThresholdsModel#getUtilizationStimulus <em>Utilization Stimulus</em>}</li>
  *   <li>{@link org.palladiosimulator.spd.models.QThresholdsModel#getEpsilon <em>Epsilon</em>}</li>
  *   <li>{@link org.palladiosimulator.spd.models.QThresholdsModel#getDiscountFactor <em>Discount Factor</em>}</li>
+ *   <li>{@link org.palladiosimulator.spd.models.QThresholdsModel#getAllocatedResourcesStimulus <em>Allocated Resources Stimulus</em>}</li>
+ *   <li>{@link org.palladiosimulator.spd.models.QThresholdsModel#getUtilizationStimulus <em>Utilization Stimulus</em>}</li>
+ *   <li>{@link org.palladiosimulator.spd.models.QThresholdsModel#getResponseTimeAggregationMethod <em>Response Time Aggregation Method</em>}</li>
  * </ul>
  *
  * @see org.palladiosimulator.spd.models.ModelsPackage#getQThresholdsModel()
@@ -137,6 +141,32 @@ public interface QThresholdsModel extends LearningBasedModel {
 	void setUtilizationStimulus(Stimulus value);
 
 	/**
+	 * Returns the value of the '<em><b>Response Time Aggregation Method</b></em>' attribute.
+	 * The default value is <code>"PERCENTILE95"</code>.
+	 * The literals are from the enumeration {@link org.palladiosimulator.spd.triggers.AGGREGATIONMETHOD}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Response Time Aggregation Method</em>' attribute.
+	 * @see org.palladiosimulator.spd.triggers.AGGREGATIONMETHOD
+	 * @see #setResponseTimeAggregationMethod(AGGREGATIONMETHOD)
+	 * @see org.palladiosimulator.spd.models.ModelsPackage#getQThresholdsModel_ResponseTimeAggregationMethod()
+	 * @model default="PERCENTILE95" required="true"
+	 * @generated
+	 */
+	AGGREGATIONMETHOD getResponseTimeAggregationMethod();
+
+	/**
+	 * Sets the value of the '{@link org.palladiosimulator.spd.models.QThresholdsModel#getResponseTimeAggregationMethod <em>Response Time Aggregation Method</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Response Time Aggregation Method</em>' attribute.
+	 * @see org.palladiosimulator.spd.triggers.AGGREGATIONMETHOD
+	 * @see #getResponseTimeAggregationMethod()
+	 * @generated
+	 */
+	void setResponseTimeAggregationMethod(AGGREGATIONMETHOD value);
+
+	/**
 	 * Returns the value of the '<em><b>Epsilon</b></em>' attribute.
 	 * The default value is <code>"0.05"</code>.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -177,4 +207,26 @@ public interface QThresholdsModel extends LearningBasedModel {
 	 * @generated
 	 */
 	void setDiscountFactor(double value);
+
+	/**
+	 * Returns the value of the '<em><b>Allocated Resources Stimulus</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Allocated Resources Stimulus</em>' containment reference.
+	 * @see #setAllocatedResourcesStimulus(NumberOfElements)
+	 * @see org.palladiosimulator.spd.models.ModelsPackage#getQThresholdsModel_AllocatedResourcesStimulus()
+	 * @model containment="true" required="true"
+	 * @generated
+	 */
+	NumberOfElements getAllocatedResourcesStimulus();
+
+	/**
+	 * Sets the value of the '{@link org.palladiosimulator.spd.models.QThresholdsModel#getAllocatedResourcesStimulus <em>Allocated Resources Stimulus</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Allocated Resources Stimulus</em>' containment reference.
+	 * @see #getAllocatedResourcesStimulus()
+	 * @generated
+	 */
+	void setAllocatedResourcesStimulus(NumberOfElements value);
 } // QThresholdsModel
