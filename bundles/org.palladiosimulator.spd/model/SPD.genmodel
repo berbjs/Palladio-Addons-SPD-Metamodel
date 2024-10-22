@@ -197,36 +197,24 @@
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SPD.ecore#//models/BaseModel/interval"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SPD.ecore#//models/BaseModel/initalIntervalDelay"/>
       </genClasses>
-      <genClasses ecoreClass="SPD.ecore#//models/QThresholdsModel">
-        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SPD.ecore#//models/QThresholdsModel/input"/>
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SPD.ecore#//models/QThresholdsModel/targetResponseTime"/>
-        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SPD.ecore#//models/QThresholdsModel/responseTimeStimulus"/>
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SPD.ecore#//models/QThresholdsModel/exponentialSteepness"/>
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SPD.ecore#//models/QThresholdsModel/epsilon"/>
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SPD.ecore#//models/QThresholdsModel/discountFactor"/>
-        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SPD.ecore#//models/QThresholdsModel/allocatedResourcesStimulus"/>
-        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SPD.ecore#//models/QThresholdsModel/utilizationStimulus"/>
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SPD.ecore#//models/QThresholdsModel/responseTimeAggregationMethod"/>
-      </genClasses>
       <genClasses ecoreClass="SPD.ecore#//models/RandomModel">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SPD.ecore#//models/RandomModel/minAdjustment"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SPD.ecore#//models/RandomModel/maxAdjustment"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SPD.ecore#//models/RandomModel/probability"/>
       </genClasses>
-      <genClasses ecoreClass="SPD.ecore#//models/ImprovedQLearningModel">
-        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SPD.ecore#//models/ImprovedQLearningModel/input"/>
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SPD.ecore#//models/ImprovedQLearningModel/epsilon"/>
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SPD.ecore#//models/ImprovedQLearningModel/actionCount"/>
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SPD.ecore#//models/ImprovedQLearningModel/targetResponseTime"/>
-        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SPD.ecore#//models/ImprovedQLearningModel/responseTimeStimulus"/>
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SPD.ecore#//models/ImprovedQLearningModel/exponentialSteepness"/>
-        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SPD.ecore#//models/ImprovedQLearningModel/utilizationStimulus"/>
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SPD.ecore#//models/ImprovedQLearningModel/discountFactor"/>
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SPD.ecore#//models/ImprovedQLearningModel/responseTimeAggregationMethod"/>
-      </genClasses>
+      <genClasses ecoreClass="SPD.ecore#//models/FuzzyQLearningModel"/>
       <genClasses ecoreClass="SPD.ecore#//models/LearningBasedModel">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SPD.ecore#//models/LearningBasedModel/learningRate"/>
       </genClasses>
+      <genClasses image="false" ecoreClass="SPD.ecore#//models/FuzzyLearningModel">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SPD.ecore#//models/FuzzyLearningModel/workloadStimulus"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SPD.ecore#//models/FuzzyLearningModel/responseTimeStimulus"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SPD.ecore#//models/FuzzyLearningModel/targetResponseTime"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SPD.ecore#//models/FuzzyLearningModel/responseTimeAggregationMethod"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SPD.ecore#//models/FuzzyLearningModel/epsilon"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SPD.ecore#//models/FuzzyLearningModel/discountFactor"/>
+      </genClasses>
+      <genClasses ecoreClass="SPD.ecore#//models/FuzzySARSAModel"/>
     </nestedGenPackages>
     <nestedGenPackages prefix="Datatypes" basePackage="org.palladiosimulator.spd"
         disposableProviderFactory="true" ecorePackage="SPD.ecore#//datatypes">
